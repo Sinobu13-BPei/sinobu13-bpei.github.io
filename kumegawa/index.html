@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>久米川一族の歴史｜四国・香川 深掘り調査</title>
+<meta name="description" content="久米川姓の起源、全国分布、徳島・香川の集積、さぬき市鴨部、美馬・石井系統、人物史、移動仮説、家紋・史料評価をまとめた調査ページ。" />
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+<style>
+:root{--ink:#182018;--muted:#667064;--paper:#f7f4ec;--card:#fffdf8;--jade:#264d3a;--gold:#b18a49;--red:#8f4335;--line:#d9d3c5;--shadow:0 18px 45px rgba(27,37,29,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif;color:var(--ink);background:linear-gradient(180deg,#f4f0e5,#fbfaf6 30%,#f3efe3);line-height:1.75}
+a{color:var(--jade)} .wrap{width:min(1180px,92vw);margin:auto}.hero{position:relative;overflow:hidden;min-height:760px;background:radial-gradient(circle at 72% 18%,rgba(177,138,73,.28),transparent 25%),linear-gradient(135deg,#102c24 0,#234d39 48%,#5b6d4e 100%);color:#fff}.hero:before{content:"";position:absolute;inset:auto -8% -180px -8%;height:360px;background:#f7f4ec;border-radius:50% 50% 0 0/30% 30% 0 0}.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:86px 0 180px}.kicker{display:inline-block;padding:6px 13px;border:1px solid rgba(255,255,255,.4);border-radius:999px;font-size:13px;letter-spacing:.18em}.hero h1{font-size:clamp(46px,7vw,92px);line-height:1.02;margin:18px 0 8px;letter-spacing:.08em}.hero h1 small{display:block;font-size:.34em;font-weight:400;letter-spacing:.22em;margin-top:14px}.lead{font-size:18px;max-width:760px;color:#f0efe8}.hero-art{aspect-ratio:1/1;border:1px solid rgba(255,255,255,.22);border-radius:36px;background:rgba(255,255,255,.07);backdrop-filter:blur(8px);display:grid;place-items:center;box-shadow:0 40px 80px rgba(0,0,0,.22)}
+nav{position:sticky;top:0;z-index:30;background:rgba(250,248,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}nav .wrap{display:flex;gap:18px;overflow:auto;padding:10px 0;white-space:nowrap}nav a{text-decoration:none;font-size:13px;color:#3a4339;padding:6px 10px;border-radius:999px}nav a:hover{background:#e9e4d8}
+section{padding:74px 0}.section-head{display:flex;gap:22px;align-items:flex-end;justify-content:space-between;margin-bottom:28px}.section-head h2{font-size:clamp(30px,4vw,52px);line-height:1.2;margin:0}.section-head p{max-width:600px;color:var(--muted);margin:0}.eyebrow{color:var(--gold);font-weight:700;letter-spacing:.18em;font-size:12px}.grid{display:grid;gap:22px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 8px 24px rgba(26,38,29,.06)}.card h3{margin:0 0 8px;font-size:22px}.big{font-size:44px;font-weight:700;color:var(--jade);line-height:1}.muted{color:var(--muted)}.note{border-left:4px solid var(--gold);padding:14px 18px;background:#f6f0e3;border-radius:0 12px 12px 0}.warning{border-left-color:var(--red);background:#f6ece9}
+.stats .card{min-height:160px}.bar{height:14px;background:#ece8de;border-radius:999px;overflow:hidden}.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--jade),var(--gold));border-radius:inherit}.labelrow{display:flex;justify-content:space-between;gap:18px;margin:10px 0 5px}
+#map{height:520px;border-radius:24px;border:1px solid var(--line);box-shadow:var(--shadow)}.map-legend{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}.map-legend div{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fffdf8;font-size:13px}
+.flow{display:flex;align-items:stretch;gap:12px;overflow:auto;padding:12px 2px}.flow .node{min-width:190px;flex:1;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;text-align:center}.arrow{display:grid;place-items:center;color:var(--gold);font-size:28px}.node b{display:block;color:var(--jade)}
+.timeline{position:relative;margin:30px 0 0;padding-left:30px}.timeline:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:#c8bfaa}.event{position:relative;margin:0 0 24px;padding:0 0 0 16px}.event:before{content:"";position:absolute;left:-29px;top:10px;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px #f7f4ec}.event .yr{font-weight:700;color:var(--gold)}
+.person{display:grid;grid-template-columns:84px 1fr;gap:18px;align-items:start}.crest{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#f8f2e5 50%,#d9c6a4 52%,#f8f2e5 55%);border:1px solid #d9c6a4;font-weight:700;color:var(--jade);font-size:25px}.badge{display:inline-block;font-size:11px;padding:3px 9px;border-radius:999px;background:#e8efe9;color:var(--jade);margin-right:6px}.badge.mid{background:#f4ebd8;color:#7a5c27}.badge.low{background:#f4e5e1;color:#8a3d31}
+table{width:100%;border-collapse:collapse;background:#fffdf8;border-radius:18px;overflow:hidden;border:1px solid var(--line)}th,td{padding:14px 16px;border-bottom:1px solid #e8e2d5;text-align:left;vertical-align:top}th{background:#eee8da;color:#354637;font-size:13px}tr:last-child td{border-bottom:none}.scroll{overflow:auto;border-radius:18px}.source a{word-break:break-all;font-size:12px}
+.svgpanel{background:#173429;border-radius:24px;padding:20px;color:white;min-height:360px}.quote{font-size:22px;line-height:1.7;padding:28px;border-radius:20px;background:#243e32;color:#f7f2e7}.quote small{display:block;font-size:13px;color:#d8d5ca;margin-top:12px}.pill{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;margin:4px;font-size:13px}
+footer{padding:50px 0 80px;background:#102c24;color:#d8ded8}.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}.small{font-size:12px}
+@media(max-width:850px){.hero-grid,.g2,.g3,.g4,.footer-grid{grid-template-columns:1fr}.hero{min-height:auto}.hero-grid{padding-top:64px}.hero-art{max-width:520px}.map-legend{grid-template-columns:1fr 1fr}.section-head{display:block}.section-head p{margin-top:10px}.flow{flex-direction:column}.arrow{transform:rotate(90deg)}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap hero-grid"><div>
+<span class="kicker">KUMEGAWA FAMILY HISTORY / SHIKOKU & KAGAWA</span>
+<h1>久米川一族の歴史<small>四国・香川 深掘り調査</small></h1>
+<p class="lead">全国では希少な「久米川」姓。その現代分布の中心は、東京の地名発祥説だけでは説明できない。徳島・美馬、石井、香川・さぬき市鴨部、高松、そして阪神へ——史料と分布を切り分けながら、四国久米川氏の姿を追う。</p>
+<div style="margin-top:22px"><span class="pill">推計 全国 約670〜800人</span><span class="pill">香川 約60人</span><span class="pill">さぬき市 約40人</span><span class="pill">鴨部 約20人</span></div>
+</div><div class="hero-art">
+<svg viewBox="0 0 520 520" width="92%" aria-label="川と四国、系譜をモチーフにしたオリジナル図版">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#d9b56f"/><stop offset="1" stop-color="#f7e5bd"/></linearGradient></defs>
+<circle cx="260" cy="260" r="210" fill="none" stroke="rgba(255,255,255,.24)" stroke-width="2"/><circle cx="260" cy="260" r="165" fill="none" stroke="rgba(255,255,255,.14)"/>
+<path d="M75 316 C155 250 187 370 262 295 S380 215 448 282" fill="none" stroke="url(#g)" stroke-width="18" stroke-linecap="round"/>
+<path d="M105 186 C160 118 234 135 286 170 C330 200 386 172 420 222 C356 220 326 252 272 247 C220 243 160 225 105 186Z" fill="rgba(255,255,255,.10)" stroke="rgba(255,255,255,.55)" stroke-width="3"/>
+<g fill="#f4d899"><circle cx="165" cy="248" r="9"/><circle cx="222" cy="236" r="9"/><circle cx="302" cy="231" r="9"/><circle cx="362" cy="244" r="9"/></g>
+<text x="260" y="116" text-anchor="middle" fill="#fff" font-size="21" letter-spacing="8">四国・讃岐</text><text x="260" y="345" text-anchor="middle" fill="#fff" font-size="54" font-family="serif" font-weight="700">久米川</text><text x="260" y="382" text-anchor="middle" fill="#e7d3a3" font-size="18" letter-spacing="7">KUMEGAWA</text><text x="260" y="418" text-anchor="middle" fill="rgba(255,255,255,.72)" font-size="13">美馬 ─ 鴨部 ─ 高松 ─ 阪神</text>
+</svg></div></div></header>
+<nav><div class="wrap"><a href="#summary">概要</a><a href="#distribution">分布</a><a href="#mapsec">地図</a><a href="#kamobe">鴨部</a><a href="#mima">美馬系仮説</a><a href="#people">人物</a><a href="#theories">三仮説</a><a href="#timeline">年表</a><a href="#evidence">史料評価</a><a href="#sources">出典</a></div></nav>
+<main>
+<section id="summary"><div class="wrap"><div class="section-head"><div><div class="eyebrow">EXECUTIVE SUMMARY</div><h2>四国久米川氏をどう見るか</h2></div><p>「武蔵国久米川村発祥」という全国姓氏説だけでなく、四国では徳島美馬の地域伝承と香川東讃の濃い分布を独立に検証する必要がある。</p></div>
+<div class="grid g4 stats"><div class="card"><div class="big">670–800</div><h3>全国推計</h3><p class="muted">全国1,000人未満の希少姓。読みは「くめがわ」「くめかわ」。</p></div><div class="card"><div class="big">約170</div><h3>徳島県</h3><p class="muted">現代分布最大。石井町と美馬地域が重要。</p></div><div class="card"><div class="big">約60</div><h3>香川県</h3><p class="muted">県内では東讃に偏る。さぬき市・高松市が中心。</p></div><div class="card"><div class="big">約20</div><h3>鴨部</h3><p class="muted">さぬき市鴨部は県内でも目立つ集積地。</p></div></div>
+<div class="note" style="margin-top:24px"><b>現時点の核心：</b>昭和54年（1979）の聞き取り記録には、神戸の久米川姓について「香川を経て徳島の出」とする趣旨の記録があり、高松の久米川医院・久米川久夫氏への照会から一族を徳島県美馬町とする情報も記録されている。戸籍・藩政期一次史料による最終確認は今後の課題。</div></div></section>
+
+<section id="distribution"><div class="wrap"><div class="section-head"><div><div class="eyebrow">DISTRIBUTION</div><h2>全国分布から見える「四国の重さ」</h2></div><p>現代分布は発祥地候補の東京より、徳島・香川・兵庫・大阪・秋田に強い。地域クラスターの存在を示唆する。</p></div>
+<div class="grid g2"><div class="card"><h3>主要都道府県（推計）</h3>
+<div class="labelrow"><span>徳島</span><b>170</b></div><div class="bar"><i style="width:100%"></i></div>
+<div class="labelrow"><span>秋田</span><b>70</b></div><div class="bar"><i style="width:41%"></i></div>
+<div class="labelrow"><span>兵庫</span><b>60</b></div><div class="bar"><i style="width:35%"></i></div>
+<div class="labelrow"><span>大阪</span><b>60</b></div><div class="bar"><i style="width:35%"></i></div>
+<div class="labelrow"><span>香川</span><b>60</b></div><div class="bar"><i style="width:35%"></i></div><p class="small muted">※姓氏データベース推計。時点・推計方法により差がある。</p></div>
+<div class="svgpanel"><svg viewBox="0 0 560 340" width="100%"><text x="24" y="34" fill="#e8d29d" font-size="14">四国クラスター概念図</text><path d="M95 110 C145 70 210 70 246 100 C274 124 290 116 320 126 C352 136 378 161 412 162 C435 163 455 176 464 203 C428 206 391 223 347 225 C300 227 260 211 220 224 C182 237 136 229 111 203 C90 181 82 143 95 110Z" fill="#345a47" stroke="#dcbf7f" stroke-width="2"/><circle cx="248" cy="214" r="14" fill="#d9b56f"/><text x="269" y="219" fill="#fff">美馬</text><circle cx="340" cy="166" r="14" fill="#d9b56f"/><text x="361" y="171" fill="#fff">鴨部</text><circle cx="302" cy="190" r="11" fill="#c8715c"/><text x="318" y="195" fill="#fff">石井</text><circle cx="304" cy="136" r="11" fill="#f1ddb4"/><text x="320" y="141" fill="#fff">高松</text><path d="M260 207 Q295 180 330 170" fill="none" stroke="#f3d89a" stroke-width="4" stroke-dasharray="7 6"/><text x="197" y="284" fill="rgba(255,255,255,.75)" font-size="13">徳島 → 東讃 → 高松／阪神 という移動仮説</text></svg></div></div></div></section>
+
+<section id="mapsec"><div class="wrap"><div class="section-head"><div><div class="eyebrow">INTERACTIVE MAP</div><h2>久米川氏を追う主要地点</h2></div><p>ルート線は確定した移動路ではなく、分布と聞き取り記録から検討する移動仮説。</p></div><div id="map"></div><div class="map-legend"><div><b>美馬</b><br>徳島美馬系伝承</div><div><b>石井</b><br>徳島最大級クラスター</div><div><b>鴨部</b><br>香川の集積地</div><div><b>高松</b><br>医師家・都市展開</div><div><b>神戸</b><br>昭和期聞き取りの移動先</div></div></div></section>
+
+<section id="kamobe"><div class="wrap"><div class="section-head"><div><div class="eyebrow">KAMOBE / SANUKI</div><h2>香川の本丸候補「さぬき市鴨部」</h2></div><p>鴨部は旧大川郡鴨部村。古代の鴨部郷、中世の鴨部荘へ遡る歴史地域。</p></div>
+<div class="grid g3"><div class="card"><h3>行政史</h3><p>現在のさぬき市鴨部は、2002年以前は志度町、その前は大川郡鴨部村。古い戸籍・名簿は旧村名で追う必要がある。</p></div><div class="card"><h3>中世の鴨部荘</h3><p>鴨部荘は平安末期から確認され、石清水八幡宮領などとして史料に現れる。集落の連続性が長い。</p></div><div class="card"><h3>家系調査の鍵</h3><p>寺院過去帳、宗門人別帳、庄屋文書、検地帳、土地台帳、神社氏子資料、墓石・家紋を突き合わせる。</p></div></div>
+<div class="note" style="margin-top:24px"><b>重要：</b>鴨部に久米川姓が集中する事実だけでは「鴨部が発祥地」とは言えない。徳島美馬からの移住説を確定するには、江戸末〜明治初期の戸籍・宗門帳で最古世代を接続する必要がある。</div></div></section>
+
+<section id="mima"><div class="wrap"><div class="section-head"><div><div class="eyebrow">MIMA → KAGAWA HYPOTHESIS</div><h2>美馬から香川へ——最重要の系譜仮説</h2></div><p>1979年の聞き取り記録と現代分布を組み合わせると、徳島→香川→阪神という移動像が浮かぶ。</p></div>
+<div class="flow"><div class="node"><b>伊予・河野氏？</b><span class="small muted">地域伝承のさらに前段。未確定。</span></div><div class="arrow">→</div><div class="node"><b>阿波・美馬</b><span class="small muted">一族の出自として昭和期聞き取りに登場。</span></div><div class="arrow">→</div><div class="node"><b>讃岐・東讃</b><span class="small muted">さぬき市鴨部を中心に現代分布が濃い。</span></div><div class="arrow">→</div><div class="node"><b>高松</b><span class="small muted">久米川医院・医師会系人物の活動。</span></div><div class="arrow">→</div><div class="node"><b>神戸・大阪</b><span class="small muted">昭和期聞き取りで香川経由が示唆。</span></div></div>
+<div class="grid g2" style="margin-top:26px"><div class="quote">「美馬 → 香川 → 阪神」という線は、現代の姓分布だけでなく、昭和期の本人照会を含む聞き取り記録によって補強される。<small>ただし系図確定には戸籍・除籍・藩政期文書が必要。</small></div><div class="card"><h3>河野氏→久米川 改姓伝承</h3><p>徳島美馬地域には「河野姓から久米川姓へ改姓した」とする地域伝承が紹介されている。一次史料で確認できれば、四国久米川氏が武蔵系とは別に成立した可能性を強くする。</p><div class="note warning"><b>注意：</b>河野氏の代表家紋などから直系を断定してはいけない。</div></div></div></div></section>
+
+<section id="people"><div class="wrap"><div class="section-head"><div><div class="eyebrow">PEOPLE</div><h2>香川の久米川氏をたどる人物史</h2></div><p>医療界に複数の久米川姓人物が確認できる。ただし公開資料だけで親族関係を断定しない。</p></div>
+<div class="grid g3"><div class="card person"><div class="crest">久</div><div><h3>久米川 久夫</h3><span class="badge">確認度 高</span><p>九州大学医学部卒。香川県立中央病院外科医長を経て1958年に高松で外科医院を開業。香川県医師会理事・副会長を経て1980年から会長。がん予防活動でも知られる。</p></div></div><div class="card person"><div class="crest">啓</div><div><h3>久米川 啓</h3><span class="badge">確認度 高</span><p>高松市生まれ。東京医科大学卒。消化器外科領域を経て久米川病院へ。2014年から香川県医師会長、2026年に7期目。日本医師会代議員会議長。</p></div></div><div class="card person"><div class="crest">浩</div><div><h3>久米川 浩</h3><span class="badge">確認度 高</span><p>久留米大学医学部卒。外科・消化器領域を歩み、1997年に久米川病院勤務歴。2014年から坂出市・上里医院2代目院長。</p></div></div></div>
+<div class="note warning" style="margin-top:22px"><b>親族関係は未確定：</b>久米川久夫・啓・浩各氏は地域・職歴から近縁を想起させるが、公開一次資料で明記された部分以外は断定しない。</div></div></section>
+
+<section id="theories"><div class="wrap"><div class="section-head"><div><div class="eyebrow">THREE MODELS</div><h2>四国久米川氏 3つの成立モデル</h2></div><p>魅力的な物語と確認済み事実を分ける。</p></div>
+<div class="grid g3"><div class="card"><h3>A｜武蔵→四国移住説</h3><p>中世武蔵国久米川を名字発祥地とし、畠山氏周辺の久米川氏が戦乱・仕官などで西国へ移ったモデル。</p><span class="badge mid">接続史料不足</span></div><div class="card"><h3>B｜河野→美馬→香川説</h3><p>伊予河野氏系伝承を背景に阿波美馬で久米川姓が形成され、その一部が讃岐・東讃、高松、阪神へ展開したモデル。</p><span class="badge mid">有力検証対象</span></div><div class="card"><h3>C｜複数系統説</h3><p>武蔵系、徳島美馬系、徳島石井系、近世・明治以降の独立成立など複数家系が並存したモデル。</p><span class="badge">現状最も安全</span></div></div></div></section>
+
+<section id="timeline"><div class="wrap"><div class="section-head"><div><div class="eyebrow">TIMELINE</div><h2>久米川姓をめぐる時系列</h2></div><p>全国史・四国史・人物史を同じ時間軸に置く。</p></div><div class="timeline">
+<div class="event"><div class="yr">12〜13世紀</div><b>武蔵国久米川という地名・宿</b><p>鎌倉街道上ツ道の久米川宿。全国姓氏説ではこの地名を基本発祥地とする。</p></div>
+<div class="event"><div class="yr">1205年前後（伝承）</div><b>久米川新七郎</b><p>畠山重忠関係の子孫伝承に家臣「久米川新七郎」の名が現れる。史実確定ではなく伝承資料。</p></div>
+<div class="event"><div class="yr">1333</div><b>久米川の戦い</b><p>新田義貞軍と鎌倉幕府軍が武蔵久米川周辺で戦う。</p></div>
+<div class="event"><div class="yr">江戸期？</div><b>徳島美馬の久米川家</b><p>地域伝承では河野姓から久米川姓への改姓説。一次史料での追認が課題。</p></div>
+<div class="event"><div class="yr">近代</div><b>香川・東讃に定着</b><p>現代分布ではさぬき市鴨部を中心に濃い集積。</p></div>
+<div class="event"><div class="yr">1958</div><b>久米川久夫氏、高松で開業</b><p>香川県医療界で久米川姓が明瞭に確認できる時代。</p></div>
+<div class="event"><div class="yr">1979</div><b>久米川氏に関する聞き取り記録</b><p>神戸大学所蔵資料に徳島→香川→神戸の移動を示唆する記録。</p></div>
+<div class="event"><div class="yr">2014–2026</div><b>久米川啓氏、香川県医師会長</b><p>2026年に7期目。</p></div>
+</div></div></section>
+
+<section id="evidence"><div class="wrap"><div class="section-head"><div><div class="eyebrow">EVIDENCE MATRIX</div><h2>史料の強さを分ける</h2></div><p>「可能性が高い」と「証明済み」を混同しない。</p></div>
+<div class="scroll"><table><thead><tr><th>論点</th><th>根拠</th><th>評価</th><th>コメント</th></tr></thead><tbody>
+<tr><td>香川県に久米川姓約60人</td><td>姓氏分布DB</td><td><span class="badge">高</span></td><td>推計値のため絶対数には幅。</td></tr>
+<tr><td>さぬき市・鴨部に集中</td><td>小地域分布DB</td><td><span class="badge">高</span></td><td>香川の家系調査起点として重要。</td></tr>
+<tr><td>久米川久夫氏の一族は美馬町</td><td>1979年聞き取り記録</td><td><span class="badge mid">中〜高</span></td><td>本人周辺への照会を含むが戸籍ではない。</td></tr>
+<tr><td>神戸久米川姓の多くは香川経由で徳島出身</td><td>同聞き取り</td><td><span class="badge mid">中</span></td><td>当時の電話調査に基づく記録。</td></tr>
+<tr><td>美馬久米川家は河野姓から改姓</td><td>姓氏辞典の地域伝承</td><td><span class="badge mid">中</span></td><td>一次史料確認が必要。</td></tr>
+<tr><td>香川久米川氏＝河野氏直系</td><td>上記からの推定</td><td><span class="badge low">未確定</span></td><td>家紋・系図・戸籍の接続が必要。</td></tr>
+<tr><td>香川久米川氏＝武蔵久米川氏</td><td>全国姓氏発祥説</td><td><span class="badge low">未確定</span></td><td>武蔵→四国の中間史料が未確認。</td></tr>
+</tbody></table></div></div></section>
+
+<section><div class="wrap"><div class="section-head"><div><div class="eyebrow">RESEARCH ROADMAP</div><h2>次に確認すべき一次資料</h2></div><p>ここから先はWeb検索より地域史料・戸籍・墓地調査が決定的になる。</p></div>
+<div class="grid g3"><div class="card"><h3>① 鴨部を遡る</h3><p>旧鴨部村戸籍・除籍、宗門人別帳、土地台帳、庄屋文書、寺院過去帳、墓地。</p></div><div class="card"><h3>② 美馬と接続する</h3><p>美馬町史・旧村誌、徳島藩分限帳、河野氏系図類、改姓記録。</p></div><div class="card"><h3>③ 家紋を比較する</h3><p>美馬・鴨部・高松の久米川家墓石や位牌、紋付、仏壇、提灯。共通紋なら系統推定が一段進む。</p></div></div></div></section>
+
+<section id="sources"><div class="wrap"><div class="section-head"><div><div class="eyebrow">SOURCES</div><h2>主要出典・参考資料</h2></div><p>姓氏DBは人口推計や伝承把握に有用だが、家系確定には一次資料を優先する。</p></div>
+<div class="scroll"><table class="source"><thead><tr><th>資料</th><th>用途</th><th>URL</th></tr></thead><tbody>
+<tr><td>名字由来net「久米川」</td><td>全国人数・都道府県分布・発祥説</td><td><a href="https://myoji-yurai.net/searchResult.htm?myojiKanji=%E4%B9%85%E7%B1%B3%E5%B7%9D" target="_blank" rel="noopener">myoji-yurai.net</a></td></tr>
+<tr><td>日本姓氏語源辞典／名字由来系資料</td><td>地域分布・徳島美馬の改姓伝承</td><td><a href="https://name-power.net/fn/%E4%B9%85%E7%B1%B3%E5%B7%9D.html" target="_blank" rel="noopener">name-power.net</a></td></tr>
+<tr><td>神戸大学デジタルアーカイブ</td><td>1979年の久米川氏聞き取り記録</td><td><a href="https://da.lib.kobe-u.ac.jp/da/kernel/81005877/81005877.pdf" target="_blank" rel="noopener">da.lib.kobe-u.ac.jp</a></td></tr>
+<tr><td>香川県立図書館 郷土資料</td><td>『志度町史 新編』等</td><td><a href="https://www.library.pref.kagawa.lg.jp/know/local/local_2037" target="_blank" rel="noopener">library.pref.kagawa.lg.jp</a></td></tr>
+<tr><td>国勢調査GIS（鴨部）</td><td>鴨部の位置・地域情報</td><td><a href="https://toukei-labo.com/2020/?city=37206&id=7&tdfk=37" target="_blank" rel="noopener">toukei-labo.com</a></td></tr>
+<tr><td>日本医師会</td><td>久米川啓氏の現職情報</td><td><a href="https://www.med.or.jp/nichiionline/article/012866.html" target="_blank" rel="noopener">med.or.jp</a></td></tr>
+<tr><td>久米川病院</td><td>香川県の医療法人・人物情報</td><td><a href="https://kumegawa-hsp.jp/information/" target="_blank" rel="noopener">kumegawa-hsp.jp</a></td></tr>
+<tr><td>上里医院</td><td>久米川浩氏経歴</td><td><a href="https://www.ryokusei8111.com/clinic" target="_blank" rel="noopener">ryokusei8111.com</a></td></tr>
+<tr><td>深谷市教育委員会</td><td>畠山重忠・久米川新七郎伝承</td><td><a href="https://www.city.fukaya.saitama.jp/material/files/group/60/sigetadaziten_20221213.pdf" target="_blank" rel="noopener">city.fukaya.saitama.jp</a></td></tr>
+</tbody></table></div><p class="small muted" style="margin-top:16px">※公開情報の更新や姓氏推計方法の違いにより人数は変動する。本文中の「仮説」は史料上の確定事実と区別して表示している。</p></div></section>
+</main>
+<footer><div class="wrap footer-grid"><div><h2 style="margin-top:0;color:white">久米川一族の歴史</h2><p>四国・香川深掘り調査版。史料の確度を分けながら「どこまで分かっているか」を可視化するページ。</p></div><div><b>研究上の最重要課題</b><p>美馬 → 鴨部 → 高松の戸籍接続／河野氏改姓伝承の一次史料／美馬・鴨部・高松の家紋比較。</p><p class="small">Compiled 2026-09-20 / Public research page</p></div></div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+const map=L.map('map',{scrollWheelZoom:false}).setView([34.16,134.18],9);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+const pts=[['徳島県美馬市',34.053387,134.169725,'徳島美馬系の伝承・聞き取り記録の起点候補'],['徳島県石井町',34.074263,134.440629,'徳島県内の大規模久米川姓クラスター'],['香川県さぬき市鴨部',34.312443,134.2239,'香川県久米川姓の有力集積地'],['香川県高松市',34.342799,134.046547,'久米川久夫・啓氏など医療界の活動拠点'],['兵庫県神戸市',34.6901,135.1955,'1979年聞き取り調査で香川経由の移動先として注目']];
+pts.forEach(p=>L.marker([p[1],p[2]]).addTo(map).bindPopup('<b>'+p[0]+'</b><br>'+p[3]));
+L.polyline([[34.053387,134.169725],[34.312443,134.2239],[34.342799,134.046547],[34.6901,135.1955]],{color:'#9a6e2f',weight:4,dashArray:'8 8',opacity:.8}).addTo(map).bindPopup('分布・聞き取りから検討する移動仮説（確定ルートではありません）');
+</script>
+</body></html>
