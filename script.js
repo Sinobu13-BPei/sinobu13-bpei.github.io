@@ -1,0 +1,1 @@
+async function load(){for(const el of document.querySelectorAll('[data-include]')){try{const r=await fetch(el.dataset.include);if(!r.ok)throw new Error(r.status);el.innerHTML=await r.text()}catch(e){el.innerHTML='<section><h2>読み込みエラー</h2><p>ページ部品を読み込めませんでした。</p></section>'}}}load();
