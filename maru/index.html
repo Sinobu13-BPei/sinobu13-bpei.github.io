@@ -24,7 +24,17 @@ h1{font-size:clamp(47px,7vw,90px);line-height:1.04;margin:10px 0 18px;letter-spa
 .heroart{min-height:560px;position:relative}.sun{position:absolute;right:8%;top:3%;width:110px;height:110px;border-radius:50%;background:#e1b45c;box-shadow:0 0 70px rgba(225,180,92,.4)}
 .land{position:absolute;inset:12% 0 0}.island{position:absolute;background:linear-gradient(145deg,#76a184,#355e4d);box-shadow:inset -13px -12px 0 rgba(0,0,0,.12),0 18px 32px rgba(0,0,0,.22);border-radius:57% 43% 58% 42%}.i1{width:220px;height:100px;left:5%;top:8%;transform:rotate(-7deg)}.i2{width:130px;height:68px;left:58%;top:18%;transform:rotate(12deg)}.i3{width:260px;height:125px;left:23%;top:39%;transform:rotate(5deg)}.i4{width:125px;height:68px;left:69%;top:54%;transform:rotate(-10deg)}.i5{width:190px;height:90px;left:4%;top:68%;transform:rotate(10deg)}
 .boat{position:absolute;left:44%;top:73%;width:180px;height:70px}.boat:before{content:"";position:absolute;bottom:0;width:170px;height:25px;background:#4a2c20;clip-path:polygon(0 0,100% 0,80% 100%,16% 100%)}.boat:after{content:"";position:absolute;left:82px;bottom:21px;width:4px;height:85px;background:#ead5a7}.sail{position:absolute;left:86px;bottom:47px;width:72px;height:64px;background:#f8f0df;clip-path:polygon(0 100%,100% 100%,0 0)}
-.heroquote{position:absolute;right:0;bottom:5%;width:min(340px,75%);padding:18px 20px;background:rgba(5,27,41,.68);border-left:4px solid var(--gold);font-size:15px}
+.heroquote{position:absolute;right:0;bottom:5%;width:min(340px,75%);padding:18px 20px;background:rgba(5,27,41,.76);border-left:4px solid var(--gold);font-size:15px}
+.hero-generated{position:absolute;inset:0;display:grid;place-items:center;padding:8px}
+.hero-generated img{width:100%;height:100%;object-fit:contain;object-position:center;border-radius:22px;filter:drop-shadow(0 24px 38px rgba(0,0,0,.28));background:rgba(255,255,255,.05)}
+.visual-archive{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:22px;align-items:start}
+.visual-main{background:#102f45;border-radius:22px;padding:14px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.visual-main img{width:100%;display:block;border-radius:15px;background:#fff}
+.visual-main:after{content:"作成済み丸一族ビジュアル";position:absolute;left:28px;bottom:26px;background:rgba(8,34,51,.88);color:#fff;padding:8px 12px;border-radius:999px;font:800 11px system-ui,sans-serif;letter-spacing:.05em}
+.visual-side{display:grid;gap:14px}
+.visual-side .card{box-shadow:none}
+.visual-note{font:12px system-ui,sans-serif;color:#66727a;margin-top:12px}
+@media(max-width:980px){.visual-archive{grid-template-columns:1fr}}
 .section{padding:82px 0}.section.alt{background:rgba(255,255,255,.6);border-block:1px solid rgba(15,45,66,.06)}
 .head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:28px}.kicker{font:800 11px system-ui,sans-serif;color:var(--sea);letter-spacing:.18em}.head h2{font-size:clamp(30px,4vw,50px);line-height:1.16;margin:4px 0 0}.head p{max-width:600px;margin:0;color:var(--muted)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -50,9 +60,9 @@ table{width:100%;border-collapse:collapse;font:13px system-ui,sans-serif;backgro
 </style>
 </head>
 <body id="top">
-<nav class="nav"><div class="wrap navin"><a class="brand" href="#top">丸一族の歴史</a><a href="#summary">概要</a><a href="#distribution">全国分布</a><a href="#ancient">古代</a><a href="#medieval">中世安房</a><a href="#places">地名・史跡</a><a href="#lineage">系譜・家紋</a><a href="#people">人物</a><a href="#sources">出典</a></div></nav>
+<nav class="nav"><div class="wrap navin"><a class="brand" href="#top">丸一族の歴史</a><a href="#summary">概要</a><a href="#distribution">全国分布</a><a href="#ancient">古代</a><a href="#medieval">中世安房</a><a href="#places">地名・史跡</a><a href="#lineage">系譜・家紋</a><a href="#people">人物</a><a href="#created-visuals">作成イメージ</a><a href="#sources">出典</a></div></nav>
 <header class="hero"><div class="wrap heroin"><div><div class="mon">丸</div><div class="eyebrow">MARU FAMILY · HISTORY / GEOGRAPHY / LINEAGE</div><h1>丸一族の歴史<span>千葉・房総を中心に、古代から現代まで</span></h1><p>「丸（まる）」姓は、現代では全国約5,300人と推計され、千葉県・房総半島に顕著な集積があります。古代の「丸子連」、中世安房の「丸氏」、丸御厨・丸郡・丸本郷・丸城・安楽寺・石堂寺まで、人・土地・寺社・史料を重ねてたどります。</p><div class="kpis"><div class="kpi"><b>約5,300人</b><span>全国推計</span></div><div class="kpi"><b>2,588位</b><span>全国順位</span></div><div class="kpi"><b>約2,400人</b><span>千葉県推計</span></div><div class="kpi"><b>755年</b><span>丸子連大歳</span></div></div></div>
-<div class="heroart" aria-label="房総の海と島々を表現したイラスト"><div class="sun"></div><div class="land"><i class="island i1"></i><i class="island i2"></i><i class="island i3"></i><i class="island i4"></i><i class="island i5"></i></div><div class="boat"><i class="sail"></i></div><div class="heroquote"><b>姓を知ることは、土地の記憶を知ること。</b><br>丸本郷、丸御厨、丸郡、丸城。房総の地には「丸」の痕跡が幾層にも残ります。</div></div></div></header>
+<div class="heroart" aria-label="作成した丸一族の歴史ビジュアル"><div class="hero-generated"><img src="assets/maru-visuals.webp" alt="丸一族の歴史をまとめた作成済みビジュアル"></div><div class="heroquote"><b>作成した丸一族イメージをWeb版にも反映。</b><br>丸子連・丸御厨・丸郡・丸本郷・丸城・安楽寺・石堂寺などを、本文の史料整理とあわせてご覧いただけます。</div></div></div></header>
 
 <main>
 <section class="section" id="summary"><div class="wrap"><div class="head"><div><div class="kicker">EXECUTIVE SUMMARY</div><h2>丸姓を理解する6つのポイント</h2></div><p>「同じ姓＝同じ祖先」とせず、確定史料・有力説・伝承・現代統計を分けて整理しています。</p></div>
@@ -142,6 +152,19 @@ table{width:100%;border-collapse:collapse;font:13px system-ui,sans-serif;backgro
 </div></div></section>
 
 <section class="section" id="research"><div class="wrap"><div class="head"><div><div class="kicker">RESEARCH ROADMAP</div><h2>自分の丸家を本当に遡るには</h2></div><p>一般史から個別家系へ進むには、近代から江戸へ資料を一段ずつ接続します。</p></div><div class="grid4"><div class="card"><div class="ico">戸</div><h3>1. 戸籍</h3><p>現戸籍・除籍・改製原戸籍で祖父母〜高祖父母まで確定。</p></div><div class="card"><div class="ico">寺</div><h3>2. 過去帳</h3><p>菩提寺の戒名・没年・家関係から江戸期へ接続。</p></div><div class="card"><div class="ico">紋</div><h3>3. 墓石・家紋</h3><p>本家・分家のつながりを墓碑・紋付・古写真で確認。</p></div><div class="card"><div class="ico">帳</div><h3>4. 地域史料</h3><p>宗門人別帳・土地台帳・南房総市史・旧丸山町史を照合。</p></div></div><div class="alert"><strong>最重要の橋：</strong>現代の丸家 → 明治戸籍 → 江戸末期村落資料 → 丸本郷・宮下・岩糸・珠師ケ谷などの地域系譜を連続させられるかが核心です。</div></div></section>
+
+<section class="section alt" id="created-visuals"><div class="wrap">
+<div class="head"><div><div class="kicker">CREATED VISUALS</div><h2>作成した「丸一族」イメージをWeb版に収録</h2></div><p>これまで作成した丸姓・丸氏の歴史ビジュアルを、公開ページにも正式に反映しました。図版は本文の理解を補助するビジュアルアーカイブです。</p></div>
+<div class="visual-archive">
+  <div class="visual-main"><img src="assets/maru-visuals.webp" alt="丸姓・丸氏の歴史、分布、古代、中世、家紋、年表をまとめた作成イメージ"></div>
+  <div class="visual-side">
+    <div class="card"><span class="pill fact">古代〜中世</span><h3>丸子連から安房丸氏へ</h3><p>755年の丸子連大歳、1159年の丸御厨、1180年の頼朝と丸信俊、1238年の丸五郎・丸六郎太郎などを視覚的にたどります。</p></div>
+    <div class="card"><span class="pill strong">地名・史跡</span><h3>丸郡・丸本郷・丸城・寺院</h3><p>丸本郷、丸城、安楽寺、石堂寺、宮下・岩糸・珠師ケ谷など、房総に残る「丸」の地理的記憶を図解しています。</p></div>
+    <div class="card"><span class="pill stat">現代分布</span><h3>人口・分布・系譜仮説</h3><p>千葉県を中心とする現代分布、家紋候補、桓武平氏説、島根・兵庫など別系統の可能性も視覚化しています。</p></div>
+  </div>
+</div>
+<p class="visual-note">※生成ビジュアル内の文字は図解・イメージ表現を含みます。歴史的事実・数値・確度については、このWebページの本文と「主要出典・検証先」を正としてご覧ください。</p>
+</div></section>
 
 <section class="section alt" id="sources"><div class="wrap"><div class="head"><div><div class="kicker">SOURCES</div><h2>主要出典・検証先</h2></div><p>自治体・文化財・古典史料を優先し、名字統計や二次資料は補助として扱います。</p></div><div class="sources">
 <div class="src"><b>奈良県立万葉文化館「丸子連大歳」</b><a href="https://manyo-hyakka.pref.nara.jp/db/detail?cls=db_manyo&detaillnkIdx=0&dicCls=d_kanno&dicDataId=20&pkey=4353" target="_blank" rel="noopener">万葉百科</a> — 『万葉集』防人歌・丸子連大歳。</div>
