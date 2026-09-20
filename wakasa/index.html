@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102f4a">
+<meta name="description" content="若狭姓を、若狭国・若狭国造・膳氏、鎌倉初期の若狭忠季、三方氏、若狭武田氏、北海道・秋田・岡山・石川への分布、仙台・宮城の若狭家まで史料と分布から徹底調査したビジュアルサイト。">
+<title>若狭一族の歴史｜若狭姓 総合調査</title>
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body id="top">
+<nav class="nav"><div class="wrap navin"><a class="brand" href="#top">若狭一族の歴史</a><a href="#visuals">10枚図譜</a><a href="#summary">概要</a><a href="#origin">由来</a><a href="#history">歴史</a><a href="#distribution">全国分布</a><a href="#tohoku">東北</a><a href="#sendai">仙台深掘り</a><a href="#crest">家紋・人物</a><a href="#research">調査法</a><a href="#sources">出典</a></div></nav>
+<header class="hero"><div class="wrap heroin"><div><div class="seal">若狭</div><div class="eyebrow">WAKASA FAMILY · HISTORY / GEOGRAPHY / LINEAGE</div><h1>若狭一族の歴史<span>古代若狭国から、仙台の若狭家まで</span></h1><p>「若狭」という姓を、古代の若狭国・若狭国造と膳氏、1196年前後の若狭忠季、三方氏・若狭武田氏、北海道・秋田・岡山・石川などの現代分布、そして宮城・仙台でなぜ少ないのかまで、史料・統計・地理を分けて検証します。</p><div class="kpis"><div class="kpi"><b>約9千〜1万人</b><span>全国推計</span></div><div class="kpi"><b>約1,500〜1,700位</b><span>全国順位</span></div><div class="kpi"><b>1196年</b><span>若狭忠季の転換点</span></div><div class="kpi"><b>宮城 約70人</b><span>仙台深掘りの入口</span></div></div></div><div class="heroimg"><div class="sheetHero" role="img" aria-label="若狭姓の総合調査 全体像と結論"></div><div class="heroquote"><b>名字は一つでも、歴史は一つとは限らない。</b><br>「史料で確かな事実」「系譜伝承」「分布から導く仮説」を分けることが、若狭姓研究の核心です。</div></div></div></header>
+<main id="content"></main>
+<div class="modal" id="modal"><button aria-label="閉じる">×</button><div class="modalpic t1" role="img" aria-label="拡大画像"></div></div>
+<footer class="footer"><div class="wrap foot"><div><div style="font-size:31px;font-weight:900;letter-spacing:.06em">若狭一族の歴史</div><p>古代の国名「ワカサ」から、鎌倉初期の若狭忠季、三方氏・若狭武田氏、北海道・秋田・岡山・石川の大集積、そして仙台の若狭家まで。名字は一つでも、その背景には複数の歴史があります。</p></div><div><div class="small" style="color:#abc0be">RESEARCH PRINCIPLE</div><p>史料で裏付けられる事実、系譜伝承、分布から導く仮説を分けて読む。<br>特定家系は「現在→戸籍→地域史」の順に遡る。</p></div></div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+const parts=['assets/fragments/wakasa_frag_01_visuals.html','assets/fragments/wakasa_frag_02_summary.html','assets/fragments/wakasa_frag_03_origin.html','assets/fragments/wakasa_frag_04_history.html','assets/fragments/wakasa_frag_05_distribution.html','assets/fragments/wakasa_frag_06_tohoku.html','assets/fragments/wakasa_frag_07_sendai.html','assets/fragments/wakasa_frag_08_crest.html','assets/fragments/wakasa_frag_09_research.html','assets/fragments/wakasa_frag_10_sources.html'];
+Promise.all(parts.map(p=>fetch(p).then(r=>{if(!r.ok)throw new Error(p);return r.text()}))).then(xs=>{document.getElementById('content').innerHTML=xs.join('');const sc=document.createElement('script');sc.src='assets/app.js';document.body.appendChild(sc)}).catch(e=>{document.getElementById('content').innerHTML='<section class="section"><div class="wrap"><div class="alert danger"><strong>読み込みエラー:</strong> '+e.message+'</div></div></section>'});
+</script>
+</body></html>
