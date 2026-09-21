@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1414" viewBox="0 0 1000 1414">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fbf8f0"/><stop offset="1" stop-color="#ede5d5"/></linearGradient>
+ <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0c2d3a"/><stop offset=".72" stop-color="#1b5360"/><stop offset="1" stop-color="#59705e"/></linearGradient>
+ <pattern id="wave" width="46" height="24" patternUnits="userSpaceOnUse"><path d="M0 20 Q11 6 23 20 T46 20" fill="none" stroke="#d6c69f" stroke-width="1" opacity=".42"/></pattern>
+</defs>
+<rect width="1000" height="1414" fill="url(#bg)"/>
+<rect width="1000" height="340" fill="url(#hero)"/>
+<rect y="1235" width="1000" height="179" fill="#0c2d3a"/>
+<rect y="1235" width="1000" height="179" fill="url(#wave)"/>
+<circle cx="858" cy="152" r="210" fill="none" stroke="#fff" stroke-opacity=".10" stroke-width="2"/>
+<circle cx="858" cy="152" r="150" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="2"/>
+<path d="M790 250 L850 116 L910 250 Z" fill="#fff" opacity=".06"/>
+<text x="70" y="62" fill="#d8c18d" font-size="18" font-family="sans-serif" letter-spacing="2">NAMES — USHITORA / GON FAMILY NAME RESEARCH</text>
+<rect x="823" y="34" width="120" height="46" rx="7" fill="#f4ead0" opacity=".95"/><text x="883" y="64" text-anchor="middle" fill="#123243" font-size="18" font-family="sans-serif" font-weight="700">第8頁／10</text>
+<text x="70" y="150" fill="#fff" font-size="58" font-family="serif" font-weight="700">艮・丑寅・丒寅の関係</text>
+<text x="72" y="206" fill="#dfc886" font-size="27" font-family="serif" font-weight="700">意味は近いが、系譜は一つとは限らない</text>
+<text x="72" y="265" fill="#eef4f1" font-size="20" font-family="serif">「丑寅」は「艮」の異形とされ、「丒寅」は関連表記。</text>
+<text x="72" y="300" fill="#eef4f1" font-size="20" font-family="serif">しかし全家系が一人の始祖から分かれた証拠はない。</text>
+<g transform="translate(72,360)"><rect width="856" height="7" rx="3" fill="#a77b31"/><rect width="290" height="7" rx="3" fill="#173c4b"/></g>
+<g transform="translate(70,430)"><rect width="260" height="250" rx="22" fill="#f4ecda" stroke="#cbb98f" stroke-width="2"/><circle cx="34" cy="34" r="18" fill="#a77b31"/><text x="34" y="41" text-anchor="middle" font-size="19" fill="white" font-family="sans-serif">1</text><text x="28" y="88" font-size="27" font-weight="700" fill="#123243" font-family="serif">艮</text><foreignObject x="28" y="108" width="204" height="118"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:serif;font-size:19px;line-height:1.55;color:#334a52;">うしとら／約270人／大阪・宮崎・奈良</div></foreignObject></g><g transform="translate(370,430)"><rect width="260" height="250" rx="22" fill="#e7efe9" stroke="#cbb98f" stroke-width="2"/><circle cx="34" cy="34" r="18" fill="#a77b31"/><text x="34" y="41" text-anchor="middle" font-size="19" fill="white" font-family="sans-serif">2</text><text x="28" y="88" font-size="27" font-weight="700" fill="#123243" font-family="serif">丑寅</text><foreignObject x="28" y="108" width="204" height="118"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:serif;font-size:19px;line-height:1.55;color:#334a52;">うしとら／約20人／奈良・大阪</div></foreignObject></g><g transform="translate(670,430)"><rect width="260" height="250" rx="22" fill="#e9eef2" stroke="#cbb98f" stroke-width="2"/><circle cx="34" cy="34" r="18" fill="#a77b31"/><text x="34" y="41" text-anchor="middle" font-size="19" fill="white" font-family="sans-serif">3</text><text x="28" y="88" font-size="27" font-weight="700" fill="#123243" font-family="serif">丒寅</text><foreignObject x="28" y="108" width="204" height="118"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:serif;font-size:19px;line-height:1.55;color:#334a52;">うしとら／約10人／ごく少数</div></foreignObject></g>
+<text x="70" y="755" fill="#123243" font-size="31" font-family="serif" font-weight="700">研究の要点</text>
+<line x1="70" y1="777" x2="930" y2="777" stroke="#cbb98f" stroke-width="2"/>
+<g transform="translate(90,820)"><circle cx="18" cy="18" r="18" fill="#173c4b"/><text x="18" y="25" text-anchor="middle" font-size="17" fill="#fff" font-family="sans-serif">1</text><foreignObject x="55" y="-4" width="820" height="68"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:serif;font-size:21px;line-height:1.45;color:#213a45;font-weight:600;">A 表記分化モデル：艮から丑寅・丒寅へ表記が分化</div></foreignObject></g><g transform="translate(90,908)"><circle cx="18" cy="18" r="18" fill="#173c4b"/><text x="18" y="25" text-anchor="middle" font-size="17" fill="#fff" font-family="sans-serif">2</text><foreignObject x="55" y="-4" width="820" height="68"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:serif;font-size:21px;line-height:1.45;color:#213a45;font-weight:600;">B 独立成立モデル：同じ方位概念から各地で別々に成立</div></foreignObject></g><g transform="translate(90,996)"><circle cx="18" cy="18" r="18" fill="#173c4b"/><text x="18" y="25" text-anchor="middle" font-size="17" fill="#fff" font-family="sans-serif">3</text><foreignObject x="55" y="-4" width="820" height="68"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:serif;font-size:21px;line-height:1.45;color:#213a45;font-weight:600;">C 混合モデル：表記変更家と独立成立家の双方が存在</div></foreignObject></g>
+<g transform="translate(70,1268)"><circle cx="32" cy="32" r="32" fill="none" stroke="#d6b86f" stroke-width="2"/><text x="32" y="40" text-anchor="middle" fill="#d6b86f" font-size="25" font-family="serif" font-weight="700">艮</text></g>
+<text x="125" y="1297" fill="#e9f0ed" font-size="18" font-family="serif">丑寅・艮の一族の歴史 — 方位・地名・姓を史料からたどる</text>
+<text x="125" y="1331" fill="#b7c8c1" font-size="15" font-family="sans-serif">人数は推計値。確認史料と研究仮説を区別して整理した図解版。</text>
+<text x="860" y="1370" fill="#d6b86f" font-size="15" font-family="serif">歴史を知り、未来へつなぐ</text>
+</svg>
