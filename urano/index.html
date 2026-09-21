@@ -1,153 +1,137 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="浦野一族800年史。『吾妻鏡』『尊卑分脈』、信濃浦野庄、武田氏文書、西上野・松代・会津・あきる野・豊田・大任まで、史料と現代分布を整理した研究ページ。">
-<meta name="theme-color" content="#10283d">
-<meta property="og:title" content="浦野一族800年史">
-<meta property="og:description" content="史料でたどる浦野氏の成立・分流・分布・人物">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://sinobu13-bpei.github.io/urano/assets/urano-01.webp">
-<title>浦野一族800年史｜史料でたどる成立・分流・分布・人物</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>浦野一族800年史｜史料でたどる成立・分流・地域展開</title>
+<meta name="description" content="浦野一族800年史。吾妻鏡・尊卑分脈・信濃浦野氏・武田氏文書・高崎大戸吾妻・松代会津・佐野足利邑楽・豊田あきる野大任までを統合。">
+<meta property="og:title" content="浦野一族800年史"><meta property="og:type" content="website"><meta property="og:image" content="assets/urano-01.webp">
 <style>
-:root{--ink:#10283d;--ink2:#193e55;--green:#365849;--gold:#9b7847;--red:#8a443c;--paper:#f5f0e6;--card:#fffdf8;--line:#d8cdbb;--muted:#66717a;--shadow:0 14px 38px rgba(22,35,42,.10)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:#202b31;background:linear-gradient(#ece5d8,#f8f5ee 22%,#eee7da);font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Meiryo",system-ui,sans-serif;line-height:1.8}
-a{color:var(--ink2)}img{max-width:100%;height:auto}.serif{font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif}
-.progress{position:fixed;left:0;top:0;height:3px;background:linear-gradient(90deg,var(--gold),#d5b678);z-index:99;width:0}
-header{position:sticky;top:0;z-index:40;background:rgba(16,40,61,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.12)}
-.nav{max-width:1160px;margin:auto;display:flex;align-items:center;gap:20px;padding:10px 20px;color:white}.brand{font-weight:800;letter-spacing:.08em;white-space:nowrap}.navlinks{display:flex;gap:6px;overflow:auto;scrollbar-width:none}.navlinks a{color:#dfe7ea;text-decoration:none;padding:7px 10px;border-radius:999px;font-size:13px;white-space:nowrap}.navlinks a:hover{background:rgba(255,255,255,.11);color:white}
-.hero{min-height:78vh;display:grid;place-items:center;background:radial-gradient(circle at 78% 22%,rgba(159,124,71,.22),transparent 26%),linear-gradient(135deg,#112d42,#183b4d 52%,#365849);color:white;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;inset:auto -5% -90px -5%;height:220px;background:var(--paper);clip-path:polygon(0 58%,12% 44%,22% 61%,36% 39%,50% 57%,63% 33%,75% 55%,88% 42%,100% 60%,100% 100%,0 100%)}
-.hero-inner{position:relative;z-index:2;max-width:1160px;width:100%;padding:76px 24px 125px;display:grid;grid-template-columns:1.15fr .85fr;gap:46px;align-items:center}.eyebrow{color:#e2c995;font-size:13px;font-weight:800;letter-spacing:.2em}.hero h1{font-size:clamp(42px,7vw,84px);line-height:1.08;margin:12px 0 18px;letter-spacing:.02em}.hero h1 span{display:block;font-size:.48em;font-weight:500;margin-top:12px;color:#dbe4e7}.hero p{font-size:17px;color:#e4eaec;max-width:700px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;text-decoration:none;padding:11px 16px;border:1px solid rgba(255,255,255,.35);border-radius:999px;color:white;background:rgba(255,255,255,.07)}.btn.primary{background:#fff;color:var(--ink);border-color:white;font-weight:800}
-.cover{background:#f9f5eb;padding:10px;border-radius:22px;box-shadow:0 22px 55px rgba(0,0,0,.26);transform:rotate(1deg)}.cover img{display:block;border-radius:14px}
-main{max-width:1160px;margin:auto;padding:20px 22px 90px}.section{padding:68px 0;border-bottom:1px solid var(--line)}.kicker{font-size:12px;color:var(--gold);font-weight:800;letter-spacing:.18em}.section h2{font-size:clamp(28px,4vw,46px);color:var(--ink);margin:8px 0 12px;line-height:1.25}.lede{max-width:900px;color:#59636a;margin:0 0 30px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-42px;position:relative;z-index:5}.stat{background:var(--card);border:1px solid var(--line);padding:21px;border-radius:18px;box-shadow:var(--shadow)}.stat strong{display:block;color:var(--ink);font-size:30px}.stat small{color:var(--muted)}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:23px;box-shadow:0 8px 24px rgba(32,38,42,.05)}.card h3{margin:0 0 8px;color:var(--ink);font-size:20px}.tag{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;background:#eee6d6;color:#684f2f;font-size:12px;font-weight:800}.tag.a{background:#e2eee8;color:#27523f}.tag.b{background:#e8edf2;color:#315067}.tag.c{background:#f2e5df;color:#76493d}
-.quote{border-left:4px solid var(--gold);background:#fffaf0;padding:18px 20px;border-radius:0 14px 14px 0;margin:18px 0;font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:19px}
-.timeline{position:relative;margin:28px 0 0 9px;padding-left:29px}.timeline:before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--gold),var(--green))}.event{position:relative;display:grid;grid-template-columns:105px 1fr;gap:18px;padding:0 0 26px}.event:before{content:"";position:absolute;left:-30px;top:8px;width:12px;height:12px;border:3px solid var(--paper);background:var(--gold);border-radius:50%;box-shadow:0 0 0 1px var(--gold)}.year{font-weight:900;color:var(--red);font-size:19px}.event b{color:var(--ink)}
-.lineage{display:grid;grid-template-columns:1fr 80px 1fr;gap:16px;align-items:stretch;margin-top:25px}.branch{border-radius:20px;padding:25px;background:var(--card);border:1px solid var(--line)}.branch.owari{border-top:6px solid var(--gold)}.branch.shinano{border-top:6px solid var(--green)}.branch h3{font-size:25px;color:var(--ink);margin:0 0 12px}.flow{text-align:center;color:#8a7b65;font-size:30px;display:grid;place-items:center}.chain{display:flex;flex-wrap:wrap;gap:7px}.chain span{background:#f2ede2;border:1px solid #dfd3c0;border-radius:999px;padding:5px 10px;font-size:13px}.warning{margin-top:16px;padding:14px 16px;background:#f6ebe7;border:1px solid #e3c2b9;border-radius:14px;color:#6d3932}
-.route{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:18px 0}.route span{background:var(--ink);color:white;padding:8px 12px;border-radius:999px}.route i{color:var(--gold);font-style:normal;font-size:20px}
-.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px;background:white}table{width:100%;border-collapse:collapse;min-width:700px}th,td{padding:12px 13px;border-bottom:1px solid #e6dfd3;text-align:left;vertical-align:top}th{background:#17384d;color:white}tr:last-child td{border-bottom:0}.region-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.region{padding:21px;border-radius:18px;background:linear-gradient(145deg,#fffdf8,#f1ebdf);border:1px solid var(--line)}.region strong{color:var(--ink);font-size:21px}.certainty{float:right;font-weight:900;color:var(--red)}
-.barlist{display:grid;gap:10px;max-width:760px}.barrow{display:grid;grid-template-columns:86px 1fr 78px;align-items:center;gap:10px}.bar{height:14px;border-radius:999px;background:#e8e1d4;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),#76907e);border-radius:999px}
-.people{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.person{background:white;border:1px solid var(--line);border-radius:15px;padding:15px}.person b{display:block;color:var(--ink)}.person small{color:#677078}
-.gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.plate{background:#e7dfd1;border:1px solid #d0c3ae;border-radius:15px;padding:9px;text-align:center;transition:.2s}.plate:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.plate a{display:block;text-decoration:none}.plate img{display:block;width:100%;aspect-ratio:1055/1491;object-fit:cover;border-radius:9px;background:white}.plate b{display:block;color:var(--ink);font-size:13px;margin:8px 0 2px}.plate small{font-size:11px;color:#747b7e}.gallery-note{font-size:12px;color:#6c7478;margin-top:12px}
-.source-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;margin:22px 0 0;padding:0;list-style:none}.source-list li{border-top:1px solid #d9d0c2;padding:11px 0}.source-list a{text-decoration:none}.source-list a:hover{text-decoration:underline}
-footer{background:var(--ink);color:#dce5e9;padding:42px 22px}.foot{max-width:1160px;margin:auto;display:flex;justify-content:space-between;gap:25px;align-items:flex-end}.foot h3{color:white;margin:0 0 6px}.note{font-size:13px;color:#758087}
-@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.cover{max-width:470px}.stats{grid-template-columns:1fr 1fr}.grid3,.region-grid{grid-template-columns:1fr}.lineage{grid-template-columns:1fr}.flow{transform:rotate(90deg)}.people{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:repeat(2,1fr)}.source-list{grid-template-columns:1fr}}
-@media(max-width:560px){.nav{padding:9px 12px}.brand{font-size:13px}.hero-inner{padding:55px 18px 110px}.hero p{font-size:15px}.stats{grid-template-columns:1fr}.section{padding:50px 0}.event{grid-template-columns:70px 1fr;gap:10px}.people{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr;gap:9px}.source-list{font-size:14px}.foot{display:block}}
+:root{--ink:#112c42;--ink2:#17394f;--green:#365b4a;--gold:#a37d42;--red:#8e493d;--paper:#f5f0e5;--card:#fffdf8;--line:#d8cbb8;--muted:#6c747a;--shadow:0 18px 45px rgba(20,35,45,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#e9e0d1 0,#f7f3ea 18%,#eee6da 100%);color:#26343c;font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;line-height:1.8}
+a{color:inherit}.serif{font-family:"Yu Mincho","Hiragino Mincho ProN",serif}.progress{position:fixed;left:0;top:0;height:3px;background:linear-gradient(90deg,var(--gold),#e8c985);z-index:100;width:0}
+header{position:sticky;top:0;z-index:50;background:rgba(17,44,66,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.12)}
+nav{max-width:1180px;margin:auto;display:flex;align-items:center;gap:18px;padding:10px 18px;color:white}.brand{font-weight:800;letter-spacing:.08em;white-space:nowrap}.links{display:flex;gap:6px;overflow:auto;scrollbar-width:none}.links a{text-decoration:none;font-size:13px;white-space:nowrap;padding:7px 10px;border-radius:999px;color:#dce6e9}.links a:hover{background:rgba(255,255,255,.1);color:#fff}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 80% 20%,rgba(180,140,73,.24),transparent 28%),linear-gradient(135deg,#102c41,#173c4d 55%,#3c604d);color:white;min-height:82vh;display:grid;place-items:center}.hero:after{content:"";position:absolute;left:-3%;right:-3%;bottom:-110px;height:240px;background:var(--paper);clip-path:polygon(0 58%,12% 43%,25% 62%,37% 39%,52% 58%,64% 34%,76% 55%,89% 41%,100% 59%,100% 100%,0 100%)}
+.hero-inner{max-width:1180px;width:100%;padding:70px 22px 130px;display:grid;grid-template-columns:1.12fr .88fr;gap:42px;align-items:center;position:relative;z-index:2}.eyebrow{font-size:12px;color:#e6ca93;letter-spacing:.22em;font-weight:800}.hero h1{font-size:clamp(44px,7vw,84px);line-height:1.08;margin:12px 0}.hero h1 span{display:block;font-size:.43em;font-weight:500;color:#dce5e8;margin-top:12px}.hero p{font-size:17px;color:#e2eaed;max-width:690px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.btn{text-decoration:none;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:11px 16px;color:#fff;background:rgba(255,255,255,.07)}.btn.primary{background:#fff;color:var(--ink);font-weight:800}.cover{background:#f8f3e9;padding:10px;border-radius:22px;box-shadow:0 24px 58px rgba(0,0,0,.25);transform:rotate(1deg)}.cover img{display:block;width:100%;border-radius:14px}
+main{max-width:1180px;margin:auto;padding:20px 22px 90px}.section{padding:66px 0;border-bottom:1px solid var(--line)}.kicker{font-size:12px;color:var(--gold);font-weight:800;letter-spacing:.18em}.section h2{color:var(--ink);font-size:clamp(28px,4vw,46px);line-height:1.25;margin:8px 0 12px}.lede{max-width:900px;color:#606a70}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-46px;position:relative;z-index:5}.stat,.card,.region,.source-card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.stat{padding:20px}.stat strong{display:block;color:var(--ink);font-size:30px}.stat small{color:var(--muted)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{padding:22px}.card h3{color:var(--ink);margin:8px 0}.tag{display:inline-block;padding:4px 9px;border-radius:999px;background:#eee5d5;color:#6b5031;font-size:12px;font-weight:800}.tag.a{background:#e2eee8;color:#2c5745}.tag.b{background:#e7edf2;color:#35536a}.tag.c{background:#f1e4df;color:#7b493e}
+.quote{border-left:4px solid var(--gold);background:#fff9ed;border-radius:0 14px 14px 0;padding:18px 20px;margin:20px 0;font-size:19px}.timeline{position:relative;margin:28px 0 0 8px;padding-left:28px}.timeline:before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--gold),var(--green))}.event{position:relative;display:grid;grid-template-columns:110px 1fr;gap:18px;padding-bottom:24px}.event:before{content:"";position:absolute;left:-29px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:3px solid var(--paper);box-shadow:0 0 0 1px var(--gold)}.year{font-size:18px;color:var(--red);font-weight:900}.event b{color:var(--ink)}
+.split{display:grid;grid-template-columns:1fr 70px 1fr;gap:18px;align-items:stretch}.branch{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}.branch.owari{border-top:6px solid var(--gold)}.branch.shinano{border-top:6px solid var(--green)}.branch h3{margin:0 0 10px;color:var(--ink);font-size:24px}.flow{display:grid;place-items:center;color:var(--gold);font-size:30px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chips span{background:#f2ebdf;border:1px solid #ded1be;border-radius:999px;padding:5px 10px;font-size:13px}.warning{margin-top:16px;background:#f5e8e3;border:1px solid #e2c2b8;border-radius:14px;padding:14px 16px;color:#6b3d35}
+.route{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:16px 0}.route span{background:var(--ink);color:white;padding:8px 12px;border-radius:999px}.route i{font-style:normal;color:var(--gold);font-size:20px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px;background:#fff}table{width:100%;border-collapse:collapse;min-width:780px}th,td{padding:12px 13px;text-align:left;vertical-align:top;border-bottom:1px solid #e6dfd3}th{background:#17384d;color:#fff}tr:last-child td{border-bottom:none}
+.region-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.region{padding:20px}.region strong{font-size:20px;color:var(--ink)}.region .grade{float:right;color:var(--red);font-weight:900}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:18px}.mapline{background:linear-gradient(145deg,#fffdf8,#efe8dc);border:1px solid var(--line);border-radius:18px;padding:20px}.mapline h3{margin:0 0 10px;color:var(--ink)}.cluster{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.cluster span{padding:8px 12px;background:#e8efe9;border:1px solid #c8d7cc;border-radius:999px}.cluster em{font-style:normal;color:var(--gold);font-weight:800}
+.bars{max-width:760px;display:grid;gap:10px}.barrow{display:grid;grid-template-columns:90px 1fr 80px;gap:10px;align-items:center}.bar{height:14px;border-radius:999px;background:#e8e1d4;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),#789481);border-radius:999px}
+.people{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.person{background:white;border:1px solid var(--line);border-radius:14px;padding:14px}.person b{display:block;color:var(--ink)}.person small{color:#6d767c}
+.gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.plate{background:#e7dfd1;border:1px solid #d0c2ad;padding:9px;border-radius:15px;transition:.2s;text-align:center}.plate:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.plate a{text-decoration:none}.plate img{display:block;width:100%;aspect-ratio:1055/1491;object-fit:cover;border-radius:9px}.plate b{display:block;margin:8px 0 2px;color:var(--ink);font-size:13px}.plate small{font-size:11px;color:#71797d}
+.sources{display:grid;grid-template-columns:1fr 1fr;gap:12px 22px}.source-card{padding:16px;box-shadow:none}.source-card a{text-decoration:none;color:var(--ink2);font-weight:700}.source-card a:hover{text-decoration:underline}.note{font-size:13px;color:#6e777b}
+footer{background:var(--ink);color:#dde6e9;padding:40px 22px}.foot{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:20px}.foot h3{margin:0;color:white}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.cover{max-width:480px}.stats{grid-template-columns:1fr 1fr}.grid3,.region-grid,.compare{grid-template-columns:1fr}.split{grid-template-columns:1fr}.flow{transform:rotate(90deg)}.people{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:repeat(2,1fr)}.sources{grid-template-columns:1fr}}
+@media(max-width:560px){nav{padding:9px 12px}.brand{font-size:13px}.hero-inner{padding:54px 18px 110px}.stats{grid-template-columns:1fr}.event{grid-template-columns:72px 1fr;gap:10px}.people{grid-template-columns:1fr}.gallery{gap:9px}.foot{display:block}}
 </style>
 </head>
 <body>
 <div class="progress" id="progress"></div>
-<header><nav class="nav"><div class="brand">浦野一族800年史</div><div class="navlinks">
-<a href="#overview">総論</a><a href="#origins">最古史料</a><a href="#lineage">系統</a><a href="#takeda">武田氏</a><a href="#regions">地域</a><a href="#chronology">年表</a><a href="#gallery">図版10枚</a><a href="#sources">出典</a>
+<header><nav><div class="brand">浦野一族800年史</div><div class="links">
+<a href="#overview">総論</a><a href="#oldest">最古史料</a><a href="#lineage">系統</a><a href="#takeda">武田氏</a><a href="#west">高崎・大戸</a><a href="#ryomo">佐野・足利・邑楽</a><a href="#modern">現代</a><a href="#gallery">図版10枚</a><a href="#sources">出典</a>
 </div></nav></header>
 
-<section class="hero">
-<div class="hero-inner">
-<div>
-<div class="eyebrow">URANO FAMILY HISTORY / 1186—PRESENT</div>
-<h1 class="serif">浦野一族<br>800年史<span>史料でたどる成立・分流・分布・人物</span></h1>
-<p>『吾妻鏡』の浦野庄・浦野太郎から、尾張系『尊卑分脈』、信濃上田の浦野氏、武田氏家臣としての西上野進出、松代・会津・あきる野・豊田・大任、そして現代分布まで。史実と伝承を分けて、一つの研究ページに統合しました。</p>
-<div class="hero-actions"><a class="btn primary" href="#overview">研究を読む</a><a class="btn" href="#gallery">10枚の図版を見る</a><a class="btn" href="#sources">出典へ</a></div>
-</div>
+<section class="hero"><div class="hero-inner">
+<div><div class="eyebrow">URANO FAMILY HISTORY / 1186—PRESENT</div>
+<h1 class="serif">浦野一族<br>800年史<span>史料でたどる成立・分流・地域展開</span></h1>
+<p>『吾妻鏡』の浦野庄・浦野太郎から、『尊卑分脈』の尾張系、信濃上田の浦野氏、武田氏文書、西上野・松代・会津、さらに佐野・足利・邑楽・豊田・あきる野・大任まで。史実・後世系図・家伝・分布仮説を分けて統合した最新版です。</p>
+<div class="actions"><a class="btn primary" href="#overview">研究を読む</a><a class="btn" href="#gallery">10枚の図版</a><a class="btn" href="#sources">出典</a></div></div>
 <div class="cover"><img src="assets/urano-01.webp" alt="浦野一族800年史 総論"></div>
-</div>
-</section>
+</div></section>
 
 <main>
 <div class="stats">
 <div class="stat"><strong>1186</strong><small>『吾妻鏡』に「日吉社領 浦野庄」</small></div>
 <div class="stat"><strong>1190</strong><small>頼朝上洛随兵に「浦野太郎」</small></div>
-<div class="stat"><strong>約22,400</strong><small>現代の浦野姓人口（名字データベース推計）</small></div>
-<div class="stat"><strong>約832位</strong><small>全国名字順位（推計）</small></div>
+<div class="stat"><strong>1562–81</strong><small>武田氏文書で浦野氏を連続確認</small></div>
+<div class="stat"><strong>約22,400</strong><small>現代の浦野姓人口（推計）</small></div>
 </div>
 
-<section class="section" id="overview">
-<div class="kicker">01 / EXECUTIVE SUMMARY</div><h2 class="serif">まず押さえるべき結論</h2>
-<p class="lede">浦野氏を一つの祖先にまとめるのは、現時点の史料では無理があります。むしろ「尾張源氏系」と「信濃・小県浦野庄系」をまず別系統として管理し、接続史料が見つかったときに統合するのが堅実です。</p>
+<section class="section" id="overview"><div class="kicker">01 / OVERVIEW</div><h2 class="serif">総論――「浦野」を一つの祖先にまとめない</h2>
+<p class="lede">現段階の最重要原則は、浦野姓を単一系統と決めないことです。少なくとも「尾張清和源氏系」と「信濃小県浦野庄系」があり、近世・近代には複数の地域クラスターが形成されています。</p>
 <div class="grid3">
-<div class="card"><span class="tag a">史料で確認</span><h3>信濃系は約840年前まで追える</h3><p>1186年に浦野庄、1190年には御家人「浦野太郎」が確認できます。鎌倉幕府成立期に「浦野」を名字とする人物が実在したことは、浦野一族史の強い起点です。</p></div>
-<div class="card"><span class="tag b">系譜上の論点</span><h3>浦野太郎の父は未確定</h3><p>『尊卑分脈』の「浦野太郎重直＝浦野四郎重遠の子」は魅力的な候補ですが、『吾妻鏡』は重直とも父名とも書かないため、同一人物とは確定できません。</p></div>
-<div class="card"><span class="tag c">地域展開</span><h3>戦国期に信濃から西上野へ</h3><p>武田氏文書では浦野新八郎・宮内左衛門尉・民部右衛門尉らが確認され、箕輪・山名・多比良などへ所領が広がります。高崎の浦野氏を考える重要な線です。</p></div>
-</div>
-</section>
+<div class="card"><span class="tag a">確実</span><h3>信濃の浦野庄と浦野太郎</h3><p>1186年に浦野庄、1190年に御家人「浦野太郎」。鎌倉幕府成立期まで遡れる強い起点です。</p></div>
+<div class="card"><span class="tag b">有力仮説</span><h3>1190年の浦野太郎＝重直？</h3><p>『尊卑分脈』の浦野太郎重直と一致すれば父は浦野四郎重遠。ただし同一人物と断定する史料は未発見です。</p></div>
+<div class="card"><span class="tag c">未解明</span><h3>高崎・佐野・足利・邑楽・大任</h3><p>地域集団の成立経路は場所ごとに違う可能性が高く、家譜・宗門帳・過去帳・墓碑での検証が必要です。</p></div>
+</div></section>
 
-<section class="section" id="origins">
-<div class="kicker">02 / EARLIEST RECORDS</div><h2 class="serif">『吾妻鏡』から始まる、確かな足跡</h2>
-<div class="quote">文治2年（1186）「日吉社領　浦野庄」<br>建久元年（1190）「四十三番　葛西十郎　伊東三郎　浦野太郎」</div>
+<section class="section" id="oldest"><div class="kicker">02 / EARLIEST RECORDS</div><h2 class="serif">『吾妻鏡』から始まる確かな足跡</h2>
+<div class="quote">1186年「日吉社領　浦野庄」<br>1190年「四十三番　葛西十郎　伊東三郎　浦野太郎」</div>
 <div class="timeline">
-<div class="event"><div class="year">1186</div><div><b>信濃国の荘園「浦野庄」</b><br>『吾妻鏡』の年貢未済荘園一覧に「日吉社領 浦野庄」。現在の長野県上田市浦野周辺に比定されます。</div></div>
-<div class="event"><div class="year">1190</div><div><b>御家人「浦野太郎」</b><br>源頼朝上洛の随兵交名に「浦野太郎」。ただし、この記載だけでは父・諱は不明です。</div></div>
-<div class="event"><div class="year">1221</div><div><b>浦野庄の譲与</b><br>尊長法印から道覚親王へ浦野庄が譲られたことが記録されます。</div></div>
-<div class="event"><div class="year">1319</div><div><b>「小県郡浦野庄」</b><br>中世を通じて浦野庄という地名・荘園が継続していたことを確認できます。</div></div>
-<div class="event"><div class="year">1365</div><div><b>「浦野庄内村松藤次郎在家」銘</b><br>浦野庄内部の在地社会を示す銘文資料。</div></div>
-<div class="event"><div class="year">1380</div><div><b>大法寺鰐口と山王信仰</b><br>浦野庄と日吉社・山王信仰のつながりを考える中世宗教資料が残ります。</div></div>
-</div>
-</section>
+<div class="event"><div class="year">1186</div><div><b>浦野庄</b> — 信濃国小県郡、現在の上田市浦野周辺に比定。</div></div>
+<div class="event"><div class="year">1190</div><div><b>浦野太郎</b> — 源頼朝上洛の随兵交名に登場。ただし諱・父名は記されない。</div></div>
+<div class="event"><div class="year">1221</div><div><b>浦野庄の譲与</b> — 尊長法印から道覚親王へ。</div></div>
+<div class="event"><div class="year">1319</div><div><b>小県郡浦野庄</b> — 荘園名が中世を通じて継続。</div></div>
+<div class="event"><div class="year">1365</div><div><b>「浦野庄内村松藤次郎在家」</b> — 在地社会を示す銘。</div></div>
+<div class="event"><div class="year">1380</div><div><b>大法寺鰐口</b> — 日吉社・山王信仰とのつながりを考える材料。</div></div>
+</div></section>
 
-<section class="section" id="lineage">
-<div class="kicker">03 / LINEAGES</div><h2 class="serif">尾張系と信濃系――「同じ浦野」なのか</h2>
-<div class="lineage">
-<div class="branch owari"><span class="tag">尾張系</span><h3>清和源氏満政流</h3><div class="chain"><span>清和天皇</span><span>源経基</span><span>源満政</span><span>忠重</span><span>定宗</span><span>重宗</span><span>重実</span><span>浦野四郎重遠</span><span>浦野太郎重直</span></div><p>『尊卑分脈』系譜では重遠が尾張国浦野に住したとされ、重直は「浦野太郎」「山田先生」「河辺冠者」とも記されます。山田氏・小河氏・河辺氏・足助氏などへの展開が語られます。</p></div>
+<section class="section" id="lineage"><div class="kicker">03 / LINEAGES</div><h2 class="serif">尾張系と信濃系</h2>
+<div class="split">
+<div class="branch owari"><span class="tag">尾張系</span><h3>清和源氏満政流</h3><div class="chips"><span>清和天皇</span><span>源経基</span><span>源満政</span><span>忠重</span><span>定宗</span><span>重宗</span><span>重実</span><span>浦野四郎重遠</span><span>浦野太郎重直</span></div><p>『尊卑分脈』では重遠が尾張国浦野に住したとされ、重直は「浦野太郎」「山田先生」「河辺冠者」とも記されます。</p></div>
 <div class="flow">↔</div>
-<div class="branch shinano"><span class="tag a">信濃系</span><h3>滋野氏・禰津氏同族説</h3><div class="chain"><span>滋野氏</span><span>禰津氏</span><span>浦野氏</span><span>浦野幸次</span><span>浦野信慶</span></div><p>本拠は信濃国小県郡浦野。浦野氏館・浦野城・御射山祭広庭跡など、土地と遺跡を伴って実像を追いやすい系統です。会津浦野家が「本姓 滋野・本国 信濃」としたことも注目されます。</p></div>
+<div class="branch shinano"><span class="tag a">信濃系</span><h3>滋野氏・禰津氏同族説</h3><div class="chips"><span>滋野氏</span><span>禰津氏</span><span>浦野氏</span><span>浦野幸次</span><span>浦野信慶</span></div><p>上田市浦野周辺に地名・館跡・城跡・祭祀空間が残り、在地勢力として実像を追いやすい系統です。</p></div>
 </div>
-<div class="warning"><b>研究上の扱い：</b> 尾張の浦野重遠と信濃浦野氏が同族であることは未証明です。「尾張清和源氏系」と「信濃滋野・禰津系」を分け、1190年の浦野太郎＝重直説も「有力候補」に留めます。</div>
+<div class="warning"><b>重要：</b> 尾張の重遠をそのまま信濃浦野氏の祖とすることも、両系統を無関係と断定することも、現段階ではできません。</div>
 </section>
 
-<section class="section" id="takeda">
-<div class="kicker">04 / TAKEDA DOCUMENTS</div><h2 class="serif">武田氏文書が映す、浦野武士団の実像</h2>
-<p class="lede">戦国期の浦野氏は「一人の武将」ではなく、惣領家・一族・被官を伴う武士団として見えてきます。とくに1560年代以降、信濃から吾妻・大戸・箕輪・高崎方面へ活動域が広がります。</p>
+<section class="section" id="takeda"><div class="kicker">04 / TAKEDA DOCUMENTS</div><h2 class="serif">武田氏文書に現れる浦野氏</h2>
+<p class="lede">戦国期の浦野氏は、複数名が文書に現れる武士団です。信濃から吾妻・大戸・箕輪・山名・多比良へと、西上野支配の中で活動域を広げました。</p>
 <div class="route"><span>上田・浦野</span><i>→</i><span>吾妻・大戸</span><i>→</i><span>箕輪</span><i>→</i><span>山名・多比良</span><i>→</i><span>高崎</span></div>
-<div class="table-wrap"><table>
-<thead><tr><th>年代</th><th>人物</th><th>確認できる内容</th></tr></thead><tbody>
-<tr><td>1562頃</td><td>浦野中務少輔</td><td>浦野氏服属を受け、大戸方面への兵配置計画。</td></tr>
-<tr><td>1562/9/22</td><td>浦野新八郎</td><td>箕輪領内500貫を宛行。</td></tr>
-<tr><td>1562/11/11</td><td>浦野新八郎</td><td>忠節を賞し、半田跡などを宛行。</td></tr>
-<tr><td>1563–64頃</td><td>浦野三河守・新四郎</td><td>築城・城普請、所領替えの調整。</td></tr>
-<tr><td>1566</td><td>浦野中務少輔・宮内左衛門</td><td>権田放火・箕輪攻撃・岩櫃、長野原方面防衛など。</td></tr>
-<tr><td>1567/4/16</td><td>浦野宮内左衛門尉・能化丸</td><td>「信濃の人」とされ、三島・山県・権田・三蔵・水沼・岩氷など上野の所領を宛行。</td></tr>
-<tr><td>1567/8/7</td><td>浦野幸次・浦野信慶ら</td><td>生島足島神社起請文。惣領と一族・被官の関係をうかがわせる。</td></tr>
-<tr><td>1569</td><td>浦野民部右衛門尉</td><td>山名郷内100貫など。</td></tr>
+<div class="table-wrap"><table><thead><tr><th>年代</th><th>人物</th><th>内容</th></tr></thead><tbody>
+<tr><td>1562</td><td>浦野新八郎</td><td>箕輪領内500貫、同年追加宛行。</td></tr>
+<tr><td>1562頃</td><td>浦野中務少輔</td><td>浦野氏服属、大戸方面への兵配置計画。</td></tr>
+<tr><td>1563–64</td><td>浦野三河守・新四郎</td><td>築城・城普請・所領替え。</td></tr>
+<tr><td>1566</td><td>浦野中務少輔・宮内左衛門</td><td>権田・箕輪・岩櫃・長野原方面で活動。</td></tr>
+<tr><td>1567</td><td>浦野宮内左衛門尉・能化丸</td><td>三島・山県・権田・水沼などを宛行。「信濃の人」と記される。</td></tr>
+<tr><td>1567</td><td>浦野幸次・信慶ら</td><td>生島足島神社起請文。一族・被官を伴う武士団像。</td></tr>
+<tr><td>1569</td><td>浦野民部右衛門尉</td><td>山名郷内100貫。</td></tr>
 <tr><td>1572</td><td>浦野新八郎系</td><td>多比良館内60貫。</td></tr>
-<tr><td>1579–81</td><td>浦野宮内左衛門尉系・孫六郎・民部少輔</td><td>勝頼による所領再確認、城普請、真田昌幸を通じた参陣督促。</td></tr>
+<tr><td>1579–81</td><td>浦野宮内左衛門尉系・孫六郎・民部少輔</td><td>勝頼による所領確認、城普請、参陣督促。</td></tr>
 </tbody></table></div>
 </section>
 
-<section class="section" id="regions">
-<div class="kicker">05 / REGIONAL BRANCHES</div><h2 class="serif">各地に残った「浦野」の記憶</h2>
+<section class="section" id="west"><div class="kicker">05 / WESTERN KOZUKE & EARLY MODERN</div><h2 class="serif">高崎・大戸・吾妻、松代・会津へ</h2>
 <div class="region-grid">
-<div class="region"><span class="certainty">A–B</span><strong>群馬・高崎／西上野</strong><p>「浦野文書」は会津風土記所収・浦野勝平文書41通、高崎上小塙・烏子稲荷神社伝来文書、倉渕・全透院所蔵文書、東大史料編纂所謄写本など複数系統。信濃→吾妻・大戸→西上野の移動線が最も強く見えます。全透院には浦野氏等の墓の伝承があります。</p></div>
-<div class="region"><span class="certainty">A–B</span><strong>松代藩</strong><p>1661年頃の分限帳に浦野六左衛門75石、浦野権六250石。幕末には浦野勇右衛門。長野市立博物館には浦野家旧蔵資料約140点が伝来し、紙屋町・藩政・松代城や文武学校普請関係を含みます。</p></div>
-<div class="region"><span class="certainty">A–B</span><strong>会津藩</strong><p>会津浦野家は「本姓 滋野」「本国 信濃」。定紋は丸ノ内二ツ引、替紋は五三ノ桐、菩提寺は小館山城安寺とされます。信濃滋野系を自認した近世家系として重要です。</p></div>
-<div class="region"><span class="certainty">B–C</span><strong>東京・あきる野</strong><p>『新編武蔵風土記稿』に戸倉村の旧家として浦野家。武田氏滅亡後に小宮領へ来住した伝承があります。現代も大きな姓集団ですが、戦国浦野氏との直接の系譜接続は未証明です。</p></div>
-<div class="region"><span class="certainty">C</span><strong>愛知・豊田</strong><p>近代に浦野錠平・浦野幸男などを輩出。家伝に「八草城主浦野源太郎将監の末裔」がありますが、八草城主を中条氏とする史料もあり再検証が必要。尾張系との接続も個別史料が必要です。</p></div>
-<div class="region"><span class="certainty">D</span><strong>福岡・大任</strong><p>田川郡大任町は浦野姓が極端に集中する地域です。小倉藩士・浦野一歩は確認できますが、大任の多数の浦野家との直接接続は未証明。宗門人別帳・庄屋文書・寺院過去帳・墓石が鍵です。</p></div>
+<div class="region"><span class="grade">A–B</span><strong>高崎「浦野文書」</strong><p>会津風土記所収の浦野勝平文書41通、高崎上小塙・烏子稲荷神社系、倉渕・全透院系、東大史料編纂所謄写本など複数系統。</p></div>
+<div class="region"><span class="grade">A–B</span><strong>大戸・吾妻</strong><p>群馬県立文書館には浦野恒彦家文書261点。1585年「浦野右衛門尉重俊書状」、浦野家系図帳・浦野氏系図・「大戸・浦野家系図写」などが残ります。</p></div>
+<div class="region"><span class="grade">B</span><strong>全透院・大乗院</strong><p>倉渕の全透院には浦野氏等の墓の伝承。吾妻では本山派修験大乗院、幕末～明治には浦野大内蔵義端・浦野庸など神職系資料へ続きます。</p></div>
+<div class="region"><span class="grade">A–B</span><strong>松代藩</strong><p>1661年頃、浦野六左衛門75石・浦野権六250石。幕末には浦野勇右衛門。長野市立博物館に浦野家旧蔵資料約140点。</p></div>
+<div class="region"><span class="grade">A–B</span><strong>会津藩</strong><p>会津浦野家は「本姓 滋野」「本国 信濃」。定紋 丸ノ内二ツ引、替紋 五三ノ桐、菩提寺 小館山城安寺。</p></div>
+<div class="region"><span class="grade">注意</span><strong>家紋は一つではない</strong><p>「浦野家共通の家紋」は確認できません。家紋・菩提寺・墓地は地域系統ごとに分けて検討する必要があります。</p></div>
+</div></section>
+
+<section class="section" id="ryomo"><div class="kicker">06 / SANO · ASHIKAGA · ORA</div><h2 class="serif">佐野・足利・邑楽――「両毛東部浦野氏群」</h2>
+<p class="lede">今回の追加調査で最も大きかったのは、現在の佐野市だけで完結させず、旧足利郡・邑楽郡まで一つの地域として見る必要が出てきたことです。</p>
+<div class="compare">
+<div class="mapline"><h3>両毛東部クラスター</h3><div class="cluster"><span>邑楽・狸塚 <b>約120人 / 6.33%</b></span><em>→</em><span>足利・奥戸 <b>約20人 / 5.15%</b></span><em>→</em><span>佐野・村上</span><em>→</em><span>佐野・上羽田</span></div><p>狸塚―奥戸―村上―上羽田は、おおむね10km圏内。村上・上羽田は近代行政上も旧足利郡吾妻村で、歴史的には「足利圏」です。</p></div>
+<div class="mapline"><h3>足利北部の別支群候補</h3><div class="cluster"><span>足利・名草下 <b>約50人 / 4.25%</b></span><em>→</em><span>須花坂</span><em>→</em><span>下彦間・田沼方面</span></div><p>足利の浦野氏約200人を一系統と決めず、奥戸系と名草系をいったん分けて追う方が安全です。</p></div>
+</div>
+
+<div class="quote">研究上の仮称：「両毛東部浦野氏群」<br><span style="font-size:15px">これは同一家系を断定する名称ではなく、名字分布・旧行政圏・地理的連続性から設定した研究グループです。</span></div>
+
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>佐野・村上/上羽田</th><th>足利・奥戸/名草</th><th>邑楽・狸塚</th><th>大戸・吾妻</th></tr></thead><tbody>
+<tr><td>現代分布</td><td>少数</td><td>足利市約200人</td><td>邑楽町約160–200人</td><td>東吾妻・長野原に集団</td></tr>
+<tr><td>歴史地域</td><td>旧足利郡吾妻村</td><td>足利郡</td><td>邑楽郡・佐貫庄</td><td>吾妻郡</td></tr>
+<tr><td>戦国浦野文書</td><td>未発見</td><td>未発見</td><td>未発見</td><td><b>複数あり</b></td></tr>
+<tr><td>家系図・由緒</td><td>未確認</td><td>未確認</td><td>未確認</td><td><b>複数あり</b></td></tr>
+<tr><td>位置づけ</td><td>両毛東部群の東端候補</td><td>両毛東部群の中心候補</td><td>巨大集団候補</td><td>西上野・吾妻文書系統</td></tr>
+</tbody></table></div>
+
+<div class="grid3" style="margin-top:18px">
+<div class="card"><span class="tag b">佐野</span><h3>浦野敬（1893年生）</h3><p>佐野町出身の近代短歌史上の人物。少なくとも明治期に佐野町浦野家が存在した確実な実名資料です。</p></div>
+<div class="card"><span class="tag c">仮説1</span><h3>大戸系東遷説</h3><p>戦国末～江戸初期に、大戸・吾妻系浦野氏の一部が館林・邑楽・足利方面へ移住した可能性。</p></div>
+<div class="card"><span class="tag c">仮説2</span><h3>別系浦野氏説</h3><p>両毛東部に元来別系統の浦野氏が存在した可能性。現状ではこちらも排除できません。</p></div>
 </div>
 </section>
 
-<section class="section" id="chronology">
-<div class="kicker">06 / 800-YEAR CHRONOLOGY</div><h2 class="serif">平安末から現代へ――統合年表</h2>
-<div class="timeline">
-<div class="event"><div class="year">平安後期</div><div>『尊卑分脈』系譜に<b>浦野四郎重遠・浦野太郎重直</b>。</div></div>
-<div class="event"><div class="year">1186–90</div><div><b>浦野庄、浦野太郎</b>が『吾妻鏡』に現れる。</div></div>
-<div class="event"><div class="year">1221–1380</div><div>浦野庄譲与、小県郡浦野庄、在家銘、大法寺鰐口など中世浦野の記録が継続。</div></div>
-<div class="event"><div class="year">1550s</div><div>信濃浦野氏が<b>武田氏へ服属</b>。</div></div>
-<div class="event"><div class="year">1562–81</div><div>新八郎・中務少輔・宮内左衛門尉・民部右衛門尉・孫六郎らが西上野で所領・軍事活動。</div></div>
-<div class="event"><div class="year">1582</div><div><b>武田氏滅亡</b>。浦野諸家は真田・上杉・徳川系支配などの中で再編・分散したと考えられる。</div></div>
-<div class="event"><div class="year">1661</div><div>松代藩分限帳に浦野六左衛門・浦野権六。</div></div>
-<div class="event"><div class="year">18世紀</div><div>会津浦野家が<b>滋野姓・信濃出身</b>を伝え、城安寺を菩提寺とする。</div></div>
-<div class="event"><div class="year">江戸後期</div><div>戸倉村の浦野家が「旧家」として記録される。</div></div>
-<div class="event"><div class="year">1874</div><div>須坂町戸長<b>浦野太郎右衛門</b>を確認。群馬でも明治期に副戸長を務めた浦野家の記録。</div></div>
-<div class="event"><div class="year">現代</div><div>浦野姓は全国約22,400人前後と推計され、東京・愛知・大阪・長野・群馬・福岡などに広がる。</div></div>
-</div>
-</section>
-
-<section class="section">
-<div class="kicker">07 / MODERN DISTRIBUTION</div><h2 class="serif">現代の分布と濃集地</h2>
-<p class="lede">以下は名字データベースによる推計であり、政府の戸籍全数統計ではありません。発祥地と現代人口最多地域が一致するとは限らず、長期の移住・分家・婚姻・養子・絶家などを考える必要があります。</p>
-<div class="barlist">
+<section class="section" id="modern"><div class="kicker">07 / MODERN DISTRIBUTION</div><h2 class="serif">現代分布と著名人</h2>
+<p class="lede">名字人口は民間データベースによる推計です。人口の多さだけで系譜を証明することはできません。</p>
+<div class="bars">
 <div class="barrow"><b>東京都</b><div class="bar"><i style="width:100%"></i></div><span>約4,200</span></div>
 <div class="barrow"><b>愛知県</b><div class="bar"><i style="width:55%"></i></div><span>約2,300</span></div>
 <div class="barrow"><b>大阪府</b><div class="bar"><i style="width:48%"></i></div><span>約2,000</span></div>
@@ -155,79 +139,68 @@ footer{background:var(--ink);color:#dce5e9;padding:42px 22px}.foot{max-width:116
 <div class="barrow"><b>群馬県</b><div class="bar"><i style="width:38%"></i></div><span>約1,600</span></div>
 <div class="barrow"><b>福岡県</b><div class="bar"><i style="width:36%"></i></div><span>約1,500</span></div>
 </div>
-<p><b>市町村の濃集例：</b> あきる野市 約930人、高崎市 約650人、豊田市 約460人、上伊那郡箕輪町 約380人、田川郡大任町 約350人。大任町は人口比でも極めて高い推計です。</p>
-<h3 class="serif" style="font-size:26px;color:var(--ink);margin-top:38px">歴史・現代の主な人物</h3>
-<div class="people">
-<div class="person"><b>浦野重遠</b><small>尾張系『尊卑分脈』の中心人物</small></div>
-<div class="person"><b>浦野太郎</b><small>1190年、頼朝上洛随兵</small></div>
-<div class="person"><b>浦野幸次・信慶</b><small>戦国期・信濃浦野氏</small></div>
-<div class="person"><b>浦野新八郎</b><small>武田家臣、西上野に所領</small></div>
-<div class="person"><b>浦野一歩</b><small>小倉藩士・浦野順右衛門光謨</small></div>
-<div class="person"><b>浦野錠平</b><small>近代の政治家・豊田浦野家</small></div>
-<div class="person"><b>浦野幸男</b><small>政治家、労働大臣</small></div>
-<div class="person"><b>浦野泰照</b><small>東京大学教授、紫綬褒章</small></div>
-<div class="person"><b>浦野博司</b><small>元プロ野球選手</small></div>
-<div class="person"><b>浦野雄平</b><small>陸上・長距離</small></div>
-<div class="person"><b>浦野秀太</b><small>アーティスト</small></div>
-<div class="person"><b>浦野モモ</b><small>アナウンサー</small></div>
-<div class="person"><b>浦野千賀子</b><small>漫画家</small></div>
+<p><b>濃集例：</b> あきる野市 約930、高崎市 約650、豊田市 約460、箕輪町 約380、大任町 約350。大任町は人口比約6.7％という非常に高い推計です。</p>
+<div class="people" style="margin-top:25px">
+<div class="person"><b>浦野重遠</b><small>尾張系系譜の中心人物</small></div><div class="person"><b>浦野太郎</b><small>1190年の御家人</small></div><div class="person"><b>浦野幸次・信慶</b><small>戦国期信濃浦野氏</small></div><div class="person"><b>浦野新八郎</b><small>武田家臣・西上野</small></div>
+<div class="person"><b>浦野一歩</b><small>小倉藩士</small></div><div class="person"><b>浦野錠平</b><small>近代政治家</small></div><div class="person"><b>浦野幸男</b><small>政治家・労働大臣</small></div><div class="person"><b>浦野泰照</b><small>東京大学教授</small></div>
+<div class="person"><b>浦野博司</b><small>元プロ野球選手</small></div><div class="person"><b>浦野雄平</b><small>陸上</small></div><div class="person"><b>浦野秀太</b><small>アーティスト</small></div><div class="person"><b>浦野モモ</b><small>アナウンサー</small></div>
 </div>
 </section>
 
-<section class="section" id="gallery">
-<div class="kicker">08 / VISUAL ARCHIVE</div><h2 class="serif">浦野一族800年史・図版10枚</h2>
-<p class="lede">今回作成した10枚をすべて収録しています。各図版をクリックすると画像単体で開きます。</p>
+<section class="section"><div class="kicker">08 / OTHER REGIONS</div><h2 class="serif">豊田・あきる野・大任</h2>
+<div class="region-grid">
+<div class="region"><span class="grade">C</span><strong>愛知・豊田</strong><p>浦野錠平・浦野幸男を輩出。家伝では「八草城主浦野源太郎将監の末裔」とされる一方、八草城主を中条氏とする史料があり、再検証が必要です。</p></div>
+<div class="region"><span class="grade">B–C</span><strong>東京・あきる野</strong><p>『新編武蔵風土記稿』に戸倉村の旧家として浦野家。武田氏滅亡後に小宮領へ来住した伝承があり、武田系移住仮説は有望ですが未証明です。</p></div>
+<div class="region"><span class="grade">D</span><strong>福岡・大任</strong><p>約350人、人口比約6.7％という突出した集団。小倉藩士浦野一歩との接続は未証明で、宗門帳・過去帳・庄屋文書が決定打になります。</p></div>
+</div>
+</section>
+
+<section class="section" id="gallery"><div class="kicker">09 / VISUAL ARCHIVE</div><h2 class="serif">最新版・図版10枚</h2>
+<p class="lede">今回作成した10枚をすべて掲載しています。クリックで拡大表示できます。</p>
 <div class="gallery">
-<div class="plate"><a href="assets/urano-01.webp" target="_blank"><img src="assets/urano-01.webp" alt="第1章 総論"><b>01　総論</b><small>800年史の全体像</small></a></div>
-<div class="plate"><a href="assets/urano-02.webp" target="_blank"><img src="assets/urano-02.webp" alt="第2章 最古史料"><b>02　最古の史料</b><small>浦野太郎と吾妻鏡</small></a></div>
-<div class="plate"><a href="assets/urano-03.webp" target="_blank"><img src="assets/urano-03.webp" alt="第3章 尾張系"><b>03　尾張系浦野氏</b><small>尊卑分脈と重遠</small></a></div>
-<div class="plate"><a href="assets/urano-04.webp" target="_blank"><img src="assets/urano-04.webp" alt="第4章 信濃上田"><b>04　信濃・上田</b><small>浦野庄・館・城</small></a></div>
-<div class="plate"><a href="assets/urano-05.webp" target="_blank"><img src="assets/urano-05.webp" alt="第5章 武田氏文書"><b>05　武田氏文書</b><small>戦国期浦野氏</small></a></div>
-<div class="plate"><a href="assets/urano-06.webp" target="_blank"><img src="assets/urano-06.webp" alt="第6章 群馬高崎"><b>06　群馬・高崎</b><small>浦野文書と西上野</small></a></div>
-<div class="plate"><a href="assets/urano-07.webp" target="_blank"><img src="assets/urano-07.webp" alt="第7章 松代会津"><b>07　近世諸系統</b><small>松代・会津・家紋</small></a></div>
-<div class="plate"><a href="assets/urano-08.webp" target="_blank"><img src="assets/urano-08.webp" alt="第8章 豊田あきる野大任"><b>08　三地域比較</b><small>豊田・あきる野・大任</small></a></div>
-<div class="plate"><a href="assets/urano-09.webp" target="_blank"><img src="assets/urano-09.webp" alt="第9章 分布著名人"><b>09　分布と著名人</b><small>現代の浦野姓</small></a></div>
-<div class="plate"><a href="assets/urano-10.webp" target="_blank"><img src="assets/urano-10.webp" alt="第10章 総合年表"><b>10　総合年表</b><small>800年の統合整理</small></a></div>
+<div class="plate"><a href="assets/urano-01.webp" target="_blank"><img src="assets/urano-01.webp"><b>01 総論</b><small>浦野一族800年史</small></a></div>
+<div class="plate"><a href="assets/urano-02.webp" target="_blank"><img src="assets/urano-02.webp"><b>02 最古史料</b><small>吾妻鏡と浦野太郎</small></a></div>
+<div class="plate"><a href="assets/urano-03.webp" target="_blank"><img src="assets/urano-03.webp"><b>03 尾張系</b><small>尊卑分脈と重遠</small></a></div>
+<div class="plate"><a href="assets/urano-04.webp" target="_blank"><img src="assets/urano-04.webp"><b>04 信濃系</b><small>浦野庄・館・城</small></a></div>
+<div class="plate"><a href="assets/urano-05.webp" target="_blank"><img src="assets/urano-05.webp"><b>05 武田氏文書</b><small>西上野への展開</small></a></div>
+<div class="plate"><a href="assets/urano-06.webp" target="_blank"><img src="assets/urano-06.webp"><b>06 高崎・大戸・吾妻</b><small>松代・会津へ</small></a></div>
+<div class="plate"><a href="assets/urano-07.webp" target="_blank"><img src="assets/urano-07.webp"><b>07 現代分布</b><small>地域クラスターと人物</small></a></div>
+<div class="plate"><a href="assets/urano-08.webp" target="_blank"><img src="assets/urano-08.webp"><b>08 佐野市</b><small>佐野の浦野を深掘り</small></a></div>
+<div class="plate"><a href="assets/urano-09.webp" target="_blank"><img src="assets/urano-09.webp"><b>09 足利・邑楽・大戸</b><small>両毛東部との照合</small></a></div>
+<div class="plate"><a href="assets/urano-10.webp" target="_blank"><img src="assets/urano-10.webp"><b>10 総合年表</b><small>到達点と未解明点</small></a></div>
 </div>
-<p class="gallery-note">※ 図版は研究内容を視覚化した編集イメージです。歴史的景観・城郭・寺院などの一部は説明目的のイメージ表現を含みます。史実判断は本文と出典を優先してください。</p>
+<p class="note">※ 図版は研究内容を視覚化した編集イメージです。史実判断は本文と出典を優先してください。</p>
 </section>
 
-<section class="section">
-<div class="kicker">09 / OPEN QUESTIONS</div><h2 class="serif">まだ解けていない3つの核心</h2>
+<section class="section"><div class="kicker">10 / OPEN QUESTIONS</div><h2 class="serif">これから狙う決定打</h2>
 <div class="grid3">
-<div class="card"><h3>1190年の浦野太郎の父</h3><p><b>最有力候補：</b>『尊卑分脈』の浦野太郎重直（浦野四郎重遠の子）。しかし同一人物を証明する同時代史料が未発見です。</p></div>
-<div class="card"><h3>尾張重遠と信濃浦野氏の接続</h3><p>「無関係」も「同族」も未証明。今後は中世系図、寺社文書、所領関係、同名人物の年代整合を横断して検証する必要があります。</p></div>
-<div class="card"><h3>高崎・あきる野・大任の祖先</h3><p>高崎は信濃→西上野線が有力。あきる野は武田滅亡後の移住伝承が有力。大任は巨大集団の成立理由そのものが未解明です。</p></div>
+<div class="card"><h3>1190年浦野太郎の父</h3><p>『尊卑分脈』の重直との同一人物性を証明する中世史料。</p></div>
+<div class="card"><h3>尾張系と信濃系の接続</h3><p>中世寺社文書・所領関係・通字・系図の年代整合を横断検証。</p></div>
+<div class="card"><h3>両毛東部と大戸系の橋</h3><p>奥戸村・村上村・上羽田村・狸塚村の宗門人別帳、名寄帳、寺院過去帳、墓碑を比較。</p></div>
 </div>
-<p style="margin-top:24px"><b>次の史料：</b> 宗門人別帳、寺院過去帳、墓石銘、庄屋・名主文書、土地台帳、明治初期行政文書、家譜・分限帳、現地聞き取り。なお明治5年の壬申戸籍は一般閲覧できないため、公開・取得可能な史料で江戸―明治の橋を作る必要があります。</p>
+<p style="margin-top:20px"><b>佐野の最優先：</b> 浦野敬（1893生）の父母・本籍・家業を特定し、旧佐野町から江戸末期へ実名で接続すること。<br><b>大戸の最優先：</b> 「浦野家系図帳」「浦野氏系図」「大戸・浦野家系図写」の人物名を全部抽出し、1582年以後の分流を追うこと。</p>
 </section>
 
-<section class="section" id="sources">
-<div class="kicker">10 / SOURCES</div><h2 class="serif">主な出典・参照先</h2>
-<p class="lede">史料・自治体文化財資料・研究論文・名字統計を区別して参照しています。系譜・家伝は同時代史料と同じ確度では扱っていません。</p>
-<ul class="source-list">
-<li><a href="https://dl.ndl.go.jp/" target="_blank" rel="noopener">国立国会図書館デジタルコレクション</a> — 『吾妻鏡』『新編武蔵風土記稿』等</li>
-<li><a href="https://www.pref.nagano.lg.jp/kyoiku/kyoiku/goannai/kaigiroku/h24/teireikai/documents/947-8.pdf" target="_blank" rel="noopener">長野県教育委員会・文化財関係資料</a> — 浦野城跡・浦野氏等</li>
-<li><a href="https://adeac.jp/npmh/top/" target="_blank" rel="noopener">長野県立歴史館／信濃史料（ADEAC）</a> — 浦野庄・武田期文書</li>
-<li><a href="https://kogakkan.repo.nii.ac.jp/record/1177/files/%E8%AB%96%E5%8F%A241%285%29-01%20.pdf" target="_blank" rel="noopener">皇學館大学リポジトリ</a> — 『尊卑分脈』と尾張源氏系譜研究</li>
-<li><a href="https://museum.umic.jp/ikushima/kishomon/nanakajyo.html" target="_blank" rel="noopener">上田市立博物館</a> — 生島足島神社起請文・浦野幸次／信慶</li>
-<li><a href="https://lib.city.takasaki.gunma.jp/viewer/info.html?g=12&id=110" target="_blank" rel="noopener">高崎市立図書館／新編高崎市史</a> — 浦野新八郎・西上野関係</li>
-<li><a href="https://sitereports.nabunken.go.jp/" target="_blank" rel="noopener">全国遺跡報告総覧</a> — 根小屋城跡・信州街道・浦野文書研究等</li>
-<li><a href="https://adeac.jp/city-aizuwakamatsu/catalog/mp400060-100040" target="_blank" rel="noopener">会津若松市デジタルアーカイブ</a> — 浦野勝平所蔵四十一通</li>
-<li><a href="https://adeac.jp/city-aizuwakamatsu/texthtml/d100010/mp010010-100000/ht102400" target="_blank" rel="noopener">会津若松市史資料</a> — 浦野家の本姓・本国・家紋・菩提寺</li>
-<li><a href="https://crd.ndl.go.jp/reference/" target="_blank" rel="noopener">国立国会図書館 レファレンス協同DB</a> — 松代藩分限帳、浦野一歩等</li>
-<li><a href="https://www.city.akiruno.tokyo.jp/cmsfiles/contents/0000005/5474/17.pdf" target="_blank" rel="noopener">あきる野市文化財資料</a> — 戸倉村の旧家・浦野家</li>
-<li><a href="https://adeac.jp/toyota-city/" target="_blank" rel="noopener">豊田市デジタルアーカイブ</a> — 八草・中条氏など地域史</li>
-<li><a href="https://www.town.oto.fukuoka.jp/kiji003204/index.html" target="_blank" rel="noopener">福岡県大任町</a> — 町史・地域沿革</li>
-<li><a href="https://kobunsyokan.pref.fukuoka.lg.jp/" target="_blank" rel="noopener">福岡共同公文書館</a> — 大任村公文書</li>
-<li><a href="https://myoji-yurai.net/searchResult.htm?myojiKanji=%E6%B5%A6%E9%87%8E" target="_blank" rel="noopener">名字由来net</a> — 現代の人数・分布推計（参考値）</li>
-</ul>
-<p class="note">研究上の注意：名字人口は推計値です。また、「浦野姓であること」だけでは血縁・同祖を証明しません。家紋・地名・家伝も単独では直系証明にならないため、個別家系の確定には連続する戸籍・除籍、宗門帳、過去帳、墓碑、家譜等の照合が必要です。</p>
+<section class="section" id="sources"><div class="kicker">11 / SOURCES</div><h2 class="serif">主な出典・参照先</h2>
+<div class="sources">
+<div class="source-card"><a href="https://dl.ndl.go.jp/" target="_blank">国立国会図書館デジタルコレクション</a><div>『吾妻鏡』『新編武蔵風土記稿』等</div></div>
+<div class="source-card"><a href="https://adeac.jp/npmh/top/" target="_blank">長野県立歴史館／信濃史料</a><div>浦野庄・武田氏文書</div></div>
+<div class="source-card"><a href="https://kogakkan.repo.nii.ac.jp/record/1177/files/%E8%AB%96%E5%8F%A241%285%29-01%20.pdf" target="_blank">皇學館大学リポジトリ</a><div>尊卑分脈・尾張源氏研究</div></div>
+<div class="source-card"><a href="https://museum.umic.jp/ikushima/kishomon/nanakajyo.html" target="_blank">上田市立博物館</a><div>生島足島神社起請文</div></div>
+<div class="source-card"><a href="https://lib.city.takasaki.gunma.jp/viewer/info.html?g=12&id=110" target="_blank">高崎市立図書館／新編高崎市史</a><div>浦野新八郎・西上野関係</div></div>
+<div class="source-card"><a href="https://archive.keiyou.jp/gpa/" target="_blank">群馬県立文書館デジタルアーカイブ</a><div>浦野恒彦家文書・浦野安孫家文書・大戸浦野系図資料</div></div>
+<div class="source-card"><a href="https://adeac.jp/city-aizuwakamatsu/" target="_blank">会津若松市デジタルアーカイブ</a><div>浦野勝平文書・会津浦野家資料</div></div>
+<div class="source-card"><a href="https://crd.ndl.go.jp/reference/" target="_blank">国立国会図書館 レファレンス協同DB</a><div>松代藩分限帳・浦野一歩など</div></div>
+<div class="source-card"><a href="https://www.city.akiruno.tokyo.jp/cmsfiles/contents/0000005/5474/17.pdf" target="_blank">あきる野市文化財資料</a><div>戸倉村旧家・浦野家</div></div>
+<div class="source-card"><a href="https://adeac.jp/toyota-city/" target="_blank">豊田市デジタルアーカイブ</a><div>八草・中条氏等の地域史</div></div>
+<div class="source-card"><a href="https://www.city.sano.lg.jp/" target="_blank">佐野市</a><div>佐野地域史・旧村資料</div></div>
+<div class="source-card"><a href="https://www.pref.tochigi.lg.jp/" target="_blank">栃木県</a><div>市町村変遷・足利郡吾妻村関係</div></div>
+<div class="source-card"><a href="https://myoji-yurai.net/" target="_blank">名字由来net</a><div>現代名字人口・分布推計</div></div>
+<div class="source-card"><a href="https://name-power.net/" target="_blank">日本姓氏語源辞典／人名力</a><div>市町村・町丁別の浦野姓分布参考値</div></div>
+</div>
+<p class="note">史料の扱い：A＝同時代文書・公的史料、B＝後世系図・自治体史で有力、C＝家伝・伝承、D＝分布からの仮説。名字人口は推計値であり、姓の一致だけで血縁・同祖を証明するものではありません。</p>
 </section>
 </main>
-
-<footer><div class="foot"><div><h3 class="serif">浦野一族800年史</h3><div>史料でたどる、浦野という名の800年。</div></div><div class="note">公開版 / 2026年9月　© Research compilation</div></div></footer>
-<script>
-addEventListener('scroll',()=>{const h=document.documentElement;const p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.getElementById('progress').style.width=p+'%'});
-</script>
+<footer><div class="foot"><div><h3 class="serif">浦野一族800年史</h3><div>人を知り、地を知り、史を知る。</div></div><div class="note">最新版 / 2026年9月</div></div></footer>
+<script>addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'});</script>
 </body></html>
