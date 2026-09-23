@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="立入一族の歴史。滋賀県守山市立入町、立入姓の全国分布、立入城、松田氏、禁裏御倉職立入家の歴史を総合整理。">
+<title>立入一族の歴史</title>
+<style>
+:root{
+  --ink:#0f2743; --ink2:#17395e; --gold:#b7924b; --paper:#f7f2e8; --paper2:#efe6d5;
+  --red:#8b2e2e; --green:#49634a; --muted:#64748b; --line:#d5c7ac; --white:#fff;
+  --shadow:0 18px 45px rgba(15,39,67,.14); --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:#172033;background:
+  radial-gradient(circle at 10% 0%,rgba(183,146,75,.12),transparent 28%),
+  linear-gradient(180deg,#fbf8f2 0%,#f4efe5 100%);
+  font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Meiryo",system-ui,sans-serif;line-height:1.85}
+a{color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1180px,92vw);margin:auto}
+.hero{min-height:88vh;color:white;position:relative;overflow:hidden;background:
+ linear-gradient(120deg,rgba(10,27,47,.97),rgba(17,53,85,.88)),
+ url("assets/tateiri_01.webp") center/cover}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:180px;background:linear-gradient(transparent,#f7f2e8)}
+.hero-inner{position:relative;z-index:2;padding:110px 0 180px}
+.kicker{display:inline-flex;gap:.6em;align-items:center;border:1px solid rgba(255,255,255,.28);padding:.45rem .9rem;border-radius:999px;font-size:.86rem;letter-spacing:.16em;background:rgba(255,255,255,.08)}
+h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(3rem,7vw,6.7rem);line-height:1.05;margin:.25em 0 .18em;letter-spacing:.08em}
+.hero p{font-size:clamp(1rem,2vw,1.3rem);max-width:780px;color:#edf4fb}
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:2rem}
+.stat{background:rgba(255,255,255,.09);backdrop-filter:blur(7px);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:17px}
+.stat b{font-size:1.55rem;color:#f4d89d;display:block}
+.nav{position:sticky;top:0;z-index:30;background:rgba(247,242,232,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .container{display:flex;gap:18px;align-items:center;overflow:auto;padding:12px 0;white-space:nowrap}
+.nav a{text-decoration:none;font-weight:700;font-size:.9rem;color:var(--ink)}
+section{padding:86px 0}
+.section-title{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:end;margin-bottom:34px}
+.section-no{font-family:Georgia,serif;color:var(--gold);font-size:3.5rem;line-height:1}
+h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;color:var(--ink);font-size:clamp(2rem,4vw,3.4rem);margin:0;line-height:1.25}
+.lead{color:#465569;font-size:1.08rem;max-width:900px}
+.panel{background:rgba(255,255,255,.78);border:1px solid #dfd4bf;border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.badges{display:flex;gap:9px;flex-wrap:wrap}.badge{padding:.35rem .7rem;border-radius:999px;background:#e8edf2;color:var(--ink);font-weight:800;font-size:.78rem}
+.badge.confirmed{background:#e8f2e9;color:#31573a}.badge.hyp{background:#fff0d6;color:#825b17}.badge.open{background:#f8dfdf;color:#7d2626}
+.chart{display:flex;align-items:end;gap:13px;height:260px;padding:20px 0 34px;border-bottom:1px solid #aaa}
+.bar{flex:1;background:linear-gradient(180deg,var(--ink2),var(--ink));border-radius:12px 12px 4px 4px;position:relative;min-width:55px}
+.bar span{position:absolute;bottom:-31px;left:50%;transform:translateX(-50%);font-size:.82rem;white-space:nowrap;font-weight:700}
+.bar b{position:absolute;top:-29px;left:50%;transform:translateX(-50%);color:var(--ink)}
+.timeline{position:relative;margin:34px 0 0;padding-left:30px}
+.timeline:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:3px;background:linear-gradient(var(--gold),var(--ink))}
+.event{position:relative;padding:0 0 26px 24px}.event:before{content:"";position:absolute;left:-28px;top:.55em;width:13px;height:13px;border-radius:50%;background:var(--gold);border:3px solid var(--paper)}
+.event time{font-weight:900;color:var(--red)}
+.tree{display:flex;flex-direction:column;align-items:center;gap:16px}
+.node{background:#fff;border:1px solid var(--line);padding:13px 18px;border-radius:14px;text-align:center;min-width:180px;box-shadow:0 8px 20px rgba(15,39,67,.08)}
+.branch{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;position:relative}
+.arrow{font-size:1.5rem;color:var(--gold)}
+.mapcards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.mapcard{overflow:hidden;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.mapcard iframe{width:100%;height:280px;border:0}
+.mapcard .body{padding:18px}
+.maplink{display:inline-block;background:var(--ink);color:#fff!important;text-decoration:none;padding:.75rem 1rem;border-radius:10px;font-weight:800}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.figure{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.figure img{width:100%;aspect-ratio:16/9;object-fit:cover;cursor:zoom-in}
+.figure figcaption{padding:12px 16px;font-size:.92rem;color:#475569}
+.table-wrap{overflow:auto;border-radius:16px;border:1px solid var(--line);background:#fff}
+table{border-collapse:collapse;width:100%;min-width:720px}
+th,td{padding:13px 15px;border-bottom:1px solid #e8dfcf;text-align:left;vertical-align:top}
+th{background:#f2eadc;color:var(--ink)}
+.note{border-left:5px solid var(--gold);background:#fff9eb;padding:18px 20px;border-radius:0 14px 14px 0}
+.source-list{columns:2;column-gap:34px}.source-list li{break-inside:avoid;margin-bottom:.7rem}
+footer{background:#0c223a;color:#dfe9f4;padding:48px 0;margin-top:60px}
+footer a{color:#f2d394}
+.modal{display:none;position:fixed;z-index:50;inset:0;background:rgba(4,12,22,.92);padding:3vw;align-items:center;justify-content:center}
+.modal.open{display:flex}.modal img{max-width:96vw;max-height:92vh;border-radius:12px}.modal button{position:absolute;right:2vw;top:2vw;background:#fff;border:0;border-radius:999px;width:42px;height:42px;font-size:22px;cursor:pointer}
+@media(max-width:850px){
+ .hero-grid,.grid2,.grid3,.mapcards,.gallery{grid-template-columns:1fr}
+ .hero-inner{padding-top:80px}.hero-grid{grid-template-columns:1fr 1fr}
+ .section-title{grid-template-columns:1fr}.source-list{columns:1}
+ section{padding:60px 0}
+}
+</style>
+</head>
+<body>
+<header class="hero" id="top">
+  <div class="container hero-inner">
+    <span class="kicker">近江・守山｜地名・姓氏・古文書・系譜</span>
+    <h1>立入一族の歴史</h1>
+    <p>滋賀県守山市立入町を起点に、立入姓の分布、中世の立入村・立入城、室町幕府奉行人松田氏、そして禁裏御倉職として京都で活動した立入家までを、確定史料・有力仮説・未証明事項に分けてたどる総合研究ページです。</p>
+    <div class="hero-grid">
+      <div class="stat"><b>約1,100人</b>立入姓の全国推計人口</div>
+      <div class="stat"><b>1309年</b>「立入の村」が文献に見える時期</div>
+      <div class="stat"><b>1509年頃</b>宗康が禁裏御倉職として確認可能</div>
+      <div class="stat"><b>10図版</b>研究内容をビジュアル化</div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav"><div class="container">
+<a href="#overview">総論</a><a href="#distribution">姓の分布</a><a href="#place">地名史</a><a href="#sites">史跡</a><a href="#castle">立入城</a><a href="#matsuda">松田氏</a><a href="#lineage">宗康以後</a><a href="#maps">Google Map</a><a href="#gallery">図版10枚</a><a href="#sources">出典</a>
+</div></nav>
+
+<main>
+<section id="overview"><div class="container">
+  <div class="section-title"><div class="section-no">01</div><div><h2>総論――「土地の歴史」と「家の歴史」を分けて考える</h2></div></div>
+  <p class="lead">立入の研究では、①守山の土地としての立入、②立入姓の成立、③京都の禁裏御倉職立入家、④立入家に伝来した松田氏文書、を一度分けて考え、史料によって再接続することが重要です。</p>
+  <div class="grid3">
+    <div class="panel"><div class="badges"><span class="badge confirmed">確定度：高</span></div><h3>地名「立入」</h3><p>宗康以前から存在。少なくとも鎌倉時代には「立入の村」という村名が確認できる。</p></div>
+    <div class="panel"><div class="badges"><span class="badge hyp">有力仮説</span></div><h3>地名姓としての立入氏</h3><p>土地の名「立入」を称した一族が成立したとみるのが自然。ただし名字成立の瞬間を示す同時代文書は未確認。</p></div>
+    <div class="panel"><div class="badges"><span class="badge open">未証明</span></div><h3>松田氏から宗康への直系</h3><p>松田氏との関係を示唆する材料は多いが、宗康の父祖を一直線につなぐ一次史料はまだ不足している。</p></div>
+  </div>
+</div></section>
+
+<section id="distribution"><div class="container">
+  <div class="section-title"><div class="section-no">02</div><div><h2>立入姓の全国分布</h2></div></div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>都道府県別 推計人数</h3>
+      <div class="chart" aria-label="立入姓の都道府県別推計人数">
+        <div class="bar" style="height:100%"><b>340</b><span>滋賀</span></div>
+        <div class="bar" style="height:50%"><b>170</b><span>大阪</span></div>
+        <div class="bar" style="height:41%"><b>140</b><span>京都</span></div>
+        <div class="bar" style="height:29%"><b>100</b><span>神奈川</span></div>
+        <div class="bar" style="height:26%"><b>90</b><span>埼玉</span></div>
+      </div>
+      <p class="note">推計値。少人数地域ほどデータベース間の差が出やすいため、厳密な住民基本台帳人口とは区別して扱います。</p>
+    </div>
+    <div class="panel">
+      <h3>分布から見える特徴</h3>
+      <ul>
+        <li>全国推計は約1,100人、全国名字順位は約7,500位前後。</li>
+        <li>滋賀県が最大の集積地で、湖南市・野洲市・守山市が重要。</li>
+        <li>大阪・京都にもまとまった分布があり、近江―京都―大阪の移動史を考える手掛かりになる。</li>
+        <li>現代分布は血統そのものの証明ではなく、調査地点を絞るための地理的手掛かり。</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="place"><div class="container">
+  <div class="section-title"><div class="section-no">03</div><div><h2>地名としての立入</h2></div></div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>地名史の流れ</h3>
+      <div class="timeline">
+        <div class="event"><time>古墳時代</time><br>立入荒牧遺跡、立入古墳、大塚古墳などから地域の古い生活痕跡を確認。</div>
+        <div class="event"><time>平安時代後期</time><br>東福寺に伝わる木造薬師如来坐像などが、地域の信仰史を考える重要資料となる。</div>
+        <div class="event"><time>1309年</time><br>『夫木和歌抄』系の伝承に「立入の村」が見える。</div>
+        <div class="event"><time>1591年</time><br>「立入」480石4斗1升の記録が見え、近世村落としての姿が具体化する。</div>
+        <div class="event"><time>1970年7月1日</time><br>行政上の住所名として「立入町」が成立。</div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>地名 → 名字という成立モデル</h3>
+      <p><b>立入という土地が先にあり、その土地に関係する在地勢力が「立入」を名字として称した</b>とみるモデルが、現在最も整合的です。</p>
+      <div class="note">「館の入口」「城への入口」などの語源解釈は魅力的ですが、それを裏付ける一次史料は現時点では確認できません。</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="sites"><div class="container">
+  <div class="section-title"><div class="section-no">04</div><div><h2>立入の史跡と信仰</h2></div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>史跡</th><th>歴史上の意味</th><th>史料上の注意</th></tr></thead>
+    <tbody>
+      <tr><td>東福寺</td><td>平安時代後期の木造薬師如来坐像など、古い地域信仰の核。</td><td>仏像の制作年代と、現在の村域成立は同一ではない。</td></tr>
+      <tr><td>新川神社</td><td>野洲川沿いの水神信仰、水害・農耕と地域生活の記憶。</td><td>由緒は伝承と史料を区別する必要がある。</td></tr>
+      <tr><td>西隆寺</td><td>「立入荘」「立入利国」に関する再興伝承を残す。</td><td>1693年縁起など後世史料に依存する部分がある。</td></tr>
+      <tr><td>立入荒牧遺跡・古墳群</td><td>古墳時代から地域に人の営みが続くことを示す。</td><td>遺跡の連続性と特定家系の連続性は別問題。</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="castle"><div class="container">
+  <div class="section-title"><div class="section-no">05</div><div><h2>中世の立入村と立入城</h2></div></div>
+  <div class="grid3">
+    <div class="panel"><h3>立入村</h3><p>鎌倉後期には村名が確認でき、中世から近世にかけて農村として継続したと考えられる。</p></div>
+    <div class="panel"><h3>立入城</h3><p>中世城館遺跡として知られる。築城者は「秀興」説、「立入因幡守清直」説など複数伝承があり、史料批判が必要。</p></div>
+    <div class="panel"><h3>野洲川と水田</h3><p>村の生産基盤は水田と用水。野洲川の恵みと洪水への対応が、集落の構造を形作った。</p></div>
+  </div>
+</div></section>
+
+<section id="matsuda"><div class="container">
+  <div class="section-title"><div class="section-no">06</div><div><h2>松田氏と立入家の接点</h2></div></div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>確認できる松田氏の人物</h3>
+      <div class="timeline">
+        <div class="event"><time>14世紀</time><br><b>松田貞秀</b>――室町幕府奉行人。立入家には『松田貞秀歌集』が伝来。</div>
+        <div class="event"><time>1352年</time><br><b>松田頼胤</b>――「松田修理進」宛の足利義詮関係文書写が立入家文書に残る。</div>
+        <div class="event"><time>1450～1470年代</time><br><b>松田秀興</b>――1468年史料で「松田丹後前司平朝臣」。宗康の父世代に当たる。</div>
+        <div class="event"><time>15世紀末～16世紀初頭</time><br><b>松田長秀・頼亮</b>――1499年・1504年に別々の人物として連署。</div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>最重要ポイント</h3>
+      <p><b>「松田氏文書が立入家に伝来した」こと自体は事実ですが、それだけで直系血縁を証明することはできません。</b></p>
+      <div class="badges">
+        <span class="badge confirmed">文書伝来：確実</span>
+        <span class="badge hyp">松田氏出自：有力</span>
+        <span class="badge open">直系接続：未証明</span>
+      </div>
+      <p>養子・婚姻・職務継承・文書収集など、複数の伝来経路を検討する必要があります。</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="lineage"><div class="container">
+  <div class="section-title"><div class="section-no">07</div><div><h2>立入宗康以後――史料で追える家系</h2></div></div>
+  <div class="panel">
+    <div class="tree">
+      <div class="node"><b>立入宗康</b><br><small>1509年までには禁裏御倉職</small></div>
+      <div class="arrow">↓</div>
+      <div class="node"><b>立入宗長</b><br><small>宗康の子・御倉職継承</small></div>
+      <div class="arrow">↓</div>
+      <div class="branch">
+        <div class="node"><b>興次（與次）</b><br><small>宗継の兄・御倉職継承の痕跡</small></div>
+        <div class="node"><b>宗継（與介・隆佐）</b><br><small>京都町衆・禁裏御倉職</small></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="node"><b>康善</b><br><small>宗継の次男・勧修寺家家司</small></div>
+      <div class="arrow">↓</div>
+      <div class="node"><b>近世の立入家</b><br><small>明治維新まで禁裏御倉職を保持</small></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="maps"><div class="container">
+  <div class="section-title"><div class="section-no">08</div><div><h2>立入を歩く――Googleマップ連携</h2></div></div>
+  <p class="lead">地理を確認しながら史跡を追えるよう、主要地点をGoogleマップへ直接リンクしています。</p>
+  <div class="mapcards">
+    <article class="mapcard">
+      <iframe loading="lazy" src="https://www.google.com/maps?q=%E6%BB%8B%E8%B3%80%E7%9C%8C%E5%AE%88%E5%B1%B1%E5%B8%82%E7%AB%8B%E5%85%A5%E7%94%BA&output=embed"></iframe>
+      <div class="body"><h3>守山市 立入町</h3><p>立入の地名史・村落史を考える中心地点。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%BB%8B%E8%B3%80%E7%9C%8C%E5%AE%88%E5%B1%B1%E5%B8%82%E7%AB%8B%E5%85%A5%E7%94%BA">Googleマップで開く</a></div>
+    </article>
+    <article class="mapcard">
+      <iframe loading="lazy" src="https://www.google.com/maps?q=%E6%9D%B1%E7%A6%8F%E5%AF%BA%20%E5%AE%88%E5%B1%B1%E5%B8%82%E7%AB%8B%E5%85%A5%E7%94%BA&output=embed"></iframe>
+      <div class="body"><h3>東福寺</h3><p>平安時代後期の仏像を伝える寺院。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E7%A6%8F%E5%AF%BA%20%E5%AE%88%E5%B1%B1%E5%B8%82%E7%AB%8B%E5%85%A5%E7%94%BA">Googleマップで開く</a></div>
+    </article>
+    <article class="mapcard">
+      <iframe loading="lazy" src="https://www.google.com/maps?q=%E6%96%B0%E5%B7%9D%E7%A5%9E%E7%A4%BE%20%E5%AE%88%E5%B1%B1%E5%B8%82%E7%AB%8B%E5%85%A5%E7%94%BA&output=embed"></iframe>
+      <div class="body"><h3>新川神社</h3><p>野洲川と水神信仰を考える地域史のポイント。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%B7%9D%E7%A5%9E%E7%A4%BE%20%E5%AE%88%E5%B1%B1%E5%B8%82%E7%AB%8B%E5%85%A5%E7%94%BA">Googleマップで開く</a></div>
+    </article>
+    <article class="mapcard">
+      <iframe loading="lazy" src="https://www.google.com/maps?q=%E8%A5%BF%E9%9A%86%E5%AF%BA%20%E5%AE%88%E5%B1%B1%E5%B8%82%E5%B2%A1%E7%94%BA&output=embed"></iframe>
+      <div class="body"><h3>西隆寺</h3><p>立入荘・立入利国の再興伝承を考える寺院。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E8%A5%BF%E9%9A%86%E5%AF%BA%20%E5%AE%88%E5%B1%B1%E5%B8%82%E5%B2%A1%E7%94%BA">Googleマップで開く</a></div>
+    </article>
+  </div>
+</div></section>
+
+<section id="gallery"><div class="container">
+  <div class="section-title"><div class="section-no">09</div><div><h2>立入一族の歴史――図版10枚</h2></div></div>
+  <p class="lead">今回の研究内容を10枚のインフォグラフィックとして再構成しました。クリックすると拡大表示します。Web表示には軽量化した高解像度画像を使用しています。</p>
+  <div class="gallery">
+<figure class="figure"><img src="assets/tateiri_01.webp" alt="総論｜立入一族の歴史" data-full="assets/tateiri_01.webp"><figcaption>01｜総論｜立入一族の歴史</figcaption></figure>
+<figure class="figure"><img src="assets/tateiri_02.webp" alt="立入姓の全国分布" data-full="assets/tateiri_02.webp"><figcaption>02｜立入姓の全国分布</figcaption></figure>
+<figure class="figure"><img src="assets/tateiri_03.webp" alt="地名としての立入" data-full="assets/tateiri_03.webp"><figcaption>03｜地名としての立入</figcaption></figure>
+<figure class="figure"><img src="assets/tateiri_04.webp" alt="立入の史跡と信仰" data-full="assets/tateiri_04.webp"><figcaption>04｜立入の史跡と信仰</figcaption></figure>
+<figure class="figure"><img src="assets/tateiri_05.webp" alt="中世の立入村と立入城" data-full="assets/tateiri_05.webp"><figcaption>05｜中世の立入村と立入城</figcaption></figure>
+<figure class="figure"><img src="assets/tateiri_06.webp" alt="松田氏と立入家の接点" data-full="assets/tateiri_06.webp"><figcaption>06｜松田氏と立入家の接点</figcaption></figure>
+<figure class="figure"><img src="assets/tateiri_07.webp" alt="松田貞秀の再構成" data-full="assets/tateiri_07.webp"><figcaption>07｜松田貞秀の再構成</figcaption></figure>
+<figure class="figure"><img src="assets/tateiri_08.webp" alt="秀興・長秀・頼亮の照合" data-full="assets/tateiri_08.webp"><figcaption>08｜秀興・長秀・頼亮の照合</figcaption></figure>
+<figure class="figure"><img src="assets/tateiri_09.webp" alt="立入宗康以後の家系" data-full="assets/tateiri_09.webp"><figcaption>09｜立入宗康以後の家系</figcaption></figure>
+<figure class="figure"><img src="assets/tateiri_10.webp" alt="総括と今後の研究課題" data-full="assets/tateiri_10.webp"><figcaption>10｜総括と今後の研究課題</figcaption></figure>
+
+  </div>
+  <p class="note" style="margin-top:22px">図版はAI生成の参考イメージです。図版内の文字・数値・地図・系譜には誤記があり得ます。正確な記述は本文・出典およびGoogleマップを優先してください。表示している紋様はデザイン上の意匠であり、実際の立入家の家紋を確定するものではありません。</p>
+</div></section>
+
+<section id="research"><div class="container">
+  <div class="section-title"><div class="section-no">10</div><div><h2>結論と今後の研究課題</h2></div></div>
+  <div class="grid3">
+    <div class="panel"><h3>確定</h3><ul><li>立入の地名は宗康以前から存在</li><li>1309年頃には「立入の村」</li><li>宗康以後の系譜は比較的追える</li><li>立入家に松田氏関係文書が伝来</li></ul></div>
+    <div class="panel"><h3>有力仮説</h3><ul><li>立入氏は地名姓</li><li>松田氏と立入家に深い関係</li><li>秀興が宗康の父世代として重要候補</li></ul></div>
+    <div class="panel"><h3>未証明</h3><ul><li>貞秀→秀興→宗康の連続系譜</li><li>藤原鎌足・秀郷までの連続証明</li><li>松田文書の立入家への移動理由</li><li>奈良・平安期からの家系連続</li></ul></div>
+  </div>
+</div></section>
+
+<section id="sources"><div class="container">
+  <div class="section-title"><div class="section-no">資料</div><div><h2>主要史料・研究・参考先</h2></div></div>
+  <div class="panel">
+    <ul class="source-list">
+      <li>設楽薫「室町幕府奉行人松田丹後守流の世系と家伝史料―『松田長秀記』の成立について―」『室町時代研究』第2号（2008）</li>
+      <li>田中誠「室町幕府奉行人丹後松田氏の研究―南北朝期を中心に―」</li>
+      <li>『立入宗継文書・川端道喜文書』（1937）所収「立入家系図」</li>
+      <li>京都市文化財「立入家文書」</li>
+      <li>東寺百合文書（京都府立京都学・歴彩館）</li>
+      <li>『日本歴史地名大系』立入村・西隆寺関連項目</li>
+      <li>滋賀県立図書館 レファレンス協同データベース「立入城」関係調査</li>
+      <li>守山市 埋蔵文化財・遺跡一覧</li>
+      <li>滋賀県神社庁 新川神社</li>
+      <li>滋賀県観光情報 東福寺</li>
+    </ul>
+  </div>
+</div></section>
+</main>
+
+<div class="modal" id="modal" aria-hidden="true"><button aria-label="閉じる">×</button><img alt=""></div>
+
+<footer><div class="container">
+  <h2 style="color:#fff;font-size:2rem">立入一族の歴史</h2>
+  <p>近江・守山の土地、立入姓、松田氏伝来文書、禁裏御倉職立入家を横断して考える研究ページ。</p>
+  <p><a href="#top">ページ上部へ戻る ↑</a></p>
+</div></footer>
+
+<script>
+const modal=document.getElementById('modal'), modalImg=modal.querySelector('img');
+document.querySelectorAll('.figure img').forEach(img=>img.addEventListener('click',()=>{
+  modalImg.src=img.dataset.full; modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+}));
+modal.querySelector('button').addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal) closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModal()});
+function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');modalImg.src=''}
+</script>
+</body>
+</html>
