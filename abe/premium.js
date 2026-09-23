@@ -97,7 +97,7 @@ if(lb&&!$(".lb-count",lb)){
  var prev=element('<button class="lightbox-nav prev" type="button" aria-label="前の図版">‹</button>');
  var next=element('<button class="lightbox-nav next" type="button" aria-label="次の図版">›</button>');
  lb.append(count,prev,next);
- function show(i){index=(i+imgs.length)%imgs.length;var target=$('img',lb);target.src=imgs[index].src;target.alt=imgs[index].alt;count.textContent=(index+1)+' / '+imgs.length}
+ async function show(i){index=(i+imgs.length)%imgs.length;var selected=index,im=imgs[selected];count.textContent=(selected+1)+' / '+imgs.length;if(typeof hydrateImage==='function'&&im.dataset.srcB64){await hydrateImage(im)}if(index!==selected)return;var target=$('img',lb);target.src=im.src;target.alt=im.alt}
  imgs.forEach(function(im,i){im.addEventListener('click',function(){show(i)},true)});
  $$('.figure img').forEach(function(im){im.addEventListener('click',function(){var j=imgs.findIndex(function(g){return g.src===im.src});if(j>=0)show(j)},true)});
  prev.addEventListener('click',function(e){e.stopPropagation();show(index-1)});
