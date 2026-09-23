@@ -44,7 +44,7 @@ if(dist&&!$(".premium-maps",dist)){
  '<p class="note">現在の分布だけから、古代の起源地や全員の共通祖先は確定できません。</p></div></div>';
  var grid='<div class="premium-maps"><span class="premium-caption">HISTORICAL & DISTRIBUTION MAPS</span><h3>重要地点をGoogleマップで確認</h3><p class="note">以下は研究上の地名・史跡へのリンクです。宇佐の墓碑は伝承地点であり、正確な位置を確約するものではありません。</p><div class="premium-map-grid">'+
  maps.map(function(x){return '<article class="premium-map-card"><small>'+x[1]+'</small><h3>'+x[0]+'</h3><p>'+x[3]+'</p>'+gmap(x[0],x[2])+'</article>'}).join('')+'</div></div>';
- addBefore(dist,d+grid)
+ addBefore(dist,d);addBefore(dist,grid)
 }
 var kum=$("#kumamoto");
 if(kum&&!$(".premium-route",kum)){
