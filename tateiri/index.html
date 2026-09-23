@@ -80,6 +80,46 @@ footer a{color:#f2d394}
  .section-title{grid-template-columns:1fr}.source-list{columns:1}
  section{padding:60px 0}
 }
+
+/* Kyoto–Edo–Tokyo special feature */
+.tokyo-chapter{background:linear-gradient(180deg,#eaf0f4 0%,#fbf6ed 26%,#eef1ed 100%);border-top:3px solid #b7924b}
+.tokyo-chapter .section-title{align-items:start}
+.tokyo-hero{display:flex;align-items:stretch;gap:12px;margin:30px 0}
+.tokyo-hero-item{flex:1;background:#123250;color:white;padding:24px;border-radius:18px;min-width:0;box-shadow:var(--shadow)}
+.tokyo-hero-item span{display:block;font-size:.8rem;letter-spacing:.1em;color:#ebcf90}
+.tokyo-hero-item b{font-family:"Yu Mincho",serif;display:block;font-size:1.28rem;margin:.35rem 0}
+.tokyo-hero-item small{color:#e5edf4}
+.tokyo-arrow{font-weight:900;font-size:2rem;color:#a88446;align-self:center}
+.tokyo-warning{border-left:6px solid #b0833b;background:#fffaed;padding:20px 24px;border-radius:4px 16px 16px 4px;margin:25px 0}
+.tokyo-warning strong{display:block;font-size:1.1rem;color:#543910}
+.tokyo-h3{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(1.45rem,2.4vw,2.2rem);border-bottom:2px solid #b7924b;color:#113454;padding-bottom:12px;margin:60px 0 26px}
+.tokyo-streams{display:grid;gap:18px}
+.tokyo-stream{background:white;border:1px solid #d2c8b4;border-radius:16px;padding:24px;box-shadow:0 10px 28px rgba(15,39,67,.07)}
+.tokyo-stream-head{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.tokyo-stream-head b{font-size:1.2rem;color:#0e3152}
+.tokyo-dot{width:15px;height:15px;border-radius:50%;background:#627f66;display:inline-block}
+.tokyo-dot.blue{background:#3d74a5}.tokyo-dot.ochre{background:#b98a46}
+.tokyo-milestones{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tokyo-milestones span{display:inline-block;background:#edf1f2;padding:6px 12px;border-radius:30px;color:#193b50;font-size:.85rem;font-weight:700}
+.tokyo-limitation{font-size:.88rem;color:#6c5138;background:#f9f1e4;padding:10px 13px;border-radius:10px;margin-top:15px}
+.tokyo-person{height:100%}
+.tokyo-person-head{display:flex;align-items:center;gap:16px}
+.tokyo-person-head h4{font-size:1.5rem;margin:.2em 0 0;color:#10304e}
+.tokyo-person-head h4 small{font-size:.8rem;font-weight:normal}
+.tokyo-person-head p{font-size:.9rem;margin:0;color:#5c6b7b}
+.tokyo-icon{display:inline-grid;place-items:center;background:#173d61;color:#f6e3ab;width:60px;height:60px;flex-shrink:0;border-radius:18px;font-family:"Yu Mincho",serif;font-size:1.7rem}
+.tokyo-people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.tokyo-chapter a:not(.tokyo-map){color:#215d8a;text-underline-offset:3px}
+.tokyo-mapgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.tokyo-map{text-decoration:none;color:#153452;background:#fff;border:1px solid #d5c7ac;border-radius:16px;padding:19px;display:flex;flex-direction:column;gap:6px;min-height:170px;transition:transform .18s,box-shadow .18s}
+.tokyo-map:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.tokyo-map b{font-size:1.08rem}.tokyo-map small{color:#4a6075}.tokyo-map em{font-style:normal;color:#2469a0;font-weight:800;font-size:.85rem;margin-top:auto}
+.tokyo-map-pin{color:#ae543a;font-size:1.3rem}
+.tokyo-sources{columns:2;gap:28px}
+.tokyo-sources li{break-inside:avoid;margin-bottom:12px}
+@media(max-width:850px){.tokyo-hero{flex-direction:column}.tokyo-arrow{transform:rotate(90deg)}.tokyo-people{grid-template-columns:1fr}.tokyo-mapgrid{grid-template-columns:1fr 1fr}.tokyo-sources{columns:1}}
+@media(max-width:560px){.tokyo-mapgrid{grid-template-columns:1fr}.tokyo-person-head{align-items:start}}
+
 </style>
 </head>
 <body>
@@ -98,7 +138,7 @@ footer a{color:#f2d394}
 </header>
 
 <nav class="nav"><div class="container">
-<a href="#overview">総論</a><a href="#distribution">姓の分布</a><a href="#place">地名史</a><a href="#sites">史跡</a><a href="#castle">立入城</a><a href="#matsuda">松田氏</a><a href="#lineage">宗康以後</a><a href="#maps">Google Map</a><a href="#gallery">図版10枚</a><a href="#sources">出典</a>
+<a href="#overview">総論</a><a href="#distribution">姓の分布</a><a href="#place">地名史</a><a href="#sites">史跡</a><a href="#castle">立入城</a><a href="#matsuda">松田氏</a><a href="#lineage">宗康以後</a><a href="#tokyo" style="color:#875b22">京都→江戸→東京［NEW］</a><a href="#maps">Google Map</a><a href="#gallery">図版10枚</a><a href="#sources">出典</a>
 </div></nav>
 
 <main>
@@ -226,6 +266,142 @@ footer a{color:#f2d394}
   </div>
 </div></section>
 
+
+<section id="tokyo" class="tokyo-chapter">
+<div class="container">
+  <div class="section-title"><div class="section-no">特集</div><div>
+    <span class="badge confirmed">2026年9月 追補版</span>
+    <h2>京都から江戸、そして東京へ</h2>
+    <p class="lead">禁裏御倉職の家の継承、近江の大溝藩、若狭から江戸へ移った国学者、明治の帝国議会、そして近現代の医学・環境科学・美術史。東京に関わる「立入」の実像を、人物ごとの同時代記録と公的機関の資料に沿って整理します。</p>
+  </div></div>
+  <div class="tokyo-hero">
+    <div class="tokyo-hero-item"><span>近江・京都</span><b>禁裏御倉職</b><small>宗康から宗継、近世の地下官人へ</small></div>
+    <span class="tokyo-arrow" aria-hidden="true">→</span>
+    <div class="tokyo-hero-item"><span>江戸時代</span><b>複数の流入経路</b><small>大溝藩／若狭の国学者など</small></div>
+    <span class="tokyo-arrow" aria-hidden="true">→</span>
+    <div class="tokyo-hero-item"><span>明治～現代</span><b>政治・実業・学術</b><small>東京での活動は確認、血縁は別途検証</small></div>
+  </div>
+  <div class="tokyo-warning" role="note">
+    <strong>家系調査の原則</strong>
+    「立入姓で東京に関わった」という事実は「京都の御倉職立入家の直系」という証明ではありません。大溝藩士家・伊賀の立入家・若狭関係・近現代の同姓人物を、明治期の本籍・父子関係が確認されるまで無理に接続しません。
+  </div>
+
+  <h3 class="tokyo-h3">江戸・東京への経路図</h3>
+  <div class="tokyo-streams">
+    <article class="tokyo-stream">
+      <div class="tokyo-stream-head"><span class="tokyo-dot"></span><b>A｜京都・禁裏御倉職立入家</b><span class="badge confirmed">宗康以後は史料が豊富</span></div>
+      <p>宗康 → 宗長 → 興次・宗継 → 近世の立入家。御倉職の実務縮小後も、勧修寺家に仕える地下官人として明治を迎えました。京都市が伝来文書696点を保管しています。<a href="#ts1">[資料1]</a></p>
+      <div class="tokyo-milestones"><span>16世紀｜朝廷財政</span><span>近世｜公家家司</span><span>1891年｜裔孫「操」</span><span>1909年｜宗興履歴書</span></div>
+      <p class="tokyo-limitation">「操」と「宗興」の父子・兄弟関係、宗興の東京転籍は、履歴書・家譜の本文未照合のため確定していません。</p>
+    </article>
+    <article class="tokyo-stream">
+      <div class="tokyo-stream-head"><span class="tokyo-dot blue"></span><b>B｜大溝藩の立入姓と江戸屋敷</b><span class="badge hyp">勤務者を調査中</span></div>
+      <p>近江・高島の大溝藩には、江戸の芝愛宕下（後の新橋方面）に上屋敷、白金に下屋敷がありました。立入姓の藩士がいたとする姓氏関係資料はありますが、個別藩士の実名・江戸詰の有無は給人帳との照合が必要です。<a href="#ts5">[資料5]</a></p>
+      <div class="tokyo-milestones"><span>近江・大溝藩</span><span>芝愛宕下</span><span>白金村</span><span>江戸勤番は未証明</span></div>
+    </article>
+    <article class="tokyo-stream">
+      <div class="tokyo-stream-head"><span class="tokyo-dot ochre"></span><b>C｜若狭・伊賀から東京へ</b><span class="badge confirmed">活動地は確認</span></div>
+      <p>別姓に「立入」を持つ国学者・伴信友は若狭から江戸へ移りました。伊賀の立入奇一は明治期に東京の帝国議会で活動しました。両者が京都立入家と血縁関係にあったかは未確認です。<a href="#ts6">[資料6]</a><a href="#ts8">[資料8]</a></p>
+      <div class="tokyo-milestones"><span>伴信友｜1780年代に江戸</span><span>立入奇一｜1890年代に東京の議会</span></div>
+    </article>
+  </div>
+
+  <h3 class="tokyo-h3">明治の転換点――立入操と宗興</h3>
+  <div class="grid2">
+    <article class="panel tokyo-person">
+      <div class="tokyo-person-head"><span class="tokyo-icon">碑</span><div><div class="badge confirmed">顕彰碑で確認</div><h4>立入操</h4><p>明治24年（1891）の顕彰記録</p></div></div>
+      <p>京都・清浄華院の「立入宗継旌忠碑」は1898年の建立。京都市が公開する碑文には、1891年1月に宗継の裔孫「操」へ500円が下賜されたことが記されています。宗継の顕彰を進めた明治期の後裔に関する、氏名の明確な資料です。<a href="#ts2">[資料2]</a></p>
+      <p class="tokyo-limitation">操の居所、宗興との親子関係、東京への移住は未確認。</p>
+    </article>
+    <article class="panel tokyo-person">
+      <div class="tokyo-person-head"><span class="tokyo-icon">車</span><div><div class="badge confirmed">履歴書・年表に記録</div><h4>立入宗興</h4><p>1909年履歴書／1913年の実業活動</p></div></div>
+      <p>宮内公文書館には「立入宗興履歴書　明治42年」（識別番号31512）があり、全部利用可能です。京都府の公式年表では、1913年3月、資本金10万円で設立された京都自動車工業株式会社の社長として立入宗興の名が記載されています。<a href="#ts3">[資料3]</a><a href="#ts4">[資料4]</a></p>
+      <p class="tokyo-limitation">履歴書原本から本籍、住所、父母、転籍歴を照合しない限り「東京へ移住」とは断定できません。</p>
+    </article>
+  </div>
+
+  <h3 class="tokyo-h3">東京で活動した立入姓――人物・業績・史料</h3>
+  <div class="tokyo-people">
+    <article class="panel tokyo-person">
+      <div class="tokyo-person-head"><span class="tokyo-icon">政</span><div><div class="badge confirmed">帝国議会会議録</div><h4>立入奇一</h4><p>三重県第6区選出の衆議院議員・地方政治史の著述家</p></div></div>
+      <p>1884年に『三重県会沿革集覧』を刊行。1890年の新聞附録には三重県第6区の衆議院議員として肖像が掲載されています。1891年2月16日に北海道炭礦鉄道への補助、1893年2月23日に北里柴三郎が担当した伝染病研究所への補助と設立費の扱いを議会で質問しました。<a href="#ts7">[資料7]</a><a href="#ts8">[資料8]</a><a href="#ts9">[資料9]</a></p>
+      <p class="tokyo-limitation">東京での議員活動は確認できますが、東京への転籍・定住、京都の立入家との親族関係は未確認。</p>
+    </article>
+    <article class="panel tokyo-person">
+      <div class="tokyo-person-head"><span class="tokyo-icon">学</span><div><div class="badge confirmed">國學院大學の人物目録</div><h4>伴信友 <small>1773–1846</small></h4><p>別姓に「山岸・立入」を持つ国学者</p></div></div>
+      <p>若狭国小浜出身で、養子となったのち江戸に来て勤仕したと人物資料に記されています。古典・神道・言語の考証を行った国学者で、立入という別姓と江戸との実際の接点を示します。<a href="#ts6">[資料6]</a></p>
+      <p class="tokyo-limitation">「立入」を名乗った正確な時期・理由と禁裏御倉職立入家との接続は不明。</p>
+    </article>
+    <article class="panel tokyo-person">
+      <div class="tokyo-person-head"><span class="tokyo-icon">医</span><div><div class="badge confirmed">学会沿革・著書</div><h4>立入弘</h4><p>放射線医学者・神経放射線学の組織形成に協力</p></div></div>
+      <p>大阪大学で放射線医学を教え、『放射線医学入門』『診療放射線技術』などを著作・編集。1959年10月には東京・信濃町で日本の神経放射線学の研究組織発足に向けた会合に協力しました。<a href="#ts10">[資料10]</a><a href="#ts11">[資料11]</a></p>
+      <p class="tokyo-limitation">東京での学術活動は確認できますが、東京の立入家の直系だったという根拠は未確認。</p>
+    </article>
+    <article class="panel tokyo-person">
+      <div class="tokyo-person-head"><span class="tokyo-icon">環</span><div><div class="badge confirmed">所属機関・学会公表</div><h4>立入郁</h4><p>地球システムモデル・気候変動研究者</p></div></div>
+      <p>1999年に東京大学大学院農学生命科学研究科博士課程を修了。JAMSTECで地球システムモデルを研究し、IPCC第7次評価報告書・第1作業部会第9章の統括執筆責任者（CLA）に選ばれています。<a href="#ts12">[資料12]</a></p>
+      <p class="tokyo-limitation">東京大学での研究経歴は、東京への定住や京都旧家との血縁の証明ではありません。</p>
+    </article>
+    <article class="panel tokyo-person">
+      <div class="tokyo-person-head"><span class="tokyo-icon">芸</span><div><div class="badge confirmed">研究者情報</div><h4>立入正之</h4><p>美術史・博物館研究者</p></div></div>
+      <p>慶應義塾大学で学び、山梨県立美術館の学芸員、2004～2007年の東京純心大学講師を経て、静岡文化芸術大学の教員として活動。ミレー研究、博物館学、染色型紙などの研究業績が確認できます。<a href="#ts13">[資料13]</a></p>
+      <p class="tokyo-limitation">教育・研究上の東京との関係を示した人物であり、東京居住や旧家の血縁を断定するものではありません。</p>
+    </article>
+    <article class="panel tokyo-person">
+      <div class="tokyo-person-head"><span class="tokyo-icon">品</span><div><div class="badge confirmed">博物館収蔵品</div><h4>1864年「立入氏」の装束</h4><p>江戸東京博物館・資料番号90200344–90200346</p></div></div>
+      <p>包紙に「非常装束　元治元年甲子夏　立入氏」と墨書された装束一式が、江戸東京博物館に保存されています。法被・胸当・石帯の組み合わせで、所有家や使用地を追うことが今後の課題です。<a href="#ts14">[資料14]</a></p>
+      <p class="tokyo-limitation">東京の博物館に収蔵されている事実と、江戸・東京で使われたことは同義ではありません。</p>
+    </article>
+  </div>
+
+  <h3 class="tokyo-h3">京都・江戸・東京を結ぶ年表</h3>
+  <div class="panel">
+    <div class="timeline">
+      <div class="event"><time>1511年</time><br>後柏原天皇女房奉書。京都立入家に伝わる最古級の文書。</div>
+      <div class="event"><time>1569年・1585年</time><br>宗継の時代。信長奉行衆による山国荘支配の承認、秀吉朱印状による岡崎55石の領地承認。</div>
+      <div class="event"><time>江戸時代</time><br>京都立入家は勧修寺家に仕える地下官人へ。別経路として大溝藩の江戸屋敷・若狭から江戸に来た伴信友を調査。</div>
+      <div class="event"><time>1864年</time><br>「立入氏」と墨書された非常装束。現在は江戸東京博物館が所蔵。</div>
+      <div class="event"><time>1884年・1890年代</time><br>立入奇一が地方議会史を刊行し、東京の帝国議会で活動。</div>
+      <div class="event"><time>1891年・1898年</time><br>宗継の裔孫「操」への下賜を1898年建立の旌忠碑が伝える。</div>
+      <div class="event"><time>1909年・1913年</time><br>立入宗興の履歴書が作成され、京都自動車工業株式会社の社長として年表に登場。</div>
+      <div class="event"><time>1959年</time><br>立入弘が東京の神経放射線学会発足準備に協力。</div>
+      <div class="event"><time>近現代</time><br>立入正之の東京での教育活動、立入郁の東京大学での研究経歴が確認できる。</div>
+    </div>
+  </div>
+
+  <h3 class="tokyo-h3">史跡・研究拠点をGoogleマップで確認</h3>
+  <div class="tokyo-mapgrid">
+    <a class="tokyo-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%B8%85%E6%B5%84%E8%8F%AF%E9%99%A2%20%E4%BA%AC%E9%83%BD"><span class="tokyo-map-pin">●</span><b>京都・清浄華院</b><small>宗継の墓所・旌忠碑</small><em>Googleマップで開く ↗</em></a>
+    <a class="tokyo-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E6%96%B0%E6%A9%8B%E4%B8%80%E4%B8%81%E7%9B%AE"><span class="tokyo-map-pin">●</span><b>新橋周辺</b><small>大溝藩上屋敷の所在地域（概略）</small><em>Googleマップで開く ↗</em></a>
+    <a class="tokyo-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E7%99%BD%E9%87%91"><span class="tokyo-map-pin">●</span><b>白金周辺</b><small>大溝藩下屋敷の所在地域（概略）</small><em>Googleマップで開く ↗</em></a>
+    <a class="tokyo-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%9B%BD%E4%BC%9A%E8%AD%B0%E4%BA%8B%E5%A0%82"><span class="tokyo-map-pin">●</span><b>東京・国会議事堂</b><small>立入奇一の帝国議会活動との現代地理上の対応地点</small><em>Googleマップで開く ↗</em></a>
+    <a class="tokyo-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%B1%9F%E6%88%B8%E6%9D%B1%E4%BA%AC%E5%8D%9A%E7%89%A9%E9%A4%A8"><span class="tokyo-map-pin">●</span><b>江戸東京博物館</b><small>1864年の「立入氏」装束を収蔵</small><em>Googleマップで開く ↗</em></a>
+    <a class="tokyo-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E9%83%BD%E5%B8%82%E6%AD%B4%E5%8F%B2%E8%B3%87%E6%96%99%E9%A4%A8"><span class="tokyo-map-pin">●</span><b>京都市歴史資料館</b><small>立入家文書696点の保管先</small><em>Googleマップで開く ↗</em></a>
+  </div>
+  <p class="tokyo-limitation">上屋敷・下屋敷のピンは現代の概略地域であり、江戸時代の敷地を精密に復元した位置ではありません。現在の国会議事堂は奇一が出席した明治期の議事堂そのものではありません。</p>
+
+  <h3 class="tokyo-h3">主要資料に直接アクセス</h3>
+  <div class="panel"><ol class="tokyo-sources">
+    <li id="ts1"><a target="_blank" rel="noopener" href="https://online.bunka.go.jp/heritages/detail/656400">京都市文化財「立入家文書」</a>――歴代の職務、文書696点、宗康・宗継・康善。</li>
+    <li id="ts2"><a target="_blank" rel="noopener" href="https://www2.city.kyoto.lg.jp/somu/rekishi/fm/ishibumi/html/ka158.html">京都市「立入宗継旌忠碑」</a>――1891年の裔孫「操」、1898年建立の碑文。</li>
+    <li id="ts3"><a target="_blank" rel="noopener" href="https://shoryobu.kunaicho.go.jp/Kobunsho/Search?limit=50&amp;offset=56700&amp;searchtype=Freeword&amp;sort=Title">宮内公文書館「立入宗興履歴書　明治42年」</a>――識別番号31512、画像は未公開。</li>
+    <li id="ts4"><a target="_blank" rel="noopener" href="https://www.pref.kyoto.jp/rekisaikan/documents/2_2_3t2-15.pdf">京都府『京都府百年の年表』商工編・1913年</a>――京都自動車工業と宗興の社長就任。</li>
+    <li id="ts5"><a target="_blank" rel="noopener" href="https://crd.ndl.go.jp/reference/entry/reference/show?id=1000307220">滋賀県立図書館「大溝藩江戸屋敷」レファレンス</a>――芝愛宕下・新橋・白金。</li>
+    <li id="ts6"><a target="_blank" rel="noopener" href="https://jmapps.ne.jp/kokugakuin/det.html?data_id=40383&amp;data_idx=0">國學院大學「伴信友」人物データベース</a>――立入の別姓と江戸での活動。</li>
+    <li id="ts7"><a target="_blank" rel="noopener" href="https://ndlsearch.ndl.go.jp/books/R100000039-I785089">国立国会図書館『三重県会沿革集覧』</a>――立入奇一、1884年刊。</li>
+    <li id="ts8"><a target="_blank" rel="noopener" href="https://teikokugikai-i.ndl.go.jp/simple/detail?minId=000113242X04518910216&amp;spkNum=0">1891年2月16日・衆議院会議録</a>――立入奇一と北海道炭礦鉄道補助。</li>
+    <li id="ts9"><a target="_blank" rel="noopener" href="https://teikokugikai-i.ndl.go.jp/simple/detail?minId=000413242X04218930223&amp;spkNum=7">1893年2月23日・衆議院会議録</a>――立入奇一と伝染病研究所補助。</li>
+    <li id="ts10"><a target="_blank" rel="noopener" href="https://neurorad.jp/about/enkaku/">日本神経放射線学会「沿革」</a>――立入弘、1959年の東京の発足準備会合。</li>
+    <li id="ts11"><a target="_blank" rel="noopener" href="https://ci.nii.ac.jp/author/DA01570183">CiNii Books「立入弘」</a>――放射線医学の著作・編著。</li>
+    <li id="ts12"><a target="_blank" rel="noopener" href="https://agrmet.jp/%E3%80%90%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%80%91-ipcc%E7%AC%AC7%E6%AC%A1%E8%A9%95%E4%BE%A1%E5%A0%B1%E5%91%8A%E6%9B%B8%EF%BC%88ar7%EF%BC%89%E3%81%AB%E6%9C%AC%E5%AD%A6%E4%BC%9A%E3%81%8B%E3%82%894/">日本農業気象学会「IPCC AR7執筆者」</a>――立入郁のCLA就任。</li>
+    <li id="ts13"><a target="_blank" rel="noopener" href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=201801003003712394">J-GLOBAL「立入正之」</a>――研究歴、美術史・博物館学の著書。</li>
+    <li id="ts14"><a target="_blank" rel="noopener" href="https://www.edohakuarchives.jp/detail-4460.html">江戸東京博物館「火事装束」</a>――1864年・包紙の「立入氏」。</li>
+    <li id="ts15"><a target="_blank" rel="noopener" href="https://cir.nii.ac.jp/crid/1460870696480898048">東京大学史料編纂所『立入家系譜』書誌</a>――立入宗興編、本文照合が今後の課題。</li>
+  </ol></div>
+  <div class="tokyo-warning"><strong>次の研究段階</strong> 宗興履歴書と『立入家系譜』の原本を突き合わせ、①宗興と操の世代関係、②本籍・住所の変遷、③京都から東京へ移った具体的な人名・年代を確定する。同時に大溝藩給人帳の立入姓を抽出し、別の江戸流入経路と区別する。</div>
+</div>
+</section>
+
 <section id="maps"><div class="container">
   <div class="section-title"><div class="section-no">08</div><div><h2>立入を歩く――Googleマップ連携</h2></div></div>
   <p class="lead">地理を確認しながら史跡を追えるよう、主要地点をGoogleマップへ直接リンクしています。</p>
@@ -300,7 +476,7 @@ footer a{color:#f2d394}
 
 <footer><div class="container">
   <h2 style="color:#fff;font-size:2rem">立入一族の歴史</h2>
-  <p>近江・守山の土地、立入姓、松田氏伝来文書、禁裏御倉職立入家を横断して考える研究ページ。</p>
+  <p>近江・守山の土地、立入姓、松田氏伝来文書、禁裏御倉職立入家、京都から江戸・東京への人物史を横断して考える研究ページ。</p>
   <p><a href="#top">ページ上部へ戻る ↑</a></p>
 </div></footer>
 
