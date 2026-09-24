@@ -86,17 +86,22 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
 @media(max-width:850px){.viz-grid{grid-template-columns:1fr}.viz.geo,.viz.wide{grid-column:auto}.kpi-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.wrap{padding:13px}.kpi-strip{gap:8px}.metric{padding:12px 10px;gap:7px}.metric-icon{flex-basis:28px;height:28px;font-size:17px}.metric strong{font-size:22px}.metric small{font-size:10px}.viz{padding:14px}.viz-title h2{font-size:16px}.pref-map{height:350px}.uni-overview{gap:12px}.donut{width:116px;height:116px}.donut>div{width:78px;height:78px}.donut strong{font-size:21px}.jump{margin-bottom:15px}}
 .creator-credit{display:inline-block;margin:4px 0 22px;padding:6px 13px;border-left:3px solid #2d85a5;background:#eef5f8;border-radius:0 7px 7px 0;color:#315a6f;font-size:12px;font-weight:700;letter-spacing:.045em}
+
+.clinic-tag{display:inline-block;margin:5px 0 0 7px;padding:2px 7px;border-radius:999px;background:#e8f5ee;border:1px solid #c9e6d7;color:#246846;font-size:10px;font-weight:800;vertical-align:middle}
+.clinic-focus{border-left:4px solid #3b8a68;background:linear-gradient(90deg,#f0f8f4,#fff);padding:14px 16px;margin:18px 0;border-radius:0 10px 10px 0;font-size:12px;color:#3b5d4d}
 </style></head><body><main class="wrap">
 <h1>2027年 国内医学系 学会・研究会 総合カレンダー</h1>
 <p class="lead">国内医学系学会・研究会の会期、会場、学会員数、過去大会参加人数、関連する一般的な機器・医療IT技術をまとめた非公式一覧です。特定メーカー・製品の宣伝を目的としません。</p>
 <p class="creator-credit" aria-label="制作者">制作者　高橋裕子</p>
 
 <div class="kpi-strip" id="summary">
- <div class="metric"><span class="metric-icon">▦</span><div><small>収録学会・研究会</small><strong id="dEvents">76</strong><span>掲載行数</span></div></div>
+ <div class="metric"><span class="metric-icon">▦</span><div><small>収録学会・研究会</small><strong id="dEvents">97</strong><span>掲載行数</span></div></div>
  <div class="metric"><span class="metric-icon">⌖</span><div><small>開催都道府県</small><strong id="dPrefs">25</strong><span>会場地域が判明</span></div></div>
  <div class="metric"><span class="metric-icon">♧</span><div><small>大学名が記載された大会</small><strong id="dUnis">29</strong><span>会長等の紹介欄を集計</span></div></div>
  <div class="metric"><span class="metric-icon">▥</span><div><small>公開数値の掲載</small><strong id="dStats">—</strong><span>会員数または参加者数</span></div></div>
+ <div class="metric"><span class="metric-icon">＋</span><div><small>診療所・外来関連</small><strong id="dClinic">—</strong><span>編集上の関連タグ</span></div></div>
 </div>
+<div class="clinic-focus"><strong>臨床・診療所系を拡充：</strong> 「臨床」を冠する学会に加え、プライマリ・ケア、在宅、透析、高血圧、骨粗鬆症、女性医学など、外来・診療所の日常診療との関連が高い学会を追加しています。「診療所・外来関連」フィルターで抽出できます。</div>
 <nav class="jump" aria-label="ダッシュボード内メニュー"><a href="#areaAnalysis">開催地マップ</a><a href="#timeAnalysis">月別</a><a href="#schoolAnalysis">大学別</a><a href="#modAnalysis">機器・分野</a><a href="#filterAnchor">条件検索</a><a href="#listAnchor">全件一覧</a></nav>
 <div class="section-intro"><span class="eyebrow">2027 CONGRESS INSIGHTS</span><h2>開催地・分野・関連技術を俯瞰する</h2><p>下のグラフは検索・絞り込み・順位変更と連動します。グラフから選択すると、一覧も自動的に絞り込まれます。</p></div>
 <div class="viz-grid">
@@ -117,14 +122,14 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
 <div class="field"><label for="filterModality">関連機器・システム</label><select id="filterModality"><option value="">すべて</option></select></div>
 <div class="field"><label for="filterFit">関連度（参考）</label><select id="filterFit"><option value="">すべて</option><option value="S">S：高い</option><option value="A">A：特定領域で高い</option><option value="B">B：テーマ次第</option></select></div>
 <div class="field"><label for="filterMonth">開催月</label><select id="filterMonth"><option value="">すべて</option><option value="1">1月</option><option value="2">2月</option><option value="3">3月</option><option value="4">4月</option><option value="5">5月</option><option value="6">6月</option><option value="7">7月</option><option value="8">8月</option><option value="9">9月</option><option value="10">10月</option><option value="11">11月</option><option value="12">12月</option></select></div>
-<div class="field"><label for="filterCity">開催地</label><select id="filterCity"><option value="">すべて</option></select></div><div class="field"><label for="filterPrefecture">都道府県</label><select id="filterPrefecture"><option value="">すべて</option></select></div>
+<div class="field"><label for="filterCity">開催地</label><select id="filterCity"><option value="">すべて</option></select></div><div class="field"><label for="filterPrefecture">都道府県</label><select id="filterPrefecture"><option value="">すべて</option></select></div><div class="field"><label for="filterClinic">診療所・外来関連</label><select id="filterClinic"><option value="">すべて</option><option value="yes">関連が高い学会</option><option value="no">その他</option></select></div>
 <div class="field"><label for="hasMembers">会員数データ</label><select id="hasMembers"><option value="">指定なし</option><option value="yes">掲載あり</option><option value="no">未掲載</option></select></div>
 <div class="field"><label for="hasAttendance">参加人数データ</label><select id="hasAttendance"><option value="">指定なし</option><option value="yes">掲載あり</option><option value="no">未掲載</option></select></div>
 <div class="field"><label for="hasOfficial">公式リンク</label><select id="hasOfficial"><option value="">指定なし</option><option value="yes">あり</option><option value="no">なし</option></select></div>
 <div class="field field-wide"><label>学会員数の範囲（人）</label><div class="number-range"><input id="minMembers" type="number" min="0" placeholder="下限" aria-label="会員数下限"> ～ <input id="maxMembers" type="number" min="0" placeholder="上限" aria-label="会員数上限"></div></div>
 <div class="field field-wide"><label>大会参加人数の範囲（人）</label><div class="number-range"><input id="minAttendance" type="number" min="0" placeholder="下限" aria-label="参加人数下限"> ～ <input id="maxAttendance" type="number" min="0" placeholder="上限" aria-label="参加人数上限"></div></div>
 </div>
-<div class="action-bar"><span id="matchCount" class="count-badge" aria-live="polite">76 / 76件</span>
+<div class="action-bar"><span id="matchCount" class="count-badge" aria-live="polite">97 / 97件</span>
 <div><button id="reset" class="action-btn" type="button">条件をクリア</button> <button id="compact" class="action-btn" type="button" aria-pressed="false">簡易表示</button> <button id="export" class="action-btn primary" type="button">抽出結果をCSV保存</button></div></div></section>
 <section class="control-panel"><h2>順位・並べ替え基準</h2>
 <div class="sort-grid"><div class="field"><label for="rankBy">第1基準</label><select id="rankBy"><option value="source">掲載順</option><option value="date" selected>会期</option><option value="name">学会名</option><option value="category">分野</option><option value="fit">関連度</option><option value="mods">関連機器・システム</option><option value="reason">適合理由</option><option value="members">会員数</option><option value="attendance">参加者数</option><option value="venue">会場名</option><option value="official">公式サイト有無</option></select></div>
@@ -135,7 +140,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
 <div id="rankingLabel" role="status">表示順位：会期（昇順）</div></section>
 <p class="tiny">順位は現在の絞り込みと並べ替えに応じて再計算します。表は左右にスクロールできます。</p>
 <div id="listAnchor" class="tablewrap"><table><thead><tr><th scope="col"><button type="button" data-sort="source">順位 ↕</button></th><th scope="col" data-sort="date"><button type="button" data-sort="date">会期 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="name"><button type="button" data-sort="name">学会名 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="category"><button type="button" data-sort="category">分野 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="fit"><button type="button" data-sort="fit">関連度 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="mods"><button type="button" data-sort="mods">関連機器・システム <span class="sortmark">↕</span></button></th><th scope="col" data-sort="reason"><button type="button" data-sort="reason">適合理由 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="members"><button type="button" data-sort="members">会員数 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="attendance"><button type="button" data-sort="attendance">参加者数 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="venue"><button type="button" data-sort="venue">会場名 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="official"><button type="button" data-sort="official">公式サイト有無 <span class="sortmark">↕</span></button></th></tr></thead><tbody>
-    <tr data-source="0">
+    <tr data-source="0" data-clinic="no">
       <td>1</td>
       <td class="date">1/16 土〜17日</td>
       <td><strong>日本老視学会学術総会</strong><div class="sub">主催：日本老視学会</div></td><td class="category"><span class="area-tag">眼科</span></td>
@@ -147,7 +152,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>御茶ノ水ソラシティカンファレンスセンター<div class="sub">東京</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%BE%A1%E8%8C%B6%E3%83%8E%E6%B0%B4%E3%82%BD%E3%83%A9%E3%82%B7%E3%83%86%E3%82%A3%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E6%9D%B1%E4%BA%AC" target="_blank">Google Map</a> <a href="https://www.nichigan.or.jp/member/syukai/hyoji.html" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="1">
+    <tr data-source="1" data-clinic="no">
       <td>2</td>
       <td class="date">1/22 金〜23土</td>
       <td><strong>第10回日本循環器理学療法学会学術大会</strong><div class="sub">大会長：花田智（都城市郡医師会病院）</div></td><td class="category"><span class="area-tag">循環器</span></td>
@@ -159,7 +164,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>メディキット県民文化センター<div class="sub">宮崎</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%A1%E3%83%87%E3%82%A3%E3%82%AD%E3%83%83%E3%83%88%E7%9C%8C%E6%B0%91%E6%96%87%E5%8C%96%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E5%AE%AE%E5%B4%8E" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="2">
+    <tr data-source="2" data-clinic="no">
       <td>3</td>
       <td class="date">1/29 金〜31日</td>
       <td><strong>第50回日本眼科手術学会学術総会</strong><div class="sub">総会長：稲富 勉</div></td><td class="category"><span class="area-tag">眼科</span></td>
@@ -171,7 +176,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>東京国際フォーラム<div class="sub">東京</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0%20%E6%9D%B1%E4%BA%AC" target="_blank">Google Map</a> <a href="https://www.jsos.jp/annual-meetings" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="3">
+    <tr data-source="3" data-clinic="no">
       <td>4</td>
       <td class="date">1/30 土〜31日</td>
       <td><strong>第40回JCRミッドウインターセミナー</strong><div class="sub">主催：日本医学放射線学会</div></td><td class="category"><span class="area-tag">その他</span></td>
@@ -183,7 +188,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>アクトシティ浜松<div class="sub">静岡・浜松</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%82%A2%E3%82%AF%E3%83%88%E3%82%B7%E3%83%86%E3%82%A3%E6%B5%9C%E6%9D%BE%20%E9%9D%99%E5%B2%A1%E3%83%BB%E6%B5%9C%E6%9D%BE" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="4">
+    <tr data-source="4" data-clinic="no">
       <td>5</td>
       <td class="date">2/5 金〜6土</td>
       <td><strong>第37回日本心血管画像動態学会・FRIENDS Live 2027</strong><div class="sub">会長：石原 正治</div></td><td class="category"><span class="area-tag">循環器</span></td>
@@ -195,7 +200,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>千里ライフサイエンスセンター<div class="sub">大阪・豊中</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%8D%83%E9%87%8C%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E5%A4%A7%E9%98%AA%E3%83%BB%E8%B1%8A%E4%B8%AD" target="_blank">Google Map</a> <a href="https://www.jscvid.jp/event.html" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="5">
+    <tr data-source="5" data-clinic="no">
       <td>6</td>
       <td class="date">2/11 木・祝〜14日</td>
       <td><strong>ACTI2027（第34回日本CT検診学会・第17回呼吸機能イメージング研究会 合同大会）</strong><div class="sub">会長：中野恭幸（滋賀医科大学 呼吸器内科学講座）</div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -207,7 +212,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>ウインクあいち<div class="sub">愛知・名古屋</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%82%A6%E3%82%A4%E3%83%B3%E3%82%AF%E3%81%82%E3%81%84%E3%81%A1%20%E6%84%9B%E7%9F%A5%E3%83%BB%E5%90%8D%E5%8F%A4%E5%B1%8B" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="6">
+    <tr data-source="6" data-clinic="no">
       <td>7</td>
       <td class="date">2/12 金〜13土</td>
       <td><strong>第46回日本画像医学会</strong><div class="sub"></div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -219,7 +224,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>四ツ谷<div class="sub">東京</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9B%9B%E3%83%84%E8%B0%B7%20%E6%9D%B1%E4%BA%AC" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="7">
+    <tr data-source="7" data-clinic="no">
       <td>8</td>
       <td class="date">3/10 水〜12金</td>
       <td><strong>第97回日本衛生学会学術総会</strong><div class="sub"></div></td><td class="category"><span class="area-tag">予防医療・代謝</span></td>
@@ -231,10 +236,10 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>会場未公表<div class="sub"></div></td>
       <td class="links"></td>
     </tr>
-    <tr data-source="8">
+    <tr data-source="8" data-clinic="yes">
       <td>9</td>
       <td class="date">3/18 木〜20土</td>
-      <td><strong>JSMO2027 第24回日本臨床腫瘍学会学術集会</strong><div class="sub">会長：矢野聖二（金沢大学 呼吸器内科学）</div></td><td class="category"><span class="area-tag">がん</span></td>
+      <td><strong>JSMO2027 第24回日本臨床腫瘍学会学術集会</strong><span class="clinic-tag">診療所・外来関連</span><div class="sub">会長：矢野聖二（金沢大学 呼吸器内科学）</div></td><td class="category"><span class="area-tag">がん</span></td>
       <td><span class="rank rB">B</span></td>
       <td class="mods">CT / MRI / 超音波診断装置 / VNA / 読影支援システム</td>
       <td>画像は重要だが薬物療法・基礎研究等も広く、装置訴求はテーマ選定が必要。</td>
@@ -243,7 +248,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>石川県立音楽堂・ホテル日航金沢 ほか<div class="sub">石川・金沢</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%9F%B3%E5%B7%9D%E7%9C%8C%E7%AB%8B%E9%9F%B3%E6%A5%BD%E5%A0%82%E3%83%BB%E3%83%9B%E3%83%86%E3%83%AB%E6%97%A5%E8%88%AA%E9%87%91%E6%B2%A2%20%E3%81%BB%E3%81%8B%20%E7%9F%B3%E5%B7%9D%E3%83%BB%E9%87%91%E6%B2%A2" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="9">
+    <tr data-source="9" data-clinic="no">
       <td>10</td>
       <td class="date">3/18 木〜20土</td>
       <td><strong>STROKE2027（第52回日本脳卒中学会・第56回日本脳卒中の外科学会・第43回SAH/スパズムシンポジウム 合同開催）</strong><div class="sub">会長：平野照之（杏林大学）／藤村幹（北海道大学）</div></td><td class="category"><span class="area-tag">脳・神経</span></td>
@@ -255,10 +260,10 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>東京国際フォーラム<div class="sub">東京</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0%20%E6%9D%B1%E4%BA%AC" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="10">
+    <tr data-source="10" data-clinic="yes">
       <td>11</td>
       <td class="date">3/20 土〜21日</td>
-      <td><strong>第6回日本産婦人科超音波学会学術集会</strong><div class="sub">大会長：小澤 克典</div></td><td class="category"><span class="area-tag">産婦人科・周産期</span></td>
+      <td><strong>第6回日本産婦人科超音波学会学術集会</strong><span class="clinic-tag">診療所・外来関連</span><div class="sub">大会長：小澤 克典</div></td><td class="category"><span class="area-tag">産婦人科・周産期</span></td>
       <td><span class="rank rS">S</span></td>
       <td class="mods">超音波診断装置 / 超音波診断装置 / AI・計測 / VNA / 医療情報システム</td>
       <td>超音波診断装置そのものが中心テーマ。診療科横断で実機デモ効果が高い。</td>
@@ -267,10 +272,10 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>御茶ノ水ソラシティカンファレンスセンター<div class="sub">東京</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%BE%A1%E8%8C%B6%E3%83%8E%E6%B0%B4%E3%82%BD%E3%83%A9%E3%82%B7%E3%83%86%E3%82%A3%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E6%9D%B1%E4%BA%AC" target="_blank">Google Map</a> <a href="https://supportoffice.jp/jsuog_conf2027/overview.php" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="11">
+    <tr data-source="11" data-clinic="yes">
       <td>12</td>
       <td class="date">3/26 金〜28日</td>
-      <td><strong>第91回日本循環器学会学術集会（JCS2027／APSC2027同時開催）</strong><div class="sub">会長：伊苅裕二（東海大学 循環器内科）</div></td><td class="category"><span class="area-tag">循環器</span></td>
+      <td><strong>第91回日本循環器学会学術集会（JCS2027／APSC2027同時開催）</strong><span class="clinic-tag">診療所・外来関連</span><div class="sub">会長：伊苅裕二（東海大学 循環器内科）</div></td><td class="category"><span class="area-tag">循環器</span></td>
       <td><span class="rank rA">A</span></td>
       <td class="mods">超音波診断装置 / CT / MRI / 血管撮影装置 / VNA / 診療情報統合システム</td>
       <td>心エコー、冠動脈CT、心臓MRI、血管撮影を統合して訴求可能。</td>
@@ -279,7 +284,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>パシフィコ横浜<div class="sub">神奈川・横浜</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%82%B3%E6%A8%AA%E6%B5%9C%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%83%BB%E6%A8%AA%E6%B5%9C" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="12">
+    <tr data-source="12" data-clinic="no">
       <td>13</td>
       <td class="date">4/9 金〜11日</td>
       <td><strong>第124回日本内科学会総会・講演会</strong><div class="sub">会頭：熊ノ郷淳（大阪大学総長）</div></td><td class="category"><span class="area-tag">その他</span></td>
@@ -291,10 +296,10 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>グランキューブ大阪<div class="sub">大阪</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%82%B0%E3%83%A9%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%E5%A4%A7%E9%98%AA%20%E5%A4%A7%E9%98%AA" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="13">
+    <tr data-source="13" data-clinic="yes">
       <td>14</td>
       <td class="date">4/15 木〜17土</td>
-      <td><strong>第114回日本泌尿器科学会総会</strong><div class="sub">会長：舛森直哉（札幌医科大学）</div></td><td class="category"><span class="area-tag">泌尿器</span></td>
+      <td><strong>第114回日本泌尿器科学会総会</strong><span class="clinic-tag">診療所・外来関連</span><div class="sub">会長：舛森直哉（札幌医科大学）</div></td><td class="category"><span class="area-tag">泌尿器</span></td>
       <td><span class="rank rA">A</span></td>
       <td class="mods">超音波診断装置 / CT / MRI / 一般X線 / VNA</td>
       <td>結石・腫瘍・前立腺の診断画像、術前評価でCT/MRI/超音波診断装置が直接関与。</td>
@@ -303,7 +308,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>神戸ポートピアホテル ほか<div class="sub">兵庫・神戸</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%88%B8%E3%83%9D%E3%83%BC%E3%83%88%E3%83%94%E3%82%A2%E3%83%9B%E3%83%86%E3%83%AB%20%E3%81%BB%E3%81%8B%20%E5%85%B5%E5%BA%AB%E3%83%BB%E7%A5%9E%E6%88%B8" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="14">
+    <tr data-source="14" data-clinic="no">
       <td>15</td>
       <td class="date">4/15 木〜18日</td>
       <td><strong>第131回日本眼科学会総会</strong><div class="sub">総会長：石田 晋</div></td><td class="category"><span class="area-tag">眼科</span></td>
@@ -315,7 +320,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>グランドメルキュール札幌大通公園・札幌プリンスホテル国際館パミール・札幌市教育文化会館<div class="sub">北海道・札幌</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%89%E3%83%A1%E3%83%AB%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%AB%E6%9C%AD%E5%B9%8C%E5%A4%A7%E9%80%9A%E5%85%AC%E5%9C%92%E3%83%BB%E6%9C%AD%E5%B9%8C%E3%83%97%E3%83%AA%E3%83%B3%E3%82%B9%E3%83%9B%E3%83%86%E3%83%AB%E5%9B%BD%E9%9A%9B%E9%A4%A8%E3%83%91%E3%83%9F%E3%83%BC%E3%83%AB%E3%83%BB%E6%9C%AD%E5%B9%8C%E5%B8%82%E6%95%99%E8%82%B2%E6%96%87%E5%8C%96%E4%BC%9A%E9%A4%A8%20%E5%8C%97%E6%B5%B7%E9%81%93%E3%83%BB%E6%9C%AD%E5%B9%8C" target="_blank">Google Map</a> <a href="https://www.nichigan.or.jp/member/syukai/sokai.html" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="15">
+    <tr data-source="15" data-clinic="no">
       <td>16</td>
       <td class="date">4/15 木〜18日</td>
       <td><strong>第133回日本医学物理学会学術大会（JRC2027）</strong><div class="sub">大会長：櫻井良憲</div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -327,7 +332,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>パシフィコ横浜<div class="sub">神奈川・横浜</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%82%B3%E6%A8%AA%E6%B5%9C%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%83%BB%E6%A8%AA%E6%B5%9C" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="16">
+    <tr data-source="16" data-clinic="no">
       <td>17</td>
       <td class="date">4/15 木〜18日</td>
       <td><strong>第83回日本放射線技術学会総会学術大会（JRC2027）</strong><div class="sub">大会長：對間博之</div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -339,7 +344,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>パシフィコ横浜<div class="sub">神奈川・横浜</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%82%B3%E6%A8%AA%E6%B5%9C%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%83%BB%E6%A8%AA%E6%B5%9C" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="17">
+    <tr data-source="17" data-clinic="no">
       <td>18</td>
       <td class="date">4/15 木〜18日</td>
       <td><strong>第86回日本医学放射線学会総会（JRC2027）</strong><div class="sub">会長：長縄慎二（名古屋大学）</div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -351,7 +356,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>パシフィコ横浜<div class="sub">神奈川・横浜</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%82%B3%E6%A8%AA%E6%B5%9C%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%83%BB%E6%A8%AA%E6%B5%9C" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="18">
+    <tr data-source="18" data-clinic="no">
       <td>19</td>
       <td class="date">4/16 金〜18日</td>
       <td><strong>ITEM2027 国際医用画像総合展 展示会</strong><div class="sub">主催：日本ラジオロジー協会／運営：日本画像医療システム工業会</div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -363,10 +368,10 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>パシフィコ横浜<div class="sub">神奈川・横浜</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%82%B3%E6%A8%AA%E6%B5%9C%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%83%BB%E6%A8%AA%E6%B5%9C" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="19">
+    <tr data-source="19" data-clinic="yes">
       <td>20</td>
       <td class="date">4/16 金〜18日</td>
-      <td><strong>日本心エコー図学会 第38回学術集会</strong><div class="sub">会長：瀧聞 浄宏</div></td><td class="category"><span class="area-tag">超音波</span></td>
+      <td><strong>日本心エコー図学会 第38回学術集会</strong><span class="clinic-tag">診療所・外来関連</span><div class="sub">会長：瀧聞 浄宏</div></td><td class="category"><span class="area-tag">超音波</span></td>
       <td><span class="rank rS">S</span></td>
       <td class="mods">超音波診断装置 / 超音波診断装置 / AI・計測 / VNA / 医療情報システム</td>
       <td>超音波診断装置そのものが中心テーマ。診療科横断で実機デモ効果が高い。</td>
@@ -375,7 +380,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>ホテルブエナビスタ・アルピコプラザホテル<div class="sub">長野・松本</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%96%E3%82%A8%E3%83%8A%E3%83%93%E3%82%B9%E3%82%BF%E3%83%BB%E3%82%A2%E3%83%AB%E3%83%94%E3%82%B3%E3%83%97%E3%83%A9%E3%82%B6%E3%83%9B%E3%83%86%E3%83%AB%20%E9%95%B7%E9%87%8E%E3%83%BB%E6%9D%BE%E6%9C%AC" target="_blank">Google Map</a> <a href="https://www.jse.gr.jp/contents/congress/congress.html" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="20">
+    <tr data-source="20" data-clinic="no">
       <td>21</td>
       <td class="date">4/18 日</td>
       <td><strong>日本医療検査科学会 第41回春季セミナー</strong><div class="sub">大会長：山下 計太</div></td><td class="category"><span class="area-tag">臨床検査</span></td>
@@ -387,7 +392,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>アクトシティ浜松<div class="sub">静岡・浜松</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%82%A2%E3%82%AF%E3%83%88%E3%82%B7%E3%83%86%E3%82%A3%E6%B5%9C%E6%9D%BE%20%E9%9D%99%E5%B2%A1%E3%83%BB%E6%B5%9C%E6%9D%BE" target="_blank">Google Map</a> <a href="https://jcls.or.jp/taikai_index/yotei/" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="21">
+    <tr data-source="21" data-clinic="no">
       <td>22</td>
       <td class="date">4/20 火〜23金</td>
       <td><strong>第38回日本緑内障学会／World Glaucoma Congress関連</strong><div class="sub">眼科関連主要学術集会</div></td><td class="category"><span class="area-tag">眼科</span></td>
@@ -399,7 +404,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>国立京都国際会館<div class="sub">京都</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9B%BD%E7%AB%8B%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E4%BC%9A%E9%A4%A8%20%E4%BA%AC%E9%83%BD" target="_blank">Google Map</a> <a href="https://www.joia.or.jp/domestic-conference/83584/" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="22">
+    <tr data-source="22" data-clinic="no">
       <td>23</td>
       <td class="date">4/22 木〜25日 ※学術講演会は4/23〜25</td>
       <td><strong>第32回日本医学会総会2027</strong><div class="sub">会頭：澤芳樹（大阪大学名誉教授／大阪けいさつ病院 総長）　※一般（市民）展示は3/20〜28、うめきたエリア</div></td><td class="category"><span class="area-tag">その他</span></td>
@@ -411,10 +416,10 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>大阪国際会議場・リーガロイヤルホテル大阪 ほか（中之島エリア）<div class="sub">大阪</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%98%AA%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0%E5%A0%B4%E3%83%BB%E3%83%AA%E3%83%BC%E3%82%AC%E3%83%AD%E3%82%A4%E3%83%A4%E3%83%AB%E3%83%9B%E3%83%86%E3%83%AB%E5%A4%A7%E9%98%AA%20%E3%81%BB%E3%81%8B%EF%BC%88%E4%B8%AD%E4%B9%8B%E5%B3%B6%E3%82%A8%E3%83%AA%E3%82%A2%EF%BC%89%20%E5%A4%A7%E9%98%AA" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="23">
+    <tr data-source="23" data-clinic="yes">
       <td>24</td>
       <td class="date">4/23 金〜25日</td>
-      <td><strong>第79回日本産科婦人科学会学術講演会</strong><div class="sub">会長：宮城悦子（横浜市立大学）</div></td><td class="category"><span class="area-tag">産婦人科・周産期</span></td>
+      <td><strong>第79回日本産科婦人科学会学術講演会</strong><span class="clinic-tag">診療所・外来関連</span><div class="sub">会長：宮城悦子（横浜市立大学）</div></td><td class="category"><span class="area-tag">産婦人科・周産期</span></td>
       <td><span class="rank rA">A</span></td>
       <td class="mods">超音波診断装置 / MRI / CT / VNA / 医療情報システム</td>
       <td>胎児・婦人科では超音波診断装置が主軸。腫瘍領域ではMRI/CTとの複合提案が有効。</td>
@@ -423,10 +428,10 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>パシフィコ横浜ノース<div class="sub">神奈川・横浜</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%82%B3%E6%A8%AA%E6%B5%9C%E3%83%8E%E3%83%BC%E3%82%B9%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%83%BB%E6%A8%AA%E6%B5%9C" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="24">
+    <tr data-source="24" data-clinic="yes">
       <td>25</td>
       <td class="date">5/6 木〜8土</td>
-      <td><strong>第113回日本消化器病学会総会</strong><div class="sub">会長：仲瀬裕志（札幌医科大学 消化器内科学講座）</div></td><td class="category"><span class="area-tag">消化器</span></td>
+      <td><strong>第113回日本消化器病学会総会</strong><span class="clinic-tag">診療所・外来関連</span><div class="sub">会長：仲瀬裕志（札幌医科大学 消化器内科学講座）</div></td><td class="category"><span class="area-tag">消化器</span></td>
       <td><span class="rank rA">A</span></td>
       <td class="mods">超音波診断装置 / CT / MRI / 医療情報システム / VNA / 読影支援システム</td>
       <td>肝胆膵・消化管・術前評価・検診・画像共有に強い。JDDWは集客規模も大きい。</td>
@@ -435,7 +440,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>京王プラザホテル札幌・グランドメルキュール札幌大通公園<div class="sub">北海道・札幌</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E7%8E%8B%E3%83%97%E3%83%A9%E3%82%B6%E3%83%9B%E3%83%86%E3%83%AB%E6%9C%AD%E5%B9%8C%E3%83%BB%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%89%E3%83%A1%E3%83%AB%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%AB%E6%9C%AD%E5%B9%8C%E5%A4%A7%E9%80%9A%E5%85%AC%E5%9C%92%20%E5%8C%97%E6%B5%B7%E9%81%93%E3%83%BB%E6%9C%AD%E5%B9%8C" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="25">
+    <tr data-source="25" data-clinic="no">
       <td>26</td>
       <td class="date">5/8 土〜9日</td>
       <td><strong>第37回日本臨床工学会</strong><div class="sub">学会長：岡本 裕美</div></td><td class="category"><span class="area-tag">医療機器・感染管理</span></td>
@@ -447,7 +452,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>東京国際フォーラム<div class="sub">東京</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0%20%E6%9D%B1%E4%BA%AC" target="_blank">Google Map</a> <a href="https://ja-ces.or.jp/about-jaces/overview/congress_of_jace/" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="26">
+    <tr data-source="26" data-clinic="no">
       <td>27</td>
       <td class="date">5/13 木〜16日</td>
       <td><strong>第100回日本整形外科学会学術総会</strong><div class="sub">会長：松田秀一（京都大学）</div></td><td class="category"><span class="area-tag">整形外科</span></td>
@@ -459,7 +464,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>パシフィコ横浜<div class="sub">神奈川・横浜</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%82%B3%E6%A8%AA%E6%B5%9C%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%83%BB%E6%A8%AA%E6%B5%9C" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="27">
+    <tr data-source="27" data-clinic="no">
       <td>28</td>
       <td class="date">5/13 木〜15土</td>
       <td><strong>第81回日本口腔科学会学術集会</strong><div class="sub"></div></td><td class="category"><span class="area-tag">その他</span></td>
@@ -471,7 +476,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>会場未公表<div class="sub">大阪</div></td>
       <td class="links"></td>
     </tr>
-    <tr data-source="28">
+    <tr data-source="28" data-clinic="no">
       <td>29</td>
       <td class="date">5/19 水〜22土</td>
       <td><strong>第68回日本神経学会学術大会</strong><div class="sub">会長：小野寺理（新潟大学 脳研究所）</div></td><td class="category"><span class="area-tag">脳・神経</span></td>
@@ -483,7 +488,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>新潟コンベンションセンター<div class="sub">新潟</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%BD%9F%E3%82%B3%E3%83%B3%E3%83%99%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E6%96%B0%E6%BD%9F" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="29">
+    <tr data-source="29" data-clinic="no">
       <td>30</td>
       <td class="date">5/20 木〜22土</td>
       <td><strong>第56回日本IVR学会総会</strong><div class="sub"></div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -495,10 +500,10 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>神戸ポートピアホテル<div class="sub">兵庫・神戸</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%88%B8%E3%83%9D%E3%83%BC%E3%83%88%E3%83%94%E3%82%A2%E3%83%9B%E3%83%86%E3%83%AB%20%E5%85%B5%E5%BA%AB%E3%83%BB%E7%A5%9E%E6%88%B8" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="30">
+    <tr data-source="30" data-clinic="yes">
       <td>31</td>
       <td class="date">5/21 金〜23日</td>
-      <td><strong>日本糖尿病学会 第70回年次学術集会</strong><div class="sub">会長：寺内 康夫</div></td><td class="category"><span class="area-tag">予防医療・代謝</span></td>
+      <td><strong>日本糖尿病学会 第70回年次学術集会</strong><span class="clinic-tag">診療所・外来関連</span><div class="sub">会長：寺内 康夫</div></td><td class="category"><span class="area-tag">予防医療・代謝</span></td>
       <td><span class="rank rA">A</span></td>
       <td class="mods">超音波診断装置（脂肪肝/ATI等） / CT / 医療情報システム / 検診連携</td>
       <td>糖尿病とMASLD/肥満・動脈硬化の合併症評価で超音波診断装置・画像診断が有効。</td>
@@ -507,7 +512,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>東京国際フォーラム・JPタワー ホール＆カンファレンス<div class="sub">東京</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0%E3%83%BBJP%E3%82%BF%E3%83%AF%E3%83%BC%20%E3%83%9B%E3%83%BC%E3%83%AB%EF%BC%86%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9%20%E6%9D%B1%E4%BA%AC" target="_blank">Google Map</a> <a href="https://www.jds.or.jp/modules/event/index.php?content_id=150" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="31">
+    <tr data-source="31" data-clinic="no">
       <td>32</td>
       <td class="date">5/21 金〜23日</td>
       <td><strong>第28回日本ロービジョン学会学術総会</strong><div class="sub">眼科関連主要学術集会</div></td><td class="category"><span class="area-tag">眼科</span></td>
@@ -519,7 +524,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>大阪国際会議場<div class="sub">大阪</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%98%AA%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0%E5%A0%B4%20%E5%A4%A7%E9%98%AA" target="_blank">Google Map</a> <a href="https://www.joia.or.jp/domestic-conference/83584/" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="32">
+    <tr data-source="32" data-clinic="no">
       <td>33</td>
       <td class="date">5/22 土〜23日</td>
       <td><strong>第76回日本医学検査学会</strong><div class="sub">学会長：門脇和秀</div></td><td class="category"><span class="area-tag">臨床検査</span></td>
@@ -531,10 +536,10 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>出島メッセ長崎<div class="sub">長崎</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%87%BA%E5%B3%B6%E3%83%A1%E3%83%83%E3%82%BB%E9%95%B7%E5%B4%8E%20%E9%95%B7%E5%B4%8E" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="33">
+    <tr data-source="33" data-clinic="yes">
       <td>34</td>
       <td class="date">5/27 木〜29土</td>
-      <td><strong>第113回日本消化器内視鏡学会総会</strong><div class="sub">会長：安田一朗（富山大学 内科学第三講座）</div></td><td class="category"><span class="area-tag">消化器</span></td>
+      <td><strong>第113回日本消化器内視鏡学会総会</strong><span class="clinic-tag">診療所・外来関連</span><div class="sub">会長：安田一朗（富山大学 内科学第三講座）</div></td><td class="category"><span class="area-tag">消化器</span></td>
       <td><span class="rank rA">A</span></td>
       <td class="mods">超音波診断装置 / CT / MRI / 医療情報システム / VNA / 読影支援システム</td>
       <td>肝胆膵・消化管・術前評価・検診・画像共有に強い。JDDWは集客規模も大きい。</td>
@@ -543,10 +548,10 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>富山国際会議場 ほか<div class="sub">富山</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%AF%8C%E5%B1%B1%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0%E5%A0%B4%20%E3%81%BB%E3%81%8B%20%E5%AF%8C%E5%B1%B1" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="34">
+    <tr data-source="34" data-clinic="yes">
       <td>35</td>
       <td class="date">5/28 金〜30日</td>
-      <td><strong>日本超音波医学会 第100回学術集会</strong><div class="sub">会長：尾本きよか（自治医科大学附属さいたま医療センター）</div></td><td class="category"><span class="area-tag">超音波</span></td>
+      <td><strong>日本超音波医学会 第100回学術集会</strong><span class="clinic-tag">診療所・外来関連</span><div class="sub">会長：尾本きよか（自治医科大学附属さいたま医療センター）</div></td><td class="category"><span class="area-tag">超音波</span></td>
       <td><span class="rank rS">S</span></td>
       <td class="mods">超音波診断装置 / 超音波診断装置 / AI・計測 / VNA / 医療情報システム</td>
       <td>超音波診断装置そのものが中心テーマ。診療科横断で実機デモ効果が高い。</td>
@@ -555,7 +560,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>大宮ソニックシティ<div class="sub">埼玉・さいたま</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%AE%AE%E3%82%BD%E3%83%8B%E3%83%83%E3%82%AF%E3%82%B7%E3%83%86%E3%82%A3%20%E5%9F%BC%E7%8E%89%E3%83%BB%E3%81%95%E3%81%84%E3%81%9F%E3%81%BE" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="35">
+    <tr data-source="35" data-clinic="no">
       <td>36</td>
       <td class="date">5月予定</td>
       <td><strong>日本核医学会 第27回春季大会</strong><div class="sub">大会長：中本 裕士</div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -567,7 +572,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>Web開催予定<div class="sub">オンライン</div></td>
       <td class="links"><a href="https://jsnm.org/meeting/" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="36">
+    <tr data-source="36" data-clinic="no">
       <td>37</td>
       <td class="date">5月 日程未確定</td>
       <td><strong>日本核医学会 第43回春季大会 予定</strong><div class="sub">会長：中本裕士（京都大学）</div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -579,7 +584,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>Web開催<div class="sub"></div></td>
       <td class="links"></td>
     </tr>
-    <tr data-source="37">
+    <tr data-source="37" data-clinic="no">
       <td>38</td>
       <td class="date">6/3 木〜5土</td>
       <td><strong>第74回日本麻酔科学会学術集会</strong><div class="sub">会長：川口昌彦（奈良県立医科大学）</div></td><td class="category"><span class="area-tag">救急・麻酔</span></td>
@@ -591,7 +596,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>神戸ポートピアホテル ほか<div class="sub">兵庫・神戸</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%88%B8%E3%83%9D%E3%83%BC%E3%83%88%E3%83%94%E3%82%A2%E3%83%9B%E3%83%86%E3%83%AB%20%E3%81%BB%E3%81%8B%20%E5%85%B5%E5%BA%AB%E3%83%BB%E7%A5%9E%E6%88%B8" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="38">
+    <tr data-source="38" data-clinic="no">
       <td>39</td>
       <td class="date">6/5 土〜6日</td>
       <td><strong>第16回日本視野画像学会学術集会</strong><div class="sub">眼科関連主要学術集会</div></td><td class="category"><span class="area-tag">眼科</span></td>
@@ -603,7 +608,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>大阪市中央公会堂<div class="sub">大阪</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%85%AC%E4%BC%9A%E5%A0%82%20%E5%A4%A7%E9%98%AA" target="_blank">Google Map</a> <a href="https://www.joia.or.jp/domestic-conference/83584/" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="39">
+    <tr data-source="39" data-clinic="no">
       <td>40</td>
       <td class="date">6/10 木〜12土</td>
       <td><strong>第66回日本生体医工学会大会</strong><div class="sub"></div></td><td class="category"><span class="area-tag">その他</span></td>
@@ -615,7 +620,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>札幌コンベンションセンター<div class="sub">北海道・札幌</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9C%AD%E5%B9%8C%E3%82%B3%E3%83%B3%E3%83%99%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E5%8C%97%E6%B5%B7%E9%81%93%E3%83%BB%E6%9C%AD%E5%B9%8C" target="_blank">Google Map</a> <a href="https://jsmfm.org/schedule/" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="40">
+    <tr data-source="40" data-clinic="no">
       <td>41</td>
       <td class="date">6/17 木〜19土</td>
       <td><strong>第31回日本医療情報学会春季学術大会</strong><div class="sub"></div></td><td class="category"><span class="area-tag">医療情報</span></td>
@@ -627,7 +632,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>奈良コンベンションセンター<div class="sub">奈良</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A5%88%E8%89%AF%E3%82%B3%E3%83%B3%E3%83%99%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E5%A5%88%E8%89%AF" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="41">
+    <tr data-source="41" data-clinic="no">
       <td>42</td>
       <td class="date">6/24 木〜26土</td>
       <td><strong>日本医療機器学会 第102回大会</strong><div class="sub">大会長：中島 章夫</div></td><td class="category"><span class="area-tag">医療機器・感染管理</span></td>
@@ -639,7 +644,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>パシフィコ横浜<div class="sub">神奈川・横浜</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%82%B3%E6%A8%AA%E6%B5%9C%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%83%BB%E6%A8%AA%E6%B5%9C" target="_blank">Google Map</a> <a href="https://www.jsmi.gr.jp/congress/fno/" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="42">
+    <tr data-source="42" data-clinic="no">
       <td>43</td>
       <td class="date">6/25 金〜26土</td>
       <td><strong>第63回日本小児放射線学会学術集会</strong><div class="sub">会長：鈴木信（岩手医科大学 外科学講座）</div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -651,7 +656,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>いわて県民情報交流センター（アイーナ）<div class="sub">岩手・盛岡</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%81%84%E3%82%8F%E3%81%A6%E7%9C%8C%E6%B0%91%E6%83%85%E5%A0%B1%E4%BA%A4%E6%B5%81%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%EF%BC%88%E3%82%A2%E3%82%A4%E3%83%BC%E3%83%8A%EF%BC%89%20%E5%B2%A9%E6%89%8B%E3%83%BB%E7%9B%9B%E5%B2%A1" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="43">
+    <tr data-source="43" data-clinic="no">
       <td>44</td>
       <td class="date">6/25 金〜27日</td>
       <td><strong>第66回日本消化器がん検診学会総会</strong><div class="sub">会長：安田 宏</div></td><td class="category"><span class="area-tag">消化器</span></td>
@@ -663,7 +668,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>パシフィコ横浜<div class="sub">神奈川・横浜</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%82%B3%E6%A8%AA%E6%B5%9C%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%83%BB%E6%A8%AA%E6%B5%9C" target="_blank">Google Map</a> <a href="https://www.jsgcs.or.jp/meeting/sokai/index.html" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="44">
+    <tr data-source="44" data-clinic="no">
       <td>45</td>
       <td class="date">7/1 木〜3土</td>
       <td><strong>第42回日本環境感染学会総会・学術集会</strong><div class="sub">会長：松本 哲哉</div></td><td class="category"><span class="area-tag">医療機器・感染管理</span></td>
@@ -675,7 +680,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>パシフィコ横浜 ノース・展示ホール<div class="sub">神奈川・横浜</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%82%B3%E6%A8%AA%E6%B5%9C%20%E3%83%8E%E3%83%BC%E3%82%B9%E3%83%BB%E5%B1%95%E7%A4%BA%E3%83%9B%E3%83%BC%E3%83%AB%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%83%BB%E6%A8%AA%E6%B5%9C" target="_blank">Google Map</a> <a href="https://www.kankyokansen.org/meeting/annualmeeting/" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="45">
+    <tr data-source="45" data-clinic="no">
       <td>46</td>
       <td class="date">7/8 木〜10土</td>
       <td><strong>第35回日本乳癌学会学術総会</strong><div class="sub">会長：山本豊（熊本大学）</div></td><td class="category"><span class="area-tag">がん</span></td>
@@ -687,7 +692,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>熊本城ホール ほか<div class="sub">熊本</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E5%9F%8E%E3%83%9B%E3%83%BC%E3%83%AB%20%E3%81%BB%E3%81%8B%20%E7%86%8A%E6%9C%AC" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="46">
+    <tr data-source="46" data-clinic="no">
       <td>47</td>
       <td class="date">7/8 木〜9金</td>
       <td><strong>第77回日本病院学会</strong><div class="sub">学会長：佐藤 勝彦</div></td><td class="category"><span class="area-tag">その他</span></td>
@@ -699,7 +704,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>ビッグパレットふくしま<div class="sub">福島・郡山</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%93%E3%83%83%E3%82%B0%E3%83%91%E3%83%AC%E3%83%83%E3%83%88%E3%81%B5%E3%81%8F%E3%81%97%E3%81%BE%20%E7%A6%8F%E5%B3%B6%E3%83%BB%E9%83%A1%E5%B1%B1" target="_blank">Google Map</a> <a href="https://www.c-linkage.co.jp/jha2026/next.html" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="47">
+    <tr data-source="47" data-clinic="no">
       <td>48</td>
       <td class="date">7/14 水〜16金</td>
       <td><strong>国際モダンホスピタルショウ2027 展示会</strong><div class="sub">主催：日本病院会・日本経営協会</div></td><td class="category"><span class="area-tag">医療情報</span></td>
@@ -711,7 +716,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>東京ビッグサイト 西展示棟<div class="sub">東京</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%83%93%E3%83%83%E3%82%B0%E3%82%B5%E3%82%A4%E3%83%88%20%E8%A5%BF%E5%B1%95%E7%A4%BA%E6%A3%9F%20%E6%9D%B1%E4%BA%AC" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="48">
+    <tr data-source="48" data-clinic="no">
       <td>49</td>
       <td class="date">7/14 水〜16金</td>
       <td><strong>第82回日本消化器外科学会総会</strong><div class="sub">会長：江口 晋</div></td><td class="category"><span class="area-tag">消化器</span></td>
@@ -723,7 +728,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>出島メッセ長崎・ヒルトン長崎<div class="sub">長崎</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%87%BA%E5%B3%B6%E3%83%A1%E3%83%83%E3%82%BB%E9%95%B7%E5%B4%8E%E3%83%BB%E3%83%92%E3%83%AB%E3%83%88%E3%83%B3%E9%95%B7%E5%B4%8E%20%E9%95%B7%E5%B4%8E" target="_blank">Google Map</a> <a href="https://www.jsgs.or.jp/meeting/general/sokai-2/" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="49">
+    <tr data-source="49" data-clinic="no">
       <td>50</td>
       <td class="date">7/15 木〜17土</td>
       <td><strong>CVIT2027 第35回日本心血管インターベンション治療学会学術集会</strong><div class="sub">会長：矢嶋純二（心臓血管研究所付属病院）</div></td><td class="category"><span class="area-tag">循環器</span></td>
@@ -735,7 +740,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>東京国際フォーラム<div class="sub">東京</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0%20%E6%9D%B1%E4%BA%AC" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="50">
+    <tr data-source="50" data-clinic="no">
       <td>51</td>
       <td class="date">7/15 木〜16金</td>
       <td><strong>第60回日本整形外科学会骨・軟部腫瘍学術集会</strong><div class="sub">会長：平賀博明（北海道がんセンター）</div></td><td class="category"><span class="area-tag">整形外科</span></td>
@@ -747,7 +752,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>札幌コンベンションセンター<div class="sub">北海道・札幌</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9C%AD%E5%B9%8C%E3%82%B3%E3%83%B3%E3%83%99%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E5%8C%97%E6%B5%B7%E9%81%93%E3%83%BB%E6%9C%AD%E5%B9%8C" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="51">
+    <tr data-source="51" data-clinic="no">
       <td>52</td>
       <td class="date">7/17 土〜18日</td>
       <td><strong>JCRミッドサマーセミナー2027</strong><div class="sub">当番世話人：福倉良彦（川崎医科大学）ほか</div></td><td class="category"><span class="area-tag">その他</span></td>
@@ -759,7 +764,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>岡山コンベンションセンター<div class="sub">岡山</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%B2%A1%E5%B1%B1%E3%82%B3%E3%83%B3%E3%83%99%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E5%B2%A1%E5%B1%B1" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="52">
+    <tr data-source="52" data-clinic="no">
       <td>53</td>
       <td class="date">7/18 日〜20火</td>
       <td><strong>第63回日本周産期・新生児医学会学術集会</strong><div class="sub">会長：森岡 一朗</div></td><td class="category"><span class="area-tag">産婦人科・周産期</span></td>
@@ -771,7 +776,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>パシフィコ横浜 ノース<div class="sub">神奈川・横浜</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%82%B3%E6%A8%AA%E6%B5%9C%20%E3%83%8E%E3%83%BC%E3%82%B9%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%83%BB%E6%A8%AA%E6%B5%9C" target="_blank">Google Map</a> <a href="https://www.jspnm.jp/modules/meeting/index.php?content_id=2" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="53">
+    <tr data-source="53" data-clinic="no">
       <td>54</td>
       <td class="date">8/27 金〜28土</td>
       <td><strong>第49回日本母体胎児医学会学術集会</strong><div class="sub">会長：高橋 雄一郎</div></td><td class="category"><span class="area-tag">産婦人科・周産期</span></td>
@@ -783,10 +788,10 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>ぎふじゅうろくプラザ<div class="sub">岐阜</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%81%8E%E3%81%B5%E3%81%98%E3%82%85%E3%81%86%E3%82%8D%E3%81%8F%E3%83%97%E3%83%A9%E3%82%B6%20%E5%B2%90%E9%98%9C" target="_blank">Google Map</a> <a href="https://jsmfm.org/seminar/meetings/" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="54">
+    <tr data-source="54" data-clinic="yes">
       <td>55</td>
       <td class="date">9/3 金〜4土</td>
-      <td><strong>第68回日本人間ドック・予防医療学会学術大会</strong><div class="sub"></div></td><td class="category"><span class="area-tag">予防医療・代謝</span></td>
+      <td><strong>第68回日本人間ドック・予防医療学会学術大会</strong><span class="clinic-tag">診療所・外来関連</span><div class="sub"></div></td><td class="category"><span class="area-tag">予防医療・代謝</span></td>
       <td><span class="rank rS">S</span></td>
       <td class="mods">CT / MRI / 超音波診断装置 / 一般X線 / VNA / 医療情報システム / 読影支援システム</td>
       <td>健診施設は複数モダリティを一括で持つため複数分野への訴求が高い。</td>
@@ -795,7 +800,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>グランキューブ大阪<div class="sub">大阪</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%82%B0%E3%83%A9%E3%83%B3%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%E5%A4%A7%E9%98%AA%20%E5%A4%A7%E9%98%AA" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="55">
+    <tr data-source="55" data-clinic="no">
       <td>56</td>
       <td class="date">9/10 金〜12日</td>
       <td><strong>第55回日本磁気共鳴医学会大会</strong><div class="sub">大会長：堀正明（東邦大学医療センター大森病院 放射線科）</div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -807,10 +812,10 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>幕張メッセ<div class="sub">千葉</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%B9%95%E5%BC%B5%E3%83%A1%E3%83%83%E3%82%BB%20%E5%8D%83%E8%91%89" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="56">
+    <tr data-source="56" data-clinic="yes">
       <td>57</td>
       <td class="date">9/10 金〜12日</td>
-      <td><strong>第75回日本心臓病学会学術集会</strong><div class="sub">会長：的場聖明（京都府立医科大学）</div></td><td class="category"><span class="area-tag">循環器</span></td>
+      <td><strong>第75回日本心臓病学会学術集会</strong><span class="clinic-tag">診療所・外来関連</span><div class="sub">会長：的場聖明（京都府立医科大学）</div></td><td class="category"><span class="area-tag">循環器</span></td>
       <td><span class="rank rA">A</span></td>
       <td class="mods">超音波診断装置 / CT / MRI / 血管撮影装置 / VNA / 診療情報統合システム</td>
       <td>心エコー、冠動脈CT、心臓MRI、血管撮影を統合して訴求可能。</td>
@@ -819,7 +824,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>国立京都国際会館<div class="sub">京都</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9B%BD%E7%AB%8B%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E4%BC%9A%E9%A4%A8%20%E4%BA%AC%E9%83%BD" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="57">
+    <tr data-source="57" data-clinic="no">
       <td>58</td>
       <td class="date">9/16 木〜18土</td>
       <td><strong>第86回日本癌学会学術総会</strong><div class="sub">会長：大谷直子（大阪公立大学）</div></td><td class="category"><span class="area-tag">がん</span></td>
@@ -831,7 +836,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>大阪国際会議場・NCB会館<div class="sub">大阪</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%98%AA%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0%E5%A0%B4%E3%83%BBNCB%E4%BC%9A%E9%A4%A8%20%E5%A4%A7%E9%98%AA" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="58">
+    <tr data-source="58" data-clinic="no">
       <td>59</td>
       <td class="date">9/24 金〜25土</td>
       <td><strong>第28回日本医療情報学会看護学術大会</strong><div class="sub">大会長：田中いずみ（手稲渓仁会病院）</div></td><td class="category"><span class="area-tag">医療情報</span></td>
@@ -843,7 +848,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>札幌コンベンションセンター<div class="sub">北海道・札幌</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9C%AD%E5%B9%8C%E3%82%B3%E3%83%B3%E3%83%99%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E5%8C%97%E6%B5%B7%E9%81%93%E3%83%BB%E6%9C%AD%E5%B9%8C" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="59">
+    <tr data-source="59" data-clinic="no">
       <td>60</td>
       <td class="date">9/24 金〜25土</td>
       <td><strong>第3回JGES International</strong><div class="sub">会長：糸井 隆夫</div></td><td class="category"><span class="area-tag">消化器</span></td>
@@ -855,7 +860,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>都市センターホテル<div class="sub">東京</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E9%83%BD%E5%B8%82%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%9B%E3%83%86%E3%83%AB%20%E6%9D%B1%E4%BA%AC" target="_blank">Google Map</a> <a href="https://www.jges.net/event/2025-101208" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="60">
+    <tr data-source="60" data-clinic="no">
       <td>61</td>
       <td class="date">9/25 土〜26日</td>
       <td><strong>第43回日本診療放射線技師学術大会</strong><div class="sub">主催：日本診療放射線技師会</div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -867,7 +872,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>福岡国際会議場<div class="sub">福岡</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%B2%A1%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0%E5%A0%B4%20%E7%A6%8F%E5%B2%A1" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="61">
+    <tr data-source="61" data-clinic="no">
       <td>62</td>
       <td class="date">9/29 水〜10/1金</td>
       <td><strong>メディカルジャパン大阪2027 展示会</strong><div class="sub">主催：RX Japan</div></td><td class="category"><span class="area-tag">その他</span></td>
@@ -879,7 +884,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>インテックス大阪<div class="sub">大阪</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%82%A4%E3%83%B3%E3%83%86%E3%83%83%E3%82%AF%E3%82%B9%E5%A4%A7%E9%98%AA%20%E5%A4%A7%E9%98%AA" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="62">
+    <tr data-source="62" data-clinic="no">
       <td>63</td>
       <td class="date">10/5 火〜7木</td>
       <td><strong>第55回日本救急医学会総会・学術集会</strong><div class="sub">会長：成松英智（札幌医科大学）　※会場未公表</div></td><td class="category"><span class="area-tag">救急・麻酔</span></td>
@@ -891,7 +896,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>会場未公表<div class="sub">北海道・札幌</div></td>
       <td class="links"></td>
     </tr>
-    <tr data-source="63">
+    <tr data-source="63" data-clinic="no">
       <td>64</td>
       <td class="date">10/6 水〜8金</td>
       <td><strong>第86回日本脳神経外科学会学術総会</strong><div class="sub">会長：貴島晴彦（大阪大学）</div></td><td class="category"><span class="area-tag">脳・神経</span></td>
@@ -903,7 +908,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>大阪国際会議場<div class="sub">大阪</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%98%AA%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0%E5%A0%B4%20%E5%A4%A7%E9%98%AA" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="64">
+    <tr data-source="64" data-clinic="no">
       <td>65</td>
       <td class="date">10/7 木〜9土</td>
       <td><strong>日本医療検査科学会 第59回大会</strong><div class="sub">大会長：増田 亜希子</div></td><td class="category"><span class="area-tag">臨床検査</span></td>
@@ -915,7 +920,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>パシフィコ横浜<div class="sub">神奈川・横浜</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%82%B3%E6%A8%AA%E6%B5%9C%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%83%BB%E6%A8%AA%E6%B5%9C" target="_blank">Google Map</a> <a href="https://jcls.or.jp/taikai_index/yotei/" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="65">
+    <tr data-source="65" data-clinic="no">
       <td>66</td>
       <td class="date">10/8 金〜10日</td>
       <td><strong>第63回日本医学放射線学会秋季臨床大会</strong><div class="sub">大会長：中本裕士（京都大学）</div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -927,7 +932,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>国立京都国際会館<div class="sub">京都</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9B%BD%E7%AB%8B%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E4%BC%9A%E9%A4%A8%20%E4%BA%AC%E9%83%BD" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="66">
+    <tr data-source="66" data-clinic="no">
       <td>67</td>
       <td class="date">10/21 木〜22金</td>
       <td><strong>第42回日本整形外科学会基礎学術集会</strong><div class="sub">会長：今井晋二（滋賀医科大学）</div></td><td class="category"><span class="area-tag">整形外科</span></td>
@@ -939,7 +944,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>国立京都国際会館<div class="sub">京都</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9B%BD%E7%AB%8B%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E4%BC%9A%E9%A4%A8%20%E4%BA%AC%E9%83%BD" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="67">
+    <tr data-source="67" data-clinic="no">
       <td>68</td>
       <td class="date">10/28 木〜30土</td>
       <td><strong>JDDW2027 第35回日本消化器関連学会週間</strong><div class="sub">構成8学会それぞれに会長。日本消化器外科学会大会：阿部展次（杏林大学）</div></td><td class="category"><span class="area-tag">消化器</span></td>
@@ -951,7 +956,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>神戸コンベンションセンター<div class="sub">兵庫・神戸</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%88%B8%E3%82%B3%E3%83%B3%E3%83%99%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E5%85%B5%E5%BA%AB%E3%83%BB%E7%A5%9E%E6%88%B8" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="68">
+    <tr data-source="68" data-clinic="no">
       <td>69</td>
       <td class="date">10/28 木〜30土</td>
       <td><strong>第25回日本消化器外科学会大会（JDDW2027）</strong><div class="sub">会長：五井 孝憲</div></td><td class="category"><span class="area-tag">消化器</span></td>
@@ -963,7 +968,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>神戸コンベンションセンター<div class="sub">兵庫・神戸</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%88%B8%E3%82%B3%E3%83%B3%E3%83%99%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E5%85%B5%E5%BA%AB%E3%83%BB%E7%A5%9E%E6%88%B8" target="_blank">Google Map</a> <a href="https://www.jsgs.or.jp/meeting/annualmeeting/jddw/" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="69">
+    <tr data-source="69" data-clinic="no">
       <td>70</td>
       <td class="date">10/28 木〜31日</td>
       <td><strong>第65回日本消化器がん検診学会大会（JDDW2027）</strong><div class="sub">会長：小田 丈二</div></td><td class="category"><span class="area-tag">消化器</span></td>
@@ -975,7 +980,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>神戸コンベンションセンター<div class="sub">兵庫・神戸</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%88%B8%E3%82%B3%E3%83%B3%E3%83%99%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E5%85%B5%E5%BA%AB%E3%83%BB%E7%A5%9E%E6%88%B8" target="_blank">Google Map</a> <a href="https://jsgcs.or.jp/meeting/taikai/index" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="70">
+    <tr data-source="70" data-clinic="no">
       <td>71</td>
       <td class="date">11/4 木〜6土</td>
       <td><strong>第69回日本婦人科腫瘍学会学術講演会</strong><div class="sub">会長：鈴木 直</div></td><td class="category"><span class="area-tag">産婦人科・周産期</span></td>
@@ -987,7 +992,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>東京国際フォーラム<div class="sub">東京</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0%20%E6%9D%B1%E4%BA%AC" target="_blank">Google Map</a> <a href="https://jsgo.or.jp/meeting/index.html" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="71">
+    <tr data-source="71" data-clinic="no">
       <td>72</td>
       <td class="date">11/11 木〜13土</td>
       <td><strong>日本核医学会 第67回学術総会</strong><div class="sub">会長：久慈一英（埼玉医科大学国際医療センター 核医学科）</div></td><td class="category"><span class="area-tag">画像診断・放射線</span></td>
@@ -999,7 +1004,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>大宮ソニックシティ・パレスホテル大宮<div class="sub">埼玉・さいたま</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%AE%AE%E3%82%BD%E3%83%8B%E3%83%83%E3%82%AF%E3%82%B7%E3%83%86%E3%82%A3%E3%83%BB%E3%83%91%E3%83%AC%E3%82%B9%E3%83%9B%E3%83%86%E3%83%AB%E5%A4%A7%E5%AE%AE%20%E5%9F%BC%E7%8E%89%E3%83%BB%E3%81%95%E3%81%84%E3%81%9F%E3%81%BE" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="72">
+    <tr data-source="72" data-clinic="no">
       <td>73</td>
       <td class="date">11/11 木〜14日</td>
       <td><strong>日本臨床検査医学会 第74回学術集会</strong><div class="sub">会長：森兼 啓太</div></td><td class="category"><span class="area-tag">臨床検査</span></td>
@@ -1011,7 +1016,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>ライトキューブ宇都宮<div class="sub">栃木・宇都宮</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%A9%E3%82%A4%E3%83%88%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%E5%AE%87%E9%83%BD%E5%AE%AE%20%E6%A0%83%E6%9C%A8%E3%83%BB%E5%AE%87%E9%83%BD%E5%AE%AE" target="_blank">Google Map</a> <a href="https://jslm.org/branches/meeting/index.html" target="_blank">公式</a></td>
     </tr>
-    <tr data-source="73">
+    <tr data-source="73" data-clinic="no">
       <td>74</td>
       <td class="date">11/18 木〜21日</td>
       <td><strong>第47回医療情報学連合大会（第28回日本医療情報学会学術大会）</strong><div class="sub">大会長：横井英人（香川大学）</div></td><td class="category"><span class="area-tag">医療情報</span></td>
@@ -1023,7 +1028,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>あなぶきアリーナ香川 ほか<div class="sub">香川・高松</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%81%82%E3%81%AA%E3%81%B6%E3%81%8D%E3%82%A2%E3%83%AA%E3%83%BC%E3%83%8A%E9%A6%99%E5%B7%9D%20%E3%81%BB%E3%81%8B%20%E9%A6%99%E5%B7%9D%E3%83%BB%E9%AB%98%E6%9D%BE" target="_blank">Google Map</a> </td>
     </tr>
-    <tr data-source="74">
+    <tr data-source="74" data-clinic="no">
       <td>75</td>
       <td class="date">11/18 木〜20土</td>
       <td><strong>第67回日本肺癌学会学術集会</strong><div class="sub">※会場未公表</div></td><td class="category"><span class="area-tag">がん</span></td>
@@ -1035,7 +1040,7 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td>会場未公表<div class="sub">兵庫・神戸</div></td>
       <td class="links"></td>
     </tr>
-    <tr data-source="75">
+    <tr data-source="75" data-clinic="no">
       <td>76</td>
       <td class="date">11/19 金〜20土</td>
       <td><strong>第37回日本乳癌検診学会総会</strong><div class="sub">会長：阿南敬生</div></td><td class="category"><span class="area-tag">がん</span></td>
@@ -1046,8 +1051,280 @@ body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
       <td><b>未公表</b><div class="sub">2027年は開催前のため確定値なし</div></td>
       <td>西日本総合展示場 新館 ほか<div class="sub">福岡・北九州</div></td>
       <td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E8%A5%BF%E6%97%A5%E6%9C%AC%E7%B7%8F%E5%90%88%E5%B1%95%E7%A4%BA%E5%A0%B4%20%E6%96%B0%E9%A4%A8%20%E3%81%BB%E3%81%8B%20%E7%A6%8F%E5%B2%A1%E3%83%BB%E5%8C%97%E4%B9%9D%E5%B7%9E" target="_blank">Google Map</a> </td>
-    </tr></tbody></table><p id="empty">条件に一致する学会はありません。絞り込み条件を変更してください。</p></div>
-<p class="note">会員数は各団体が公表した時点の参考値、参加者数は過去大会の実績であり、2027年の確定登録者数ではありません。適合度は一般的な学術テーマと機器・技術の関連性に関する編集上の目安で、団体の格付けやメーカーの推奨ではありません。会期・会場・数値の最新情報は各学会の公式サイトをご確認ください。更新：2026年9月24日。</p>
+    </tr><tr data-source="76" data-clinic="yes">
+<td>77</td>
+<td class="date">2027年 日程未公表</td>
+<td><strong>日本臨床内科医会 第44回総合学術集会</strong><div class="sub">会頭：勝谷 友宏／開催地：兵庫県（詳細日程・会場は未公表）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">その他</span></td>
+<td><span class="rank rS">S</span></td>
+<td class="mods">超音波診断装置 / 一般X線 / CT / 医療情報システム</td>
+<td>第一線の内科診療に携わる医師を主対象とする実地臨床型の集会。生活習慣病、循環器、呼吸器、消化器など外来診療との接点が広い。</td>
+<td><b>13,014名</b><div class="sub">2023年3月公表値</div><div><a href="https://www.japha.jp/about/information.html" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>会場未公表<div class="sub">兵庫</div></td>
+<td class="links"> <a href="https://japha.jp/member/" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="77" data-clinic="yes">
+<td>78</td>
+<td class="date">2027年 日程未公表</td>
+<td><strong>日本臨床内科医会 第40回医学会</strong><div class="sub">開催地：東京（詳細日程・会場は未公表）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">その他</span></td>
+<td><span class="rank rS">S</span></td>
+<td class="mods">超音波診断装置 / 一般X線 / CT / 医療情報システム</td>
+<td>日常診療に直接役立つ内科学を重視する実地医家向けの医学会。診療所・クリニック層との接点が明確。</td>
+<td><b>13,014名</b><div class="sub">2023年3月公表値</div><div><a href="https://www.japha.jp/about/information.html" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>会場未公表<div class="sub">東京</div></td>
+<td class="links"> <a href="https://japha.jp/member/" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="78" data-clinic="no">
+<td>79</td>
+<td class="date">1/28 木〜30土</td>
+<td><strong>第60回日本臨床腎移植学会</strong><div class="sub">会長：内田 潤次（大阪公立大学大学院医学研究科 泌尿器病態学）</div></td>
+<td class="category"><span class="area-tag">泌尿器</span></td>
+<td><span class="rank rB">B</span></td>
+<td class="mods">超音波診断装置 / CT / MRI / 医療情報システム</td>
+<td>腎移植の臨床管理を扱う専門学会。一般開業医中心ではないが、腎・泌尿器の臨床系学会として補完的に掲載。</td>
+<td><b>未公表/要確認</b><div class="sub">公開値を継続確認</div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>大阪国際会議場<div class="sub">大阪</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%98%AA%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0%E5%A0%B4%20%E5%A4%A7%E9%98%AA" target="_blank" rel="noopener">Google Map</a> <a href="https://p-forest.co.jp/jscrt60/contents/outline.html" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="79" data-clinic="yes">
+<td>80</td>
+<td class="date">3/19 金〜20土</td>
+<td><strong>第30回アディポサイエンス・シンポジウム（日本肥満学会）</strong><div class="sub">会長：片桐 秀樹（東北大学）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">予防医療・代謝</span></td>
+<td><span class="rank rA">A</span></td>
+<td class="mods">超音波診断装置 / CT / 医療情報システム</td>
+<td>肥満症・代謝疾患は診療所での生活習慣病管理と直結。脂肪肝・体組成・合併症評価などとの関連が強い。</td>
+<td><b>未公表/要確認</b><div class="sub">学会会員数は別途確認</div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>千里ライフサイエンスセンター<div class="sub">大阪・豊中</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%8D%83%E9%87%8C%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E5%A4%A7%E9%98%AA%E3%83%BB%E8%B1%8A%E4%B8%AD" target="_blank" rel="noopener">Google Map</a> <a href="https://www.jasso.or.jp/contents/event/adipo.html" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="80" data-clinic="yes">
+<td>81</td>
+<td class="date">4/3 土〜4日</td>
+<td><strong>第43回日本臨床皮膚科医会総会・臨床学術大会</strong><div class="sub">会頭：小西 啓介（小西皮膚科クリニック）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">その他</span></td>
+<td><span class="rank rB">B</span></td>
+<td class="mods">超音波診断装置 / 医療情報システム / 画像管理</td>
+<td>皮膚科を専門とする臨床医の全国組織で、会頭・実行委員にもクリニック院長が含まれる。診療所層への到達性が高い。</td>
+<td><b>約4,600名</b><div class="sub">日本臨床皮膚科医会 公表</div><div><a href="https://plaza.umin.ac.jp/jocd/about/index.html" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>国立京都国際会館<div class="sub">京都</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9B%BD%E7%AB%8B%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E4%BC%9A%E9%A4%A8%20%E4%BA%AC%E9%83%BD" target="_blank" rel="noopener">Google Map</a> <a href="https://jocd43.jda-conv.jp/outline.html" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="81" data-clinic="yes">
+<td>82</td>
+<td class="date">4/16 金〜18日</td>
+<td><strong>第67回日本呼吸器学会学術講演会</strong><div class="sub">会長：西岡 安彦（徳島大学）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">その他</span></td>
+<td><span class="rank rA">A</span></td>
+<td class="mods">CT / 一般X線 / 超音波診断装置 / 医療情報システム / VNA</td>
+<td>呼吸器外来、肺癌・COPD・喘息・感染症など診療所から病院まで幅広い。胸部CT・X線の臨床訴求との親和性が高い。</td>
+<td><b>13,703名</b><div class="sub">2026年1月31日</div><div><a href="https://www.jrs.or.jp/about/outline.html" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>9,500名予定</b><div class="sub">主催者想定参加者数</div><div><a href="https://sp.gakkai-p.jp/event/vnjnkr" target="_blank" rel="noopener">参加者出典</a></div></td>
+<td>東京国際フォーラム<div class="sub">東京</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0%20%E6%9D%B1%E4%BA%AC" target="_blank" rel="noopener">Google Map</a> <a href="https://www.jrs.or.jp/meeting/academic/" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="82" data-clinic="yes">
+<td>83</td>
+<td class="date">4/26 月〜28水</td>
+<td><strong>第71回日本リウマチ学会総会・学術集会</strong><div class="sub">会長：高柳 広（東京大学）／副会長：門野 夕峰（埼玉医科大学）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">整形外科</span></td>
+<td><span class="rank rA">A</span></td>
+<td class="mods">超音波診断装置 / 一般X線 / MRI / CT</td>
+<td>関節・リウマチ診療は外来比率が高く、関節超音波、X線、MRIとの関連が強い。整形外科・内科双方の臨床層に接点。</td>
+<td><b>未公表/要確認</b><div class="sub">公開値を継続確認</div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>パシフィコ横浜<div class="sub">神奈川・横浜</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%82%B3%E6%A8%AA%E6%B5%9C%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%83%BB%E6%A8%AA%E6%B5%9C" target="_blank" rel="noopener">Google Map</a> <a href="https://www.jcr2027.com/outline.html" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="83" data-clinic="yes">
+<td>84</td>
+<td class="date">5/21 金〜23日</td>
+<td><strong>第18回日本プライマリ・ケア連合学会学術大会</strong><div class="sub">大会長：吉田 伸（飯塚病院／頴田病院 総合診療科）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">その他</span></td>
+<td><span class="rank rS">S</span></td>
+<td class="mods">超音波診断装置 / 一般X線 / CT / 医療情報システム</td>
+<td>家庭医・総合診療・地域医療を中心とし、かかりつけ医・診療所・在宅医療との親和性が非常に高い。POCUSや地域連携の訴求にも向く。</td>
+<td><b>12,556名</b><div class="sub">2026年8月末</div><div><a href="https://www.primarycare-japan.com/assoc/about/ab_index/" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>福岡国際会議場・マリンメッセ福岡B館<div class="sub">福岡</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%B2%A1%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0%E5%A0%B4%E3%83%BB%E3%83%9E%E3%83%AA%E3%83%B3%E3%83%A1%E3%83%83%E3%82%BB%E7%A6%8F%E5%B2%A1B%E9%A4%A8%20%E7%A6%8F%E5%B2%A1" target="_blank" rel="noopener">Google Map</a> <a href="https://plaza.umin.ac.jp/jpca2027/outline/index.html" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="84" data-clinic="yes">
+<td>85</td>
+<td class="date">5/28 金〜30日</td>
+<td><strong>第72回日本透析医学会学術集会・総会</strong><div class="sub">会長：脇野 修（徳島大学）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">予防医療・代謝</span></td>
+<td><span class="rank rA">A</span></td>
+<td class="mods">超音波診断装置 / 一般X線 / CT / 医療情報システム</td>
+<td>透析施設・クリニックの医師、臨床工学技士、看護師などが集まる大型学会。バスキュラーアクセス超音波や合併症画像評価との接点が強い。</td>
+<td><b>正会員14,345名</b><div class="sub">2026年6月18日</div><div><a href="https://www.jsdt.or.jp/jsdt/1.html" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>東京国際フォーラム・東京商工会議所・JPタワーホール＆カンファレンス<div class="sub">東京</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0%E3%83%BB%E6%9D%B1%E4%BA%AC%E5%95%86%E5%B7%A5%E4%BC%9A%E8%AD%B0%E6%89%80%E3%83%BBJP%E3%82%BF%E3%83%AF%E3%83%BC%E3%83%9B%E3%83%BC%E3%83%AB%EF%BC%86%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9%20%E6%9D%B1%E4%BA%AC" target="_blank" rel="noopener">Google Map</a> <a href="https://www.congre.co.jp/jsdt2027/outline.html" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="85" data-clinic="yes">
+<td>86</td>
+<td class="date">6/11 金〜13日</td>
+<td><strong>第70回日本腎臓学会学術総会</strong><div class="sub">総会長：猪阪 善隆（大阪大学）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">予防医療・代謝</span></td>
+<td><span class="rank rA">A</span></td>
+<td class="mods">超音波診断装置 / CT / MRI / 医療情報システム</td>
+<td>CKD、腎機能低下、高血圧、糖尿病性腎症など外来慢性疾患管理に直結。透析前診療を含め診療所から専門施設まで幅広い。</td>
+<td><b>未公表/要確認</b><div class="sub">公開値を継続確認</div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>神戸コンベンションセンター<div class="sub">兵庫・神戸</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%88%B8%E3%82%B3%E3%83%B3%E3%83%99%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E5%85%B5%E5%BA%AB%E3%83%BB%E7%A5%9E%E6%88%B8" target="_blank" rel="noopener">Google Map</a> <a href="https://square.umin.ac.jp/jsn70/" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="86" data-clinic="yes">
+<td>87</td>
+<td class="date">7/3 土〜4日</td>
+<td><strong>第59回日本動脈硬化学会総会・学術集会</strong><div class="sub">会長：塚本 和久（帝京大学）／吉田 雅幸（東京科学大学）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">循環器</span></td>
+<td><span class="rank rA">A</span></td>
+<td class="mods">超音波診断装置 / CT / 医療情報システム</td>
+<td>脂質異常症、動脈硬化、循環器病予防を扱い、内科クリニックでの生活習慣病診療との関連が強い。頸動脈USや冠動脈CTとも親和性。</td>
+<td><b>2,261名</b><div class="sub">2024年4月1日 正会員</div><div><a href="https://www.j-athero.org/jp/outline/teikan/" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>京王プラザホテル新宿<div class="sub">東京</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E7%8E%8B%E3%83%97%E3%83%A9%E3%82%B6%E3%83%9B%E3%83%86%E3%83%AB%E6%96%B0%E5%AE%BF%20%E6%9D%B1%E4%BA%AC" target="_blank" rel="noopener">Google Map</a> <a href="https://www.j-athero.org/jp/meeting/meeting/" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="87" data-clinic="yes">
+<td>88</td>
+<td class="date">7/10 土〜11日</td>
+<td><strong>第9回日本在宅医療連合学会大会</strong><div class="sub">大会長：佐々木 淳（医療法人社団悠翔会）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">その他</span></td>
+<td><span class="rank rS">S</span></td>
+<td class="mods">ポータブル超音波 / 一般X線 / 医療情報システム</td>
+<td>在宅医療・訪問診療を直接対象とする学会。クリニック医師、在宅療養支援診療所、多職種連携への接点が非常に高い。</td>
+<td><b>3,108名</b><div class="sub">2019年4月時点の旧組織公表値・参考</div><div><a href="https://www.jahcm.org/overview.html" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>東京国際フォーラム<div class="sub">東京</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E5%9B%BD%E9%9A%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0%20%E6%9D%B1%E4%BA%AC" target="_blank" rel="noopener">Google Map</a> <a href="https://www.jahcm.org/academic_conference.html" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="88" data-clinic="yes">
+<td>89</td>
+<td class="date">7/17 土〜18日</td>
+<td><strong>第33回日本心臓リハビリテーション学術集会</strong><div class="sub">会長：三浦 伸一郎</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">循環器</span></td>
+<td><span class="rank rA">A</span></td>
+<td class="mods">超音波診断装置 / CT / 医療情報システム</td>
+<td>循環器慢性期管理・心不全・二次予防を扱い、外来リハビリやクリニック診療との接点がある。心エコーとの親和性も高い。</td>
+<td><b>未公表/要確認</b><div class="sub">公開値を継続確認</div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>福岡国際会議場ほか<div class="sub">福岡</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%B2%A1%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0%E5%A0%B4%E3%81%BB%E3%81%8B%20%E7%A6%8F%E5%B2%A1" target="_blank" rel="noopener">Google Map</a> <a href="https://www.jacr.jp/assembly/" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="89" data-clinic="yes">
+<td>90</td>
+<td class="date">7/18 日〜19月</td>
+<td><strong>第40回日本臨床整形外科学会学術集会</strong><div class="sub">大会長：成島 勝之助（成島整形外科医院 院長／岩手県臨床整形外科医会 会長）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">整形外科</span></td>
+<td><span class="rank rS">S</span></td>
+<td class="mods">一般X線 / MRI / CT / 超音波診断装置 / 骨密度測定</td>
+<td>整形外科診療所・医院の臨床医との接点が非常に強い。X線、運動器US、MRI、骨粗鬆症関連機器を実診療に沿って訴求しやすい。</td>
+<td><b>未公表/要確認</b><div class="sub">公開値を継続確認</div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>マリオス・キオクシアアイーナ<div class="sub">岩手・盛岡</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%9E%E3%83%AA%E3%82%AA%E3%82%B9%E3%83%BB%E3%82%AD%E3%82%AA%E3%82%AF%E3%82%B7%E3%82%A2%E3%82%A2%E3%82%A4%E3%83%BC%E3%83%8A%20%E5%B2%A9%E6%89%8B%E3%83%BB%E7%9B%9B%E5%B2%A1" target="_blank" rel="noopener">Google Map</a> <a href="https://center6.umin.ac.jp/gakkai/meeting/2027/" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="90" data-clinic="yes">
+<td>91</td>
+<td class="date">9/16 木〜18土</td>
+<td><strong>第67回日本産科婦人科内視鏡・ロボティクス学会学術講演会</strong><div class="sub">会長：寺田 幸弘（秋田大学）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">産婦人科・周産期</span></td>
+<td><span class="rank rA">A</span></td>
+<td class="mods">超音波診断装置 / MRI / CT / 医療情報システム</td>
+<td>婦人科の低侵襲手術・術前画像・外来診断に関係し、産婦人科クリニックから病院まで幅広い臨床層が対象。</td>
+<td><b>未公表/要確認</b><div class="sub">公開値を継続確認</div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>あきた芸術劇場ミルハス<div class="sub">秋田</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%81%82%E3%81%8D%E3%81%9F%E8%8A%B8%E8%A1%93%E5%8A%87%E5%A0%B4%E3%83%9F%E3%83%AB%E3%83%8F%E3%82%B9%20%E7%A7%8B%E7%94%B0" target="_blank" rel="noopener">Google Map</a> <a href="https://www.jsergo.jp/meeting/" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="91" data-clinic="yes">
+<td>92</td>
+<td class="date">9/17 金〜19日</td>
+<td><strong>第29回日本骨粗鬆症学会</strong><div class="sub">会長：酒井 昭典（産業医科大学病院）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">整形外科</span></td>
+<td><span class="rank rS">S</span></td>
+<td class="mods">骨密度測定 / 一般X線 / CT / 超音波診断装置</td>
+<td>整形外科、内科、婦人科など外来診療で患者数の多い骨粗鬆症を扱う。診療所での検査・治療導線との親和性が高い。</td>
+<td><b>13,194名</b><div class="sub">2026年4月1日</div><div><a href="https://www.josteo.com/about/overview/" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>福岡国際会議場・マリンメッセ福岡B館<div class="sub">福岡</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%B2%A1%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0%E5%A0%B4%E3%83%BB%E3%83%9E%E3%83%AA%E3%83%B3%E3%83%A1%E3%83%83%E3%82%BB%E7%A6%8F%E5%B2%A1B%E9%A4%A8%20%E7%A6%8F%E5%B2%A1" target="_blank" rel="noopener">Google Map</a> <a href="https://www.congre.co.jp/29jos/outline.html" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="92" data-clinic="yes">
+<td>93</td>
+<td class="date">11/6 土〜7日</td>
+<td><strong>第42回日本女性医学学会学術集会</strong><div class="sub">学術集会長：横山 良仁（弘前大学）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">産婦人科・周産期</span></td>
+<td><span class="rank rS">S</span></td>
+<td class="mods">超音波診断装置 / 骨密度測定 / 医療情報システム</td>
+<td>更年期、女性ヘルスケア、骨粗鬆症など婦人科外来に直結。女性クリニック・産婦人科診療所との接点が強い。</td>
+<td><b>4,946名</b><div class="sub">2025年3月31日</div><div><a href="https://jams.med.or.jp/members-s/133.html" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>ホテル青森ほか<div class="sub">青森</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%83%9B%E3%83%86%E3%83%AB%E9%9D%92%E6%A3%AE%E3%81%BB%E3%81%8B%20%E9%9D%92%E6%A3%AE" target="_blank" rel="noopener">Google Map</a> <a href="https://www.jmwh.jp/n-katudou.html" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="93" data-clinic="yes">
+<td>94</td>
+<td class="date">11/11 木〜13土</td>
+<td><strong>第89回日本臨床外科学会学術集会</strong><div class="sub">会長：阪本 良弘（杏林大学 消化器・一般外科）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">消化器</span></td>
+<td><span class="rank rA">A</span></td>
+<td class="mods">超音波診断装置 / CT / MRI / 医療情報システム</td>
+<td>臨床外科全般を扱う大規模学会。消化器・一般外科を中心に術前画像、外来フォロー、地域連携との接点がある。</td>
+<td><b>15,648名</b><div class="sub">2025年8月31日</div><div><a href="https://www.ringe.jp/about/" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>京王プラザホテル<div class="sub">東京</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E7%8E%8B%E3%83%97%E3%83%A9%E3%82%B6%E3%83%9B%E3%83%86%E3%83%AB%20%E6%9D%B1%E4%BA%AC" target="_blank" rel="noopener">Google Map</a> <a href="https://www.ringe.jp/meeting/" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="94" data-clinic="yes">
+<td>95</td>
+<td class="date">11/12 金〜14日</td>
+<td><strong>第49回日本高血圧学会総会</strong><div class="sub">会長：三浦 伸一郎（福岡大学）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">循環器</span></td>
+<td><span class="rank rS">S</span></td>
+<td class="mods">超音波診断装置 / CT / 医療情報システム</td>
+<td>高血圧は内科クリニックの日常診療の中核。心血管リスク評価、頸動脈US、心エコー、CT、慢性疾患管理との関連が強い。</td>
+<td><b>約5,200名</b><div class="sub">2026年6月</div><div><a href="https://www.jpnsh.jp/seturitu.html" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>福岡国際会議場<div class="sub">福岡</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%B2%A1%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0%E5%A0%B4%20%E7%A6%8F%E5%B2%A1" target="_blank" rel="noopener">Google Map</a> <a href="https://www.jpnsh.jp/soukai.html" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="95" data-clinic="yes">
+<td>96</td>
+<td class="date">11/13 土〜14日</td>
+<td><strong>第38回日本臨床スポーツ医学会学術集会</strong><div class="sub">会長：藤谷 博人（聖マリアンナ医科大学）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">整形外科</span></td>
+<td><span class="rank rA">A</span></td>
+<td class="mods">超音波診断装置 / MRI / 一般X線 / CT</td>
+<td>スポーツ整形、運動器診療、スポーツドクターが集まる臨床系学会。整形外科クリニックと運動器US・MRIの接点が強い。</td>
+<td><b>約4,600名</b><div class="sub">日本医学会掲載値</div><div><a href="https://jams.med.or.jp/members-s/114.html" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>幕張メッセ国際会議場<div class="sub">千葉</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%B9%95%E5%BC%B5%E3%83%A1%E3%83%83%E3%82%BB%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0%E5%A0%B4%20%E5%8D%83%E8%91%89" target="_blank" rel="noopener">Google Map</a> <a href="https://www.rinspo.jp/congress.html" target="_blank" rel="noopener">公式</a></td>
+</tr>
+<tr data-source="96" data-clinic="yes">
+<td>97</td>
+<td class="date">11/27 土〜28日</td>
+<td><strong>第42回日本臨床リウマチ学会</strong><div class="sub">会長：亀田 秀人（東邦大学）</div><span class="clinic-tag">診療所・外来関連</span></td>
+<td class="category"><span class="area-tag">整形外科</span></td>
+<td><span class="rank rA">A</span></td>
+<td class="mods">超音波診断装置 / 一般X線 / MRI / 医療情報システム</td>
+<td>リウマチ性疾患の実地臨床を重視する学会。関節超音波やX線、慢性疾患の外来管理との親和性が高い。</td>
+<td><b>917名</b><div class="sub">2026年3月</div><div><a href="https://www.j-cra.com/about/history/" target="_blank" rel="noopener">会員数出典</a></div></td>
+<td><b>未公表</b><div class="sub">2027年大会は開催前</div></td>
+<td>セルリアンタワー東急ホテル<div class="sub">東京・渋谷</div></td>
+<td class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%82%BB%E3%83%AB%E3%83%AA%E3%82%A2%E3%83%B3%E3%82%BF%E3%83%AF%E3%83%BC%E6%9D%B1%E6%80%A5%E3%83%9B%E3%83%86%E3%83%AB%20%E6%9D%B1%E4%BA%AC%E3%83%BB%E6%B8%8B%E8%B0%B7" target="_blank" rel="noopener">Google Map</a> <a href="https://www.j-cra.com/meeting/next/" target="_blank" rel="noopener">公式</a></td>
+</tr></tbody></table><p id="empty">条件に一致する学会はありません。絞り込み条件を変更してください。</p></div>
+<p class="note">会員数は各団体が公表した時点の参考値、参加者数は過去大会の実績であり、2027年の確定登録者数ではありません。適合度および「診療所・外来関連」タグは、一般的な学術テーマと診療場面の関連性に関する編集上の目安で、実参加者の勤務形態を示すものでも、団体の格付けやメーカーの推奨でもありません。会期・会場・数値の最新情報は各学会の公式サイトをご確認ください。更新：2026年9月24日。</p>
 </main>
 <script>
 (function(){
@@ -1062,14 +1339,14 @@ var rows=Array.from(tbody.rows).map(function(tr,index){
  category:txt(3),pref:((city?city.textContent.trim():"").match(/^(北海道|青森|岩手|宮城|秋田|山形|福島|茨城|栃木|群馬|埼玉|千葉|東京|神奈川|新潟|富山|石川|福井|山梨|長野|岐阜|静岡|愛知|三重|滋賀|京都|大阪|兵庫|奈良|和歌山|鳥取|島根|岡山|広島|山口|徳島|香川|愛媛|高知|福岡|佐賀|長崎|熊本|大分|宮崎|鹿児島|沖縄)(?:[・県府都]|$)/)||[])[1]||"",fit:({S:3,A:2,B:1})[fit]||null,fitLabel:fit,mods:mods,reason:txt(6),
  members:getCount(c[7].querySelector("b")?c[7].querySelector("b").textContent:""),
  attendance:getCount(c[8].querySelector("b")?c[8].querySelector("b").textContent:""),
- venue:txt(9),city:city?city.textContent.trim():"",official:official?1:0,full:txt(1)+" "+txt(2)+" "+txt(3)+" "+txt(4)+" "+txt(5)+" "+txt(6)+" "+txt(7)+" "+txt(8)+" "+txt(9)};
+ venue:txt(9),city:city?city.textContent.trim():"",official:official?1:0,clinic:tr.dataset.clinic==="yes",full:txt(1)+" "+txt(2)+" "+txt(3)+" "+txt(4)+" "+txt(5)+" "+txt(6)+" "+txt(7)+" "+txt(8)+" "+txt(9)};
 });
 function fill(id,values,label){var el=byId(id);el.replaceChildren(new Option(label,""));Array.from(new Set(values.filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"ja");}).forEach(function(v){el.add(new Option(v,v));});}
 fill("filterCategory",rows.map(function(r){return r.category;}),"すべて");
 fill("filterCity",rows.map(function(r){return r.city;}),"すべて");
 fill("filterPrefecture",rows.map(function(r){return r.pref;}),"すべて");
 fill("filterModality",rows.flatMap(function(r){return r.mods.split(/\s*\/\s*/).map(function(s){return s.trim();});}),"すべて");
-var ids=["q","filterCategory","filterModality","filterFit","filterMonth","filterCity","filterPrefecture","hasMembers","hasAttendance","hasOfficial","minMembers","maxMembers","minAttendance","maxAttendance","rankBy","rankDir","secondBy","secondDir"];
+var ids=["q","filterCategory","filterModality","filterFit","filterMonth","filterCity","filterPrefecture","filterClinic","hasMembers","hasAttendance","hasOfficial","minMembers","maxMembers","minAttendance","maxAttendance","rankBy","rankDir","secondBy","secondDir"];
 var data={};ids.forEach(function(id){data[id]=byId(id);});
 var shown=[];
 function cmp(a,b,key,dir){
@@ -1090,6 +1367,7 @@ function draw(){
  if(month&&r.month!==Number(month))return false;
  if(city&&r.city!==city)return false;
  if(data.filterPrefecture.value&&r.pref!==data.filterPrefecture.value)return false;
+ if(data.filterClinic.value==="yes"&&!r.clinic||data.filterClinic.value==="no"&&r.clinic)return false;
  if(minM!==null&&(r.members===null||r.members<minM))return false;
  if(maxM!==null&&(r.members===null||r.members>maxM))return false;
  if(minA!==null&&(r.attendance===null||r.attendance<minA))return false;
@@ -1120,9 +1398,9 @@ byId("reset").addEventListener("click",function(){ids.forEach(function(id){if(["
 byId("compact").addEventListener("click",function(){var compact=document.body.classList.toggle("compact");this.setAttribute("aria-pressed",String(compact));this.textContent=compact?"詳細を表示":"簡易表示";});
 function csv(v){var x=String(v==null?"":v);if(/^[=+@]/.test(x))x="'"+x;return '"'+x.replace(/"/g,'""')+'"';}
 byId("export").addEventListener("click",function(){
- var head=["表示順位","会期","学会名","専門分野","関連度（参考）","関連機器・システム","適合理由","会員数（掲載値）","大会参加人数（参考）","会場","公式URL","GoogleマップURL"];
+ var head=["表示順位","会期","学会名","専門分野","診療所・外来関連","関連度（参考）","関連機器・システム","適合理由","会員数（掲載値）","大会参加人数（参考）","会場","公式URL","GoogleマップURL"];
  var body=shown.map(function(r,i){var links=Array.from(r.tr.cells[10].querySelectorAll("a"));function link(name){var x=links.find(function(a){return a.textContent.trim()===name;});return x?x.href:"";}
- return [i+1,r.tr.cells[1].textContent.trim(),r.name,r.category,r.fitLabel,r.mods,r.reason,r.tr.cells[7].querySelector("b")?.textContent||"",r.tr.cells[8].querySelector("b")?.textContent||"",r.venue,link("公式"),link("Google Map")];});
+ return [i+1,r.tr.cells[1].textContent.trim(),r.name,r.category,r.clinic?"関連":"",r.fitLabel,r.mods,r.reason,r.tr.cells[7].querySelector("b")?.textContent||"",r.tr.cells[8].querySelector("b")?.textContent||"",r.venue,link("公式"),link("Google Map")];});
  var text="\ufeff"+[head].concat(body).map(function(r){return r.map(csv).join(",");}).join("\r\n");
  var url=URL.createObjectURL(new Blob([text],{type:"text/csv;charset=utf-8"})),a=document.createElement("a");
  a.href=url;a.download="2027_国内学会_絞り込み結果.csv";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);
@@ -1164,7 +1442,7 @@ function initMap(){
 }
 window.renderDashboard=function(all,selected){
  const geo=counts(selected,"pref"),geon=Object.keys(geo).length;
- by("dEvents").textContent=selected.length;by("dPrefs").textContent=geon;
+ by("dEvents").textContent=selected.length;by("dPrefs").textContent=geon;by("dClinic").textContent=selected.filter(r=>r.clinic).length;
  by("geoLabel").textContent=geon+"都道府県";by("geoNote").textContent="会場地域判明："+selected.filter(r=>r.pref).length+"件／オンライン・地域未公表："+selected.filter(r=>!r.pref).length+"件。";
  currentGeo=geo;updateMap();bars(by("prefChart"),entries(geo),"filterPrefecture",by("filterPrefecture").value);
  let monthEl=by("monthChart"),monthly=Array.from({length:12},(_,i)=>selected.filter(x=>x.month===i+1).length);monthEl.replaceChildren();const mm=Math.max(1,...monthly);
