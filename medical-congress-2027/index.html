@@ -44,19 +44,78 @@ body.compact th[data-sort="reason"],body.compact td:nth-child(7){display:none}
 @media(max-width:650px){.wrap{padding:14px}.control-panel{padding:13px}.filter-grid,.sort-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.field-wide{grid-column:span 2}.action-bar{justify-content:flex-start}.action-btn{flex:1}.tablewrap{max-height:72vh}}
 @media print{.control-panel,.action-bar{display:none}.tablewrap{max-height:none;overflow:visible}th,td{font-size:8pt}}
 
+
+:root{--paper:#f4f7f9;--white:#fff;--line:#dce8ed;--ink:#253e50;--sea:#2d7898;--teal:#329997}
+body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
+.wrap{max-width:1560px;padding:clamp(13px,2vw,32px)}h1{font-size:clamp(24px,3.5vw,37px);line-height:1.45}.lead{font-size:14px;max-width:970px;color:#637e8c}
+.cards{display:none}.kpi-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:20px 0}
+.metric{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:15px;padding:17px 15px;box-shadow:0 5px 20px rgba(24,65,82,.04)}
+.metric-icon{flex:0 0 42px;height:42px;background:#e8f4f7;border-radius:12px;color:#287999;display:grid;place-items:center;font-size:23px;font-weight:900}
+.metric small,.metric span:last-child{display:block;font-size:11px;color:#7b8f99}.metric strong{font-size:30px;color:#255774;display:block;line-height:1.45;font-variant-numeric:tabular-nums}
+.jump{position:sticky;top:0;z-index:20;display:flex;gap:7px;overflow:auto;scrollbar-width:thin;padding:11px 14px;background:#ffffffef;backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:12px;box-shadow:0 6px 15px #1845610a;margin:0 0 25px}
+.jump a{white-space:nowrap;text-decoration:none;padding:6px 12px;border-radius:8px;color:#2b6785;font-size:12px;font-weight:800}.jump a:hover{background:#e9f5f7}
+.section-intro{margin:15px 0 19px}.eyebrow,.viz-title small{font-size:10px;font-weight:900;letter-spacing:.13em;color:#31939a}.section-intro h2{font-size:clamp(20px,2vw,25px);margin:3px 0 2px;color:#204a64}.section-intro p,.viz-title p{color:#728995;font-size:12px;margin:3px 0 0;line-height:1.75}
+.viz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:25px}.viz{min-width:0;background:white;border:1px solid var(--line);border-radius:15px;padding:21px;box-shadow:0 7px 22px #19486508}.viz.geo,.viz.wide{grid-column:1/-1}
+.viz-title{display:flex;justify-content:space-between;align-items:start;gap:12px;margin:0 0 17px}.viz-title h2{font-size:18px;color:#2a556d;margin:4px 0}.viz-title>b{font-size:12px;white-space:nowrap;color:#2b7897;background:#eaf5f8;border-radius:99px;padding:5px 10px}
+.geo-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.7fr);gap:20px}.pref-map{height:425px;background:#e9f3f8;display:grid;place-items:center;border:1px solid #d6e6ed;border-radius:11px;overflow:hidden}.pref-map>p{max-width:290px;text-align:center;color:#588199;font-size:12px;padding:15px}
+.source-hint{font-size:11px;color:#7b929f;margin:8px 0 0}.geo-ranking{min-width:0;max-height:465px;overflow:auto;padding-right:5px}
+.chart-label{display:flex;justify-content:space-between;gap:8px;margin:0 0 11px;color:#456479;font-size:12px;font-weight:850}.chart-label span{font-size:10px;color:#90a2ab}
+.hbars{display:flex;flex-direction:column;gap:7px}.hbar{display:grid;grid-template-columns:minmax(78px,110px) 1fr 27px;gap:9px;align-items:center;width:100%;border:0;border-radius:8px;padding:6px 9px;background:#f6fafc;text-align:left;font:inherit;font-size:11px;color:#3d5d70;cursor:pointer}
+.hbar:hover,.hbar:focus-visible{background:#e9f5f8}.hbar span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:800}
+.hbar .track{height:8px;background:#e0ebf0;border-radius:99px;overflow:hidden}.hbar .fill{display:block;height:100%;background:linear-gradient(90deg,#70b8c3,#267ca0);border-radius:99px}.hbar b{text-align:right;color:#2b6987;font-variant-numeric:tabular-nums}
+.hbar[aria-pressed=true]{outline:2px solid #48a0ad;background:#e8f5f6}
+.month-chart{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:5px;height:240px;padding:15px 0 0}
+.month-bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:pointer;font:inherit;color:#66818d}
+.month-bar b{font-size:11px;font-variant-numeric:tabular-nums;color:#2c6886}.month-bar .shaft{display:flex;align-items:flex-end;flex:1;width:100%;border-bottom:1px solid #dbe9ee}
+.month-bar .column{display:block;width:100%;border-radius:5px 5px 0 0;background:linear-gradient(#61afbe,#2e7b9d);min-height:2px}
+.month-bar:hover .column,.month-bar[aria-pressed=true] .column{background:linear-gradient(#ffce84,#cd8863)}
+.month-bar small{font-size:10px;white-space:nowrap}
+.uni-overview{display:flex;gap:22px;align-items:center;margin-bottom:19px}.donut{width:148px;height:148px;border-radius:50%;background:#e2edf1;display:grid;place-items:center;flex:none}
+.donut>div{width:100px;height:100px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.donut strong{font-size:27px;color:#27768d}.donut small{font-size:10px;color:#77919d}.uni-key{font-size:12px;display:flex;flex-direction:column;gap:9px}.uni-key span{color:#527081}.uni-key b{color:#2b617b}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px}
+.mod-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.mod-tile{border:1px solid #deeaee;border-radius:12px;background:#f7fafb;padding:11px 12px;text-align:left;cursor:pointer;font:inherit}
+.mod-tile:hover{background:#eaf5f8}.mod-tile .mod-top{display:flex;justify-content:space-between;gap:8px;align-items:center;color:#35627b;font-size:12px;font-weight:850}.mod-tile .mod-top b{font-size:19px;font-variant-numeric:tabular-nums}
+.mod-tile .track{display:block;margin-top:8px;height:6px;background:#e3edf0;border-radius:9px;overflow:hidden}.mod-tile .fill{display:block;background:#2b96a5;height:100%;border-radius:9px}
+.heat-scroll{overflow-x:auto}.heat-grid{display:grid;grid-template-columns:minmax(145px,1.5fr) repeat(12,minmax(42px,1fr));gap:4px;align-items:center;min-width:790px}
+.heat-grid .label{text-align:left;font-size:11px;color:#4d6b7a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.heat-grid .month-head{font-size:11px;color:#66808f;text-align:center;font-weight:800}
+.heat-grid button{border:1px solid #e5edf1;border-radius:5px;min-height:30px;font-size:11px;font-weight:800;color:#305f75;cursor:pointer}
+.control-panel{box-shadow:none}#filterAnchor,#listAnchor,.viz{scroll-margin-top:80px}
+.tablewrap{max-height:78vh}.tablewrap th{top:0}.tablewrap table{min-width:1750px}
+@media(max-width:1150px){.geo-layout{grid-template-columns:1fr}.geo-ranking{max-height:260px}}
+@media(max-width:850px){.viz-grid{grid-template-columns:1fr}.viz.geo,.viz.wide{grid-column:auto}.kpi-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.wrap{padding:13px}.kpi-strip{gap:8px}.metric{padding:12px 10px;gap:7px}.metric-icon{flex-basis:28px;height:28px;font-size:17px}.metric strong{font-size:22px}.metric small{font-size:10px}.viz{padding:14px}.viz-title h2{font-size:16px}.pref-map{height:350px}.uni-overview{gap:12px}.donut{width:116px;height:116px}.donut>div{width:78px;height:78px}.donut strong{font-size:21px}.jump{margin-bottom:15px}}
 </style></head><body><main class="wrap">
 <h1>2027年 国内医学系 学会・研究会 総合カレンダー</h1>
 <p class="lead">国内医学系学会・研究会の会期、会場、学会員数、過去大会参加人数、関連する一般的な機器・医療IT技術をまとめた非公式一覧です。特定メーカー・製品の宣伝を目的としません。</p>
-<div class="cards"><div class="card"><b>76</b>収録イベント</div><div class="card"><b>S / A / B</b>分野適合度（参考）</div><div class="card"><b>2027年</b>開催予定</div></div>
 
-<section class="control-panel"><h2>検索・絞り込み</h2>
+<div class="kpi-strip" id="summary">
+ <div class="metric"><span class="metric-icon">▦</span><div><small>収録学会・研究会</small><strong id="dEvents">76</strong><span>掲載行数</span></div></div>
+ <div class="metric"><span class="metric-icon">⌖</span><div><small>開催都道府県</small><strong id="dPrefs">25</strong><span>会場地域が判明</span></div></div>
+ <div class="metric"><span class="metric-icon">♧</span><div><small>大学名が記載された大会</small><strong id="dUnis">29</strong><span>会長等の紹介欄を集計</span></div></div>
+ <div class="metric"><span class="metric-icon">▥</span><div><small>公開数値の掲載</small><strong id="dStats">—</strong><span>会員数または参加者数</span></div></div>
+</div>
+<nav class="jump" aria-label="ダッシュボード内メニュー"><a href="#areaAnalysis">開催地マップ</a><a href="#timeAnalysis">月別</a><a href="#schoolAnalysis">大学別</a><a href="#modAnalysis">機器・分野</a><a href="#filterAnchor">条件検索</a><a href="#listAnchor">全件一覧</a></nav>
+<div class="section-intro"><span class="eyebrow">2027 CONGRESS INSIGHTS</span><h2>開催地・分野・関連技術を俯瞰する</h2><p>下のグラフは検索・絞り込み・順位変更と連動します。グラフから選択すると、一覧も自動的に絞り込まれます。</p></div>
+<div class="viz-grid">
+<section class="viz geo" id="areaAnalysis"><div class="viz-title"><div><small>GEOGRAPHIC DISTRIBUTION</small><h2>都道府県別の開催分布</h2><p>地図上の円は各都道府県の代表点です。実際の会場位置は一覧のGoogleマップで確認してください。</p></div><b id="geoLabel">—</b></div>
+<div class="geo-layout"><div><div id="prefMap" class="pref-map"><p>地図を読み込んでいます。接続できない場合も右側の地域別グラフを利用できます。</p></div><p class="source-hint">地図 © OpenStreetMap contributors。代表点は都道府県庁所在地です。</p></div><div class="geo-ranking"><div class="chart-label">都道府県別件数　<span>クリックで抽出</span></div><div id="prefChart" class="hbars"></div></div></div><p id="geoNote" class="source-hint"></p></section>
+<section class="viz" id="timeAnalysis"><div class="viz-title"><div><small>SEASONALITY</small><h2>月別の開催件数</h2><p>選んだ月の予定だけを表示できます。</p></div></div><div id="monthChart" class="month-chart"></div></section>
+<section class="viz"><div class="viz-title"><div><small>SPECIALTIES</small><h2>専門分野別の構成</h2><p>関連する学会の開催分布です。</p></div></div><div id="categoryChart" class="hbars"></div></section>
+<section class="viz" id="schoolAnalysis"><div class="viz-title"><div><small>ACADEMIC AFFILIATIONS</small><h2>会長・大会長の所属大学</h2><p>所属大学の記載がある大会のみ大学別に集計。主催大学の構成比とは異なります。</p></div></div><div class="uni-overview"><div id="uniDonut" class="donut"><div><strong id="uniRate">—</strong><small>大学名記載率</small></div></div><div class="uni-key"><span><i class="dot" style="background:#2a8eaa"></i>大学名あり <b id="uniYes">—</b></span><span><i class="dot" style="background:#dfebf0"></i>未記載 <b id="uniNo">—</b></span></div></div><div class="chart-label">記載大学別の大会件数</div><div id="universityChart" class="hbars"></div><p class="source-hint">名誉教授の記載を含みます。複数大学の合同大会では各大学を1件ずつ計上します。</p></section>
+<section class="viz" id="modAnalysis"><div class="viz-title"><div><small>TECHNOLOGY PROFILE</small><h2>関連モダリティ・医療IT</h2><p>複数技術に該当する学会は、それぞれに計上します。</p></div></div><div id="modChart" class="mod-grid"></div></section>
+<section class="viz wide"><div class="viz-title"><div><small>CROSS ANALYSIS</small><h2>専門分野 × 開催月 ヒートマップ</h2><p>季節ごとの学会開催の集中を確認できます。セルを選ぶと該当する分野・月の一覧へ絞り込めます。</p></div></div><div class="heat-scroll"><div id="heatChart" class="heat-grid"></div></div></section>
+</div>
+
+
+<section id="filterAnchor" class="control-panel"><h2>検索・絞り込み</h2>
 <div class="filter-grid">
 <div class="field field-wide"><label for="q">全文検索</label><input id="q" type="search" placeholder="学会名・機器・会場・開催地など"></div>
 <div class="field"><label for="filterCategory">専門分野</label><select id="filterCategory"><option value="">すべて</option></select></div>
 <div class="field"><label for="filterModality">関連機器・システム</label><select id="filterModality"><option value="">すべて</option></select></div>
 <div class="field"><label for="filterFit">関連度（参考）</label><select id="filterFit"><option value="">すべて</option><option value="S">S：高い</option><option value="A">A：特定領域で高い</option><option value="B">B：テーマ次第</option></select></div>
 <div class="field"><label for="filterMonth">開催月</label><select id="filterMonth"><option value="">すべて</option><option value="1">1月</option><option value="2">2月</option><option value="3">3月</option><option value="4">4月</option><option value="5">5月</option><option value="6">6月</option><option value="7">7月</option><option value="8">8月</option><option value="9">9月</option><option value="10">10月</option><option value="11">11月</option><option value="12">12月</option></select></div>
-<div class="field"><label for="filterCity">開催地</label><select id="filterCity"><option value="">すべて</option></select></div>
+<div class="field"><label for="filterCity">開催地</label><select id="filterCity"><option value="">すべて</option></select></div><div class="field"><label for="filterPrefecture">都道府県</label><select id="filterPrefecture"><option value="">すべて</option></select></div>
 <div class="field"><label for="hasMembers">会員数データ</label><select id="hasMembers"><option value="">指定なし</option><option value="yes">掲載あり</option><option value="no">未掲載</option></select></div>
 <div class="field"><label for="hasAttendance">参加人数データ</label><select id="hasAttendance"><option value="">指定なし</option><option value="yes">掲載あり</option><option value="no">未掲載</option></select></div>
 <div class="field"><label for="hasOfficial">公式リンク</label><select id="hasOfficial"><option value="">指定なし</option><option value="yes">あり</option><option value="no">なし</option></select></div>
@@ -73,7 +132,7 @@ body.compact th[data-sort="reason"],body.compact td:nth-child(7){display:none}
 <p class="sort-help">各列の見出しをクリックするとその列で昇順・降順を切り替えます。Shift＋クリックすると第2基準になります。数値未掲載は昇順・降順のいずれも末尾に配置します。</p>
 <div id="rankingLabel" role="status">表示順位：会期（昇順）</div></section>
 <p class="tiny">順位は現在の絞り込みと並べ替えに応じて再計算します。表は左右にスクロールできます。</p>
-<div class="tablewrap"><table><thead><tr><th scope="col"><button type="button" data-sort="source">順位 ↕</button></th><th scope="col" data-sort="date"><button type="button" data-sort="date">会期 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="name"><button type="button" data-sort="name">学会名 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="category"><button type="button" data-sort="category">分野 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="fit"><button type="button" data-sort="fit">関連度 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="mods"><button type="button" data-sort="mods">関連機器・システム <span class="sortmark">↕</span></button></th><th scope="col" data-sort="reason"><button type="button" data-sort="reason">適合理由 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="members"><button type="button" data-sort="members">会員数 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="attendance"><button type="button" data-sort="attendance">参加者数 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="venue"><button type="button" data-sort="venue">会場名 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="official"><button type="button" data-sort="official">公式サイト有無 <span class="sortmark">↕</span></button></th></tr></thead><tbody>
+<div id="listAnchor" class="tablewrap"><table><thead><tr><th scope="col"><button type="button" data-sort="source">順位 ↕</button></th><th scope="col" data-sort="date"><button type="button" data-sort="date">会期 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="name"><button type="button" data-sort="name">学会名 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="category"><button type="button" data-sort="category">分野 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="fit"><button type="button" data-sort="fit">関連度 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="mods"><button type="button" data-sort="mods">関連機器・システム <span class="sortmark">↕</span></button></th><th scope="col" data-sort="reason"><button type="button" data-sort="reason">適合理由 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="members"><button type="button" data-sort="members">会員数 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="attendance"><button type="button" data-sort="attendance">参加者数 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="venue"><button type="button" data-sort="venue">会場名 <span class="sortmark">↕</span></button></th><th scope="col" data-sort="official"><button type="button" data-sort="official">公式サイト有無 <span class="sortmark">↕</span></button></th></tr></thead><tbody>
     <tr data-source="0">
       <td>1</td>
       <td class="date">1/16 土〜17日</td>
@@ -998,7 +1057,7 @@ var rows=Array.from(tbody.rows).map(function(tr,index){
  var d=txt(1).match(/^(\d{1,2})\s*[\/月]\s*(\d{1,2})?/),fit=txt(4),mods=txt(5),city=c[9].querySelector(".sub"),official=Array.from(c[10].querySelectorAll("a")).some(function(a){return a.textContent.trim()==="公式";});
  return {tr:tr,source:index,date:d?Number(d[1])*100+(d[2]?Number(d[2]):1):null,month:d?Number(d[1]):null,
  name:c[2].querySelector("strong")?c[2].querySelector("strong").textContent.trim():txt(2),
- category:txt(3),fit:({S:3,A:2,B:1})[fit]||null,fitLabel:fit,mods:mods,reason:txt(6),
+ category:txt(3),pref:((city?city.textContent.trim():"").match(/^(北海道|青森|岩手|宮城|秋田|山形|福島|茨城|栃木|群馬|埼玉|千葉|東京|神奈川|新潟|富山|石川|福井|山梨|長野|岐阜|静岡|愛知|三重|滋賀|京都|大阪|兵庫|奈良|和歌山|鳥取|島根|岡山|広島|山口|徳島|香川|愛媛|高知|福岡|佐賀|長崎|熊本|大分|宮崎|鹿児島|沖縄)(?:[・県府都]|$)/)||[])[1]||"",fit:({S:3,A:2,B:1})[fit]||null,fitLabel:fit,mods:mods,reason:txt(6),
  members:getCount(c[7].querySelector("b")?c[7].querySelector("b").textContent:""),
  attendance:getCount(c[8].querySelector("b")?c[8].querySelector("b").textContent:""),
  venue:txt(9),city:city?city.textContent.trim():"",official:official?1:0,full:txt(1)+" "+txt(2)+" "+txt(3)+" "+txt(4)+" "+txt(5)+" "+txt(6)+" "+txt(7)+" "+txt(8)+" "+txt(9)};
@@ -1006,8 +1065,9 @@ var rows=Array.from(tbody.rows).map(function(tr,index){
 function fill(id,values,label){var el=byId(id);el.replaceChildren(new Option(label,""));Array.from(new Set(values.filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"ja");}).forEach(function(v){el.add(new Option(v,v));});}
 fill("filterCategory",rows.map(function(r){return r.category;}),"すべて");
 fill("filterCity",rows.map(function(r){return r.city;}),"すべて");
+fill("filterPrefecture",rows.map(function(r){return r.pref;}),"すべて");
 fill("filterModality",rows.flatMap(function(r){return r.mods.split(/\s*\/\s*/).map(function(s){return s.trim();});}),"すべて");
-var ids=["q","filterCategory","filterModality","filterFit","filterMonth","filterCity","hasMembers","hasAttendance","hasOfficial","minMembers","maxMembers","minAttendance","maxAttendance","rankBy","rankDir","secondBy","secondDir"];
+var ids=["q","filterCategory","filterModality","filterFit","filterMonth","filterCity","filterPrefecture","hasMembers","hasAttendance","hasOfficial","minMembers","maxMembers","minAttendance","maxAttendance","rankBy","rankDir","secondBy","secondDir"];
 var data={};ids.forEach(function(id){data[id]=byId(id);});
 var shown=[];
 function cmp(a,b,key,dir){
@@ -1027,6 +1087,7 @@ function draw(){
  if(fit&&r.fitLabel!==fit)return false;
  if(month&&r.month!==Number(month))return false;
  if(city&&r.city!==city)return false;
+ if(data.filterPrefecture.value&&r.pref!==data.filterPrefecture.value)return false;
  if(minM!==null&&(r.members===null||r.members<minM))return false;
  if(maxM!==null&&(r.members===null||r.members>maxM))return false;
  if(minA!==null&&(r.attendance===null||r.attendance<minA))return false;
@@ -1043,6 +1104,7 @@ function draw(){
  tbody.replaceChildren(fragment);byId("matchCount").textContent=shown.length+" / "+rows.length+"件";
  byId("rankingLabel").textContent="表示順位："+data.rankBy.options[data.rankBy.selectedIndex].text+"（"+(data.rankDir.value==="asc"?"昇順":"降順")+"）"+(second&&second!==primary?" → "+data.secondBy.options[data.secondBy.selectedIndex].text+"（"+(data.secondDir.value==="asc"?"昇順":"降順")+"）":"");
  byId("empty").style.display=shown.length?"none":"block";
+ if(typeof window.renderDashboard==="function")window.renderDashboard(rows,shown);
  table.querySelectorAll("button[data-sort]").forEach(function(b){var k=b.dataset.sort,p=k===primary,s=k===second;b.querySelector(".sortmark")&&(b.querySelector(".sortmark").textContent=p?(data.rankDir.value==="asc"?"▲1":"▼1"):s?(data.secondDir.value==="asc"?"▲2":"▼2"):"↕");});
 }
 ids.forEach(function(id){data[id].addEventListener(["q","minMembers","maxMembers","minAttendance","maxAttendance"].includes(id)?"input":"change",draw);});
@@ -1064,4 +1126,66 @@ byId("export").addEventListener("click",function(){
  a.href=url;a.download="2027_国内学会_絞り込み結果.csv";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);
 });
 draw();
+})();</script><script>
+(function(){
+"use strict";
+const by=id=>document.getElementById(id);
+const capitals={"北海道":[43.064,141.347],"岩手":[39.704,141.153],"福島":[37.750,140.467],"栃木":[36.566,139.884],"埼玉":[35.857,139.649],"千葉":[35.605,140.123],"東京":[35.689,139.692],"神奈川":[35.448,139.643],"新潟":[37.902,139.024],"富山":[36.695,137.211],"石川":[36.595,136.626],"長野":[36.651,138.181],"岐阜":[35.391,136.722],"静岡":[34.977,138.383],"愛知":[35.180,136.907],"京都":[35.021,135.756],"大阪":[34.686,135.520],"兵庫":[34.691,135.183],"奈良":[34.685,135.805],"岡山":[34.662,133.934],"香川":[34.340,134.043],"福岡":[33.606,130.418],"長崎":[32.745,129.874],"熊本":[32.790,130.742],"宮崎":[31.911,131.424]};
+let map=null,layers=[],currentGeo={};
+function counts(list,key){const o={};list.forEach(r=>{if(r[key])o[r[key]]=(o[r[key]]||0)+1;});return o;}
+function entries(o){return Object.entries(o).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],"ja"));}
+function setFilter(id,value){const el=by(id);el.value=el.value===String(value)?"":String(value);el.dispatchEvent(new Event("change",{bubbles:true}));}
+function bars(target,items,filter,selected,maxShown=40){
+ target.replaceChildren();let mx=Math.max(1,...items.map(x=>x[1]));
+ items.slice(0,maxShown).forEach(([name,n])=>{
+ const b=document.createElement("button");b.type="button";b.className="hbar";b.setAttribute("aria-label",name+" "+n+"件");b.setAttribute("aria-pressed",selected===name?"true":"false");
+ const t=document.createElement("span");t.textContent=name;const track=document.createElement("span");track.className="track";const fill=document.createElement("span");fill.className="fill";fill.style.width=100*n/mx+"%";track.appendChild(fill);
+ const count=document.createElement("b");count.textContent=n;b.append(t,track,count);b.addEventListener("click",()=>setFilter(filter,name));target.appendChild(b);
+ });
+ if(!items.length){const p=document.createElement("p");p.className="source-hint";p.textContent="該当データはありません。";target.appendChild(p);}
+}
+function updateMap(){
+ if(!map)return;layers.forEach(x=>map.removeLayer(x));layers=[];
+ let mx=Math.max(1,...Object.values(currentGeo));
+ Object.entries(currentGeo).forEach(([pref,n])=>{
+ if(!capitals[pref])return;const radius=8+Math.sqrt(n/mx)*12;
+ let m=L.circleMarker(capitals[pref],{radius,color:"#fff",weight:2,fillColor:by("filterPrefecture").value===pref?"#d88d5b":"#2d85a5",fillOpacity:.87});
+ m.bindTooltip(pref+"："+n+"件");m.on("click",()=>setFilter("filterPrefecture",pref));m.addTo(map);layers.push(m);
+ });
+}
+function initMap(){
+ if(!window.L||map)return;const holder=by("prefMap");holder.replaceChildren();try{
+ map=L.map(holder,{scrollWheelZoom:false,minZoom:4,maxZoom:10}).setView([36.65,137.7],5);
+ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+ updateMap();setTimeout(()=>map.invalidateSize(),200);
+ }catch(e){holder.textContent="地図を表示できません。地域別の棒グラフから選択できます。";}
+}
+window.renderDashboard=function(all,selected){
+ const geo=counts(selected,"pref"),geon=Object.keys(geo).length;
+ by("dEvents").textContent=selected.length;by("dPrefs").textContent=geon;
+ by("geoLabel").textContent=geon+"都道府県";by("geoNote").textContent="会場地域判明："+selected.filter(r=>r.pref).length+"件／オンライン・地域未公表："+selected.filter(r=>!r.pref).length+"件。";
+ currentGeo=geo;updateMap();bars(by("prefChart"),entries(geo),"filterPrefecture",by("filterPrefecture").value);
+ let monthEl=by("monthChart"),monthly=Array.from({length:12},(_,i)=>selected.filter(x=>x.month===i+1).length);monthEl.replaceChildren();const mm=Math.max(1,...monthly);
+ monthly.forEach((n,i)=>{let b=document.createElement("button");b.className="month-bar";b.type="button";b.setAttribute("aria-label",(i+1)+"月 "+n+"件");b.setAttribute("aria-pressed",by("filterMonth").value===String(i+1)?"true":"false");
+ let number=document.createElement("b");number.textContent=n;let shaft=document.createElement("span");shaft.className="shaft";let col=document.createElement("span");col.className="column";col.style.height=Math.max(n?4:1,n/mm*100)+"%";shaft.appendChild(col);let label=document.createElement("small");label.textContent=(i+1)+"月";b.append(number,shaft,label);b.onclick=()=>setFilter("filterMonth",i+1);monthEl.appendChild(b);
+ });
+ const specialties=entries(counts(selected,"category"));bars(by("categoryChart"),specialties,"filterCategory",by("filterCategory").value,16);
+ const uni={};let known=0;selected.forEach(r=>{let text=r.tr.cells[2].querySelector(".sub")?.textContent||"";let names=[...new Set([...text.matchAll(/([一-龥ぁ-んァ-ヶー]{2,18}大学)/g)].map(x=>x[1]))];if(names.length)known++;names.forEach(x=>uni[x]=(uni[x]||0)+1);});
+ by("dUnis").textContent=known;by("dStats").textContent=selected.filter(r=>r.members!==null||r.attendance!==null).length;
+ let rate=selected.length?known/selected.length*100:0;
+ by("uniDonut").style.background="conic-gradient(#2a8eaa 0% "+rate+"%,#dfebf0 "+rate+"% 100%)";by("uniRate").textContent=rate.toFixed(1)+"%";
+ by("uniYes").textContent=known+"件";by("uniNo").textContent=(selected.length-known)+"件";
+ let uniEl=by("universityChart");uniEl.replaceChildren();
+ let uniEntries=entries(uni),uniMax=Math.max(1,...uniEntries.map(x=>x[1]));uniEntries.slice(0,12).forEach(([name,n])=>{
+ let div=document.createElement("div");div.className="hbar";div.style.cursor="default";let label=document.createElement("span");label.textContent=name;let tr=document.createElement("span");tr.className="track";let fill=document.createElement("span");fill.className="fill";fill.style.width=n/uniMax*100+"%";tr.appendChild(fill);let total=document.createElement("b");total.textContent=n;div.append(label,tr,total);uniEl.appendChild(div);
+ });
+ const groups=[["CT",["CT"]],["MRI",["MRI"]],["超音波",["超音波"]],["一般X線",["一般X線"]],["血管撮影",["血管撮影"]],["眼科機器",["眼科機器","OCT"]],["臨床検査",["CL","検査データ"]],["滅菌・感染",["滅菌","感染"]],["VNA",["VNA"]],["読影支援・AI",["読影支援","AI"]],["医療情報",["医療情報システム"]]];
+ let modEl=by("modChart");modEl.replaceChildren();groups.forEach(([name,terms])=>{const n=selected.filter(r=>terms.some(t=>r.mods.includes(t))).length;let b=document.createElement("button");b.className="mod-tile";b.type="button";b.setAttribute("aria-label",name+" "+n+"件");let top=document.createElement("div");top.className="mod-top";let t=document.createElement("span");t.textContent=name;let v=document.createElement("b");v.textContent=n;top.append(t,v);let track=document.createElement("span");track.className="track";let fill=document.createElement("span");fill.className="fill";fill.style.width=(selected.length?n/selected.length*100:0)+"%";track.appendChild(fill);b.append(top,track);b.onclick=()=>{const opt=[...by("filterModality").options].find(o=>terms.some(t=>o.value.includes(t)));if(opt)setFilter("filterModality",opt.value);};modEl.appendChild(b);});
+ const heat=by("heatChart");heat.replaceChildren();const cats=entries(counts(all,"category")).map(x=>x[0]);let cells=cats.flatMap(c=>Array.from({length:12},(_,i)=>selected.filter(x=>x.category===c&&x.month===i+1).length)),mx=Math.max(1,...cells);
+ let corner=document.createElement("div");corner.className="month-head";corner.textContent="分野 ／ 月";heat.appendChild(corner);for(let m=1;m<=12;m++){let el=document.createElement("div");el.className="month-head";el.textContent=m+"月";heat.appendChild(el);}
+ cats.forEach(c=>{let label=document.createElement("div");label.className="label";label.textContent=c;heat.appendChild(label);for(let m=1;m<=12;m++){let n=selected.filter(x=>x.category===c&&x.month===m).length;let b=document.createElement("button");b.type="button";b.textContent=n||"";b.style.background=n?"rgba(47,143,163,"+(.15+.76*n/mx)+")":"#f6f9fb";b.setAttribute("aria-label",c+" "+m+"月 "+n+"件");b.onclick=()=>{by("filterCategory").value=by("filterCategory").value===c?"":c;by("filterMonth").value=by("filterMonth").value===String(m)?"":String(m);by("filterMonth").dispatchEvent(new Event("change",{bubbles:true}));};heat.appendChild(b);}});
+};
+const link=document.createElement("link");link.rel="stylesheet";link.href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";document.head.appendChild(link);
+const lib=document.createElement("script");lib.src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";lib.onload=initMap;lib.onerror=()=>{by("prefMap").innerHTML="<p>外部地図に接続できません。右側の地域別グラフをご利用ください。</p>";};document.head.appendChild(lib);
+by("q").dispatchEvent(new Event("input",{bubbles:true}));
 })();</script></body></html>
