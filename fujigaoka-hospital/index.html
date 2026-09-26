@@ -93,13 +93,76 @@ svg text{font-family:'Meiryo UI',Meiryo,'Yu Gothic',sans-serif}
 @media (max-width:1020px){.hero,.wrap,.score-board{grid-template-columns:1fr}.grid-4,.grid-3,.grid-2,.checkgrid,.sym-grid,.flow{grid-template-columns:1fr 1fr}aside{position:static;max-height:none}}
 @media (max-width:700px){.grid-4,.grid-3,.grid-2,.checkgrid,.sym-grid,.flow{grid-template-columns:1fr}.hero{padding:24px 14px}.wrap{padding:14px 10px 70px}.section{padding:20px 16px}.timeline{grid-template-columns:58px 1fr}h2{font-size:22px}.author-big strong{font-size:26px}}
 @media print{body{background:#fff}.wrap{display:block;max-width:none;padding:0}aside,.actions,.toTop,.search{display:none !important}.section,.footer .box,.hero-illus,.author-big{box-shadow:none}.section{break-inside:avoid}.hero{display:block;padding:16px 0 10px}.footer{margin:0;padding:0}.btn{display:none !important}}
+
+/* Readability and responsive layout refinement: September 2026 */
+:root{--ink:#30415b;--sub:#5c6d83;--line:#e8e5ee;--shadow:0 5px 22px rgba(50,70,100,.055);--radius:20px}
+body{font-size:15px;line-height:1.85;background:#f8fafc}
+header{background:linear-gradient(110deg,#fff0f7 0%,#eff7ff 58%,#f0fcf7 100%)}
+.hero{grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);gap:30px;padding:42px 30px 38px;max-width:1190px}
+h1{font-size:clamp(30px,3.5vw,48px);letter-spacing:.012em;line-height:1.35;margin:12px 0 16px}
+.hero .subtitle{max-width:650px;font-size:15px;line-height:1.85}
+.notice-below-title{font-size:15px;line-height:1.7;background:#fff!important;border:1px solid #f0d4e0!important;border-left:5px solid #cf7697!important;max-width:700px;padding:14px 18px!important;margin:18px 0!important;box-shadow:0 4px 14px #864a6110}
+.hero-illus{padding:7px;box-shadow:0 10px 30px #778aa51a;border-radius:26px}
+.meta{margin-top:15px}.pill{font-size:11px;padding:6px 11px}
+.author-big{margin-top:18px;box-shadow:none;border-style:solid;background:#fffdfc;padding:10px 18px}
+.author-big strong{font-size:clamp(20px,2.2vw,28px)}
+.wrap{max-width:1190px;grid-template-columns:218px minmax(0,1fr);gap:22px;padding:25px 18px 70px}
+aside{box-shadow:none;border:1px solid #e9eaf0;border-radius:18px;padding:14px;background:#fff;top:18px}
+aside h3{padding:4px 8px}
+aside a{font-size:12.5px;line-height:1.45;padding:10px 10px;border-bottom:1px solid #f4f2f5;border-radius:8px}
+aside a:hover,aside a:focus{background:#fff2f6;color:#8c4668}
+main{max-width:925px}
+.section{padding:30px clamp(18px,3vw,36px);border-color:#e9e8ef;margin-bottom:22px;box-shadow:var(--shadow);overflow:visible}
+h2{font-size:clamp(21px,2.4vw,27px);line-height:1.5;margin:0 0 16px;padding-bottom:16px;border-bottom:1px solid #f0e7ee}
+h2 .num{height:38px;min-width:38px;border-radius:13px}
+h3{font-size:18px;line-height:1.5;margin:19px 0 10px}
+p{margin:9px 0;overflow-wrap:anywhere}.lead{font-size:14.5px;line-height:1.9;margin-bottom:18px}
+.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{padding:18px;border-radius:16px;line-height:1.8}
+.card p{font-size:13px;color:#5c7085}
+.icon{width:48px;height:48px;border-radius:15px}
+.note,.warn,.tip{line-height:1.8;margin:17px 0;padding:15px 19px}
+.sym-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sym{align-items:flex-start;min-height:116px;line-height:1.6}
+.checkgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+#checkGroups{display:grid;gap:14px;margin-top:18px}
+#checkGroups .card{padding:19px;background:#fff}
+#checkGroups .card h3{margin:0 0 12px;padding-bottom:10px;border-bottom:1px solid #eee8ed}
+.check{line-height:1.6;min-height:69px}
+.score-board{gap:22px;grid-template-columns:1.18fr .82fr}
+.score-box{height:100%;display:flex;flex-direction:column;justify-content:center}
+.donut{width:185px}
+.tablewrap{border:1px solid #eee9ee}
+table{min-width:570px;line-height:1.65}
+th,td{padding:13px 13px}
+th{background:#fdf3f8;color:#654f68}
+.timeline>div{padding:12px 13px}
+.flow{grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.step{padding:12px 9px;min-width:0}
+.step p{font-size:12px;line-height:1.5}
+.actions{gap:9px}
+.btn{box-shadow:none;font-size:13px;padding:11px 14px}
+.btn:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #62a3da;outline-offset:2px}
+#questionList>div{padding:12px 0;border-bottom:1px solid #ede8ed;margin:0!important}
+#questionList label{display:block;margin-bottom:8px}
+#questionList textarea{min-height:68px}
+#sources td{word-break:break-word}
+#sources a{font-weight:650;text-decoration:underline;text-underline-offset:3px}
+#chart .chartbox{min-width:0}
+#chart .tablewrap{max-width:100%}
+#map input{font-size:16px!important}
+.footer .box{background:#fff7fa;border-color:#f1dce7}
+@media(max-width:1060px){.wrap{grid-template-columns:1fr;max-width:930px}.hero{grid-template-columns:1.2fr .8fr}aside{position:static;max-height:none}aside #navlinks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px}aside a{border:0}}
+@media(max-width:730px){body{font-size:14px}.hero{grid-template-columns:1fr;padding:25px 15px 27px;gap:20px}.hero-illus{width:min(100%,420px);margin:auto}.wrap{padding:14px 10px 56px}.section{padding:21px 16px;margin-bottom:15px;border-radius:18px}.grid-2,.grid-3,.grid-4,.checkgrid,.sym-grid{grid-template-columns:1fr}.score-board{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.step:last-child{grid-column:span 2}.card{padding:15px}.sym{min-height:auto}.sym svg{width:46px;min-width:46px;height:46px}h1{font-size:clamp(27px,7vw,36px);line-height:1.35}h2{font-size:21px;padding-bottom:12px}.meta{gap:6px}.pill{padding:5px 9px;font-size:10px}.author-big{display:block;text-align:center}.author-big strong{font-size:24px}.hero .actions .btn{flex:1 1 150px;justify-content:center}aside #navlinks{grid-template-columns:repeat(2,minmax(0,1fr))}.timeline{grid-template-columns:65px 1fr}table{min-width:500px}}
+@media print{@page{size:A4;margin:13mm}body{color:#171b26;background:white;font-size:11pt}.hero{display:block;padding:0 0 12px}.hero-illus{display:none}.wrap{display:block;padding:0}.section{border:0;border-top:1px solid #dedde2;box-shadow:none;border-radius:0;padding:14px 0;margin:0 0 10px;break-inside:auto}h2,h3,.card,.check,.sym,.step,.note,.warn,.tip{break-inside:avoid}h2{break-after:avoid} .grid-3,.grid-4,.grid-2{gap:8px}.grid-4{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}.checkgrid{grid-template-columns:repeat(2,1fr)}.score-board{grid-template-columns:1fr 1fr}.flow{grid-template-columns:repeat(5,1fr)}.actions,aside,.toTop,.search{display:none!important}a{text-decoration:none;color:#234c79}table{min-width:0;width:100%;font-size:9pt}th,td{padding:7px}textarea{min-height:45px}.footer{margin-top:15px}}
+
 </style>
 </head>
 <body>
 <header id="top">
   <div class="hero">
     <div>
-      <div class="badge">🏥 FAMILY SUPPORT GUIDE</div>
+      <div class="badge">✿ FAMILY SUPPORT GUIDE｜入院前の安心ノート</div>
       <h1>入院・脳神経外科・SCU<br>ご家族サポートガイド</h1>
       <p class="notice-below-title">お世話になる病院、窓口の方に詳細を確認ください。本資料は一般的な公開資料に基づきます。</p>
       <p class="subtitle">かわいらしい図解とチェック表で、入院準備・病棟での注意点・ご家族の役割をわかりやすく整理したガイドです。持ち物、面会、脳卒中サイン、手術前後の確認、退院準備まで一つにまとめました。</p>
@@ -220,7 +283,7 @@ svg text{font-family:'Meiryo UI',Meiryo,'Yu Gothic',sans-serif}
           </div>
         </div>
         <div class="chartbox">
-          <svg id="donutChart" class="donut" viewBox="0 0 220 220" role="img" aria-label="準備スコアのドーナツグラフ">
+          <svg id="donutChart" class="donut" viewBox="0 0 220 220" role="img" aria-label="チェック済み項目の割合を示すドーナツグラフ">
             <circle cx="110" cy="110" r="78" fill="none" stroke="#f0e5ec" stroke-width="22"/>
             <circle id="donutArc" cx="110" cy="110" r="78" fill="none" stroke="url(#donutGrad)" stroke-width="22" stroke-linecap="round" transform="rotate(-90 110 110)" stroke-dasharray="0 999"/>
             <defs>
@@ -229,7 +292,7 @@ svg text{font-family:'Meiryo UI',Meiryo,'Yu Gothic',sans-serif}
             <text x="110" y="102" text-anchor="middle" font-size="18" fill="#6f5873" font-weight="700">準備度</text>
             <text id="donutPct" x="110" y="130" text-anchor="middle" font-size="30" fill="#8d4f72" font-weight="900">0%</text>
           </svg>
-          <div class="legend" style="text-align:center">20項目 × 5点 = 100点</div>
+          <div class="legend" style="text-align:center">20項目 × 5点 = 100点（準備の進捗表示・医療的評価ではありません）</div>
         </div>
       </div>
       <div id="checkGroups"></div>
@@ -326,14 +389,14 @@ svg text{font-family:'Meiryo UI',Meiryo,'Yu Gothic',sans-serif}
           </ul>
         </div>
       </div>
-      <div class="accordion"><summary>かわいいピクトグラムで見る「家族の役割」</summary><div class="content">
+      <details class="accordion"><summary>かわいいピクトグラムで見る「家族の役割」</summary><div class="content">
         <div class="grid-4">
           <div class="card"><div class="icon"><svg viewBox="0 0 24 24" stroke="#d97da4"><path d="M12 21s-7-5-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5-7 10-7 10z"/></svg></div><b>見守る</b><p>症状の変化を見つける</p></div>
           <div class="card"><div class="icon"><svg viewBox="0 0 24 24" stroke="#60b0a3"><path d="M4 7h16v10H4z"/><path d="M8 4h8v3H8z"/></svg></div><b>記録する</b><p>説明・質問をメモする</p></div>
           <div class="card"><div class="icon"><svg viewBox="0 0 24 24" stroke="#7b9de8"><path d="M12 2v20"/><path d="M4 10h16"/><path d="M4 15h10"/></svg></div><b>つなぐ</b><p>家族内の情報共有役になる</p></div>
           <div class="card"><div class="icon"><svg viewBox="0 0 24 24" stroke="#d7a04d"><path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z"/></svg></div><b>支える</b><p>退院後の暮らしを整える</p></div>
         </div>
-      </div></div>
+      </div></details>
     </section>
 
     <section class="section" id="doctor">
@@ -396,24 +459,14 @@ svg text{font-family:'Meiryo UI',Meiryo,'Yu Gothic',sans-serif}
       <h2><span class="num">10</span>退院準備の図表</h2>
       <div class="grid-2">
         <div class="chartbox">
-          <h3>退院準備チェックの棒グラフ</h3>
-          <svg viewBox="0 0 520 300" width="100%" height="auto" role="img" aria-label="退院準備の重点項目を示した棒グラフ">
-            <rect x="0" y="0" width="520" height="300" rx="18" fill="#fcfeff"/>
-            <g stroke="#e8edf3"><path d="M72 42v200"/><path d="M72 242h400"/><path d="M72 82h400"/><path d="M72 122h400"/><path d="M72 162h400"/><path d="M72 202h400"/></g>
-            <g fill="#7f92a7" font-size="12"><text x="26" y="246">0</text><text x="18" y="206">25</text><text x="18" y="166">50</text><text x="18" y="126">75</text><text x="10" y="86">100</text></g>
-            <g font-size="12" fill="#5f7489" text-anchor="middle" font-weight="700">
-              <text x="126" y="265">移動</text><text x="206" y="265">食事</text><text x="286" y="265">排泄</text><text x="366" y="265">住環境</text><text x="446" y="265">介助者</text>
-            </g>
-            <rect x="98" y="142" width="56" height="100" rx="10" fill="#8cc8ff"/>
-            <rect x="178" y="112" width="56" height="130" rx="10" fill="#9fe0cf"/>
-            <rect x="258" y="132" width="56" height="110" rx="10" fill="#f7b2cd"/>
-            <rect x="338" y="92" width="56" height="150" rx="10" fill="#f3ca7a"/>
-            <rect x="418" y="122" width="56" height="120" rx="10" fill="#baaff4"/>
-            <g fill="#5f7489" font-size="12" text-anchor="middle" font-weight="800">
-              <text x="126" y="136">50</text><text x="206" y="106">65</text><text x="286" y="126">55</text><text x="366" y="86">75</text><text x="446" y="116">60</text>
-            </g>
-          </svg>
-          <div class="legend">この棒グラフは「退院準備で家族が確認したい重点項目」のイメージ図です。実測値ではありません。</div>
+          <h3>退院までに確認したい5つのテーマ</h3>
+          <svg viewBox="0 0 520 300" width="100%" role="img" aria-label="退院前に家族が確認したい5項目を示した概念図。数値評価ではありません。">
+<rect x="10" y="10" width="500" height="280" rx="20" fill="#fbfdff"/>
+<g fill="#526984" font-size="15" font-weight="700">
+<text x="25" y="53">移動・歩行</text><text x="25" y="102">食事・嚥下</text><text x="25" y="151">排泄・入浴</text><text x="25" y="200">住まいの安全</text><text x="25" y="249">介助・通院</text></g>
+<g><rect x="175" y="30" width="314" height="29" rx="14" fill="#dceffd"/><rect x="175" y="79" width="314" height="29" rx="14" fill="#dff6ed"/><rect x="175" y="128" width="314" height="29" rx="14" fill="#fde7ee"/><rect x="175" y="177" width="314" height="29" rx="14" fill="#fcf0d9"/><rect x="175" y="226" width="314" height="29" rx="14" fill="#ede7ff"/></g>
+<g fill="#355a72" font-size="13" font-weight="700" text-anchor="middle"><text x="330" y="49">歩行・車いす・転倒予防</text><text x="330" y="98">食形態・とろみ・見守り</text><text x="330" y="147">必要な介助と設備</text><text x="330" y="196">段差・手すり・トイレ</text><text x="330" y="245">誰が・いつ・どのように</text></g></svg>
+          <div class="legend">数値による評価ではありません。退院までに相談したい内容を図解しています。</div>
         </div>
         <div class="chartbox">
           <h3>退院先を考えるための表</h3>
