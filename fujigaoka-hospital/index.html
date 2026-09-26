@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="昭和医科大学藤が丘病院の入院・脳神経外科病棟・SCUのご家族向けガイド。かわいらしい図解、チェック表、PDF出力付き。">
+<title>藤が丘病院 入院・脳神経外科 ご家族サポートガイド</title>
+<style>
+:root{
+  --ink:#2d4260; --sub:#627993; --bg:#fff9fb; --paper:#ffffff; --line:#eadfe9;
+  --mint:#e9fbf7; --sky:#edf6ff; --peach:#fff3ea; --pink:#fff0f6; --lav:#f5f2ff;
+  --teal:#38a39b; --blue:#4f89d8; --rose:#e584a8; --amber:#e3a548; --violet:#9a84e8;
+  --shadow:0 10px 28px rgba(84,98,130,.10); --radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Meiryo UI',Meiryo,'Yu Gothic',system-ui,sans-serif;background:linear-gradient(180deg,#fff8fb,#f8fbff 30%,#fffdfa);color:var(--ink);line-height:1.78}
+a{color:#3a74bf;text-decoration:none}
+a:hover{text-decoration:underline}
+button,input,textarea{font:inherit}
+header{position:relative;overflow:hidden;background:linear-gradient(135deg,#ffe3ef 0%,#eff8ff 42%,#edfdf8 100%);border-bottom:1px solid #f3d8e3}
+header:before,header:after{content:'';position:absolute;border-radius:50%;filter:blur(2px)}
+header:before{width:340px;height:340px;background:#ffffff88;right:-90px;top:-120px}
+header:after{width:260px;height:260px;background:#fff0f6;left:-90px;bottom:-110px}
+.hero{max-width:1260px;margin:auto;padding:34px 24px 34px;display:grid;grid-template-columns:1.2fr .9fr;gap:24px;align-items:center;position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #f0d9e4;color:#b05984;border-radius:999px;padding:8px 14px;font-weight:800;font-size:12px;letter-spacing:.08em}
+.notice-below-title{font-weight:800;background:#fffdfa;border-left:5px solid #db85a7;border-radius:10px;padding:12px 15px;color:#804f68;max-width:760px}
+h1{font-size:clamp(30px,4.6vw,55px);line-height:1.22;margin:16px 0 10px;color:#304766}
+.subtitle{font-size:16px;color:#5a6f87;max-width:780px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:999px;background:#fff;border:1px solid #e9dce6;color:#5b6f86;font-size:12px;font-weight:700}
+.author-big{margin-top:20px;background:linear-gradient(135deg,#fff,#fff9fd);border:2px dashed #e9b4cc;border-radius:22px;padding:14px 18px;display:inline-block;box-shadow:var(--shadow)}
+.author-big small{display:block;color:#b35f84;font-weight:900;letter-spacing:.08em}
+.author-big strong{display:block;font-size:clamp(22px,3vw,34px);color:#8c4e71;line-height:1.4}
+.hero-illus{background:rgba(255,255,255,.65);border:1px solid #f1d9e8;border-radius:30px;padding:18px;box-shadow:var(--shadow)}
+.wrap{max-width:1260px;margin:auto;padding:24px 18px 80px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px}
+aside{position:sticky;top:14px;align-self:start;background:#fff;border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:var(--shadow);max-height:calc(100vh - 28px);overflow:auto}
+aside h3{margin:0 0 10px;font-size:13px;letter-spacing:.1em;color:#8a6480}
+aside a{display:block;padding:9px 10px;border-radius:12px;color:#4d627a;font-size:13px}
+aside a:hover{background:#fff2f7;text-decoration:none}
+.search{width:100%;padding:10px 12px;border-radius:13px;border:1px solid #ecdbe5;background:#fffcfe;margin:10px 0 6px}
+main{min-width:0}
+.section{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow);margin-bottom:20px;scroll-margin-top:18px}
+h2{display:flex;align-items:center;gap:12px;font-size:27px;line-height:1.35;margin:0 0 16px}
+.num{min-width:42px;height:42px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,#ffd7ea,#e8f3ff);border:1px solid #f0cfde;color:#8e4d74;font-size:14px;font-weight:900}
+h3{font-size:19px;margin:18px 0 10px;color:#415775}
+p{margin:9px 0}
+.lead{color:#60758b;font-size:15px}
+.grid-2,.grid-3,.grid-4{display:grid;gap:14px}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:linear-gradient(180deg,#fff,#fffdfd);border:1px solid #eedfe8;border-radius:20px;padding:16px;min-width:0}
+.card.soft-pink{background:linear-gradient(180deg,#fff7fb,#fff)}.card.soft-mint{background:linear-gradient(180deg,#f3fffb,#fff)}.card.soft-sky{background:linear-gradient(180deg,#f5faff,#fff)}.card.soft-peach{background:linear-gradient(180deg,#fff8f1,#fff)}.card.soft-lav{background:linear-gradient(180deg,#faf8ff,#fff)}
+.icon{width:44px;height:44px;display:grid;place-items:center;border-radius:15px;background:#fff;border:1px solid #f0dbe5;margin-bottom:10px}
+.icon svg{width:30px;height:30px;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.note{background:var(--mint);border:1px solid #cfeee4;border-left:6px solid var(--teal);padding:13px 15px;border-radius:16px;margin:14px 0}
+.warn{background:#fff5f8;border:1px solid #f2cdd9;border-left:6px solid var(--rose);padding:13px 15px;border-radius:16px;margin:14px 0}
+.tip{background:var(--peach);border:1px solid #f4ddbb;border-left:6px solid var(--amber);padding:13px 15px;border-radius:16px;margin:14px 0}
+.tablewrap{overflow:auto;border:1px solid #ece2ea;border-radius:18px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:13px}
+th,td{padding:12px 13px;border-bottom:1px solid #efe6ed;vertical-align:top}
+th{background:#fff5fa;color:#7d5570;text-align:left;font-size:12px;letter-spacing:.05em}
+tr:nth-child(even) td{background:#fdfdff} tr:last-child td{border-bottom:0}
+.list-cute{list-style:none;padding:0;margin:0}.list-cute li{padding-left:30px;position:relative;margin:9px 0}.list-cute li:before{content:'✿';position:absolute;left:0;top:0;color:#de7fa3;font-weight:900}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 4px}.btn{border:0;border-radius:14px;padding:12px 16px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 16px rgba(88,101,131,.10)}.btn.primary{background:linear-gradient(135deg,#f38cb3,#d97fb8);color:#fff}.btn.secondary{background:linear-gradient(135deg,#85c0ff,#70a7ef);color:#fff}.btn.soft{background:#fff;border:1px solid #ecdde7;color:#56718b}
+.score-board{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;align-items:center}
+.score-box{background:linear-gradient(135deg,#fff7fb,#f4fbff);border:1px solid #efdbe7;border-radius:24px;padding:18px}
+.score-line{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.score-line strong{font-size:46px;color:#8d4f72;line-height:1}.score-line span{font-weight:800;color:#69809a}.meter{height:16px;background:#f1eaf0;border-radius:999px;overflow:hidden;border:1px solid #e6d9e2;margin-top:10px}.meter > div{height:100%;width:0;background:linear-gradient(90deg,#f39abb,#7fd0c2);transition:width .25s}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.tiny-pill{padding:5px 10px;border-radius:999px;background:#fff;border:1px solid #ebdce5;color:#7a5f79;font-size:12px;font-weight:700}
+.checkgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.check{display:flex;align-items:flex-start;gap:10px;padding:12px;border-radius:16px;border:1px solid #eee0e9;background:#fff;cursor:pointer;transition:.15s}
+.check input{width:18px;height:18px;accent-color:#d977a2;flex:none;margin-top:4px}
+.check small{display:block;color:#8091a2;margin-top:4px;font-size:11px}
+.check:hover{transform:translateY(-1px)}
+.check.checked{background:linear-gradient(135deg,#fff2f7,#f0fffb);border-color:#dfc4d3}.check.checked span{text-decoration:line-through;text-decoration-color:#c18ca6}
+.donut{width:220px;max-width:100%;margin:auto;display:block}
+.legend{font-size:12px;color:#7a8ea3}
+.sym-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.sym{display:flex;gap:12px;align-items:center;padding:15px;border-radius:20px;background:#fff8fb;border:1px solid #f2d4df}.sym strong{color:#ae4e76}.sym svg{width:58px;height:58px;min-width:58px}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.step{border:1px solid #e9dce5;background:linear-gradient(180deg,#fff,#fffcfd);border-radius:18px;padding:14px;text-align:center}.step .n{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#ffe0ed;color:#a6537c;font-weight:900;margin:0 auto 8px}.step .emoji{font-size:26px}
+.timeline{display:grid;grid-template-columns:72px 1fr}.timeline > div{padding:10px 12px;border-bottom:1px dashed #e4dbe2}.timeline > div:nth-child(odd){font-weight:900;color:#8c5874;background:#fff6fa}
+.chartbox{background:linear-gradient(180deg,#f8fcff,#fff);border:1px solid #ebdfe7;border-radius:20px;padding:14px}
+.stars{font-size:23px;letter-spacing:4px;color:#f1c76e}
+.mapbox{padding:12px;background:linear-gradient(180deg,#f5fbff,#fff);border:1px solid #e2edf5;border-radius:20px}
+.mapbox iframe{width:100%;min-height:320px;border:0;border-radius:16px}
+.accordion{border:1px solid #eadfe8;border-radius:18px;overflow:hidden;margin:10px 0}
+.accordion summary{padding:13px 15px;background:#fff6fb;font-weight:800;cursor:pointer;color:#6e5370}
+.accordion .content{padding:14px 16px}
+textarea{width:100%;min-height:76px;padding:12px;border-radius:14px;border:1px solid #e4dbe3;background:#fffefd;resize:vertical}
+.copy-box{padding:16px;border-radius:20px;background:linear-gradient(180deg,#fffbfd,#f7fcff);border:1px solid #ebdfe8}
+.footer{max-width:1260px;margin:18px auto 80px;padding:0 18px}.footer .box{text-align:center;background:#fff;border:1px solid #eadfe7;border-radius:26px;padding:24px;box-shadow:var(--shadow)}
+.creator-end{font-size:clamp(26px,3.6vw,40px);color:#8d4f72;font-weight:900;line-height:1.5}
+.toTop{position:fixed;right:18px;bottom:18px;border:0;background:#d979a3;color:#fff;border-radius:999px;padding:14px 16px;box-shadow:0 12px 22px rgba(130,56,94,.24);display:none;z-index:10}
+svg text{font-family:'Meiryo UI',Meiryo,'Yu Gothic',sans-serif}
+@media (max-width:1020px){.hero,.wrap,.score-board{grid-template-columns:1fr}.grid-4,.grid-3,.grid-2,.checkgrid,.sym-grid,.flow{grid-template-columns:1fr 1fr}aside{position:static;max-height:none}}
+@media (max-width:700px){.grid-4,.grid-3,.grid-2,.checkgrid,.sym-grid,.flow{grid-template-columns:1fr}.hero{padding:24px 14px}.wrap{padding:14px 10px 70px}.section{padding:20px 16px}.timeline{grid-template-columns:58px 1fr}h2{font-size:22px}.author-big strong{font-size:26px}}
+@media print{body{background:#fff}.wrap{display:block;max-width:none;padding:0}aside,.actions,.toTop,.search{display:none !important}.section,.footer .box,.hero-illus,.author-big{box-shadow:none}.section{break-inside:avoid}.hero{display:block;padding:16px 0 10px}.footer{margin:0;padding:0}.btn{display:none !important}}
+</style>
+</head>
+<body>
+<header id="top">
+  <div class="hero">
+    <div>
+      <div class="badge">🏥 FAMILY SUPPORT GUIDE</div>
+      <h1>昭和医科大学藤が丘病院<br>入院・脳神経外科・SCU<br>ご家族サポートガイド</h1>
+      <p class="notice-below-title">お世話になる病院、窓口の方に詳細を確認ください。本資料は一般的な公開資料に基づきます。</p>
+      <p class="subtitle">かわいらしい図解とチェック表で、入院準備・病棟での注意点・ご家族の役割をわかりやすく整理したガイドです。持ち物、面会、脳卒中サイン、手術前後の確認、退院準備まで一つにまとめました。</p>
+      <div class="meta">
+        <span class="pill">対象：昭和医科大学藤が丘病院</span>
+        <span class="pill">脳神経外科病棟・SCUを含む</span>
+        <span class="pill">情報確認：2026年9月26日</span>
+        <span class="pill">スマホ・印刷対応</span>
+      </div>
+      <div class="author-big">
+        <small>制作者</small>
+        <strong>高橋亜耶佳・高橋公泰</strong>
+      </div>
+      <div class="actions" style="margin-top:18px">
+        <button class="btn primary" onclick="window.print()">🖨 PDF出力 / 印刷</button>
+        <button class="btn secondary" id="copySummaryBtn">📋 重要ポイントをコピー</button>
+        <button class="btn soft" onclick="document.getElementById('checklist').scrollIntoView({behavior:'smooth'})">✅ 準備チェックへ</button>
+      </div>
+    </div>
+    <div class="hero-illus">
+      <svg viewBox="0 0 560 420" width="100%" height="auto" role="img" aria-label="病院で患者さんを支えるご家族、看護師、医師のかわいらしいイラスト">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#ffe7f0"/><stop offset="1" stop-color="#ecf7ff"/></linearGradient>
+        </defs>
+        <rect x="18" y="18" width="524" height="384" rx="28" fill="url(#g1)" stroke="#edd9e6"/>
+        <circle cx="108" cy="84" r="20" fill="#fff" opacity=".7"/>
+        <circle cx="460" cy="72" r="28" fill="#fff" opacity=".55"/>
+        <rect x="368" y="84" width="110" height="110" rx="16" fill="#fff" stroke="#daeaf5"/>
+        <path d="M423 112v52M397 138h52" stroke="#82b5e4" stroke-width="10" stroke-linecap="round"/>
+        <rect x="58" y="200" width="444" height="142" rx="18" fill="#fff" stroke="#e7dce5"/>
+        <rect x="73" y="218" width="180" height="100" rx="14" fill="#fff7fb" stroke="#f0d5e1"/>
+        <rect x="266" y="218" width="220" height="100" rx="14" fill="#f4fbff" stroke="#dbeaf5"/>
+        <g transform="translate(84,182)">
+          <circle cx="70" cy="36" r="28" fill="#ffd8c3"/>
+          <path d="M48 39c1-17 12-28 24-28s23 12 24 28" fill="#70493e"/>
+          <rect x="34" y="66" width="72" height="92" rx="20" fill="#f7c0d8"/>
+          <rect x="46" y="92" width="48" height="42" rx="10" fill="#fff"/>
+          <path d="M70 92v42M49 113h42" stroke="#f5a4c3" stroke-width="7" stroke-linecap="round"/>
+          <path d="M21 110c24 8 37 12 49 14" stroke="#f7c0d8" stroke-width="14" stroke-linecap="round"/>
+          <path d="M119 110c-24 8-37 12-49 14" stroke="#f7c0d8" stroke-width="14" stroke-linecap="round"/>
+          <path d="M60 158v54M82 158v54" stroke="#7ca8e8" stroke-width="14" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(228,174)">
+          <circle cx="70" cy="36" r="28" fill="#ffd8c3"/>
+          <path d="M44 39c0-18 11-28 26-28s26 10 26 28" fill="#4c607f"/>
+          <rect x="26" y="66" width="88" height="96" rx="20" fill="#ffffff" stroke="#d6e6f1"/>
+          <path d="M24 112c18 4 32 7 46 10" stroke="#ffffff" stroke-width="14" stroke-linecap="round"/>
+          <path d="M116 112c-18 4-32 7-46 10" stroke="#ffffff" stroke-width="14" stroke-linecap="round"/>
+          <path d="M70 88v48M47 112h46" stroke="#82b5e4" stroke-width="8" stroke-linecap="round"/>
+          <path d="M55 162v50M85 162v50" stroke="#8bc9bf" stroke-width="14" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(382,182)">
+          <circle cx="52" cy="36" r="28" fill="#ffd8c3"/>
+          <path d="M28 37c1-16 10-26 24-26s23 10 24 26" fill="#69504b"/>
+          <rect x="16" y="66" width="72" height="92" rx="20" fill="#9fd6c8"/>
+          <path d="M2 110c20 5 33 9 48 13" stroke="#9fd6c8" stroke-width="14" stroke-linecap="round"/>
+          <path d="M102 110c-20 5-33 9-48 13" stroke="#9fd6c8" stroke-width="14" stroke-linecap="round"/>
+          <path d="M42 158v54M62 158v54" stroke="#7ca8e8" stroke-width="14" stroke-linecap="round"/>
+        </g>
+        <g fill="#7c90a4" font-size="16" font-weight="700">
+          <text x="100" y="356">ご家族</text>
+          <text x="260" y="356">看護師・医師</text>
+          <text x="410" y="356">患者さん</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside>
+    <h3>CONTENTS</h3>
+    <input type="search" id="navsearch" class="search" placeholder="項目を検索">
+    <div id="navlinks">
+      <a href="#summary">1. まず大切なポイント</a>
+      <a href="#checklist">2. 入院準備チェック</a>
+      <a href="#belongings">3. 持ち物・禁止物</a>
+      <a href="#ward">4. 脳外科病棟・SCUの注意点</a>
+      <a href="#fast">5. 脳卒中サイン FAST</a>
+      <a href="#family">6. ご家族の役割</a>
+      <a href="#doctor">7. 医師へ確認したいこと</a>
+      <a href="#flow">8. 入院から退院までの流れ</a>
+      <a href="#life">9. 病棟での生活</a>
+      <a href="#chart">10. 退院準備グラフ</a>
+      <a href="#map">11. 地図・アクセス</a>
+      <a href="#sources">12. 参考にした公式資料</a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="section" id="summary">
+      <h2><span class="num">1</span>まず大切なポイント</h2>
+      <p class="lead">最初に押さえておくと安心な要点です。病棟ごとの個別ルールは、入院時に担当スタッフの説明を優先してください。</p>
+      <div class="grid-4">
+        <div class="card soft-pink"><div class="icon"><svg viewBox="0 0 24 24" stroke="#df7da2"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></div><b>薬は必ず持参</b><p>普段飲んでいる薬・サプリメント・お薬手帳を忘れずに。自己判断で服用しないことも大切です。</p></div>
+        <div class="card soft-mint"><div class="icon"><svg viewBox="0 0 24 24" stroke="#48a799"><path d="M6 19c3-4 9-4 12 0"/><path d="M7 14l3-6h4l3 6"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div><b>スリッパは不可</b><p>転倒予防のため、かかとのある履き慣れた靴を準備します。</p></div>
+        <div class="card soft-sky"><div class="icon"><svg viewBox="0 0 24 24" stroke="#6f97e1"><path d="M5 8h14v11H5z"/><path d="M8 5h8v3H8z"/><path d="M8 12h8"/></svg></div><b>面会ルール確認</b><p>一般病棟の面会は毎日13:00〜20:00、1回2名まで。SCU・ICU等は別ルールのことがあります。</p></div>
+        <div class="card soft-peach"><div class="icon"><svg viewBox="0 0 24 24" stroke="#dc9f42"><path d="M12 2v20"/><path d="M4 10h16"/><circle cx="12" cy="10" r="7"/></svg></div><b>食事の差し入れ注意</b><p>脳外科病棟では誤嚥予防が重要です。飲み物や食べ物は必ず許可を確認してから。</p></div>
+      </div>
+      <div class="warn"><b>特に重要：</b>ご家族が「昨日と違う」「急にぼんやりしている」「ろれつが回らない」などに気付いたら、すぐに看護師へ伝えてください。</div>
+    </section>
+
+    <section class="section" id="checklist">
+      <h2><span class="num">2</span>入院準備チェック & スコア</h2>
+      <div class="score-board">
+        <div class="score-box">
+          <div class="score-line"><strong id="scoreText">0</strong><span>点 / 100点</span></div>
+          <div class="legend">チェックが進むほど点数が上がります。ご家族の準備度の目安にお使いください。</div>
+          <div class="meter"><div id="scoreBar"></div></div>
+          <div class="badges">
+            <span class="tiny-pill" id="levelTag">はじめよう</span>
+            <span class="tiny-pill" id="countTag">0 / 20 項目完了</span>
+            <span class="tiny-pill" id="starTag">★☆☆☆☆</span>
+          </div>
+          <div class="actions" style="margin-top:14px">
+            <button class="btn soft" id="checkAllBtn">全部チェック</button>
+            <button class="btn soft" id="clearCheckBtn">チェックを外す</button>
+          </div>
+        </div>
+        <div class="chartbox">
+          <svg id="donutChart" class="donut" viewBox="0 0 220 220" role="img" aria-label="準備スコアのドーナツグラフ">
+            <circle cx="110" cy="110" r="78" fill="none" stroke="#f0e5ec" stroke-width="22"/>
+            <circle id="donutArc" cx="110" cy="110" r="78" fill="none" stroke="url(#donutGrad)" stroke-width="22" stroke-linecap="round" transform="rotate(-90 110 110)" stroke-dasharray="0 999"/>
+            <defs>
+              <linearGradient id="donutGrad" x1="0" x2="1"><stop offset="0" stop-color="#f298b9"/><stop offset="1" stop-color="#78cfc0"/></linearGradient>
+            </defs>
+            <text x="110" y="102" text-anchor="middle" font-size="18" fill="#6f5873" font-weight="700">準備度</text>
+            <text id="donutPct" x="110" y="130" text-anchor="middle" font-size="30" fill="#8d4f72" font-weight="900">0%</text>
+          </svg>
+          <div class="legend" style="text-align:center">20項目 × 5点 = 100点</div>
+        </div>
+      </div>
+      <div id="checkGroups"></div>
+    </section>
+
+    <section class="section" id="belongings">
+      <h2><span class="num">3</span>持ち物・禁止物の見やすい一覧</h2>
+      <div class="grid-2">
+        <div class="card soft-sky">
+          <h3>持っていくもの</h3>
+          <ul class="list-cute">
+            <li>マイナ保険証または資格確認書など</li>
+            <li>診察券、入院のご案内、入院申込書・誓約書</li>
+            <li>服用中の薬、サプリメント、お薬手帳</li>
+            <li>歯ブラシ、コップ、洗面用品、下着、ティッシュ</li>
+            <li>パジャマ・タオル類（レンタルしない場合）</li>
+            <li>かかとのある靴、有線イヤホン、筆記用具</li>
+            <li>眼鏡、補聴器、入れ歯など日常生活に必要なもの</li>
+          </ul>
+        </div>
+        <div class="card soft-pink">
+          <h3>持ち込みに注意するもの</h3>
+          <ul class="list-cute">
+            <li>スリッパ・サンダル・クロックス</li>
+            <li>飲食物（許可確認が必要）</li>
+            <li>多額の現金・貴重品</li>
+            <li>刃物・ライター・危険物</li>
+            <li>個室以外でのノートパソコン使用</li>
+            <li>病室での通話・録音・撮影</li>
+            <li>生花・ドライフラワー・ぬいぐるみ等（衛生面で制限されることあり）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tablewrap" style="margin-top:14px">
+        <table>
+          <thead><tr><th>項目</th><th>基本ルール</th><th>ひとことメモ</th></tr></thead>
+          <tbody>
+            <tr><td>靴</td><td>かかとのある履き慣れた靴</td><td>転倒予防のため、スリッパ不可</td></tr>
+            <tr><td>薬</td><td>すべて持参して申告</td><td>市販薬・サプリも含める</td></tr>
+            <tr><td>食べ物</td><td>医師・看護師に確認</td><td>脳外科では誤嚥や食事制限に注意</td></tr>
+            <tr><td>貴重品</td><td>最小限にする</td><td>持ち物には記名すると安心</td></tr>
+            <tr><td>スマホ・PC</td><td>ルールに沿って使用</td><td>大部屋では通話・PCに制限あり</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="ward">
+      <h2><span class="num">4</span>脳神経外科病棟・SCUでの注意点</h2>
+      <div class="grid-3">
+        <div class="card soft-pink"><div class="icon"><svg viewBox="0 0 24 24" stroke="#db7ca2"><path d="M12 3c3 0 5 2 5 5 0 1-.3 2-.8 2.9L19 14a2 2 0 0 1-1.7 3H6.7A2 2 0 0 1 5 14l2.8-3.1A5.6 5.6 0 0 1 7 8c0-3 2-5 5-5z"/><path d="M9 17v2a3 3 0 0 0 6 0v-2"/></svg></div><b>意識の変化に注意</b><p>急に眠そう、返事が遅い、会話がかみ合わない時はすぐに報告します。</p></div>
+        <div class="card soft-mint"><div class="icon"><svg viewBox="0 0 24 24" stroke="#48a799"><path d="M8 4h8l1 5H7l1-5z"/><path d="M6 9h12l-1 9H7L6 9z"/><path d="M10 12h4"/></svg></div><b>飲食は勝手に進めない</b><p>飲み込みの安全確認が終わるまでは、水やお茶も自己判断で渡さないことが重要です。</p></div>
+        <div class="card soft-sky"><div class="icon"><svg viewBox="0 0 24 24" stroke="#6f97e1"><path d="M7 20V9a5 5 0 0 1 10 0v11"/><path d="M4 20h16"/><path d="M12 5v6"/></svg></div><b>転倒を防ぐ</b><p>許可なく立たせない、トイレ移動も看護師へ相談。見た目よりふらつくことがあります。</p></div>
+        <div class="card soft-peach"><div class="icon"><svg viewBox="0 0 24 24" stroke="#d29a44"><path d="M5 12h14"/><path d="M8 7l-3 5 3 5"/><path d="M16 7l3 5-3 5"/></svg></div><b>管や機器を触らない</b><p>点滴、ドレーン、モニターは大切な医療機器です。抜けそうな時は看護師へ。</p></div>
+        <div class="card soft-lav"><div class="icon"><svg viewBox="0 0 24 24" stroke="#9484e4"><path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div><b>術後は安静指示を守る</b><p>頭の位置、安静度、離床タイミングは治療内容で異なります。家族判断で動かさないようにします。</p></div>
+        <div class="card soft-sky"><div class="icon"><svg viewBox="0 0 24 24" stroke="#6f97e1"><path d="M12 3v18"/><path d="M5 12h14"/><circle cx="12" cy="12" r="9"/></svg></div><b>SCU・ICUは個別ルール</b><p>面会時間、人数、待機場所、付き添い可否は病棟ごとに異なるため、当日確認が必要です。</p></div>
+      </div>
+      <div class="note">脳神経外科では、<b>意識・ことば・手足の動き・飲み込み</b>の観察が特に重要です。ご家族の「いつもと違う」は大切な情報になります。</div>
+    </section>
+
+    <section class="section" id="fast">
+      <h2><span class="num">5</span>脳卒中のサイン「FAST」</h2>
+      <p class="lead">脳卒中のサインは突然起こることがあります。面会時や退院後にも役立つ、覚えやすい図解です。</p>
+      <div class="sym-grid">
+        <div class="sym"><svg viewBox="0 0 64 64" stroke="#d55d88" fill="none" stroke-width="2.4"><circle cx="32" cy="32" r="27" fill="#fff"/><path d="M20 28c2-4 6-7 12-7 6 0 10 3 12 7"/><path d="M22 42c6-2 14-2 20 0"/><path d="M25 35c2 3 6 5 7 5 4 0 7-3 10-7"/></svg><div><strong>F = Face</strong><br>顔の片側が下がる、ゆがむ</div></div>
+        <div class="sym"><svg viewBox="0 0 64 64" stroke="#d55d88" fill="none" stroke-width="2.4"><circle cx="32" cy="32" r="27" fill="#fff"/><path d="M20 18v28"/><path d="M44 24v22"/><path d="M20 26l-4 4 4 4"/><path d="M44 34l4 4-4 4"/></svg><div><strong>A = Arm</strong><br>片腕が上がらない、力が入らない</div></div>
+        <div class="sym"><svg viewBox="0 0 64 64" stroke="#d55d88" fill="none" stroke-width="2.4"><circle cx="32" cy="32" r="27" fill="#fff"/><path d="M22 25h20"/><path d="M22 34h13"/><path d="M22 43h16"/></svg><div><strong>S = Speech</strong><br>ろれつが回らない、言葉が出ない</div></div>
+        <div class="sym"><svg viewBox="0 0 64 64" stroke="#d55d88" fill="none" stroke-width="2.4"><circle cx="32" cy="32" r="27" fill="#fff"/><path d="M32 17v15l10 7"/></svg><div><strong>T = Time</strong><br>発症時刻を確認し、すぐ医療者へ</div></div>
+      </div>
+      <div class="warn"><b>急変サイン：</b>突然の強い頭痛、嘔吐、けいれん、視力異常、反応が鈍い、会話がおかしい、手足の麻痺が悪化した――このような時は、すぐにナースコールや医療者への連絡を。</div>
+    </section>
+
+    <section class="section" id="family">
+      <h2><span class="num">6</span>ご家族の役割と理解しておくこと</h2>
+      <div class="grid-2">
+        <div class="card soft-mint">
+          <h3>ご家族が準備すること</h3>
+          <ul class="list-cute">
+            <li>代表連絡先と、つながらない時の第二連絡先を決める</li>
+            <li>病気になる前の日常生活の様子（歩行・会話・食事・排泄）を伝えられるようにする</li>
+            <li>既往歴、アレルギー、服薬内容を整理する</li>
+            <li>眼鏡・補聴器・入れ歯など普段の生活に必要な物を準備する</li>
+            <li>退院後の介助体制や送迎できる人を考えておく</li>
+          </ul>
+        </div>
+        <div class="card soft-peach">
+          <h3>理解しておきたいこと</h3>
+          <ul class="list-cute">
+            <li>元気そうに見えても、判断力や歩行能力が戻っていないことがあります</li>
+            <li>術後や急性期には、せん妄のような一時的混乱が起こることがあります</li>
+            <li>病棟によって面会・付き添い・家族待機のルールが異なります</li>
+            <li>急性期治療後は、転院やリハビリ病院の調整が必要になることがあります</li>
+            <li>ご家族のメモは、病状説明を整理するのにとても役立ちます</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion"><summary>かわいいピクトグラムで見る「家族の役割」</summary><div class="content">
+        <div class="grid-4">
+          <div class="card"><div class="icon"><svg viewBox="0 0 24 24" stroke="#d97da4"><path d="M12 21s-7-5-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5-7 10-7 10z"/></svg></div><b>見守る</b><p>症状の変化を見つける</p></div>
+          <div class="card"><div class="icon"><svg viewBox="0 0 24 24" stroke="#60b0a3"><path d="M4 7h16v10H4z"/><path d="M8 4h8v3H8z"/></svg></div><b>記録する</b><p>説明・質問をメモする</p></div>
+          <div class="card"><div class="icon"><svg viewBox="0 0 24 24" stroke="#7b9de8"><path d="M12 2v20"/><path d="M4 10h16"/><path d="M4 15h10"/></svg></div><b>つなぐ</b><p>家族内の情報共有役になる</p></div>
+          <div class="card"><div class="icon"><svg viewBox="0 0 24 24" stroke="#d7a04d"><path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z"/></svg></div><b>支える</b><p>退院後の暮らしを整える</p></div>
+        </div>
+      </div></div>
+    </section>
+
+    <section class="section" id="doctor">
+      <h2><span class="num">7</span>医師・病棟スタッフに確認したいこと</h2>
+      <div class="copy-box">
+        <p class="lead">下の質問欄は自由に記入できます。面談時のメモとして使い、必要ならコピーしてください。</p>
+        <div class="actions">
+          <button class="btn secondary" id="copyNotesBtn">📋 質問とメモをコピー</button>
+          <button class="btn soft" id="clearNotesBtn">🧹 メモを消去</button>
+        </div>
+        <div id="questionList"></div>
+      </div>
+    </section>
+
+    <section class="section" id="flow">
+      <h2><span class="num">8</span>入院から退院までの流れ</h2>
+      <div class="flow">
+        <div class="step"><div class="n">1</div><div class="emoji">📝</div><b>入院準備</b><p>書類・薬・持ち物を整理</p></div>
+        <div class="step"><div class="n">2</div><div class="emoji">🏥</div><b>入院手続き</b><p>総合サポートセンターで受付</p></div>
+        <div class="step"><div class="n">3</div><div class="emoji">🧠</div><b>治療・手術</b><p>病棟・SCU・ICUなどで管理</p></div>
+        <div class="step"><div class="n">4</div><div class="emoji">🚶</div><b>リハビリ</b><p>状態に応じて早期開始</p></div>
+        <div class="step"><div class="n">5</div><div class="emoji">🏡</div><b>退院・転院</b><p>自宅・回復期病院へ</p></div>
+      </div>
+      <div class="tip">急性期治療後は、病状に応じて藤が丘リハビリテーション病院などへの転院調整が行われる場合があります。早めの相談が安心です。</div>
+    </section>
+
+    <section class="section" id="life">
+      <h2><span class="num">9</span>病棟での生活・面会・スマホ利用</h2>
+      <div class="grid-2">
+        <div>
+          <h3>一般病棟の一日のめやす</h3>
+          <div class="timeline">
+            <div>7:00</div><div>起床・洗面・検温など</div>
+            <div>8:00</div><div>朝食</div>
+            <div>12:00</div><div>昼食</div>
+            <div>13:00</div><div>面会開始（一般病棟）</div>
+            <div>18:00</div><div>夕食</div>
+            <div>22:00</div><div>消灯</div>
+          </div>
+        </div>
+        <div>
+          <h3>面会と機器利用の表</h3>
+          <div class="tablewrap">
+            <table>
+              <thead><tr><th>項目</th><th>一般病棟のめやす</th><th>注意</th></tr></thead>
+              <tbody>
+                <tr><td>面会時間</td><td>13:00〜20:00</td><td>1回2名まで / 病状で変更あり</td></tr>
+                <tr><td>スマホ通話</td><td>指定場所で</td><td>大部屋は通話制限あり</td></tr>
+                <tr><td>ノートPC</td><td>個室または指定場所</td><td>大部屋では原則不可</td></tr>
+                <tr><td>テレビ</td><td>イヤホン使用</td><td>カード式</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="warn">SCU・ICU・救命病棟では、上記と異なる個別ルールになることがあります。必ず当日の案内を確認してください。</div>
+    </section>
+
+    <section class="section" id="chart">
+      <h2><span class="num">10</span>退院準備の図表</h2>
+      <div class="grid-2">
+        <div class="chartbox">
+          <h3>退院準備チェックの棒グラフ</h3>
+          <svg viewBox="0 0 520 300" width="100%" height="auto" role="img" aria-label="退院準備の重点項目を示した棒グラフ">
+            <rect x="0" y="0" width="520" height="300" rx="18" fill="#fcfeff"/>
+            <g stroke="#e8edf3"><path d="M72 42v200"/><path d="M72 242h400"/><path d="M72 82h400"/><path d="M72 122h400"/><path d="M72 162h400"/><path d="M72 202h400"/></g>
+            <g fill="#7f92a7" font-size="12"><text x="26" y="246">0</text><text x="18" y="206">25</text><text x="18" y="166">50</text><text x="18" y="126">75</text><text x="10" y="86">100</text></g>
+            <g font-size="12" fill="#5f7489" text-anchor="middle" font-weight="700">
+              <text x="126" y="265">移動</text><text x="206" y="265">食事</text><text x="286" y="265">排泄</text><text x="366" y="265">住環境</text><text x="446" y="265">介助者</text>
+            </g>
+            <rect x="98" y="142" width="56" height="100" rx="10" fill="#8cc8ff"/>
+            <rect x="178" y="112" width="56" height="130" rx="10" fill="#9fe0cf"/>
+            <rect x="258" y="132" width="56" height="110" rx="10" fill="#f7b2cd"/>
+            <rect x="338" y="92" width="56" height="150" rx="10" fill="#f3ca7a"/>
+            <rect x="418" y="122" width="56" height="120" rx="10" fill="#baaff4"/>
+            <g fill="#5f7489" font-size="12" text-anchor="middle" font-weight="800">
+              <text x="126" y="136">50</text><text x="206" y="106">65</text><text x="286" y="126">55</text><text x="366" y="86">75</text><text x="446" y="116">60</text>
+            </g>
+          </svg>
+          <div class="legend">この棒グラフは「退院準備で家族が確認したい重点項目」のイメージ図です。実測値ではありません。</div>
+        </div>
+        <div class="chartbox">
+          <h3>退院先を考えるための表</h3>
+          <div class="tablewrap">
+            <table>
+              <thead><tr><th>確認したい項目</th><th>見ておくポイント</th></tr></thead>
+              <tbody>
+                <tr><td>歩行・移動</td><td>一人で歩けるか、見守りか、車椅子が必要か</td></tr>
+                <tr><td>食事</td><td>自力摂取の可否、とろみ・刻み食の必要性</td></tr>
+                <tr><td>排泄・入浴</td><td>どの程度の介助が必要か</td></tr>
+                <tr><td>言葉・理解</td><td>会話、電話、緊急時の意思表示が可能か</td></tr>
+                <tr><td>住環境</td><td>階段・段差・手すり・トイレの使いやすさ</td></tr>
+                <tr><td>介助できる人</td><td>日中・夜間に支えられる人がいるか</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="map">
+      <h2><span class="num">11</span>地図・アクセス・院内のイメージ</h2>
+      <div class="grid-2">
+        <div class="mapbox">
+          <h3>周辺地図</h3>
+          <iframe title="昭和医科大学藤が丘病院の周辺地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=%E6%98%AD%E5%92%8C%E5%8C%BB%E7%A7%91%E5%A4%A7%E5%AD%A6%E8%97%A4%E3%81%8C%E4%B8%98%E7%97%85%E9%99%A2&amp;output=embed" allowfullscreen></iframe>
+          <p><b>所在地：</b>神奈川県横浜市青葉区藤が丘1-30<br><b>最寄り：</b>東急田園都市線 藤が丘駅から徒歩約3分</p>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=%E6%98%AD%E5%92%8C%E5%8C%BB%E7%A7%91%E5%A4%A7%E5%AD%A6%E8%97%A4%E3%81%8C%E4%B8%98%E7%97%85%E9%99%A2" target="_blank" rel="noopener">Googleマップで開く</a></p>
+        </div>
+        <div class="card soft-sky">
+          <h3>院内のイメージ図</h3>
+          <svg viewBox="0 0 420 320" width="100%" height="auto" role="img" aria-label="院内の主要フロアのイメージ図">
+            <rect x="95" y="30" width="230" height="255" rx="20" fill="#f9fcff" stroke="#dbe7f0"/>
+            <rect x="118" y="50" width="184" height="35" rx="10" fill="#ffe9f2" stroke="#efcfdd"/>
+            <rect x="118" y="92" width="184" height="35" rx="10" fill="#eef8ff" stroke="#d8e7f5"/>
+            <rect x="118" y="134" width="184" height="35" rx="10" fill="#f4fffb" stroke="#d3eee6"/>
+            <rect x="118" y="176" width="184" height="35" rx="10" fill="#fff6ed" stroke="#f0dfc4"/>
+            <rect x="118" y="218" width="184" height="35" rx="10" fill="#f7f3ff" stroke="#e0d8f7"/>
+            <g fill="#6d5672" font-size="14" font-weight="700">
+              <text x="210" y="73" text-anchor="middle">1F 総合案内・会計・相談</text>
+              <text x="210" y="115" text-anchor="middle">2F 外来・脳神経センター</text>
+              <text x="210" y="157" text-anchor="middle">3F 手術室・ICU等</text>
+              <text x="210" y="199" text-anchor="middle">4〜8F 各病棟</text>
+              <text x="210" y="241" text-anchor="middle">7F付近 SCU（案内に従う）</text>
+            </g>
+            <text x="210" y="286" text-anchor="middle" font-size="12" fill="#7a8da0">※公開フロアガイドをもとにしたやさしいイメージ図</text>
+          </svg>
+          <div class="note">売店、相談窓口、会計、病棟位置などは当日の案内表示をご確認ください。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sources">
+      <h2><span class="num">12</span>参考にした公式資料</h2>
+      <p class="lead">下記は本資料の作成に参考にした主な公式資料です。資料内のリンクは公式資料名のみを掲載しています。</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>区分</th><th>資料名</th></tr></thead>
+          <tbody>
+            <tr><td>入院案内</td><td><a href="https://www.showa-u.ac.jp/SUHF/patient/inpatient/" target="_blank" rel="noopener">昭和医科大学藤が丘病院｜入退院の手続き</a></td></tr>
+            <tr><td>持ち物</td><td><a href="https://www.showa-u.ac.jp/SUHF/patient/inpatient/belong.html" target="_blank" rel="noopener">昭和医科大学藤が丘病院｜入院前の準備・持ち物</a></td></tr>
+            <tr><td>入院生活</td><td><a href="https://www.showa-u.ac.jp/SUHF/patient/inpatient/staying.html" target="_blank" rel="noopener">昭和医科大学藤が丘病院｜入院中の過ごし方</a></td></tr>
+            <tr><td>面会</td><td><a href="https://www.showa-u.ac.jp/SUHF/patient/inpatient/visitor.html" target="_blank" rel="noopener">昭和医科大学藤が丘病院｜入院患者の面会方法</a></td></tr>
+            <tr><td>SCU</td><td><a href="https://www.showa-u.ac.jp/SUHF/department/center/scu.html" target="_blank" rel="noopener">昭和医科大学藤が丘病院｜脳卒中ケアユニット（SCU）</a></td></tr>
+            <tr><td>脳神経領域</td><td><a href="https://www.showa-u.ac.jp/SUHF/department/list/stroke_center/stroke_center.html" target="_blank" rel="noopener">昭和医科大学藤が丘病院｜脳神経センター</a></td></tr>
+            <tr><td>相談窓口</td><td><a href="https://www.showa-u.ac.jp/SUHF/guide/report/cancer_cnslt_copy20260616175322.html" target="_blank" rel="noopener">昭和医科大学藤が丘病院｜脳卒中相談窓口</a></td></tr>
+            <tr><td>フロア案内</td><td><a href="https://www.showa-u.ac.jp/SUHF/guide/facility/" target="_blank" rel="noopener">昭和医科大学藤が丘病院｜フロアガイド</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warn">病棟ごとの個別運用（SCU・ICUの面会枠、手術当日の待機方法、病棟固有の持ち物など）は公開情報だけでは確定できないため、入院時の説明を優先してください。</div>
+    </section>
+  </main>
+</div>
+
+<div class="footer">
+  <div class="box">
+    <div style="font-size:12px;letter-spacing:.1em;color:#a25f82;font-weight:800">NON-OFFICIAL FAMILY GUIDE</div>
+    <div class="creator-end">制作者：高橋亜耶佳・高橋公泰</div>
+    <p>昭和医科大学藤が丘病院 入院・脳神経外科 ご家族サポートガイド<br>情報確認：2026年9月26日 / 家族向けの見やすい整理資料</p>
+  </div>
+</div>
+
+<button class="toTop" id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+(() => {
+  'use strict';
+  const STORE = 'fujigaoka-cute-family-guide-v2';
+  let state = {};
+  try { state = JSON.parse(localStorage.getItem(STORE) || '{}'); } catch(e) { state = {}; }
+  const save = () => { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch(e) {} };
+
+  const checklistGroups = [
+    ['書類・医療情報', [
+      ['マイナ保険証または資格確認書などを準備した', '必須'],
+      ['診察券・入院のご案内・必要書類をそろえた', '必須'],
+      ['服用中の薬・サプリメント・お薬手帳をそろえた', '必須'],
+      ['連絡先・既往歴・アレルギー情報を整理した', '重要']
+    ]],
+    ['日用品・身の回り', [
+      ['歯ブラシ・コップ・洗面用品を準備した', '必須'],
+      ['パジャマ・タオル類を確認した', '必要に応じて'],
+      ['かかとのある履き慣れた靴を準備した', '必須'],
+      ['イヤホン・筆記用具・ティッシュを準備した', '便利']
+    ]],
+    ['脳神経外科・SCU向けの追加準備', [
+      ['眼鏡・補聴器・入れ歯など必要物を確認した', '重要'],
+      ['病気になる前の日常生活の様子を説明できる', '重要'],
+      ['飲食・歩行・面会ルールを確認するつもりでいる', '重要'],
+      ['急変時にすぐ連絡を受ける家族を決めた', '重要']
+    ]],
+    ['退院・家族体制', [
+      ['退院後に支えられる人を考えた', '大切'],
+      ['送迎や通院付き添いの予定を考えた', '大切'],
+      ['住環境（段差・手すり・トイレ）を確認する予定', '大切'],
+      ['医療費・高額療養費・介護保険を相談する予定', '大切']
+    ]],
+    ['面談・メモの準備', [
+      ['代表質問者を決めた', 'あると安心'],
+      ['医師への質問メモを準備した', 'あると安心'],
+      ['家族内の情報共有役を決めた', 'あると安心'],
+      ['このガイドを見ながら最終確認できる', '仕上げ']
+    ]]
+  ];
+
+  const totalItems = checklistGroups.reduce((n,g)=>n+g[1].length,0);
+  const checkRoot = document.getElementById('checkGroups');
+  const checkIds = [];
+
+  checklistGroups.forEach((group,gi) => {
+    const sec = document.createElement('div');
+    sec.className = 'card';
+    const h = document.createElement('h3');
+    h.textContent = group[0];
+    sec.appendChild(h);
+    const grid = document.createElement('div');
+    grid.className = 'checkgrid';
+    group[1].forEach((item,ii) => {
+      const id = `ck-${gi}-${ii}`;
+      checkIds.push(id);
+      const label = document.createElement('label');
+      label.className = 'check';
+      const input = document.createElement('input');
+      input.type = 'checkbox';
+      input.checked = !!state[id];
+      const text = document.createElement('span');
+      text.textContent = item[0];
+      const sm = document.createElement('small');
+      sm.textContent = item[1] + ' / 5点';
+      text.appendChild(sm);
+      label.append(input, text);
+      if (input.checked) label.classList.add('checked');
+      input.addEventListener('change', () => {
+        state[id] = input.checked;
+        label.classList.toggle('checked', input.checked);
+        save();
+        renderScore();
+      });
+      grid.appendChild(label);
+    });
+    sec.appendChild(grid);
+    checkRoot.appendChild(sec);
+  });
+
+  function renderScore() {
+    const checked = checkIds.filter(id => state[id]).length;
+    const score = checked * 5;
+    const pct = Math.round(score);
+    document.getElementById('scoreText').textContent = String(score);
+    document.getElementById('countTag').textContent = `${checked} / ${totalItems} 項目完了`;
+    document.getElementById('scoreBar').style.width = `${pct}%`;
+    document.getElementById('donutPct').textContent = `${pct}%`;
+    const r = 78, c = 2 * Math.PI * r, progress = c * pct / 100;
+    document.getElementById('donutArc').setAttribute('stroke-dasharray', `${progress} ${c}`);
+    const level = pct >= 90 ? 'ばっちり準備OK' : pct >= 70 ? 'かなり安心' : pct >= 50 ? '半分できた' : pct >= 25 ? '少しずつ準備中' : 'はじめよう';
+    document.getElementById('levelTag').textContent = level;
+    const stars = pct >= 90 ? '★★★★★' : pct >= 70 ? '★★★★☆' : pct >= 50 ? '★★★☆☆' : pct >= 25 ? '★★☆☆☆' : '★☆☆☆☆';
+    document.getElementById('starTag').textContent = stars;
+  }
+  renderScore();
+
+  document.getElementById('checkAllBtn').addEventListener('click', () => {
+    checkIds.forEach(id => state[id] = true);
+    document.querySelectorAll('.check input').forEach(i => { i.checked = true; i.closest('.check').classList.add('checked'); });
+    save(); renderScore();
+  });
+  document.getElementById('clearCheckBtn').addEventListener('click', () => {
+    checkIds.forEach(id => state[id] = false);
+    document.querySelectorAll('.check input').forEach(i => { i.checked = false; i.closest('.check').classList.remove('checked'); });
+    save(); renderScore();
+  });
+
+  const questions = [
+    '病名と病変の場所はどこですか？',
+    '現在の重症度と警戒すべき合併症は何ですか？',
+    '今回の治療の目的と他の選択肢はありますか？',
+    '手術・治療の主なリスクは何ですか？',
+    '意識・ことば・手足・記憶への影響はありますか？',
+    '術後の入室先（SCU・ICU・一般病棟）はどこですか？',
+    '食事・飲水・歩行・リハビリはいつからですか？',
+    '面会時に家族が見るべき変化は何ですか？',
+    '退院先は自宅か、転院の可能性がありますか？',
+    '退院後の薬・再発予防・通院のポイントは？'
+  ];
+  const qRoot = document.getElementById('questionList');
+  questions.forEach((q, i) => {
+    const wrap = document.createElement('div');
+    wrap.style.margin = '0 0 12px';
+    const lab = document.createElement('label');
+    lab.style.fontWeight = '800';
+    lab.textContent = `${i+1}. ${q}`;
+    const ta = document.createElement('textarea');
+    ta.placeholder = '説明内容や確認したいことをメモ';
+    ta.value = state[`q-${i}`] || '';
+    ta.addEventListener('input', () => { state[`q-${i}`] = ta.value; save(); });
+    wrap.append(lab, ta);
+    qRoot.appendChild(wrap);
+  });
+
+  document.getElementById('copyNotesBtn').addEventListener('click', async () => {
+    const text = questions.map((q,i)=> `${i+1}. ${q}\n${state[`q-${i}`] || '（未記入）'}`).join('\n\n');
+    try { await navigator.clipboard.writeText(text); alert('質問メモをコピーしました'); }
+    catch(e) { alert('コピーできませんでした'); }
+  });
+  document.getElementById('clearNotesBtn').addEventListener('click', () => {
+    if (!confirm('入力した質問メモを消しますか？')) return;
+    questions.forEach((_,i)=> { delete state[`q-${i}`]; });
+    qRoot.querySelectorAll('textarea').forEach(t => t.value = '');
+    save();
+  });
+
+  document.getElementById('copySummaryBtn').addEventListener('click', async () => {
+    const summary = [
+      '【重要ポイント】',
+      '・薬・お薬手帳を持参する',
+      '・スリッパではなく、かかとのある靴を準備する',
+      '・脳外科病棟では水や食べ物を勝手に渡さない',
+      '・急な眠気、ろれつ不良、手足の麻痺、強い頭痛はすぐ医療者へ連絡',
+      '・SCU/ICUの面会ルールは個別確認が必要',
+      '・退院後の生活と介助体制は早めに考える'
+    ].join('\n');
+    try { await navigator.clipboard.writeText(summary); alert('重要ポイントをコピーしました'); }
+    catch(e){ alert('コピーできませんでした'); }
+  });
+
+  const search = document.getElementById('navsearch');
+  search.addEventListener('input', () => {
+    const q = search.value.toLowerCase();
+    document.querySelectorAll('#navlinks a').forEach(a => {
+      a.style.display = a.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+
+  const topBtn = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    topBtn.style.display = window.scrollY > 420 ? 'block' : 'none';
+  });
+})();
+</script>
+</body>
+</html>
