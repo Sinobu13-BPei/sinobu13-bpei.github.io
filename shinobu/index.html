@@ -3,290 +3,568 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#102b30">
-  <meta name="description" content="高橋 忍の個人プロフィール。医療の現場とビジネス、人と戦略、そして好奇心をつなぐ。">
-  <title>高橋 忍 | 人をつなぎ、未来を動かす。</title>
+  <meta name="theme-color" content="#0b1f2a">
+  <meta name="description" content="高橋 忍の自己紹介サイト。戦略、現場、パートナーシップ、家族、歴史研究まで、多面的な魅力をビジュアルに紹介します。">
+  <title>高橋 忍 | Strategy × People × Curiosity</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --ink: #142c30; --ink-2: #274448; --muted:#597077; --paper:#f8f7f1; --white:#fff;
-      --deep:#102b30; --deep-2:#173c40; --teal:#a9e5ce; --teal-rich:#117d71;
-      --lime:#d7ec96; --orange:#f6a777; --line:#dbe2db; --shadow:0 24px 65px rgba(13, 43, 42,.1);
-      --jp:'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-      --en:'DM Sans',Arial,sans-serif;
+    :root{
+      --bg:#07131b; --bg2:#0d2030; --surface:#0f2435; --surface-2:#112b40; --card:#ffffff;
+      --ink:#102331; --text:#eaf4fb; --sub:#9fb6c8; --line:rgba(255,255,255,.09);
+      --cyan:#5eead4; --blue:#61a7ff; --lime:#d8f57a; --orange:#ffb37b; --pink:#f5b0dd; --shadow:0 30px 80px rgba(4,12,20,.38);
+      --jp:'Noto Sans JP',sans-serif; --en:'Inter',sans-serif;
+      --grad:linear-gradient(135deg,#55e9d1 0%,#69a9ff 45%,#d8f57a 100%);
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:82px}
-    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--jp);-webkit-font-smoothing:antialiased;line-height:1.85}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:radial-gradient(circle at top right, rgba(72,137,255,.15), transparent 30%), radial-gradient(circle at bottom left, rgba(94,234,212,.12), transparent 30%), var(--bg); color:var(--text); font-family:var(--jp); line-height:1.8; -webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none}
-    button{font:inherit} button:focus-visible,a:focus-visible{outline:3px solid #e0a567;outline-offset:5px}
-    ::selection{background:#c8e9b2;color:#102b30}
-    .wrap{width:min(1190px,calc(100% - 88px));margin:auto}
-    .eyebrow{font:700 11px/1.5 var(--en);letter-spacing:.25em;text-transform:uppercase}
-    .section{padding:116px 0}
-    .section-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:52px}
-    .section-head h2{font-size:clamp(30px,4.2vw,57px);font-weight:800;letter-spacing:-.055em;line-height:1.38;margin:12px 0 0}
-    .section-head p{max-width:420px;color:var(--muted);font-size:14px;margin:0 0 4px;line-height:2.05}
-    .num{color:var(--teal-rich)}
-    .topbar{position:absolute;left:0;right:0;top:0;z-index:20;color:#fff}
-    .topbar-inner{height:92px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.04em;font-size:12px}
-    .brand-mark{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--lime);color:var(--deep);font:800 17px var(--en);letter-spacing:-.075em}
-    .brand small{display:block;font:600 9px var(--en);letter-spacing:.23em;color:#b5d0c8;margin-top:1px}
-    .nav{display:flex;align-items:center;gap:34px;font-size:12px;font-weight:700;letter-spacing:.08em}
-    .nav a{transition:color .2s}.nav a:hover{color:var(--lime)}
-    .nav .nav-cta{border:1px solid #92bbb4;border-radius:50px;padding:10px 22px}
-    .menu-btn{display:none;color:#fff;border:1px solid rgba(255,255,255,.4);background:transparent;border-radius:50%;width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer}
-    .hero{min-height:800px;min-height:100svh;position:relative;overflow:hidden;color:#fff;background:radial-gradient(ellipse at 83% 36%,#225355 0%,transparent 34%),radial-gradient(ellipse at 12% 90%,#214342 0%,transparent 35%),#102b30;display:flex;align-items:center}
-    .hero::before{content:"";position:absolute;inset:0;opacity:.19;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.11) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(90deg,transparent 15%,#000 95%)}
-    .hero::after{content:"";position:absolute;bottom:-100px;left:-100px;width:500px;height:340px;border-radius:50%;background:#65aa92;filter:blur(160px);opacity:.08}
-    .hero-content{position:relative;z-index:2;padding:145px 0 118px;display:grid;grid-template-columns:1.12fr .88fr;gap:20px;align-items:center}
-    .hero-copy{max-width:720px}
-    .hero-label{display:inline-flex;align-items:center;gap:12px;color:#c7e9d1;font:700 11px/1.5 var(--en);letter-spacing:.22em}
-    .hero-label::before{content:"";width:34px;height:1px;background:var(--lime)}
-    .hero h1{font-size:clamp(47px,5.55vw,85px);line-height:1.33;letter-spacing:-.075em;font-weight:900;margin:30px 0 26px}
-    .hero h1 .highlight{color:var(--lime);position:relative;white-space:nowrap}
-    .hero-desc{color:#d2dfda;font-size:clamp(14px,1.17vw,17px);line-height:2.25;max-width:570px;margin:0}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:41px}
-    .btn{min-height:55px;border-radius:100px;padding:14px 26px;display:inline-flex;align-items:center;justify-content:center;gap:15px;font-size:13px;font-weight:800;letter-spacing:.03em;transition:transform .2s,background .2s,color .2s;cursor:pointer}
-    .btn:hover{transform:translateY(-3px)}
-    .btn-primary{background:var(--lime);color:var(--deep);border:1px solid var(--lime)}
-    .btn-outline{border:1px solid #71958e;color:white;background:transparent}
-    .btn-outline:hover{background:#214347}
-    .btn svg{width:17px;height:17px}
-    .hero-foot{display:flex;align-items:center;gap:16px;margin-top:58px;font:600 10px var(--en);letter-spacing:.19em;color:#a3c2b9}
-    .hero-foot .thin-line{width:68px;height:1px;background:#91b4ab}
-    .hero-art{min-width:0;position:relative;height:560px;display:grid;place-items:center;isolation:isolate}
-    .orbit{position:absolute;border:1px solid rgba(186,231,205,.2);border-radius:50%;width:450px;height:450px;animation:rotate 45s linear infinite}
-    .orbit.outer{width:540px;height:540px;border-color:rgba(173,218,193,.12);animation-duration:62s;animation-direction:reverse}
-    .orbit.inner{width:330px;height:330px;border-style:dashed;border-color:rgba(216,238,175,.26);animation-duration:45s}
-    .orbit::after{content:"";position:absolute;top:14%;left:14%;width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(215,236,150,.13)}
-    .orbit.inner::after{top:68%;left:2%;background:var(--orange);box-shadow:0 0 0 5px rgba(246,167,119,.12)}
-    .portrait{position:relative;width:276px;height:350px;border:1px solid rgba(223,255,235,.3);background:linear-gradient(135deg,rgba(201,241,207,.20),rgba(255,255,255,.04) 65%),rgba(255,255,255,.055);border-radius:170px 170px 24px 24px;backdrop-filter:blur(6px);box-shadow:0 25px 100px #09191b66;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(4deg);overflow:hidden}
-    .portrait::before{content:"";position:absolute;width:250px;height:250px;border-radius:50%;background:#a3ddbb;opacity:.10;filter:blur(35px);top:20px}
-    .portrait::after{content:"";position:absolute;width:100%;height:70px;bottom:0;background:linear-gradient(transparent,rgba(25,59,54,.3))}
-    .portrait .initial{font:700 146px/1 var(--en);letter-spacing:-.09em;transform:translateX(-7px);color:#e0f3d4;text-shadow:0 12px 50px #09312566}
-    .portrait .mini{font:700 11px var(--en);letter-spacing:.35em;margin-top:27px;color:#cde8d2}
-    .portrait .jname{font-size:24px;font-weight:800;letter-spacing:.3em;margin-top:8px;color:white}
-    .float-pill{position:absolute;z-index:2;border:1px solid rgba(209,242,216,.3);background:rgba(16,45,47,.83);box-shadow:0 12px 40px #09191b44;backdrop-filter:blur(10px);padding:13px 20px;border-radius:14px;display:flex;align-items:center;gap:11px;font-size:12px;font-weight:700;white-space:nowrap}
-    .float-pill .circle{width:9px;height:9px;background:var(--lime);border-radius:50%}
-    .pill-one{top:56px;right:10px;transform:rotate(5deg)}
-    .pill-two{bottom:67px;left:-5px;transform:rotate(-5deg)}
-    .pill-three{right:-30px;bottom:135px;transform:rotate(5deg)}
-    .float-pill.orange .circle{background:var(--orange)}
-    @keyframes rotate{to{transform:rotate(360deg)}}
-    .intro-strip{background:#e9efdf;border-bottom:1px solid #dae4d1}
-    .intro-strip-inner{display:flex;align-items:center;justify-content:space-between;gap:36px;padding:28px 0}
-    .intro-strip strong{font-size:15px;font-weight:800;letter-spacing:-.02em}
-    .intro-strip p{margin:0;font-size:12px;line-height:1.9;color:#4c6561}
-    .strip-stars{font:800 20px var(--en);color:#6d9981;white-space:nowrap;letter-spacing:.4em}
-    .lead{font-size:clamp(24px,3.2vw,42px);line-height:1.8;letter-spacing:-.05em;font-weight:800;max-width:940px;margin:0 auto 66px;text-align:center}
-    .lead em{font-style:normal;background:linear-gradient(transparent 62%,#dcebbf 62%)}
-    .traits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px}
-    .trait{border:1px solid var(--line);background:#fff;border-radius:17px;padding:32px 30px 36px;box-shadow:0 12px 30px rgba(16,43,48,.035);transition:transform .25s,box-shadow .25s}
-    .trait:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
-    .trait-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px;color:#678078}
-    .trait-icon{width:58px;height:58px;border-radius:17px;background:#eef3e6;display:grid;place-items:center;color:var(--teal-rich)}
-    .trait:nth-child(2) .trait-icon{background:#fbefe3;color:#aa683a}
-    .trait:nth-child(3) .trait-icon{background:#e7f0ed;color:#567889}
-    .trait-icon svg{width:27px;height:27px;stroke:currentColor;stroke-width:1.65;fill:none;stroke-linecap:round;stroke-linejoin:round}
-    .trait-label{font:700 11px var(--en);letter-spacing:.18em}
-    .trait h3{font-size:23px;margin:0 0 15px;font-weight:800;line-height:1.55;letter-spacing:-.045em}
-    .trait p{margin:0;color:var(--muted);font-size:13px;line-height:2.1}
-    .business{background:#fff}
-    .business-layout{display:grid;grid-template-columns:1fr 1.07fr;gap:80px;align-items:center}
-    .business-copy h2{font-size:clamp(31px,3.65vw,52px);font-weight:900;letter-spacing:-.055em;line-height:1.55;margin:15px 0 27px}
-    .business-copy h2 span{color:var(--teal-rich)}
-    .business-copy p{font-size:14px;line-height:2.18;color:var(--muted);margin:0 0 32px;max-width:480px}
-    .business-roles{display:flex;flex-wrap:wrap;gap:9px}
-    .business-roles span{border:1px solid #cadbd5;border-radius:50px;padding:6px 14px;color:#35655d;font-weight:700;font-size:11px;background:#f6faf7}
-    .work-cards{display:flex;flex-direction:column;gap:14px}
-    .work-card{display:grid;grid-template-columns:68px 1fr;gap:20px;align-items:start;border-radius:15px;border:1px solid #e0e7e1;padding:22px 24px;transition:border-color .2s,background .2s,transform .2s;cursor:pointer;width:100%;text-align:left;color:var(--ink);background:#fff}
-    .work-card:hover{border-color:#8cbb9e;transform:translateX(3px)}
-    .work-card[aria-pressed="true"]{border-color:#70a98e;background:#f1f7ed;box-shadow:0 12px 25px #204c3220}
-    .work-card .work-index{font:800 30px var(--en);color:#8aaa9b;letter-spacing:-.08em}
-    .work-card h3{font-size:17px;font-weight:800;margin:0 0 7px;line-height:1.5}
-    .work-card p{margin:0;color:#637a78;font-size:12px;line-height:1.95}
-    .work-detail{margin-top:15px;background:#153e3d;color:#e5f4e5;border-radius:14px;padding:23px 27px;min-height:121px;display:flex;align-items:center;gap:18px}
-    .detail-icon{width:36px;height:36px;min-width:36px;border:1px solid #77b49e;border-radius:50%;display:grid;place-items:center;font:800 16px var(--en);color:var(--lime)}
-    .work-detail strong{display:block;color:#d7ec96;font-size:11px;letter-spacing:.12em;margin-bottom:6px}
-    .work-detail span{font-size:13px;line-height:1.95}
-    .mid-quote{background:var(--deep);color:#fff;position:relative;overflow:hidden;padding:110px 0;text-align:center}
-    .mid-quote::before,.mid-quote::after{content:"";position:absolute;border:1px solid #8ab7a44d;border-radius:50%;width:420px;height:420px;top:-230px;left:-160px}
-    .mid-quote::after{left:auto;top:auto;bottom:-300px;right:-80px;width:570px;height:570px}
-    .mid-quote .eyebrow{color:#a2ceb7}
-    .mid-quote blockquote{margin:26px auto;font-size:clamp(28px,4vw,55px);font-weight:800;line-height:1.66;letter-spacing:-.055em;max-width:930px;position:relative;z-index:1}
-    .mid-quote blockquote em{font-style:normal;color:var(--lime)}
-    .mid-quote p{position:relative;z-index:1;color:#b5cbc6;font-size:12px;margin:25px auto 0;line-height:2;max-width:600px}
-    .off{background:#eef2e9}
-    .off-grid{display:grid;grid-template-columns:1.25fr .75fr .75fr;grid-auto-rows:280px;gap:17px}
-    .off-card{border-radius:19px;position:relative;overflow:hidden;padding:28px 31px;background:#fff;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid #e1e7dd;transition:transform .25s,box-shadow .25s}
-    .off-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-    .off-card .overline{position:relative;z-index:1;font:700 10px var(--en);letter-spacing:.23em;margin-bottom:8px}
-    .off-card h3{position:relative;z-index:1;font-size:24px;line-height:1.45;font-weight:800;letter-spacing:-.05em;margin:0 0 8px}
-    .off-card p{position:relative;z-index:1;font-size:12px;line-height:1.85;margin:0;max-width:380px}
-    .off-card.family{grid-row:span 2;background:linear-gradient(160deg,#274b47,#112c2f);color:#fff}
-    .family-art{position:absolute;top:22px;left:0;right:0;height:245px;display:grid;place-items:center}
-    .family-art svg{width:min(89%,430px);height:100%;filter:drop-shadow(0 15px 30px #0015)}
-    .family .overline{color:#c6e9c2}.family p{color:#c8dcd2}
-    .off-card.research{background:#f7eddd;color:#3b3b2b}
-    .off-card.research .symbol{position:absolute;top:-34px;right:17px;font:700 210px/1 var(--jp);color:#caa56d;opacity:.25;transform:rotate(-10deg);pointer-events:none}
-    .off-card.cats{background:#cde5cf;color:#214637}
-    .cat-art{position:absolute;width:125px;height:125px;right:18px;top:12px;opacity:.87}
-    .off-card.travel{background:#e0e8ed;grid-column:span 2}
-    .travel-graphics{position:absolute;right:26px;top:0;bottom:0;width:210px;opacity:.35;display:grid;place-items:center}
-    .travel-graphics svg{width:100%;height:100%}
-    .off-card.travel p{max-width:480px}
-    .approach{padding-top:112px;padding-bottom:115px;background:#fff}
-    .approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative;margin-top:60px}
-    .approach-grid::before{content:"";position:absolute;top:37px;left:16%;right:16%;height:1px;border-top:1px dashed #b3cbc1}
-    .approach-item{position:relative;text-align:center;padding:0 15px}
-    .approach-num{height:74px;width:74px;border-radius:50%;display:grid;place-items:center;margin:0 auto 26px;position:relative;z-index:1;background:#d6e8d4;border:8px solid #fff;color:#1e7563;font:800 18px var(--en)}
-    .approach-item:nth-child(2) .approach-num{background:#f9e1c9;color:#a45f37}
-    .approach-item:nth-child(3) .approach-num{background:#d9e6ec;color:#416f84}
-    .approach-item h3{margin:0 0 13px;font-size:21px;font-weight:800;letter-spacing:-.04em}
-    .approach-item p{margin:0;color:var(--muted);font-size:13px;line-height:2.05}
-    .closing{background:#d9ebd3;position:relative;overflow:hidden}
-    .closing::after{content:"S";font:800 550px/1 var(--en);letter-spacing:-.12em;color:#b5d4af;position:absolute;right:-20px;bottom:-160px;opacity:.55;pointer-events:none}
-    .closing-inner{position:relative;z-index:2;padding:96px 0;display:flex;justify-content:space-between;gap:35px;align-items:end}
-    .closing .eyebrow{color:#4f8674}
-    .closing h2{margin:17px 0 22px;font-weight:900;font-size:clamp(34px,5.5vw,68px);line-height:1.34;letter-spacing:-.065em}
-    .closing p{max-width:510px;font-size:14px;line-height:2.1;margin:0;color:#526f61}
-    .closing-actions{display:flex;flex-direction:column;gap:11px;min-width:218px;align-items:stretch}
-    .closing .btn{background:var(--deep);color:#fff;border:1px solid var(--deep)}
-    .closing .btn.secondary{background:transparent;border-color:#95b39c;color:var(--ink)}
-    .footer{background:#0b2226;color:#b2c4bd;padding:33px 0}
-    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .footer strong{font-size:12px;letter-spacing:.08em;color:#fff}
-    .footer p{font-size:10px;line-height:1.8;margin:5px 0 0;max-width:600px}
-    .footer a{font-size:11px;font-weight:700;color:#d6ecb6}
-    .toast{position:fixed;z-index:50;bottom:28px;left:50%;transform:translate(-50%,25px);background:#112f2f;color:white;border-radius:40px;padding:13px 24px;font-size:13px;font-weight:700;box-shadow:0 15px 45px #0004;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
-    .toast.show{opacity:1;transform:translate(-50%,0)}
-    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
-    @media(max-width:1050px){.wrap{width:min(100% - 52px,1190px)}.hero-content{grid-template-columns:1.04fr .96fr}.hero-art{transform:scale(.86);transform-origin:center center}.business-layout{gap:38px}.pill-three{right:-5px}}
-    @media(max-width:780px){.topbar-inner{height:76px}.nav{display:none;position:absolute;top:73px;left:20px;right:20px;background:#193e40;padding:19px 23px 24px;border:1px solid #65897b66;border-radius:15px;box-shadow:0 25px 60px #071519aa;flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{padding:13px 5px}.nav .nav-cta{text-align:center;margin-top:13px}.menu-btn{display:flex}.hero{min-height:auto}.hero-content{display:flex;flex-direction:column;align-items:start;padding:145px 0 88px;gap:12px}.hero-copy{max-width:650px}.hero-art{align-self:center;transform:scale(.75);height:450px;margin:-5px 0 -60px}.hero h1{font-size:clamp(44px,8.2vw,66px)}.hero-foot{margin-top:32px}.section{padding:76px 0}.section-head{display:block}.section-head p{margin-top:18px;max-width:560px}.traits{grid-template-columns:1fr;gap:14px}.trait{padding:26px}.trait-top{margin-bottom:18px}.business-layout{grid-template-columns:1fr;gap:35px}.business-copy h2{margin-bottom:18px}.off-grid{grid-template-columns:1fr 1fr;grid-auto-rows:255px}.off-card.family{grid-row:span 2}.off-card.travel{grid-column:span 2}.closing-inner{align-items:start;flex-direction:column}.closing-actions{flex-direction:row;flex-wrap:wrap}.intro-strip-inner{align-items:start;flex-direction:column;gap:12px}}
-    @media(max-width:520px){html{scroll-padding-top:70px}.wrap{width:calc(100% - 38px)}.hero-content{padding:130px 0 65px}.hero h1{font-size:clamp(40px,10.3vw,56px);margin:25px 0}.hero h1 .highlight{white-space:normal}.hero-desc{font-size:13px}.hero-art{transform:scale(.61);height:330px;width:520px;align-self:center;margin:-6px 0 -65px}.hero-actions{gap:10px;margin-top:29px}.btn{min-height:50px;padding:12px 20px;font-size:12px}.hero-foot{font-size:9px;letter-spacing:.12em}.intro-strip-inner{padding:22px 0}.strip-stars{display:none}.section-head{margin-bottom:32px}.section-head h2{font-size:31px}.section-head p{font-size:12px}.lead{font-size:24px;margin-bottom:35px;text-align:left}.off-grid{grid-template-columns:1fr;grid-auto-rows:minmax(226px,auto)}.off-card{min-height:242px}.off-card.family{grid-row:span 1;min-height:430px}.off-card.travel{grid-column:span 1}.travel-graphics{width:160px;right:5px}.off-card h3{font-size:23px}.approach-grid{grid-template-columns:1fr;gap:34px;margin-top:44px}.approach-grid::before{display:none}.approach-item{text-align:left;display:grid;grid-template-columns:66px 1fr;column-gap:15px;padding:0}.approach-num{width:59px;height:59px;border-width:5px;margin:0;grid-row:span 2}.approach-item h3{margin:0 0 2px}.approach-item p{font-size:12px}.closing-inner{padding:75px 0}.closing h2{font-size:39px}.closing-actions{width:100%}.closing-actions .btn{flex:1}.footer-inner{align-items:start;flex-direction:column}.mid-quote{padding:82px 0}.mid-quote blockquote{font-size:30px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.orbit{animation:none}.reveal{opacity:1;transform:none;transition:none}.btn,.trait,.work-card,.off-card{transition:none}}
-    @media print{html{scroll-behavior:auto}body{background:white!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.topbar{position:absolute}.hero{min-height:680px;page-break-after:always}.hero-content{padding-top:130px}.hero-art{transform:scale(.85)}.section{padding:55px 0}.reveal{opacity:1!important;transform:none!important}.trait,.off-card,.work-card,.approach-item{break-inside:avoid}.business{page-break-before:always}.mid-quote{padding:65px 0}.closing{break-inside:avoid}.menu-btn,.closing-actions,.toast{display:none!important}}
+    button{font:inherit}
+    img,svg{display:block;max-width:100%}
+    ::selection{background:rgba(216,245,122,.35); color:#fff}
+    .wrap{width:min(1220px,calc(100% - 48px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);background:rgba(7,19,27,.68);border-bottom:1px solid var(--line)}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand-badge{width:46px;height:46px;border-radius:15px;background:var(--grad);display:grid;place-items:center;color:#082130;font:900 18px var(--en);box-shadow:0 10px 30px rgba(97,167,255,.24)}
+    .brand-copy strong{display:block;font:800 13px var(--en);letter-spacing:.12em;text-transform:uppercase}
+    .brand-copy span{display:block;color:var(--sub);font-size:12px}
+    .nav{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .nav a{font:700 12px var(--en);letter-spacing:.14em;text-transform:uppercase;color:#d4e5f2;opacity:.9}
+    .nav a:hover{color:var(--lime)}
+    .nav .cta{padding:11px 18px;border-radius:999px;border:1px solid rgba(216,245,122,.4);background:rgba(216,245,122,.08)}
+    .section{padding:92px 0}
+    .eyebrow{font:800 11px var(--en);letter-spacing:.24em;text-transform:uppercase;color:var(--cyan)}
+    .hero{position:relative;overflow:hidden;padding:46px 0 80px}
+    .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px, transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom, rgba(0,0,0,.75), transparent 96%);pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);gap:34px;align-items:center}
+    .hero-copy h1{font-size:clamp(42px,6vw,88px);line-height:1.08;letter-spacing:-.07em;margin:18px 0 22px;font-weight:900}
+    .hero-copy h1 .accent{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy p{max-width:690px;font-size:15px;color:#d8e7f3;margin:0}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:14px 22px;border-radius:999px;font-weight:800;letter-spacing:.03em;border:1px solid transparent;transition:.2s transform,.2s background,.2s border-color;cursor:pointer}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--grad);color:#082130;box-shadow:0 12px 38px rgba(94,234,212,.18)}
+    .btn-secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.18)}
+    .hero-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:34px}
+    .mini-stat{border:1px solid var(--line);border-radius:22px;padding:18px 18px;background:rgba(255,255,255,.04);box-shadow:var(--shadow)}
+    .mini-stat strong{display:block;font:800 28px/1.1 var(--en);color:#fff}
+    .mini-stat span{display:block;color:var(--sub);font-size:12px;margin-top:8px}
+
+    .hero-panel{position:relative}
+    .glass{position:relative;border:1px solid rgba(255,255,255,.14);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border-radius:28px;padding:26px;box-shadow:var(--shadow);backdrop-filter:blur(16px)}
+    .hero-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:24px}
+    .avatar-card{display:flex;align-items:center;gap:16px}
+    .avatar-ring{width:84px;height:84px;border-radius:50%;padding:3px;background:var(--grad)}
+    .avatar-core{height:100%;width:100%;border-radius:50%;display:grid;place-items:center;background:#112435;color:#fff;font:900 34px var(--en)}
+    .hero-card-top h2{font-size:26px;line-height:1.2;margin:0 0 6px}
+    .hero-card-top p{margin:0;color:var(--sub);font-size:13px}
+    .status-dot{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(216,245,122,.12);border:1px solid rgba(216,245,122,.25);color:#f4ffcc;font:700 11px var(--en);letter-spacing:.12em;text-transform:uppercase}
+    .status-dot::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 6px rgba(216,245,122,.12)}
+    .radar-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+    .legend-list{display:grid;gap:12px}
+    .legend{display:grid;grid-template-columns:12px minmax(62px,1fr) 30px minmax(45px,.8fr);gap:10px;align-items:center}
+    .swatch{width:12px;height:12px;border-radius:50%}
+    .bar{height:10px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden}
+    .bar > span{display:block;height:100%;border-radius:999px;background:var(--grad)}
+    .legend label,.legend b{font-size:13px}
+    .legend b{color:#fff;font-family:var(--en)}
+    .floating-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .tag{padding:10px 14px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.05);font-size:12px;color:#d3e3ef}
+
+    .grid-2{display:grid;grid-template-columns:1.06fr .94fr;gap:26px}
+    .panel{border-radius:28px;background:#fff;color:var(--ink);padding:34px;border:1px solid rgba(0,0,0,.04);box-shadow:0 24px 60px rgba(3,12,20,.12)}
+    .panel.dark{background:linear-gradient(180deg,#0e2232,#0a1a27);color:#ecf7ff;border-color:rgba(255,255,255,.08)}
+    .panel-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:24px}
+    .panel-head h2{font-size:clamp(30px,4vw,52px);line-height:1.18;letter-spacing:-.05em;margin:10px 0 0;font-weight:900}
+    .panel-head p{max-width:420px;color:inherit;opacity:.72;margin:0;font-size:13px}
+    .grid-2 > .panel .panel-head{flex-direction:column;align-items:flex-start}
+
+    .snapshot-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:24px}
+    .snapshot-card{background:linear-gradient(180deg,#122b40,#102636);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px;color:#edf8ff}
+    .snapshot-card .icon{width:42px;height:42px;border-radius:14px;background:rgba(94,234,212,.12);display:grid;place-items:center;margin-bottom:12px;color:var(--cyan)}
+    .snapshot-card strong{display:block;font-size:18px;line-height:1.45}
+    .snapshot-card span{display:block;color:#a8bfd0;font-size:12px}
+
+    table{width:100%;border-collapse:collapse}
+    .info-table th,.info-table td{padding:14px 12px;border-bottom:1px solid rgba(255,255,255,.09);vertical-align:top;text-align:left;font-size:13px}
+    .info-table th{width:26%;color:#92b1c4;font-weight:700}
+    .info-table td{color:#eaf4fb}
+
+    .cards-3{display:grid;grid-template-columns:1fr;gap:12px}
+    .skill-card{border:1px solid rgba(0,0,0,.08);border-radius:22px;padding:22px;background:linear-gradient(180deg,#fff,#f7fbff)}
+    .skill-card .big{font:900 34px var(--en);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+    .skill-card h3{font-size:18px;line-height:1.45;margin:14px 0 8px}
+    .skill-card p{font-size:13px;color:#456;line-height:1.9;margin:0}
+
+    .chart-card{display:grid;grid-template-columns:minmax(270px,.92fr) 1fr;gap:24px;align-items:center}
+    .donut-wrap{display:grid;justify-items:center;gap:16px}
+    .donut{width:240px;height:240px;border-radius:50%;background:conic-gradient(#61a7ff 0 20%,#5eead4 20% 40%,#d8f57a 40% 60%,#ffb37b 60% 80%,#f5b0dd 80% 100%);position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.45),0 18px 40px rgba(0,0,0,.08)}
+    .donut::after{content:"仕事の\A5つの軸";white-space:pre;position:absolute;inset:32px;background:#fff;border-radius:50%;display:grid;place-items:center;text-align:center;color:#123;font:900 24px/1.25 var(--jp);box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+    .legend-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+    .lg-item{display:grid;grid-template-columns:14px 1fr;gap:10px;align-items:center;font-size:12px;color:#345}
+    .lg-item i{display:block;width:14px;height:14px;border-radius:4px}
+    .bars{display:grid;gap:12px}
+    .bar-row{display:grid;grid-template-columns:108px 1fr 48px;gap:12px;align-items:center;font-size:12px;color:#456}
+    .bar-row .track{height:11px;background:#e8eff5;border-radius:999px;overflow:hidden}
+    .bar-row .track span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#61a7ff,#5eead4)}
+
+    .map-block{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+    .map-note{display:grid;gap:14px}
+    .map-note .pin{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:18px;background:#f7fbff;border:1px solid #e6eef6}
+    .map-note .pin strong{display:block;font-size:14px;color:#123}
+    .map-note .pin span{display:block;font-size:12px;color:#567;line-height:1.8}
+    .pin-mark{min-width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,#5eead4,#61a7ff);display:grid;place-items:center;color:#082130;font-weight:800}
+
+    .timeline{display:grid;gap:14px}
+    .tl-item{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:18px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+    .tl-item .year{font:900 22px var(--en);color:var(--lime)}
+    .tl-item h3{font-size:17px;margin:0 0 6px}
+    .tl-item p{font-size:13px;color:#c3d7e5;margin:0}
+
+    .life-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+    .mosaic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .m-card{border-radius:24px;padding:24px;background:linear-gradient(180deg,#fff,#f7fbff);border:1px solid rgba(0,0,0,.05);box-shadow:0 18px 45px rgba(3,12,20,.08);color:#123}
+    .m-card svg{width:48px;height:48px;margin-bottom:16px}
+    .m-card h3{font-size:18px;margin:0 0 10px;line-height:1.5}
+    .m-card p{margin:0;color:#567;font-size:13px;line-height:1.9}
+
+    .network{position:relative;min-height:100%;border-radius:28px;padding:24px;background:linear-gradient(180deg,#0e2232,#102a3d);border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
+    .network h3{margin:0 0 18px;font-size:28px;line-height:1.25}
+    .node-grid{display:grid;place-items:center;min-height:420px}
+    .node{position:absolute;padding:12px 16px;border-radius:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);font-size:12px;color:#eaf4fb;backdrop-filter:blur(10px)}
+    .node.center{width:180px;height:180px;border-radius:50%;display:grid;place-items:center;text-align:center;background:linear-gradient(135deg,rgba(94,234,212,.2),rgba(97,167,255,.18));font-weight:800;font-size:17px;inset:calc(50% - 90px) auto auto calc(50% - 90px)}
+    .node.n1{top:48px;left:42px}.node.n2{top:50px;right:28px}.node.n3{left:18px;bottom:82px}.node.n4{right:20px;bottom:80px}.node.n5{left:calc(50% - 80px);bottom:12px}
+    .network svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+
+    .quote{padding:92px 0;text-align:center}
+    .quote .glass{padding:48px 28px}
+    .quote blockquote{font-size:clamp(28px,4vw,56px);line-height:1.4;letter-spacing:-.05em;margin:18px auto 14px;max-width:900px;font-weight:900}
+    .quote blockquote .accent{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .quote p{max-width:720px;margin:0 auto;color:#c0d6e3;font-size:13px}
+
+    .closing{padding:0 0 96px}
+    .closing-box{display:flex;justify-content:space-between;align-items:center;gap:26px;padding:34px;border-radius:28px;background:linear-gradient(135deg,#e9fff8,#f7fbff 50%,#fffdf5);color:#102331;box-shadow:0 24px 60px rgba(3,12,20,.12)}
+    .closing-box h2{font-size:clamp(28px,3.8vw,52px);line-height:1.25;letter-spacing:-.05em;margin:8px 0 10px}
+    .closing-box p{margin:0;color:#456;font-size:14px;max-width:720px}
+    .closing-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .closing-actions .btn{min-width:170px}
+    .closing-actions .btn-primary{color:#082130}
+    .closing-actions .btn-secondary{color:#123;border-color:#bfd1de}
+
+    .footer{padding:28px 0 42px;border-top:1px solid var(--line);color:#8fa8bb}
+    .footer-inner{display:flex;justify-content:space-between;gap:16px;align-items:center;font-size:12px}
+    .footer strong{display:block;color:#eaf4fb;margin-bottom:6px}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--lime);outline-offset:4px}
+    .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);padding:12px 16px;border-radius:999px;background:#0e2232;color:#eaf4fb;font-size:13px;border:1px solid rgba(255,255,255,.12);opacity:0;pointer-events:none;transition:.25s opacity,.25s transform;z-index:100}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}
+
+    @media (max-width: 1100px){
+      .hero-grid,.grid-2,.life-grid,.map-block,.chart-card{grid-template-columns:1fr}
+      .snapshot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .cards-3{grid-template-columns:1fr}
+      .radar-wrap{grid-template-columns:1fr}
+      .node.center{position:relative;inset:auto;margin:40px auto 26px}
+      .node-grid{min-height:480px}
+    }
+    @media (max-width: 840px){
+      .wrap{width:min(100% - 28px, 1220px)}
+      .topbar-inner{height:auto;padding:14px 0;align-items:flex-start;flex-direction:column}
+      .nav{gap:12px}
+      .hero{padding-top:26px}
+      .hero-meta,.snapshot-grid,.mosaic,.cards-3{grid-template-columns:1fr}
+      .legend-grid{grid-template-columns:1fr}
+      .tl-item{grid-template-columns:1fr}
+      .closing-box,.footer-inner{flex-direction:column;align-items:flex-start}
+      .donut{width:220px;height:220px}
+      .donut::after{inset:28px;font-size:21px}
+      .network{padding-bottom:260px}
+      .node{position:static;margin-bottom:12px}
+      .node-grid{display:block;min-height:auto}
+      .network svg{display:none}
+    }
   </style>
 </head>
 <body>
   <header class="topbar" id="top">
     <div class="wrap topbar-inner">
-      <a class="brand" href="#top" aria-label="高橋忍 トップへ"><span class="brand-mark">ST.</span><span>高橋 忍<small>SHINOBU TAKAHASHI</small></span></a>
-      <button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="navigation" id="menuBtn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <nav class="nav" id="navigation" aria-label="メインナビゲーション">
-        <a href="#about">人物像</a><a href="#work">仕事</a><a href="#life">素顔</a><a href="#style">スタイル</a><a href="#hello" class="nav-cta">ABOUT ME ↗</a>
+      <a class="brand" href="#top">
+        <span class="brand-badge">S</span>
+        <span class="brand-copy">
+          <strong>Shinobu Takahashi</strong>
+          <span>Profile & Personal Branding Site</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="ページ内ナビゲーション">
+        <a href="#overview">Overview</a>
+        <a href="#strength">Strength</a>
+        <a href="#work">Work</a>
+        <a href="#map">Map</a>
+        <a href="#life">Life</a>
+        <a href="#hello" class="cta">Say Hello</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="heroTitle">
-      <div class="wrap hero-content">
-        <div class="hero-copy">
-          <span class="hero-label">HELLO, I'M SHINOBU TAKAHASHI</span>
-          <h1 id="heroTitle">人をつなぎ、<br><span class="highlight">未来を動かす。</span></h1>
-          <p class="hero-desc">医療の現場とビジネスの現場。数字と、その向こうにいる人。<br>複雑な課題を整理し、仲間とともに次の一手をつくる。<br>そんな高橋 忍の、仕事と素顔をご紹介します。</p>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Strategy × People × Curiosity</span>
+          <h1>人をつなぎ、<br><span class="accent">未来を動かす</span><br>高橋 忍。</h1>
+          <p>高橋 忍さんの魅力は、<strong>戦略を考える力</strong>と、<strong>人を動かす力</strong>が、同じ温度で共存しているところです。医療の現場とビジネス、データと感性、仕事と日常。そのあいだに橋をかけ、複雑なことを「前に進める形」へ変えていく。そんな人物像を、図・表・イラスト・グラフ・マップを交えながら立体的に表現しました。</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#about">高橋 忍って、どんな人？ <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-            <a class="btn btn-outline" href="#life">仕事の外の顔を見る ↗</a>
+            <a class="btn btn-primary" href="#overview">魅力を見てみる</a>
+            <button class="btn btn-secondary" type="button" id="copyIntroBtn">紹介文をコピー</button>
           </div>
-          <div class="hero-foot"><span>STRATEGY</span><span class="thin-line"></span><span>PEOPLE</span><span class="thin-line"></span><span>CURIOSITY</span></div>
+          <div class="hero-meta">
+            <div class="mini-stat"><strong>4</strong><span>Role Layers<br>戦略・調整・実行・表現</span></div>
+            <div class="mini-stat"><strong>全国</strong><span>Action Area<br>全国の営業・販路を俯瞰</span></div>
+            <div class="mini-stat"><strong>∞</strong><span>Curiosity Level<br>仕事も歴史も家族も深掘り</span></div>
+          </div>
         </div>
-        <div class="hero-art" aria-label="人、戦略、好奇心をつなぐ高橋忍のイメージイラスト" role="img">
-          <div class="orbit outer"></div><div class="orbit"></div><div class="orbit inner"></div>
-          <div class="portrait"><div class="initial">S.</div><div class="mini">SHINOBU</div><div class="jname">高橋 忍</div></div>
-          <div class="float-pill pill-one"><span class="circle"></span>ロジカルに考える</div>
-          <div class="float-pill pill-two orange"><span class="circle"></span>人との縁を大切に</div>
-          <div class="float-pill pill-three"><span class="circle"></span>好奇心は無限大</div>
+
+        <div class="hero-panel reveal">
+          <div class="glass">
+            <div class="hero-card-top">
+              <div class="avatar-card">
+                <div class="avatar-ring"><div class="avatar-core">S</div></div>
+                <div>
+                  <h2>高橋 忍</h2>
+                  <p>医療機器・チャネル戦略 / パートナー協業</p>
+                </div>
+              </div>
+              <div class="status-dot">Connector</div>
+            </div>
+            <div class="radar-wrap">
+              <svg viewBox="0 0 320 320" aria-label="高橋忍の魅力を表すレーダーチャート">
+                <defs>
+                  <linearGradient id="linegrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#61a7ff"/></linearGradient>
+                </defs>
+                <g transform="translate(160 160)">
+                  <g fill="none" stroke="rgba(255,255,255,.16)">
+                    <polygon points="0,-112 106,-34 66,91 -66,91 -106,-34"/>
+                    <polygon points="0,-84 79,-26 49,68 -49,68 -79,-26"/>
+                    <polygon points="0,-56 53,-17 33,45 -33,45 -53,-17"/>
+                    <polygon points="0,-28 26,-9 16,22 -16,22 -26,-9"/>
+                    <line x1="0" y1="0" x2="0" y2="-112"/><line x1="0" y1="0" x2="106" y2="-34"/><line x1="0" y1="0" x2="66" y2="91"/><line x1="0" y1="0" x2="-66" y2="91"/><line x1="0" y1="0" x2="-106" y2="-34"/>
+                  </g>
+                  <polygon points="0,-101 95,-31 58,79 -61,84 -102,-33" fill="rgba(94,234,212,.22)" stroke="url(#linegrad)" stroke-width="4"/>
+                  <g fill="#eaf4fb" font-family="Inter, sans-serif" font-size="11" font-weight="700">
+                    <text x="0" y="-130" text-anchor="middle">構想力</text>
+                    <text x="126" y="-36" text-anchor="middle">巻き込み力</text>
+                    <text x="78" y="108" text-anchor="middle">実行力</text>
+                    <text x="-78" y="108" text-anchor="middle">分析力</text>
+                    <text x="-130" y="-36" text-anchor="middle">探究心</text>
+                  </g>
+                </g>
+              </svg>
+              <div class="legend-list">
+                <div class="legend"><span class="swatch" style="background:#5eead4"></span><label>構想力</label><b>95</b><div class="bar"><span style="width:95%"></span></div></div>
+                <div class="legend"><span class="swatch" style="background:#61a7ff"></span><label>巻き込み力</label><b>96</b><div class="bar"><span style="width:96%"></span></div></div>
+                <div class="legend"><span class="swatch" style="background:#d8f57a"></span><label>実行力</label><b>92</b><div class="bar"><span style="width:92%"></span></div></div>
+                <div class="legend"><span class="swatch" style="background:#ffb37b"></span><label>分析力</label><b>94</b><div class="bar"><span style="width:94%"></span></div></div>
+                <div class="legend"><span class="swatch" style="background:#f5b0dd"></span><label>探究心</label><b>98</b><div class="bar"><span style="width:98%"></span></div></div>
+              </div>
+            </div>
+            <p style="margin:10px 0 0;color:#9fb6c8;font-size:11px">※ レーダーの数値は人物像を表現するためのイメージであり、実測値や人事評価ではありません。</p>
+            <div class="floating-tags">
+              <span class="tag">医療機器</span><span class="tag">超音波診断</span><span class="tag">チャネル戦略</span><span class="tag">販路設計</span><span class="tag">市場分析</span><span class="tag">Web表現</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="intro-strip"><div class="wrap intro-strip-inner"><strong>一言で表すなら、「戦略を、人が動けるカタチにする人」。</strong><p>医療 × パートナーシップ × データ × 遊び心。この掛け合わせが、高橋 忍らしさ。</p><span class="strip-stars" aria-hidden="true">✳ ✳ ✳</span></div></div>
+    <section class="section" id="overview">
+      <div class="wrap grid-2">
+        <div class="panel dark reveal">
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow">Overview</span>
+              <h2>一目でわかる<br>高橋 忍のプロフィール</h2>
+            </div>
+            <p>「何をしている人か」だけでなく、「どう価値を出している人か」が伝わるように、ビジュアルなサマリーで整理しました。</p>
+          </div>
+          <div class="snapshot-grid">
+            <div class="snapshot-card"><div class="icon">◎</div><strong>戦略設計</strong><span>市場・販路・パートナー戦略を組み立てる</span></div>
+            <div class="snapshot-card"><div class="icon">↔</div><strong>全体調整</strong><span>異なる立場をつなぎ、合意をつくる</span></div>
+            <div class="snapshot-card"><div class="icon">▲</div><strong>現場実装</strong><span>構想を、実際に動く仕組みに落とす</span></div>
+            <div class="snapshot-card"><div class="icon">✦</div><strong>表現力</strong><span>資料・Web・可視化で伝わる形にする</span></div>
+          </div>
+          <table class="info-table" aria-label="高橋忍の概要表">
+            <tbody>
+              <tr><th>拠点</th><td>川崎をベースに、全国の営業・販社・プロジェクトを俯瞰</td></tr>
+              <tr><th>主なテーマ</th><td>医療機器、超音波診断、ビジネスパートナー戦略、地域別アプローチ、営業支援</td></tr>
+              <tr><th>仕事の流儀</th><td>情報を集め、構造化し、人が動けるところまで翻訳する</td></tr>
+              <tr><th>もう一つの顔</th><td>家族の思い出を形にする人。歴史や名字を深く調べる探究者</td></tr>
+            </tbody>
+          </table>
+        </div>
 
-    <section class="section" id="about" aria-labelledby="aboutTitle">
-      <div class="wrap">
-        <div class="section-head reveal"><div><div class="eyebrow num">01 / THE PERSON</div><h2 id="aboutTitle">「頼れる」と「面白い」が、<br>同居している。</h2></div><p>私が高橋さんに感じる魅力は、単なる行動力でも分析力でもありません。難しいことを、人が動けるところまで翻訳する力です。</p></div>
-        <p class="lead reveal">大切なのは、<em>正しい答えを考えること</em>だけじゃない。<br><em>その答えに、人を巻き込めること。</em></p>
-        <div class="traits">
-          <article class="trait reveal"><div class="trait-top"><span class="trait-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h5l3-9 3 16 3-7h4"/><circle cx="19" cy="5" r="2"/></svg></span><span class="trait-label">01 / THINK</span></div><h3>複雑な問題ほど、<br>燃える。</h3><p>市場、制度、販路、現場の事情。絡み合う情報を分解し、数字と事実から筋道を見つける。曖昧なまま終わらせない探究心が、次の戦略を生みます。</p></article>
-          <article class="trait reveal"><div class="trait-top"><span class="trait-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><path d="M10.2 7.5 6.9 15M13.8 7.5l3.3 7.5M8 18h8"/></svg></span><span class="trait-label">02 / CONNECT</span></div><h3>人の間に、<br>橋をかける。</h3><p>メーカー、販売パートナー、営業現場、さまざまな専門家。立場が違う人同士の共通点を探し、ひとつの方向へ。数字の先に人が見えているからこそできる仕事です。</p></article>
-          <article class="trait reveal"><div class="trait-top"><span class="trait-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4L12 2Z"/><path d="m19 3 .7 1.3L21 5l-1.3.7L19 7l-.7-1.3L17 5l1.3-.7L19 3Z"/></svg></span><span class="trait-label">03 / EXPLORE</span></div><h3>興味の幅に、<br>境界線がない。</h3><p>医療市場の構造を深掘りしたかと思えば、家族の思い出や一族の歴史をWebで形にする。仕事で磨いた分析力と、日常を楽しむ遊び心が自然につながっています。</p></article>
+        <div class="panel reveal" id="strength">
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow">Strength</span>
+              <h2>3つの魅力を、<br>カードで可視化</h2>
+            </div>
+            <p>高橋さんの魅力は、単なる“できる人”ではなく、周囲を前進させる人であること。印象を3つの観点に分けて表現しています。</p>
+          </div>
+          <div class="cards-3">
+            <article class="skill-card">
+              <span class="big">01</span>
+              <h3>複雑な課題を、<br>整理して見せる力</h3>
+              <p>制度・市場・商流・現場の事情が絡むテーマでも、論点を構造化して道筋を示せる。難しい話を「わかる」に変えるのが強みです。</p>
+            </article>
+            <article class="skill-card">
+              <span class="big">02</span>
+              <h3>人と人のあいだに、<br>橋をかける力</h3>
+              <p>社内外の多様な立場をつなぎ、対立ではなく前進のための会話をつくる。関係者の視点を読み解くバランス感覚があります。</p>
+            </article>
+            <article class="skill-card">
+              <span class="big">03</span>
+              <h3>仕事の外まで広がる、<br>深い好奇心</h3>
+              <p>歴史調査、家系研究、家族サイトづくり。仕事で培った分析力が、日常の楽しみや人への優しさにつながっています。</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section business" id="work" aria-labelledby="workTitle">
-      <div class="wrap business-layout">
-        <div class="business-copy reveal"><span class="eyebrow num">02 / WHAT I DO</span><h2 id="workTitle">医療の未来を、<br><span>一社だけでは</span><br>つくらない。</h2><p>キヤノンメディカルシステムズの営業領域で、医療機器のチャネル戦略やビジネスパートナーとの協業に取り組む。超音波診断装置をはじめとする医療機器と、その価値を必要な現場へ届ける仕組み。両方を見つめることが、高橋 忍の仕事です。</p><div class="business-roles"><span>医療機器</span><span>超音波診断</span><span>チャネル戦略</span><span>パートナー協業</span><span>市場分析</span></div></div>
-        <div class="reveal"><div class="work-cards" role="group" aria-label="仕事の領域。選択すると下に詳細が表示されます">
-          <button class="work-card" type="button" data-work="0" aria-pressed="true"><span class="work-index">01</span><span><h3>STRATEGY — 市場から考える</h3><p>医療政策や地域特性、診療所のニーズを捉え、次の市場を描く。</p></span></button>
-          <button class="work-card" type="button" data-work="1" aria-pressed="false"><span class="work-index">02</span><span><h3>PARTNERSHIP — 強みをつなぐ</h3><p>販売パートナーと、それぞれの強みを生かした協業を設計する。</p></span></button>
-          <button class="work-card" type="button" data-work="2" aria-pressed="false"><span class="work-index">03</span><span><h3>EXECUTION — 現場まで届ける</h3><p>提案資料、教育、仕組みづくり。構想を実行可能な形にする。</p></span></button>
-        </div><div class="work-detail" aria-live="polite"><span class="detail-icon" id="detailIndex">01</span><div><strong id="detailLabel">FOCUS / MARKET INTELLIGENCE</strong><span id="detailText">数字は答えではなく、より良い問いを立てる材料。全国から地域・診療科まで視点を行き来します。</span></div></div></div>
+    <section class="section" id="work">
+      <div class="wrap panel reveal">
+        <div class="panel-head">
+          <div>
+            <span class="eyebrow">Work Dashboard</span>
+            <h2>活動領域を、<br>グラフと図表で見える化</h2>
+          </div>
+          <p>高橋さんは、単一業務に閉じない人です。全国のエリア感覚、戦略テーマ、実際の動き方を、チャートでわかりやすく整理しました。</p>
+        </div>
+        <div class="chart-card">
+          <div class="donut-wrap">
+            <div class="donut" aria-label="仕事の5つの領域を示すイメージ図"></div>
+            <div style="font-size:12px;color:#567;text-align:center">仕事の5つの領域を均等に配置した概念図。面積は実際の業務時間・売上・実績の比率ではありません。</div>
+          </div>
+          <div>
+            <div class="legend-grid" aria-label="5つの仕事領域の凡例">
+              <div class="lg-item"><i style="background:#61a7ff"></i><span>市場分析</span></div>
+              <div class="lg-item"><i style="background:#5eead4"></i><span>戦略設計</span></div>
+              <div class="lg-item"><i style="background:#d8f57a"></i><span>関係構築</span></div>
+              <div class="lg-item"><i style="background:#ffb37b"></i><span>教育・共有</span></div>
+              <div class="lg-item"><i style="background:#f5b0dd"></i><span>表現・可視化</span></div>
+            </div>
+            <div class="bars" style="margin-top:20px" aria-label="5つの領域を強調する概念図。幅は実績の比較ではありません">
+              <div class="bar-row"><span>市場分析</span><div class="track"><span style="width:95%"></span></div><strong>注目</strong></div>
+              <div class="bar-row"><span>販路設計</span><div class="track"><span style="width:92%"></span></div><strong>注目</strong></div>
+              <div class="bar-row"><span>関係構築</span><div class="track"><span style="width:96%"></span></div><strong>注目</strong></div>
+              <div class="bar-row"><span>教育・共有</span><div class="track"><span style="width:88%"></span></div><strong>注目</strong></div>
+              <div class="bar-row"><span>表現・可視化</span><div class="track"><span style="width:90%"></span></div><strong>注目</strong></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="mid-quote" aria-label="高橋忍を表すメッセージ"><div class="wrap reveal"><div class="eyebrow">MY IMPRESSION OF SHINOBU</div><blockquote>「できるかどうか」より、<br><em>「どうすれば動き出せるか」。</em></blockquote><p>これは実際の発言の引用ではなく、これまでのやり取りから私が感じた、高橋さんらしさを表す言葉です。</p></div></section>
+    <section class="section" id="map">
+      <div class="wrap grid-2">
+        <div class="panel reveal">
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow">Map</span>
+              <h2>地図で見る、<br>活動の広がり</h2>
+            </div>
+            <p>川崎を軸にしながら、全国の現場と接続していく。高橋さんの仕事は、一拠点にいながら多拠点を動かす設計力に特徴があります。</p>
+          </div>
+          <div class="map-block">
+            <svg viewBox="0 0 420 420" aria-label="全国の活動エリアを示す概念図。実際の地形・位置・縮尺とは異なります">
+              <defs>
+                <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#eff8ff"/><stop offset="100%" stop-color="#f8fcff"/></linearGradient>
+                <linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#61a7ff"/><stop offset="100%" stop-color="#5eead4"/></linearGradient>
+              </defs>
+              <rect width="420" height="420" rx="32" fill="url(#sea)"/>
+              <g fill="#dfeaf3" stroke="#b9cfdf" stroke-width="2">
+                <path d="M77 80 126 38l71 18 19 35-48 30-49-8-42-33Z"/>
+                <path d="M228 84l52-18 50 32-20 43-71-8-11-49Z"/>
+                <path d="M166 126 211 138 226 192 201 243 153 242 128 179Z"/>
+                <path d="M229 147 292 153 319 222 286 280 222 260 214 198Z"/>
+                <path d="M201 256 264 272 286 330 246 364 191 342 176 288Z"/>
+                <path d="M292 281 338 292 363 334 336 369 286 352 275 316Z"/>
+              </g>
+              <g fill="url(#land)" opacity=".95">
+                <circle cx="185" cy="204" r="22"/>
+                <circle cx="256" cy="205" r="28"/>
+                <circle cx="232" cy="309" r="24"/>
+                <circle cx="324" cy="322" r="18"/>
+                <circle cx="114" cy="80" r="18"/>
+              </g>
+              <g font-family="Noto Sans JP, sans-serif" font-size="13" font-weight="700" fill="#123">
+                <text x="94" y="77">北海道</text>
+                <text x="162" y="208">関東</text>
+                <text x="245" y="208">関西</text>
+                <text x="211" y="314">中四国</text>
+                <text x="303" y="327">九州</text>
+              </g>
+              <circle cx="195" cy="214" r="6" fill="#082130"/>
+              <text x="208" y="219" font-family="Inter, sans-serif" font-size="12" font-weight="900" fill="#082130">KAWASAKI</text>
+            </svg>
+            <div class="map-note">
+              <div class="pin"><div class="pin-mark">01</div><div><strong>川崎</strong><span>拠点として全体を俯瞰し、情報と戦略のハブになる。</span></div></div>
+              <div class="pin"><div class="pin-mark">02</div><div><strong>全国支援</strong><span>地域ごとの違いを踏まえながら、営業・販社・案件を広く見渡す。</span></div></div>
+              <div class="pin"><div class="pin-mark">03</div><div><strong>地域の新たなパートナー</strong><span>地域特性の強いテーマにも、地道な調整と仕組みづくりで向き合う。</span></div></div>
+            </div>
+          </div>
+        </div>
 
-    <section class="section off" id="life" aria-labelledby="lifeTitle"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow num">03 / BEYOND THE OFFICE</div><h2 id="lifeTitle">仕事の外にも、<br>全力で面白がる世界がある。</h2></div><p>緻密なビジネスパーソンのもうひとつの顔は、日々の小さな出来事や、長い歴史にまで心を動かされる探究家。</p></div>
-      <div class="off-grid">
-        <article class="off-card family reveal"><div class="family-art" aria-hidden="true"><svg viewBox="0 0 360 235" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="180" cy="105" r="92" stroke="#aed6bb" opacity=".35"/><circle cx="180" cy="105" r="72" stroke="#aed6bb" opacity=".25" stroke-dasharray="3 8"/><rect x="89" y="54" width="140" height="123" rx="14" fill="#91bfa0" transform="rotate(-12 89 54)"/><rect x="89" y="54" width="140" height="123" rx="14" stroke="#e5f1d8" opacity=".65" transform="rotate(-12 89 54)"/><path d="m116 123 31-36 32 27 17-23 24 35" stroke="#f0e6c9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="145" cy="85" r="11" fill="#f0e6c9"/><rect x="163" y="42" width="139" height="123" rx="14" fill="#e3dbc2" transform="rotate(10 163 42)"/><rect x="180" y="61" width="108" height="89" rx="4" fill="#cbe0bb" transform="rotate(10 180 61)"/><path d="M206 119c15-28 43-28 52-3 14-25 36-18 33 6-5 24-44 42-44 42s-42-20-41-45Z" fill="#f6aa84" transform="rotate(10 206 119)"/><path d="m46 23 5 10 10 5-10 5-5 10-5-10-10-5 10-5 5-10Z" fill="#d6ec96"/><path d="m322 66 3 6 7 3-7 3-3 6-3-6-7-3 7-3 3-6Z" fill="#d6ec96"/><path d="M52 188c34 28 71 35 105 32" stroke="#aed6bb" stroke-width="2" stroke-dasharray="4 7" stroke-linecap="round"/></svg></div><span class="overline">FAMILY & MEMORIES</span><h3>大切な思い出を、<br>未来に残す。</h3><p>家族の何げない日常や旅の記憶を、写真と言葉で記録する。誰かを楽しませるサイトづくりにも、持ち前の企画力を惜しまない。</p></article>
-        <article class="off-card research reveal"><span class="symbol" aria-hidden="true">史</span><span class="overline">HISTORY & ROOTS</span><h3>名字の向こうに、<br>何百年の物語。</h3><p>地名、古文書、家系、史跡。気になったら徹底的に調べる、歴史探究の顔。</p></article>
-        <article class="off-card cats reveal"><svg class="cat-art" viewBox="0 0 120 120" aria-hidden="true"><path d="M23 49 28 16 50 32c12-4 25-3 34 1l22-17 1 35c9 24 1 46-20 52-22 6-49 3-61-16-7-12-7-26-3-38Z" fill="#497b62"/><path d="m31 44 1-17 13 12m49 5 8-17-17 12" fill="#b2d9aa"/><path d="M44 66h2m29 0h2" stroke="#d6e9d4" stroke-width="6" stroke-linecap="round"/><path d="m58 76 5 4 5-4m-5 4v4m-5 0c2 3 5 3 5 0m0 0c0 3 3 3 5 0" stroke="#d6e9d4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 78 19 73m31 12-32 3m58-10 32-5M76 85l32 3" stroke="#b9dcc0" stroke-width="2" stroke-linecap="round"/></svg><span class="overline">CATS & LITTLE JOYS</span><h3>猫との暮らしも、<br>大切な時間。</h3><p>仕事では数字に向き合い、家では猫たちに癒やされる。その振れ幅も魅力。</p></article>
-        <article class="off-card travel reveal"><div class="travel-graphics" aria-hidden="true"><svg viewBox="0 0 200 255" fill="none"><circle cx="104" cy="113" r="68" stroke="#4b8092" stroke-width="2" stroke-dasharray="4 7"/><path d="m69 75 19-24 10 13 18-24 28 35m-75 0 38 46 37-46" stroke="#4b8092" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M51 172c40-24 78-25 118 5M40 192c40-23 84-21 133 5" stroke="#4b8092" stroke-width="3" stroke-linecap="round"/><path d="M40 49c15 1 24 6 32 18m80 110 10 14" stroke="#4b8092" stroke-width="2" stroke-dasharray="4 8"/></svg></div><span class="overline">PLACES & DISCOVERY</span><h3>地図の上にも、<br>発見がある。</h3><p>旅先の風景や土地の歴史に触れ、そこにある物語を持ち帰る。調べて終わりではなく、誰かに伝わるカタチにすることが好き。</p></article>
+        <div class="panel dark reveal">
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow">Process</span>
+              <h2>高橋流の<br>進め方タイムライン</h2>
+            </div>
+            <p>問題を発見して終わりにしない。そこから、人を巻き込み、形にして届けるまでが高橋さんの仕事です。</p>
+          </div>
+          <div class="timeline">
+            <div class="tl-item"><div class="year">01</div><div><h3>Observe / 情報を集める</h3><p>データ・現場の声・地域事情・制度背景を丁寧に見て、問題の構造をつかむ。</p></div></div>
+            <div class="tl-item"><div class="year">02</div><div><h3>Design / 筋道を描く</h3><p>論点を整理し、目的と施策を組み立て、関係者が理解しやすい設計図にする。</p></div></div>
+            <div class="tl-item"><div class="year">03</div><div><h3>Connect / 人をつなぐ</h3><p>社内外の関係者の立場を揃えながら、共通認識と進め方を調整する。</p></div></div>
+            <div class="tl-item"><div class="year">04</div><div><h3>Deliver / 形にして動かす</h3><p>資料、教育、Web、会議運営、案件整理まで含めて、実行に乗るところまで持っていく。</p></div></div>
+          </div>
+        </div>
       </div>
-    </div></section>
+    </section>
 
-    <section class="section approach" id="style" aria-labelledby="styleTitle"><div class="wrap"><div class="section-head reveal"><div><div class="eyebrow num">04 / THE WAY I WORK</div><h2 id="styleTitle">好奇心を、行動に変える<br>3つのステップ。</h2></div><p>戦略と人間味の両方を持つからこそ、思考だけでも、勢いだけでも終わらない。</p></div><div class="approach-grid"><div class="approach-item reveal"><span class="approach-num">01</span><h3>とことん知る。</h3><p>現場の声とデータを集める。気になるところは、納得いくまで深掘りする。</p></div><div class="approach-item reveal"><span class="approach-num">02</span><h3>相手の立場で考える。</h3><p>違う立場の人が同じ景色を見られるよう、課題と目的をわかりやすく共有する。</p></div><div class="approach-item reveal"><span class="approach-num">03</span><h3>カタチにして動かす。</h3><p>資料、仕組み、Webサイト。使う人の目線まで考えて、アイデアを現実にする。</p></div></div></div></section>
+    <section class="section" id="life">
+      <div class="wrap life-grid">
+        <div class="panel reveal">
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow">Beyond Work</span>
+              <h2>仕事の外にも、<br>魅力がたくさんある</h2>
+            </div>
+            <p>高橋さんを魅力的にしているのは、仕事の能力だけではありません。日常を愛し、家族や歴史に心を寄せる感性が、人物像をより深くしています。</p>
+          </div>
+          <div class="mosaic">
+            <article class="m-card">
+              <svg viewBox="0 0 64 64" fill="none"><path d="M10 52V24l22-14 22 14v28H10Z" stroke="#2b7de9" stroke-width="3"/><path d="M23 52V35h18v17" stroke="#2b7de9" stroke-width="3"/><path d="M17 29h.01M47 29h.01" stroke="#5eead4" stroke-width="6" stroke-linecap="round"/></svg>
+              <h3>家族の思い出を、丁寧に残す人</h3>
+              <p>日記サイトや写真整理にも熱量を注ぎ、「残すこと」「伝えること」に真面目。そこにやさしさがにじみます。</p>
+            </article>
+            <article class="m-card">
+              <svg viewBox="0 0 64 64" fill="none"><path d="M16 14h32v40H16z" stroke="#2b7de9" stroke-width="3"/><path d="M24 22h16M24 30h16M24 38h11" stroke="#5eead4" stroke-width="3" stroke-linecap="round"/></svg>
+              <h3>歴史や名字にも本気で向き合う探究者</h3>
+              <p>気になったテーマは、古文書や分布、地名まで深掘り。知的好奇心が、趣味でも妥協しない姿勢につながっています。</p>
+            </article>
+            <article class="m-card">
+              <svg viewBox="0 0 64 64" fill="none"><path d="M17 47c0-10 7-18 15-18s15 8 15 18" stroke="#2b7de9" stroke-width="3"/><circle cx="24" cy="22" r="5" stroke="#5eead4" stroke-width="3"/><circle cx="40" cy="22" r="5" stroke="#5eead4" stroke-width="3"/></svg>
+              <h3>人の魅力を見つけ、応援する視点</h3>
+              <p>周囲の人や出来事を前向きに捉え、いいところを拾い上げる。紹介文やサイトづくりにも、その視点が表れています。</p>
+            </article>
+            <article class="m-card">
+              <svg viewBox="0 0 64 64" fill="none"><path d="M11 49c8-17 17-25 24-25s15 8 18 25" stroke="#2b7de9" stroke-width="3"/><path d="m19 23 7-8 6 6 9-11 6 7" stroke="#5eead4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <h3>旅や土地の物語も、楽しみに変える</h3>
+              <p>場所や風景を「行って終わり」にしない。背景や歴史まで味わい、伝わる形にして残す感受性も魅力です。</p>
+            </article>
+          </div>
+        </div>
 
-    <section class="closing" id="hello" aria-labelledby="closingTitle"><div class="wrap closing-inner"><div class="reveal"><span class="eyebrow">NICE TO MEET YOU</span><h2 id="closingTitle">まだない答えを、<br>一緒につくっていく。</h2><p>高橋 忍の魅力は、「考える人」でありながら、「人と動かす人」であること。そして、仕事も日常も、知ることをやめないこと。</p></div><div class="closing-actions reveal"><button class="btn" type="button" id="copyBtn">紹介文をコピー <span aria-hidden="true">↗</span></button><button class="btn secondary" type="button" id="printBtn">PDF保存・印刷 <span aria-hidden="true">↗</span></button></div></div></section>
+        <div class="network reveal">
+          <h3>高橋 忍の魅力を<br>支えるネットワーク</h3>
+          <div class="node-grid">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <line x1="50" y1="50" x2="18" y2="18" stroke="rgba(255,255,255,.18)" stroke-width=".5"/>
+              <line x1="50" y1="50" x2="82" y2="18" stroke="rgba(255,255,255,.18)" stroke-width=".5"/>
+              <line x1="50" y1="50" x2="15" y2="74" stroke="rgba(255,255,255,.18)" stroke-width=".5"/>
+              <line x1="50" y1="50" x2="84" y2="74" stroke="rgba(255,255,255,.18)" stroke-width=".5"/>
+              <line x1="50" y1="50" x2="50" y2="92" stroke="rgba(255,255,255,.18)" stroke-width=".5"/>
+            </svg>
+            <div class="node center">Shinobu<br>Takahashi</div>
+            <div class="node n1">戦略設計<br><small>Structure</small></div>
+            <div class="node n2">人間関係<br><small>Connection</small></div>
+            <div class="node n3">現場理解<br><small>Reality</small></div>
+            <div class="node n4">表現・可視化<br><small>Communication</small></div>
+            <div class="node n5">好奇心<br><small>Curiosity</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote">
+      <div class="wrap reveal">
+        <div class="glass">
+          <span class="eyebrow">Message</span>
+          <blockquote>考えるだけで終わらず、<br><span class="accent">人が動けるところまで</span><br>連れていく人。</blockquote>
+          <p>これは実際の発言の引用ではなく、これまでの対話から私が感じた「高橋 忍さんらしさ」を、ポジティブに表現したメッセージです。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" id="hello">
+      <div class="wrap reveal">
+        <div class="closing-box">
+          <div>
+            <span class="eyebrow" style="color:#2b7de9">Closing</span>
+            <h2>戦略も、人も、日常も。<br>全部に本気な人。</h2>
+            <p>高橋 忍さんは、数字や構造に強いだけでなく、相手の立場や物語にも敬意を払える人です。だからこそ、仕事の成果はもちろん、周囲の安心感や前向きさまで生み出せる。そんな魅力が伝わる自己紹介サイトに仕上げました。</p>
+          </div>
+          <div class="closing-actions">
+            <button class="btn btn-primary" id="copyBtn" type="button">紹介文をコピー</button>
+            <button class="btn btn-secondary" id="printBtn" type="button">PDF保存・印刷</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer"><div class="wrap footer-inner"><div><strong>高橋 忍 — SHINOBU TAKAHASHI</strong><p>本サイトは、これまでの対話から感じた人物像をもとに構成した個人紹介用サンプルです。会社の公式見解ではありません。私的な連絡先・ご家族の個人情報・非公開案件は掲載していません。</p></div><a href="#top">BACK TO TOP ↑</a></div></footer>
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>
+        <strong>高橋 忍｜Personal Introduction Site</strong>
+        <span>本サイトは、これまでの対話内容をもとに構成した個人紹介用サンプルです。会社の公式見解ではありません。私的な連絡先・ご家族の詳細情報・非公開案件は掲載していません。</span>
+      </div>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
   <script>
     (() => {
-      'use strict';
-      const $ = (s) => document.querySelector(s);
-      const menu = $('#menuBtn'), nav = $('#navigation');
-      menu.addEventListener('click', () => {
-        const open = nav.classList.toggle('open');
-        menu.setAttribute('aria-expanded', String(open));
-        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
-      });
-      nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false'); menu.setAttribute('aria-label', 'メニューを開く');
-      }));
-      const details = [
-        { label:'FOCUS / MARKET INTELLIGENCE', text:'数字は答えではなく、より良い問いを立てる材料。全国から地域・診療科まで視点を行き来します。' },
-        { label:'FOCUS / RELATIONSHIP DESIGN', text:'取引関係を超えた協業へ。異なる強みと現場の知恵を組み合わせ、互いに価値のある関係を考えます。' },
-        { label:'FOCUS / PRACTICAL ACTION', text:'アイデアを現場で使える資料や仕組みに落とし込み、周囲が次の行動を取れるところまでつなげます。' }
-      ];
-      document.querySelectorAll('[data-work]').forEach(btn => btn.addEventListener('click', () => {
-        const id = Number(btn.dataset.work), data = details[id];
-        document.querySelectorAll('[data-work]').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
-        $('#detailIndex').textContent = String(id+1).padStart(2,'0');
-        $('#detailLabel').textContent = data.label; $('#detailText').textContent = data.text;
-      }));
-      let toastTimer;
-      function showToast(text){const el=$('#toast');el.textContent=text;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3000)}
-      $('#copyBtn').addEventListener('click', async () => {
-        const text='高橋 忍｜医療機器のチャネル戦略とパートナー協業に取り組むビジネスパーソン。市場と現場を見つめ、複雑な課題を整理し、人をつなぎ、実行につなげる。歴史の探究、家族との思い出、猫との暮らしも大切にする、好奇心の人。';
-        try { if(navigator.clipboard && window.isSecureContext) {await navigator.clipboard.writeText(text)} else {const ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();if(!ok)throw Error('copy unavailable')} showToast('紹介文をコピーしました'); }
-        catch(e){showToast('コピーできませんでした。ブラウザの権限をご確認ください。')}
-      });
-      $('#printBtn').addEventListener('click', () => window.print());
-      if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-        const obs=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
-        document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-      } else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+      const introText = `高橋 忍さんは、戦略を考える力と、人を動かす力が同じ温度で共存している人です。医療の現場とビジネス、データと感性、仕事と日常。そのあいだに橋をかけ、複雑なことを前に進める形へ変えていく。そんな魅力を持った人物です。`;
+      const toast = document.getElementById('toast');
+      const showToast = (message) => {
+        toast.textContent = message;
+        toast.classList.add('show');
+        clearTimeout(showToast._timer);
+        showToast._timer = setTimeout(() => toast.classList.remove('show'), 1800);
+      };
+      const copy = async () => {
+        try {
+          await navigator.clipboard.writeText(introText);
+          showToast('紹介文をコピーしました');
+        } catch (e) {
+          showToast('コピーできないため、ブラウザで手動コピーしてください');
+        }
+      };
+      document.getElementById('copyBtn').addEventListener('click', copy);
+      document.getElementById('copyIntroBtn').addEventListener('click', copy);
+      document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      } else {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      }
     })();
   </script>
 </body>
