@@ -93,3 +93,36 @@ with check (bucket_id = 'meal-photos' and (storage.foldername(name))[1] = auth.u
 create policy "meal photos own delete"
 on storage.objects for delete
 using (bucket_id = 'meal-photos' and (storage.foldername(name))[1] = auth.uid()::text);
+
+
+-- Performance tuning applied in production
+create index if not exists plans_user_id_idx on public.plans(user_id);
+create index if not exists meal_photos_user_id_idx on public.meal_photos(user_id);
+
+-- Prefer a single auth.uid() init plan per statement.
+drop policy if exists "daily own select" on public.daily_logs;
+drop policy if exists "daily own insert" on public.daily_logs;
+drop policy if exists "daily own update" on public.daily_logs;
+drop policy if exists "daily own delete" on public.daily_logs;
+create policy "daily own select" on public.daily_logs for select using ((select auth.uid()) = user_id);
+create policy "daily own insert" on public.daily_logs for insert with check ((select auth.uid()) = user_id);
+create policy "daily own update" on public.daily_logs for update using ((select auth.uid()) = user_id) with check ((select auth.uid()) = user_id);
+create policy "daily own delete" on public.daily_logs for delete using ((select auth.uid()) = user_id);
+
+drop policy if exists "plans own select" on public.plans;
+drop policy if exists "plans own insert" on public.plans;
+drop policy if exists "plans own update" on public.plans;
+drop policy if exists "plans own delete" on public.plans;
+create policy "plans own select" on public.plans for select using ((select auth.uid()) = user_id);
+create policy "plans own insert" on public.plans for insert with check ((select auth.uid()) = user_id);
+create policy "plans own update" on public.plans for update using ((select auth.uid()) = user_id) with check ((select auth.uid()) = user_id);
+create policy "plans own delete" on public.plans for delete using ((select auth.uid()) = user_id);
+
+drop policy if exists "photos own select" on public.meal_photos;
+drop policy if exists "photos own insert" on public.meal_photos;
+drop policy if exists "photos own update" on public.meal_photos;
+drop policy if exists "photos own delete" on public.meal_photos;
+create policy "photos own select" on public.meal_photos for select using ((select auth.uid()) = user_id);
+create policy "photos own insert" on public.meal_photos for insert with check ((select auth.uid()) = user_id);
+create policy "photos own update" on public.meal_photos for update using ((select auth.uid()) = user_id) with check ((select auth.uid()) = user_id);
+create policy "photos own delete" on public.meal_photos for delete using ((select auth.uid()) = user_id);
