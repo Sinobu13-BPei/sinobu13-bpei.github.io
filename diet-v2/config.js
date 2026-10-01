@@ -1,1 +1,1 @@
-window.SHINOBU_HEALTH_CONFIG={supabaseUrl:"",supabasePublishableKey:"",startDate:"2026-09-30",startWeight:90,targetDate:"2026-10-25",targetWeight:85};
+window.SHINOBU_HEALTH_CONFIG={supabaseUrl:"https://jgogxqfaeixcflccsaty.supabase.co",supabasePublishableKey:"sb_publishable_DJXQA6MV7IB6o_foU3_IpA_4lgJgalZ",startDate:"2026-09-30",startWeight:90,targetDate:"2026-10-25",targetWeight:85};
