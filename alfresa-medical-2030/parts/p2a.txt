@@ -1,0 +1,24 @@
+div class="card"><h2>Capability Heatmap</h2><div class="heat" id="heatmap"></div><div class="note">5段階は公開情報を基にした戦略上の相対評価。公式ランキングではない。</div></div>
+</div>
+<div class="card" style="margin-top:14px">
+ <h2>競争ポジション</h2>
+ <table><thead><tr><th>企業</th><th>中心的差別化</th><th>Medicalでの意味</th></tr></thead><tbody>
+  <tr><td>メディパル</td><td>ポートフォリオ多角化・医療機器/試薬を重点収益事業化</td><td>Medical事業そのものの経営優先順位が高い。最大ベンチマーク。</td></tr>
+  <tr><td>スズケン</td><td>健康創造事業体・次世代卸・DX/介護/製造</td><td>機器単独でなくエコシステム統合型。</td></tr>
+  <tr><td>東邦</td><td>顧客支援・医療DX・M&A</td><td>業務支援システム＋周辺事業の拡張。</td></tr>
+  <tr><td><b>アルフレッサ</b></td><td><b>医療用医薬品卸の全国顧客接点＋Medical＋TSCS</b></td><td><b>「需要発見速度」を競争軸にする余地が最大。</b></td></tr>
+ </tbody></table>
+</div>
+</section>
+
+<section id="position">
+<div class="section-title"><div class="num">3A</div><h2>四大薬業の中でのアルフレッサ「医療機器」の立ち位置</h2></div>
+
+<div class="grid two">
+ <div class="card">
+  <h2>結論：現在地と勝ち筋は別に見る</h2>
+  <div class="callout">
+   <strong>現時点の「医療機器事業の明示性・専門事業化」では、メディパルが先行していると評価するのが妥当。</strong><br><br>
+   一方アルフレッサは、25–27中計でMedicalを成長領域として明示し、<b>「業界No.1のメディカル事業グループ」</b>と<b>全国ネットワークの構築・強化</b>を掲げている。
+   したがってアルフレッサは、現状の専業Medical力だけを比較して追随するのではなく、
+   <b>医薬品卸の顧客接点・MS・地域卸・SPD・検査・製造・TSCSを統合して「需要発見力」で差別化する余地が大きい<
