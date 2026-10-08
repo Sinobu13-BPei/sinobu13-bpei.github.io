@@ -1,0 +1,45 @@
+/b>。
+  </div>
+  <div style="margin-top:10px">
+   <span class="tag public">公開情報で確認</span>
+   <span class="tag model">相対評価は戦略モデル</span>
+  </div>
+ </div>
+ <div class="card">
+  <h2>四社のMedical戦略を一言で</h2>
+  <table>
+   <thead><tr><th>企業</th><th>Medicalの型</th><th>強い軸</th></tr></thead>
+   <tbody>
+    <tr><td><b>メディパル</b></td><td>Medical Portfolio型</td><td>医療機器・試薬を重点事業として明確に位置付け</td></tr>
+    <tr><td><b>スズケン</b></td><td>Healthcare Integration型</td><td>医療機器製造＋卸＋DX＋介護/サービス</td></tr>
+    <tr><td><b>東邦</b></td><td>Customer Solution型</td><td>医療機器・材料＋検査＋SPD＋医療IT＋顧客支援</td></tr>
+    <tr><td><b>アルフレッサ</b></td><td><b>Medical Demand Network型</b></td><td><b>医薬品顧客接点＋全国ネットワーク＋Medical＋TSCS</b></td></tr>
+   </tbody>
+  </table>
+ </div>
+</div>
+
+<div class="grid two" style="margin-top:14px">
+ <div class="card">
+  <h2>医療機器視点 Positioning Map</h2>
+  <div class="chart tall"><svg id="medicalPositionChart"></svg></div>
+  <div class="note">
+   横軸＝現在のMedical専門事業化・実装力、縦軸＝今後の拡張余地・グループレバレッジ。位置は公開情報を材料にした本資料独自の相対評価であり、公式市場シェアではない。
+  </div>
+ </div>
+ <div class="card">
+  <h2>Medical Capability 比較</h2>
+  <div id="medicalHeatmap" class="heat"></div>
+  <div class="note">
+   5段階の相対スコア。売上高・市場シェアの公表値が揃っていないため、組織、事業方針、製造、SPD、DX、全国展開、グループ資産から評価。
+  </div>
+ </div>
+</div>
+
+<div class="grid two" style="margin-top:14px">
+ <div class="card">
+  <h2>アルフレッサの強み｜医療機器販売に転換可能な資産</h2>
+  <table>
+   <thead><tr><th>資産</th><th>医療機器販売での意味</th><th>差別化ポテンシャル</th></tr></thead>
+   <tbody>
+    <tr><td>MS 2,611人</td><td>装置更新、新規検査、他社接触等を日常訪問で早期検知</td>
