@@ -178,7 +178,7 @@ document.getElementById("kpi2030").textContent=fmt(total(2030),0)+"億円";
 const clIcons=["◒","🦴","♡","◉","♀","⌁","＋","◇","≈"], modIcons=["◌","◎","⌁","▤","◉","▥","◐","⌁","▦"];
 document.getElementById("clusterPicts").innerHTML=CL.map((x,i)=>'<div class="pict-card"><div class="pict">'+clIcons[i]+'</div><b>'+x+'</b><strong>'+fmt(CLTARGET[i],0)+'億円</strong><small>2026 全国TAM</small></div>').join("");
 document.getElementById("modPicts").innerHTML=MOD.map((x,i)=>'<div class="pict-card"><div class="pict">'+modIcons[i]+'</div><b>'+x+'</b><strong>'+fmt(MODTARGET[i],0)+'億円</strong><small>2026 全国TAM</small></div>').join("");
-document.getElementById("treemap").innerHTML=MOD.map((x,i)=>{let pct=MODTARGET[i]/12.42;let colors=["#2d6fa7","#5c68a7","#21877c","#607b8f","#b46f2c","#748b4f","#a35d72","#477a74","#6d5f8d"];return '<div class="tile" style="background:'+colors[i]+';width:calc('+Math.max(16,pct)+'% - 8px)"><b>'+x+'</b><strong>'+MODTARGET[i]+'億</strong></div>'}).join("");
+const TREEMAP_COLORS=["#2d6fa7","#5c68a7","#21877c","#607b8f","#b46f2c","#748b4f","#a35d72","#477a74","#6d5f8d"];
 
 const sel=(id,arr,all)=>{let e=document.getElementById(id);e.innerHTML=(all?'<option value="">'+all+'</option>':'')+arr.map(x=>'<option>'+x+'</option>').join("")};
 sel("yearSel",YEARS,false);sel("regionSel",["北海道","東北","関東","中部","近畿","中国","四国","九州・沖縄"],"全国");sel("prefSel",PREFS.map(x=>x[0]),"全都道府県");sel("clusterSel",CL,"全Cluster");sel("modSel",MOD,"全Modality");document.getElementById("yearSel").value="2026";
