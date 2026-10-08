@@ -1,0 +1,30 @@
+<td><b>非常に高い</b></td></tr>
+    <tr><td>20万軒超の顧客</td><td>Medical専業営業だけでは構築困難な接点密度</td><td><b>非常に高い</b></td></tr>
+    <tr><td>全国地域卸網</td><td>東京一極ではなく地方まで需要探索可能</td><td><b>高い</b></td></tr>
+    <tr><td>メディカルサービス</td><td>SPD・医療材料から病院運営へ継続接点</td><td>高い</td></tr>
+    <tr><td>篠原化学</td><td>検査・分析機器・保守等の専門性</td><td>高い</td></tr>
+    <tr><td>ファーマ</td><td>医療機器製造・QMSの知見をグループ内に保有</td><td>中～高</td></tr>
+    <tr><td>TSCS</td><td>メーカーの市場導入から販売・物流までを統合する思想</td><td><b>非常に高い</b></td></tr>
+   </tbody>
+  </table>
+ </div>
+ <div class="card">
+  <h2>アルフレッサの弱み｜四大卸競争で埋めるべきGap</h2>
+  <table>
+   <thead><tr><th>Gap</th><th>現状認識</th><th>打ち手</th></tr></thead>
+   <tbody>
+    <tr><td>Medical専門事業の見える化</td><td>Medical単独売上・ME人数・カテゴリー別実績の外部開示が限定的</td><td>KPI、GMV、粗利、IBを一本化</td></tr>
+    <tr><td>全国標準化</td><td>グループ各社の専門性が分散</td><td><b>One Alfresa Medical</b></td></tr>
+    <tr><td>専門人材</td><td>MSの接点力と、装置・臨床・工事・保守の専門性は別物</td><td>ME / Clinical / Technical Hubを強化</td></tr>
+    <tr><td>Installed Base</td><td>日常顧客接点を更新データへ変換し切れていない可能性</td><td>全国IB Database＋更新予測</td></tr>
+    <tr><td>高粗利サービス</td><td>単純転売では医薬品卸と同じ低粗利化リスク</td><td>保守・Rental・IT・Data・Market Access</td></tr>
+   </tbody>
+  </table>
+ </div>
+</div>
+
+<div class="card" style="margin-top:14px">
+ <h2>四大卸のMedical比較｜戦略的読み解き</h2>
+ <div class="grid four">
+  <div class="callout"><strong>メディパル</strong><br>2027中期ビジョンで医療機器・試薬を重点事業に設定。Medicalを「周辺商材」ではなく利益ポートフォリオとして経営上明確に扱っている点が強い。<br><br><b>アルフレッサへの示唆：</b>Medicalの事業KPI・利益責任を明確化する。</div>
+  <div class="callout"><strong>スズケン</strong>
