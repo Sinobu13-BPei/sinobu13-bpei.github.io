@@ -6,6 +6,8 @@
 <meta name="description" content="日本国内の「診療所」医療機器市場に特化し、47都道府県×9 Clinical Cluster×9 Modality、Installed Base、更新需要、COVID補正まで分析するインタラクティブ・マーケットレポート。">
 <title>診療所 医療機器マーケット統合分析 2026–2030｜日本国内</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <style>
 :root{--navy:#173b61;--blue:#2473b9;--teal:#21877c;--green:#4b8b63;--orange:#c77b2d;--red:#b95757;--ink:#1f2c39;--muted:#66768a;--line:#dbe4ec;--bg:#f4f7fa;--card:#fff;--soft:#eaf1f6;--gold:#b8862e}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif;line-height:1.65}a{color:#185ca8;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1480px;margin:auto;padding:0 24px}
@@ -16,7 +18,7 @@ nav{position:sticky;top:0;z-index:40;background:#fffffff2;backdrop-filter:blur(8
 .pict-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.pict-card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:14px;display:grid;grid-template-columns:46px 1fr;grid-template-areas:"i t" "i v" "i n";column-gap:11px}.pict{grid-area:i;width:44px;height:44px;border-radius:12px;background:#edf3f7;display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:22px;font-weight:900}.pict-card b{grid-area:t;font-size:14px}.pict-card strong{grid-area:v;color:var(--navy);font-size:19px}.pict-card small{grid-area:n;color:var(--muted);line-height:1.4}
 .flow{overflow:auto}.flow svg{min-width:980px;width:100%;height:auto}.controls{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin:16px 0}.controls label{font-size:11px;font-weight:800;color:var(--muted)}select,button{width:100%;padding:10px 11px;border-radius:10px;border:1px solid #cbd7e1;background:#fff;font-size:14px}button{cursor:pointer;font-weight:800;color:#fff;background:var(--navy)}button.secondary{background:#fff;color:var(--navy)}
 .heat-wrap{overflow:auto}.heat{display:grid;grid-template-columns:180px repeat(9,minmax(90px,1fr));min-width:1050px}.heat>div{padding:9px 7px;border-right:1px solid #fff;border-bottom:1px solid #fff;font-size:11px;text-align:center}.heat .head{background:#dfe9f2;font-weight:800;color:#30475d}.heat .rowhead{text-align:left;background:#eef3f7;font-weight:800}
-.mapbox{background:#f8fbfd;border:1px solid var(--line);border-radius:18px;padding:10px}.chart-note{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 12px;color:#5a6d80;font-size:12px}.unit-badge{display:inline-block;padding:4px 9px;border-radius:999px;background:#173b61;color:#fff;font-weight:800;font-size:11px}.area-badge{display:inline-block;padding:3px 8px;border-radius:999px;background:#e6f4f1;color:#176d65;font-weight:800;font-size:11px}.area-legend{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 4px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#f8fbfd}.area-legend b{color:var(--navy);font-size:12px;margin-right:4px}.area-legend span{padding:3px 8px;border-radius:999px;background:#fff;border:1px solid #d5e0e9;color:#465c72;font-size:11px;font-weight:700}.chart-scroll{overflow-x:auto;padding-bottom:5px}.chart-wide{min-width:1120px}.chart-wide.pref-wide{min-width:1550px}.table-wrap{overflow:auto;max-height:620px;border:1px solid var(--line);border-radius:14px;background:#fff}table{width:100%;min-width:940px;border-collapse:collapse;background:#fff;font-size:12px}th,td{padding:10px 11px;border-bottom:1px solid #e7edf3;text-align:right;white-space:nowrap}th{position:sticky;top:0;background:#dfeaf3;color:#213d58;z-index:4;font-weight:800}tbody tr:nth-child(even){background:#f8fbfd}tbody tr:hover{background:#edf6fb}td:first-child,th:first-child{text-align:left;position:sticky;left:0;z-index:3;background:inherit;box-shadow:1px 0 0 #e1e9f0}th:first-child{background:#dfeaf3;z-index:6}td:nth-child(2),th:nth-child(2){text-align:center}.region-badge{display:inline-block;min-width:64px;text-align:center;padding:3px 8px;border-radius:999px;background:#e7f3f0;color:#176d65;font-weight:800}.map-link{display:inline-block;padding:4px 8px;border-radius:7px;background:#edf4fb;color:#185ca8;font-weight:800}.badge{display:inline-block;padding:3px 8px;border-radius:999px;background:#eaf4ef;color:#2d7251;font-size:11px;font-weight:800}
+.mapbox{background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px;box-shadow:0 8px 24px rgba(23,59,97,.06)}#leafletMap{height:620px;border-radius:13px;overflow:hidden;background:#f8fbfd}.leaflet-container{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif}.leaflet-popup-content{margin:14px 16px;min-width:230px;line-height:1.55}.map-popup-title{font-size:16px;font-weight:900;color:#173b61;margin-bottom:4px}.map-popup-area{display:inline-block;padding:2px 7px;border-radius:999px;background:#e7f3f0;color:#176d65;font-size:11px;font-weight:800;margin-bottom:8px}.map-popup-kpi{font-size:22px;font-weight:900;color:#173b61;margin:4px 0}.map-popup-meta{font-size:12px;color:#596c80;margin:6px 0}.gmap-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:8px;padding:8px 11px;border-radius:8px;background:#185ca8;color:#fff!important;font-weight:800;text-decoration:none!important}.map-legend{background:rgba(255,255,255,.96);border:1px solid #dbe4ec;border-radius:10px;padding:9px 10px;box-shadow:0 4px 14px rgba(23,59,97,.12);font-size:11px;line-height:1.5}.map-legend strong{display:block;color:#173b61;margin-bottom:5px}.map-legend-row{display:flex;align-items:center;gap:6px;white-space:nowrap}.map-dot{width:9px;height:9px;border-radius:50%;display:inline-block}.region-map-label{color:#173b61;font-weight:900;font-size:13px;text-shadow:0 1px 0 #fff,1px 0 0 #fff,-1px 0 0 #fff,0 -1px 0 #fff;background:rgba(255,255,255,.58);border-radius:8px;padding:2px 5px;white-space:nowrap}.map-actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}.map-actions a{display:inline-flex;padding:7px 10px;border-radius:8px;background:#edf4fb;color:#185ca8;font-weight:800;font-size:12px}.chart-note{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 12px;color:#5a6d80;font-size:12px}.unit-badge{display:inline-block;padding:4px 9px;border-radius:999px;background:#173b61;color:#fff;font-weight:800;font-size:11px}.area-badge{display:inline-block;padding:3px 8px;border-radius:999px;background:#e6f4f1;color:#176d65;font-weight:800;font-size:11px}.area-legend{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 4px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#f8fbfd}.area-legend b{color:var(--navy);font-size:12px;margin-right:4px}.area-legend span{padding:3px 8px;border-radius:999px;background:#fff;border:1px solid #d5e0e9;color:#465c72;font-size:11px;font-weight:700}.chart-scroll{overflow-x:auto;padding-bottom:5px}.chart-wide{min-width:1120px}.chart-wide.pref-wide{min-width:1550px}.table-wrap{overflow:auto;max-height:620px;border:1px solid var(--line);border-radius:14px;background:#fff}table{width:100%;min-width:940px;border-collapse:collapse;background:#fff;font-size:12px}th,td{padding:10px 11px;border-bottom:1px solid #e7edf3;text-align:right;white-space:nowrap}th{position:sticky;top:0;background:#dfeaf3;color:#213d58;z-index:4;font-weight:800}tbody tr:nth-child(even){background:#f8fbfd}tbody tr:hover{background:#edf6fb}td:first-child,th:first-child{text-align:left;position:sticky;left:0;z-index:3;background:inherit;box-shadow:1px 0 0 #e1e9f0}th:first-child{background:#dfeaf3;z-index:6}td:nth-child(2),th:nth-child(2){text-align:center}.region-badge{display:inline-block;min-width:64px;text-align:center;padding:3px 8px;border-radius:999px;background:#e7f3f0;color:#176d65;font-weight:800}.map-link{display:inline-block;padding:4px 8px;border-radius:7px;background:#edf4fb;color:#185ca8;font-weight:800}.badge{display:inline-block;padding:3px 8px;border-radius:999px;background:#eaf4ef;color:#2d7251;font-size:11px;font-weight:800}
 .timeline{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.time{background:#fff;border:1px solid var(--line);border-top:5px solid var(--blue);border-radius:14px;padding:15px}.time.down{border-top-color:var(--red)}.time.up{border-top-color:var(--green)}.time.mix{border-top-color:var(--orange)}.time h4{margin:0 0 6px;color:var(--navy)}.time p{margin:0;color:var(--muted);font-size:12px}.source-matrix{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.src{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px}.src b{display:block;color:var(--navy);font-size:17px}.src small{color:var(--muted)}.note{background:#fff7df;border-left:5px solid var(--gold);padding:14px 16px;border-radius:10px;color:#684d16}
 .tree{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:26px;align-items:center}.tree-col{display:grid;gap:9px}.node{background:#fff;border:1px solid var(--line);border-radius:13px;padding:11px 13px;font-size:13px}.node b{color:var(--navy)}.center-node{background:linear-gradient(135deg,#173b61,#21877c);color:#fff;border-radius:20px;padding:28px;text-align:center}.center-node strong{font-size:33px;display:block}.treemap{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}.tile{border-radius:12px;color:#fff;padding:10px;min-height:70px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}.tile b{font-size:13px}.tile strong{font-size:18px}.footer{padding:28px 0 45px;color:#6b7a8a;font-size:12px}
 @media(max-width:1000px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.grid2,.grid3,.pict-grid,.source-matrix{grid-template-columns:1fr}.controls{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:1fr}.tree{grid-template-columns:1fr}.chartbox{height:330px}}
@@ -97,8 +99,12 @@ nav{position:sticky;top:0;z-index:40;background:#fffffff2;backdrop-filter:blur(8
 </div></div></section>
 
 <section id="map" class="section"><div class="wrap">
-<h2>8. Japan Geo Bubble Map</h2><p class="sub">横軸＝経度（°E）、縦軸＝緯度（°N）、Bubble＝選択条件下の年間TAM（億円）。地図上に8エリア名を薄く表示し、主要都道府県名もラベル表示。BubbleをクリックするとGoogle Mapsで該当都道府県の医療機関検索を開く。</p><div class="chart-note"><span class="unit-badge">Bubble：TAM（億円／年）</span><span class="area-badge">エリア：北海道・東北・関東・中部・近畿・中国・四国・九州沖縄</span></div>
-<div class="mapbox"><div class="chartbox tall"><canvas id="mapChart"></canvas></div></div>
+<h2>8. 日本・診療所MKT 白地図</h2>
+<p class="sub">白地図ベースで47都道府県の診療所TAMを表示します。円の大きさ＝選択条件下の年間TAM（億円）、色＝エリア。都道府県の円をクリックすると詳細が開き、<b>Google Mapsの医療機関検索へ直接リンク</b>します。</p>
+<div class="chart-note"><span class="unit-badge">円：TAM（億円／年）</span><span class="area-badge">色：8エリア</span><span>拡大・縮小・ドラッグ可能。主要都道府県は地図上に名称表示。</span></div>
+<div class="map-actions"><a href="https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%9C%AC+%E8%A8%BA%E7%99%82%E6%89%80" target="_blank" rel="noopener">Google Mapsで全国の診療所を開く ↗</a><a href="#explorer">条件を変更して地図を更新 ↑</a></div>
+<div class="mapbox" style="margin-top:10px"><div id="leafletMap" aria-label="日本の診療所医療機器市場 白地図"></div></div>
+<p class="note" style="margin-top:10px">地図背景：OpenStreetMap / CARTO light。市場データは本レポート推計。Google Mapsは各都道府県の医療機関検索への外部リンクとして利用します。</p>
 </div></section>
 
 <section id="tree" class="section"><div class="wrap">
@@ -238,7 +244,76 @@ function updatePareto(f){let mp=aggregate(f,"pref"),arr=Object.entries(mp).sort(
 function bubbleData(map){let a=Object.entries(map).sort((x,y)=>y[1]-x[1]);return a.map((x,i)=>({x:i+1,y:x[1],r:Math.max(5,Math.sqrt(x[1])*2),label:x[0]}))}
 function bubble(id,map,title){let data=bubbleData(map),labels=data.map(d=>d.label),n=data.length;data.forEach((d,i)=>d.showLabel=n<=12||i<12);mk(id,"bubble",{datasets:[{data:data,label:title}]},{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},readableLabels:{display:n<=15,font:"700 10px sans-serif"},tooltip:{callbacks:{title:(items)=>items.length?items[0].raw.label:"",label:(ctx)=>"年間TAM "+fmt(ctx.raw.y,1)+"億円"}}},scales:{x:{min:.5,max:n+.5,title:{display:true,text:title+"（市場規模順位）"},ticks:{stepSize:1,autoSkip:n>18,maxRotation:55,minRotation:n>10?35:0,callback:(v)=>Number.isInteger(v)&&labels[v-1]?labels[v-1]:"",font:{size:10}}},y:{beginAtZero:true,title:{display:true,text:"年間TAM（億円）"},ticks:{callback:(v)=>v+"億"}}}})}
 function updateBubbles(f){bubble("clusterBubble",aggregate(f,"cluster"),"Cluster");bubble("regionBubble",aggregate(f,"region"),"Region");bubble("prefBubble",aggregate(f,"pref"),"Prefecture");bubble("modBubble",aggregate(f,"mod"),"Modality")}
-function updateMap(f){let mp=aggregate(f,"pref"),rank=Object.entries(mp).sort((a,b)=>b[1]-a[1]).map(x=>x[0]),pts=PREFS.map((x,i)=>({x:x[8],y:x[7],r:Math.max(3,Math.sqrt(mp[x[0]]||0)*1.8),label:x[0],region:x[1],v:mp[x[0]]||0,showLabel:rank.indexOf(x[0])<12}));mk("mapChart","bubble",{datasets:[{data:pts,label:"都道府県TAM"}]},{responsive:true,maintainAspectRatio:false,onClick:(e,els)=>{if(els.length){let d=pts[els[0].index];window.open("https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(d.label+" 医療機関"),"_blank")}},plugins:{legend:{display:false},regionBackdrop:{display:true},readableLabels:{display:true,font:"700 9px sans-serif",color:"#243c54"},tooltip:{callbacks:{title:(items)=>items.length?items[0].raw.label+"｜"+items[0].raw.region:"",label:(ctx)=>"年間TAM "+fmt(ctx.raw.v,1)+"億円"}}},scales:{x:{min:127,max:146,title:{display:true,text:"経度（°E）"},ticks:{callback:(v)=>v+"°E"}},y:{min:25,max:46,title:{display:true,text:"緯度（°N）"},ticks:{callback:(v)=>v+"°N"}}}})}
+const REGION_COLORS={
+ "北海道":"#2d6fa7","東北":"#5b78b8","関東":"#21877c","中部":"#6c8b55",
+ "近畿":"#c77b2d","中国":"#9c6a93","四国":"#b95757","九州・沖縄":"#6d5f8d"
+};
+const REGION_CENTERS={
+ "北海道":[43.55,142.2],"東北":[39.15,140.7],"関東":[36.15,139.6],"中部":[36.25,137.2],
+ "近畿":[34.85,135.35],"中国":[34.75,133.1],"四国":[33.65,133.7],"九州・沖縄":[32.4,130.55]
+};
+let clinicLeafletMap=null, clinicMarkerLayer=null, clinicRegionLayer=null, clinicLegend=null;
+
+function initClinicLeafletMap(){
+ if(clinicLeafletMap||typeof L==="undefined")return;
+ clinicLeafletMap=L.map("leafletMap",{zoomControl:true,scrollWheelZoom:true,preferCanvas:true,minZoom:4,maxZoom:9,attributionControl:true});
+ clinicLeafletMap.setView([37.1,137.2],5);
+ L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png",{
+   attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+   subdomains:"abcd",maxZoom:20
+ }).addTo(clinicLeafletMap);
+ clinicRegionLayer=L.layerGroup().addTo(clinicLeafletMap);
+ Object.entries(REGION_CENTERS).forEach(([name,latlng])=>{
+   L.marker(latlng,{interactive:false,icon:L.divIcon({className:"",html:'<div class="region-map-label">'+name+'</div>',iconSize:[90,22],iconAnchor:[45,11]})}).addTo(clinicRegionLayer);
+ });
+ clinicMarkerLayer=L.layerGroup().addTo(clinicLeafletMap);
+ clinicLegend=L.control({position:"bottomright"});
+ clinicLegend.onAdd=()=>{
+   const div=L.DomUtil.create("div","map-legend");
+   div.innerHTML="<strong>地域・エリア</strong>"+Object.entries(REGION_COLORS).map(([r,c])=>'<div class="map-legend-row"><span class="map-dot" style="background:'+c+'"></span>'+r+'</div>').join("");
+   return div;
+ };
+ clinicLegend.addTo(clinicLeafletMap);
+ setTimeout(()=>clinicLeafletMap.invalidateSize(),100);
+}
+
+function updateMap(f){
+ initClinicLeafletMap();
+ if(!clinicLeafletMap||!clinicMarkerLayer)return;
+ clinicMarkerLayer.clearLayers();
+ let mp=aggregate(f,"pref"), ranked=Object.entries(mp).sort((a,b)=>b[1]-a[1]), rankMap=new Map(ranked.map((x,i)=>[x[0],i]));
+ let visible=[];
+ PREFS.forEach((x,i)=>{
+   if(!matchPref(i,f))return;
+   const v=mp[x[0]]||0;
+   if(v<=0)return;
+   const radius=Math.max(6,Math.min(32,5+Math.sqrt(v)*2.15));
+   const color=REGION_COLORS[x[1]]||"#2473b9";
+   const gUrl="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(x[0]+" 診療所 医療機関");
+   const popup='<div class="map-popup-title">'+x[0]+'</div>'+
+     '<div class="map-popup-area">'+x[1]+'</div>'+
+     '<div class="map-popup-kpi">'+fmt(v,1)+' 億円／年</div>'+
+     '<div class="map-popup-meta">診療所数 '+Number(x[2]).toLocaleString()+'施設<br>CT IB '+Number(x[3]).toLocaleString()+'台 ／ MRI IB '+Number(x[4]).toLocaleString()+'台 ／ Mammo IB '+Number(x[5]).toLocaleString()+'台</div>'+
+     '<a class="gmap-btn" href="'+gUrl+'" target="_blank" rel="noopener">Google Mapsで医療機関を見る ↗</a>';
+   const marker=L.circleMarker([x[7],x[8]],{radius,weight:2,color:"#ffffff",fillColor:color,fillOpacity:.78});
+   marker.bindPopup(popup,{maxWidth:310});
+   marker.bindTooltip(x[0]+'｜'+x[1]+'｜'+fmt(v,1)+'億円',{direction:"top",opacity:.95});
+   marker.addTo(clinicMarkerLayer);
+   if((rankMap.get(x[0])??99)<10){
+     L.marker([x[7]+.18,x[8]],{interactive:false,icon:L.divIcon({className:"",html:'<div style="font-size:10px;font-weight:800;color:#294158;background:rgba(255,255,255,.78);padding:1px 4px;border-radius:5px;white-space:nowrap;border:1px solid #dbe4ec">'+x[0]+'</div>',iconSize:[64,18],iconAnchor:[32,9]})}).addTo(clinicMarkerLayer);
+   }
+   visible.push([x[7],x[8]]);
+ });
+ if(f.p&&visible.length===1){
+   clinicLeafletMap.setView(visible[0],7,{animate:false});
+ }else if(f.r&&visible.length){
+   const b=L.latLngBounds(visible);
+   clinicLeafletMap.fitBounds(b.pad(.25),{maxZoom:6,animate:false});
+ }else{
+   clinicLeafletMap.setView([37.1,137.2],5,{animate:false});
+ }
+ setTimeout(()=>clinicLeafletMap.invalidateSize(),50);
+}
 function updateTables(f){let mp=aggregate(f,"pref"),rows=PREFS.filter((x,i)=>matchPref(i,f)).sort((a,b)=>(mp[b[0]]||0)-(mp[a[0]]||0));document.getElementById("prefTAMHead").textContent=f.y+" TAM（億円／年）";document.getElementById("prefTable").innerHTML=rows.map(x=>'<tr><td><b>'+x[0]+'</b></td><td><span class="region-badge">'+x[1]+'</span></td><td>'+x[2].toLocaleString()+'</td><td>'+x[3].toLocaleString()+'</td><td>'+x[4].toLocaleString()+'</td><td>'+x[5].toLocaleString()+'</td><td><b>'+fmt(mp[x[0]]||0,1)+'</b></td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(x[0]+" 医療機関")+'" target="_blank" rel="noopener">Google Map ↗</a></td></tr>').join("");
  let d=[];for(let p=0;p<47;p++){if(!matchPref(p,f))continue;for(let c=0;c<9;c++){if(f.c&&CL[c]!==f.c)continue;for(let m=0;m<9;m++){if(f.m&&MOD[m]!==f.m)continue;d.push([PREFS[p][0],PREFS[p][1],CL[c],MOD[m],...YEARS.map(y=>valueCell(y,p,c,m))])}}}window.filteredRows=d;document.getElementById("detailTable").innerHTML=d.slice(0,1200).map(r=>'<tr>'+r.map((x,i)=>'<td>'+(i===1?'<span class="region-badge">'+x+'</span>':i<4?x:fmt(x,3))+'</td>').join("")+'</tr>').join("")+(d.length>1200?'<tr><td colspan="9">表示は先頭1,200行。CSVには全件を出力します。</td></tr>':'')}
 ["yearSel","regionSel","prefSel","clusterSel","modSel"].forEach(id=>document.getElementById(id).addEventListener("change",update));
