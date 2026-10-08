@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>自社：アルフレッサ分析（医療機器販売の視座での分析）</title>
+<style>
+:root{--navy:#12385f;--blue:#2f75b5;--green:#4f8f61;--purple:#8064a2;--amber:#d69a2d;--bg:#f4f7fb;--card:#fff;--line:#d9e4ef;--ink:#233142;--muted:#657585}
+*{box-sizing:border-box}body{margin:0;font-family:"Meiryo UI","Yu Gothic UI",sans-serif;background:var(--bg);color:var(--ink)}
+header{padding:34px 28px;color:#fff;background:linear-gradient(125deg,#0b2844,#174f7d 60%,#3f84b9)}
+h1{margin:0;font-size:42px;line-height:1.2}header .sub{margin-top:9px;font-size:17px;font-weight:700}header .credit{margin-top:13px;font-size:13px}
+.wrap{max-width:1420px;margin:auto;padding:18px}.grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(6,1fr)}.two{grid-template-columns:1fr 1fr}.four{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;box-shadow:0 2px 10px rgba(15,50,80,.04)}.card h2{margin:0 0 10px;color:var(--navy);font-size:19px}
+.kpi b{display:block;font-size:25px;color:var(--navy);margin-top:6px}.kpi small,.note{color:var(--muted);font-size:10.5px;line-height:1.6}
+section{margin-top:20px}.sec{font-size:24px;color:var(--navy);margin:25px 0 10px;border-left:6px solid var(--blue);padding-left:10px}
+.call{padding:14px;border-radius:10px;background:#edf5fc;border-left:5px solid var(--blue);line-height:1.8;font-size:12px}
+table{width:100%;border-collapse:collapse;font-size:11px}th,td{padding:8px;border-bottom:1px solid #e5edf4;text-align:left;vertical-align:top}th{background:var(--navy);color:#fff}
+.barrow{display:grid;grid-template-columns:180px 1fr 70px;gap:8px;align-items:center;margin:9px 0;font-size:11px}.track{height:18px;background:#e8eef4;border-radius:8px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--blue),#6fb2cf)}
+.heat{display:grid;grid-template-columns:165px repeat(4,1fr);gap:3px}.heat div{padding:7px;text-align:center;font-size:10px;border-radius:5px}.hh{background:var(--navy);color:#fff;font-weight:700}.rh{background:#edf3f8;text-align:left!important;font-weight:700}.s3{background:#c9dce9}.s4{background:#8fb9d5}.s5{background:#2f75b5;color:#fff;font-weight:900}
+.map{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.map a{display:block;text-decoration:none;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px;font-weight:700}.map a:hover{background:#edf5fc}
+.source a{color:var(--blue)}.legend{font-size:10px;color:var(--muted);margin-top:7px}
+@media(max-width:900px){h1{font-size:30px}.kpis,.two,.four{grid-template-columns:1fr 1fr}.heat{overflow:auto;grid-template-columns:150px repeat(4,100px)}.map{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.kpis,.two,.four,.map{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>自社：アルフレッサ分析<br><span style="font-size:.72em">（医療機器販売の視座での分析）</span></h1>
+<div class="sub">Alfresa Medical 2030｜四大医薬品卸比較・Medical事業ポジション・成長シナリオ</div>
+<div class="credit">編纂：医薬営業統括本部　医療関連部　医療関連企画推進グループ　山中 果菜実</div>
+</header>
+<div class="wrap">
+
+<section><h2 class="sec">Executive Summary</h2>
+<div class="grid kpis">
+<div class="card kpi">2026/3 売上高<b>3.104兆円</b><small>アルフレッサHD</small></div>
+<div class="card kpi">営業利益率<b>1.17%</b><small>2026/3</small></div>
+<div class="card kpi">MS<b>2,611人</b><small>グループ</small></div>
+<div class="card kpi">顧客<b>20万軒超</b><small>グループ</small></div>
+<div class="card kpi">国内医療機器<b>4.72兆円</b><small>2024国内出荷</small></div>
+<div class="card kpi">Medical 2030<b>1,200億円</b><small>本資料Core仮説GMV</small></div>
+</div>
+<div class="call" style="margin-top:14px"><b>戦略仮説：</b>アルフレッサが四大卸の中でMedicalを差別化するなら、「医療機器を多く売る卸」だけを目指すより、医薬品卸としての全国顧客接点を生かし、<b>医療機器需要を最も早く発見・案件化できる卸</b>を目指す方が独自性が高い。</div>
+</section>
+
+<section><h2 class="sec">四大薬業の中での医療機器ポジション</h2>
+<div class="grid two">
+<div class="card"><h2>四社のMedical戦略</h2>
+<table><thead><tr><th>企業</th><th>Medicalの型</th><th>特徴</th></tr></thead><tbody>
+<tr><td>メディパル</td><td>Portfolio型</td><td>医療機器・試薬を重点事業として明確化。Medical事業の経営上の可視性が高い。</td></tr>
+<tr><td>スズケン</td><td>Integration型</td><td>卸に加え医療機器製造、DX、介護等を組み合わせる。</td></tr>
+<tr><td>東邦</td><td>Solution型</td><td>医療機器・材料、SPD、開業支援、医療ITなど顧客支援を組み合わせる。</td></tr>
+<tr><td><b>アルフレッサ</b></td><td><b>Demand Network型</b></td><td><b>全国顧客接点、Medical、TSCS、グループ機能を需要発見へ統合する余地。</b></td></tr>
+</tbody></table></div>
+<div class="card"><h2>相対Capability Heatmap</h2>
+<div class="heat">
+<div class="hh">Capability</div><div class="hh">Alfresa</div><div class="hh">Medipal</div><div class="hh">Suzuken</div><div class="hh">Toho</div>
+<div class="rh">全国顧客接点</div><div class="s5">5</div><div class="s5">5</div><div class="s4">4</div><div class="s4">4</div>
+<div class="rh">Medical事業明示性</div><div class="s4">4</div><div class="s5">5</div><div class="s4">4</div><div class="s4">4</div>
+<div class="rh">医療機器専門販売</div><div class="s4">4</div><div class="s5">5</div><div class="s4">4</div><div class="s3">3</div>
+<div class="rh">SPD・材料</div><div class="s5">5</div><div class="s5">5</div><div class="s4">4</div><div class="s5">5</div>
+<div class="rh">医療機器製造</div><div class="s3">3</div><div class="s3">3</div><div class="s5">5</div><div class="s3">2</div>
+<div class="rh">DX・顧客支援</div><div class="s4">4</div><div class="s4">4</div><div class="s5">5</div><div class="s5">5</div>
+<div class="rh">需要発見余地</div><div class="s5">5</div><div class="s4">4</div><div class="s4">4</div><div class="s4">4</div>
+</div>
+<div class="legend">5段階は公開情報を基にした本資料独自の相対評価であり、公式市場シェアではありません。</div></div>
+</div>
+</section>
+
+<section><h2 class="sec">Alfresa Medical 2030｜定量仮説</h2>
+<div class="grid two">
+<div class="card"><h2>GMV構成モデル</h2>
+<div class="barrow"><span>医療材料・SPD</span><div class="track"><div class="fill" style="width:100%"></div></div><b>500億</b></div>
+<div class="barrow"><span>画像診断・US・X線</span><div class="track"><div class="fill" style="width:50%"></div></div><b>250億</b></div>
+<div class="barrow"><span>生体情報・OR・ICU</span><div class="track"><div class="fill" style="width:30%"></div></div><b>150億</b></div>
+<div class="barrow"><span>検査・分析・IVD</span><div class="track"><div class="fill" style="width:24%"></div></div><b>120億</b></div>
+<div class="barrow"><span>内視鏡・治療系</span><div class="track"><div class="fill" style="width:20%"></div></div><b>100億</b></div>
+<div class="barrow"><span>IT・Service・Rental</span><div class="track"><div class="fill" style="width:16%"></div></div><b>80億</b></div>
+</div>
+<div class="card"><h2>Core Case</h2>
+<table><tbody>
+<tr><td>Medical GMV</td><td><b>1,200億円</b></td></tr>
+<tr><td>想定粗利</td><td><b>117億円</b></td></tr>
+<tr><td>加重粗利率</td><td>9.75%</td></tr>
+<tr><td>MS→Medical Lead</td><td>約10,444件/年</td></tr>
+<tr><td>Qualified</td><td>約4,178件/年</td></tr>
+<tr><td>Field ME</td><td>90～100人目安</td></tr>
+<tr><td>Medical専門人員</td><td>120～130人規模</td></tr>
+<tr><td>戦略投資</td><td>約220億円</td></tr>
+<tr><td>定常時単純回収</td><td>約3.3年</td></tr>
+</tbody></table>
+<div class="legend">すべて会社公式計画ではなく、事業構想のための戦略モデルです。</div>
+</div>
+</div>
+</section>
+
+<section><h2 class="sec">勝ち筋：MS Detect → ME Qualify → Partner Close</h2>
+<div class="grid four">
+<div class="card"><h2>1. Detect</h2><p class="note">MSの日常接点で、導入年数、更新予定、競合接触、新規検査、開業・承継を検知。</p></div>
+<div class="card"><h2>2. Qualify</h2><p class="note">MEがBudget / Authority / Needs / Timeframe、仕様、競合、商流を確認。</p></div>
+<div class="card"><h2>3. Close</h2><p class="note">メーカー・専門パートナーがデモ、臨床、見積、設置、保守を担う。</p></div>
+<div class="card"><h2>4. Learn</h2><p class="note">Installed Base、Win/Lost、更新年を蓄積して次の需要予測へ循環。</p></div>
+</div>
+</section>
+
+<section><h2 class="sec">One Alfresa Medical</h2>
+<div class="call"><b>本社Medical Control Tower</b>がPortfolio、全国契約、IB/Data、KPI、M&Aを統括し、地域Medical HubがME・Clinical・Technicalを支える。MSは専門機器営業化せず需要検知に集中する。グループ内に点在するSPD・材料・検査・製造機能を横断統合することが重要。</div>
+</section>
+
+<section><h2 class="sec">Google Maps｜主要公開拠点・グループ検索</h2>
+<div class="map">
+<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=アルフレッサ+ホールディングス">📍 アルフレッサHD</a>
+<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=アルフレッサ株式会社">📍 アルフレッサ株式会社</a>
+<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=アルフレッサ+メディカルサービス">📍 メディカルサービス</a>
+<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=アルフレッサ篠原化学">📍 篠原化学</a>
+<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=アルフレッサ+ファーマ">📍 アルフレッサ ファーマ</a>
+<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=TSアルフレッサ">📍 TSアルフレッサ</a>
+</div>
+</section>
+
+<section class="source"><h2 class="sec">主要公開出典</h2>
+<div class="card">
+<p><a target="_blank" href="https://www.alfresa.com/ir/about/">アルフレッサグループ早わかり</a></p>
+<p><a target="_blank" href="https://www.alfresa.com/assets/data/ir/plan/management-plan.pdf">25–27中期経営計画</a></p>
+<p><a target="_blank" href="https://www.mhlw.go.jp/stf/newpage_67099.html">厚生労働省 薬事工業生産動態統計</a></p>
+<p><a target="_blank" href="https://www.jira-net.or.jp/publishing/introduction_report.html">JIRA 医療機器導入実態調査</a></p>
+<p><a target="_blank" href="https://www.medipal.co.jp/ir/">メディパルHD IR</a></p>
+<p><a target="_blank" href="https://www.suzuken.co.jp/ir/strategy/">スズケン 中期経営計画</a></p>
+<p><a target="_blank" href="https://ir.tohohd.co.jp/ja/plan.html">東邦HD 中期経営計画</a></p>
+</div>
+</section>
+
+<section><div class="call"><b>公開版について：</b>本ページは公開情報と明示した戦略仮説で構成しています。社内面談情報、個別営業実績、社内限定数値、個人単位の運用情報はWeb公開版には掲載していません。</div></section>
+</div>
+</body></html>
