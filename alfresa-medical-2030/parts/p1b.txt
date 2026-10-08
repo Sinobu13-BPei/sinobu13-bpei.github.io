@@ -1,0 +1,42 @@
+"card"><h2>売上高と営業利益率の推移</h2><div class="chart"><svg id="financeChart"></svg></div><div class="note">2016・2019は公式中計/IR、2025・2026は決算、2028・2032は計画/ビジョン。計画値と実績値を混同しない。</div></div>
+ <div class="card"><h2>事業構成と利益率</h2><div class="chart"><svg id="segmentChart"></svg></div><div class="note">医療用医薬品等卸が圧倒的な売上基盤。製造・サービス系の利益率ミックス改善が中長期課題。</div></div>
+</div>
+<div class="grid two" style="margin-top:14px">
+ <div class="card"><h2>構造的な読み方</h2>
+  <table><tbody>
+   <tr><td><b>2016</b></td><td>売上2.576兆円、営業利益率1.76%。</td></tr>
+   <tr><td><b>2019</b></td><td>売上2.641兆円、営業利益率1.7%、ROE9.5%。</td></tr>
+   <tr><td><b>2026</b></td><td>売上3.104兆円まで拡大する一方、営業利益率1.17%。規模と収益効率の乖離が課題。</td></tr>
+   <tr><td><b>2032</b></td><td>売上4兆円・営業利益700億円以上＝営業利益率約1.75%が必要。実質的に「利益構造改革」目標。</td></tr>
+  </tbody></table>
+ </div>
+ <div class="card"><h2>株価・資本市場の参考</h2><div class="chart"><svg id="stockChart"></svg></div><div class="note">2026/10/8終値2,226円、年初来高値2,685.5円、年初来安値2,106.5円。過去年末値は過去チャット調査値を再掲。</div></div>
+</div>
+</section>
+
+<section id="group">
+<div class="section-title"><div class="num">2</div><h2>グループCapability・TSCS・Medicalの現在地</h2></div>
+<div class="grid three">
+ <div class="card"><h2>グループの価値連鎖</h2><div class="tree">
+  <div class="treecol"><h3>Upstream</h3><div class="node">原薬・製造</div><div class="node">アルフレッサ ファーマ</div><div class="node">CRO / PMS / CDMO</div></div>
+  <div class="treecol"><h3>Core Network</h3><div class="node">医薬品卸</div><div class="node">MS 2,611人</div><div class="node">全国物流・Specialty</div><div class="node">TSCS</div></div>
+  <div class="treecol"><h3>Medical / Downstream</h3><div class="node">SPD・医療材料</div><div class="node">検査・分析・医療機器</div><div class="node">調剤薬局</div><div class="node">Digital / Mydodes</div></div>
+ </div></div>
+ <div class="card"><h2>Medical Capabilityの「点在」</h2>
+  <ul class="note" style="font-size:11px;line-height:1.8">
+   <li>アルフレッサ メディカルサービス：SPD・医療材料、グループの医療材料・医療機器仕入窓口。</li>
+   <li>アルフレッサ篠原化学：検査・分析機器、医療機器販売・メンテナンス。</li>
+   <li>アルフレッサ ファーマ：医薬品・診断薬・医療機器の製造販売。</li>
+   <li>地域卸：東北、明祥、TS、四国、琉薬等が地域顧客基盤を保有。</li>
+  </ul>
+  <div class="callout" style="margin-top:8px"><strong>課題はCapability不足ではなく、グループ横断の「統合・標準化・可視化」。</strong></div>
+ </div>
+ <div class="card"><h2>Google Maps｜主要グループ</h2><div class="entity-map" id="entityMap"></div></div>
+</div>
+</section>
+
+<section id="compare">
+<div class="section-title"><div class="num">3</div><h2>四大医薬品卸 比較・差別化</h2></div>
+<div class="grid two">
+ <div class="card"><h2>2026年3月期 財務比較</h2><div class="chart"><svg id="wholesaleChart"></svg></div></div>
+ <
