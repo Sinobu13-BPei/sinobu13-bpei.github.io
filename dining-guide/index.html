@@ -56,7 +56,7 @@ return '<article class="card"><div class="art"><label>'+escapeHTML(s.genre)+'</l
 function renderTours(){for(const [a,id] of [["鎌倉","kamakura"],["横浜","yokohama"]]){qs(id).innerHTML=tours.filter(t=>t.area===a).map(t=>{
 const map=escapeHTML(mapLink(t)),name=escapeHTML(t.name);
 const visual=t.page?'<img loading="lazy" src="'+photoPath(t.page)+'" alt="'+name+'の元資料ページ" onerror="this.replaceWith(document.createTextNode(\''+t.emoji+'\'))">':'<span class="tour-emoji">'+t.emoji+'</span>';
-return '<article class="tourcard"><a class="tourpic" href="'+map+'" target="_blank" rel="noopener noreferrer">'+visual+'</a><div class="tourbody"><div class="tourarea">'+escapeHTML(t.area)+'</div><h3>'+name+'</h3><p>'+escapeHTML(t.desc)+'</p><a href="'+map+'" target="_blank" rel="noopener noreferrer">📍 Googleマップで見る ↗</a>'+(s.reviewUrl?'<a class="contrib-link" href="'+escapeHTML(s.reviewUrl)+'" target="_blank" rel="noopener noreferrer">⭐ 忍のこのお店への投稿を見る ↗</a>':'')+'</div></article>'
+return '<article class="tourcard"><a class="tourpic" href="'+map+'" target="_blank" rel="noopener noreferrer">'+visual+'</a><div class="tourbody"><div class="tourarea">'+escapeHTML(t.area)+'</div><h3>'+name+'</h3><p>'+escapeHTML(t.desc)+'</p><a href="'+map+'" target="_blank" rel="noopener noreferrer">📍 Googleマップで見る ↗</a>'+(t.reviewUrl?'<a class="contrib-link" href="'+escapeHTML(t.reviewUrl)+'" target="_blank" rel="noopener noreferrer">⭐ 忍のこのお店への投稿を見る ↗</a>':'')+'</div></article>'
 }).join("")}}
 function choose(tab){
 const food=tab==="food";
