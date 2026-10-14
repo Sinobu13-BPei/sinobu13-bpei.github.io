@@ -5,6 +5,8 @@ try{
   if(window.L){
     map=L.map('map',{scrollWheelZoom:false}).setView([37.2,137.3],5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:18}).addTo(map)
+  }else{
+    document.getElementById('map').innerHTML='<p style="padding:30px">地図ライブラリを読み込めませんでした。下の47都道府県一覧と上のGoogle Mapsボタンをご利用ください。</p>';
   }
 }catch(e){
   document.getElementById('map').innerHTML='<p style="padding:30px">地図の読み込みに失敗しました。<a class="google-map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%9C%AC%20%E5%8C%BB%E7%99%82%E6%A9%9F%E9%96%A2">Google Mapsで全国の医療機関を見る ↗</a></p>'
