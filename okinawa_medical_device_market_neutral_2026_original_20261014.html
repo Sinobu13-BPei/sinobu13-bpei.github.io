@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>沖縄県 医療・医療機器流通データ総覧 2026｜ニュートラル版</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--navy:#0b2545;--blue:#1d5d9b;--cyan:#0ea5a4;--red:#b00020;--amber:#f59e0b;--green:#059669;--bg:#f6f8fb;--card:#fff;--line:#dbe4ef;--muted:#64748b;--text:#172033;}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fff,#f6f8fb 28%,#eef3f8);font-family:'Meiryo UI','Meiryo','Yu Gothic',system-ui,sans-serif;color:var(--text);line-height:1.7}
+a{color:#0b5cad;text-decoration:none}a:hover{text-decoration:underline}
+.hero{background:radial-gradient(circle at 88% 20%,rgba(14,165,164,.22),transparent 30%),linear-gradient(135deg,#071e3d,#0b2545 55%,#12375b);color:white;padding:44px 48px;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(28px,4vw,48px);line-height:1.18;margin:0 0 12px;font-weight:900;letter-spacing:.02em}.hero p{max-width:1180px;margin:6px 0;color:#dbeafe;font-size:17px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);padding:8px 12px;border-radius:999px;font-weight:800}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:9px 22px;display:flex;gap:8px;overflow:auto}
+nav a{white-space:nowrap;color:#0b2545;font-weight:800;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:white}
+main{max-width:1500px;margin:0 auto;padding:24px}
+section{background:white;border:1px solid var(--line);border-radius:22px;box-shadow:0 14px 36px rgba(15,23,42,.07);padding:26px;margin:0 0 24px}
+h2{font-size:28px;margin:0 0 10px;color:var(--navy);border-left:8px solid var(--cyan);padding-left:12px}h3{margin:0 0 10px;color:#12375b}.lead{color:#475569;margin-top:0}
+.grid{display:grid;gap:16px}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card,.area-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 22px rgba(15,23,42,.05)}.kpi b{display:block;font-size:32px;color:var(--red);line-height:1.1}.kpi span{color:#64748b;font-weight:700}
+.area-card{min-height:300px;position:relative}.area-head{display:flex;justify-content:space-between;gap:10px;align-items:center}.metric b{font-size:32px;color:var(--red)}.metric span{font-weight:800;margin-left:4px;color:#64748b}.muted{color:#64748b}.maplink{display:inline-flex;margin-top:8px;border:1px solid #bfdbfe;background:#eff6ff;border-radius:999px;padding:6px 10px;font-weight:800}
+.prio{display:inline-flex;min-width:36px;height:30px;align-items:center;justify-content:center;border-radius:999px;font-weight:900;color:white}.prio.s{background:var(--red)}.prio.a{background:var(--amber);color:#3b2600}.prio.b{background:#fde68a;color:#5b4300}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:16px;margin-top:14px}table{width:100%;border-collapse:collapse;font-size:13px;background:white}th,td{padding:9px 10px;border-bottom:1px solid #e5e7eb;vertical-align:top}th{background:#0b2545;color:white;position:sticky;top:47px;z-index:1;white-space:nowrap}tr:nth-child(even) td{background:#f8fafc}
+.chartbox{height:360px;border:1px solid var(--line);border-radius:16px;padding:14px;background:#fbfdff}.note{background:#fff8e1;border-left:6px solid var(--amber);padding:14px;border-radius:12px;margin:14px 0}
+.picto{display:grid;grid-template-columns:58px 1fr;gap:12px;align-items:center;border:1px solid var(--line);border-radius:16px;padding:14px;background:#fbfdff}.picto .i{font-size:34px;text-align:center;background:#eef7fb;border-radius:15px;padding:8px}
+.mapboard{position:relative;min-height:440px;border:1px solid #cfe3f2;border-radius:20px;background:linear-gradient(180deg,#ecfbff,#f8fbff);overflow:hidden}
+.island{position:absolute;border-radius:40% 60% 45% 55%;background:linear-gradient(135deg,#0b2545,#0ea5a4);color:white;box-shadow:0 12px 26px rgba(11,37,69,.25);display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;padding:14px}
+.mainIsland{left:43%;top:12%;width:220px;height:145px}.north{left:27%;top:9%;width:130px;height:88px}.miyako{left:58%;top:58%;width:150px;height:92px}.yaeyama{left:75%;top:64%;width:160px;height:96px}.route{position:absolute;border-top:4px dashed rgba(14,165,164,.7);transform-origin:left top}.r1{left:52%;top:38%;width:220px;transform:rotate(25deg)}.r2{left:66%;top:70%;width:160px;transform:rotate(8deg)}.r3{left:34%;top:23%;width:150px;transform:rotate(170deg)}.maphint{position:absolute;left:24px;bottom:24px;right:24px;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:16px;padding:12px}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{background:#0b2545;color:white;border-radius:16px;padding:16px;min-height:150px}.step b{display:block;color:#a7f3d0;font-size:20px;margin-bottom:6px}
+.footer{font-size:12px;color:#64748b}.source-list li{margin:8px 0}
+@media(max-width:1050px){.g4,.g3,.g2,.timeline{grid-template-columns:1fr}.hero{padding:34px 22px}main{padding:14px}th{top:46px}.mapboard{min-height:560px}.mainIsland{left:37%;top:14%}.north{left:8%;top:12%}.miyako{left:18%;top:58%}.yaeyama{left:55%;top:64%}}
+@media print{nav{display:none}section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>沖縄県 医療・医療機器流通データ総覧 2026</h1>
+  <p>医療機器商社・医薬品卸・SPD/材料事業者・メーカー営業が共通で使える、公開情報＋添付データ統合のニュートラル版。特定企業の優劣を断定せず、地域医療構造・人口動態・政策・医師会・販社導線を俯瞰します。</p>
+  <div class="badges"><span class="badge">対象：北部・中部・南部・宮古・八重山</span><span class="badge">人口動態</span><span class="badge">病床機能</span><span class="badge">医師会</span><span class="badge">販社/薬業卸/SPD</span><span class="badge">Google Mapsリンク付き</span></div>
+</header>
+<nav>
+<a href="#summary">概要</a><a href="#medical-areas">医療圏</a><a href="#geopolitics">地政学</a><a href="#policy">政策/病床</a><a href="#cities">市町村</a><a href="#dpc">DPC/中核病院</a><a href="#clinics">診療所</a><a href="#associations">医師会</a><a href="#dealers">商社/卸</a><a href="#actions">使い方</a><a href="#sources">出典</a>
+</nav>
+<main>
+<section id="summary">
+<h2>1. Executive Summary</h2>
+<p class="lead">沖縄県の医療機器市場は、南部・中部に人口・病床・急性期機能が集中する一方、北部・宮古・八重山では離島・へき地・搬送制約により、保守即応、代替機、遠隔支援、可搬型装置の価値が高い二層構造です。</p>
+<div class="grid g4">
+ <div class="card kpi"><b>1,466,024人</b><span>沖縄県推計人口<br>2026年9月1日</span></div>
+ <div class="card kpi"><b>481億円</b><span>医療機器市場推計<br>添付データベース</span></div>
+ <div class="card kpi"><b>83.7%</b><span>南部+中部シェア<br>52.8% + 30.9%</span></div>
+ <div class="card kpi"><b>5圏域</b><span>二次医療圏<br>北部・中部・南部・宮古・八重山</span></div>
+</div>
+<div class="note"><b>公開用の前提：</b>本資料は、医療機器商社全体が参考にできるよう、社内向け固有戦略・未確認の専売関係・個別条件は断定せず、公開情報または添付データ上の事実、ならびに「要確認の仮説」として整理しています。</div>
+<div class="grid g3">
+ <div class="picto"><div class="i">🏥</div><div><b>南部・中部</b><br>大病院・急性期・診療所が集中。売上/更新需要の主戦場。</div></div>
+ <div class="picto"><div class="i">🛥️</div><div><b>北部・離島</b><br>規模より医療継続性。保守SLA・代替機・巡回点検が差別化要因。</div></div>
+ <div class="picto"><div class="i">🤝</div><div><b>商流設計</b><br>地場商社・薬業卸・材料/SPDから装置商談へつなぐ導線設計が重要。</div></div>
+</div>
+</section>
+
+<section id="medical-areas">
+<h2>2. 二次医療圏別データ</h2>
+<div class="grid g3">
+  <article class="area-card pr-A">
+    <div class="area-head"><h3>北部医療圏</h3><span class="prio a">A</span></div>
+    <div class="metric"><b>4,138</b><span>百万円</span></div>
+    <p class="muted">人口 100,751人 / 許可病床 1,483床</p>
+    <p><b>性格：</b>やんばる広域・北部基幹・救急搬送・保守即応</p>
+    <p><b>主要市町村：</b>名護市・国頭村・大宜味村・東村・今帰仁村・本部町・伊江村・伊平屋村・伊是名村</p>
+    <p><b>商談仮説：</b>更新+救急US+保守即応/巡回点検</p>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%8C%97%E9%83%A8%20%E5%8C%BB%E7%99%82%E5%9C%8F" target="_blank">Google Mapsで見る</a>
+  </article>
+  <article class="area-card pr-S">
+    <div class="area-head"><h3>中部医療圏</h3><span class="prio s">S</span></div>
+    <div class="metric"><b>14,848</b><span>百万円</span></div>
+    <p class="muted">人口 518,742人 / 許可病床 4,144床</p>
+    <p><b>性格：</b>民間急性期・救急・循環器・整形・人口維持</p>
+    <p><b>主要市町村：</b>宜野湾市・沖縄市・うるま市・恩納村・宜野座村・金武町・読谷村・嘉手納町・北谷町・北中城村・中城村</p>
+    <p><b>商談仮説：</b>CT/MRI/VL更新+救急/循環器/検査効率</p>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E4%B8%AD%E9%83%A8%20%E5%8C%BB%E7%99%82%E5%9C%8F" target="_blank">Google Mapsで見る</a>
+  </article>
+  <article class="area-card pr-S">
+    <div class="area-head"><h3>南部医療圏</h3><span class="prio s">S</span></div>
+    <div class="metric"><b>25,420</b><span>百万円</span></div>
+    <p class="muted">人口 740,743人 / 許可病床 6,544床</p>
+    <p><b>性格：</b>県内最大市場・大学/県立/民間急性期・行政中枢</p>
+    <p><b>主要市町村：</b>那覇市・浦添市・糸満市・豊見城市・南城市・西原町・与那原町・南風原町・八重瀬町・離島町村等</p>
+    <p><b>商談仮説：</b>高機能装置+回転率改善+診療所面展開</p>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%8D%97%E9%83%A8%20%E5%8C%BB%E7%99%82%E5%9C%8F" target="_blank">Google Mapsで見る</a>
+  </article>
+  <article class="area-card pr-B">
+    <div class="area-head"><h3>宮古医療圏</h3><span class="prio b">B</span></div>
+    <div class="metric"><b>1,961</b><span>百万円</span></div>
+    <p class="muted">人口 53,989人 / 許可病床 565床</p>
+    <p><b>性格：</b>離島ハブ・県立宮古・生活習慣病・産婦人科・透析</p>
+    <p><b>主要市町村：</b>宮古島市・多良間村</p>
+    <p><b>商談仮説：</b>代替機/遠隔保守+救急POCUS+離島SLA</p>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%AE%AE%E5%8F%A4%20%E5%8C%BB%E7%99%82%E5%9C%8F" target="_blank">Google Mapsで見る</a>
+  </article>
+  <article class="area-card pr-B">
+    <div class="area-head"><h3>八重山医療圏</h3><span class="prio b">B</span></div>
+    <div class="metric"><b>1,733</b><span>百万円</span></div>
+    <p class="muted">人口 53,255人 / 許可病床 436床</p>
+    <p><b>性格：</b>最遠隔・海空路依存・県立八重山・災害/搬送BCP</p>
+    <p><b>主要市町村：</b>石垣市・竹富町・与那国町</p>
+    <p><b>商談仮説：</b>保守/BCP/小型装置+遠隔連携/巡回</p>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%85%AB%E9%87%8D%E5%B1%B1%20%E5%8C%BB%E7%99%82%E5%9C%8F" target="_blank">Google Mapsで見る</a>
+  </article></div>
+<div class="grid g2" style="margin-top:16px">
+ <div class="chartbox"><canvas id="marketChart"></canvas></div>
+ <div class="chartbox"><canvas id="popChart"></canvas></div>
+</div>
+<div class="tablewrap"><table><thead><tr><th>二次医療圏</th><th>人口</th><th>許可病床</th><th>市場推計</th><th>構成比</th><th>医師10万対</th><th>診療所10万対</th><th>優先</th><th>営業上の意味</th></tr></thead><tbody><tr><td>北部</td><td>100,751</td><td>1,483</td><td>4,138.1百万円</td><td>8.6%</td><td>229.1</td><td>63.2</td><td><span class="prio a">A</span></td><td>やんばる広域・北部基幹・救急搬送・保守即応</td></tr><tr><td>中部</td><td>518,742</td><td>4,144</td><td>14,848.2百万円</td><td>30.9%</td><td>230.6</td><td>50.3</td><td><span class="prio s">S</span></td><td>民間急性期・救急・循環器・整形・人口維持</td></tr><tr><td>南部</td><td>740,743</td><td>6,544</td><td>25,419.9百万円</td><td>52.8%</td><td>362.4</td><td>70.1</td><td><span class="prio s">S</span></td><td>県内最大市場・大学/県立/民間急性期・行政中枢</td></tr><tr><td>宮古</td><td>53,989</td><td>565</td><td>1,961.1百万円</td><td>4.1%</td><td>221.4</td><td>68.7</td><td><span class="prio b">B</span></td><td>離島ハブ・県立宮古・生活習慣病・産婦人科・透析</td></tr><tr><td>八重山</td><td>53,255</td><td>436</td><td>1,732.7百万円</td><td>3.6%</td><td>200.0</td><td>87.3</td><td><span class="prio b">B</span></td><td>最遠隔・海空路依存・県立八重山・災害/搬送BCP</td></tr></tbody></table></div>
+</section>
+
+<section id="geopolitics">
+<h2>3. 地政学・離島医療の見方</h2>
+<p class="lead">沖縄は、直線距離だけでなく、台風、航空/船便、部品在庫、島内代替性、医師偏在、救急搬送を同時に考える市場です。</p>
+<div class="mapboard">
+  <div class="island north">北部<br><small>広域救急・やんばる</small></div>
+  <div class="island mainIsland">沖縄本島<br><small>南部・中部集中</small></div>
+  <div class="island miyako">宮古<br><small>離島保守・生活習慣病</small></div>
+  <div class="island yaeyama">八重山<br><small>最遠隔・BCP</small></div>
+  <div class="route r1"></div><div class="route r2"></div><div class="route r3"></div>
+  <div class="maphint"><b>営業・サービス上の示唆：</b>本島中南部を営業/物流/保守の主軸にしつつ、宮古・八重山・北部には「止めない運用」を価値化する。装置選定では価格だけでなく、代替機、部品、遠隔支援、巡回点検、災害時連絡網が重要になります。</div>
+</div>
+<div class="grid g4" style="margin-top:16px">
+ <div class="card"><h3>台風・物流</h3><p>設置、納品、保守部品、技術者移動に影響。余裕を持った工程設計が必要。</p></div>
+ <div class="card"><h3>搬送制約</h3><p>離島では救急搬送・専門医アクセスが制限されるため初期診断機器の価値が上がる。</p></div>
+ <div class="card"><h3>医師偏在</h3><p>南部に医師が集中。北部・宮古・八重山は少数医師でも使える装置/教育が鍵。</p></div>
+ <div class="card"><h3>商流固定</h3><p>地縁・既存商流・材料/SPD/薬業卸の影響が強い。販社別役割分担が必要。</p></div>
+</div>
+</section>
+
+<section id="policy">
+<h2>4. 政策・病床機能・将来需要</h2>
+<p class="lead">第8次沖縄県医療計画、地域医療構想、病床機能報告、在宅医療体制整備が市場の前提です。急性期装置更新だけでなく、回復期、在宅、遠隔支援、周辺消耗品も含めて考える必要があります。</p>
+<div class="tablewrap"><table><thead><tr><th>医療圏</th><th>高度急性期</th><th>急性期</th><th>回復期</th><th>慢性期</th><th>休棟等</th><th>合計</th></tr></thead><tbody><tr><td>北部</td><td>20</td><td>372</td><td>220</td><td>732</td><td>50</td><td>1,394</td></tr><tr><td>中部</td><td>997</td><td>1,598</td><td>1,155</td><td>1,172</td><td>67</td><td>4,989</td></tr><tr><td>南部</td><td>411</td><td>3,182</td><td>1,329</td><td>1,651</td><td>95</td><td>6,668</td></tr><tr><td>宮古</td><td>4</td><td>250</td><td>66</td><td>281</td><td>18</td><td>619</td></tr><tr><td>八重山</td><td>23</td><td>269</td><td>44</td><td>44</td><td>70</td><td>450</td></tr></tbody></table></div>
+<div class="grid g3" style="margin-top:16px">
+ <div class="card"><h3>地域医療構想</h3><p>病床機能の分化と連携を進める。回復期/在宅との接続が重要。</p></div>
+ <div class="card"><h3>在宅医療</h3><p>第8次計画では在宅医療の圏域を二次医療圏単位で整備。医師会・市町村との連携が鍵。</p></div>
+ <div class="card"><h3>災害医療</h3><p>台風・海空路寸断・地震津波リスクに備え、装置停止時の代替策が選定条件化しやすい。</p></div>
+</div>
+</section>
+
+<section id="cities">
+<h2>5. 市町村別 市場データ</h2>
+<p class="lead">那覇市・沖縄市・浦添市・うるま市・名護市が上位。離島は石垣市・宮古島市を基点に、竹富町・与那国町・多良間村などを面で支える設計が必要です。</p>
+<div class="tablewrap"><table><thead><tr><th>医療圏</th><th>市町村</th><th>病院</th><th>病床</th><th>診療所</th><th>人口</th><th>市場推計</th><th>構成比</th><th>優先</th><th>示唆</th><th>地図</th></tr></thead><tbody><tr><td>南部</td><td>那覇市</td><td>17</td><td>3,205</td><td>263</td><td>317,030</td><td>10,472.9百万円</td><td>21.8%</td><td><span class="prio s">S</span></td><td>最大市場。診療所・病院・医師会・行政接点の中心</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E9%82%A3%E8%A6%87%E5%B8%82' target='_blank'>Map</a></td></tr><tr><td>中部</td><td>沖縄市</td><td>9</td><td>1,905</td><td>82</td><td>142,679</td><td>4,573.8百万円</td><td>9.5%</td><td><span class="prio s">S</span></td><td>中部の人口・救急・民間急性期接点</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E6%B2%96%E7%B8%84%E5%B8%82' target='_blank'>Map</a></td></tr><tr><td>南部</td><td>浦添市</td><td>7</td><td>1,351</td><td>85</td><td>115,702</td><td>3,899.8百万円</td><td>8.1%</td><td><span class="prio s">S</span></td><td>浦添総合・浦添市医師会・在宅/病診連携</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E6%B5%A6%E6%B7%BB%E5%B8%82' target='_blank'>Map</a></td></tr><tr><td>中部</td><td>うるま市</td><td>6</td><td>1,438</td><td>55</td><td>125,973</td><td>3,385.8百万円</td><td>7.0%</td><td><span class="prio s">S</span></td><td>県立中部周辺・慢性疾患/救急導線</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E3%81%86%E3%82%8B%E3%81%BE%E5%B8%82' target='_blank'>Map</a></td></tr><tr><td>北部</td><td>名護市</td><td>6</td><td>1,455</td><td>45</td><td>64,290</td><td>2,886.0百万円</td><td>6.0%</td><td><span class="prio s">S</span></td><td>北部広域・北部地区医師会病院・救急</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%90%8D%E8%AD%B7%E5%B8%82' target='_blank'>Map</a></td></tr><tr><td>南部</td><td>南風原町</td><td>6</td><td>1,583</td><td>29</td><td>40,642</td><td>2,544.4百万円</td><td>5.3%</td><td><span class="prio a">A</span></td><td>県医師会館・南部導線・医療団体接点</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%8D%97%E9%A2%A8%E5%8E%9F%E7%94%BA' target='_blank'>Map</a></td></tr><tr><td>南部</td><td>糸満市</td><td>5</td><td>1,168</td><td>30</td><td>62,569</td><td>2,390.4百万円</td><td>5.0%</td><td><span class="prio a">A</span></td><td>南部地域病院・診療所面展開</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E7%B3%B8%E6%BA%80%E5%B8%82' target='_blank'>Map</a></td></tr><tr><td>南部</td><td>豊見城市</td><td>4</td><td>918</td><td>42</td><td>65,954</td><td>2,242.5百万円</td><td>4.7%</td><td><span class="prio a">A</span></td><td>友愛医療センター・南部急性期</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E8%B1%8A%E8%A6%8B%E5%9F%8E%E5%B8%82' target='_blank'>Map</a></td></tr><tr><td>中部</td><td>宜野湾市</td><td>3</td><td>596</td><td>50</td><td>100,269</td><td>2,202.0百万円</td><td>4.6%</td><td><span class="prio a">A</span></td><td>中部/南部接続・診療所密度</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%AE%9C%E9%87%8E%E6%B9%BE%E5%B8%82' target='_blank'>Map</a></td></tr><tr><td>宮古</td><td>宮古島市</td><td>4</td><td>720</td><td>40</td><td>55,562</td><td>1,941.6百万円</td><td>4.0%</td><td><span class="prio a">A</span></td><td>宮古島医療の基点・離島ハブ</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82' target='_blank'>Map</a></td></tr><tr><td>八重山</td><td>石垣市</td><td>3</td><td>474</td><td>30</td><td>49,530</td><td>1,456.4百万円</td><td>3.0%</td><td><span class="prio a">A</span></td><td>八重山医療の基点・遠隔/BCP</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E7%9F%B3%E5%9E%A3%E5%B8%82' target='_blank'>Map</a></td></tr><tr><td>南部</td><td>西原町</td><td>2</td><td>648</td><td>22</td><td>35,728</td><td>1,268.1百万円</td><td>2.6%</td><td><span class="prio b">B</span></td><td>琉大/西原導線・教育/研究接点</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E8%A5%BF%E5%8E%9F%E7%94%BA' target='_blank'>Map</a></td></tr><tr><td>中部</td><td>北中城村</td><td>3</td><td>867</td><td>7</td><td>17,936</td><td>1,178.5百万円</td><td>2.5%</td><td><span class="prio b">B</span></td><td>中部急性期隣接・高齢者/リハ</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%8C%97%E4%B8%AD%E5%9F%8E%E6%9D%91' target='_blank'>Map</a></td></tr><tr><td>南部</td><td>南城市</td><td>1</td><td>199</td><td>16</td><td>45,928</td><td>861.4百万円</td><td>1.8%</td><td><span class="prio b">B</span></td><td>南部東側・地域包括/在宅</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%8D%97%E5%9F%8E%E5%B8%82' target='_blank'>Map</a></td></tr><tr><td>南部</td><td>八重瀬町</td><td>1</td><td>357</td><td>14</td><td>32,630</td><td>823.4百万円</td><td>1.7%</td><td><span class="prio b">B</span></td><td>南部地域医療・診療所接点</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%85%AB%E9%87%8D%E7%80%AC%E7%94%BA' target='_blank'>Map</a></td></tr></tbody></table></div>
+</section>
+
+<section id="dpc">
+<h2>6. DPC・中核病院</h2>
+<p class="lead">DPC患者数上位は南部・中部に集中。ただし、県立北部・県立宮古・県立八重山は患者数だけでは測れない地域完結医療・災害/搬送ハブとして重要です。</p>
+<div class="tablewrap"><table><thead><tr><th>順位</th><th>医療機関</th><th>医療圏</th><th>DPC区分</th><th>DPC患者数</th><th>優先</th><th>見方</th><th>地図</th></tr></thead><tbody><tr><td>1</td><td>琉球大学病院</td><td>南部/中部移転影響</td><td>大学病院本院群</td><td>11,990</td><td><span class="prio s">S</span></td><td>県内唯一の医学部附属病院。高度医療・教育・研究・移転後の中部波及</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E7%90%89%E7%90%83%E5%A4%A7%E5%AD%A6%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>2</td><td>友愛医療センター</td><td>南部</td><td>標準/特定注記あり</td><td>11,171</td><td><span class="prio s">S</span></td><td>救急・急性期・高回転。CT/MRI/FPD/循環器US</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%8F%8B%E6%84%9B%E5%8C%BB%E7%99%82%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC' target='_blank'>Map</a></td></tr><tr><td>3</td><td>中部徳洲会病院</td><td>中部</td><td>標準</td><td>10,715</td><td><span class="prio s">S</span></td><td>中部最大級の民間急性期。救急・循環器・腹部US</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E4%B8%AD%E9%83%A8%E5%BE%B3%E6%B4%B2%E4%BC%9A%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>4</td><td>中頭病院</td><td>中部</td><td>特定病院群</td><td>10,713</td><td><span class="prio s">S</span></td><td>画像診断・検査効率・救急連携</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E4%B8%AD%E9%A0%AD%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>5</td><td>那覇市立病院</td><td>南部</td><td>標準</td><td>10,501</td><td><span class="prio a">A</span></td><td>那覇市中核。CT/MRI/FPD/US更新・検査動線</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E9%82%A3%E8%A6%87%E5%B8%82%E7%AB%8B%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>6</td><td>沖縄県立中部病院</td><td>中部</td><td>標準</td><td>10,457</td><td><span class="prio s">S</span></td><td>救命・災害・周産期・がん・脳卒中</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%AB%8B%E4%B8%AD%E9%83%A8%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>7</td><td>沖縄県立南部医療センター・こども医療センター</td><td>南部</td><td>標準</td><td>8,408</td><td><span class="prio s">S</span></td><td>救命・小児・周産期。VL/CT/MRI/小児救急US</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%AB%8B%E5%8D%97%E9%83%A8%E5%8C%BB%E7%99%82%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%BB%E3%81%93%E3%81%A9%E3%82%82%E5%8C%BB%E7%99%82%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC' target='_blank'>Map</a></td></tr><tr><td>8</td><td>浦添総合病院</td><td>南部</td><td>特定病院群</td><td>7,270</td><td><span class="prio s">S</span></td><td>急性期/救急の高効率。CT/MRI/VL更新</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E6%B5%A6%E6%B7%BB%E7%B7%8F%E5%90%88%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>9</td><td>ハートライフ病院</td><td>中部</td><td>標準</td><td>7,241</td><td><span class="prio a">A</span></td><td>中部急性期。US・FPD・CT/MRI更新</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E3%83%8F%E3%83%BC%E3%83%88%E3%83%A9%E3%82%A4%E3%83%95%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>10</td><td>南部徳洲会病院</td><td>南部</td><td>標準</td><td>7,073</td><td><span class="prio a">A</span></td><td>南部民間急性期。効率改善・更新提案</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%8D%97%E9%83%A8%E5%BE%B3%E6%B4%B2%E4%BC%9A%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>11</td><td>沖縄協同病院</td><td>南部</td><td>標準</td><td>5,821</td><td><span class="prio a">A</span></td><td>地域急性期。CT/FPD/US・在宅連携</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E6%B2%96%E7%B8%84%E5%8D%94%E5%90%8C%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>12</td><td>沖縄県立北部病院</td><td>北部</td><td>標準</td><td>4,401</td><td><span class="prio a">A</span></td><td>北部基幹・救急/災害。保守即応・救急US</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%AB%8B%E5%8C%97%E9%83%A8%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>13</td><td>沖縄赤十字病院</td><td>南部</td><td>標準</td><td>4,256</td><td><span class="prio a">A</span></td><td>災害/救急。FPD/CT/US更新</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E6%B2%96%E7%B8%84%E8%B5%A4%E5%8D%81%E5%AD%97%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>14</td><td>大浜第一病院</td><td>南部</td><td>標準</td><td>4,086</td><td><span class="prio b">B</span></td><td>民間急性期/リハ連携。US/FPD/周辺商材</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%A4%A7%E6%B5%9C%E7%AC%AC%E4%B8%80%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>15</td><td>沖縄県立宮古病院</td><td>宮古</td><td>標準</td><td>4,068</td><td><span class="prio a">A</span></td><td>宮古ハブ。CT/MRI/救急US・代替機</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%AB%8B%E5%AE%AE%E5%8F%A4%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>16</td><td>沖縄県立八重山病院</td><td>八重山</td><td>標準</td><td>4,036</td><td><span class="prio a">A</span></td><td>八重山ハブ。遠隔連携/保守/BCP</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%AB%8B%E5%85%AB%E9%87%8D%E5%B1%B1%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr><tr><td>17</td><td>北部地区医師会病院</td><td>北部</td><td>標準</td><td>3,089</td><td><span class="prio a">A</span></td><td>北部急性期・医師会連携。救急/検診/US</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%8C%97%E9%83%A8%E5%9C%B0%E5%8C%BA%E5%8C%BB%E5%B8%AB%E4%BC%9A%E7%97%85%E9%99%A2' target='_blank'>Map</a></td></tr></tbody></table></div>
+</section>
+
+<section id="clinics">
+<h2>7. 診療所市場・診療科別ターゲット</h2>
+<p class="lead">診療所市場は「地域」と「診療科」で訴求を変える必要があります。医師会、薬業卸、材料商社、検査/健診導線を使って、装置単品ではなく運用価値で提案します。</p>
+<div class="tablewrap"><table><thead><tr><th>診療科/用途</th><th>優先エリア</th><th>重点商材</th><th>商談仮説</th></tr></thead><tbody><tr><td>内科・生活習慣病</td><td>那覇/浦添/沖縄/うるま/名護/石垣/宮古島</td><td>US, FPD, PACS, 有床/検診CT</td><td>高齢化、糖尿病、脂肪肝、腎疾患。腹部US/汎用USの入口</td></tr><tr><td>循環器</td><td>南部・中部・牧港/急性期周辺</td><td>US, VL, CT, モニタ連携</td><td>DPC循環器症例、病診連携、検査効率化</td></tr><tr><td>消化器</td><td>那覇/浦添/中部主要市</td><td>US, CT, 内視鏡周辺, PACS</td><td>腹部US、肝疾患、脂肪肝、内視鏡後方連携</td></tr><tr><td>整形外科</td><td>南部/中部/高齢化地域</td><td>XR/FPD, DEXA, US</td><td>骨粗鬆症・骨折・リハ・手術材料商流</td></tr><tr><td>産婦人科</td><td>南部/中部/宮古/八重山</td><td>WHC/産婦人科US, PACS/クラウド</td><td>周産期・婦人科・産科医偏在・遠隔連携</td></tr><tr><td>透析・腎疾患</td><td>那覇/中部/離島中核</td><td>US, FPD, PACS, 消耗品</td><td>慢性疾患・腎/尿路・定期フォロー</td></tr><tr><td>救急/POCUS</td><td>県立/救急病院・離島診療所</td><td>可搬型US, 救急US, 遠隔支援</td><td>台風・搬送制約・診療継続価値</td></tr></tbody></table></div>
+</section>
+
+<section id="associations">
+<h2>8. 医師会・地区医師会データ</h2>
+<p class="lead">医師会は、地域医療・在宅・検診・診療所網・開業/承継情報の重要な入口です。公開情報で確認できる数値と、事務局照会が必要な数値を分けて管理します。</p>
+<div class="tablewrap"><table><thead><tr><th>医師会</th><th>所在地</th><th>確認できた施設数/会員数</th><th>医療機器商社の使い方</th><th>公式/地図</th></tr></thead><tbody><tr><td>沖縄県医師会</td><td>南風原町新川</td><td>10地区医師会で構成</td><td>県全体の政策・学術・医療団体接点</td><td><a href='https://www.okinawa.med.or.jp/about/toiawase/' target='_blank'>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%E5%8C%BB%E5%B8%AB%E4%BC%9A' target='_blank'>Map</a></td></tr><tr><td>北部地区医師会</td><td>名護市宇茂佐の森</td><td>2019年3月1日時点 会員数121名</td><td>北部地区医師会病院、救急、広域医療、検診導線</td><td><a href='https://hokuishi.com/hkb/kaicho_aisatsu/enkaku/' target='_blank'>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E5%8C%97%E9%83%A8%E5%9C%B0%E5%8C%BA%E5%8C%BB%E5%B8%AB%E4%BC%9A' target='_blank'>Map</a></td></tr><tr><td>中部地区医師会</td><td>北谷町</td><td>医療機関検索機能あり。最新会員数は要照会</td><td>沖縄市・うるま・宜野湾・北谷・読谷など中部診療所導線</td><td><a href='https://www.chubu-ishikai.or.jp/clinic-src/' target='_blank'>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%AD%E9%83%A8%E5%9C%B0%E5%8C%BA%E5%8C%BB%E5%B8%AB%E4%BC%9A' target='_blank'>Map</a></td></tr><tr><td>浦添市医師会</td><td>浦添市伊祖</td><td>令和2年時点 83医療機関・会員267名</td><td>浦添総合周辺、在宅、地域包括、診療所/開業情報</td><td><a href='https://www.uraishi.or.jp/history/' target='_blank'>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B5%A6%E6%B7%BB%E5%B8%82%E5%8C%BB%E5%B8%AB%E4%BC%9A' target='_blank'>Map</a></td></tr><tr><td>那覇市医師会</td><td>那覇市東町</td><td>医療機関検索 条件未指定190件</td><td>最大都市の診療所面展開、検診、開業/承継導線</td><td><a href='https://nahashi.okinawa.med.or.jp/med_search/list/' target='_blank'>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E9%82%A3%E8%A6%87%E5%B8%82%E5%8C%BB%E5%B8%AB%E4%BC%9A' target='_blank'>Map</a></td></tr><tr><td>南部地区医師会</td><td>八重瀬町友寄</td><td>最新会員数・施設数は要照会</td><td>糸満・豊見城・南風原・八重瀬・南城市等の診療所面展開</td><td><a href='https://nanbu.okinawa.med.or.jp/' target='_blank'>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%97%E9%83%A8%E5%9C%B0%E5%8C%BA%E5%8C%BB%E5%B8%AB%E4%BC%9A' target='_blank'>Map</a></td></tr><tr><td>宮古地区医師会</td><td>宮古島市</td><td>会員医療機関一覧を公開</td><td>宮古の病診連携、産婦人科、生活習慣病、訪問診療</td><td><a href='https://www.miyakotikuishikai.com/members/facility/' target='_blank'>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%AE%E5%8F%A4%E5%9C%B0%E5%8C%BA%E5%8C%BB%E5%B8%AB%E4%BC%9A' target='_blank'>Map</a></td></tr><tr><td>八重山地区医師会</td><td>石垣市登野城</td><td>最新会員数・施設数は要照会</td><td>石垣・竹富・与那国の医療継続、県立八重山、遠隔/BCP</td><td><a href='https://www.okinawa.med.or.jp/about/link/' target='_blank'>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E5%85%AB%E9%87%8D%E5%B1%B1%E5%9C%B0%E5%8C%BA%E5%8C%BB%E5%B8%AB%E4%BC%9A' target='_blank'>Map</a></td></tr></tbody></table></div>
+</section>
+
+<section id="dealers">
+<h2>9. 医療機器商社・薬業卸・材料/SPDの俯瞰</h2>
+<p class="lead">本表は、特定メーカー視点ではなく、沖縄で医療機器・材料・消耗品・SPD・薬業卸に関わる全事業者が参考にできるよう、公開情報と市場仮説を整理したものです。取扱メーカー・専売性・実商流は、個別案件ごとに必ず確認してください。</p>
+<div class="tablewrap"><table><thead><tr><th>商社/卸</th><th>類型</th><th>得意領域</th><th>影響</th><th>競合/関係性の扱い</th><th>全商社向け示唆</th><th>拠点</th><th>公式/地図</th></tr></thead><tbody><tr><td>琉球光和</td><td>総合医療機器・材料・SPD・開業/福祉</td><td>病院・診療所・材料・開業・介護/薬局支援</td><td><span class="prio s">S</span></td><td>公開情報上は総合商流が強い。取扱メーカー・案件別強みは個別確認</td><td>大型病院/材料/SPDから装置更新・周辺機器へ接続</td><td>那覇市</td><td><a href='https://rkowa.com/' target=_blank>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E7%90%89%E7%90%83%E5%85%89%E5%92%8C' target='_blank'>Map</a></td></tr><tr><td>沖縄メディコ</td><td>総合医療機器・材料・物流/共同購買/開業</td><td>病院・診療所・画像診断・医療材料</td><td><span class="prio s">S</span></td><td>県内総合商社として存在感。メーカー関係は案件別確認</td><td>競合/協業を分け、情報導線・共同提案可能性を確認</td><td>浦添市</td><td><a href='https://okinawa-medico.com/' target=_blank>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E6%B2%96%E7%B8%84%E3%83%A1%E3%83%87%E3%82%A3%E3%82%B3' target='_blank'>Map</a></td></tr><tr><td>南西医療器</td><td>呼吸器・在宅酸素・CPAP・医療機器・離島対応</td><td>在宅・呼吸器・病院US・産婦人科・離島</td><td><span class="prio s">S</span></td><td>離島/在宅/呼吸器/技術サービス接点。詳細商流は要確認</td><td>US/WHC/POCUS/離島保守・巡回支援で協業余地</td><td>浦添市/石垣/宮古</td><td><a href='https://www.swm-i.co.jp/' target=_blank>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E5%8D%97%E8%A5%BF%E5%8C%BB%E7%99%82%E5%99%A8' target='_blank'>Map</a></td></tr><tr><td>沖縄-ムトウ</td><td>全国系総合商社・医療材料・理化学・福祉</td><td>病院材料・SPD・福祉・全国連携</td><td><span class="prio a">A</span></td><td>全国ネットワークを背景に材料/SPDに強み</td><td>大病院材料/SPD面から装置/周辺商材へ橋渡し</td><td>浦添市/沖縄市</td><td><a href='https://www.wism-mutoh.jp/' target=_blank>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E6%B2%96%E7%B8%84-%E3%83%A0%E3%83%88%E3%82%A6' target='_blank'>Map</a></td></tr><tr><td>アイティーアイ</td><td>医療機器・循環器/手術室系</td><td>病院・循環器・急性期・民需</td><td><span class="prio a">A</span></td><td>急性期・循環器/手術室周辺の情報導線</td><td>月次で急性期案件兆候・競合条件を確認</td><td>沖縄県内</td><td><a href='https://www.iti-e.co.jp/' target=_blank>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E3%82%A2%E3%82%A4%E3%83%86%E3%82%A3%E3%83%BC%E3%82%A2%E3%82%A4' target='_blank'>Map</a></td></tr><tr><td>エム・ケイ物産</td><td>心臓血管外科・循環器・IVR・特殊材料</td><td>急性期・カテ室・手術室</td><td><span class="prio a">A</span></td><td>循環器/IVR/特殊材料系で専門性</td><td>VL/循環器US/手術室周辺で連携余地</td><td>南風原町</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E3%82%A8%E3%83%A0%E3%83%BB%E3%82%B1%E3%82%A4%E7%89%A9%E7%94%A3' target='_blank'>Map</a></td></tr><tr><td>第一医療器</td><td>整形外科・人工関節・脊椎・修理</td><td>整形・手術室・骨粗鬆症</td><td><span class="prio b">B+</span></td><td>整形領域の施設接点</td><td>DEXA/整形US/リハ周辺で協業余地</td><td>豊見城市</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E7%AC%AC%E4%B8%80%E5%8C%BB%E7%99%82%E5%99%A8' target='_blank'>Map</a></td></tr><tr><td>中央医療器</td><td>X線・内視鏡・検査・修理</td><td>診療所・検査・X線</td><td><span class="prio b">B+</span></td><td>放射線/検査/修理接点</td><td>FPD・診療所XR更新・保守導線</td><td>南風原町</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E4%B8%AD%E5%A4%AE%E5%8C%BB%E7%99%82%E5%99%A8' target='_blank'>Map</a></td></tr><tr><td>沖縄三和メディカル</td><td>医療機器・介護・開業支援</td><td>診療所・介護・開業情報</td><td><span class="prio b">B+</span></td><td>地場ネットワーク・協会接点</td><td>開業/更新情報・診療所面展開</td><td>宜野湾市</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E6%B2%96%E7%B8%84%E4%B8%89%E5%92%8C%E3%83%A1%E3%83%87%E3%82%A3%E3%82%AB%E3%83%AB' target='_blank'>Map</a></td></tr><tr><td>琉薬</td><td>医薬品卸・診断薬・医療機器・開業支援</td><td>診療所・薬局・島嶼物流</td><td><span class="prio a">A</span></td><td>薬業卸網と診療所接点</td><td>開業/更新/慢性疾患・診療所紹介</td><td>浦添市</td><td><a href='https://www.ryuyaku.co.jp/' target=_blank>公式</a> / <a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E7%90%89%E8%96%AC' target='_blank'>Map</a></td></tr><tr><td>ダイコー沖縄</td><td>医薬品卸・診療機器・放射線・診断薬・衛生材料</td><td>診療所・薬局・福祉/宮古拠点</td><td><span class="prio a">A</span></td><td>医薬品卸系、宮古含む地域網</td><td>生活習慣病/骨粗鬆症/診療所網で連携</td><td>宜野湾市/宮古</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E3%83%80%E3%82%A4%E3%82%B3%E3%83%BC%E6%B2%96%E7%B8%84' target='_blank'>Map</a></td></tr><tr><td>スズケン沖縄薬品</td><td>医薬品卸・試薬・医療機器・材料</td><td>診療所・薬局・宮古/南風原</td><td><span class="prio b">B+</span></td><td>医薬品卸系、薬局/診療所網</td><td>診療所更新/離島補給/在宅連携</td><td>南風原/宮古</td><td><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E7%9C%8C%20%E3%82%B9%E3%82%BA%E3%82%B1%E3%83%B3%E6%B2%96%E7%B8%84%E8%96%AC%E5%93%81' target='_blank'>Map</a></td></tr></tbody></table></div>
+</section>
+
+<section id="actions">
+<h2>10. 医療機器商社向け 実務アクション</h2>
+<div class="timeline">
+ <div class="step"><b>0-30日</b>市町村×医療圏×医師会×既納装置×販社を統合。公開情報と自社台帳の差分を洗う。</div>
+ <div class="step"><b>1-3か月</b>那覇・浦添・沖縄・うるま・名護の重点施設と診療所を面で確認。医師会/薬業卸/材料商社の導線を整理。</div>
+ <div class="step"><b>3-9か月</b>DPC上位/県立/離島ハブ施設の更新年限、保守条件、代替機条件、競合条件を1枚化。</div>
+ <div class="step"><b>9-24か月</b>離島BCP、巡回点検、遠隔支援、在宅/回復期/診療所商材を継続収益モデルとして設計。</div>
+</div>
+<div class="grid g3" style="margin-top:16px">
+ <div class="card"><h3>病院向け</h3><p>CT/MRI/VL/US/FPD/PACSは、検査効率・救急導線・保守継続・人員不足対応で語る。</p></div>
+ <div class="card"><h3>診療所向け</h3><p>US/XR/FPD/PACS/DEXAは、診療科別の患者導線、検診、生活習慣病、承継/開業と接続。</p></div>
+ <div class="card"><h3>離島向け</h3><p>可搬型装置、代替機、部品在庫、リモート支援、巡回点検をセット化し、価格差を超える価値にする。</p></div>
+</div>
+</section>
+
+<section id="sources">
+<h2>11. 出典・前提・制約</h2>
+<p class="lead">公開情報と添付資料を統合した調査資料です。個別商談では、最新の施設台帳、導入装置、更新年限、販社契約、入札条件、保守契約を必ず確認してください。</p>
+<div class="tablewrap"><table><thead><tr><th>出典</th><th>用途</th><th>URL</th></tr></thead><tbody><tr><td>沖縄県推計人口</td><td>2026年9月1日現在：人口1,466,024人、668,972世帯</td><td><a href='https://www.pref.okinawa.lg.jp/toukeika/estimates/estimates_suikei.html' target=_blank>https://www.pref.okinawa.lg.jp/toukeika/estimates/estimates_suikei.html</a></td></tr><tr><td>沖縄県第8次医療計画</td><td>医療圏、医療提供体制、地域医療構想の基礎</td><td><a href='https://www.pref.okinawa.lg.jp/iryokenko/iryo/1005807/1005824/1028660.html' target=_blank>https://www.pref.okinawa.lg.jp/iryokenko/iryo/1005807/1005824/1028660.html</a></td></tr><tr><td>沖縄県病床機能報告</td><td>2025年7月1日時点の二次医療圏別機能別病床数</td><td><a href='https://www.pref.okinawa.lg.jp/iryokenko/iryo/1005807/1005832.html' target=_blank>https://www.pref.okinawa.lg.jp/iryokenko/iryo/1005807/1005832.html</a></td></tr><tr><td>沖縄県地区医療提供体制協議会</td><td>5つの二次医療圏ごとの地域医療構想調整会議</td><td><a href='https://www.pref.okinawa.lg.jp/iryokenko/iryo/1005280/1026431/index.html' target=_blank>https://www.pref.okinawa.lg.jp/iryokenko/iryo/1005280/1026431/index.html</a></td></tr><tr><td>沖縄県医師会</td><td>地区医師会の所在地・連絡先</td><td><a href='https://www.okinawa.med.or.jp/about/toiawase/' target=_blank>https://www.okinawa.med.or.jp/about/toiawase/</a></td></tr><tr><td>那覇市医師会</td><td>医療機関検索 条件未指定190件</td><td><a href='https://nahashi.okinawa.med.or.jp/med_search/list/' target=_blank>https://nahashi.okinawa.med.or.jp/med_search/list/</a></td></tr><tr><td>浦添市医師会</td><td>沿革：令和2年 83医療機関・会員267名</td><td><a href='https://www.uraishi.or.jp/history/' target=_blank>https://www.uraishi.or.jp/history/</a></td></tr><tr><td>北部地区医師会</td><td>沿革：2019年3月1日時点 会員121名</td><td><a href='https://hokuishi.com/hkb/kaicho_aisatsu/enkaku/' target=_blank>https://hokuishi.com/hkb/kaicho_aisatsu/enkaku/</a></td></tr><tr><td>添付資料</td><td>沖縄県 医療機器MKT徹底分析 2026、47沖縄、市町村別市場、DPC、販社分析</td><td>社内添付/公開情報統合</td></tr></tbody></table></div>
+<div class="note"><b>データ制約：</b>医師会の最新会員数は全地区で公開情報が揃っていません。南部地区医師会・八重山地区医師会・中部地区医師会の最新会員数/施設数は、事務局照会が必要です。DPC区分は年度で変更されるため、厚生労働省の最新公表資料で再確認してください。</div>
+<p class="footer">作成日：2026-10-14 / ファイル名：沖縄県_医療機器MKTデータ総覧2026_ニュートラル版.html</p>
+</section>
+</main>
+<script>
+const labels=['北部','中部','南部','宮古','八重山'];
+const market=[4138.1,14848.2,25419.9,1961.1,1732.7];
+const pop=[100751,518742,740743,53989,53255];
+new Chart(document.getElementById('marketChart'),{type:'bar',data:{labels,datasets:[{label:'医療機器市場推計（百万円）',data:market,backgroundColor:['#60a5fa','#f59e0b','#b00020','#34d399','#a78bfa'],borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},title:{display:true,text:'二次医療圏別 市場規模'}},scales:{y:{beginAtZero:true}}}});
+new Chart(document.getElementById('popChart'),{type:'doughnut',data:{labels,datasets:[{label:'人口',data:pop,backgroundColor:['#60a5fa','#f59e0b','#22c55e','#a78bfa','#ef4444']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:'二次医療圏別 人口構成'},legend:{position:'bottom'}}}});
+</script>
+</body></html>
