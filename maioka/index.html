@@ -50,6 +50,11 @@ header.hero{padding-block:48px 28px;display:grid;grid-template-columns:minmax(0,
 .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--moss);border-radius:4px;color:var(--moss);text-decoration:none;font-weight:700;font-size:.9rem;background:var(--paper)}
 .btn.solid{background:var(--moss);color:var(--paper)}
+.btn.kid-navi{background:#EAF5E6;color:#2C5D28;border-color:#8EB78A;white-space:normal;text-align:center}
+.btn.kid-navi:hover{background:#D8EBD4;border-color:#4E8845;color:#214D1D}
+.btn.kid-navi:focus-visible{outline:3px solid var(--water);outline-offset:3px}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.kid-navi{background:#223728;color:#D4F2D1;border-color:#72A779}}
+:root[data-theme="dark"] .btn.kid-navi{background:#223728;color:#D4F2D1;border-color:#72A779}
 /* 公式サイトへ：添付の舞岡公園ロゴを画像ボタンとして表示 */
 .maioka-official-logo-link{display:flex;align-items:center;flex-wrap:wrap;gap:8px 16px;width:fit-content;max-width:100%;padding:10px 14px;margin:18px 0 3px;background:#fff;color:#285c29;border:1px solid #83af79;border-radius:8px;text-decoration:none;box-shadow:0 2px 5px rgba(22,56,27,.06);transition:border-color .15s ease,box-shadow .15s ease}
 .maioka-official-logo-link:hover{border-color:#386b37;box-shadow:0 4px 12px rgba(22,56,27,.16)}
@@ -168,6 +173,7 @@ html{scroll-behavior:smooth}
       <a class="btn solid" href="https://www.google.com/maps/search/?api=1&query=%E8%88%9E%E5%B2%A1%E5%85%AC%E5%9C%92" target="_blank" rel="noopener">Googleマップで開く</a>
       <a class="btn" href="https://maps.gsi.go.jp/#16/35.386904/139.547668/&base=std&ls=std&disp=1&vs=c1g1j0h0k0l0u0t0z0r0s0m0f1" target="_blank" rel="noopener">地理院地図で開く</a>
       <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=%E6%88%B8%E5%A1%9A%E9%A7%85&destination=%E8%88%9E%E5%B2%A1%E5%85%AC%E5%9C%92&travelmode=transit" target="_blank" rel="noopener">戸塚駅からの経路</a>
+      <a class="btn kid-navi" href="https://www.kodomo-park-navi.jp/parks/maioka-koen/" target="_blank" rel="noopener noreferrer" aria-label="こども公園ナビの舞岡公園紹介ページを新しいタブで開く">親子のおでかけ情報｜こども公園ナビ ↗</a>
     </div>
   </div>
   <dl class="facts">
