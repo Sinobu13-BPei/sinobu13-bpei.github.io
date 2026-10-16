@@ -99,6 +99,14 @@ td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
 .diagram{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:12px;overflow-x:auto;margin:16px 0}
 .diagram svg{display:block;width:100%;min-width:520px;height:auto}
 
+/* 横浜市公式園内案内図：元画像の比率を保持、スマートフォンに追従 */
+.park-map-figure{margin:16px 0 22px;background:var(--paper);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.park-map-image{display:flex;justify-content:center;align-items:center;min-height:180px;padding:14px;background:#fff;line-height:0}
+.park-map-image img{display:block;width:100%;max-width:500px;height:auto;object-fit:contain}
+.park-map-figure figcaption{padding:12px 14px;font-size:.82rem;line-height:1.7;color:var(--muted)}
+.park-map-figure figcaption a{font-weight:700}
+@media(max-width:480px){.park-map-image{padding:6px}.park-map-figure figcaption{padding:10px 12px}}
+
 .season{border-left:4px solid var(--water);background:var(--paper);padding:12px 16px;border-radius:0 6px 6px 0;margin:0 0 20px}
 .season strong{color:var(--water)}
 
@@ -312,6 +320,13 @@ html{scroll-behavior:smooth}
 <section id="maps">
   <div class="side"><h2>地図リンク集<span class="en">MAPS</span></h2></div>
   <div class="body">
+    <h3>舞岡公園の園内案内図</h3>
+    <figure class="park-map-figure" aria-label="横浜市公式の舞岡公園園内案内図">
+      <a class="park-map-image" href="https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/midori-koen/koen/koen/daihyoteki/maioka.files/maiokamap.pdf" target="_blank" rel="noopener" title="横浜市公式・舞岡公園園内マップのPDFを拡大表示">
+        <img src="https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/midori-koen/koen/koen/daihyoteki/maioka.images/maiokamap.jpg" width="500" height="375" loading="lazy" decoding="async" alt="舞岡公園園内案内図。緑地、散策路、田んぼ、小谷戸の里、池、トイレ、休憩所、バス停などの位置が描かれた横浜市公式マップ。">
+      </a>
+      <figcaption>出典：<a href="https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/midori-koen/koen/koen/daihyoteki/maioka.html" target="_blank" rel="noopener">横浜市「舞岡公園（戸塚区）」</a>。画像をクリックすると文字や細部を拡大できる<a href="https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/midori-koen/koen/koen/daihyoteki/maioka.files/maiokamap.pdf" target="_blank" rel="noopener">公式園内マップPDF</a>が開きます。</figcaption>
+    </figure>
     <h3>国土地理院 地理院地図（公園中心）</h3>
     <p>同じ地点を重ね方を変えて開けます。昔の空中写真と見比べると、周囲が宅地化しても谷戸が残った様子がわかります。</p>
     <div class="btns">
