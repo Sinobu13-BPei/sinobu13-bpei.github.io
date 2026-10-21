@@ -254,6 +254,20 @@ html{scroll-padding-top:67px}body{font-size:14px}.wrap{padding:0 16px}
 .heroLightbox button{position:absolute;right:19px;top:13px;display:grid;place-items:center;border:0;background:#fff;color:#142c4b;font-size:27px;font-weight:900;width:43px;height:43px;border-radius:50%;cursor:pointer}
 @media(max-width:980px){.hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 @media(max-width:720px){.hero{grid-template-columns:1fr;gap:14px}.heroMapFrame{max-width:530px;justify-self:center;padding:0}.heroMapNote{font-size:10px!important}.heroZoomBtn,.heroMapRef{font-size:11px}}
+
+/* Hospital official sites - clickable names */
+a.hospitalOfficial{color:#0f5c93;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px;font-weight:850;overflow-wrap:anywhere}
+a.hospitalOfficial:hover{color:#bd3846;text-decoration-thickness:2px}
+a.hospitalOfficial:focus-visible{outline:3px solid #67b0df;outline-offset:3px;border-radius:3px}
+.fcard h4 a.hospitalOfficial{display:inline;color:#144c7b;line-height:1.55;text-decoration:none;border-bottom:2px solid #83afd0}
+.fcard h4 a.hospitalOfficial:hover{color:#c13f49;border-bottom-color:#c13f49}
+.fcard .links a.officialAction{background:#145080;color:#fff;border-color:#145080}
+.fcard .links a.officialAction:hover{background:#0c3454;color:#fff}
+.officialLinkGuide{font-size:12px;background:#e6f2fd;border:1px solid #c1dced;border-left:4px solid #2c74b3;padding:12px 16px;border-radius:10px;color:#27516e;margin:13px 0}
+.leaflet-popup-content a.hospitalOfficial{font-weight:900;text-decoration:underline;color:#155d91;font-size:14px}
+#dpc .tbl td:nth-child(2){min-width:310px;line-height:2}
+#dpc .tbl td:nth-child(2) a{white-space:normal}
+@media(max-width:720px){.officialLinkGuide{font-size:11px;line-height:1.75}#dpc .tbl td:nth-child(2){min-width:240px}}
 </style></head><body>
 <header><div class="wrap">
 <div class="headtop"><div class="brand"><b>MEDICAL INTELLIGENCE</b> NAGANO / 2026</div><div><a href="#sources">公的出典</a>　·　<a href="#about">このサイトについて</a></div></div>
@@ -381,7 +395,7 @@ html{scroll-padding-top:67px}body{font-size:14px}.wrap{padding:0 16px}
 <div class="mapCardFooter"><a class="primary" href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/kousou.html" target="_blank" rel="noopener">県の地域医療構想 ↗</a><a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/documents/iryokoso03.pdf" target="_blank" rel="noopener">病床数の原典PDF ↗</a></div>
 <div class="mapLabelBox">表示は添付画像そのものではなく、県公開の医療圏地図と公的な病床推計を組み合わせた補助図です。</div></div></article>
 <article class="referenceMapCard"><figure><span class="mapFloatingLabel">MAP 02｜関連病院</span><img loading="lazy" decoding="async" id="medical-map-hospitals" src="https://www.shinshu-u.ac.jp/faculty/medicine/resident/images/about/relation/map-image01.jpg" alt="信州大学医学部附属病院の関連病院配置図。県内の長野、松本、佐久、諏訪、飯田などに関連病院を位置付けた地図"></figure>
-<div class="mapCardBody"><span class="mapSourceBadge">信州大学 卒後臨床研修センター</span><h3>信州大学医学部附属病院・関連病院の配置</h3><p>信州大学を中心に、長野県全体で医師教育と地域医療を支える関連病院を俯瞰。病院名を読む際は図を拡大してください。過去の関連病院一覧と現在の指定・名称には違いが生じる可能性があります。</p>
+<div class="mapCardBody"><span class="mapSourceBadge">信州大学 卒後臨床研修センター</span><h3>信州大学医学部附属病院・関連病院の配置</h3><p>信州大学を中心に、長野県全体で医師教育と地域医療を支える関連病院を俯瞰。病院名を読む際は図を拡大してください。<a href="#geography">下の施設一覧</a>では病院名から各施設の公式ホームページを開けます。なお、静止画像内の文字は個別にクリックできません。過去の関連病院一覧と現在の指定・名称には違いが生じる可能性があります。</p>
 <div class="mapCardFooter"><button type="button" data-zoom="medical-map-hospitals">🔎 地図を拡大</button><a class="primary" href="https://www.shinshu-u.ac.jp/faculty/medicine/resident/about/relation.html" target="_blank" rel="noopener">信州大学公式 ↗</a><a href="https://www.google.com/maps/search/?api=1&query=%E4%BF%A1%E5%B7%9E%E5%A4%A7%E5%AD%A6%E5%8C%BB%E5%AD%A6%E9%83%A8%E9%99%84%E5%B1%9E%E7%97%85%E9%99%A2" target="_blank" rel="noopener">Googleマップ ↗</a></div></div></article>
 <article class="referenceMapCard"><figure><span class="mapFloatingLabel">MAP 03｜医療圏の階層</span><img loading="lazy" decoding="async" src="https://www.pref.nagano.lg.jp/doctor/kenko/ishi/kyujinjoho/images/10kouikiimage.gif" alt="長野県の10二次医療圏を表す県公式の区域図。一次・二次・三次医療の役割の理解に用いる補助図"></figure>
 <div class="mapCardBody"><span class="mapSourceBadge">一次・二次・三次医療の関係</span><h3>医療機能の段階と圏域のつながり</h3>
@@ -402,6 +416,7 @@ html{scroll-padding-top:67px}body{font-size:14px}.wrap{padding:0 16px}
 <div id="map" role="region" aria-label="長野県医療機関の地図"></div><div class="mapControls" role="group" aria-label="地図表示切替"><button type="button" id="mapStandard" aria-pressed="true">🗺 標準地図</button><button type="button" id="mapPale" aria-pressed="false">◻ 淡色地図</button><button type="button" id="mapBubble" aria-pressed="false">◉ 医療圏の人口マーク</button><span class="mapHint">人口マークは各圏域の概略代表点であり、実際の地理的境界ではありません</span></div>
 <div class="mapfoot">国土地理院（電子国土基本図）© 国土地理院。表示ピンは医療圏分析用の近似点。各施設の実住所は地図リンク先で確認してください。</div></div>
 <div class="facilitybar" style="margin-top:23px"><input id="q" type="search" placeholder="施設名・市町村・医療圏で検索（例：佐久、飯田、赤十字）" aria-label="施設検索"><select id="areaSelect" aria-label="医療圏フィルター"><option value="">全医療圏</option></select><span class="pill" id="hits" role="status" aria-live="polite">施設一覧</span></div>
+<p class="officialLinkGuide">🏥 <b>病院名をクリックすると、その病院の公式ホームページが新しいタブで開きます。</b> 地図ピンの施設名もクリック可能です。Googleマップと地理院地図へのリンクは従来どおりご利用いただけます。</p>
 <div class="facilityGrid" id="facilityGrid" aria-live="polite"></div>
 <p class="note">施設名は県計画・医療情報ネット・病院公開資料に基づく調査候補。DPC群・装置年次・購買予定・メーカーは別途確認が必要です。外部地図の掲載情報には更新差があります。</p>
 </section>
@@ -433,20 +448,20 @@ html{scroll-padding-top:67px}body{font-size:14px}.wrap{padding:0 16px}
 
 </section>
 <section id="dpc" class="sect"><div class="sectHead"><div><div class="tag">07 / DPC · EDUCATION</div><h2>DPC病院・信州大学・専門医療機能</h2></div></div>
-<div class="grid two"><div class="card"><span class="ico">🎓</span><h3>信州大学医学部附属病院</h3><div class="big" style="font-size:35px">698<span style="font-size:16px">床</span></div><p>大学病院の公式概要2025–2026では、34診療科・31センター/部門、医師約650名、看護師約800名。医育・研究・広域診療の機能が大きい。</p><a href="https://wwwhp.md.shinshu-u.ac.jp/overview/statistics.html" target="_blank" rel="noopener">病院組織・統計（公式） ↗</a></div><div class="card"><span class="ico">🏥</span><h3>DPC群の分類と注意</h3><p>旧DPCⅠ/Ⅱ/Ⅲ群は現在の「大学病院本院群」「DPC特定病院群」「DPC標準病院群」に対応する枠組み。<b>救命救急センター・病床数・DPC群は別々の概念</b>です。</p><p class="hint">特定・標準病院群の施設別現行区分は令和8年度の厚労省公表資料で照合する必要があり、このサイトでは推測で分類しません。</p></div></div>
+<div class="grid two"><div class="card"><span class="ico">🎓</span><h3><a class="hospitalOfficial" href="https://wwwhp.md.shinshu-u.ac.jp/" target="_blank" rel="noopener noreferrer">信州大学医学部附属病院 ↗</a></h3><div class="big" style="font-size:35px">698<span style="font-size:16px">床</span></div><p>大学病院の公式概要2025–2026では、34診療科・31センター/部門、医師約650名、看護師約800名。医育・研究・広域診療の機能が大きい。</p><a href="https://wwwhp.md.shinshu-u.ac.jp/overview/statistics.html" target="_blank" rel="noopener">病院組織・統計（公式） ↗</a></div><div class="card"><span class="ico">🏥</span><h3>DPC群の分類と注意</h3><p>旧DPCⅠ/Ⅱ/Ⅲ群は現在の「大学病院本院群」「DPC特定病院群」「DPC標準病院群」に対応する枠組み。<b>救命救急センター・病床数・DPC群は別々の概念</b>です。</p><p class="hint">特定・標準病院群の施設別現行区分は令和8年度の厚労省公表資料で照合する必要があり、このサイトでは推測で分類しません。</p></div></div>
 <h3 class="segTitle">基幹病院を中心とした検証の観点</h3>
 <div class="scrollHint" aria-hidden="true">↔ 表は左右にスワイプして確認できます</div><div class="tablewrap" tabindex="0" role="region" aria-label="横スクロール式の比較表"><table class="tbl"><thead><tr><th>エリア</th><th>具体的な施設</th><th>臨床・政策上の着眼点</th><th>優先調査項目</th></tr></thead><tbody>
-<tr><td>松本・安曇野</td><td>信州大学医学部附属病院、相澤病院、まつもと医療センター、安曇野赤十字病院</td><td>医学教育、救命救急、高度診断、地域連携</td><td>研究・教育・装置性能・稼働率</td></tr>
-<tr><td>長野・北信</td><td>長野赤十字病院、長野市民病院、篠ノ井総合病院、北信総合病院、飯山赤十字病院</td><td>急性期機能、がん・循環器、北部の医療アクセス</td><td>救急検査動線、外来機能、保守</td></tr>
-<tr><td>佐久・上小</td><td>佐久医療センター、佐久総合病院、信州上田医療センター、丸子中央病院</td><td>上小→佐久への患者移動、広域の医療機能分担</td><td>紹介先・画像連携・投資計画</td></tr>
-<tr><td>諏訪・上伊那</td><td>諏訪赤十字病院、諏訪中央病院、伊那中央病院、昭和伊南総合病院</td><td>急性期連携、患者流出入、医師不足</td><td>診療科別検査、外来診断、共同利用</td></tr>
-<tr><td>飯伊・木曽・大北</td><td>飯田市立病院、長野県立阿南病院、長野県立木曽病院、市立大町総合病院</td><td>山間地・高齢者急性期・救急搬送・在宅</td><td>診療継続、広域読影、可搬性、修理時間</td></tr>
+<tr><td>松本・安曇野</td><td><a class="hospitalOfficial" href="https://wwwhp.md.shinshu-u.ac.jp/" target="_blank" rel="noopener noreferrer" title="信州大学医学部附属病院の公式ホームページ">信州大学医学部附属病院 ↗</a>、<a class="hospitalOfficial" href="https://aizawahospital.jp/" target="_blank" rel="noopener noreferrer" title="相澤病院の公式ホームページ">相澤病院 ↗</a>、<a class="hospitalOfficial" href="https://mmccenta.jp/" target="_blank" rel="noopener noreferrer" title="まつもと医療センターの公式ホームページ">まつもと医療センター ↗</a>、<a class="hospitalOfficial" href="https://www.azumino.jrc.or.jp/" target="_blank" rel="noopener noreferrer" title="安曇野赤十字病院の公式ホームページ">安曇野赤十字病院 ↗</a></td><td>医学教育、救命救急、高度診断、地域連携</td><td>研究・教育・装置性能・稼働率</td></tr>
+<tr><td>長野・北信</td><td><a class="hospitalOfficial" href="https://www.nagano-med.jrc.or.jp/" target="_blank" rel="noopener noreferrer" title="長野赤十字病院の公式ホームページ">長野赤十字病院 ↗</a>、<a class="hospitalOfficial" href="https://www.hospital.nagano.nagano.jp/" target="_blank" rel="noopener noreferrer" title="長野市民病院の公式ホームページ">長野市民病院 ↗</a>、<a class="hospitalOfficial" href="https://shinonoi-ghp.jp/" target="_blank" rel="noopener noreferrer" title="篠ノ井総合病院の公式ホームページ">篠ノ井総合病院 ↗</a>、<a class="hospitalOfficial" href="https://www.hokushin-hosp.jp/" target="_blank" rel="noopener noreferrer" title="北信総合病院の公式ホームページ">北信総合病院 ↗</a>、<a class="hospitalOfficial" href="https://www.iiyama.jrc.or.jp/" target="_blank" rel="noopener noreferrer" title="飯山赤十字病院の公式ホームページ">飯山赤十字病院 ↗</a></td><td>急性期機能、がん・循環器、北部の医療アクセス</td><td>救急検査動線、外来機能、保守</td></tr>
+<tr><td>佐久・上小</td><td><a class="hospitalOfficial" href="https://www.sakuhp.or.jp/center/" target="_blank" rel="noopener noreferrer" title="佐久医療センターの公式ホームページ">佐久医療センター ↗</a>、<a class="hospitalOfficial" href="https://www.sakuhp.or.jp/" target="_blank" rel="noopener noreferrer" title="佐久総合病院の公式ホームページ">佐久総合病院 ↗</a>、<a class="hospitalOfficial" href="https://shinshuueda.hosp.go.jp/" target="_blank" rel="noopener noreferrer" title="信州上田医療センターの公式ホームページ">信州上田医療センター ↗</a>、<a class="hospitalOfficial" href="https://maruko-hp.jp/" target="_blank" rel="noopener noreferrer" title="丸子中央病院の公式ホームページ">丸子中央病院 ↗</a></td><td>上小→佐久への患者移動、広域の医療機能分担</td><td>紹介先・画像連携・投資計画</td></tr>
+<tr><td>諏訪・上伊那</td><td><a class="hospitalOfficial" href="https://www.suwa.jrc.or.jp/" target="_blank" rel="noopener noreferrer" title="諏訪赤十字病院の公式ホームページ">諏訪赤十字病院 ↗</a>、<a class="hospitalOfficial" href="https://www.suwachuo.jp/" target="_blank" rel="noopener noreferrer" title="諏訪中央病院の公式ホームページ">諏訪中央病院 ↗</a>、<a class="hospitalOfficial" href="https://www.inahp.jp/" target="_blank" rel="noopener noreferrer" title="伊那中央病院の公式ホームページ">伊那中央病院 ↗</a>、<a class="hospitalOfficial" href="https://sihp.jp/" target="_blank" rel="noopener noreferrer" title="昭和伊南総合病院の公式ホームページ">昭和伊南総合病院 ↗</a></td><td>急性期連携、患者流出入、医師不足</td><td>診療科別検査、外来診断、共同利用</td></tr>
+<tr><td>飯伊・木曽・大北</td><td><a class="hospitalOfficial" href="https://imh.jp/" target="_blank" rel="noopener noreferrer" title="飯田市立病院の公式ホームページ">飯田市立病院 ↗</a>、<a class="hospitalOfficial" href="https://anan-hosp.jp/" target="_blank" rel="noopener noreferrer" title="長野県立阿南病院の公式ホームページ">長野県立阿南病院 ↗</a>、<a class="hospitalOfficial" href="https://kiso-hosp.jp/" target="_blank" rel="noopener noreferrer" title="長野県立木曽病院の公式ホームページ">長野県立木曽病院 ↗</a>、<a class="hospitalOfficial" href="https://www.omachi-hospital.jp/" target="_blank" rel="noopener noreferrer" title="市立大町総合病院の公式ホームページ">市立大町総合病院 ↗</a></td><td>山間地・高齢者急性期・救急搬送・在宅</td><td>診療継続、広域読影、可搬性、修理時間</td></tr>
 </tbody></table></div>
 
 <div class="vizTitle"><span class="vizNum">07</span>病院機能の階層と検査連携 <span class="vizSub">病床規模やDPC群を独断で序列化しない</span></div>
 <div class="vizBox"><div class="vizRibbon">
-<div><span style="font-size:32px">🎓</span><strong>大学病院本院</strong><span>信州大学医学部附属病院<br>教育・研究・高度診療</span></div>
-<div><span style="font-size:32px">🏥</span><strong>高度急性期・地域拠点</strong><span>長野赤十字・相澤・佐久医療センターなど</span></div>
+<div><span style="font-size:32px">🎓</span><strong>大学病院本院</strong><span><a class="hospitalOfficial" href="https://wwwhp.md.shinshu-u.ac.jp/" target="_blank" rel="noopener noreferrer">信州大学医学部附属病院 ↗</a><br>教育・研究・高度診療</span></div>
+<div><span style="font-size:32px">🏥</span><strong>高度急性期・地域拠点</strong><span><a class="hospitalOfficial" href="https://www.nagano-med.jrc.or.jp/" target="_blank" rel="noopener noreferrer">長野赤十字病院 ↗</a>・<a class="hospitalOfficial" href="https://aizawahospital.jp/" target="_blank" rel="noopener noreferrer">相澤病院 ↗</a>・<a class="hospitalOfficial" href="https://www.sakuhp.or.jp/center/" target="_blank" rel="noopener noreferrer">佐久医療センター ↗</a>など</span></div>
 <div><span style="font-size:32px">🚑</span><strong>地域中核・一般病院</strong><span>救急・専門検査・入院・慢性期を機能別に評価</span></div>
 <div><span style="font-size:32px">🩺</span><strong>診療所・在宅</strong><span>外来診断・紹介・経過観察・訪問診療</span></div>
 </div><div class="vizCaption">施設例は医療提供機能の模式的なグルーピングです。DPCの大学病院本院群・特定病院群・標準病院群について、個別施設の2026年度分類を示す図ではありません。</div></div>
@@ -616,36 +631,36 @@ var areas=[
 ["北信","北信",76040,61018,38.3,3,209,7,36.76,138.38]
 ];
 var locations=[
-["信州大学医学部附属病院","松本","松本市",36.252,137.974,"大学病院／高度診療／医学教育"],
-["相澤病院","松本","松本市",36.225,137.980,"急性期・広域連携の重要病院"],
-["まつもと医療センター","松本","松本市",36.204,137.961,"地域診療・紹介連携"],
-["安曇野赤十字病院","松本","安曇野市",36.303,137.906,"地域急性期・救急"],
-["長野県立こども病院","松本","安曇野市",36.327,137.894,"小児・周産期専門"],
-["松本協立病院","松本","松本市",36.236,137.972,"地域外来・入院"],
-["丸の内病院","松本","松本市",36.260,137.967,"地域急性期・専門診療"],
-["松本市立病院","松本","松本市",36.215,137.914,"市立病院・地域医療"],
-["長野赤十字病院","長野","長野市",36.627,138.193,"急性期・救急・広域医療"],
-["長野市民病院","長野","長野市",36.676,138.224,"がん・地域急性期"],
-["篠ノ井総合病院","長野","長野市",36.574,138.138,"地域中核"],
-["長野松代総合病院","長野","長野市",36.559,138.201,"地域中核"],
-["佐久医療センター","佐久","佐久市",36.226,138.482,"高度急性期・東信の拠点"],
-["佐久総合病院","佐久","佐久市",36.171,138.483,"地域医療・総合診療"],
-["浅間南麓こもろ医療センター","佐久","小諸市",36.324,138.421,"東信地域急性期"],
-["浅間総合病院","佐久","佐久市",36.272,138.467,"市立・地域病院"],
-["信州上田医療センター","上小","上田市",36.401,138.248,"上小地域の急性期"],
-["丸子中央病院","上小","上田市",36.347,138.284,"地域外来・入院"],
-["諏訪赤十字病院","諏訪","諏訪市",36.034,138.111,"南信・急性期重要病院"],
-["諏訪中央病院","諏訪","茅野市",35.993,138.174,"在宅・地域連携"],
-["岡谷市民病院","諏訪","岡谷市",36.069,138.052,"諏訪圏地域中核"],
-["伊那中央病院","上伊那","伊那市",35.842,137.957,"上伊那の中核"],
-["昭和伊南総合病院","上伊那","駒ヶ根市",35.723,137.932,"上伊那南部地域"],
-["飯田市立病院","飯伊","飯田市",35.509,137.820,"南信州中核・急性期"],
-["長野県立阿南病院","飯伊","阿南町",35.321,137.816,"南信州山間地域医療"],
-["長野県立木曽病院","木曽","木曽町",35.847,137.697,"木曽地域中核"],
-["市立大町総合病院","大北","大町市",36.501,137.853,"大北の地域中核"],
-["北アルプス医療センターあづみ病院","大北","池田町",36.422,137.879,"大北・安曇野連携"],
-["北信総合病院","北信","中野市",36.743,138.367,"北信地域中核"],
-["飯山赤十字病院","北信","飯山市",36.852,138.365,"北信北部の急性期"]
+["信州大学医学部附属病院","松本","松本市",36.252,137.974,"大学病院／高度診療／医学教育","https://wwwhp.md.shinshu-u.ac.jp/"],
+["相澤病院","松本","松本市",36.225,137.98,"急性期・広域連携の重要病院","https://aizawahospital.jp/"],
+["まつもと医療センター","松本","松本市",36.204,137.961,"地域診療・紹介連携","https://mmccenta.jp/"],
+["安曇野赤十字病院","松本","安曇野市",36.303,137.906,"地域急性期・救急","https://www.azumino.jrc.or.jp/"],
+["長野県立こども病院","松本","安曇野市",36.327,137.894,"小児・周産期専門","https://nagano-child.jp/"],
+["松本協立病院","松本","松本市",36.236,137.972,"地域外来・入院","https://www.chushin-miniren.gr.jp/"],
+["丸の内病院","松本","松本市",36.26,137.967,"地域急性期・専門診療","https://www.marunouchi.or.jp/"],
+["松本市立病院","松本","松本市",36.215,137.914,"市立病院・地域医療","https://www.mt-hsp.jp/"],
+["長野赤十字病院","長野","長野市",36.627,138.193,"急性期・救急・広域医療","https://www.nagano-med.jrc.or.jp/"],
+["長野市民病院","長野","長野市",36.676,138.224,"がん・地域急性期","https://www.hospital.nagano.nagano.jp/"],
+["篠ノ井総合病院","長野","長野市",36.574,138.138,"地域中核","https://shinonoi-ghp.jp/"],
+["長野松代総合病院","長野","長野市",36.559,138.201,"地域中核","https://www.nagano-matsushiro.or.jp/"],
+["佐久医療センター","佐久","佐久市",36.226,138.482,"高度急性期・東信の拠点","https://www.sakuhp.or.jp/center/"],
+["佐久総合病院","佐久","佐久市",36.171,138.483,"地域医療・総合診療","https://www.sakuhp.or.jp/"],
+["浅間南麓こもろ医療センター","佐久","小諸市",36.324,138.421,"東信地域急性期","https://komoro-mc.com/"],
+["浅間総合病院","佐久","佐久市",36.272,138.467,"市立・地域病院","https://www.asamaghp.jp/"],
+["信州上田医療センター","上小","上田市",36.401,138.248,"上小地域の急性期","https://shinshuueda.hosp.go.jp/"],
+["丸子中央病院","上小","上田市",36.347,138.284,"地域外来・入院","https://maruko-hp.jp/"],
+["諏訪赤十字病院","諏訪","諏訪市",36.034,138.111,"南信・急性期重要病院","https://www.suwa.jrc.or.jp/"],
+["諏訪中央病院","諏訪","茅野市",35.993,138.174,"在宅・地域連携","https://www.suwachuo.jp/"],
+["岡谷市民病院","諏訪","岡谷市",36.069,138.052,"諏訪圏地域中核","https://www.okaya-hosp.jp/"],
+["伊那中央病院","上伊那","伊那市",35.842,137.957,"上伊那の中核","https://www.inahp.jp/"],
+["昭和伊南総合病院","上伊那","駒ヶ根市",35.723,137.932,"上伊那南部地域","https://sihp.jp/"],
+["飯田市立病院","飯伊","飯田市",35.509,137.82,"南信州中核・急性期","https://imh.jp/"],
+["長野県立阿南病院","飯伊","阿南町",35.321,137.816,"南信州山間地域医療","https://anan-hosp.jp/"],
+["長野県立木曽病院","木曽","木曽町",35.847,137.697,"木曽地域中核","https://kiso-hosp.jp/"],
+["市立大町総合病院","大北","大町市",36.501,137.853,"大北の地域中核","https://www.omachi-hospital.jp/"],
+["北アルプス医療センターあづみ病院","大北","池田町",36.422,137.879,"大北・安曇野連携","https://www.azumi-ghp.jp/"],
+["北信総合病院","北信","中野市",36.743,138.367,"北信地域中核","https://www.hokushin-hosp.jp/"],
+["飯山赤十字病院","北信","飯山市",36.852,138.365,"北信北部の急性期","https://www.iiyama.jrc.or.jp/"]
 ];
 function fmt(n){return Math.round(n).toLocaleString("ja-JP")}function mapurl(n){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(n+" 長野県")}function gsiurl(lat,lng){return "https://maps.gsi.go.jp/#13/"+lat.toFixed(4)+"/"+lng.toFixed(4)+"/&base=std&ls=std&disp=1";}
 function safe(s){var t=document.createElement("span");t.textContent=s;return t.innerHTML;}
@@ -702,7 +717,7 @@ function cards(){
 var q=document.getElementById("q").value.trim().toLowerCase(),a=select.value;
 var dat=locations.filter(function(x){return (!a||x[1]===a)&&(!q||(x[0]+" "+x[1]+" "+x[2]+" "+x[5]).toLowerCase().includes(q))});
 document.getElementById("hits").textContent=dat.length+"件 / "+locations.length+"施設";
-document.getElementById("facilityGrid").innerHTML=dat.map(function(x){return '<article class="fcard"><h4>🏥 '+safe(x[0])+'</h4><div class="sub"><span class="pill">'+x[1]+'医療圏</span>　'+x[2]+'</div><div style="font-size:12px;color:#516b80;margin-bottom:10px">'+x[5]+'</div><div class="links"><a href="'+mapurl(x[0])+'" target="_blank" rel="noopener">📍 Googleマップ ↗</a><a href="'+gsiurl(x[3],x[4])+'" target="_blank" rel="noopener">⛰ 地理院地図 ↗</a></div></article>'}).join("")||'<p>該当する施設はありません。</p>';
+document.getElementById("facilityGrid").innerHTML=dat.map(function(x){return '<article class="fcard"><h4>🏥 <a class="hospitalOfficial" href="'+x[6]+'" target="_blank" rel="noopener noreferrer" title="公式ホームページを開く">'+safe(x[0])+' <span aria-hidden="true">↗</span></a></h4><div class="sub"><span class="pill">'+x[1]+'医療圏</span>　'+x[2]+'</div><div style="font-size:12px;color:#516b80;margin-bottom:10px">'+x[5]+'</div><div class="links"><a class="officialAction" href="'+x[6]+'" target="_blank" rel="noopener noreferrer">🏥 公式ホームページ ↗</a><a href="'+mapurl(x[0])+'" target="_blank" rel="noopener">📍 Googleマップ ↗</a><a href="'+gsiurl(x[3],x[4])+'" target="_blank" rel="noopener">⛰ 地理院地図 ↗</a></div></article>'}).join("")||'<p>該当する施設はありません。</p>';
 }
 document.getElementById("q").addEventListener("input",cards);select.addEventListener("change",cards);cards();
 var menuBtn=document.getElementById("mobileNavToggle"),navRoot=document.querySelector(".navwrap");
@@ -725,7 +740,7 @@ function setTile(mode){if(mode==="pale"){mp.removeLayer(standardLayer);paleLayer
 standardButton.addEventListener("click",function(){setTile("std")});paleButton.addEventListener("click",function(){setTile("pale")});
 bubbleButton.addEventListener("click",function(){var on=bubbleButton.getAttribute("aria-pressed")==="true";if(on){mp.removeLayer(regionLayer)}else{regionLayer.addTo(mp)}bubbleButton.setAttribute("aria-pressed",String(!on));});
 
-var icons={};locations.forEach(function(x){var marker=L.circleMarker([x[3],x[4]],{radius:7,color:"#fff",weight:2,fillColor:x[1]==="長野"?"#dc514e":x[1]==="松本"?"#e3a949":"#2c77b5",fillOpacity:.93}).addTo(mp);marker.bindPopup('<b>'+safe(x[0])+'</b><br>'+x[1]+'医療圏・'+x[2]+'<br><a href="'+mapurl(x[0])+'" target="_blank" rel="noopener">Googleマップで実際の場所を確認 ↗</a>');});
+var icons={};locations.forEach(function(x){var marker=L.circleMarker([x[3],x[4]],{radius:7,color:"#fff",weight:2,fillColor:x[1]==="長野"?"#dc514e":x[1]==="松本"?"#e3a949":"#2c77b5",fillOpacity:.93}).addTo(mp);marker.bindPopup('<b><a class="hospitalOfficial" href="'+x[6]+'" target="_blank" rel="noopener noreferrer">'+safe(x[0])+' ↗</a></b><br>'+x[1]+'医療圏・'+x[2]+'<br><a href="'+mapurl(x[0])+'" target="_blank" rel="noopener">Googleマップで実際の場所を確認 ↗</a>');});
 }else{m.innerHTML='<div style="padding:40px;text-align:center">地図タイルを表示できません。下の施設一覧からGoogleマップ・地理院地図へ移動できます。</div>';}
 })();
 
