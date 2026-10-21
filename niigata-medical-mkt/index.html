@@ -85,6 +85,19 @@ html{scroll-padding-top:105px}body{overflow-x:clip;overflow-wrap:break-word;line
 .map-source-actions{flex-direction:column;gap:7px}
 }
 @media(max-width:350px){.geo-legend{grid-template-columns:1fr}}
+
+/* Final polish: avoid labels blocking region links, keep long source titles and mobile content contained */
+#map .geo-labels{pointer-events:none}
+#map .geo-regions,#map .geo-hubs{isolation:isolate}
+#map .geo-region:focus-visible{outline:none}
+#map .geo-region:focus-visible path{stroke:#05283f;stroke-width:3}
+#map .geo-label-bg{pointer-events:none}
+#map .geo-hub:focus-visible circle{stroke:#1b2745;stroke-width:3}
+.map-layout,.map-box,.map-side,.sec,.chart-pane{min-width:0}
+.map-overlay select,.view-switch select{max-width:100%}
+.src a,.area-card p,.map-caption{overflow-wrap:anywhere;word-break:normal;line-break:strict}
+.tblwrap{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+@media(max-width:690px){.map-side .card{min-width:0}.map-layout .map-box{min-width:0}.geo-legend-item{overflow:hidden}.geo-legend-item small{font-variant-numeric:tabular-nums}}
 </style></head><body>
 <nav class="nav"><div class="container nav-inner"><a class="brand" href="#top">新潟の医療<i>MKT</i></a><div class="nav-links"><a href="#overview">全体像</a><a href="#mapsec">GIS地図</a><a href="#demography">人口</a><a href="#market">CT・MRI</a><a href="#areas">7医療圏</a><a href="#medical">医師・DPC</a><a href="#institutions">大学・厚生連</a><a href="#policy">医療政策</a><a href="#execution">市場構造</a><a href="#update2026">2026追加調査</a><a href="#sources">出典</a></div></div></nav>
 <header class="hero" id="top"><div class="container hero-main"><div><div class="eyebrow">NIIGATA MEDICAL GEOPOLITICS / 2026</div><h1>新潟の医療MKT</h1><p>山地・河川・豪雪・道路、7つの二次医療圏、新潟大学・医師偏在・県立病院とJA厚生連、2030／2040年人口・在宅需要、CT・MRI既設市場。新潟の医療を「地理×政策×人材×装置」で解剖する公開研究。</p><p class="meta">調査基準：2026年10月21日　｜　編纂：高橋貞吉（柏崎・畔屋）</p><div class="hero-controls"><a class="btn gold" href="#mapsec">🗺️ 地図と病院を見る</a><a class="btn outline" href="#market">▣ CT・MRI市場</a><a class="btn outline" href="#sources">↗ 公式出典</a></div></div><svg class="hero-symbol" viewBox="0 0 480 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="新潟の地形と医療圏を表すイメージ図"><defs><linearGradient id="sea" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0089a3"/><stop offset="1" stop-color="#064d78"/></linearGradient></defs><rect x="10" y="10" width="460" height="290" rx="20" fill="#ffffff0b" stroke="#ffffff38"/><path d="M10 220Q60 185 101 205T196 183T295 204T470 170V300H10Z" fill="url(#sea)" opacity=".6"/><path d="M20 187L85 129 133 166 195 70 244 125 288 88 341 139 399 65 460 147V260H20Z" fill="#4c91a7" opacity=".55"/><path d="M20 209L78 160 130 186 191 100 235 156 298 129 349 158 409 111 460 165V278H20Z" fill="#75b2bb" opacity=".48"/><path d="M53 247Q110 198 173 241T304 221T432 249" fill="none" stroke="#9edbea" stroke-width="6" stroke-linecap="round"/><path d="M86 195Q175 235 243 192T404 212" fill="none" stroke="#ffe3a4" stroke-width="6" stroke-dasharray="8 10" stroke-linecap="round"/><g fill="#fff" stroke="#6ad4da" stroke-width="4"><circle cx="94" cy="195" r="10"/><circle cx="167" cy="221" r="10"/><circle cx="232" cy="200" r="10"/><circle cx="300" cy="205" r="10"/><circle cx="385" cy="210" r="10"/></g><path d="M380 28h45v42h-45z" fill="#ffffff29" stroke="#93dce8"/><path d="M390 48h25M402 36v25" stroke="#fff" stroke-width="5"/><text x="35" y="43" fill="#e3f8ff" font-size="14" font-weight="700">JAPAN SEA / MOUNTAINS / HEALTHCARE</text><text x="24" y="283" fill="#d1e6f3" font-size="12">地形・交通・医療機能の重なりを可視化する</text></svg></div></header>
