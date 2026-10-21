@@ -105,8 +105,6 @@ function draw(){
       naganoLink.textContent='長野MKT ↗';
       actions.appendChild(naganoLink);
     }
-    let a=document.createElement('a');a.href=googleMapsUrl(p[0]);a.target='_blank';a.rel='noopener';a.className='google-map-btn';a.textContent='Google Maps ↗';
-    actions.appendChild(a);
     if(p[0]==='静岡県'){
       let shizuokaLink=document.createElement('a');
       shizuokaLink.href='https://sinobu13-bpei.github.io/shizuoka-medical-atlas/';
@@ -116,6 +114,8 @@ function draw(){
       shizuokaLink.textContent='静岡MKT ↗';
       actions.appendChild(shizuokaLink);
     }
+    let a=document.createElement('a');a.href=googleMapsUrl(p[0]);a.target='_blank';a.rel='noopener';a.className='google-map-btn';a.textContent='Google Maps ↗';
+    actions.appendChild(a);
     row.append(title,actions);
     row.addEventListener('click',e=>{if(e.target.closest('a'))return;pref.value=p[0];if(map)map.setView([p[1],p[2]],9)});
     list.appendChild(row)
