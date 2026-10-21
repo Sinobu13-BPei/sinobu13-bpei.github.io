@@ -513,6 +513,7 @@ function refresh(){
    link.textContent=name+' ↗';link.className='hospital-official-name'+(official?'':' hospital-site-search');
    link.target='_blank';link.rel='noopener noreferrer';
    link.title=official?'確認済みの病院公式ホームページ':'公式サイト未確認のため検索ページへ移動';
+   b.replaceWith(wrap);
    wrap.append(link,b);
    const detail=b.querySelector('small');
    if(detail)wrap.append(detail);
