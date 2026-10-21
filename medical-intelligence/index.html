@@ -50,11 +50,8 @@ function draw(){
       riznoLink.textContent='リズノ・ワンに問合せ ↗';
       actions.appendChild(riznoLink);
     }
-    let a=document.createElement('a');a.href=googleMapsUrl(p[0]);a.target='_blank';a.rel='noopener';a.className='google-map-btn';a.textContent='Google Maps ↗';
-    actions.appendChild(a);
-    let shizuokaLink=null;
     if(p[0]==='静岡県'){
-      shizuokaLink=document.createElement('a');
+      let shizuokaLink=document.createElement('a');
       shizuokaLink.href='https://sinobu13-bpei.github.io/shizuoka-medical-atlas/';
       shizuokaLink.target='_blank';
       shizuokaLink.rel='noopener';
@@ -62,6 +59,8 @@ function draw(){
       shizuokaLink.textContent='静岡MKT ↗';
       actions.appendChild(shizuokaLink);
     }
+    let a=document.createElement('a');a.href=googleMapsUrl(p[0]);a.target='_blank';a.rel='noopener';a.className='google-map-btn';a.textContent='Google Maps ↗';
+    actions.appendChild(a);
     row.append(title,actions);
     row.addEventListener('click',e=>{if(e.target.closest('a'))return;pref.value=p[0];if(map)map.setView([p[1],p[2]],9)});
     list.appendChild(row)
