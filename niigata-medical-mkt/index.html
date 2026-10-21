@@ -112,6 +112,108 @@ html,body{overflow-x:clip}body{overflow-wrap:anywhere}svg{max-width:100%}
 .map-directory-details[open] summary{margin-bottom:12px}.map-directory-details summary{cursor:pointer;font-size:14px;font-weight:900;padding:13px 16px;min-height:44px}
 @media(max-width:700px){.map-directory{grid-template-columns:1fr}.map-directory .hospital-row{padding:12px}.map-directory .hospital-name{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.geo-hub circle{transition:none}}
+
+/* 2026-10-22 出典欄の高密度・コンパクト表示: 余白と不要な改行を削減 */
+#sources .sourcegrid {
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:10px;
+}
+#sources .source-category {
+  min-width:0;
+  padding:12px 14px 14px;
+  border-radius:12px;
+  background:#f7fafc;
+  border:1px solid #d8e5ef;
+}
+#sources .source-category h3 {
+  margin:0 0 9px!important;
+  padding:0!important;
+  line-height:1.35;
+  font-size:15px!important;
+}
+#sources .source-category-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;
+  align-items:stretch;
+}
+#sources .src {
+  box-sizing:border-box;
+  min-width:0;
+  min-height:57px;
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  padding:9px 11px;
+  background:#fff;
+  border:1px solid #dbe5ec;
+  border-radius:9px;
+  overflow-wrap:anywhere;
+  box-shadow:none;
+}
+#sources .src .tag {
+  display:inline-flex;
+  flex:0 0 auto;
+  align-self:flex-start;
+  margin:2px 0 0;
+  padding:3px 6px;
+  border-radius:5px;
+  font-size:10px;
+  line-height:1.25;
+  letter-spacing:0;
+  white-space:nowrap;
+}
+#sources .source-item-copy {
+  min-width:0;
+  flex:1 1 auto;
+}
+#sources .source-item-copy a {
+  display:inline;
+  color:#085d99;
+  font-size:12.5px;
+  font-weight:800;
+  line-height:1.35;
+  text-decoration:none;
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+#sources .source-item-copy a:hover {
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+#sources .source-item-copy small {
+  display:block;
+  margin-top:2px;
+  color:#607387;
+  font-size:11px;
+  line-height:1.35;
+  overflow-wrap:anywhere;
+}
+#sources .disclaimer {
+  padding:11px 13px;
+  font-size:11.5px;
+  line-height:1.55;
+}
+#sources > p {
+  margin:0 0 12px;
+}
+#sources > h3 {
+  margin:16px 0 8px;
+}
+@media (max-width:1120px) {
+  #sources .source-category-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:700px) {
+  #sources .sourcegrid { gap:9px; }
+  #sources .source-category { padding:10px; }
+  #sources .source-category h3 { margin-bottom:7px!important; font-size:14px!important; }
+  #sources .source-category-grid { grid-template-columns:minmax(0,1fr); gap:6px; }
+  #sources .src { min-height:49px; gap:8px; padding:8px 9px; }
+  #sources .source-item-copy a { font-size:12px; }
+  #sources .source-item-copy small { font-size:10.5px; }
+}
+
 </style></head><body>
 <nav class="nav"><div class="container nav-inner"><a class="brand" href="#top">新潟の医療<i>MKT</i></a><div class="nav-links"><a href="#overview">全体像</a><a href="#mapsec">GIS地図</a><a href="#demography">人口</a><a href="#market">CT・MRI</a><a href="#areas">7医療圏</a><a href="#medical">医師・DPC</a><a href="#institutions">大学・厚生連</a><a href="#policy">医療政策</a><a href="#execution">市場構造</a><a href="#sources">出典</a></div></div></nav>
 <header class="hero" id="top"><div class="container hero-main"><div><div class="eyebrow">NIIGATA MEDICAL GEOPOLITICS / 2026</div><h1>新潟の医療MKT</h1><p>山地・河川・豪雪・道路、7つの二次医療圏、新潟大学・医師偏在・県立病院とJA厚生連、2030／2040年人口・在宅需要、CT・MRI既設市場。新潟の医療を「地理×政策×人材×装置」で解剖する公開研究。</p><p class="meta">調査基準：2026年10月21日　｜　編纂：高橋貞吉（柏崎・畔屋）</p><div class="hero-controls"><a class="btn gold" href="#mapsec">🗺️ 地図と病院を見る</a><a class="btn outline" href="#market">▣ CT・MRI市場</a><a class="btn outline" href="#sources">↗ 公式出典</a></div></div><svg class="hero-symbol" viewBox="0 0 480 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="新潟の地形と医療圏を表すイメージ図"><defs><linearGradient id="sea" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0089a3"/><stop offset="1" stop-color="#064d78"/></linearGradient></defs><rect x="10" y="10" width="460" height="290" rx="20" fill="#ffffff0b" stroke="#ffffff38"/><path d="M10 220Q60 185 101 205T196 183T295 204T470 170V300H10Z" fill="url(#sea)" opacity=".6"/><path d="M20 187L85 129 133 166 195 70 244 125 288 88 341 139 399 65 460 147V260H20Z" fill="#4c91a7" opacity=".55"/><path d="M20 209L78 160 130 186 191 100 235 156 298 129 349 158 409 111 460 165V278H20Z" fill="#75b2bb" opacity=".48"/><path d="M53 247Q110 198 173 241T304 221T432 249" fill="none" stroke="#9edbea" stroke-width="6" stroke-linecap="round"/><path d="M86 195Q175 235 243 192T404 212" fill="none" stroke="#ffe3a4" stroke-width="6" stroke-dasharray="8 10" stroke-linecap="round"/><g fill="#fff" stroke="#6ad4da" stroke-width="4"><circle cx="94" cy="195" r="10"/><circle cx="167" cy="221" r="10"/><circle cx="232" cy="200" r="10"/><circle cx="300" cy="205" r="10"/><circle cx="385" cy="210" r="10"/></g><path d="M380 28h45v42h-45z" fill="#ffffff29" stroke="#93dce8"/><path d="M390 48h25M402 36v25" stroke="#fff" stroke-width="5"/><text x="35" y="43" fill="#e3f8ff" font-size="14" font-weight="700">JAPAN SEA / MOUNTAINS / HEALTHCARE</text><text x="24" y="283" fill="#d1e6f3" font-size="12">地形・交通・医療機能の重なりを可視化する</text></svg></div></header>
@@ -159,7 +261,7 @@ el('specDoctor').innerHTML=`<div class="chart-title">診療科別 医療施設�
 el('jaRows').innerHTML=A.map(a=>`<tr><td><b>${a.name}</b></td><td class="n">${a.ja.length}</td><td>${a.ja.length?a.ja.map(x=>`${homeLink(x)} <a class="map-mini" target="_blank" rel="noopener noreferrer" href="${google('新潟県 '+x)}">地図 ↗</a>`).join('<span class="hospital-sep">・</span>'):'該当なし'}</td><td>${esc(a.policy)}</td></tr>`).join('');
 el('areaCards').innerHTML=A.map((a,i)=>{let dec=(a.p2040/a.p2020-1)*100;return `<article class="area-card" id="area-${i+1}" style="border-top-color:${['#2876ad','#12506e','#167d86','#5576a1','#268c72','#836c9c','#ab7443'][i]}"><div class="tag">150${i+1} / ${esc(a.type)}</div><h3>${esc(a.name)}医療圏</h3><p class="tiny muted">${esc(a.city)}</p><div class="metrics"><div class="metric"><small>2040年人口</small><b>${(a.p2040/10000).toFixed(1)}万</b></div><div class="metric"><small>2020年比</small><b>${pct(dec)}</b></div><div class="metric"><small>医師偏在</small><b>${a.index}</b></div></div><dl><dt>地形・山地</dt><dd>${esc(a.mount)}</dd><dt>河川</dt><dd>${esc(a.river)}</dd><dt>道路／航路</dt><dd>${esc(a.road)}</dd><dt>大学・拠点</dt><dd>${esc(a.univ)}</dd><dt>政策テーマ</dt><dd>${esc(a.policy)}</dd><dt>在宅算定</dt><dd>2020 ${yen(a.v2020)}→2040 ${yen(a.v2040)} 回/月（推計）</dd><dt>画像既設</dt><dd>CT <b>${a.ct}台</b> ／ MRI <b>${a.mri}台</b>（添付Atlas）</dd><dt>DPC症例比</dt><dd>${a.dpc}%（2023年度：施設所在地/患者住所地）</dd><dt>JA厚生連</dt><dd>${a.ja.length}病院</dd></dl><div class="action"><b>市場分析仮説：</b> ${esc(a.strategy)}</div><div class="links"><a class="smalllink" target="_blank" rel="noopener" href="${google('新潟県 '+a.city.split('／')[0]+' 病院')}">Googleマップ ↗</a><a class="smalllink" target="_blank" rel="noopener" href="${gsi(a.lat,a.lon,11)}">地理院地図 ↗</a></div></article>`}).join('');
 const categories=[['人口・統計',[0,1,10,11]],['医療計画・再編政策',[2,3,4,5,6,7]],['大学・厚生連・医師配置',[8,9,14,17]],['地理・医療圏・地域分析',[12,13,15,16]]];
-const used=new Set();const sourceGroup=(title,nums)=>{const ids=nums.filter(i=>i<D.sources.length&&!used.has(i));ids.forEach(i=>used.add(i));return `<div class="source-category"><h3>${esc(title)}（${ids.length}件）</h3><div class="source-category-grid">`+ids.map(i=>{const [name,url,reason]=D.sources[i];return `<div class="src"><span class="tag">出典 ${String(i+1).padStart(2,'0')}</span><br><a target="_blank" rel="noopener noreferrer" href="${esc(url)}">${esc(name)} ↗</a><small>${esc(reason)}</small></div>`}).join('')+'</div></div>'};
+const used=new Set();const sourceGroup=(title,nums)=>{const ids=nums.filter(i=>i<D.sources.length&&!used.has(i));ids.forEach(i=>used.add(i));return `<div class="source-category"><h3>${esc(title)}（${ids.length}件）</h3><div class="source-category-grid">`+ids.map(i=>{const [name,url,reason]=D.sources[i];return `<div class="src"><span class="tag">出典 ${String(i+1).padStart(2,'0')}</span><div class="source-item-copy"><a target="_blank" rel="noopener noreferrer" href="${esc(url)}">${esc(name)} ↗</a><small>${esc(reason)}</small></div></div>`}).join('')+'</div></div>'};
 el('sourceGrid').innerHTML=categories.map(([title,nums])=>sourceGroup(title,nums)).join('')+(used.size<D.sources.length?sourceGroup('その他の参考資料',D.sources.map((_,i)=>i)):'');
 let mode='CT';const makerColor={'CMSC':'#b83f56','GE':'#2f8f78','Philips':'#6572b3','Siemens':'#297fb2','富士':'#c39a46','未帰属':'#b0bdc9'};
 function marketRender(){const area=el('marketArea').value;const subset=area==='all'?A:A.filter(a=>a.name===area);let d={maker:{},spec:{},units:0};for(let a of subset){let prefix=mode==='CT'?'ct':'mri';let makers=a[prefix+'Maker'],spec=a[prefix+'Spec'];d.units+=a[prefix];for(let [k,v] of Object.entries(makers))d.maker[k]=(d.maker[k]||0)+Number(v);for(let [k,v] of Object.entries(spec))d.spec[k]=(d.spec[k]||0)+Number(v)};let sum=Object.values(d.maker).reduce((s,x)=>s+x,0);if(sum<d.units)d.maker['未帰属']=d.units-sum;const m=Object.entries(d.maker).map(([n,v])=>({n,v,color:makerColor[n]||'#999'}));bars('makerBars',m,Math.max(1,...m.map(x=>x.v)), '#176eb1','台');el('makerTitle').textContent=mode+'：メーカー帰属別装置台数（'+(area==='all'?'県全体':area)+'）';el('makerNote').textContent='※未帰属は機種・メーカー割付が未確定の装置。メーカー別販売シェアではありません。';let sp=Object.entries(d.spec).map(([n,v])=>({n,v}));let special=sp.map(o=>`<div class="bar-row" style="grid-template-columns:74px 1fr 64px"><span>${esc(o.n)}</span><div class="bar-track"><i style="width:${(o.v/Math.max(...sp.map(x=>x.v),1))*100}%;background:#118b99"></i></div><b>${o.v}台</b></div>`).join('');el('specBars').innerHTML=special;el('specTitle').textContent=mode==='CT'?'CT：検出器列数帯':'MRI：磁場強度'}
