@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="新潟県の医療市場を、人口・高齢化・7医療圏・地域医療構想・医師偏在・病院グループ・医療機器共同利用・地政学から中立的に整理した公開レポート。">
+<meta property="og:title" content="新潟の医療MKT 2026">
+<meta property="og:description" content="7医療圏×2040地域医療構想×医師偏在×病院再編×画像診断装置共同利用を統合分析">
+<meta property="og:type" content="website">
+<title>新潟の医療MKT 2026｜公開データ統合レポート</title>
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+:root{--navy:#102f4f;--blue:#1768ac;--cyan:#2e86ab;--ink:#172536;--muted:#607489;--bg:#f3f7fb;--line:#dce6ef;--gold:#d69e2e;--green:#2f855a;--red:#c53030}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:"Meiryo UI","Yu Gothic","Noto Sans JP",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.72}
+a{color:#0a5fa7} .wrap{max-width:1380px;margin:auto;padding:0 26px} .hero{background:linear-gradient(135deg,#0a2742,#125a91 64%,#3094b8);color:#fff;padding:50px 0 38px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:520px;height:520px;border:80px solid #fff1;border-radius:50%;right:-190px;top:-220px} .eyebrow{font-size:12px;font-weight:900;letter-spacing:.12em;color:#4f7089}
+.hero .eyebrow{color:#bfe2f6} h1{font-size:clamp(36px,6vw,68px);line-height:1.04;margin:.08em 0 .2em;letter-spacing:.02em} .hero p{max-width:940px;font-size:18px;color:#e5f3fb;margin:0}
+.badges{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px} .badge{font-size:12px;border:1px solid #ffffff44;background:#ffffff12;padding:7px 11px;border-radius:999px}
+nav{position:sticky;top:0;z-index:999;background:#fffefc;border-bottom:1px solid var(--line);box-shadow:0 5px 20px #17324d12;overflow:auto} nav .inner{max-width:1380px;margin:auto;padding:9px 26px;display:flex;gap:5px;white-space:nowrap}
+nav a{text-decoration:none;color:var(--navy);font-size:12px;font-weight:900;padding:8px 10px;border-radius:9px} nav a:hover{background:#eaf4fc}
+main{padding-bottom:52px} section{margin-top:30px} .card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:0 9px 30px #16324e0b}
+h2{font-size:clamp(24px,3vw,34px);line-height:1.25;color:var(--navy);margin:.15em 0 .45em} h3{color:var(--navy);margin:.2em 0 .55em} h4{color:var(--blue);margin:.2em 0 .4em}
+.lead{font-size:17px;color:#425c72;max-width:1050px} .small{font-size:12px;color:var(--muted)} .note{font-size:12px;color:#67798b;border-left:4px solid #9cbad1;padding-left:12px}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px} .kpi{background:linear-gradient(180deg,#fff,#f8fbfe);border:1px solid var(--line);border-radius:17px;padding:16px;min-height:112px} .kpi .icon{font-size:25px} .kpi b{display:block;font-size:27px;color:var(--blue);line-height:1.2;margin-top:3px} .kpi span{font-size:12px;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px} .three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px} .four{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.insight{background:linear-gradient(135deg,#0e3456,#155f96);color:white;border-radius:18px;padding:21px} .insight h3{color:#fff} .insight b{color:#ffe39c} .risk{background:#fff6f6;border-left:5px solid var(--red);padding:18px;border-radius:14px} .opportunity{background:#f1faf6;border-left:5px solid var(--green);padding:18px;border-radius:14px}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap} .node{background:#f9fcff;border:1px solid #cbddea;border-radius:14px;padding:14px 16px;min-width:150px;text-align:center;font-weight:900;color:var(--navy)} .arrow{font-size:24px;color:#80a3bd}
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:16px} .tl{background:#eef6fc;border-radius:14px;padding:15px;border-top:5px solid var(--blue)} .tl b{color:var(--blue);display:block;font-size:17px}
+.chartbox{height:330px;position:relative} .tablewrap{overflow:auto;border:1px solid var(--line);border-radius:14px} table{width:100%;border-collapse:collapse;background:#fff;font-size:13px} th{background:var(--navy);color:#fff;text-align:left;padding:10px;position:sticky;top:0} td{padding:10px;border-bottom:1px solid #e7edf3;vertical-align:top} tr:hover td{background:#f7fbfe}
+.area-ribbon{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:15px} .area-ribbon a{min-height:92px;border-radius:14px;color:white;text-decoration:none;padding:12px;display:flex;flex-direction:column;justify-content:flex-end;font-weight:900;position:relative;overflow:hidden} .area-ribbon a:before{content:"";position:absolute;width:90px;height:90px;background:#fff2;border-radius:50%;right:-30px;top:-28px} .area-ribbon span{font-size:19px} .area-ribbon small{font-weight:700;opacity:.9}
+#regionMap{height:580px;border-radius:18px;border:1px solid var(--line);z-index:1} .map-note{display:flex;gap:9px;flex-wrap:wrap;margin:10px 0 0} .map-note a{text-decoration:none;background:#eaf4fb;padding:6px 10px;border-radius:9px;font-size:12px;font-weight:800}
+.region-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px} .region-card{background:white;border:1px solid var(--line);border-top:6px solid var(--accent);border-radius:18px;padding:19px} .region-title{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e8eef4;padding-bottom:8px;margin-bottom:10px} .region-title span{font-size:26px;font-weight:900;color:var(--navy)} .region-title small{background:#eef4f8;border-radius:999px;padding:5px 9px;color:#516e82;font-weight:900} .mini-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0} .mini-kpis div{background:#f6f9fc;border-radius:10px;padding:9px} .mini-kpis b{display:block;color:var(--blue);font-size:16px} .mini-kpis span{font-size:10px;color:var(--muted)} .actions{display:flex;gap:7px;flex-wrap:wrap} .actions a,.btn{text-decoration:none;background:var(--blue);color:white;border-radius:9px;padding:7px 10px;font-size:12px;font-weight:900} .actions a:nth-child(2){background:#e8f2f8;color:#0f527d}
+.pictos{display:grid;grid-template-columns:repeat(6,1fr);gap:9px} .picto{background:#fff;border:1px solid var(--line);border-radius:15px;padding:15px;text-align:center} .picto .emoji{font-size:30px} .picto b{display:block;color:var(--navy);font-size:13px}
+.group-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px} .group{background:#f9fbfd;border:1px solid var(--line);border-radius:16px;padding:17px} .tags{display:flex;gap:6px;flex-wrap:wrap} .tag{background:#eaf3f9;color:#184c72;padding:5px 8px;border-radius:999px;font-size:11px;font-weight:800}
+.source-list{columns:2;column-gap:30px} .source-list li{break-inside:avoid;margin-bottom:8px} .source-list a{display:flex;justify-content:space-between;gap:10px;text-decoration:none;border-bottom:1px dotted #b5c6d4;padding:4px 0}
+.search{width:100%;padding:12px 14px;border:1px solid #c6d6e3;border-radius:11px;font:inherit;margin:9px 0 12px} .footer{background:#0a2742;color:#d9e9f5;padding:32px 0} .footer a{color:#bfe4ff}
+.stamp{display:inline-block;background:#eef6fc;color:#1c587f;border-radius:8px;padding:3px 7px;font-size:11px;font-weight:800} .public-note{background:#fff7dc;border:1px solid #f0d983;border-radius:14px;padding:16px}
+@media(max-width:1050px){.kpis{grid-template-columns:repeat(3,1fr)} .two,.three,.group-grid{grid-template-columns:1fr} .four{grid-template-columns:repeat(2,1fr)} .timeline{grid-template-columns:1fr 1fr} .area-ribbon{grid-template-columns:repeat(4,1fr)} .region-grid{grid-template-columns:1fr} .pictos{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.wrap{padding:0 14px} .hero{padding:38px 0 28px} .kpis{grid-template-columns:1fr 1fr} .timeline,.four{grid-template-columns:1fr} .area-ribbon{grid-template-columns:1fr 1fr} .pictos{grid-template-columns:1fr 1fr} .mini-kpis{grid-template-columns:1fr 1fr} #regionMap{height:470px} .source-list{columns:1}}
+@media print{nav{display:none} body{background:white} .card,.region-card{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="wrap">
+  <div class="eyebrow">NIIGATA MEDICAL MARKET INTELLIGENCE</div>
+  <h1>新潟の医療MKT <span style="font-size:.5em;font-weight:600">2026</span></h1>
+  <p>人口・高齢化・7医療圏・2040地域医療構想・医師偏在・病院グループ・画像診断装置の共同利用・地政学を、公開一次情報だけで統合した中立的な市場研究レポート。</p>
+  <div class="badges"><span class="badge">基準日 2026-10-21</span><span class="badge">公開情報ベース</span><span class="badge">メーカー非依存</span><span class="badge">スマホ対応</span></div>
+ </div>
+</header>
+<nav><div class="inner">
+<a href="#summary">総括</a><a href="#macro">人口・施設</a><a href="#policy">政策</a><a href="#regions">7医療圏</a><a href="#map">Map</a><a href="#workforce">医師</a><a href="#groups">病院グループ</a><a href="#equipment">医療機器</a><a href="#disease">疾病</a><a href="#supply">供給網</a><a href="#risk">リスク</a><a href="#sources">出典</a>
+</div></nav>
+
+<main class="wrap">
+<section id="summary" class="card">
+ <div class="eyebrow">EXECUTIVE SUMMARY</div>
+ <h2>新潟の医療市場は「人口縮小 × 広域アクセス × 医療機能集約」の同時進行</h2>
+ <p class="lead">2025年国勢調査の確定人口は206万7,144人。高齢化率34.6%で全国を5.2ポイント上回る。病院数は減少する一方、県内7医療圏は面積が広く、救急や高度医療へのアクセスを維持する必要があるため、単純な病床・装置削減ではなく、<b>拠点化、共同利用、地域連携、遠隔支援、在宅との役割分担</b>が政策の中心になっている。</p>
+ <div class="kpis">
+  <div class="kpi"><div class="icon">👥</div><span>2025国勢調査・確定人口</span><b>2,067,144</b><span>2020年比 13万4,128人減</span></div>
+  <div class="kpi"><div class="icon">👴</div><span>65歳以上人口</span><b>707,233</b><span>高齢化率 34.6%</span></div>
+  <div class="kpi"><div class="icon">🏥</div><span>病院（2024/10）</span><b>117</b><span>病床 24,975床</span></div>
+  <div class="kpi"><div class="icon">🏠</div><span>一般診療所（2024/10）</span><b>1,653</b><span>病床 540床</span></div>
+  <div class="kpi"><div class="icon">🩺</div><span>医師総数（2024末）</span><b>5,005</b><span>医療施設従事者 4,663</span></div>
+  <div class="kpi"><div class="icon">🗺️</div><span>二次医療圏・構想区域</span><b>7</b><span>現行区域で協議継続案</span></div>
+ </div>
+ <div class="two" style="margin-top:16px">
+  <div class="insight"><h3>最大の構造変化</h3><p><b>2040年に向けた人口減少は全圏域で進行</b>する一方、魚沼・佐渡などでは距離・冬季・島嶼性のため単純な広域統合が難しい。県は2026年9月の検討案で、県央・魚沼・佐渡が見直し基準に該当しても、当面は現行7区域での検討継続を提示している。</p></div>
+  <div class="public-note"><b>公開版のデータ方針</b><br>行政・大学・医療法人・企業の一般公開情報のみで再構成。非公開のメーカー別シェア、個別価格、顧客情報、社内案件情報は掲載していない。数値の年度が異なる場合は基準日を明記した。</div>
+ </div>
+</section>
+
+<section id="macro" class="card">
+ <div class="eyebrow">DEMOGRAPHY & SUPPLY</div><h2>人口・施設・医療人材：需要は「量」より「構成」が変わる</h2>
+ <div class="two">
+   <div><div class="chartbox"><canvas id="popChart"></canvas></div><p class="note">地域別2025人口は2026年9月の県資料（2025国勢調査速報ベース）。県全体の確定値は2026年10月16日公表の2,067,144人。</p></div>
+   <div><div class="chartbox"><canvas id="completionChart"></canvas></div><p class="note">入院完結率は2024年度NDB由来、救急完結率は2025年県救急患者搬送先調査。地域の役割を考える指標であり、各病院の質を評価する指標ではない。</p></div>
+ </div>
+ <div class="three">
+   <div class="opportunity"><h3>需要ドライバー</h3><p>85歳以上人口は今後も増える期間があり、高齢者救急、循環器・脳卒中、がん、在宅・慢性期、運動器、認知症への需要が相対的に高まる。</p></div>
+   <div class="risk"><h3>供給制約</h3><p>医師偏在指標184.7で全国45位、医師少数県。新潟圏域は医師多数区域だが、魚沼は医師少数区域で、地域差が大きい。</p></div>
+   <div class="opportunity"><h3>市場の変化</h3><p>病院数は2005年の140から2024年117へ減少。設備市場は新設中心ではなく、再編・更新・集約・共同利用・省人化へ重心が移る。</p></div>
+ </div>
+</section>
+
+<section id="policy" class="card">
+ <div class="eyebrow">HEALTH POLICY 2024–2040</div><h2>政策フロー：第8次医療計画から「新たな地域医療構想」へ</h2>
+ <div class="timeline">
+   <div class="tl"><b>2024</b>第8次地域保健医療計画開始<br><small>5疾病・6事業・在宅・外来</small></div>
+   <div class="tl"><b>2024.03</b>県央基幹病院 開院<br><small>400床・急性期集約</small></div>
+   <div class="tl"><b>2025–26</b>病床/外来機能を可視化<br><small>高額医療機器保有も報告</small></div>
+   <div class="tl" style="border-top-color:#d69e2e;background:#fff9e8"><b>2026.09</b>構想区域の点検<br><small>県央・魚沼・佐渡を重点検討</small></div>
+   <div class="tl"><b>2040</b>人口・医療需要変化へ対応<br><small>役割分担・連携・アクセス維持</small></div>
+ </div>
+ <h3 style="margin-top:20px">第8次計画の「5疾病・6事業＋在宅」を市場言語に翻訳</h3>
+ <div class="pictos">
+   <div class="picto"><div class="emoji">🎗️</div><b>がん</b><small>拠点化・均てん化</small></div>
+   <div class="picto"><div class="emoji">🧠</div><b>脳卒中</b><small>急性期〜生活期</small></div>
+   <div class="picto"><div class="emoji">❤️</div><b>心血管</b><small>救急〜慢性期</small></div>
+   <div class="picto"><div class="emoji">🩸</div><b>糖尿病</b><small>予防・合併症</small></div>
+   <div class="picto"><div class="emoji">🫂</div><b>精神</b><small>医療・福祉連携</small></div>
+   <div class="picto"><div class="emoji">🚑</div><b>救急</b><small>高齢者救急増加</small></div>
+   <div class="picto"><div class="emoji">🌊</div><b>災害</b><small>洪水・豪雪・BCP</small></div>
+   <div class="picto"><div class="emoji">🏔️</div><b>へき地</b><small>オンライン・遠隔</small></div>
+   <div class="picto"><div class="emoji">👶</div><b>周産期</b><small>高リスク支援</small></div>
+   <div class="picto"><div class="emoji">🧒</div><b>小児</b><small>広域・専門連携</small></div>
+   <div class="picto"><div class="emoji">🦠</div><b>新興感染症</b><small>平時から準備</small></div>
+   <div class="picto"><div class="emoji">🏡</div><b>在宅</b><small>拠点・BCP・連携</small></div>
+ </div>
+</section>
+
+<section id="regions" class="card">
+ <div class="eyebrow">7 MEDICAL REGIONS</div><h2>7医療圏：県央・魚沼・佐渡は「見直し対象」でも現行維持案</h2>
+ <p class="lead">国の目安（人口20万人未満、流入20%未満、流出20%以上）を機械的に当てはめると県央・魚沼・佐渡が見直し検討対象となる。一方、県は入院・救急の地域完結、圏域を越えた連携、広域化によるアクセス悪化を踏まえ、現行7区域で議論を継続する案を示した。</p>
+ <div class="area-ribbon">
+   <a href="#area-下越" style="background:#2E86AB"><span>下越</span><small>186,039 → 150,934</small></a><a href="#area-新潟" style="background:#1768AC"><span>新潟</span><small>849,012 → 749,041</small></a><a href="#area-県央" style="background:#5A67D8"><span>県央</span><small>202,586 → 166,523</small></a><a href="#area-中越" style="background:#2F855A"><span>中越</span><small>402,058 → 345,526</small></a><a href="#area-魚沼" style="background:#38A169"><span>魚沼</span><small>142,268 → 110,245</small></a><a href="#area-上越" style="background:#D69E2E"><span>上越</span><small>241,109 → 195,426</small></a><a href="#area-佐渡" style="background:#DD6B20"><span>佐渡</span><small>45,404 → 32,955</small></a>
+ </div>
+ <div class="tablewrap" style="margin-top:18px"><table>
+  <thead><tr><th>圏域</th><th>2025人口*</th><th>2040人口</th><th>変化率</th><th>入院/日</th><th>外来/日</th><th>手術/年</th><th>入院完結率</th><th>救急完結率</th><th>区域検討</th></tr></thead>
+  <tbody>
+  <tr><td><b>下越</b></td><td>186,039</td><td>150,934</td><td>-18.9%</td><td>1,995</td><td>1,799</td><td>5,671</td><td>82.95%</td><td>96.29%</td><td>維持案</td></tr><tr><td><b>新潟</b></td><td>849,012</td><td>749,041</td><td>-11.8%</td><td>8,535</td><td>8,501</td><td>25,995</td><td>94.68%</td><td>96.76%</td><td>維持案</td></tr><tr><td><b>県央</b></td><td>202,586</td><td>166,523</td><td>-17.8%</td><td>1,105</td><td>1,195</td><td>3,143</td><td>61.34%</td><td>87.38%</td><td>点検対象→現行維持案</td></tr><tr><td><b>中越</b></td><td>402,058</td><td>345,526</td><td>-14.1%</td><td>4,126</td><td>4,277</td><td>14,052</td><td>93.32%</td><td>99.13%</td><td>維持案</td></tr><tr><td><b>魚沼</b></td><td>142,268</td><td>110,245</td><td>-22.5%</td><td>1,171</td><td>1,890</td><td>3,725</td><td>76.55%</td><td>95.57%</td><td>点検対象→現行維持案</td></tr><tr><td><b>上越</b></td><td>241,109</td><td>195,426</td><td>-18.9%</td><td>2,117</td><td>2,578</td><td>8,532</td><td>90.55%</td><td>98.68%</td><td>維持案</td></tr><tr><td><b>佐渡</b></td><td>45,404</td><td>32,955</td><td>-27.4%</td><td>337</td><td>748</td><td>623</td><td>77.88%</td><td>99.52%</td><td>点検対象→現行維持案</td></tr>
+  </tbody></table></div>
+ <p class="note">* 圏域別2025人口は2026年9月の地域医療構想資料が用いた速報値。県全体の最新確定値とは1,332人の差があるため、圏域間比較用として表示。</p>
+</section>
+
+<section class="region-grid">
+ <div id="area-下越">
+<article class="region-card" style="--accent:#2E86AB">
+  <div class="region-title"><span>下越</span><small>維持案</small></div>
+  <div class="mini-kpis">
+    <div><b>186,039</b><span>2025人口*</span></div>
+    <div><b>150,934</b><span>2040推計</span></div>
+    <div><b>-18.9%</b><span>人口変化</span></div>
+    <div><b>96.3%</b><span>救急完結率</span></div>
+  </div>
+  <p class="small"><b>構成地域：</b>村上・新発田・胎内・阿賀野・阿賀・関川・聖籠・粟島浦など</p>
+  <p><b>主要ハブ：</b>新潟県立新発田病院／村上総合病院</p>
+  <p><b>政策：</b>北部の広い生活圏を支える救急・急性期と地域完結を維持。高額医療機器の共同利用計画を地域医療構想調整会議で継続確認。</p>
+  <p><b>市場の読み方：</b>人口減少下でも救急・画像診断・地域連携を維持する需要が中心。北部・山間部では保守到達性とバックアップ体制が重要。</p>
+  <div class="actions">
+    <a href="https://www.google.com/maps/search/?api=1&query=%E4%B8%8B%E8%B6%8A%20%E6%96%B0%E6%BD%9F%E7%9C%8C" target="_blank" rel="noopener">Google Maps</a>
+    <a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">地理院地図</a>
+  </div>
+</article></div><div id="area-新潟">
+<article class="region-card" style="--accent:#1768AC">
+  <div class="region-title"><span>新潟</span><small>維持案</small></div>
+  <div class="mini-kpis">
+    <div><b>849,012</b><span>2025人口*</span></div>
+    <div><b>749,041</b><span>2040推計</span></div>
+    <div><b>-11.8%</b><span>人口変化</span></div>
+    <div><b>96.8%</b><span>救急完結率</span></div>
+  </div>
+  <p class="small"><b>構成地域：</b>新潟市・五泉市など</p>
+  <p><b>主要ハブ：</b>新潟大学医歯学総合病院／新潟市民病院／県立がんセンター新潟病院</p>
+  <p><b>政策：</b>県内最大の人口・医療機能集積。高度急性期、がん、救急、専門外来、医師育成・派遣の中核として県全域を支える。</p>
+  <p><b>市場の読み方：</b>高度画像診断・治療、救急、大学病院機能、紹介外来、医療DXの需要が集積。他圏域からの紹介・逆紹介を含む広域ハブとして評価する必要がある。</p>
+  <div class="actions">
+    <a href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%BD%9F%20%E6%96%B0%E6%BD%9F%E7%9C%8C" target="_blank" rel="noopener">Google Maps</a>
+    <a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">地理院地図</a>
+  </div>
+</article></div><div id="area-県央">
+<article class="region-card" style="--accent:#5A67D8">
+  <div class="region-title"><span>県央</span><small>点検対象→現行維持案</small></div>
+  <div class="mini-kpis">
+    <div><b>202,586</b><span>2025人口*</span></div>
+    <div><b>166,523</b><span>2040推計</span></div>
+    <div><b>-17.8%</b><span>人口変化</span></div>
+    <div><b>87.4%</b><span>救急完結率</span></div>
+  </div>
+  <p class="small"><b>構成地域：</b>三条・燕・加茂・田上・弥彦</p>
+  <p><b>主要ハブ：</b>済生会新潟県央基幹病院</p>
+  <p><b>政策：</b>2024年3月に400床の県央基幹病院を開院し急性期を集約。開院後、入院完結率は50.1%→61.3%、救急完結率は78.9%→84.6%→87.4%へ改善。</p>
+  <p><b>市場の読み方：</b>新病院整備後のフェーズは『増設』より稼働最適化、紹介検査、共同利用、更新・保守、地域の役割分担が中心。</p>
+  <div class="actions">
+    <a href="https://www.google.com/maps/search/?api=1&query=%E7%9C%8C%E5%A4%AE%20%E6%96%B0%E6%BD%9F%E7%9C%8C" target="_blank" rel="noopener">Google Maps</a>
+    <a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">地理院地図</a>
+  </div>
+</article></div><div id="area-中越">
+<article class="region-card" style="--accent:#2F855A">
+  <div class="region-title"><span>中越</span><small>維持案</small></div>
+  <div class="mini-kpis">
+    <div><b>402,058</b><span>2025人口*</span></div>
+    <div><b>345,526</b><span>2040推計</span></div>
+    <div><b>-14.1%</b><span>人口変化</span></div>
+    <div><b>99.1%</b><span>救急完結率</span></div>
+  </div>
+  <p class="small"><b>構成地域：</b>長岡・柏崎・小千谷・見附・出雲崎・刈羽など</p>
+  <p><b>主要ハブ：</b>長岡赤十字病院／長岡中央綜合病院／立川綜合病院</p>
+  <p><b>政策：</b>高い入院・救急完結性を持つ県中部の中核。公立・公的・民間医療機関の対応方針と地域の推進方針との整合を継続協議。</p>
+  <p><b>市場の読み方：</b>救急・手術・専門診療の集積が強く、画像診断・治療・周術期・連携ITの持続的更新需要が大きい。</p>
+  <div class="actions">
+    <a href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E8%B6%8A%20%E6%96%B0%E6%BD%9F%E7%9C%8C" target="_blank" rel="noopener">Google Maps</a>
+    <a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">地理院地図</a>
+  </div>
+</article></div><div id="area-魚沼">
+<article class="region-card" style="--accent:#38A169">
+  <div class="region-title"><span>魚沼</span><small>点検対象→現行維持案</small></div>
+  <div class="mini-kpis">
+    <div><b>142,268</b><span>2025人口*</span></div>
+    <div><b>110,245</b><span>2040推計</span></div>
+    <div><b>-22.5%</b><span>人口変化</span></div>
+    <div><b>95.6%</b><span>救急完結率</span></div>
+  </div>
+  <p class="small"><b>構成地域：</b>魚沼・南魚沼・十日町・湯沢・津南</p>
+  <p><b>主要ハブ：</b>魚沼基幹病院／南魚沼市民病院／県立十日町病院</p>
+  <p><b>政策：</b>広大な豪雪・山間地域。県資料では魚沼基幹病院への35分圏が広い一方、長岡赤十字病院へのアクセスは地域によって60分超。2026年3月の調整会議で高額医療機器共同利用計画5件を確認。</p>
+  <p><b>市場の読み方：</b>装置性能だけでなく、冬季アクセス、保守時間、代替運用、遠隔支援、共同利用が実装条件になる。</p>
+  <div class="actions">
+    <a href="https://www.google.com/maps/search/?api=1&query=%E9%AD%9A%E6%B2%BC%20%E6%96%B0%E6%BD%9F%E7%9C%8C" target="_blank" rel="noopener">Google Maps</a>
+    <a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">地理院地図</a>
+  </div>
+</article></div><div id="area-上越">
+<article class="region-card" style="--accent:#D69E2E">
+  <div class="region-title"><span>上越</span><small>維持案</small></div>
+  <div class="mini-kpis">
+    <div><b>241,109</b><span>2025人口*</span></div>
+    <div><b>195,426</b><span>2040推計</span></div>
+    <div><b>-18.9%</b><span>人口変化</span></div>
+    <div><b>98.7%</b><span>救急完結率</span></div>
+  </div>
+  <p class="small"><b>構成地域：</b>上越・妙高・糸魚川</p>
+  <p><b>主要ハブ：</b>新潟県立中央病院／上越総合病院／糸魚川総合病院</p>
+  <p><b>政策：</b>短期・中長期の病院再編を継続検討。2026年には医療機器共同利用も議題化。新潟大学・富山大学等の医師派遣・専門医育成プラットフォームでも今後の具体検討地域として明示。</p>
+  <p><b>市場の読み方：</b>日本海側の広域医療圏。病院再編と人材配置が設備配置を左右しやすく、共同利用・画像連携・拠点間標準化の重要性が高い。</p>
+  <div class="actions">
+    <a href="https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E8%B6%8A%20%E6%96%B0%E6%BD%9F%E7%9C%8C" target="_blank" rel="noopener">Google Maps</a>
+    <a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">地理院地図</a>
+  </div>
+</article></div><div id="area-佐渡">
+<article class="region-card" style="--accent:#DD6B20">
+  <div class="region-title"><span>佐渡</span><small>点検対象→現行維持案</small></div>
+  <div class="mini-kpis">
+    <div><b>45,404</b><span>2025人口*</span></div>
+    <div><b>32,955</b><span>2040推計</span></div>
+    <div><b>-27.4%</b><span>人口変化</span></div>
+    <div><b>99.5%</b><span>救急完結率</span></div>
+  </div>
+  <p class="small"><b>構成地域：</b>佐渡市</p>
+  <p><b>主要ハブ：</b>佐渡総合病院</p>
+  <p><b>政策：</b>離島医療として島内救急を高水準で完結。2026年には佐渡総合病院の許可病床数変更を協議。県資料では新潟市内へのアクセスは島内医療機関より少なくとも1時間以上追加。</p>
+  <p><b>市場の読み方：</b>島内完結性と本土連携を同時に維持する必要があり、故障時継続、遠隔、画像共有、医療機器共同利用・保守の価値が高い。</p>
+  <div class="actions">
+    <a href="https://www.google.com/maps/search/?api=1&query=%E4%BD%90%E6%B8%A1%20%E6%96%B0%E6%BD%9F%E7%9C%8C" target="_blank" rel="noopener">Google Maps</a>
+    <a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">地理院地図</a>
+  </div>
+</article></div>
+</section>
+
+<section id="map" class="card">
+ <div class="eyebrow">INTERACTIVE MAP</div><h2>主要医療拠点 Map</h2>
+ <p class="lead">ピンを押すと施設概要と、Google Maps・国土地理院の地理院地図へのリンクを表示。位置は市場構造把握のための概略表示で、最新の施設所在地はリンク先で確認してください。</p>
+ <div id="regionMap"></div>
+ <div class="map-note"><a href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%BD%9F%E7%9C%8C+%E7%97%85%E9%99%A2" target="_blank">Google Mapsで新潟県の病院を検索</a><a href="https://maps.gsi.go.jp/" target="_blank">地理院地図を開く</a></div>
+ <div class="two" style="margin-top:16px">
+  <div class="card" style="box-shadow:none"><h3>地理的な実装条件</h3><svg viewBox="0 0 760 250" style="width:100%;height:auto">
+   <defs><linearGradient id="sea" x1="0" x2="1"><stop offset="0" stop-color="#d8f2ff"/><stop offset="1" stop-color="#eff9ff"/></linearGradient></defs>
+   <rect x="0" y="0" width="760" height="250" rx="20" fill="url(#sea)"/>
+   <path d="M0 200 C100 170 160 205 250 160 S390 130 470 165 S620 140 760 180 L760 250 L0 250Z" fill="#b8d8b2"/>
+   <path d="M130 200 L230 70 L320 200Z" fill="#8eb08b"/><path d="M390 190 L480 95 L575 190Z" fill="#7da47c"/>
+   <text x="45" y="48" font-size="20" fill="#1768ac" font-weight="700">日本海・離島</text><text x="205" y="55" font-size="18" fill="#315d3f" font-weight="700">豪雪・山間</text><text x="505" y="64" font-size="18" fill="#315d3f" font-weight="700">越後平野・都市圏</text>
+   <text x="40" y="112" font-size="15">佐渡：海上アクセス</text><text x="210" y="220" font-size="15">魚沼・上越：冬季交通・保守</text><text x="515" y="220" font-size="15">新潟・県央：人口/医療集積</text>
+  </svg></div>
+  <div class="card" style="box-shadow:none"><h3>圏域統合のトレードオフ</h3>
+   <div class="flow"><div class="node">人口減少<br>資源集約</div><div class="arrow">↔</div><div class="node">救急アクセス<br>移動時間</div><div class="arrow">↔</div><div class="node">地域完結<br>連携</div></div>
+   <p>県資料では、魚沼を中越と統合すると面積4,286km²規模となり、津南から長岡赤十字病院まで67分の例も示される。佐渡から新潟市内へのアクセスは島内医療機関より少なくとも1時間以上追加されるため、効率性だけでは圏域を再設計できない。</p>
+  </div>
+ </div>
+</section>
+
+<section id="workforce" class="card">
+ <div class="eyebrow">MEDICAL WORKFORCE</div><h2>医師供給：県全体は「医師少数県」、新潟圏域への集中が大きい</h2>
+ <div class="two">
+  <div><div class="chartbox"><canvas id="doctorChart"></canvas></div></div>
+  <div class="insight"><h3>新潟大学を中心とする人材ネットワーク</h3><p>2026年9月、新潟大学・富山大学・新潟県・新潟県医師会は、地域の医療ニーズと医師派遣・専門医育成を調整するプラットフォームを開催。新潟大学病院には常勤・非常勤合わせて<b>518人</b>の医師が在籍し、県内医療機関へ年間<b>838人</b>の常勤医師を派遣と大学が公表。専門研修・育成の仕組みに<b>1,398人</b>が関与している。</p><p>今後は特に病院再編が進む上越医療圏で、具体的な医師派遣・専門医育成の分科会設置を想定している。</p></div>
+ </div>
+ <div class="four">
+  <div class="kpi"><span>県 医師偏在指標</span><b>184.7</b><span>全国45/47位</span></div>
+  <div class="kpi"><span>新潟圏域</span><b>234.3</b><span>医師多数区域</span></div>
+  <div class="kpi"><span>魚沼圏域</span><b>132.0</b><span>医師少数区域</span></div>
+  <div class="kpi"><span>2024 医療施設従事医師</span><b>4,663</b><span>222.2人/10万人</span></div>
+ </div>
+</section>
+
+<section id="groups" class="card">
+ <div class="eyebrow">HOSPITAL NETWORKS</div><h2>病院グループ・拠点機能：所有・政策・紹介の3つを分けて見る</h2>
+ <div class="group-grid">
+  <div class="group"><h3>🏥 新潟県立病院・診療センター</h3><p>県病院局サイトで13施設を案内。経営環境は厳しく、県は既存の経営強化プランを今後の改革方針に合わせて見直すとしている。</p><div class="tags"><span class="tag">妙高病院</span><span class="tag">中央病院</span><span class="tag">まつだい診療センター</span><span class="tag">柿崎病院</span><span class="tag">津川病院</span><span class="tag">坂町病院</span><span class="tag">加茂病院</span><span class="tag">十日町病院</span><span class="tag">吉田病院</span><span class="tag">がんセンター新潟病院</span><span class="tag">新発田病院</span><span class="tag">リウマチセンター</span><span class="tag">精神医療センター</span></div></div>
+  <div class="group"><h3>🌾 JA新潟厚生連</h3><p>県内11病院に加え、診療所・訪問看護・介護等を展開。上越、中越、新潟、下越、佐渡に跨る広域ネットワーク。</p><div class="tags"><span class="tag">糸魚川総合病院</span><span class="tag">けいなん総合病院</span><span class="tag">上越総合病院</span><span class="tag">柏崎総合医療センター</span><span class="tag">小千谷総合病院</span><span class="tag">長岡中央綜合病院</span><span class="tag">新潟医療センター</span><span class="tag">豊栄病院</span><span class="tag">あがの市民病院</span><span class="tag">村上総合病院</span><span class="tag">佐渡総合病院</span></div></div>
+  <div class="group"><h3>🎯 紹介受診重点医療機関 15</h3><p>紹介患者への外来を基本とし、医療資源を重点的に活用する外来機能を明確化する制度。2026年4月1日から県内15医療機関。</p><div class="tags"><span class="tag">新潟県立新発田病院</span><span class="tag">新潟大学医歯学総合病院</span><span class="tag">新潟市民病院</span><span class="tag">新潟中央病院</span><span class="tag">信楽園病院</span><span class="tag">済生会新潟病院</span><span class="tag">新潟医療センター</span><span class="tag">国立病院機構 西新潟中央病院</span><span class="tag">済生会新潟県央基幹病院</span><span class="tag">長岡赤十字病院</span><span class="tag">立川綜合病院</span><span class="tag">長岡中央綜合病院</span><span class="tag">魚沼基幹病院</span><span class="tag">上越総合病院</span><span class="tag">新潟県立中央病院</span></div></div>
+  <div class="group"><h3>🤝 地域医療支援病院 9</h3><p>紹介患者への医療、医療機器共同利用、救急、地域医療従事者研修等を担う地域連携拠点。</p><div class="tags"><span class="tag">済生会新潟病院</span><span class="tag">新潟市民病院</span><span class="tag">新潟県立新発田病院</span><span class="tag">新潟県立中央病院</span><span class="tag">長岡赤十字病院</span><span class="tag">国立病院機構 西新潟中央病院</span><span class="tag">長岡中央綜合病院</span><span class="tag">済生会新潟県央基幹病院</span><span class="tag">上越総合病院</span></div></div>
+ </div>
+</section>
+
+<section id="equipment" class="card">
+ <div class="eyebrow">MEDICAL EQUIPMENT POLICY</div><h2>CT・MRI等は「購入」だけでなく共同利用と地域配置が政策論点</h2>
+ <p class="lead">新潟県の外来医療計画では、対象機器を新たに購入する医療機関に共同利用計画の作成・提出を求め、地域医療構想調整会議で確認する。これは購入許可制度ではなく、共同利用を行わない場合も理由を確認する仕組み。</p>
+ <div class="flow">
+  <div class="node">① 医療需要<br><small>紹介・検査予約・稼働</small></div><div class="arrow">→</div>
+  <div class="node">② 購入・更新計画<br><small>CT/MRI等</small></div><div class="arrow">→</div>
+  <div class="node">③ 共同利用計画<br><small>方法/非実施理由</small></div><div class="arrow">→</div>
+  <div class="node">④ 県へ提出<br><small>設置前手続</small></div><div class="arrow">→</div>
+  <div class="node">⑤ 調整会議で確認<br><small>合意取得は不要</small></div>
+ </div>
+ <div class="five" style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:16px">
+   <div class="picto"><div class="emoji">🖥️</div><b>CT</b><small>マルチスライス等</small></div>
+   <div class="picto"><div class="emoji">🧲</div><b>MRI</b><small>1.5T未満〜3T以上</small></div>
+   <div class="picto"><div class="emoji">☢️</div><b>放射線治療</b><small>リニアック等</small></div>
+   <div class="picto"><div class="emoji">🔬</div><b>PET/PET-CT</b><small>核医学</small></div>
+   <div class="picto"><div class="emoji">🎗️</div><b>マンモグラフィ</b><small>乳房画像</small></div>
+ </div>
+ <div class="two" style="margin-top:16px">
+  <div class="opportunity"><h3>公開データで確認できること</h3><p>2025年度外来機能報告は、一般・療養病床を持つ病院・有床診療所について、診療科、紹介/逆紹介、救急、高額医療機器・設備の保有状況などを圏域別に公開している。地域配置を把握する有力な一次情報。</p></div>
+  <div class="risk"><h3>確認できないこと</h3><p>公開資料だけではメーカー別シェア、実際の装置更新年、保守条件、実利用率、収益性を一律に比較できない。保有台数と検査需要を同一視しないことが重要。</p></div>
+ </div>
+</section>
+
+<section id="disease" class="card">
+ <div class="eyebrow">DISEASE BURDEN</div><h2>疾病構造：死亡数だけでも「がん・循環器・脳血管」の負荷が大きい</h2>
+ <div class="two">
+  <div class="chartbox"><canvas id="deathChart"></canvas></div>
+  <div>
+   <h3>2024年人口動態</h3>
+   <p>出生9,941人、死亡33,059人。合計特殊出生率1.14。死亡原因は悪性新生物7,694人、老衰4,657人、心疾患4,172人、脳血管疾患2,651人。</p>
+   <p>医療市場では、がん診療の拠点化、救急CT/MRI、循環器画像・超音波、脳卒中急性期、リハビリ・在宅への接続が同時に求められる。</p>
+   <div class="public-note"><b>注意：</b>死亡数は医療機器需要額そのものではない。疾患の有病率、検査件数、治療方針、診療報酬、医師配置、既存設備などを合わせて評価する必要がある。</div>
+  </div>
+ </div>
+</section>
+
+<section id="supply" class="card">
+ <div class="eyebrow">SUPPLY CHAIN & DISTRIBUTION</div><h2>医療機器供給網：広域県では物流・修理拠点も医療アクセスの一部</h2>
+ <div class="three">
+  <div class="group"><h3>🚚 地域ディーラー網</h3><p>公開情報ではクロスウィルメディカルが新潟本社、新潟亀田、長岡、上越、佐渡に拠点を置き、新潟物流センターも展開。医療機器販売だけでなく修理・在庫・開業支援を提供している。</p></div>
+  <div class="group"><h3>🏥 病院グループ調達</h3><p>県立病院、JA厚生連、済生会、赤十字、国立病院機構など、法人・グループ単位の標準化や調達方針が個別病院の設備投資に影響する。</p></div>
+  <div class="group"><h3>❄️ 地政学</h3><p>豪雪・山間・離島では、納品だけでなく修理到達時間、代替運用、消耗品物流、遠隔支援を含めたライフサイクル設計が重要になる。</p></div>
+ </div>
+ <p class="note">公開情報だけでは県内ディーラーの包括的な市場シェア順位を公平に検証できないため、本公開版では特定企業の優劣やシェア推計を掲載していない。</p>
+</section>
+
+<section id="risk" class="card">
+ <div class="eyebrow">NEUTRAL SCENARIO ANALYSIS</div><h2>市場機会と縮小リスクを同時に見る</h2>
+ <div class="two">
+  <div class="opportunity"><h3>需要を支える要因</h3><ul><li>高齢化による救急・慢性疾患・在宅需要</li><li>県央・上越など病院再編による設備再配置</li><li>医療機器共同利用と画像連携</li><li>医師不足を補う省人化・遠隔支援</li><li>豪雪・離島・災害に対するBCP</li></ul></div>
+  <div class="risk"><h3>需要を抑える要因</h3><ul><li>2025→2040の人口減少（7圏域合計で約15%）</li><li>病院数・病床数の減少</li><li>共同利用が進めば装置総数が増えない可能性</li><li>県立病院等の厳しい経営制約</li><li>人材不足で機器を置いても稼働できない可能性</li></ul></div>
+ </div>
+ <h3 style="margin-top:22px">意思決定フロー</h3>
+ <div class="flow">
+   <div class="node">人口・疾病<br>需要</div><div class="arrow">→</div>
+   <div class="node">圏域機能<br>患者流動</div><div class="arrow">→</div>
+   <div class="node">医師・技師<br>人材</div><div class="arrow">→</div>
+   <div class="node">既存設備<br>共同利用</div><div class="arrow">→</div>
+   <div class="node">再編・投資<br>優先度</div><div class="arrow">→</div>
+   <div class="node">保守・BCP<br>実装性</div>
+ </div>
+</section>
+
+<section id="facilities" class="card">
+ <div class="eyebrow">FACILITY NAVIGATOR</div><h2>主要施設ナビゲーター</h2>
+ <input id="facilitySearch" class="search" placeholder="施設名・圏域・機能で検索…">
+ <div class="tablewrap"><table><thead><tr><th>施設</th><th>圏域</th><th>機能</th><th>Map</th></tr></thead><tbody id="facilityBody"></tbody></table></div>
+</section>
+
+<section id="sources" class="card">
+ <div class="eyebrow">PRIMARY SOURCES</div><h2>一次情報・根拠リンク</h2>
+ <ol class="source-list"><li><a href="https://www.pref.niigata.lg.jp/sec/chiikiiryo/1356890019056.html" target="_blank" rel="noopener">新潟県｜第8次新潟県地域保健医療計画<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/sec/chiikiiryo/20260917.html" target="_blank" rel="noopener">新潟県｜2026年9月17日 新潟県地域医療構想調整会議<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/uploaded/attachment/510576.pdf" target="_blank" rel="noopener">新潟県｜構想区域の点検と見直しの検討（資料3）<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/site/tokei/2025kokucho-kakuhou.html" target="_blank" rel="noopener">新潟県｜2025年国勢調査人口等基本集計（確定値）<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/sec/fukushihoken/r7-koureisyanogenkyou.html" target="_blank" rel="noopener">新潟県｜令和7年 高齢者の現況<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/sec/fukushihoken/reiwa-nenpo07.html" target="_blank" rel="noopener">新潟県｜令和7年 福祉保健年報<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/uploaded/attachment/394096.pdf" target="_blank" rel="noopener">新潟県｜医師確保計画（医師偏在指標）<span>↗</span></a></li>
+<li><a href="https://www.niigata-u.ac.jp/news/2026/1253181/" target="_blank" rel="noopener">新潟大学｜大学病院機能強化推進事業プラットフォーム（2026年9月）<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/sec/chiikiiryo/r7gairaikinou.html" target="_blank" rel="noopener">新潟県｜令和7年度 外来機能報告<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/sec/chiikiiryo/r7byousyoukinou.html" target="_blank" rel="noopener">新潟県｜令和7年度 病床機能報告<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/sec/chiikiiryo/gairaikeikaku1.html" target="_blank" rel="noopener">新潟県｜外来医療計画に係る医療機器の共同利用<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/uploaded/life/655863_1939701_misc.pdf" target="_blank" rel="noopener">新潟県｜医療機器共同利用に関する通知・様式<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/sec/chiikiiryo/20230630.html" target="_blank" rel="noopener">新潟県｜紹介受診重点医療機関<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/sec/chiikiiryo/1204650962151.html" target="_blank" rel="noopener">新潟県｜地域医療支援病院<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/sec/chiikiiryo/1263848513527.html" target="_blank" rel="noopener">新潟県｜県央基幹病院の整備概要<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/site/shibata-kenkou/r7-2chouseikaigi-kekka.html" target="_blank" rel="noopener">新潟県｜下越地域医療構想調整会議（2026年2月）<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/sec/minamiuonuma_kenkou/kikakuchousei-chouseikaigi20260303.html" target="_blank" rel="noopener">新潟県｜魚沼地域医療構想調整会議（2026年3月）<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/site/jouetsu-kenkou/0804844.html" target="_blank" rel="noopener">新潟県｜上越地域医療構想調整会議（2026年2月）<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/sec/nagaoka_kenkou/20260319-choseikaigi.html" target="_blank" rel="noopener">新潟県｜中越地域医療構想調整会議（2026年1月）<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/site/sado-kenko-top/260908-r8-1chousei-kaigi-result.html" target="_blank" rel="noopener">新潟県｜佐渡地域医療構想調整会議（2026年7月）<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/site/byoin/list93.html" target="_blank" rel="noopener">新潟県｜県立病院のご案内<span>↗</span></a></li>
+<li><a href="https://www.pref.niigata.lg.jp/site/byoin/20240328keiei-e.html" target="_blank" rel="noopener">新潟県｜県立病院経営強化プラン<span>↗</span></a></li>
+<li><a href="https://www.niigata-kouseiren.or.jp/facility/" target="_blank" rel="noopener">JA新潟厚生連｜病院・施設紹介<span>↗</span></a></li>
+<li><a href="https://www.crosswill.co.jp/company/access.html" target="_blank" rel="noopener">クロスウィルメディカル｜事業所一覧<span>↗</span></a></li>
+<li><a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">国土地理院｜地理院地図<span>↗</span></a></li></ol>
+ <p class="note">本レポートの事実記述は、原則として新潟県、厚生労働省関連公表、大学・医療法人・企業の公式情報に基づく。市場解釈は公開情報からの分析であり、行政・医療機関・企業の公式見解を示すものではない。2026年10月21日時点。</p>
+</section>
+</main>
+<footer class="footer"><div class="wrap"><b>新潟の医療MKT 2026</b><br>公開データ統合版｜人口・政策・7医療圏・病院ネットワーク・医療機器共同利用・地政学<br><small>Last updated: 2026-10-21</small></div></footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+const regions=[{"name": "下越", "pop25": 186039, "pop40": 150934, "inpatient": 1995, "outpatient": 1799, "surgery": 5671, "inpatient_self": 82.95, "emergency_self": 96.29, "review": "維持案", "color": "#2E86AB", "municipalities": "村上・新発田・胎内・阿賀野・阿賀・関川・聖籠・粟島浦など", "hubs": "新潟県立新発田病院／村上総合病院", "policy": "北部の広い生活圏を支える救急・急性期と地域完結を維持。高額医療機器の共同利用計画を地域医療構想調整会議で継続確認。", "market": "人口減少下でも救急・画像診断・地域連携を維持する需要が中心。北部・山間部では保守到達性とバックアップ体制が重要。"}, {"name": "新潟", "pop25": 849012, "pop40": 749041, "inpatient": 8535, "outpatient": 8501, "surgery": 25995, "inpatient_self": 94.68, "emergency_self": 96.76, "review": "維持案", "color": "#1768AC", "municipalities": "新潟市・五泉市など", "hubs": "新潟大学医歯学総合病院／新潟市民病院／県立がんセンター新潟病院", "policy": "県内最大の人口・医療機能集積。高度急性期、がん、救急、専門外来、医師育成・派遣の中核として県全域を支える。", "market": "高度画像診断・治療、救急、大学病院機能、紹介外来、医療DXの需要が集積。他圏域からの紹介・逆紹介を含む広域ハブとして評価する必要がある。"}, {"name": "県央", "pop25": 202586, "pop40": 166523, "inpatient": 1105, "outpatient": 1195, "surgery": 3143, "inpatient_self": 61.34, "emergency_self": 87.38, "review": "点検対象→現行維持案", "color": "#5A67D8", "municipalities": "三条・燕・加茂・田上・弥彦", "hubs": "済生会新潟県央基幹病院", "policy": "2024年3月に400床の県央基幹病院を開院し急性期を集約。開院後、入院完結率は50.1%→61.3%、救急完結率は78.9%→84.6%→87.4%へ改善。", "market": "新病院整備後のフェーズは『増設』より稼働最適化、紹介検査、共同利用、更新・保守、地域の役割分担が中心。"}, {"name": "中越", "pop25": 402058, "pop40": 345526, "inpatient": 4126, "outpatient": 4277, "surgery": 14052, "inpatient_self": 93.32, "emergency_self": 99.13, "review": "維持案", "color": "#2F855A", "municipalities": "長岡・柏崎・小千谷・見附・出雲崎・刈羽など", "hubs": "長岡赤十字病院／長岡中央綜合病院／立川綜合病院", "policy": "高い入院・救急完結性を持つ県中部の中核。公立・公的・民間医療機関の対応方針と地域の推進方針との整合を継続協議。", "market": "救急・手術・専門診療の集積が強く、画像診断・治療・周術期・連携ITの持続的更新需要が大きい。"}, {"name": "魚沼", "pop25": 142268, "pop40": 110245, "inpatient": 1171, "outpatient": 1890, "surgery": 3725, "inpatient_self": 76.55, "emergency_self": 95.57, "review": "点検対象→現行維持案", "color": "#38A169", "municipalities": "魚沼・南魚沼・十日町・湯沢・津南", "hubs": "魚沼基幹病院／南魚沼市民病院／県立十日町病院", "policy": "広大な豪雪・山間地域。県資料では魚沼基幹病院への35分圏が広い一方、長岡赤十字病院へのアクセスは地域によって60分超。2026年3月の調整会議で高額医療機器共同利用計画5件を確認。", "market": "装置性能だけでなく、冬季アクセス、保守時間、代替運用、遠隔支援、共同利用が実装条件になる。"}, {"name": "上越", "pop25": 241109, "pop40": 195426, "inpatient": 2117, "outpatient": 2578, "surgery": 8532, "inpatient_self": 90.55, "emergency_self": 98.68, "review": "維持案", "color": "#D69E2E", "municipalities": "上越・妙高・糸魚川", "hubs": "新潟県立中央病院／上越総合病院／糸魚川総合病院", "policy": "短期・中長期の病院再編を継続検討。2026年には医療機器共同利用も議題化。新潟大学・富山大学等の医師派遣・専門医育成プラットフォームでも今後の具体検討地域として明示。", "market": "日本海側の広域医療圏。病院再編と人材配置が設備配置を左右しやすく、共同利用・画像連携・拠点間標準化の重要性が高い。"}, {"name": "佐渡", "pop25": 45404, "pop40": 32955, "inpatient": 337, "outpatient": 748, "surgery": 623, "inpatient_self": 77.88, "emergency_self": 99.52, "review": "点検対象→現行維持案", "color": "#DD6B20", "municipalities": "佐渡市", "hubs": "佐渡総合病院", "policy": "離島医療として島内救急を高水準で完結。2026年には佐渡総合病院の許可病床数変更を協議。県資料では新潟市内へのアクセスは島内医療機関より少なくとも1時間以上追加。", "market": "島内完結性と本土連携を同時に維持する必要があり、故障時継続、遠隔、画像共有、医療機器共同利用・保守の価値が高い。"}];
+const facilities=[{"name": "新潟大学医歯学総合病院", "area": "新潟", "kind": "大学・高度急性期", "lat": 37.913, "lon": 139.035, "google": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%BD%9F%E5%A4%A7%E5%AD%A6%E5%8C%BB%E6%AD%AF%E5%AD%A6%E7%B7%8F%E5%90%88%E7%97%85%E9%99%A2", "gsi": "https://maps.gsi.go.jp/#12/37.9130/139.0350/&base=std&ls=std&disp=1"}, {"name": "新潟市民病院", "area": "新潟", "kind": "救急・基幹", "lat": 37.868, "lon": 139.044, "google": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%BD%9F%E5%B8%82%E6%B0%91%E7%97%85%E9%99%A2", "gsi": "https://maps.gsi.go.jp/#12/37.8680/139.0440/&base=std&ls=std&disp=1"}, {"name": "新潟県立新発田病院", "area": "下越", "kind": "地域中核・救急", "lat": 37.944, "lon": 139.331, "google": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%BD%9F%E7%9C%8C%E7%AB%8B%E6%96%B0%E7%99%BA%E7%94%B0%E7%97%85%E9%99%A2", "gsi": "https://maps.gsi.go.jp/#12/37.9440/139.3310/&base=std&ls=std&disp=1"}, {"name": "済生会新潟県央基幹病院", "area": "県央", "kind": "400床・地域中核", "lat": 37.6448, "lon": 138.9341, "google": "https://www.google.com/maps/search/?api=1&query=%E6%B8%88%E7%94%9F%E4%BC%9A%E6%96%B0%E6%BD%9F%E7%9C%8C%E5%A4%AE%E5%9F%BA%E5%B9%B9%E7%97%85%E9%99%A2", "gsi": "https://maps.gsi.go.jp/#12/37.6448/138.9341/&base=std&ls=std&disp=1"}, {"name": "長岡赤十字病院", "area": "中越", "kind": "急性期・救急", "lat": 37.45, "lon": 138.827, "google": "https://www.google.com/maps/search/?api=1&query=%E9%95%B7%E5%B2%A1%E8%B5%A4%E5%8D%81%E5%AD%97%E7%97%85%E9%99%A2", "gsi": "https://maps.gsi.go.jp/#12/37.4500/138.8270/&base=std&ls=std&disp=1"}, {"name": "魚沼基幹病院", "area": "魚沼", "kind": "地域中核・教育", "lat": 37.166, "lon": 138.925, "google": "https://www.google.com/maps/search/?api=1&query=%E9%AD%9A%E6%B2%BC%E5%9F%BA%E5%B9%B9%E7%97%85%E9%99%A2", "gsi": "https://maps.gsi.go.jp/#12/37.1660/138.9250/&base=std&ls=std&disp=1"}, {"name": "新潟県立中央病院", "area": "上越", "kind": "地域中核", "lat": 37.11, "lon": 138.257, "google": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%BD%9F%E7%9C%8C%E7%AB%8B%E4%B8%AD%E5%A4%AE%E7%97%85%E9%99%A2", "gsi": "https://maps.gsi.go.jp/#12/37.1100/138.2570/&base=std&ls=std&disp=1"}, {"name": "さいがた医療センター", "area": "上越", "kind": "共同利用・専門医療", "lat": 37.235, "lon": 138.36, "google": "https://www.google.com/maps/search/?api=1&query=%E3%81%95%E3%81%84%E3%81%8C%E3%81%9F%E5%8C%BB%E7%99%82%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC", "gsi": "https://maps.gsi.go.jp/#12/37.2350/138.3600/&base=std&ls=std&disp=1"}, {"name": "佐渡総合病院", "area": "佐渡", "kind": "離島中核", "lat": 38.035, "lon": 138.356, "google": "https://www.google.com/maps/search/?api=1&query=%E4%BD%90%E6%B8%A1%E7%B7%8F%E5%90%88%E7%97%85%E9%99%A2", "gsi": "https://maps.gsi.go.jp/#12/38.0350/138.3560/&base=std&ls=std&disp=1"}];
+const priority15=["新潟県立新発田病院", "新潟大学医歯学総合病院", "新潟市民病院", "新潟中央病院", "信楽園病院", "済生会新潟病院", "新潟医療センター", "国立病院機構 西新潟中央病院", "済生会新潟県央基幹病院", "長岡赤十字病院", "立川綜合病院", "長岡中央綜合病院", "魚沼基幹病院", "上越総合病院", "新潟県立中央病院"];
+const support9=["済生会新潟病院", "新潟市民病院", "新潟県立新発田病院", "新潟県立中央病院", "長岡赤十字病院", "国立病院機構 西新潟中央病院", "長岡中央綜合病院", "済生会新潟県央基幹病院", "上越総合病院"];
+const ja11=["糸魚川総合病院", "けいなん総合病院", "上越総合病院", "柏崎総合医療センター", "小千谷総合病院", "長岡中央綜合病院", "新潟医療センター", "豊栄病院", "あがの市民病院", "村上総合病院", "佐渡総合病院"];
+const prefHosp=["妙高病院", "中央病院", "まつだい診療センター", "柿崎病院", "津川病院", "坂町病院", "加茂病院", "十日町病院", "吉田病院", "がんセンター新潟病院", "新発田病院", "リウマチセンター", "精神医療センター"];
+
+Chart.defaults.font.family='"Meiryo UI","Yu Gothic",sans-serif';
+Chart.defaults.color='#456174';
+
+new Chart(document.getElementById('popChart'),{
+ type:'bar',
+ data:{labels:regions.map(x=>x.name),datasets:[
+  {label:'2025人口（県資料・速報ベース）',data:regions.map(x=>x.pop25),borderWidth:0},
+  {label:'2040推計人口',data:regions.map(x=>x.pop40),borderWidth:0}
+ ]},
+ options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:'7医療圏 人口：2025 → 2040'}},scales:{y:{beginAtZero:true,ticks:{callback:v=>(v/10000).toFixed(0)+'万'}}}}
+});
+new Chart(document.getElementById('completionChart'),{
+ type:'bar',
+ data:{labels:regions.map(x=>x.name),datasets:[
+  {label:'入院完結率（2024）',data:regions.map(x=>x.inpatient_self)},
+  {label:'救急完結率（2025）',data:regions.map(x=>x.emergency_self)}
+ ]},
+ options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:'圏域内完結率'}},scales:{y:{min:0,max:100,ticks:{callback:v=>v+'%'}}}}
+});
+new Chart(document.getElementById('doctorChart'),{
+ type:'bar',
+ data:{labels:['新潟県','新潟','下越','県央','中越','魚沼','上越','佐渡','全国'],datasets:[{label:'医師偏在指標',data:[184.7,234.3,156.0,141.6,158.2,132.0,159.6,138.9,255.6]}]},
+ options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{title:{display:true,text:'医師偏在指標（県公表値）'}}}
+});
+new Chart(document.getElementById('deathChart'),{
+ type:'doughnut',
+ data:{labels:['悪性新生物','老衰','心疾患','脳血管疾患','その他'],datasets:[{data:[7694,4657,4172,2651,13885]}]},
+ options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:'2024年 死亡33,059人の構成'}}}
+});
+
+if(window.L){
+ const map=L.map('regionMap').setView([37.55,138.75],8);
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap contributors'}).addTo(map);
+ facilities.forEach(f=>{
+  const m=L.circleMarker([f.lat,f.lon],{radius:8,weight:2,color:'#1768ac',fillColor:'#fff',fillOpacity:1}).addTo(map);
+  m.bindPopup(`<b>${f.name}</b><br>${f.area}｜${f.kind}<br><a href="${f.google}" target="_blank">Google Maps</a> ｜ <a href="${f.gsi}" target="_blank">地理院地図</a>`);
+ });
+}
+const tbody=document.getElementById('facilityBody');
+function render(q=''){
+ tbody.innerHTML='';
+ facilities.filter(f=>(f.name+f.area+f.kind).toLowerCase().includes(q.toLowerCase())).forEach(f=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td><b>${f.name}</b></td><td>${f.area}</td><td>${f.kind}</td><td><a href="${f.google}" target="_blank">Google</a> / <a href="${f.gsi}" target="_blank">地理院</a></td>`;
+  tbody.appendChild(tr);
+ });
+}
+render();
+document.getElementById('facilitySearch').addEventListener('input',e=>render(e.target.value));
+</script>
+</body></html>
