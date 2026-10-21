@@ -25,6 +25,80 @@ header{background:radial-gradient(circle at 80% 25%,#294d7e 0,#152b4f 42%,#08152
 .crossLinkPanel .crossBtn{display:inline-flex;justify-content:center;align-items:center;gap:12px;min-height:52px;padding:13px 23px;border-radius:12px;background:#e34d50;color:white;text-decoration:none;font-size:15px;font-weight:900;border:1px solid #ee7275;box-shadow:0 5px 19px #0002}
 .crossLinkPanel .crossBtn:hover{background:#bc353d;color:white;transform:translateY(-1px)}
 @media(max-width:720px){.crossLinkPanel{padding:18px}.crossLinkPanel .crossBtn{width:100%}}
+
+/* UI refinement - responsive text, tables, charts and navigation */
+html{scroll-padding-top:80px}
+body{line-height:1.85;-webkit-font-smoothing:antialiased}
+.wrap,.card,.chartbox,.fcard,.sourceItem,.flownode{min-width:0}
+p,.lead,.hint,.note,.sourceItem,.fcard,.card,.callout,h1,h2,h3,h4{overflow-wrap:anywhere;word-break:normal}
+p,.lead{line-height:1.9}h1,h2{ text-wrap:balance }
+.hero{gap:30px;min-height:490px}.hero h1{letter-spacing:-.04em}
+.btn,.tab,.crossBtn{transition:background .2s,box-shadow .2s,transform .2s}
+.navwrap{box-shadow:0 5px 18px #08213a25}.mobileNavToggle{display:none}
+.sect{padding-top:65px}.sectHead{align-items:center}
+.grid{align-items:stretch}.grid>.card{height:100%}.card h3{line-height:1.55}
+.big{white-space:nowrap;font-variant-numeric:tabular-nums}
+.sourceItem{display:flex;flex-direction:column;gap:5px}.sourceItem a{line-height:1.65;overflow-wrap:anywhere}
+.sourceItem span{margin-top:auto}.sources{align-items:stretch}
+.tablewrap{max-width:100%;overscroll-behavior-inline:contain;scrollbar-color:#a7bfd8 #eaf1f8;scrollbar-width:thin}
+.tablewrap:focus-visible{outline:3px solid #78aed7}
+.tbl{min-width:830px;line-height:1.6;font-variant-numeric:tabular-nums}
+.tbl th,.tbl td{padding:12px 14px}
+.scrollHint{display:none}
+.chartbox{overflow:hidden}.chartbox h3{margin-top:0}
+.chartLegend{display:flex;flex-wrap:wrap;gap:8px 16px;margin:8px 0 16px;font-size:11px;color:#56718a}
+.chartLegend i{display:inline-block;width:13px;height:10px;border-radius:3px;margin-right:5px;background:#24659c}
+.chartLegend i.future{background:#dea961}
+.compRow{display:grid;grid-template-columns:55px minmax(0,1fr) 121px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #e8edf5}
+.compRow:last-child{border-bottom:0}
+.compRow strong{font-size:12px}
+.compTracks{display:flex;flex-direction:column;gap:4px;min-width:0}
+.compTracks .btrack{height:10px}
+.compTracks .bval{background:#28699f}
+.compTracks .bval.future{background:#dea961}
+.compValues{font-size:10px;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;line-height:1.5;color:#536780}
+.compValues span{display:block}
+.brow{grid-template-columns:73px minmax(0,1fr) 60px}
+.matrix>div{overflow-wrap:anywhere;word-break:normal}
+.flownode{line-height:1.7}.flownode strong{margin-bottom:4px}
+.fcard .links a{display:inline-flex;align-items:center;min-height:34px}
+.facilitybar input,.facilitybar select{min-height:45px}
+#map{isolation:isolate}
+.backTop{position:fixed;right:18px;bottom:18px;z-index:94;display:grid;place-items:center;width:46px;height:46px;border-radius:13px;background:#193e66;color:white;text-decoration:none;font-size:20px;font-weight:900;box-shadow:0 8px 22px #102d4a4d}
+.backTop:hover{color:white;background:#bd3c4c}
+@media(max-width:1150px){.grid.four,.grid:not(.two):not(.four),.facilityGrid,.pathdiagram{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:820px){.hero{min-height:0;gap:16px}.hero h1{font-size:clamp(39px,6vw,61px)}.matrix{grid-template-columns:105px repeat(4,minmax(0,1fr))}.matrix>div{padding:8px 4px;font-size:11px}}
+@media(max-width:720px){
+html{scroll-padding-top:67px}body{font-size:14px}.wrap{padding:0 16px}
+.headtop{gap:6px;padding-top:15px}.brand{font-size:11px;letter-spacing:0;gap:5px}.brand b{font-size:10px;padding:4px 6px}
+.headtop a{font-size:11px}.hero{grid-template-columns:1fr;padding:36px 0 44px;gap:4px}
+.hero h1{font-size:clamp(35px,10vw,51px);line-height:1.25;margin:12px 0}.hero p{font-size:14px}
+.heroActions{gap:8px}.heroActions .btn{flex:1 1 145px;font-size:12px;padding:9px 10px}
+.art{width:72%;max-width:300px;margin:auto}.credit{font-size:11px;margin-top:13px}
+.mobileNavToggle{display:flex;width:100%;justify-content:space-between;align-items:center;padding:11px 16px;border:0;background:#102c4b;color:white;font-size:13px;font-weight:850}
+.navscroll{display:none;max-height:58vh;overflow:auto;padding:7px;gap:5px}
+.navwrap.open .navscroll{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.navscroll a{white-space:normal;min-width:0;background:#ffffff10;border-radius:8px;padding:10px 9px;font-size:11px}
+.sect{padding:46px 0 5px}.sect h2{font-size:clamp(23px,6vw,30px)}.sect h3{font-size:17px}
+.sectHead{margin-bottom:15px;gap:7px}.lead{font-size:13px}
+.grid,.grid.two,.grid.four,.grid:not(.two):not(.four),.facilityGrid,.sources,.pathdiagram{grid-template-columns:1fr;gap:12px}
+.card,.chartbox{padding:17px}.big{font-size:35px}
+.tabs{gap:5px}.tab{padding:7px 10px;font-size:11px}
+.brow{grid-template-columns:55px minmax(0,1fr) 53px;gap:6px}.brow b{font-size:11px}
+.compRow{grid-template-columns:45px minmax(0,1fr) 100px;gap:6px}.compValues{font-size:9px}
+.matrix{grid-template-columns:73px repeat(4,minmax(0,1fr));gap:2px}.matrix>div{font-size:9px;padding:8px 3px;line-height:1.4}.matrix .mname{font-size:9px}
+.scrollHint{display:block;margin:7px 0 5px;width:max-content;max-width:100%;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:800;color:#335b7b;background:#e8f1f9}
+.tbl{font-size:12px;min-width:760px}.tbl td,.tbl th{padding:9px 10px}
+.flownode{flex:1 1 100%}.flowarrow{display:none}.facilitybar{gap:7px}
+.facilitybar input{flex:1 1 100%;min-width:0}.facilitybar select{flex:1 1 60%}
+#map{height:355px}.maphead{padding:12px}.maphead strong{width:100%}
+.fcard{padding:15px}.sourceItem{padding:14px}.backTop{right:10px;bottom:10px;width:41px;height:41px}
+.crossLinkPanel .crossBtn{width:100%;font-size:13px}
+}
+@media(max-width:360px){.wrap{padding:0 12px}.hero h1{font-size:35px}.matrix{grid-template-columns:65px repeat(4,minmax(0,1fr))}.compRow{grid-template-columns:42px minmax(0,1fr) 88px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+@media print{.mobileNavToggle,.backTop,.scrollHint{display:none!important}}
+
 </style></head><body>
 <header><div class="wrap">
 <div class="headtop"><div class="brand"><b>MEDICAL INTELLIGENCE</b> NAGANO / 2026</div><div><a href="#sources">公的出典</a>　·　<a href="#about">このサイトについて</a></div></div>
@@ -42,7 +116,7 @@ header{background:radial-gradient(circle at 80% 25%,#294d7e 0,#152b4f 42%,#08152
 <g fill="#ffc979"><circle cx="452" cy="248" r="8"/><circle cx="145" cy="377" r="7"/><circle cx="70" cy="265" r="5"/><circle cx="495" cy="370" r="5"/></g><text x="272" y="425" text-anchor="middle" fill="#dfefff" font-size="15" font-weight="900">HOSPITAL × CLINIC × PARTNER</text>
 </svg>
 </div></div></header>
-<nav class="navwrap" aria-label="ページ内ナビゲーション"><div class="navscroll">
+<nav class="navwrap" aria-label="ページ内ナビゲーション"><button class="mobileNavToggle" type="button" id="mobileNavToggle" aria-controls="primaryNavLinks" aria-expanded="false">☰　メニュー・各章へ移動 <span id="navToggleSymbol" aria-hidden="true">＋</span></button><div class="navscroll" id="primaryNavLinks">
 <a href="#dashboard">全体サマリー</a><a href="#regional">10医療圏</a><a href="#population">人口・医師</a><a href="#reform">地域医療構想</a><a href="#geography">地図・施設</a><a href="#ctmri">CT/MRI</a><a href="#dpc">DPC/大学</a><a href="#clinics">診療所</a><a href="#dealers">販社・SPD</a><a href="#framework">経営分析</a><a href="#strategy">KSF・実行</a><a href="#sources">出典</a>
 </div></nav>
 <main class="wrap">
@@ -67,16 +141,16 @@ header{background:radial-gradient(circle at 80% 25%,#294d7e 0,#152b4f 42%,#08152
 <section id="regional" class="sect"><div class="sectHead"><div><div class="tag">02 / MEDICAL AREA INTELLIGENCE</div><h2>10二次医療圏を、同じ尺度で比較</h2></div><span class="pill">2026実数 vs 2040推計</span></div>
 <p class="lead">区域ごとの人口、病院、医師、在宅療養支援診療所、65歳以上割合を横断比較。人口の2026年値は県推計、2040年値は医療計画作成支援データブックによる将来推計です。</p>
 <div class="tabs" id="areaTabs"><button class="tab active" data-block="すべて">全医療圏</button><button class="tab" data-block="北信">北信ブロック</button><button class="tab" data-block="東信">東信ブロック</button><button class="tab" data-block="中信">中信ブロック</button><button class="tab" data-block="南信">南信ブロック</button></div>
-<div class="grid two"><div class="chartbox"><h3>2026年→2040年の人口変化</h3><div class="bars" id="areaBars"></div><p class="mini">左の棒：2026年実数（濃紺）／半透明の端点：2040年推計、表示値は千人。ソース：S1 p.12</p></div><div class="chartbox"><h3>高齢化率（2026年・医療圏別）</h3><div class="bars" id="ageBars"></div><p class="mini">参考：県全体32.8%。木曽44.8%、北信38.3%、大北37.7%。ソース：S1 p.13</p></div></div>
-<div class="tablewrap" style="margin-top:18px"><table class="tbl"><thead><tr><th>医療圏</th><th>ブロック案</th><th class="num">2026人口</th><th class="num">2040推計</th><th class="num">減少率</th><th class="num">高齢化</th><th class="num">病院</th><th class="num">医師</th><th class="num">在宅支援診療所</th></tr></thead><tbody id="areaTable"></tbody></table></div>
+<div class="grid two"><div class="chartbox"><h3>2026年→2040年の人口変化</h3><div class="chartLegend"><span><i></i>2026年実数</span><span><i class="future"></i>2040年推計</span></div><div class="bars" id="areaBars" role="img" aria-label="2026年と2040年の医療圏別人口比較"></div><p class="mini">同じ目盛りで比較した2本の棒（単位：人）。地域選択に連動します。出典：S1。</p></div><div class="chartbox"><h3>高齢化率（2026年・医療圏別）</h3><div class="bars" id="ageBars"></div><p class="mini">参考：県全体32.8%。木曽44.8%、北信38.3%、大北37.7%。ソース：S1 p.13</p></div></div>
+<div class="scrollHint" aria-hidden="true">↔ 表は左右にスワイプして確認できます</div><div class="tablewrap" style="margin-top:18px" tabindex="0" role="region" aria-label="横スクロール式の比較表"><table class="tbl"><thead><tr><th>医療圏</th><th>ブロック案</th><th class="num">2026人口</th><th class="num">2040推計</th><th class="num">減少率</th><th class="num">高齢化</th><th class="num">病院</th><th class="num">医師</th><th class="num">在宅支援診療所</th></tr></thead><tbody id="areaTable"></tbody></table></div>
 <div class="callout warning"><b>解釈上の注意：</b>医師数5,319人は県の医療従事者集計による数値で、医師・歯科医師・薬剤師統計の別基準による公表値と必ずしも一致しません。ここでは県2026年7月資料内の数値だけを比較しています。</div>
 </section>
 <section id="population" class="sect"><div class="sectHead"><div><div class="tag">03 / POPULATION & PATIENT FLOW</div><h2>人口構造と患者の流れで、広域連携を読む</h2></div></div>
 <div class="grid two">
-<div class="chartbox"><h3>2026人口と2040推計人口（長野県・10圏計）</h3><div id="totalBars" class="bars" style="margin-top:28px"></div><p class="hint">2040年は2026年から約21.6万人減。県内各圏域の推計値合計。将来需要は疾患・年齢・患者移動によって変わる。</p></div>
+<div class="chartbox"><h3>2026人口と2040推計人口（長野県・10圏計）</h3><div id="totalBars" class="bars" style="margin-top:28px"></div><p class="hint">県計の2026年人口1,959,494人と2040年の10医療圏推計合計1,743,383人の参考比較。2026年の10圏単純合計は1,958,349人で県計との差は1,145人。県の注記によると県計と市町村人口では推計方法が異なります（出典：S1）。</p></div>
 <div class="chartbox"><h3>医師配置の地域差</h3><div class="bars" id="doctorBars"></div><p class="hint">2026年資料、人口10万人対の医師数を同一表内から算出。全国値332人／10万人（県資料）。</p></div></div>
 <h3 class="segTitle">DPC症例から見える主要流出先</h3>
-<div class="tablewrap"><table class="tbl"><thead><tr><th>居住医療圏</th><th>主な流出先</th><th class="num">DPC症例流出割合</th><th>公的データからの分析仮説</th></tr></thead><tbody>
+<div class="scrollHint" aria-hidden="true">↔ 表は左右にスワイプして確認できます</div><div class="tablewrap" tabindex="0" role="region" aria-label="横スクロール式の比較表"><table class="tbl"><thead><tr><th>居住医療圏</th><th>主な流出先</th><th class="num">DPC症例流出割合</th><th>公的データからの分析仮説</th></tr></thead><tbody>
 <tr><td>上小</td><td>佐久</td><td class="num">21.1%</td><td>上田側の診療機関と佐久の基幹病院を一体で見る</td></tr>
 <tr><td>上伊那</td><td>松本</td><td class="num">8.0%</td><td>中信との高度診療・画像検査連携を調査</td></tr>
 <tr><td>上伊那</td><td>諏訪</td><td class="num">7.4%</td><td>諏訪と伊那中央の役割分担を把握</td></tr>
@@ -106,8 +180,8 @@ header{background:radial-gradient(circle at 80% 25%,#294d7e 0,#152b4f 42%,#08152
 <p class="lead">地図は国土地理院の標準地図タイルを利用。ピンは<b>所在市町村の概略位置</b>であり敷地位置・境界ではありません。施設カードからGoogleマップで実際の所在地と経路を確認できます。</p>
 <div class="mappanel"><div class="maphead"><strong>🗺️ 長野県内の基幹病院・地域病院（候補マップ）</strong><div><a class="btn sm" href="https://maps.gsi.go.jp/#9/36.250/138.050/&base=std&ls=std&disp=1" target="_blank" rel="noopener">地理院地図 ↗</a> <a class="btn sm" href="https://www.google.com/maps/search/?api=1&query=%E9%95%B7%E9%87%8E%E7%9C%8C%20%E7%97%85%E9%99%A2" target="_blank" rel="noopener">Googleマップ ↗</a></div></div>
 <div id="map" role="region" aria-label="長野県医療機関の地図"></div><div class="mapfoot">国土地理院（電子国土基本図）© 国土地理院。表示ピンは医療圏分析用の近似点。各施設の実住所は地図リンク先で確認してください。</div></div>
-<div class="facilitybar" style="margin-top:23px"><input id="q" type="search" placeholder="施設名・市町村・医療圏で検索（例：佐久、飯田、赤十字）" aria-label="施設検索"><select id="areaSelect" aria-label="医療圏フィルター"><option value="">全医療圏</option></select><span class="pill" id="hits">施設一覧</span></div>
-<div class="facilityGrid" id="facilityGrid"></div>
+<div class="facilitybar" style="margin-top:23px"><input id="q" type="search" placeholder="施設名・市町村・医療圏で検索（例：佐久、飯田、赤十字）" aria-label="施設検索"><select id="areaSelect" aria-label="医療圏フィルター"><option value="">全医療圏</option></select><span class="pill" id="hits" role="status" aria-live="polite">施設一覧</span></div>
+<div class="facilityGrid" id="facilityGrid" aria-live="polite"></div>
 <p class="note">施設名は県計画・医療情報ネット・病院公開資料に基づく調査候補。DPC群・装置年次・購買予定・メーカーは別途確認が必要です。外部地図の掲載情報には更新差があります。</p>
 </section>
 <section id="ctmri" class="sect"><div class="sectHead"><div><div class="tag">06 / CT · MRI / RADIOLOGY</div><h2>CT・MRI市場：更新需要をどう読むか</h2></div></div>
@@ -126,7 +200,7 @@ header{background:radial-gradient(circle at 80% 25%,#294d7e 0,#152b4f 42%,#08152
 <section id="dpc" class="sect"><div class="sectHead"><div><div class="tag">07 / DPC · EDUCATION</div><h2>DPC病院・信州大学・専門医療機能</h2></div></div>
 <div class="grid two"><div class="card"><span class="ico">🎓</span><h3>信州大学医学部附属病院</h3><div class="big" style="font-size:35px">698<span style="font-size:16px">床</span></div><p>大学病院の公式概要2025–2026では、34診療科・31センター/部門、医師約650名、看護師約800名。医育・研究・広域診療の機能が大きい。</p><a href="https://wwwhp.md.shinshu-u.ac.jp/overview/statistics.html" target="_blank" rel="noopener">病院組織・統計（公式） ↗</a></div><div class="card"><span class="ico">🏥</span><h3>DPC群の分類と注意</h3><p>旧DPCⅠ/Ⅱ/Ⅲ群は現在の「大学病院本院群」「DPC特定病院群」「DPC標準病院群」に対応する枠組み。<b>救命救急センター・病床数・DPC群は別々の概念</b>です。</p><p class="hint">特定・標準病院群の施設別現行区分は令和8年度の厚労省公表資料で照合する必要があり、このサイトでは推測で分類しません。</p></div></div>
 <h3 class="segTitle">基幹病院を中心とした検証の観点</h3>
-<div class="tablewrap"><table class="tbl"><thead><tr><th>エリア</th><th>具体的な施設</th><th>臨床・政策上の着眼点</th><th>優先調査項目</th></tr></thead><tbody>
+<div class="scrollHint" aria-hidden="true">↔ 表は左右にスワイプして確認できます</div><div class="tablewrap" tabindex="0" role="region" aria-label="横スクロール式の比較表"><table class="tbl"><thead><tr><th>エリア</th><th>具体的な施設</th><th>臨床・政策上の着眼点</th><th>優先調査項目</th></tr></thead><tbody>
 <tr><td>松本・安曇野</td><td>信州大学医学部附属病院、相澤病院、まつもと医療センター、安曇野赤十字病院</td><td>医学教育、救命救急、高度診断、地域連携</td><td>研究・教育・装置性能・稼働率</td></tr>
 <tr><td>長野・北信</td><td>長野赤十字病院、長野市民病院、篠ノ井総合病院、北信総合病院、飯山赤十字病院</td><td>急性期機能、がん・循環器、北部の医療アクセス</td><td>救急検査動線、外来機能、保守</td></tr>
 <tr><td>佐久・上小</td><td>佐久医療センター、佐久総合病院、信州上田医療センター、丸子中央病院</td><td>上小→佐久への患者移動、広域の医療機能分担</td><td>紹介先・画像連携・投資計画</td></tr>
@@ -144,7 +218,7 @@ header{background:radial-gradient(circle at 80% 25%,#294d7e 0,#152b4f 42%,#08152
 </section>
 <section id="dealers" class="sect"><div class="sectHead"><div><div class="tag">09 / CHANNEL · SPD · MATERIALS</div><h2>販社・ディーラー・医療材料／消耗品／SPD</h2></div></div>
 <p class="lead">病院の設備投資を理解するには、画像機器を扱う販売会社に加えて、日常的に医療材料・消耗品を扱う商社、SPD事業者、院内購買・設備管理部門の接点を把握する必要があります。</p>
-<div class="tablewrap"><table class="tbl"><thead><tr><th>事業者</th><th>公式情報から確認できる範囲</th><th>医療材料／消耗品／SPD</th><th>分析上の着眼点</th><th>一次情報</th></tr></thead><tbody>
+<div class="scrollHint" aria-hidden="true">↔ 表は左右にスワイプして確認できます</div><div class="tablewrap" tabindex="0" role="region" aria-label="横スクロール式の比較表"><table class="tbl"><thead><tr><th>事業者</th><th>公式情報から確認できる範囲</th><th>医療材料／消耗品／SPD</th><th>分析上の着眼点</th><th>一次情報</th></tr></thead><tbody>
 <tr><td><b>中日本メディカルリンク</b></td><td>松本本社、長野・安曇野・佐久・伊那・飯田分室などの事業所。病院支援・在宅・開業支援。</td><td>医療用機器・医療用材料・介護用品等の販売、メンテナンス</td><td>病院・診療所と在宅をつなぐ広域情報網、画像営業組織の確認</td><td><a target="_blank" rel="noopener" href="https://www.jmlink.co.jp/company/office/">事業所一覧 ↗</a></td></tr>
 <tr><td><b>上條器械店</b></td><td>医療機器・理化学機器販売、保守、開業支援、SPDを公式に掲示。</td><td>SPD事業を明記</td><td>保守・医療材料・院内物流と機器更新の接点</td><td><a target="_blank" rel="noopener" href="https://www.kjm.co.jp/outline/">事業案内 ↗</a></td></tr>
 <tr><td><b>中央メディカル（旧法人）</b></td><td>2026年4月1日、上條器械店と合併する旨の公式案内</td><td>統合後の拠点・契約名義の確認が必要</td><td>旧社名の販社実績を二重集計しない</td><td><a target="_blank" rel="noopener" href="https://www.kjm.co.jp/cms/wp-content/uploads/2025/12/202601.pdf">合併案内 ↗</a></td></tr>
@@ -217,7 +291,7 @@ header{background:radial-gradient(circle at 80% 25%,#294d7e 0,#152b4f 42%,#08152
 </div>
 <p class="note">『二次医療圏でみる地域医療の構造 医療需給総覧』（日本経営、2026年版）10圏分、既存長野県医療市場研究資料を分析観点の整理に参照。ただし著作物の図表や非公開の営業データは公開サイトに転載していません。データの最新性は出典先で確認してください。</p>
 </section>
-</main><footer class="foot"><div class="wrap"><div style="font-size:25px;font-weight:900">長野の医療MKT <span style="color:#e9b66c">2026</span></div><p>二次医療圏 × 地域医療構想 × 医療機器 × 診療所 × 販社・SPD</p><p>編纂：<b style="color:white">高橋亜耶佳</b>　|　出典は各公的機関・大学・企業公式サイト　|　公開資料に基づく独立した分析・考察</p><a href="#dashboard">ページ先頭へ ↑</a><div class="crossLinkPanel" aria-label="関連リンク：国内医療機器MKT参考">
+</main><a class="backTop" href="#dashboard" aria-label="ページ先頭へ戻る" title="ページ先頭へ戻る">↑</a><footer class="foot"><div class="wrap"><div style="font-size:25px;font-weight:900">長野の医療MKT <span style="color:#e9b66c">2026</span></div><p>二次医療圏 × 地域医療構想 × 医療機器 × 診療所 × 販社・SPD</p><p>編纂：<b style="color:white">高橋亜耶佳</b>　|　出典は各公的機関・大学・企業公式サイト　|　公開資料に基づく独立した分析・考察</p><a href="#dashboard">ページ先頭へ ↑</a><div class="crossLinkPanel" aria-label="関連リンク：国内医療機器MKT参考">
 <div><div style="font-size:11px;color:#e8bf83;letter-spacing:.16em;font-weight:900">RELATED REFERENCE</div>
 <h3>国内医療機器MKT参考</h3>
 <p>全国の医療機器マーケット・地域医療に関する参考情報へ移動します。</p></div>
@@ -277,7 +351,12 @@ var active="すべて";
 function renderAreas(){
 var subset=areas.filter(function(x){return active==="すべて"||x[1]===active});
 var max=Math.max.apply(null,areas.map(function(x){return x[2]}));
-document.getElementById("areaBars").innerHTML=subset.slice().sort(function(a,b){return b[2]-a[2]}).map(function(x){return '<div class="brow"><b>'+x[0]+'</b><div class="btrack"><span class="bval" style="width:'+(x[2]/max*100)+'%"><span style="display:block;height:100%;background:#efbc75;width:'+(x[3]/x[2]*100)+'%;opacity:.85"></span></span></div><span class="num">'+Math.round(x[2]/1000)+'→'+Math.round(x[3]/1000)+'</span></div>'}).join("");
+document.getElementById("areaBars").innerHTML=subset.slice().sort(function(a,b){return b[2]-a[2]}).map(function(x){
+return '<div class="compRow"><strong>'+x[0]+'</strong><div class="compTracks">'+
+'<div class="btrack"><span class="bval" style="width:'+(x[2]/max*100).toFixed(2)+'%"></span></div>'+
+'<div class="btrack"><span class="bval future" style="width:'+(x[3]/max*100).toFixed(2)+'%"></span></div></div>'+
+'<div class="compValues"><span>26年 '+fmt(x[2])+'</span><span>40年 '+fmt(x[3])+'</span></div></div>';
+}).join("");
 document.getElementById("ageBars").innerHTML=subset.slice().sort(function(a,b){return b[4]-a[4]}).map(function(x){return '<div class="brow"><b>'+x[0]+'</b><div class="btrack"><span class="bval gold" style="width:'+(x[4]/50*100)+'%"></span></div><b class="num">'+x[4].toFixed(1)+'%</b></div>'}).join("");
 document.getElementById("areaTable").innerHTML=subset.map(function(x){return '<tr><td><b>'+x[0]+'</b></td><td>'+x[1]+'</td><td class="num">'+fmt(x[2])+'</td><td class="num">'+fmt(x[3])+'</td><td class="num">'+((x[3]/x[2]-1)*100).toFixed(1)+'%</td><td class="num">'+x[4].toFixed(1)+'%</td><td class="num">'+x[5]+'</td><td class="num">'+fmt(x[6])+'</td><td class="num">'+x[7]+'</td></tr>'}).join("");
 }
@@ -292,6 +371,12 @@ document.getElementById("hits").textContent=dat.length+"件 / "+locations.length
 document.getElementById("facilityGrid").innerHTML=dat.map(function(x){return '<article class="fcard"><h4>🏥 '+safe(x[0])+'</h4><div class="sub"><span class="pill">'+x[1]+'医療圏</span>　'+x[2]+'</div><div style="font-size:12px;color:#516b80;margin-bottom:10px">'+x[5]+'</div><div class="links"><a href="'+mapurl(x[0])+'" target="_blank" rel="noopener">📍 Googleマップ ↗</a><a href="'+gsiurl(x[3],x[4])+'" target="_blank" rel="noopener">⛰ 地理院地図 ↗</a></div></article>'}).join("")||'<p>該当する施設はありません。</p>';
 }
 document.getElementById("q").addEventListener("input",cards);select.addEventListener("change",cards);cards();
+var menuBtn=document.getElementById("mobileNavToggle"),navRoot=document.querySelector(".navwrap");
+if(menuBtn&&navRoot){
+menuBtn.addEventListener("click",function(){var open=navRoot.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(open));document.getElementById("navToggleSymbol").textContent=open?"−":"＋";});
+navRoot.querySelectorAll(".navscroll a").forEach(function(a){a.addEventListener("click",function(){navRoot.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");document.getElementById("navToggleSymbol").textContent="＋";})});
+}
+
 var m=document.getElementById("map");
 if(typeof L!=="undefined"){
 var mp=L.map("map",{scrollWheelZoom:false}).setView([36.15,138.01],8);
