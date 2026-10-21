@@ -181,12 +181,13 @@ function initMap(){
  let details=root.parentElement.querySelector('.map-directory-details');
  if(!details){details=document.createElement('details');details.className='map-directory-details';details.innerHTML='<summary id="directorySummary">主要病院の公式サイト一覧（クリックで表示）</summary><div class="map-directory" id="mapDirectory"></div>';root.parentElement.appendChild(details)}
  const panel=el('mapDirectory');
+ details.open=true;
  function filter(){
   const selected=el('mapFilter').value;
   root.querySelectorAll('[data-area]').forEach(node=>node.classList.toggle('dim',selected!=='all'&&node.getAttribute('data-area')!==selected));
   const hs=D.hubs.filter(h=>selected==='all'||h.area===selected);
   el('directorySummary').textContent='主要病院の公式サイト・地図（'+hs.length+'施設）';
-  details.open=selected!=='all';
+  if(selected!=='all')details.open=true;
   panel.innerHTML=hs.map(h=>`<div class="hospital-row"><a class="hospital-name" href="${esc(h.website)}" target="_blank" rel="noopener noreferrer" title="${esc(h.name)}の公式サイト">${esc(h.name)} <span aria-hidden="true">↗</span></a><span class="hospital-area">${esc(h.area)}医療圏</span><a class="hospital-map" href="${google(h.name+' '+h.address)}" target="_blank" rel="noopener noreferrer">Googleマップ ↗</a><a class="hospital-gsi" href="${gsi(h.lat,h.lon,13)}" target="_blank" rel="noopener noreferrer">地理院地図 ↗</a></div>`).join('');
   root.querySelector('svg').setAttribute('aria-label',selected==='all'?'新潟県7二次医療圏の境界地図':selected+'医療圏の境界地図');
  }
