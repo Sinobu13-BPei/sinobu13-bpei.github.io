@@ -201,6 +201,40 @@ html{scroll-padding-top:67px}body{font-size:14px}.wrap{padding:0 16px}
 .ksfWheel{min-width:0}
 }
 @media print{.scatterDot{cursor:default}.mapControls{display:none}.vizBox{break-inside:avoid;box-shadow:none}}
+
+/* Public medical maps reference gallery */
+.mapAtlasHero{margin:16px 0 22px;background:linear-gradient(120deg,#15395e,#2d6796);color:white;padding:22px 24px;border-radius:18px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.mapAtlasHero strong{font-size:20px;display:block}.mapAtlasHero p{font-size:12px;color:#dfebf7;margin:5px 0}
+.referenceMapGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.referenceMapCard{display:flex;flex-direction:column;min-width:0;overflow:hidden;background:#fff;border:1px solid #dce5ef;border-radius:18px;box-shadow:0 10px 27px rgba(26,54,84,.07)}
+.referenceMapCard figure{margin:0;display:flex;align-items:center;justify-content:center;min-height:260px;height:310px;background:linear-gradient(140deg,#f1f6fb,#eaf1f9);overflow:hidden;position:relative;padding:15px}
+.referenceMapCard figure img{width:auto;height:auto;max-width:100%;max-height:100%;display:block;object-fit:contain;cursor:zoom-in;transition:transform .2s ease}
+.referenceMapCard figure img:hover{transform:scale(1.02)}
+.referenceMapCard figure .mapFloatingLabel{position:absolute;left:12px;top:10px;border-radius:8px;padding:4px 10px;font-weight:850;background:#17436ce8;color:white;font-size:11px}
+.referenceMapCard .mapCardBody{padding:20px;display:flex;flex-direction:column;gap:9px;flex:1}
+.referenceMapCard h3{font-size:17px;margin:2px 0;line-height:1.55;color:#153d64}
+.referenceMapCard p{font-size:12px;line-height:1.85;color:#596d83;margin:0}
+.referenceMapCard .mapCardFooter{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:7px}
+.referenceMapCard .mapCardFooter a,.referenceMapCard .mapCardFooter button{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:#f4f8fc;color:#22557d;text-decoration:none;border:1px solid #c6d8ea;padding:9px 11px;border-radius:9px;font-size:12px;font-weight:850;min-height:40px;cursor:pointer}
+.referenceMapCard .mapCardFooter a.primary{background:#d44b50;border-color:#d44b50;color:white}
+.mapLabelBox{background:#fff8eb;border:1px solid #efd3a5;color:#755c38;border-radius:10px;padding:10px 13px;font-size:11px;line-height:1.7}
+.mapSourceBadge{display:inline-block;font-size:10px;padding:2px 8px;background:#eef4fa;border-radius:9px;color:#40637f;font-weight:900}
+.mapLayerDiagram{padding:20px 10px;background:white;border:1px solid #dbe8f2;border-radius:14px;margin:11px 0}
+.mapLayerDiagram .stair{display:grid;gap:7px;max-width:440px;margin:0 auto}
+.mapLayerDiagram .stair>div{padding:10px 12px;border:1px solid #d1e0ec;border-radius:10px;text-align:center;font-size:13px;font-weight:850;line-height:1.6}
+.mapLayerDiagram .stair>div:nth-child(1){max-width:250px;margin:auto;background:#d9ebfa}
+.mapLayerDiagram .stair>div:nth-child(2){max-width:350px;margin:auto;background:#c1e3e8}
+.mapLayerDiagram .stair>div:nth-child(3){background:#e9f1f8}
+.mapBedIllustration{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:7px 0}
+.mapBedIllustration>div{border:1px solid #d9e5f0;background:#f4f9fd;border-radius:13px;text-align:center;padding:11px}
+.mapBedIllustration b{display:block;font-size:22px;font-variant-numeric:tabular-nums;color:#225781;line-height:1.4}
+.mapBedIllustration span{display:block;font-size:11px;color:#6a8096}
+.mapModal{position:fixed;inset:0;z-index:200;background:#0c1526ea;display:none;align-items:center;justify-content:center;padding:42px 16px 22px}
+.mapModal.open{display:flex}.mapModal .zoomWrap{max-width:min(1250px,98vw);max-height:90vh;overflow:auto;background:white;padding:8px;border-radius:12px;box-shadow:0 20px 60px #0005}
+.mapModal img{display:block;max-width:100%;width:auto;height:auto;max-height:calc(90vh - 16px);object-fit:contain}
+.mapModal button{position:absolute;top:11px;right:19px;background:white;border:0;border-radius:50%;width:42px;height:42px;font-size:24px;font-weight:900;color:#173753}
+.mapOnlineNote{margin-top:16px;padding:12px 15px;background:#f0f6fb;border-left:4px solid #3676a5;border-radius:9px;font-size:11px;color:#49657f}
+@media(max-width:820px){.referenceMapGrid{grid-template-columns:1fr}.referenceMapCard figure{height:auto;min-height:205px;max-height:400px}.referenceMapCard figure img{max-height:340px}.mapAtlasHero{padding:17px}}
 </style></head><body>
 <header><div class="wrap">
 <div class="headtop"><div class="brand"><b>MEDICAL INTELLIGENCE</b> NAGANO / 2026</div><div><a href="#sources">公的出典</a>　·　<a href="#about">このサイトについて</a></div></div>
@@ -219,7 +253,7 @@ html{scroll-padding-top:67px}body{font-size:14px}.wrap{padding:0 16px}
 </svg>
 </div></div></header>
 <nav class="navwrap" aria-label="ページ内ナビゲーション"><button class="mobileNavToggle" type="button" id="mobileNavToggle" aria-controls="primaryNavLinks" aria-expanded="false">☰　メニュー・各章へ移動 <span id="navToggleSymbol" aria-hidden="true">＋</span></button><div class="navscroll" id="primaryNavLinks">
-<a href="#dashboard">全体サマリー</a><a href="#regional">10医療圏</a><a href="#population">人口・医師</a><a href="#reform">地域医療構想</a><a href="#geography">地図・施設</a><a href="#ctmri">CT/MRI</a><a href="#dpc">DPC/大学</a><a href="#clinics">診療所</a><a href="#dealers">販社・SPD</a><a href="#framework">経営分析</a><a href="#strategy">KSF・実行</a><a href="#sources">出典</a>
+<a href="#dashboard">全体サマリー</a><a href="#regional">10医療圏</a><a href="#population">人口・医師</a><a href="#reform">地域医療構想</a><a href="#reference-maps">医療関連地図4点</a><a href="#geography">地図・施設</a><a href="#ctmri">CT/MRI</a><a href="#dpc">DPC/大学</a><a href="#clinics">診療所</a><a href="#dealers">販社・SPD</a><a href="#framework">経営分析</a><a href="#strategy">KSF・実行</a><a href="#sources">出典</a>
 </div></nav>
 <main class="wrap">
 <section id="dashboard" class="sect"><div class="sectHead"><div><div class="tag">01 / EXECUTIVE VIEW</div><h2>数字でつかむ、長野の医療</h2></div><span class="pill">県庁2026年7月資料より</span></div>
@@ -314,6 +348,34 @@ html{scroll-padding-top:67px}body{font-size:14px}.wrap{padding:0 16px}
 <div class="vizTitle"><span class="vizNum">04</span>4広域ブロックの人口構成図 <span class="vizSub">現行10圏域を組み合わせた県審議会の検討案</span></div>
 <div class="vizBox"><div class="blockLegend"><span><b></b>2026年人口</span><span><b class="second"></b>2040年推計</span><span>比較棒は同一最大値を基準に描画</span></div><div class="blockCompare" id="blockPopulation"></div><div class="vizCaption">4区域の構成は県審議会（2026年7月）での検討案であり、確定区域ではありません。2026年人口は10圏人口の合計、2040年は各圏推計の合計。出典：S1・S2。</div></div>
 
+</section>
+<section id="reference-maps" class="sect">
+<div class="sectHead"><div><div class="tag">06 / MAP COLLECTION</div><h2>医療関連地図・原資料ギャラリー</h2></div><span class="pill">添付4テーマ｜原典・最新版へのリンク付き</span></div>
+<p class="lead">追加提供された4点の地図をテーマ別に整理しました。公開元で確認できた図は原図を表示し、資料の作成年が古いものや元画像が小さいものは、出典に基づく補助図と原典リンクを合わせて掲載しています。</p>
+<div class="mapAtlasHero"><span style="font-size:41px" aria-hidden="true">🗺️</span><div><strong>地図で見る、長野県の医療提供体制</strong><p>10医療圏・2025年必要病床数・信州大学の関連病院・一次〜三次医療・外来心臓リハビリをひとつのページで確認。</p></div></div>
+<div class="referenceMapGrid">
+<article class="referenceMapCard"><figure><span class="mapFloatingLabel">MAP 01｜必要病床数</span>
+<img loading="lazy" decoding="async" src="https://www.pref.nagano.lg.jp/doctor/kenko/ishi/kyujinjoho/images/10kouikiimage.gif" alt="長野県の10二次医療圏の色分け地図。添付の2025年必要病床数推計図に対応する地理的な補助図"></figure>
+<div class="mapCardBody"><span class="mapSourceBadge">県公式10圏地図＋統計の再整理</span><h3>2025年の必要病床数と10二次医療圏</h3>
+<div class="mapBedIllustration"><div><span>2025年必要病床数の推計（県計）</span><b>16,839床</b></div><div><span>県の地域医療構想</span><b>10医療圏</b></div></div>
+<p>添付の2025年必要病床数の推計図が示す、地域ごとの病床機能の分化・再編を捉えるための地図。画像は県の医療圏区分図を使用。<strong>必要病床数は過去に策定された2025年時点の推計であり、2026年の実病床数ではありません。</strong></p>
+<div class="mapCardFooter"><a class="primary" href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/kousou.html" target="_blank" rel="noopener">県の地域医療構想 ↗</a><a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/documents/iryokoso03.pdf" target="_blank" rel="noopener">病床数の原典PDF ↗</a></div>
+<div class="mapLabelBox">表示は添付画像そのものではなく、県公開の医療圏地図と公的な病床推計を組み合わせた補助図です。</div></div></article>
+<article class="referenceMapCard"><figure><span class="mapFloatingLabel">MAP 02｜関連病院</span><img loading="lazy" decoding="async" id="medical-map-hospitals" src="https://www.shinshu-u.ac.jp/faculty/medicine/resident/images/about/relation/map-image01.jpg" alt="信州大学医学部附属病院の関連病院配置図。県内の長野、松本、佐久、諏訪、飯田などに関連病院を位置付けた地図"></figure>
+<div class="mapCardBody"><span class="mapSourceBadge">信州大学 卒後臨床研修センター</span><h3>信州大学医学部附属病院・関連病院の配置</h3><p>信州大学を中心に、長野県全体で医師教育と地域医療を支える関連病院を俯瞰。病院名を読む際は図を拡大してください。過去の関連病院一覧と現在の指定・名称には違いが生じる可能性があります。</p>
+<div class="mapCardFooter"><button type="button" data-zoom="medical-map-hospitals">🔎 地図を拡大</button><a class="primary" href="https://www.shinshu-u.ac.jp/faculty/medicine/resident/about/relation.html" target="_blank" rel="noopener">信州大学公式 ↗</a><a href="https://www.google.com/maps/search/?api=1&query=%E4%BF%A1%E5%B7%9E%E5%A4%A7%E5%AD%A6%E5%8C%BB%E5%AD%A6%E9%83%A8%E9%99%84%E5%B1%9E%E7%97%85%E9%99%A2" target="_blank" rel="noopener">Googleマップ ↗</a></div></div></article>
+<article class="referenceMapCard"><figure><span class="mapFloatingLabel">MAP 03｜医療圏の階層</span><img loading="lazy" decoding="async" src="https://www.pref.nagano.lg.jp/doctor/kenko/ishi/kyujinjoho/images/10kouikiimage.gif" alt="長野県の10二次医療圏を表す県公式の区域図。一次・二次・三次医療の役割の理解に用いる補助図"></figure>
+<div class="mapCardBody"><span class="mapSourceBadge">一次・二次・三次医療の関係</span><h3>医療機能の段階と圏域のつながり</h3>
+<div class="mapLayerDiagram"><div class="stair"><div>🏥 三次医療圏<br><small>高度・特殊医療／県全域</small></div><div>🚑 二次医療圏<br><small>入院・地域中核／10医療圏</small></div><div>🩺 一次医療圏<br><small>身近な外来・日常診療／市町村</small></div></div></div>
+<p>添付3枚目の医療圏階層を、長野県の第8次医療計画の定義に沿って読みやすく再構成した説明図です。2026年に検討されている「新たな地域医療構想の4区域案」とは別の概念です。</p>
+<div class="mapCardFooter"><a class="primary" href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/documents/soan-05-06.pdf" target="_blank" rel="noopener">医療圏定義の原典PDF ↗</a><a href="#reform">4区域案を確認 ↓</a></div>
+<div class="mapLabelBox">添付原画像の直接転載ではなく、医療圏区分図と県計画の役割整理を組み合わせた再構成図です。</div></div></article>
+<article class="referenceMapCard"><figure><span class="mapFloatingLabel">MAP 04｜外来心臓リハビリ</span>
+<img loading="lazy" decoding="async" id="medical-map-cardiac" src="https://wwwhp.md.shinshu-u.ac.jp/noushin/news/assets_c/2026/01/4f1e7987a7ecfa5d4dfd8cf2a30af50e30fabf11-thumb-1040x720-6784.png" alt="信州大学医学部附属病院が公開した長野県の外来心臓リハビリテーション受入医療機関マップ。地域別に施設名と位置を示す"></figure>
+<div class="mapCardBody"><span class="mapSourceBadge">信州大学・脳卒中／心臓病等総合支援センター</span><h3>外来心臓リハビリテーション実施施設MAP</h3><p>県内の外来心臓リハビリ実施医療機関を地域別に可視化。<strong>この画像は2026年1月公表の旧版</strong>です。2026年3月31日に更新版（第2版）が公開されているため、最新の施設情報は公式の更新ページを参照してください。<a href="https://wwwhp.md.shinshu-u.ac.jp/noushin/news/2026/03/post-10.html" target="_blank" rel="noopener">更新版の説明 ↗</a></p>
+<div class="mapCardFooter"><button type="button" data-zoom="medical-map-cardiac">🔎 地図を拡大</button><a class="primary" href="https://wwwhp.md.shinshu-u.ac.jp/noushin/map/" target="_blank" rel="noopener">最新版の施設マップ ↗</a><a href="https://www.google.com/maps/search/?api=1&query=%E9%95%B7%E9%87%8E%E7%9C%8C%20%E5%BF%83%E8%87%93%E3%83%AA%E3%83%8F%E3%83%93%E3%83%AA%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3" target="_blank" rel="noopener">Googleマップ ↗</a></div></div></article>
+</div>
+<div class="mapOnlineNote">地図データの扱い：掲載図版の権利は各原著作権者に帰属します。公開元の画像URLを参照して表示しており、サイトや画像提供元の構成変更により表示できない場合があります。画像の添付元が確認できない資料は、原図の直接転載を避け、公的情報に基づく補助図で代替しています。</div>
 </section>
 <section id="geography" class="sect"><div class="sectHead"><div><div class="tag">05 / HOSPITAL LOCATION INTELLIGENCE</div><h2>重点病院・医療圏の地図</h2></div><span class="pill">Googleマップ連携</span></div>
 <p class="lead">地図は国土地理院の標準地図タイルを利用。ピンは<b>所在市町村の概略位置</b>であり敷地位置・境界ではありません。施設カードからGoogleマップで実際の所在地と経路を確認できます。</p>
@@ -505,7 +567,11 @@ html{scroll-padding-top:67px}body{font-size:14px}.wrap{padding:0 16px}
 <div class="sourceItem"><a href="https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp" target="_blank" rel="noopener">S18　国立社会保障・人口問題研究所「日本の地域別将来推計人口（2023年推計）」↗</a><span>市町村別将来人口、65歳以上人口、2050年までの長期見通し、Excelデータ。</span></div>
 <div class="sourceItem"><a href="https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2300/initialize" target="_blank" rel="noopener">S19　厚生労働省「医療情報ネット（ナビイ）」↗</a><span>病院・診療所・診療科目・医療機能等の公開検索。施設ごとの最新掲載内容は原典で確認。</span></div>
 <div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/" target="_blank" rel="noopener">S20　長野県庁公式ホームページ ↗</a><span>医療政策課・保健福祉事務所・県政統計などの最新公表情報への入口。</span></div>
-</div>
+
+<div class="sourceItem"><a href="https://www.shinshu-u.ac.jp/faculty/medicine/resident/about/relation.html" target="_blank" rel="noopener">S21　信州大学医学部附属病院 卒後臨床研修センター・関連病院 ↗</a><span>添付の関連病院配置図の公開元・病院教育ネットワーク。</span></div>
+<div class="sourceItem"><a href="https://wwwhp.md.shinshu-u.ac.jp/noushin/map/" target="_blank" rel="noopener">S22　信州大学「長野県医療連携マップ」 ↗</a><span>外来心臓リハビリテーション受入施設マップ（更新版）および関連疾患の施設マップ。</span></div>
+<div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/documents/iryokoso03.pdf" target="_blank" rel="noopener">S23　長野県地域医療構想・2025年の必要病床数推計 ↗</a><span>高度急性期・急性期・回復期・慢性期の2025年推計。現在の実病床数ではありません。</span></div>
+<div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/documents/soan-05-06.pdf" target="_blank" rel="noopener">S24　長野県医療圏の設定・医療機能別の役割 ↗</a><span>一次・二次・三次医療圏の公式定義と区域の考え方。</span></div></div>
 <p class="note">『二次医療圏でみる地域医療の構造 医療需給総覧』（日本経営、2026年版）10圏分、既存長野県医療市場研究資料を分析観点の整理に参照。ただし著作物の図表や非公開の営業データは公開サイトに転載していません。データの最新性は出典先で確認してください。</p>
 </section>
 </main><a class="backTop" href="#dashboard" aria-label="ページ先頭へ戻る" title="ページ先頭へ戻る">↑</a><footer class="foot"><div class="wrap"><div style="font-size:25px;font-weight:900">長野の医療MKT <span style="color:#e9b66c">2026</span></div><p>二次医療圏 × 地域医療構想 × 医療機器 × 診療所 × 販社・SPD</p><p>編纂：<b style="color:white">高橋亜耶佳</b>　|　出典は各公的機関・大学・企業公式サイト　|　公開資料に基づく独立した分析・考察</p><a href="#dashboard">ページ先頭へ ↑</a><div class="crossLinkPanel" aria-label="関連リンク：国内医療機器MKT参考">
@@ -643,4 +709,6 @@ bubbleButton.addEventListener("click",function(){var on=bubbleButton.getAttribut
 var icons={};locations.forEach(function(x){var marker=L.circleMarker([x[3],x[4]],{radius:7,color:"#fff",weight:2,fillColor:x[1]==="長野"?"#dc514e":x[1]==="松本"?"#e3a949":"#2c77b5",fillOpacity:.93}).addTo(mp);marker.bindPopup('<b>'+safe(x[0])+'</b><br>'+x[1]+'医療圏・'+x[2]+'<br><a href="'+mapurl(x[0])+'" target="_blank" rel="noopener">Googleマップで実際の場所を確認 ↗</a>');});
 }else{m.innerHTML='<div style="padding:40px;text-align:center">地図タイルを表示できません。下の施設一覧からGoogleマップ・地理院地図へ移動できます。</div>';}
 })();
+
+(function(){var zoomButtons=document.querySelectorAll('[data-zoom]');if(!zoomButtons.length)return;var modal=document.createElement('div');modal.className='mapModal';modal.setAttribute('role','dialog');modal.setAttribute('aria-modal','true');modal.setAttribute('aria-label','医療関連地図の拡大表示');modal.innerHTML='<button type="button" aria-label="拡大表示を閉じる">×</button><div class="zoomWrap"><img alt="拡大した医療関連地図"></div>';document.body.appendChild(modal);var img=modal.querySelector('img'),close=modal.querySelector('button'),lastFocused=null;function hide(){modal.classList.remove('open');img.removeAttribute('src');if(lastFocused)lastFocused.focus();}zoomButtons.forEach(function(b){b.addEventListener('click',function(){var src=document.getElementById(b.getAttribute('data-zoom'));if(!src)return;lastFocused=b;img.src=src.currentSrc||src.src;img.alt=src.alt||'医療関連地図';modal.classList.add('open');close.focus();})});close.addEventListener('click',hide);modal.addEventListener('click',function(e){if(e.target===modal)hide();});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))hide();});})();
 </script></body></html>
