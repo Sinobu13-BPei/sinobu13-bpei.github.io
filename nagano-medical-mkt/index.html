@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101d38">
+<meta name="description" content="長野の医療MKT｜長野県10二次医療圏、2026年の人口・医師・病院、2040年推計、地域医療構想、CT・MRI、診療所、販社・SPD、主要病院、PEST・3C・STP・4P・4C・VRIO・5F・KSFを公的資料から分析。編纂：高橋亜耶佳">
+<title>長野の医療MKT｜10二次医療圏・地域医療・CT/MRI・販社・KSF｜高橋亜耶佳</title>
+<link rel="preconnect" href="https://unpkg.com"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--bg:#08152b;--navy:#102544;--navy2:#173659;--blue:#2b77cd;--red:#e4504c;--gold:#e5b765;--green:#37a89a;--ink:#18283e;--muted:#65738a;--line:#e2e8f1;--paper:#f3f6fb;--card:#fff;--shadow:0 16px 38px rgba(17,37,66,.075)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.8 "Meiryo UI",Meiryo,"Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;overflow-x:hidden}a{color:#1763a6}a:hover{color:#d04445}button,select,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #64ade3;outline-offset:2px}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid #cfe0ec;border-radius:999px;padding:5px 11px;font-size:12px;background:#fff;color:#244665;font-weight:800}.pill.red{color:#a13239;background:#fff0f0;border-color:#f1caca}
+header{background:radial-gradient(circle at 80% 25%,#294d7e 0,#152b4f 42%,#08152b 90%);color:white;position:relative;overflow:hidden}header:before{content:"信州";font-size:clamp(135px,25vw,360px);font-weight:900;color:#ffffff07;position:absolute;right:-2%;top:-12%;line-height:1}.wrap{max-width:1320px;margin:auto;padding:0 26px}.headtop{padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;position:relative;z-index:2}.brand{font-weight:900;letter-spacing:.06em;display:flex;gap:10px;align-items:center}.brand b{background:#e3484d;color:#fff;border-radius:11px;padding:4px 10px;font-size:13px}.headtop a{color:#d6e5fa;text-decoration:none;font-size:12px}.hero{min-height:550px;display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:center;padding:70px 0 94px;position:relative;z-index:1}.eyebrow{font-size:12px;letter-spacing:.2em;color:#f1c785;font-weight:900}.hero h1{font-size:clamp(48px,6.8vw,92px);line-height:1.17;margin:16px 0 22px;letter-spacing:-.055em}.hero h1 em{font-style:normal;color:#ffc779}.hero p{font-size:clamp(15px,1.4vw,19px);color:#d6e0ef;line-height:2;max-width:680px}.heroActions{display:flex;gap:11px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:13px;padding:11px 17px;text-decoration:none;font-weight:850;border:1px solid #cad9e9;background:#fff;color:#244261}.btn:hover{transform:translateY(-1px)}.btn.primary{background:#e84c51;border-color:#e84c51;color:#fff}.btn.ghost{background:#ffffff10;border-color:#6b86a4;color:#fff}.btn.sm{padding:6px 11px;border-radius:9px;font-size:12px}.art{width:100%;max-width:540px;filter:drop-shadow(0 25px 40px #0002)}.credit{color:#a9c0da;font-size:13px;margin-top:22px}.navwrap{position:sticky;z-index:90;top:0;background:#10223cf5;color:#e6f0fe;box-shadow:0 2px 15px #0002}.navscroll{max-width:1400px;margin:auto;display:flex;gap:2px;overflow-x:auto;padding:4px 12px;scrollbar-width:thin}.navscroll a{color:#e6f0fe;text-decoration:none;padding:12px 14px;flex-shrink:0;border-radius:8px;font-weight:750;font-size:12px;white-space:nowrap}.navscroll a:hover{background:#2b4770}.sect{padding:77px 0 12px;scroll-margin-top:68px}.sect:first-child{padding-top:40px}.sectHead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:25px}.tag{font-weight:900;color:#b04a42;letter-spacing:.13em;text-transform:uppercase;font-size:11px}.sect h2{font-size:clamp(26px,3.35vw,39px);margin:4px 0;color:#163453;line-height:1.4;letter-spacing:-.035em}.sect h3{font-size:18px;margin:6px 0 12px;color:#1b3a5c}.lead{color:#52627a;font-size:15px;max-width:930px;margin:0 0 23px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:var(--card);border:1px solid #e0e7f0;border-radius:19px;padding:24px;box-shadow:var(--shadow);min-width:0}.card.dark{background:#173658;color:#eaf4ff}.card.dark h3{color:#fff}.big{font-weight:900;font-size:clamp(29px,3.2vw,47px);line-height:1.25;color:#184c83;letter-spacing:-.055em}.big.red{color:#d94748}.big.white{color:white}.hint{color:var(--muted);font-size:12px}.card p{margin:8px 0 0}.ico{display:inline-grid;place-items:center;width:44px;height:44px;font-size:26px;background:#eef5fc;border-radius:14px;margin-bottom:10px}.card.dark .ico{background:#ffffff25}.rule{height:1px;background:var(--line);margin:19px 0}.callout{background:#e7f2fc;border:1px solid #bfd6ec;padding:19px 24px;border-left:5px solid #2f75b8;border-radius:12px;color:#214769;margin:19px 0}.warning{background:#fff8eb;border-color:#f2d6a1;border-left-color:#e6a03e;color:#6e502c}.tablewrap{overflow:auto;border:1px solid #dce5ef;border-radius:14px;background:white}.tbl{width:100%;border-collapse:collapse;font-size:13px;min-width:760px}.tbl th{text-align:left;background:#15385e;color:#fff;padding:13px 12px;font-weight:850;white-space:nowrap}.tbl td{padding:11px 12px;border-top:1px solid #edf1f6;vertical-align:top}.tbl tbody tr:nth-child(even){background:#f7fafd}.tbl tbody tr:hover{background:#e9f3ff}.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.mini{font-size:11px;color:#77849a}.matrix{display:grid;grid-template-columns:170px repeat(4,minmax(0,1fr));gap:4px;margin-top:16px}.matrix>div{border-radius:9px;padding:10px 8px;font-size:12px;text-align:center;background:white;border:1px solid #e3e9f0;min-height:48px}.matrix .mhead{background:#163c65;color:white;font-weight:800}.matrix .mname{background:#edf3fb;color:#193b5d;font-weight:850}.matrix .hi{background:#e45354;color:white;font-weight:800}.matrix .mid{background:#ffdba1;color:#653f1e}.matrix .low{background:#e2f0f4;color:#245c69}.chartbox{background:white;border:1px solid #e1e8f1;padding:23px;border-radius:18px;box-shadow:var(--shadow)}.bars{display:grid;gap:10px}.brow{display:grid;grid-template-columns:95px 1fr 64px;align-items:center;gap:10px;font-size:12px}.btrack{height:16px;background:#e8eff7;border-radius:10px;overflow:hidden}.bval{display:block;height:100%;border-radius:10px;background:linear-gradient(90deg,#3e8bce,#1b456f)}.bval.gold{background:linear-gradient(90deg,#e2ac63,#dd5b59)}.flows{display:flex;gap:7px;flex-wrap:wrap;align-items:stretch}.flownode{flex:1 1 160px;border:1px solid #d7e3f0;background:#fff;border-radius:14px;padding:16px 15px;min-width:0}.flownode strong{display:block;color:#183b60}.flowarrow{align-self:center;color:#cc464c;font-size:23px;font-weight:900}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.tab{padding:7px 13px;border:1px solid #bfcfe0;border-radius:999px;background:#fff;color:#32516f;font-weight:800;font-size:12px}.tab.active{color:white;background:#173e67;border-color:#173e67}.statsline{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:#6d7d92}.statsline b{color:#16466d}.clinicIcon{font-size:25px}.facilitybar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}.facilitybar input{flex:1 1 250px;min-width:150px;border:1px solid #ccd9e8;padding:12px;border-radius:11px;background:white}.facilitybar select{border:1px solid #ccd9e8;padding:12px;border-radius:11px;background:#fff;min-width:138px}.facilityGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.fcard{background:white;border:1px solid #dfe7f0;padding:17px;border-radius:14px;box-shadow:0 6px 19px #142e4810}.fcard h4{margin:0 0 5px;font-size:15px;line-height:1.5}.fcard .sub{font-size:12px;color:#677a8c;margin:6px 0 9px}.fcard .links{display:flex;gap:7px;flex-wrap:wrap}.fcard .links a{font-size:11px;border-radius:8px;padding:5px 8px;border:1px solid #c7d9e8;background:#f7fafc;text-decoration:none;font-weight:800}.mappanel{background:white;border:1px solid #d6e3f1;border-radius:18px;overflow:hidden}.maphead{padding:17px 19px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}#map{height:495px;background:#dfeafa}.mapfoot{padding:12px 17px;font-size:12px;color:#5e7590;background:#f7fafd}.flowTable{margin-top:15px}.pathdiagram{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.pathnode{padding:18px;background:#fff;border-radius:15px;border-top:4px solid #de5d59;box-shadow:var(--shadow)}.pathnode:nth-child(2){border-color:#d2a34d}.pathnode:nth-child(3){border-color:#4e9bc4}.pathnode:nth-child(4){border-color:#4a9d91}.pathnode h3{margin:3px 0}.quote{font-size:13px;color:#4c5f76;background:#f7fafc;padding:14px;border-radius:12px}.sourceItem{padding:15px 17px;border:1px solid #dde7f0;border-radius:13px;background:white}.sourceItem a{text-decoration:none;font-weight:850}.sourceItem span{font-size:11px;color:#79889a;display:block}.sources{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.segTitle{font-size:20px;border-left:5px solid #d65c54;padding-left:12px;margin:22px 0 12px!important}.showMore{border:0;background:#e6eff7;color:#1d506e;padding:8px 16px;border-radius:10px;font-weight:900}.foot{margin-top:74px;background:#0c203b;color:#e1ebfa;padding:39px 0}.foot p{font-size:13px;color:#b9c7db}.foot a{color:#b5dfff}.note{padding:9px 0;color:#697b8e;font-size:12px}.printOnly{display:none}
+@media(max-width:1000px){.grid.four{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr 1fr}.facilityGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.pathdiagram{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.wrap{padding:0 16px}.hero{grid-template-columns:1fr;padding:48px 0 58px;min-height:0}.hero h1{font-size:48px}.art{width:90%;margin:auto}.grid,.grid.two,.grid.four,.facilityGrid,.sources,.pathdiagram{grid-template-columns:1fr}.card{padding:19px}.sect{padding:55px 0 10px}.matrix{grid-template-columns:86px repeat(4,minmax(0,1fr));gap:2px}.matrix>div{padding:8px 4px;min-height:40px;font-size:9px}.brow{grid-template-columns:65px 1fr 55px}.flowarrow{display:none}#map{height:390px}.tbl{font-size:12px}}
+@media print{.navwrap,.facilitybar,.tabs,.btn{display:none!important}body{background:#fff}.card,.chartbox{box-shadow:none}.sect{break-inside:avoid;page-break-inside:avoid}.art{width:70%}header{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head><body>
+<header><div class="wrap">
+<div class="headtop"><div class="brand"><b>MEDICAL INTELLIGENCE</b> NAGANO / 2026</div><div><a href="#sources">公的出典</a>　·　<a href="#about">このサイトについて</a></div></div>
+<div class="hero">
+<div><div class="eyebrow">地域医療の未来を、地図と数字で読み解く。</div><h1>長野の<br><em>医療MKT</em></h1><p>人口・高齢化・医療提供体制・DPC・CT/MRI・診療所・販社・医療材料・SPD。<br>長野県の<b>10二次医療圏</b>と、2040年に向けた<b>4広域構想区域の検討案</b>を多面的に可視化します。</p>
+<div class="heroActions"><a class="btn primary" href="#dashboard">📊 市場を分析する</a><a class="btn ghost" href="#geography">🗺 医療マップを見る</a><a class="btn ghost" href="#strategy">🎯 成功要因を見る</a></div>
+<div class="credit">編纂：<b style="color:#fff;font-size:17px">高橋亜耶佳</b>　｜　更新：2026年10月21日　｜　公開情報に基づく調査・考察</div>
+</div>
+<svg class="art" viewBox="0 0 570 480" role="img" aria-label="長野県の山々と地域医療ネットワークを表現した概念イラスト" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="mount" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bfd3eb"/><stop offset="1" stop-color="#315f95"/></linearGradient><radialGradient id="halo"><stop stop-color="#4b84bc" stop-opacity=".5"/><stop offset="1" stop-color="#4b84bc" stop-opacity="0"/></radialGradient></defs>
+<circle cx="292" cy="240" r="226" fill="url(#halo)"/><g fill="none" stroke="#7bb3eb" stroke-opacity=".3"><circle cx="292" cy="238" r="190"/><circle cx="292" cy="238" r="148"/><path d="M60 240H520M292 20V458"/></g>
+<path d="M0 356L74 272L122 322L210 159L286 255L374 122L460 243L538 192L570 278V480H0Z" fill="url(#mount)" opacity=".36"/><path d="M0 430L95 302L156 369L242 184L325 310L400 202L506 354L570 285V480H0Z" fill="#5185b8" opacity=".38"/><path d="M181 207L242 184L268 222M350 229L400 202L431 247M50 362L95 302L123 334" fill="none" stroke="#f2f6fc" stroke-width="11" stroke-linejoin="round" stroke-linecap="round" opacity=".8"/>
+<g fill="none" stroke="#b4d7ff" stroke-width="3" stroke-dasharray="5 8"><path d="M154 312L270 236L417 157"/><path d="M270 236L414 348L145 377"/><path d="M270 236L315 96"/><path d="M270 236L452 248"/></g>
+<g><circle cx="270" cy="236" r="51" fill="#14395e" stroke="#f2bc70" stroke-width="4"/><circle cx="417" cy="157" r="37" fill="#12335c" stroke="#7bb8fc" stroke-width="3"/><circle cx="154" cy="312" r="35" fill="#12335c" stroke="#7bb8fc" stroke-width="3"/><circle cx="414" cy="348" r="31" fill="#12335c" stroke="#7bb8fc" stroke-width="3"/><circle cx="315" cy="96" r="28" fill="#12335c" stroke="#7bb8fc" stroke-width="3"/>
+<g fill="white" text-anchor="middle" font-weight="900" font-family="Meiryo,sans-serif"><text x="270" y="229" font-size="13">CORE</text><text x="270" y="248" font-size="13">MEDICAL</text><text x="417" y="163" font-size="11">長野</text><text x="154" y="317" font-size="11">松本</text><text x="414" y="353" font-size="10">南信</text><text x="315" y="101" font-size="10">北信</text></g></g>
+<g fill="#ffc979"><circle cx="452" cy="248" r="8"/><circle cx="145" cy="377" r="7"/><circle cx="70" cy="265" r="5"/><circle cx="495" cy="370" r="5"/></g><text x="272" y="425" text-anchor="middle" fill="#dfefff" font-size="15" font-weight="900">HOSPITAL × CLINIC × PARTNER</text>
+</svg>
+</div></div></header>
+<nav class="navwrap" aria-label="ページ内ナビゲーション"><div class="navscroll">
+<a href="#dashboard">全体サマリー</a><a href="#regional">10医療圏</a><a href="#population">人口・医師</a><a href="#reform">地域医療構想</a><a href="#geography">地図・施設</a><a href="#ctmri">CT/MRI</a><a href="#dpc">DPC/大学</a><a href="#clinics">診療所</a><a href="#dealers">販社・SPD</a><a href="#framework">経営分析</a><a href="#strategy">KSF・実行</a><a href="#sources">出典</a>
+</div></nav>
+<main class="wrap">
+<section id="dashboard" class="sect"><div class="sectHead"><div><div class="tag">01 / EXECUTIVE VIEW</div><h2>数字でつかむ、長野の医療</h2></div><span class="pill">県庁2026年7月資料より</span></div>
+<div class="grid four" id="kpiCards">
+<div class="card"><span class="ico">👥</span><div class="big">195.9<span style="font-size:19px">万人</span></div><div>2026年4月の県人口</div><div class="hint">県資料1,959,494人</div></div>
+<div class="card"><span class="ico">👴</span><div class="big">32.8<span style="font-size:19px">%</span></div><div>65歳以上人口割合</div><div class="hint">全国28.9%（同資料の比較値）</div></div>
+<div class="card"><span class="ico">🏥</span><div class="big">120<span style="font-size:19px">病院</span></div><div>県内病院数</div><div class="hint">2026年6月 県集計</div></div>
+<div class="card"><span class="ico">👨‍⚕️</span><div class="big">5,319<span style="font-size:19px">人</span></div><div>医療施設の医師数</div><div class="hint">2026年4月 医療情報ネット等</div></div>
+<div class="card"><span class="ico">🩺</span><div class="big">280<span style="font-size:19px">施設</span></div><div>在宅療養支援診療所</div><div class="hint">2026年3月 厚生局名簿</div></div>
+<div class="card"><span class="ico">🧑‍⚕️</span><div class="big">19,730<span style="font-size:19px">人</span></div><div>看護師・准看護師</div><div class="hint">2026年4月関連集計</div></div>
+<div class="card"><span class="ico">🗺️</span><div class="big">10<span style="font-size:19px">医療圏</span></div><div>現行の二次医療圏</div><div class="hint">佐久〜北信まで県内10圏域</div></div>
+<div class="card"><span class="ico">🔀</span><div class="big">4<span style="font-size:19px">区域案</span></div><div>新たな地域医療構想</div><div class="hint">2026年7月の審議案／未確定</div></div>
+</div>
+<div class="callout"><b>市場の見立て：</b>長野・松本に大規模病院と医療機能が集中する一方、佐久・諏訪などの地域中核医療、上小・上伊那の医師偏在、木曽・大北のアクセス課題が共存する。<b>高度医療の集約と身近な医療の継続を別々に設計</b>することがポイント。<a href="#sources">根拠：S1・S2・S3</a></div>
+<div class="grid three">
+<div class="card"><span class="ico">🏙️</span><h3>広域拠点の高度化</h3><p>松本・長野・佐久・諏訪の高度急性期機能、画像診断、救急、放射線治療、医師派遣を横断的に把握する。</p></div>
+<div class="card"><span class="ico">🏡</span><h3>診療所・在宅の維持</h3><p>高齢者の外来・在宅需要と診療所の承継、地域画像連携を組み合わせる。人口減少を単純に需要減と同一視しない。</p></div>
+<div class="card"><span class="ico">🤝</span><h3>販社・材料・SPDの接点</h3><p>医療機器と医療材料・消耗品・SPDを分けて把握し、購買部門・診療部門・保守部門それぞれの意思決定を確認する。</p></div>
+</div><p class="note">県人口・病院・医師等は基準日が異なるため単純な同時点比較ではありません。上記以外の営業見立ては公開情報からの分析仮説です。</p>
+</section>
+<section id="regional" class="sect"><div class="sectHead"><div><div class="tag">02 / MEDICAL AREA INTELLIGENCE</div><h2>10二次医療圏を、同じ尺度で比較</h2></div><span class="pill">2026実数 vs 2040推計</span></div>
+<p class="lead">区域ごとの人口、病院、医師、在宅療養支援診療所、65歳以上割合を横断比較。人口の2026年値は県推計、2040年値は医療計画作成支援データブックによる将来推計です。</p>
+<div class="tabs" id="areaTabs"><button class="tab active" data-block="すべて">全医療圏</button><button class="tab" data-block="北信">北信ブロック</button><button class="tab" data-block="東信">東信ブロック</button><button class="tab" data-block="中信">中信ブロック</button><button class="tab" data-block="南信">南信ブロック</button></div>
+<div class="grid two"><div class="chartbox"><h3>2026年→2040年の人口変化</h3><div class="bars" id="areaBars"></div><p class="mini">左の棒：2026年実数（濃紺）／半透明の端点：2040年推計、表示値は千人。ソース：S1 p.12</p></div><div class="chartbox"><h3>高齢化率（2026年・医療圏別）</h3><div class="bars" id="ageBars"></div><p class="mini">参考：県全体32.8%。木曽44.8%、北信38.3%、大北37.7%。ソース：S1 p.13</p></div></div>
+<div class="tablewrap" style="margin-top:18px"><table class="tbl"><thead><tr><th>医療圏</th><th>ブロック案</th><th class="num">2026人口</th><th class="num">2040推計</th><th class="num">減少率</th><th class="num">高齢化</th><th class="num">病院</th><th class="num">医師</th><th class="num">在宅支援診療所</th></tr></thead><tbody id="areaTable"></tbody></table></div>
+<div class="callout warning"><b>解釈上の注意：</b>医師数5,319人は県の医療従事者集計による数値で、医師・歯科医師・薬剤師統計の別基準による公表値と必ずしも一致しません。ここでは県2026年7月資料内の数値だけを比較しています。</div>
+</section>
+<section id="population" class="sect"><div class="sectHead"><div><div class="tag">03 / POPULATION & PATIENT FLOW</div><h2>人口構造と患者の流れで、広域連携を読む</h2></div></div>
+<div class="grid two">
+<div class="chartbox"><h3>2026人口と2040推計人口（長野県・10圏計）</h3><div id="totalBars" class="bars" style="margin-top:28px"></div><p class="hint">2040年は2026年から約21.6万人減。県内各圏域の推計値合計。将来需要は疾患・年齢・患者移動によって変わる。</p></div>
+<div class="chartbox"><h3>医師配置の地域差</h3><div class="bars" id="doctorBars"></div><p class="hint">2026年資料、人口10万人対の医師数を同一表内から算出。全国値332人／10万人（県資料）。</p></div></div>
+<h3 class="segTitle">DPC症例から見える主要流出先</h3>
+<div class="tablewrap"><table class="tbl"><thead><tr><th>居住医療圏</th><th>主な流出先</th><th class="num">DPC症例流出割合</th><th>公的データからの分析仮説</th></tr></thead><tbody>
+<tr><td>上小</td><td>佐久</td><td class="num">21.1%</td><td>上田側の診療機関と佐久の基幹病院を一体で見る</td></tr>
+<tr><td>上伊那</td><td>松本</td><td class="num">8.0%</td><td>中信との高度診療・画像検査連携を調査</td></tr>
+<tr><td>上伊那</td><td>諏訪</td><td class="num">7.4%</td><td>諏訪と伊那中央の役割分担を把握</td></tr>
+<tr><td>木曽</td><td>松本</td><td class="num">21.4%</td><td>紹介・搬送・読影・保守の地理的制約を評価</td></tr>
+<tr><td>木曽</td><td>岐阜県東濃</td><td class="num">10.2%</td><td>県境越えの受療を例外的な重要条件として扱う</td></tr>
+<tr><td>大北</td><td>松本</td><td class="num">24.6%</td><td>松本を支点にして地域外来機能を維持</td></tr>
+<tr><td>北信</td><td>長野</td><td class="num">14.9%</td><td>北信と長野の医療機能・装置運用をセットで把握</td></tr>
+</tbody></table></div><p class="note">出典：S1 pp.14–15。患者居住地ベースの2023年DPC受療動向。個別病院の市場シェアや紹介契約を示すものではありません。</p>
+</section>
+<section id="reform" class="sect"><div class="sectHead"><div><div class="tag">04 / HEALTH POLICY 2040</div><h2>新たな地域医療構想：4区域は「検討案」</h2></div><span class="pill red">未確定・2026年7月時点</span></div>
+<p class="lead">県の第2回委員会では、現行の10二次医療圏を踏まえ、新たな地域医療構想の広域的な区域について「北信・東信・中信・南信」の4区域を議論の土台とする案が示されました。<b>10二次医療圏が廃止決定されたわけではありません。</b></p>
+<div class="pathdiagram">
+<div class="pathnode"><span class="pill">北信</span><h3>長野＋北信</h3><p>長野赤十字病院が参考施設として示された。救急・高度診断と北部アクセスの両立。</p></div>
+<div class="pathnode"><span class="pill">東信</span><h3>佐久＋上小</h3><p>佐久医療センターが参考施設。上小から佐久への患者移動・高度医療集約が論点。</p></div>
+<div class="pathnode"><span class="pill">中信</span><h3>松本＋大北＋木曽</h3><p>相澤病院が参考施設。信州大学医学部附属病院は大学本院の医育・広域機能として別枠。</p></div>
+<div class="pathnode"><span class="pill">南信</span><h3>諏訪＋上伊那＋飯伊</h3><p>諏訪赤十字病院が参考施設。山間地・高齢者救急・患者アクセスに配慮が必要。</p></div>
+</div>
+<div class="flows" style="margin-top:23px">
+<div class="flownode"><strong>① 広域に集約</strong><span>高難度手術・救急・高度画像診断</span></div><span class="flowarrow">→</span>
+<div class="flownode"><strong>② 地域で確保</strong><span>高齢者救急・地域急性期・包括期</span></div><span class="flowarrow">→</span>
+<div class="flownode"><strong>③ 日常で支える</strong><span>診療所・在宅・介護・オンライン診療</span></div><span class="flowarrow">→</span>
+<div class="flownode"><strong>④ 連携で最適化</strong><span>紹介・逆紹介、画像・検査、交通アクセス</span></div>
+</div>
+<div class="grid two" style="margin-top:20px"><div class="card"><span class="ico">🏛️</span><h3>第8次計画の期間</h3><p>長野県の第8次保健医療計画は2024〜2029年度。2026年度は中間見直しが進む。5疾病・6事業・在宅医療を診療圏域別に確認。</p><a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/rmv.html" target="_blank" rel="noopener">県の検討委員会資料 ↗</a></div><div class="card"><span class="ico">⛰️</span><h3>地理的条件とアクセス</h3><p>木曽・大北・飯伊などの山間地では、直線距離よりも移動時間、冬季道路、保守拠点、オンライン診療の実行可能性が重要。</p><a href="https://maps.gsi.go.jp/#9/36.200/138.000/&base=std&ls=std&disp=1" target="_blank" rel="noopener">国土地理院の長野県地形 ↗</a></div></div>
+</section>
+<section id="geography" class="sect"><div class="sectHead"><div><div class="tag">05 / HOSPITAL LOCATION INTELLIGENCE</div><h2>重点病院・医療圏の地図</h2></div><span class="pill">Googleマップ連携</span></div>
+<p class="lead">地図は国土地理院の標準地図タイルを利用。ピンは<b>所在市町村の概略位置</b>であり敷地位置・境界ではありません。施設カードからGoogleマップで実際の所在地と経路を確認できます。</p>
+<div class="mappanel"><div class="maphead"><strong>🗺️ 長野県内の基幹病院・地域病院（候補マップ）</strong><div><a class="btn sm" href="https://maps.gsi.go.jp/#9/36.250/138.050/&base=std&ls=std&disp=1" target="_blank" rel="noopener">地理院地図 ↗</a> <a class="btn sm" href="https://www.google.com/maps/search/?api=1&query=%E9%95%B7%E9%87%8E%E7%9C%8C%20%E7%97%85%E9%99%A2" target="_blank" rel="noopener">Googleマップ ↗</a></div></div>
+<div id="map" role="region" aria-label="長野県医療機関の地図"></div><div class="mapfoot">国土地理院（電子国土基本図）© 国土地理院。表示ピンは医療圏分析用の近似点。各施設の実住所は地図リンク先で確認してください。</div></div>
+<div class="facilitybar" style="margin-top:23px"><input id="q" type="search" placeholder="施設名・市町村・医療圏で検索（例：佐久、飯田、赤十字）" aria-label="施設検索"><select id="areaSelect" aria-label="医療圏フィルター"><option value="">全医療圏</option></select><span class="pill" id="hits">施設一覧</span></div>
+<div class="facilityGrid" id="facilityGrid"></div>
+<p class="note">施設名は県計画・医療情報ネット・病院公開資料に基づく調査候補。DPC群・装置年次・購買予定・メーカーは別途確認が必要です。外部地図の掲載情報には更新差があります。</p>
+</section>
+<section id="ctmri" class="sect"><div class="sectHead"><div><div class="tag">06 / CT · MRI / RADIOLOGY</div><h2>CT・MRI市場：更新需要をどう読むか</h2></div></div>
+<div class="grid two"><div class="card"><span class="ico">🧲</span><h3>MRIの評価軸</h3><p>磁場強度・検査件数・撮像時間・院内搬送・読影配置・電力/ヘリウム・導入工事・保守契約を施設ごとに確認。大学病院と地域病院では臨床要求が異なる。</p></div><div class="card"><span class="ico">🖥️</span><h3>CTの評価軸</h3><p>救急体制・検査件数・循環器/脳血管・被ばく最適化・スループット・撮影室改修・画像連携を基準に評価。装置台数が多い地域でも更新時期は別途把握。</p></div></div>
+<div class="callout"><b>県の外来医療計画：</b>CT・MRI・PET・マンモグラフィー・放射線治療装置について、医療機器の保有・配置状況の公開や共同利用計画の扱いを規定。<b>対象機器の購入・更新が即「共同利用義務」と同義ではなく、県通知・対象要件・報告フローの個別確認が必要</b>です。<a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/gairai.html" target="_blank" rel="noopener">県の外来医療計画・保有状況Excel ↗</a></div>
+<h3 class="segTitle">装置需要の仮説マトリクス</h3>
+<div class="matrix"><div class="mhead">機能類型</div><div class="mhead">高度CT</div><div class="mhead">MRI</div><div class="mhead">超音波</div><div class="mhead">一般X線</div>
+<div class="mname">大学・高度急性期</div><div class="hi">高度診断</div><div class="hi">高度撮像</div><div class="mid">専門領域</div><div class="low">基盤機能</div>
+<div class="mname">地域中核病院</div><div class="hi">救急・更新</div><div class="mid">症例・稼働</div><div class="hi">多診療科</div><div class="mid">更新需要</div>
+<div class="mname">診療所・健診</div><div class="low">施設限定</div><div class="low">施設限定</div><div class="hi">外来・在宅</div><div class="hi">整形・内科</div>
+<div class="mname">へき地・小病院</div><div class="mid">診療継続</div><div class="low">広域連携</div><div class="hi">可搬・省力化</div><div class="mid">維持管理</div>
+</div><p class="mini">このマトリクスは市場機会の定性分類であり、装置の配備台数・メーカーシェア・確定案件を示しません。</p>
+<h3 class="segTitle">現地調査の標準フロー</h3><div class="flows"><div class="flownode"><strong>01 公開台帳</strong>医療圏・医療機能・共同利用・地域計画</div><span class="flowarrow">→</span><div class="flownode"><strong>02 施設確認</strong>既設年次・稼働・検査件数・診療部門</div><span class="flowarrow">→</span><div class="flownode"><strong>03 経営課題</strong>人員・工事・維持費・診療機能再編</div><span class="flowarrow">→</span><div class="flownode"><strong>04 実行計画</strong>投資時期・調達条件・評価デモ・保守</div></div>
+<p class="note">公開サイトに内部のメーカー別シェア、施設ごとの既設メーカー、個別商談・価格・更新年次を掲載していません。更新需要の確定には許諾のある実地データが必要です。</p>
+</section>
+<section id="dpc" class="sect"><div class="sectHead"><div><div class="tag">07 / DPC · EDUCATION</div><h2>DPC病院・信州大学・専門医療機能</h2></div></div>
+<div class="grid two"><div class="card"><span class="ico">🎓</span><h3>信州大学医学部附属病院</h3><div class="big" style="font-size:35px">698<span style="font-size:16px">床</span></div><p>大学病院の公式概要2025–2026では、34診療科・31センター/部門、医師約650名、看護師約800名。医育・研究・広域診療の機能が大きい。</p><a href="https://wwwhp.md.shinshu-u.ac.jp/overview/statistics.html" target="_blank" rel="noopener">病院組織・統計（公式） ↗</a></div><div class="card"><span class="ico">🏥</span><h3>DPC群の分類と注意</h3><p>旧DPCⅠ/Ⅱ/Ⅲ群は現在の「大学病院本院群」「DPC特定病院群」「DPC標準病院群」に対応する枠組み。<b>救命救急センター・病床数・DPC群は別々の概念</b>です。</p><p class="hint">特定・標準病院群の施設別現行区分は令和8年度の厚労省公表資料で照合する必要があり、このサイトでは推測で分類しません。</p></div></div>
+<h3 class="segTitle">基幹病院を中心とした検証の観点</h3>
+<div class="tablewrap"><table class="tbl"><thead><tr><th>エリア</th><th>具体的な施設</th><th>臨床・政策上の着眼点</th><th>優先調査項目</th></tr></thead><tbody>
+<tr><td>松本・安曇野</td><td>信州大学医学部附属病院、相澤病院、まつもと医療センター、安曇野赤十字病院</td><td>医学教育、救命救急、高度診断、地域連携</td><td>研究・教育・装置性能・稼働率</td></tr>
+<tr><td>長野・北信</td><td>長野赤十字病院、長野市民病院、篠ノ井総合病院、北信総合病院、飯山赤十字病院</td><td>急性期機能、がん・循環器、北部の医療アクセス</td><td>救急検査動線、外来機能、保守</td></tr>
+<tr><td>佐久・上小</td><td>佐久医療センター、佐久総合病院、信州上田医療センター、丸子中央病院</td><td>上小→佐久への患者移動、広域の医療機能分担</td><td>紹介先・画像連携・投資計画</td></tr>
+<tr><td>諏訪・上伊那</td><td>諏訪赤十字病院、諏訪中央病院、伊那中央病院、昭和伊南総合病院</td><td>急性期連携、患者流出入、医師不足</td><td>診療科別検査、外来診断、共同利用</td></tr>
+<tr><td>飯伊・木曽・大北</td><td>飯田市立病院、長野県立阿南病院、長野県立木曽病院、市立大町総合病院</td><td>山間地・高齢者急性期・救急搬送・在宅</td><td>診療継続、広域読影、可搬性、修理時間</td></tr>
+</tbody></table></div>
+</section>
+<section id="clinics" class="sect"><div class="sectHead"><div><div class="tag">08 / CLINIC & HOME CARE</div><h2>診療所市場：承継・新規開業・在宅</h2></div></div>
+<div class="grid three">
+<div class="card"><span class="ico">❤️</span><h3>内科・循環器</h3><p>高血圧・心不全・弁膜症、慢性疾患管理。心エコーや頸動脈、簡便な画像評価を想定。</p></div>
+<div class="card"><span class="ico">🩻</span><h3>整形外科・骨粗鬆症</h3><p>筋骨格・運動器USと一般X線・骨密度。健診・高齢者骨折予防との連携を確認。</p></div>
+<div class="card"><span class="ico">🏠</span><h3>消化器・泌尿器・在宅</h3><p>腹部US、排尿機能評価、訪問診療、簡易・可搬型機器。操作教育と保守体制も重要。</p></div></div>
+<div class="callout"><b>2026年度の診療所承継・開業支援：</b>県は医師不足等を踏まえ重点医師偏在対策支援区域で設備整備を支援。対象は承継と開業で異なり、2026年度の募集は既に締切。翌年度の継続は未確定。<a href="https://www.pref.nagano.lg.jp/doctor/kenko/iryo/ishikakuho/shinryoujoshien.html" target="_blank" rel="noopener">制度詳細 ↗</a></div>
+<div class="grid two"><div class="card"><h3>現地診療所マスタに必要な情報</h3><div class="flows"><div class="flownode"><strong>医療機関情報</strong>名称、所在地、開設者、診療科</div><div class="flownode"><strong>医療機能</strong>在宅、救急、紹介・逆紹介、承継</div><div class="flownode"><strong>装置情報</strong>US・一般X線・CT/MRI、年次</div><div class="flownode"><strong>調達関係</strong>卸・機器販社・SPD・サービス</div></div></div><div class="card"><h3>公開されているデータベース</h3><p><a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/iryo/mebo.html" target="_blank" rel="noopener">2025年10月1日基準：県の病院・診療所名簿 ↗</a></p><p><a href="https://www.pref.nagano.lg.jp/iryo/kakaritsuke.html" target="_blank" rel="noopener">2025年度かかりつけ医機能報告Excel ↗</a></p><p><a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/iryo/byosyo/gairaikinou.html" target="_blank" rel="noopener">2025年度の医療圏別外来機能報告Excel ↗</a></p><p class="mini">全診療所の市町村別・診療科別の最新実数は名簿の個票集計が必要。未確認の値を推定掲載しません。</p></div></div>
+</section>
+<section id="dealers" class="sect"><div class="sectHead"><div><div class="tag">09 / CHANNEL · SPD · MATERIALS</div><h2>販社・ディーラー・医療材料／消耗品／SPD</h2></div></div>
+<p class="lead">病院の設備投資を理解するには、画像機器を扱う販売会社に加えて、日常的に医療材料・消耗品を扱う商社、SPD事業者、院内購買・設備管理部門の接点を把握する必要があります。</p>
+<div class="tablewrap"><table class="tbl"><thead><tr><th>事業者</th><th>公式情報から確認できる範囲</th><th>医療材料／消耗品／SPD</th><th>分析上の着眼点</th><th>一次情報</th></tr></thead><tbody>
+<tr><td><b>中日本メディカルリンク</b></td><td>松本本社、長野・安曇野・佐久・伊那・飯田分室などの事業所。病院支援・在宅・開業支援。</td><td>医療用機器・医療用材料・介護用品等の販売、メンテナンス</td><td>病院・診療所と在宅をつなぐ広域情報網、画像営業組織の確認</td><td><a target="_blank" rel="noopener" href="https://www.jmlink.co.jp/company/office/">事業所一覧 ↗</a></td></tr>
+<tr><td><b>上條器械店</b></td><td>医療機器・理化学機器販売、保守、開業支援、SPDを公式に掲示。</td><td>SPD事業を明記</td><td>保守・医療材料・院内物流と機器更新の接点</td><td><a target="_blank" rel="noopener" href="https://www.kjm.co.jp/outline/">事業案内 ↗</a></td></tr>
+<tr><td><b>中央メディカル（旧法人）</b></td><td>2026年4月1日、上條器械店と合併する旨の公式案内</td><td>統合後の拠点・契約名義の確認が必要</td><td>旧社名の販社実績を二重集計しない</td><td><a target="_blank" rel="noopener" href="https://www.kjm.co.jp/cms/wp-content/uploads/2025/12/202601.pdf">合併案内 ↗</a></td></tr>
+<tr><td><b>エム・シー・ヘルスケア</b></td><td>政府調達公告に信州上田医療センターのSPD業務契約実績がある</td><td>SPD受託（契約単位で役割確認）</td><td>SPD受託者は必ずしも大型装置の購入決裁者ではない</td><td><a target="_blank" rel="noopener" href="https://www.mhlw.go.jp/">公的調達資料検索 ↗</a></td></tr>
+</tbody></table></div>
+<h3 class="segTitle">商流と情報接点を分けて見る</h3>
+<div class="flows"><div class="flownode"><strong>🧑‍⚕️ 診療部門</strong>臨床ニーズ・使用頻度・要求仕様</div><span class="flowarrow">→</span><div class="flownode"><strong>🏥 管理・購買部門</strong>投資判断・契約・物流・財務</div><span class="flowarrow">→</span><div class="flownode"><strong>📦 医療材料・SPD</strong>消耗品・在庫・院内物流の課題</div><span class="flowarrow">→</span><div class="flownode"><strong>🤝 装置販社・メーカー</strong>選定・設置・保守・教育</div></div>
+<p class="note">特定販社の県内シェア、競合メーカーとの独占契約、担当者個人名は公開資料で確定できないため掲載していません。医療材料売上＝CT/MRI販売シェアではありません。</p>
+</section>
+<section id="framework" class="sect"><div class="sectHead"><div><div class="tag">10 / STRATEGIC FRAMEWORKS</div><h2>PEST → 3C → STP → 4P → 4C → VRIO → 5 Forces</h2></div></div>
+<div class="grid four">
+<div class="card"><span class="pill">P / Political</span><h3>制度と政策</h3><p>第8次計画、新構想の区域見直し、病床機能再編、外来医療計画、診療所承継補助。</p></div>
+<div class="card"><span class="pill">E / Economic</span><h3>医療機関経営</h3><p>人口減少と資本支出抑制、設備の維持費、稼働率、病院統合費用、共同利用。</p></div>
+<div class="card"><span class="pill">S / Social</span><h3>人口・高齢化</h3><p>木曽44.8%の高齢化。85歳以上需要、在宅・高齢者救急、冬季アクセス。</p></div>
+<div class="card"><span class="pill">T / Technology</span><h3>検査・DX</h3><p>CT/MRI、超音波、画像連携、ワークフロー省力化、遠隔読影、保守支援。</p></div>
+</div>
+<div class="grid two" style="margin-top:18px">
+<div class="card"><span class="pill">3C</span><h3>Customer / Competitor / Company</h3><p><b>顧客：</b>大学・地域中核・診療所・在宅それぞれの意思決定と検査機能。<br><b>競争：</b>CT/MRI/USのメーカー、販社、更新価格と保守条件。<br><b>自社：</b>製品群、サービス網、既設装置実績、臨床支援能力を検証。</p><p class="hint">社内のメーカー別シェアは公開版に掲載せず、製品競争力は公開仕様・現地検証を前提とします。</p></div>
+<div class="card"><span class="pill">STP</span><h3>Segmentation / Targeting / Positioning</h3><p><b>S：</b>①大学・高度急性期 ②地域中核 ③診療所 ④へき地・在宅。<br><b>T：</b>機能再編、人口移動、装置更新時期、財務余力で選定。<br><b>P：</b>「装置スペック」より「臨床と地域医療の継続を実現する運用価値」で差別化。</p></div>
+<div class="card"><span class="pill">4P / 4C</span><h3>提供価値を両面から見る</h3><p><b>Product↔Customer value：</b>検査の質・診療科適合。<br><b>Price↔Cost：</b>購入価格とTCO。<br><b>Place↔Convenience：</b>販社・保守・共同利用。<br><b>Promotion↔Communication：</b>症例・教育・実地評価。</p></div>
+<div class="card"><span class="pill">VRIO</span><h3>競争優位の持続性</h3><p>多診療科の装置ポートフォリオ（V）、高度臨床支援（R）、病院と診療所の長期関係（I）、販社・サービス連携体制（O）が揃っているか検証。<b>仮説を実績と混同しない</b>。</p></div>
+</div>
+<h3 class="segTitle">5 Forces：長野県医療機器市場の力学（定性）</h3>
+<div class="grid three">
+<div class="card"><div class="ico">🔁</div><h3>業界内競争</h3><p>複数メーカーによる入札、更新、保守、臨床機能の比較。</p></div>
+<div class="card"><div class="ico">💰</div><h3>買い手の交渉力</h3><p>病院財務、人材不足、共同調達、施設統合により高まり得る。</p></div>
+<div class="card"><div class="ico">📦</div><h3>供給者の交渉力</h3><p>部材・部品調達、保守、工事、磁石関連の供給条件。</p></div>
+<div class="card"><div class="ico">🆕</div><h3>新規参入</h3><p>装置本体では技術・保守・薬機規制等の参入障壁がある。</p></div>
+<div class="card"><div class="ico">🔀</div><h3>代替・補完手段</h3><p>紹介検査、共同利用、遠隔読影、低侵襲検査、可搬型機器。</p></div>
+<div class="card dark"><div class="ico">🎯</div><h3>全体の帰結</h3><p>単一機器の値引き勝負ではなく、<b>検査体制・経営・地域連携を含む価値</b>で選ばれる構造をつくる。</p></div>
+</div>
+</section>
+<section id="strategy" class="sect"><div class="sectHead"><div><div class="tag">11 / KSF & EXECUTION</div><h2>分析全体から導く6つのKSF</h2></div></div>
+<div class="grid three">
+<div class="card"><div class="big red">01</div><h3>広域医療連携の可視化</h3><p>10二次医療圏＋4区域検討案、紹介・逆紹介、患者移動を統合したアカウント設計。</p><p class="hint">KPI：拠点・周辺病院間の連携把握率</p></div>
+<div class="card"><div class="big red">02</div><h3>装置更新・経営課題の把握</h3><p>CT/MRIの年次だけでなく、検査件数・財務・工事・保守・医療機能の変化を確認。</p><p class="hint">KPI：更新年次と装置稼働の確認率</p></div>
+<div class="card"><div class="big red">03</div><h3>診療所承継・在宅の先行発掘</h3><p>医師会の公開課題、開業・承継支援、地域診療科、かかりつけ医機能報告を重ねる。</p><p class="hint">KPI：承継・新規開業候補の情報把握</p></div>
+<div class="card"><div class="big red">04</div><h3>販社＋SPD情報網の立体化</h3><p>機器と材料・消耗品・院内物流を切り分け、購買までの接点を把握。</p><p class="hint">KPI：連携案件数、販社同行、案件化率</p></div>
+<div class="card"><div class="big red">05</div><h3>機能別の価値提案</h3><p>大学・中核病院は高度検査と運用、診療所は外来継続、山間部は診療アクセス・保守。</p><p class="hint">KPI：領域別デモ→評価→導入率</p></div>
+<div class="card"><div class="big red">06</div><h3>供給・保守への信頼</h3><p>装置導入後の稼働、研修、納期遵守、保守対応をライフサイクルで評価。</p><p class="hint">KPI：保守応答、品質、納期・顧客評価</p></div>
+</div>
+<h3 class="segTitle">実行ロードマップ：90日 → 180日 → 365日</h3>
+<div class="pathdiagram"><div class="pathnode"><span class="pill red">DAY 1–30</span><h3>基礎台帳</h3><p>最新公開名簿・地域医療構想・設備情報の収集。対象施設と担当商流を整理。</p></div><div class="pathnode"><span class="pill">DAY 31–90</span><h3>検証</h3><p>重点病院と地域診療所の機能・装置更新・課題を確認。販社と共同訪問設計。</p></div><div class="pathnode"><span class="pill">DAY 91–180</span><h3>実行</h3><p>臨床勉強会、診療科別デモ、検査連携提案。案件を確度・時期別に整理。</p></div><div class="pathnode"><span class="pill">DAY 181–365</span><h3>標準化</h3><p>病院機能・公的計画と案件台帳を四半期更新。売上だけでなく顧客課題を管理。</p></div></div>
+<div class="callout warning"><b>反対意見・リスク：</b>高度医療の集約は必ずしも機器市場拡大につながりません。病床削減、投資凍結、設備の共同利用、診療所閉院、保守負担の増大などにより、むしろ新規投資が減る可能性があります。導入「可能性」と確定した「案件」を厳密に区別します。</div>
+</section>
+<section id="sources" class="sect"><div class="sectHead"><div><div class="tag">12 / EVIDENCE & LINKS</div><h2>出典・参照資料（一次情報中心）</h2></div><button class="btn sm" onclick="window.print()">🖨 印刷・PDF保存</button></div><p class="lead">本サイトは公表資料に基づく独立した市場調査・考察です。図表は原典の全文転載ではなく再構成し、参照日・数値の基準時点を明記しました。各リンクから元資料を確認できます。</p>
+<div class="sources" id="sourcesList">
+<div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/documents/r8-2shiryo1.pdf" target="_blank" rel="noopener">S1　長野県「新たな地域医療構想について」（2026年7月29日） ↗</a><span>最重要：10圏の人口・2040推計 p.10–13、病院・医師・在宅 p.13、DPC患者移動 p.15、4区域案 p.38。</span></div>
+<div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/rmv.html" target="_blank" rel="noopener">S2　長野県医療審議会・新たな構想委員会 ↗</a><span>2026年5月・7月の委員会、議事録と参考資料。更新日2026年8月28日。</span></div>
+<div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/kousou.html" target="_blank" rel="noopener">S3　長野県地域医療構想・各圏調整会議 ↗</a><span>現行の地域医療構想、10医療圏の会議リンク。</span></div>
+<div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/gairai.html" target="_blank" rel="noopener">S4　長野県外来医療計画・医療機器共同利用 ↗</a><span>CT/MRI等の保有配置状況、公表Excel、医療機器の効率的活用。</span></div>
+<div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/iryo/byosyo/gairaikinou.html" target="_blank" rel="noopener">S5　長野県外来機能報告（2025年度） ↗</a><span>10医療圏別・病院診療所の様式1/2 Excel。</span></div>
+<div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/iryo/kenko/iryo/iryo/mebo.html" target="_blank" rel="noopener">S6　県内病院・診療所等名簿 ↗</a><span>2025年10月1日基準の施設名簿。最新の開設状況は医療情報ネットで要確認。</span></div>
+<div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/iryo/kakaritsuke.html" target="_blank" rel="noopener">S7　長野県かかりつけ医機能報告 ↗</a><span>2025年度報告データ。外来・在宅・地域連携機能。</span></div>
+<div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/doctor/kenko/iryo/ishikakuho/shinryoujoshien.html" target="_blank" rel="noopener">S8　長野県診療所承継・開業支援事業 ↗</a><span>2026年度の重点区域と申請要件。年度内の募集締切に注意。</span></div>
+<div class="sourceItem"><a href="https://www.nagano.med.or.jp/about/business/yearplan.php" target="_blank" rel="noopener">S9　長野県医師会・2026年度事業計画 ↗</a><span>医業承継、医師不足、医療DX、新構想への対応。</span></div>
+<div class="sourceItem"><a href="https://wwwhp.md.shinshu-u.ac.jp/overview/statistics.html" target="_blank" rel="noopener">S10　信州大学医学部附属病院公式統計 ↗</a><span>698床、34診療科、約650医師（病院概要2025–2026）。</span></div>
+<div class="sourceItem"><a href="https://www.jmlink.co.jp/company/office/" target="_blank" rel="noopener">S11　中日本メディカルリンク・事業所一覧 ↗</a><span>県内事業所、病院・在宅・開業のサービス網。</span></div>
+<div class="sourceItem"><a href="https://www.kjm.co.jp/outline/" target="_blank" rel="noopener">S12　上條器械店・事業案内 ↗</a><span>医療機器販売、専任営業、保守、SPD、開業支援。</span></div>
+<div class="sourceItem"><a href="https://www.kjm.co.jp/cms/wp-content/uploads/2025/12/202601.pdf" target="_blank" rel="noopener">S13　上條器械店・中央メディカル合併のお知らせ ↗</a><span>2026年4月1日の統合案内、旧法人の実績二重計上防止。</span></div>
+<div class="sourceItem"><a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">S14　国土地理院 地理院地図 ↗</a><span>標高・土地の凹凸・地形・災害関連レイヤー、地形的なアクセスの確認。</span></div>
+<div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/nagaho/happyou/r7iryokaigi.html" target="_blank" rel="noopener">S15　長野圏地域医療構想調整会議 ↗</a><span>2026年3月5日会議資料など、個別圏域の医療機能議論。</span></div>
+<div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/inaho/20171023.html" target="_blank" rel="noopener">S16　上伊那医療圏地域医療構想調整会議 ↗</a><span>2026年10月13日の第2回会議資料（新構想、DPC資料等）。</span></div>
+<div class="sourceItem"><a href="https://www.pref.nagano.lg.jp/hokuho/gyomu/iryokoso.html" target="_blank" rel="noopener">S17　北信医療圏地域医療構想調整会議 ↗</a><span>2026年8月会議資料、病床数適正化、紹介受診重点医療機関。</span></div>
+</div>
+<p class="note">『二次医療圏でみる地域医療の構造 医療需給総覧』（日本経営、2026年版）10圏分、既存長野県医療市場研究資料を分析観点の整理に参照。ただし著作物の図表や非公開の営業データは公開サイトに転載していません。データの最新性は出典先で確認してください。</p>
+</section>
+<section id="about" class="sect"><div class="card"><div class="tag">ABOUT & NOTES</div><h2 style="margin:5px 0 15px">このサイトの位置付け</h2><p>長野県の地域医療政策と医療機器マーケットを読み解く教育・調査用コンテンツです。県、医師会、信州大学、メーカー、医療機関との公式な提携・承認を示すものではありません。記載した診療施設は公開情報に基づく調査対象であり、特定装置の導入予定・購入意思・メーカーを意味しません。</p><p><b>データ区分：</b>「公開事実（出典明記）」「将来人口（推計）」「市場への示唆（分析仮説）」を分離。機器・販社の正確な最新シェア、既納入一覧、患者個人情報、内部価格、個別営業・商談情報は非掲載。</p><p><b>地図：</b>国土地理院タイルを利用し、おおよその地域位置を示しています。診療施設の正確な場所・地理院地図上の道路状況はリンク先をご確認ください。</p><div class="statsline"><span>調査・再編：2026年10月21日</span><span>対象：<b>長野県のみ</b></span><span>編纂：<b>高橋亜耶佳</b></span></div></div></section>
+</main><footer class="foot"><div class="wrap"><div style="font-size:25px;font-weight:900">長野の医療MKT <span style="color:#e9b66c">2026</span></div><p>二次医療圏 × 地域医療構想 × 医療機器 × 診療所 × 販社・SPD</p><p>編纂：<b style="color:white">高橋亜耶佳</b>　|　出典は各公的機関・大学・企業公式サイト　|　公開資料に基づく独立した分析・考察</p><a href="#dashboard">ページ先頭へ ↑</a></div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+"use strict";
+var areas=[
+["佐久","東信",200454,180353,33.2,13,628,22,36.25,138.48],
+["上小","東信",185834,166815,32.4,14,379,18,36.40,138.25],
+["諏訪","南信",183946,160523,34.2,11,503,38,36.04,138.12],
+["上伊那","南信",172253,152409,32.4,9,317,26,35.84,137.96],
+["飯伊","南信",144354,125437,35.3,9,321,42,35.52,137.84],
+["木曽","中信",22377,16509,44.8,1,45,3,35.84,137.70],
+["松本","中信",410887,381639,30.1,26,1507,63,36.24,137.97],
+["大北","中信",53241,41915,37.7,2,125,8,36.50,137.85],
+["長野","北信",508963,456765,32.0,32,1284,53,36.65,138.18],
+["北信","北信",76040,61018,38.3,3,209,7,36.76,138.38]
+];
+var locations=[
+["信州大学医学部附属病院","松本","松本市",36.252,137.974,"大学病院／高度診療／医学教育"],
+["相澤病院","松本","松本市",36.225,137.980,"急性期・広域連携の重要病院"],
+["まつもと医療センター","松本","松本市",36.204,137.961,"地域診療・紹介連携"],
+["安曇野赤十字病院","松本","安曇野市",36.303,137.906,"地域急性期・救急"],
+["長野県立こども病院","松本","安曇野市",36.327,137.894,"小児・周産期専門"],
+["松本協立病院","松本","松本市",36.236,137.972,"地域外来・入院"],
+["丸の内病院","松本","松本市",36.260,137.967,"地域急性期・専門診療"],
+["松本市立病院","松本","松本市",36.215,137.914,"市立病院・地域医療"],
+["長野赤十字病院","長野","長野市",36.627,138.193,"急性期・救急・広域医療"],
+["長野市民病院","長野","長野市",36.676,138.224,"がん・地域急性期"],
+["篠ノ井総合病院","長野","長野市",36.574,138.138,"地域中核"],
+["長野松代総合病院","長野","長野市",36.559,138.201,"地域中核"],
+["佐久医療センター","佐久","佐久市",36.226,138.482,"高度急性期・東信の拠点"],
+["佐久総合病院","佐久","佐久市",36.171,138.483,"地域医療・総合診療"],
+["浅間南麓こもろ医療センター","佐久","小諸市",36.324,138.421,"東信地域急性期"],
+["浅間総合病院","佐久","佐久市",36.272,138.467,"市立・地域病院"],
+["信州上田医療センター","上小","上田市",36.401,138.248,"上小地域の急性期"],
+["丸子中央病院","上小","上田市",36.347,138.284,"地域外来・入院"],
+["諏訪赤十字病院","諏訪","諏訪市",36.034,138.111,"南信・急性期重要病院"],
+["諏訪中央病院","諏訪","茅野市",35.993,138.174,"在宅・地域連携"],
+["岡谷市民病院","諏訪","岡谷市",36.069,138.052,"諏訪圏地域中核"],
+["伊那中央病院","上伊那","伊那市",35.842,137.957,"上伊那の中核"],
+["昭和伊南総合病院","上伊那","駒ヶ根市",35.723,137.932,"上伊那南部地域"],
+["飯田市立病院","飯伊","飯田市",35.509,137.820,"南信州中核・急性期"],
+["長野県立阿南病院","飯伊","阿南町",35.321,137.816,"南信州山間地域医療"],
+["長野県立木曽病院","木曽","木曽町",35.847,137.697,"木曽地域中核"],
+["市立大町総合病院","大北","大町市",36.501,137.853,"大北の地域中核"],
+["北アルプス医療センターあづみ病院","大北","池田町",36.422,137.879,"大北・安曇野連携"],
+["北信総合病院","北信","中野市",36.743,138.367,"北信地域中核"],
+["飯山赤十字病院","北信","飯山市",36.852,138.365,"北信北部の急性期"]
+];
+function fmt(n){return Math.round(n).toLocaleString("ja-JP")}function mapurl(n){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(n+" 長野県")}function gsiurl(lat,lng){return "https://maps.gsi.go.jp/#13/"+lat.toFixed(4)+"/"+lng.toFixed(4)+"/&base=std&ls=std&disp=1";}
+function safe(s){var t=document.createElement("span");t.textContent=s;return t.innerHTML;}
+var active="すべて";
+function renderAreas(){
+var subset=areas.filter(function(x){return active==="すべて"||x[1]===active});
+var max=Math.max.apply(null,areas.map(function(x){return x[2]}));
+document.getElementById("areaBars").innerHTML=subset.slice().sort(function(a,b){return b[2]-a[2]}).map(function(x){return '<div class="brow"><b>'+x[0]+'</b><div class="btrack"><span class="bval" style="width:'+(x[2]/max*100)+'%"><span style="display:block;height:100%;background:#efbc75;width:'+(x[3]/x[2]*100)+'%;opacity:.85"></span></span></div><span class="num">'+Math.round(x[2]/1000)+'→'+Math.round(x[3]/1000)+'</span></div>'}).join("");
+document.getElementById("ageBars").innerHTML=subset.slice().sort(function(a,b){return b[4]-a[4]}).map(function(x){return '<div class="brow"><b>'+x[0]+'</b><div class="btrack"><span class="bval gold" style="width:'+(x[4]/50*100)+'%"></span></div><b class="num">'+x[4].toFixed(1)+'%</b></div>'}).join("");
+document.getElementById("areaTable").innerHTML=subset.map(function(x){return '<tr><td><b>'+x[0]+'</b></td><td>'+x[1]+'</td><td class="num">'+fmt(x[2])+'</td><td class="num">'+fmt(x[3])+'</td><td class="num">'+((x[3]/x[2]-1)*100).toFixed(1)+'%</td><td class="num">'+x[4].toFixed(1)+'%</td><td class="num">'+x[5]+'</td><td class="num">'+fmt(x[6])+'</td><td class="num">'+x[7]+'</td></tr>'}).join("");
+}
+document.querySelectorAll("#areaTabs button").forEach(function(btn){btn.addEventListener("click",function(){active=btn.dataset.block;document.querySelectorAll("#areaTabs button").forEach(function(x){x.classList.toggle("active",x===btn)});renderAreas()})});renderAreas();
+document.getElementById("doctorBars").innerHTML=areas.slice().sort(function(a,b){return b[6]/b[2]-a[6]/a[2]}).map(function(x){return '<div class="brow"><b>'+x[0]+'</b><div class="btrack"><span class="bval" style="width:'+(x[6]/x[2]*100000/400*100)+'%"></span></div><b class="num">'+Math.round(x[6]/x[2]*100000)+'</b></div>'}).join("");
+var t26=1959494,t40=1743383;document.getElementById("totalBars").innerHTML='<div class="brow"><b>2026年</b><div class="btrack"><span class="bval" style="width:100%"></span></div><b class="num">195.9万</b></div><div class="brow"><b>2040年</b><div class="btrack"><span class="bval gold" style="width:'+(t40/t26*100)+'%"></span></div><b class="num">174.3万</b></div>';
+var select=document.getElementById("areaSelect");areas.forEach(function(a){select.innerHTML+='<option value="'+a[0]+'">'+a[0]+'</option>'});
+function cards(){
+var q=document.getElementById("q").value.trim().toLowerCase(),a=select.value;
+var dat=locations.filter(function(x){return (!a||x[1]===a)&&(!q||(x[0]+" "+x[1]+" "+x[2]+" "+x[5]).toLowerCase().includes(q))});
+document.getElementById("hits").textContent=dat.length+"件 / "+locations.length+"施設";
+document.getElementById("facilityGrid").innerHTML=dat.map(function(x){return '<article class="fcard"><h4>🏥 '+safe(x[0])+'</h4><div class="sub"><span class="pill">'+x[1]+'医療圏</span>　'+x[2]+'</div><div style="font-size:12px;color:#516b80;margin-bottom:10px">'+x[5]+'</div><div class="links"><a href="'+mapurl(x[0])+'" target="_blank" rel="noopener">📍 Googleマップ ↗</a><a href="'+gsiurl(x[3],x[4])+'" target="_blank" rel="noopener">⛰ 地理院地図 ↗</a></div></article>'}).join("")||'<p>該当する施設はありません。</p>';
+}
+document.getElementById("q").addEventListener("input",cards);select.addEventListener("change",cards);cards();
+var m=document.getElementById("map");
+if(typeof L!=="undefined"){
+var mp=L.map("map",{scrollWheelZoom:false}).setView([36.15,138.01],8);
+L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png",{maxZoom:17,attribution:'<a href="https://maps.gsi.go.jp/" target="_blank">地理院タイル</a> © 国土地理院'}).addTo(mp);
+var icons={};locations.forEach(function(x){var marker=L.circleMarker([x[3],x[4]],{radius:7,color:"#fff",weight:2,fillColor:x[1]==="長野"?"#dc514e":x[1]==="松本"?"#e3a949":"#2c77b5",fillOpacity:.93}).addTo(mp);marker.bindPopup('<b>'+safe(x[0])+'</b><br>'+x[1]+'医療圏・'+x[2]+'<br><a href="'+mapurl(x[0])+'" target="_blank" rel="noopener">Googleマップで実際の場所を確認 ↗</a>');});
+}else{m.innerHTML='<div style="padding:40px;text-align:center">地図タイルを表示できません。下の施設一覧からGoogleマップ・地理院地図へ移動できます。</div>';}
+})();
+</script></body></html>
