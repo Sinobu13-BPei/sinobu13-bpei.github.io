@@ -8,7 +8,7 @@ img,svg,canvas{max-width:100%}
 .hero h1{margin:12px 0 14px;line-height:1.28}
 .hero .chips,.hero .links{margin:15px 0}
 .card{min-width:0}
-.card canvas{display:block;width:100%!important;max-width:100%;height:auto}
+.card canvas{display:block;max-width:100%}
 .split>*,.grid>*,.two>*{min-width:0}
 .region{min-width:0}
 .region strong{flex:0 0 auto}
@@ -113,7 +113,17 @@ let map;
 try{
   if(window.L){
     map=L.map('map',{scrollWheelZoom:false}).setView([37.2,137.3],5);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:18}).addTo(map)
+    const tileLayer=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:18}).addTo(map);
+    let tileErrors=0;
+    if(typeof tileLayer.on==='function')tileLayer.on('tileerror',()=>{
+      if(++tileErrors===4){
+        const warning=document.createElement('p');
+        warning.className='status';
+        warning.setAttribute('role','status');
+        warning.textContent='一部の地図タイルを読み込めません。下の都道府県一覧からGoogle Mapsで医療機関を検索できます。';
+        document.getElementById('map').insertAdjacentElement('afterend',warning);
+      }
+    })
   }else{
     document.getElementById('map').innerHTML='<p style="padding:30px">地図ライブラリを読み込めませんでした。下の47都道府県一覧と上のGoogle Mapsボタンをご利用ください。</p>';
   }
@@ -228,7 +238,7 @@ function draw(){
     let a=document.createElement('a');a.href=googleMapsUrl(p[0]);a.target='_blank';a.rel='noopener noreferrer';a.className='google-map-btn';a.textContent='Google Maps ↗';
     actions.appendChild(a);
     row.append(title,actions);
-    row.addEventListener('click',e=>{if(e.target.closest('a'))return;pref.value=p[0];search.value='';draw();if(map)map.setView([p[1],p[2]],9)});
+    row.addEventListener('click',e=>{if(e.target.closest('a'))return;pref.value=p[0];search.value='';draw();if(map){try{map.setView([p[1],p[2]],9)}catch(err){map=null}}});
     list.appendChild(row)
   });
   if(!list.children.length){
