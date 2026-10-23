@@ -253,7 +253,7 @@ function draw(){
       tohokuLink.textContent='東北MKT ↗';
       actions.appendChild(tohokuLink);
     }
-    let a=document.createElement('a');a.href=googleMapsUrl(p[0]);a.target='_blank';a.rel='noopener noreferrer';a.className='google-map-btn';a.textContent='Google Maps ↗';
+    let a=document.createElement('a');a.href=googleMapsUrl(p[0]);a.target='_blank';a.rel='noopener noreferrer';a.className='google-map-btn';a.textContent='Map';a.setAttribute('aria-label',p[0]+'のGoogle Mapsを開く');
     actions.appendChild(a);
     row.append(title,actions);
     row.addEventListener('click',e=>{if(e.target.closest('a'))return;pref.value=p[0];search.value='';draw();if(map){try{map.setView([p[1],p[2]],9)}catch(err){map=null}}});
