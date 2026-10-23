@@ -107,6 +107,9 @@
 #judge .decision-card .inputs.meeting-row select,#judge .decision-card .inputs.meeting-row input{width:100%;min-width:0;font-size:12px;padding:8px;min-height:40px}
 @media(max-width:990px){#judge .decision-card .inputs.meeting-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:540px){#judge .decision-card .inputs.meeting-row{grid-template-columns:1fr}}
+
+/* Start time: 11:00-22:00, conditional custom time */
+#otherTimeWrap[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -172,7 +175,7 @@
 
 </div></div>
 <div class="decision-card"><h3><span class="dnum">3</span>予定日時・会場区分・想定参加人数</h3><div class="inputs meeting-row">
-<label class="is-required">予定日<span class="required-badge" aria-label="必須項目">必須</span><input type="date" name="eventDate" required></label><label class="is-required">開始時刻<span class="required-badge" aria-label="必須項目">必須</span><select name="eventTime" required><option value="">時刻を選択</option><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option><option value="06:00">06:00</option><option value="06:30">06:30</option><option value="07:00">07:00</option><option value="07:30">07:30</option><option value="08:00">08:00</option><option value="08:30">08:30</option><option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option></select></label><label class="is-required">会場区分<span class="required-badge" aria-label="必須項目">必須</span><select name="venueType" required><option value="">選択してください</option><option value="restaurant">一般の飲食店</option><option value="meeting">会議室・施設内の簡素な飲食</option><option value="hotel">ホテル・会議会場</option><option value="entertainment">ゴルフ・クラブ等の娯楽施設</option><option value="unknown">未定</option></select></label>
+<label class="is-required">予定日<span class="required-badge" aria-label="必須項目">必須</span><input type="date" name="eventDate" required></label><label class="is-required">開始時刻<span class="required-badge" aria-label="必須項目">必須</span><select name="eventTime" required><option value="">時刻を選択</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="other">その他（時刻を指定）</option></select></label><label id="otherTimeWrap" class="is-required" hidden>その他の開始時刻<span class="required-badge" aria-label="選択時必須">必須</span><input type="time" name="eventTimeOther" step="60" disabled></label><label class="is-required">会場区分<span class="required-badge" aria-label="必須項目">必須</span><select name="venueType" required><option value="">選択してください</option><option value="restaurant">一般の飲食店</option><option value="meeting">会議室・施設内の簡素な飲食</option><option value="hotel">ホテル・会議会場</option><option value="entertainment">ゴルフ・クラブ等の娯楽施設</option><option value="unknown">未定</option></select></label>
 
 <label class="is-required">人数 <span class="required-badge" aria-label="必須項目">必須</span><input type="number" name="attendees" min="1" max="1000" step="1" placeholder="例：4" required></label>
 </div></div>
@@ -261,6 +264,11 @@ const form=document.getElementById('decisionForm'); if(!form)return;
 const out=document.getElementById('decisionResult');const pph=document.getElementById('budgetPerHead');
 let last={level:'hold',headline:'未判定',reason:['入力して判定してください']};
 const get=(key)=>form.elements.namedItem(key)?.value?.trim()||'';
+const eventTimeSelect=form.elements.namedItem('eventTime');
+const otherTimeInput=form.elements.namedItem('eventTimeOther');
+const otherTimeWrap=document.getElementById('otherTimeWrap');
+function syncOtherTime(){const useOther=eventTimeSelect.value==='other';otherTimeWrap.hidden=!useOther;otherTimeInput.disabled=!useOther;otherTimeInput.required=useOther;if(!useOther)otherTimeInput.value='';}
+eventTimeSelect.addEventListener('change',syncOtherTime);syncOtherTime();
 const money=n=>new Intl.NumberFormat('ja-JP').format(n)+'円';
 // Approximate budget selection in 1,000-yen increments (up to 100,000 yen), with a manual option for larger amounts.
 const budgetPreset=document.getElementById('budgetPreset');
@@ -275,6 +283,7 @@ budgetExact.addEventListener('input',perHead);form.elements.namedItem('attendees
 function run(){const stop=[],hold=[],info=[];const v=k=>get(k); const hcp=['private','public','mixed','overseas'].includes(v('party')); const publicHcp=['public','overseas'].includes(v('party')); const mediated=['manufacturer','dealer'].includes(v('payer'));
 const required=['party','influence','purpose','agendaType','eventDate','eventTime','venueType','attendees','budgetTotal','payer','budgetCompliance','procurement','benefit','industryRule','companyRule','approval'];
 const missing=required.filter(x=>!v(x));if(missing.length)hold.push('必須のプルダウン・入力欄 '+missing.length+'項目が未記入です。');
+if(v('eventTime')==='other'&&!v('eventTimeOther'))hold.push('「その他」を選択した場合は、開始時刻を入力してください。');
 if(v('purpose')==='induce'||v('benefit')==='improper')stop.push('購入・採用・入札を不当に誘引する目的、又は不当便宜・競争上の機密情報の要求があります。');
 if(v('industryRule')==='forbidden'||v('companyRule')==='forbidden')stop.push('適用される法令・自主規範・社内／先方規程上の禁止が確認されています。');
 if(v('budgetCompliance')==='over')stop.push('適用する金額上限・条件を超過しています。');
@@ -292,7 +301,8 @@ if(publicHcp&&!mediated)hold.push('公務員・みなし公務員等の倫理規
 if(v('party')==='mixed'&&mediated)hold.push('医療関係者と販社の同席では、費用の付け替え・間接利益提供の疑いを確認してください。');
 if(v('party')==='other')hold.push('参加者の法的属性が未分類です。');
 if(v('payer')==='unknown'||v('venueType')==='unknown')hold.push('費用負担者または会食場所が確定していません。');
-if(v('eventDate')&&v('eventTime')){const t=new Date(v('eventDate')+'T'+v('eventTime')).getTime();if(!Number.isFinite(t))hold.push('日時の形式を確認してください。'); else if(t<Date.now()-60000)hold.push('会食予定日時が過去です。開催前判定には未来の日時を指定してください。');}
+const selectedEventTime=v('eventTime')==='other'?v('eventTimeOther'):v('eventTime');
+if(v('eventDate')&&selectedEventTime){const t=new Date(v('eventDate')+'T'+selectedEventTime).getTime();if(!Number.isFinite(t))hold.push('日時の形式を確認してください。'); else if(t<Date.now()-60000)hold.push('会食予定日時が過去です。開催前判定には未来の日時を指定してください。');}
 
 
 const amount=Number(v('budgetTotal')),n=Number(v('attendees'));if(n<=0||n>1000||!Number.isInteger(n))hold.push('参加人数が不正です。');if(v('budgetTotal')&&(!Number.isFinite(amount)||amount<0))hold.push('予算額が不正です。');
@@ -305,8 +315,8 @@ let after='会食前：第8項目は事後確認で使用します。';if(v('act
 const issues=[];if(v('actualTotal')&&Number(v('actualTotal'))>amount)issues.push('実績額が予算を超過。所定の再審査が必要です。');if(v('receipt')!=='yes')issues.push('領収書・証憑保存が未完了です。');if(v('report')!=='yes')issues.push('会食後の報告が未完了です。');after=issues.length?'事後管理：'+issues.join(' '):'事後管理：領収書・報告の入力上は完了です。';}
 last={level,headline,reason,after};out.dataset.level=level;out.replaceChildren();const badge=document.createElement('span');badge.className='status';badge.textContent=level==='go'?'GO CANDIDATE':level==='hold'?'HOLD / REVIEW':'NO GO';const title=document.createElement('h3');title.textContent=headline;const ul=document.createElement('ul');reason.forEach(msg=>{const li=document.createElement('li');li.textContent=msg;ul.appendChild(li);});const post=document.createElement('p');post.className='small';post.textContent=after;out.append(badge,title,ul,post);out.scrollIntoView({behavior:'smooth',block:'nearest'});}
 form.addEventListener('submit',e=>{e.preventDefault();run();});
-form.addEventListener('reset',()=>{last={level:'hold',headline:'未判定',reason:[]};setTimeout(()=>{budgetExact.hidden=true;budgetExact.required=false;budgetExact.value='';pph.value='—';out.dataset.level='hold';out.replaceChildren();out.innerHTML='<span class="status">未判定</span><h3>入力後に「GO / NO-GO を判定」を押してください</h3><p class="small">未入力・規程未確認・未承認は自動的にGOになりません。</p>';},0);});
-document.getElementById('copyDecision').addEventListener('click',async()=>{const labels={party:'相手属性',influence:'選定への影響',purpose:'目的',agendaType:'議題',eventDate:'予定日',eventTime:'開始時刻',venueType:'会場区分',attendees:'人数',budgetTotal:'税込予算合計',payer:'費用負担者',budgetCompliance:'予算基準',procurement:'購買との関係',benefit:'便宜・機密情報',industryRule:'最新規約',companyRule:'双方規程',approval:'事前承認',approver:'承認者',approvalDate:'承認日',actualTotal:'税込実績額',receipt:'領収書',report:'事後報告'};
+form.addEventListener('reset',()=>{last={level:'hold',headline:'未判定',reason:[]};setTimeout(()=>{syncOtherTime();budgetExact.hidden=true;budgetExact.required=false;budgetExact.value='';pph.value='—';out.dataset.level='hold';out.replaceChildren();out.innerHTML='<span class="status">未判定</span><h3>入力後に「GO / NO-GO を判定」を押してください</h3><p class="small">未入力・規程未確認・未承認は自動的にGOになりません。</p>';},0);});
+document.getElementById('copyDecision').addEventListener('click',async()=>{const labels={party:'相手属性',influence:'選定への影響',purpose:'目的',agendaType:'議題',eventDate:'予定日',eventTime:'開始時刻',eventTimeOther:'その他の開始時刻',venueType:'会場区分',attendees:'人数',budgetTotal:'税込予算合計',payer:'費用負担者',budgetCompliance:'予算基準',procurement:'購買との関係',benefit:'便宜・機密情報',industryRule:'最新規約',companyRule:'双方規程',approval:'事前承認',approver:'承認者',approvalDate:'承認日',actualTotal:'税込実績額',receipt:'領収書',report:'事後報告'};
 const lines=['会食 GO / NO-GO 判定（暫定・正式承認に代わりません）','※ここでの判定が必ずしも正しいとは限りません。社内の担当部署や公取協に確認しましょう。','判定：'+last.headline,...last.reason.map(x=>'・'+x),'事後：'+(last.after||'未入力'),'一人当たり予算：'+pph.value,...Object.entries(labels).map(([k,label])=>label+'：'+(form.elements.namedItem(k)?.selectedOptions?.[0]?.text||get(k)||'未入力'))];const s=lines.join('\n');try{await navigator.clipboard.writeText(s);const b=document.getElementById('copyDecision');b.textContent='コピーしました';setTimeout(()=>b.textContent='判定・入力内容をコピー',1700);}catch(e){window.prompt('下記をコピーしてください',s);}});
 })();
 </script>
