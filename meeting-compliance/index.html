@@ -35,6 +35,20 @@
 @media print{html{scroll-behavior:auto}body{background:#fff;font-size:12px}.header,.sidebar,#progress,.noprint,.hero-links,.filterbtn{display:none!important}.shell{display:block;padding:0}.section,.hero{box-shadow:none;border-color:#ddd;margin:16px 0;break-inside:avoid}.section{page-break-before:auto}.hero-body{padding:18px}.cover{max-height:350px;object-fit:contain;aspect-ratio:auto}.gallery,.grid2,.casegrid{grid-template-columns:repeat(2,1fr)}.qa details:not([open]) p{display:block}a{color:#183652;text-decoration:none}.case[hidden]{display:block} .sources{grid-template-columns:repeat(2,1fr)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
+
+/* Revised GO / NO-GO form: mandatory labels and easy date/time selection */
+#judge .decision-disclaimer{margin:10px 0 18px;padding:9px 0 9px 13px;border-left:3px solid #b62d3b;color:#8c2a37;font-size:13px;line-height:1.75}
+#judge .decision-disclaimer strong{color:#942130}
+#judge .decision-required-guide{font-size:12px;line-height:1.7;color:#6a5260;margin:13px 0}
+#judge .required-badge{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:4px;background:#b42334;color:#fff;font-size:10px;line-height:1.65;font-weight:800;vertical-align:baseline;white-space:nowrap}
+#judge .decision-required-guide .required-badge{margin:0 6px 0 0}
+#judge .decision-card .inputs label.is-required{color:#aa2332}
+#judge .decision-card .inputs label.conditional-required{color:#a63141}
+#judge .decision-card .inputs .req-text{margin-left:6px;color:#b42334;font-size:10px;font-weight:700}
+#judge .decision-card .inputs>label{min-width:0}
+#judge .decision-card :is(input,select,textarea){max-width:100%;box-sizing:border-box}
+#judge input[type="date"]{min-width:0;color-scheme:light}
+
 /* 2026 edition: eight-field pre-meeting GO / NO-GO decision workbench */
 .decision-guide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0}
 .decision-guide>div{padding:14px;border:1px solid #dce6e8;border-radius:12px;background:#f6f9fb}
@@ -111,43 +125,45 @@
 <div class="path"><div class="node"><div class="count">?</div><div><b>相手が医療機器の採用・発注等を判断する立場か？</b><p>該当する場合、単なる交際費ではなく医療機関への経済上の利益提供として審査。</p></div><span class="outcome">公取協へ</span></div><div class="vertical-connector"></div><div class="node"><div class="count">!</div><div><b>公務員・みなし公務員、入札・契約直前、便宜供与の依頼はあるか？</b><p>高リスクがあれば原則見送り。透明な公的会議・正式面談へ代替。</p></div><span class="outcome">法務へ</span></div><div class="vertical-connector"></div><div class="node"><div class="count">✓</div><div><b>代替不能な必要性があり、すべての規程をクリアし、承認を得たか？</b><p>揃って初めて、会社の承認プロセス上の実施検討に進む。</p></div><span class="outcome">承認・記録</span></div></div></section>
 <section id="judge" class="section"><div class="eyebrow">09 / GO–NO GO SCREENING</div>
 <h2>会食 GO / NO-GO 判定ツール</h2>
+<p class="decision-disclaimer">※ここでの判定が必ずしも正しいとは限りません。<strong>社内の担当部署や公取協に確認しましょう。</strong></p>
 <p class="lead">会食するなら、<strong>相手・目的・費用・購買判断・規程・承認</strong>を確認。プルダウン中心の簡単な入力で、<strong>GO候補／保留（要確認）／NO-GO</strong>を表示します。<strong>判定は法的適法性や会社の開催許可を保証しません。</strong>正式な承認権限者の決裁を優先してください。</p>
 <div class="decision-guide"><div class="g"><b>GO候補</b><small>必須情報・最新規程・事前承認が確認済みで、明確な禁止要因が入力されていない</small></div><div class="h"><b>保留・要確認</b><small>条件や承認が不足・不明。会食を確約せず、確認を完了させる</small></div><div class="n"><b>NO-GO</b><small>購買誘引、禁止行為、規程超過などの重大な阻害要因がある</small></div></div>
 <div class="notice blue"><strong>入力データについて：</strong>このページの判定はブラウザ内だけで計算します。入力内容はサーバーへ送信せず、自動保存も行いません。公開サイト上には個人情報や契約秘密を入力せず、必要なら社内の正式記録へ転記してください。</div>
+<p class="decision-required-guide"><span class="required-badge">必須</span> 赤字の項目はGO／NO-GO判定前に入力・選択してください。</p>
 <form id="decisionForm" novalidate>
 <div class="decision-card"><h3><span class="dnum">1</span>参加者の氏名・所属・役職と医療機器選定上の立場</h3><div class="inputs">
-<label>相手の主な属性<select name="party" required><option value="">選択してください</option><option value="private">医療関係者（民間病院・診療所等）</option><option value="public">医療関係者（公的病院・国立大学・JCHO等）</option><option value="dealer">ディーラー・医療機器商社・卸</option><option value="manufacturer">医療機器メーカー・企業関係者</option><option value="mixed">医療関係者＋ディーラーなど混合</option><option value="overseas">海外公的医療機関・外国公務員等</option><option value="other">その他</option></select></label>
-<label>選定・購買への影響力<select name="influence" required><option value="">選択してください</option><option value="decider">決定・評価・調達に関係する</option><option value="none">選定・購買には関係しない</option><option value="unknown">不明</option></select></label>
-<label class="span2">参加者概要（氏名・所属・役職。社内転記用／公開サイトでは個人情報入力を避ける）<input name="participants" maxlength="240" placeholder="例：販社営業責任者 2名、メーカー営業担当 2名（個人名は社内管理）"></label>
+<label class="is-required">相手の主な属性<span class="required-badge" aria-label="必須項目">必須</span><select name="party" required><option value="">選択してください</option><option value="private">医療関係者（民間病院・診療所等）</option><option value="public">医療関係者（公的病院・国立大学・JCHO等）</option><option value="dealer">ディーラー・医療機器商社・卸</option><option value="manufacturer">医療機器メーカー・企業関係者</option><option value="mixed">医療関係者＋ディーラーなど混合</option><option value="overseas">海外公的医療機関・外国公務員等</option><option value="other">その他</option></select></label>
+<label class="is-required">選定・購買への影響力<span class="required-badge" aria-label="必須項目">必須</span><select name="influence" required><option value="">選択してください</option><option value="decider">決定・評価・調達に関係する</option><option value="none">選定・購買には関係しない</option><option value="unknown">不明</option></select></label>
+<label class="span2">参加者概要（氏名・所属・役職。社内転記用／公開サイトでは個人情報入力を避ける）<span class="required-badge" aria-label="必須項目">必須</span><input name="participants" required maxlength="240" placeholder="例：販社営業責任者 2名、メーカー営業担当 2名（個人名は社内管理）"></label>
 </div></div>
 <div class="decision-card"><h3><span class="dnum">2</span>目的と具体的なアジェンダ</h3><div class="inputs">
-<label>主目的<select name="purpose" required><option value="">選択してください</option><option value="safety">製品の安全使用・適正使用に関する情報交換</option><option value="training">製品説明・適正な研修の補助</option><option value="business">販売店・メーカーとの事業計画・業務連携</option><option value="customer">顧客課題・サービス品質の改善協議</option><option value="academic">正当な学術会合・研究上の打合せ</option><option value="social">懇親・親睦のみ（業務目的が曖昧）</option><option value="induce">採用・購入・入札・契約への誘導</option></select></label>
-<label>具体的な議題<select name="agendaType" required><option value="">選択してください</option><option value="quality">安全性・適正使用・保守品質</option><option value="education">教育・操作・トラブル防止</option><option value="operation">導入後の運用・患者サービス</option><option value="joint">共同活動・販社育成・年度計画</option><option value="evidence">学術・臨床エビデンスの共有</option><option value="none">具体的な議題なし</option></select></label>
+<label class="is-required">主目的<span class="required-badge" aria-label="必須項目">必須</span><select name="purpose" required><option value="">選択してください</option><option value="safety">製品の安全使用・適正使用に関する情報交換</option><option value="training">製品説明・適正な研修の補助</option><option value="business">販売店・メーカーとの事業計画・業務連携</option><option value="customer">顧客課題・サービス品質の改善協議</option><option value="academic">正当な学術会合・研究上の打合せ</option><option value="social">懇親・親睦のみ（業務目的が曖昧）</option><option value="induce">採用・購入・入札・契約への誘導</option></select></label>
+<label class="is-required">具体的な議題<span class="required-badge" aria-label="必須項目">必須</span><select name="agendaType" required><option value="">選択してください</option><option value="quality">安全性・適正使用・保守品質</option><option value="education">教育・操作・トラブル防止</option><option value="operation">導入後の運用・患者サービス</option><option value="joint">共同活動・販社育成・年度計画</option><option value="evidence">学術・臨床エビデンスの共有</option><option value="none">具体的な議題なし</option></select></label>
 <label class="span2">議題メモ <span class="optional">（任意）</span><textarea name="agendaMemo" rows="2" placeholder="例：安全講習の実施計画、問合せ対応手順、次期教育研修の役割分担"></textarea></label>
 </div></div>
 <div class="decision-card"><h3><span class="dnum">3</span>会食予定日、場所、想定参加人数</h3><div class="inputs">
-<label>予定日時<input type="datetime-local" name="eventDate" required></label><label>会場区分<select name="venueType" required><option value="">選択してください</option><option value="restaurant">一般の飲食店</option><option value="meeting">会議室・施設内の簡素な飲食</option><option value="hotel">ホテル・会議会場</option><option value="entertainment">ゴルフ・クラブ等の娯楽施設</option><option value="unknown">未定</option></select></label>
-<label>場所名 <span class="optional">（決定後は必須）</span><input name="venueName" maxlength="150" placeholder="例：駅前の飲食店（店名は社内記録）"></label>
-<label>想定参加人数 <input type="number" name="attendees" min="1" max="1000" step="1" placeholder="例：4" required></label>
+<label class="is-required">予定日（カレンダーから選択）<span class="required-badge" aria-label="必須項目">必須</span><input type="date" name="eventDate" required></label><label class="is-required">開始時刻（選択式）<span class="required-badge" aria-label="必須項目">必須</span><select name="eventTime" required><option value="">時刻を選択</option><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option><option value="06:00">06:00</option><option value="06:30">06:30</option><option value="07:00">07:00</option><option value="07:30">07:30</option><option value="08:00">08:00</option><option value="08:30">08:30</option><option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option></select></label><label class="is-required">会場区分<span class="required-badge" aria-label="必須項目">必須</span><select name="venueType" required><option value="">選択してください</option><option value="restaurant">一般の飲食店</option><option value="meeting">会議室・施設内の簡素な飲食</option><option value="hotel">ホテル・会議会場</option><option value="entertainment">ゴルフ・クラブ等の娯楽施設</option><option value="unknown">未定</option></select></label>
+<label>場所名 <span class="optional">（必須）</span><input name="venueName" required maxlength="150" placeholder="例：駅前の飲食店（店名は社内記録）"></label>
+<label class="is-required">想定参加人数 <span class="required-badge" aria-label="必須項目">必須</span><input type="number" name="attendees" min="1" max="1000" step="1" placeholder="例：4" required></label>
 </div><div class="related-links"><a class="btn gold" target="_blank" rel="noopener noreferrer" href="https://sinobu13-bpei.github.io/dining-guide/?utm_source=chatgpt.com">会食場所候補 ↗</a></div></div>
 <div class="decision-card"><h3><span class="dnum">4</span>予定金額・1人当たりの金額・費用負担者</h3><div class="inputs">
-<label>予算合計（税込・円）<input name="budgetTotal" type="number" min="0" step="1" placeholder="例：16000" required></label>
+<label class="is-required">予算合計（税込・円）<span class="required-badge" aria-label="必須項目">必須</span><input name="budgetTotal" type="number" min="0" step="1" placeholder="例：16000" required></label>
 <label>1人当たり（自動計算・税込）<input id="budgetPerHead" readonly value="—" aria-label="1人当たり予算（税込）"></label>
-<label>費用負担者<select name="payer" required><option value="">選択してください</option><option value="manufacturer">メーカー負担</option><option value="dealer">販売店・ディーラー負担</option><option value="individual">各参加者が自費負担（割り勘等）</option><option value="host">医療機関／主催者負担</option><option value="unknown">未定・不明</option></select></label>
-<label>適用規程に照らした金額確認<select name="budgetCompliance" required><option value="">選択してください</option><option value="within">適用する最新上限・条件の範囲内を確認</option><option value="over">適用上限を超える／禁止対象</option><option value="unchecked">未確認・該当基準が不明</option><option value="none">定額上限の規定なし（規程上も確認済）</option></select></label>
+<label class="is-required">費用負担者<span class="required-badge" aria-label="必須項目">必須</span><select name="payer" required><option value="">選択してください</option><option value="manufacturer">メーカー負担</option><option value="dealer">販売店・ディーラー負担</option><option value="individual">各参加者が自費負担（割り勘等）</option><option value="host">医療機関／主催者負担</option><option value="unknown">未定・不明</option></select></label>
+<label class="is-required">適用規程に照らした金額確認<span class="required-badge" aria-label="必須項目">必須</span><select name="budgetCompliance" required><option value="">選択してください</option><option value="within">適用する最新上限・条件の範囲内を確認</option><option value="over">適用上限を超える／禁止対象</option><option value="unchecked">未確認・該当基準が不明</option><option value="none">定額上限の規定なし（規程上も確認済）</option></select></label>
 </div><p class="micro">税務上の交際費「1人1万円」は、医療関係者への会食の一律許可額ではありません。医療機関・販社では適用基準が異なります。</p></div>
 <div class="decision-card"><h3><span class="dnum">5</span>取引・入札・見積・契約・選定との関係</h3><div class="inputs">
-<label>選定・見積・入札・契約が進行中／直近<select name="procurement" required><option value="">選択してください</option><option value="no">いいえ（直接の案件関係なし）</option><option value="yes">はい（進行中・近接）</option><option value="unknown">不明</option></select></label>
-<label>便宜・採用・機密情報の要求<select name="benefit" required><option value="">選択してください</option><option value="none">なし（適法な情報交換のみ）</option><option value="improper">あり（採用の約束・不当な便宜・競争機密）</option><option value="unknown">判断できない</option></select></label>
+<label class="is-required">選定・見積・入札・契約が進行中／直近<span class="required-badge" aria-label="必須項目">必須</span><select name="procurement" required><option value="">選択してください</option><option value="no">いいえ（直接の案件関係なし）</option><option value="yes">はい（進行中・近接）</option><option value="unknown">不明</option></select></label>
+<label class="is-required">便宜・採用・機密情報の要求<span class="required-badge" aria-label="必須項目">必須</span><select name="benefit" required><option value="">選択してください</option><option value="none">なし（適法な情報交換のみ）</option><option value="improper">あり（採用の約束・不当な便宜・競争機密）</option><option value="unknown">判断できない</option></select></label>
 </div></div>
 <div class="decision-card"><h3><span class="dnum">6</span>最新規約・先方規程・社内規程の確認結果</h3><div class="inputs">
-<label>最新の公取協・医機連・法令の確認<select name="industryRule" required><option value="">選択してください</option><option value="yes">適用内容を確認済み・抵触なし</option><option value="no">未確認／会員向け最新通知未確認</option><option value="forbidden">規程で禁止されている</option></select></label>
-<label>先方施設・先方会社と自社の規程<select name="companyRule" required><option value="">選択してください</option><option value="yes">双方の規程を確認済み・抵触なし</option><option value="no">未確認／片方のみ確認</option><option value="forbidden">いずれかの規程で禁止</option></select></label>
+<label class="is-required">最新の公取協・医機連・法令の確認<span class="required-badge" aria-label="必須項目">必須</span><select name="industryRule" required><option value="">選択してください</option><option value="yes">適用内容を確認済み・抵触なし</option><option value="no">未確認／会員向け最新通知未確認</option><option value="forbidden">規程で禁止されている</option></select></label>
+<label class="is-required">先方施設・先方会社と自社の規程<span class="required-badge" aria-label="必須項目">必須</span><select name="companyRule" required><option value="">選択してください</option><option value="yes">双方の規程を確認済み・抵触なし</option><option value="no">未確認／片方のみ確認</option><option value="forbidden">いずれかの規程で禁止</option></select></label>
 </div></div>
 <div class="decision-card"><h3><span class="dnum">7</span>事前承認者・承認日</h3><div class="inputs">
-<label>社内の正式な事前承認<select name="approval" required><option value="">選択してください</option><option value="yes">承認済み（権限・決裁範囲確認）</option><option value="pending">申請中／未承認</option><option value="no">不承認</option></select></label>
-<label>承認者（役職または社内識別）<input name="approver" maxlength="100" placeholder="例：営業部長／コンプライアンス担当"></label>
-<label>承認日<input type="date" name="approvalDate"></label>
+<label class="is-required">社内の正式な事前承認<span class="required-badge" aria-label="必須項目">必須</span><select name="approval" required><option value="">選択してください</option><option value="yes">承認済み（権限・決裁範囲確認）</option><option value="pending">申請中／未承認</option><option value="no">不承認</option></select></label>
+<label class="conditional-required">承認者（役職または社内識別）<span class="req-text">承認済みの場合は必須</span><input name="approver" maxlength="100" placeholder="例：営業部長／コンプライアンス担当"></label>
+<label class="conditional-required">承認日<span class="req-text">承認済みの場合は必須</span><input type="date" name="approvalDate"></label>
 </div></div>
 <div class="decision-card post"><h3><span class="dnum">8</span>実績額・領収書・会食後の報告 <span class="optional">（会食後に入力）</span></h3><div class="inputs">
 <label>実績額（税込・円） <span class="optional">（実施後）</span><input name="actualTotal" type="number" min="0" step="1" placeholder="実施後に記入"></label>
@@ -218,7 +234,7 @@ const money=n=>new Intl.NumberFormat('ja-JP').format(n)+'円';
 function perHead(){const amount=Number(get('budgetTotal'));const n=Number(get('attendees'));pph.value=get('budgetTotal')!==''&&n>0?money(Math.round(amount/n)):'—';}
 form.elements.namedItem('budgetTotal').addEventListener('input',perHead);form.elements.namedItem('attendees').addEventListener('input',perHead);
 function run(){const stop=[],hold=[],info=[];const v=k=>get(k); const hcp=['private','public','mixed','overseas'].includes(v('party')); const publicHcp=['public','overseas'].includes(v('party')); const mediated=['manufacturer','dealer'].includes(v('payer'));
-const required=['party','influence','purpose','agendaType','eventDate','venueType','attendees','budgetTotal','payer','budgetCompliance','procurement','benefit','industryRule','companyRule','approval'];
+const required=['party','influence','participants','purpose','agendaType','eventDate','eventTime','venueType','venueName','attendees','budgetTotal','payer','budgetCompliance','procurement','benefit','industryRule','companyRule','approval'];
 const missing=required.filter(x=>!v(x));if(missing.length)hold.push('必須のプルダウン・入力欄 '+missing.length+'項目が未記入です。');
 if(v('purpose')==='induce'||v('benefit')==='improper')stop.push('購入・採用・入札を不当に誘引する目的、又は不当便宜・競争上の機密情報の要求があります。');
 if(v('industryRule')==='forbidden'||v('companyRule')==='forbidden')stop.push('適用される法令・自主規範・社内／先方規程上の禁止が確認されています。');
@@ -237,9 +253,9 @@ if(publicHcp&&!mediated)hold.push('公務員・みなし公務員等の倫理規
 if(v('party')==='mixed'&&mediated)hold.push('医療関係者と販社の同席では、費用の付け替え・間接利益提供の疑いを確認してください。');
 if(v('party')==='other')hold.push('参加者の法的属性が未分類です。');
 if(v('payer')==='unknown'||v('venueType')==='unknown')hold.push('費用負担者または会食場所が確定していません。');
-if(v('eventDate')){const t=new Date(v('eventDate')).getTime();if(!Number.isFinite(t))hold.push('日時の形式を確認してください。'); else if(t<Date.now()-60000)hold.push('会食予定日時が過去です。開催前判定には未来の日時を指定してください。');}
-if(!v('venueName'))hold.push('予定する会場名が未記録です。');
-if(!v('participants'))hold.push('参加者の氏名・所属・役職（または社内の参加予定者リストへの参照）がありません。');
+if(v('eventDate')&&v('eventTime')){const t=new Date(v('eventDate')+'T'+v('eventTime')).getTime();if(!Number.isFinite(t))hold.push('日時の形式を確認してください。'); else if(t<Date.now()-60000)hold.push('会食予定日時が過去です。開催前判定には未来の日時を指定してください。');}
+
+
 const amount=Number(v('budgetTotal')),n=Number(v('attendees'));if(n<=0||n>1000||!Number.isInteger(n))hold.push('参加人数が不正です。');if(v('budgetTotal')&&(!Number.isFinite(amount)||amount<0))hold.push('予算額が不正です。');
 if(v('purpose')==='training'&&v('venueType')==='restaurant')info.push('説明会・学術行事の飲食費区分に適合するかを改めて確認してください。');
 if(v('party')==='dealer'||v('party')==='manufacturer')info.push('販社・メーカー間でも独禁法、適正な費用負担、競争上の秘密保持に留意してください。');
@@ -251,8 +267,8 @@ const issues=[];if(v('actualTotal')&&Number(v('actualTotal'))>amount)issues.push
 last={level,headline,reason,after};out.dataset.level=level;out.replaceChildren();const badge=document.createElement('span');badge.className='status';badge.textContent=level==='go'?'GO CANDIDATE':level==='hold'?'HOLD / REVIEW':'NO GO';const title=document.createElement('h3');title.textContent=headline;const ul=document.createElement('ul');reason.forEach(msg=>{const li=document.createElement('li');li.textContent=msg;ul.appendChild(li);});const post=document.createElement('p');post.className='small';post.textContent=after;out.append(badge,title,ul,post);out.scrollIntoView({behavior:'smooth',block:'nearest'});}
 form.addEventListener('submit',e=>{e.preventDefault();run();});
 form.addEventListener('reset',()=>{last={level:'hold',headline:'未判定',reason:[]};setTimeout(()=>{pph.value='—';out.dataset.level='hold';out.replaceChildren();out.innerHTML='<span class="status">未判定</span><h3>入力後に「GO / NO-GO を判定」を押してください</h3><p class="small">未入力・規程未確認・未承認は自動的にGOになりません。</p>';},0);});
-document.getElementById('copyDecision').addEventListener('click',async()=>{const labels={party:'相手属性',influence:'選定への影響',participants:'参加者概要',purpose:'目的',agendaType:'議題',agendaMemo:'議題メモ',eventDate:'予定日時',venueType:'会場区分',venueName:'場所',attendees:'人数',budgetTotal:'税込予算合計',payer:'費用負担者',budgetCompliance:'予算基準',procurement:'購買との関係',benefit:'便宜・機密情報',industryRule:'最新規約',companyRule:'双方規程',approval:'事前承認',approver:'承認者',approvalDate:'承認日',actualTotal:'税込実績額',receipt:'領収書',report:'事後報告'};
-const lines=['会食 GO / NO-GO 判定（暫定・正式承認に代わりません）','判定：'+last.headline,...last.reason.map(x=>'・'+x),'事後：'+(last.after||'未入力'),'一人当たり予算：'+pph.value,...Object.entries(labels).map(([k,label])=>label+'：'+(form.elements.namedItem(k)?.selectedOptions?.[0]?.text||get(k)||'未入力'))];const s=lines.join('\n');try{await navigator.clipboard.writeText(s);const b=document.getElementById('copyDecision');b.textContent='コピーしました';setTimeout(()=>b.textContent='判定・入力内容をコピー',1700);}catch(e){window.prompt('下記をコピーしてください',s);}});
+document.getElementById('copyDecision').addEventListener('click',async()=>{const labels={party:'相手属性',influence:'選定への影響',participants:'参加者概要',purpose:'目的',agendaType:'議題',agendaMemo:'議題メモ',eventDate:'予定日',eventTime:'開始時刻',venueType:'会場区分',venueName:'場所',attendees:'人数',budgetTotal:'税込予算合計',payer:'費用負担者',budgetCompliance:'予算基準',procurement:'購買との関係',benefit:'便宜・機密情報',industryRule:'最新規約',companyRule:'双方規程',approval:'事前承認',approver:'承認者',approvalDate:'承認日',actualTotal:'税込実績額',receipt:'領収書',report:'事後報告'};
+const lines=['会食 GO / NO-GO 判定（暫定・正式承認に代わりません）','※ここでの判定が必ずしも正しいとは限りません。社内の担当部署や公取協に確認しましょう。','判定：'+last.headline,...last.reason.map(x=>'・'+x),'事後：'+(last.after||'未入力'),'一人当たり予算：'+pph.value,...Object.entries(labels).map(([k,label])=>label+'：'+(form.elements.namedItem(k)?.selectedOptions?.[0]?.text||get(k)||'未入力'))];const s=lines.join('\n');try{await navigator.clipboard.writeText(s);const b=document.getElementById('copyDecision');b.textContent='コピーしました';setTimeout(()=>b.textContent='判定・入力内容をコピー',1700);}catch(e){window.prompt('下記をコピーしてください',s);}});
 })();
 </script>
 </body></html>
