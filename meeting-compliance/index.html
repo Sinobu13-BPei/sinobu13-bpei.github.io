@@ -75,6 +75,15 @@
 
 .grid2:has(> :only-child){grid-template-columns:1fr}
 
+/* Four-column budget line: retain one row on desktop and wrap only when needed. */
+#judge .decision-card .inputs.budget-row{grid-template-columns:minmax(140px,1fr) minmax(140px,.9fr) minmax(175px,1.08fr) minmax(220px,1.3fr);gap:10px;align-items:end}
+#judge .decision-card .inputs.budget-row>label{min-width:0}
+#judge .decision-card .inputs.budget-row select{font-size:12px;padding-inline:8px}
+#judge .decision-card .inputs.budget-row input[hidden]{display:none!important}
+#judge .decision-card .inputs.budget-row #budgetTotalExact:not([hidden]){display:block;margin-top:8px}
+@media(max-width:1000px){#judge .decision-card .inputs.budget-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){#judge .decision-card .inputs.budget-row{grid-template-columns:1fr}}
+
 /* Mindset illustration */
 .mindset-visual{margin:20px 0 22px;max-width:100%}.mindset-visual img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:14px;background:#fff}.mindset-visual figcaption{font-size:12px;line-height:1.6;margin:8px 4px 0;color:var(--sub)}
 
@@ -154,8 +163,8 @@
 <label>場所名 <span class="optional">（必須）</span><input name="venueName" required maxlength="150" placeholder="例：駅前の飲食店（店名は社内記録）"></label>
 <label class="is-required">想定参加人数 <span class="required-badge" aria-label="必須項目">必須</span><input type="number" name="attendees" min="1" max="1000" step="1" placeholder="例：4" required></label>
 </div><div class="related-links"><a class="btn gold" target="_blank" rel="noopener noreferrer" href="https://sinobu13-bpei.github.io/dining-guide/?utm_source=chatgpt.com">会食場所候補 ↗</a></div></div>
-<div class="decision-card"><h3><span class="dnum">4</span>予定金額・1人当たりの金額・費用負担者</h3><div class="inputs">
-<label class="is-required">予算合計（税込・円）<span class="required-badge" aria-label="必須項目">必須</span><input name="budgetTotal" type="number" min="0" step="1" placeholder="例：16000" required></label>
+<div class="decision-card"><h3><span class="dnum">4</span>予定金額・1人当たりの金額・費用負担者</h3><div class="inputs budget-row">
+<label class="is-required">予算合計（概算・税込）<span class="required-badge" aria-label="必須項目">必須</span><select id="budgetPreset" aria-label="予算合計を1,000円単位で選択" required><option value="">金額を選択</option><option value="0">0円（費用負担なし）</option><option value="manual">その他の金額（1,000円単位）</option></select><input name="budgetTotal" id="budgetTotalExact" type="number" inputmode="numeric" min="0" step="1000" placeholder="概算額を入力（1,000円単位）" hidden aria-label="その他の概算予算金額"></label>
 <label>1人当たり（自動計算・税込）<input id="budgetPerHead" readonly value="—" aria-label="1人当たり予算（税込）"></label>
 <label class="is-required">費用負担者<span class="required-badge" aria-label="必須項目">必須</span><select name="payer" required><option value="">選択してください</option><option value="manufacturer">メーカー負担</option><option value="dealer">販売店・ディーラー負担</option><option value="individual">各参加者が自費負担（割り勘等）</option><option value="host">医療機関／主催者負担</option><option value="unknown">未定・不明</option></select></label>
 <label class="is-required">適用規程に照らした金額確認<span class="required-badge" aria-label="必須項目">必須</span><select name="budgetCompliance" required><option value="">選択してください</option><option value="within">適用する最新上限・条件の範囲内を確認</option><option value="over">適用上限を超える／禁止対象</option><option value="unchecked">未確認・該当基準が不明</option><option value="none">定額上限の規定なし（規程上も確認済）</option></select></label>
@@ -239,8 +248,16 @@ const out=document.getElementById('decisionResult');const pph=document.getElemen
 let last={level:'hold',headline:'未判定',reason:['入力して判定してください']};
 const get=(key)=>form.elements.namedItem(key)?.value?.trim()||'';
 const money=n=>new Intl.NumberFormat('ja-JP').format(n)+'円';
+// Approximate budget selection in 1,000-yen increments (up to 100,000 yen), with a manual option for larger amounts.
+const budgetPreset=document.getElementById('budgetPreset');
+const budgetExact=form.elements.namedItem('budgetTotal');
+const customBudget=budgetPreset.querySelector('option[value="manual"]');
+for(let n=1000;n<=100000;n+=1000){const option=document.createElement('option');option.value=String(n);option.textContent=money(n);budgetPreset.insertBefore(option,customBudget);}
+function setBudgetSelection(){const custom=budgetPreset.value==='manual';budgetExact.hidden=!custom;budgetExact.required=custom;if(!custom)budgetExact.value=budgetPreset.value;else budgetExact.value='';perHead();}
+budgetPreset.addEventListener('change',setBudgetSelection);
+
 function perHead(){const amount=Number(get('budgetTotal'));const n=Number(get('attendees'));pph.value=get('budgetTotal')!==''&&n>0?money(Math.round(amount/n)):'—';}
-form.elements.namedItem('budgetTotal').addEventListener('input',perHead);form.elements.namedItem('attendees').addEventListener('input',perHead);
+budgetExact.addEventListener('input',perHead);form.elements.namedItem('attendees').addEventListener('input',perHead);
 function run(){const stop=[],hold=[],info=[];const v=k=>get(k); const hcp=['private','public','mixed','overseas'].includes(v('party')); const publicHcp=['public','overseas'].includes(v('party')); const mediated=['manufacturer','dealer'].includes(v('payer'));
 const required=['party','influence','participants','purpose','agendaType','eventDate','eventTime','venueType','venueName','attendees','budgetTotal','payer','budgetCompliance','procurement','benefit','industryRule','companyRule','approval'];
 const missing=required.filter(x=>!v(x));if(missing.length)hold.push('必須のプルダウン・入力欄 '+missing.length+'項目が未記入です。');
@@ -274,7 +291,7 @@ let after='会食前：第8項目は事後確認で使用します。';if(v('act
 const issues=[];if(v('actualTotal')&&Number(v('actualTotal'))>amount)issues.push('実績額が予算を超過。所定の再審査が必要です。');if(v('receipt')!=='yes')issues.push('領収書・証憑保存が未完了です。');if(v('report')!=='yes')issues.push('会食後の報告が未完了です。');after=issues.length?'事後管理：'+issues.join(' '):'事後管理：領収書・報告の入力上は完了です。';}
 last={level,headline,reason,after};out.dataset.level=level;out.replaceChildren();const badge=document.createElement('span');badge.className='status';badge.textContent=level==='go'?'GO CANDIDATE':level==='hold'?'HOLD / REVIEW':'NO GO';const title=document.createElement('h3');title.textContent=headline;const ul=document.createElement('ul');reason.forEach(msg=>{const li=document.createElement('li');li.textContent=msg;ul.appendChild(li);});const post=document.createElement('p');post.className='small';post.textContent=after;out.append(badge,title,ul,post);out.scrollIntoView({behavior:'smooth',block:'nearest'});}
 form.addEventListener('submit',e=>{e.preventDefault();run();});
-form.addEventListener('reset',()=>{last={level:'hold',headline:'未判定',reason:[]};setTimeout(()=>{pph.value='—';out.dataset.level='hold';out.replaceChildren();out.innerHTML='<span class="status">未判定</span><h3>入力後に「GO / NO-GO を判定」を押してください</h3><p class="small">未入力・規程未確認・未承認は自動的にGOになりません。</p>';},0);});
+form.addEventListener('reset',()=>{last={level:'hold',headline:'未判定',reason:[]};setTimeout(()=>{budgetExact.hidden=true;budgetExact.required=false;budgetExact.value='';pph.value='—';out.dataset.level='hold';out.replaceChildren();out.innerHTML='<span class="status">未判定</span><h3>入力後に「GO / NO-GO を判定」を押してください</h3><p class="small">未入力・規程未確認・未承認は自動的にGOになりません。</p>';},0);});
 document.getElementById('copyDecision').addEventListener('click',async()=>{const labels={party:'相手属性',influence:'選定への影響',participants:'参加者概要',purpose:'目的',agendaType:'議題',agendaMemo:'議題メモ',eventDate:'予定日',eventTime:'開始時刻',venueType:'会場区分',venueName:'場所',attendees:'人数',budgetTotal:'税込予算合計',payer:'費用負担者',budgetCompliance:'予算基準',procurement:'購買との関係',benefit:'便宜・機密情報',industryRule:'最新規約',companyRule:'双方規程',approval:'事前承認',approver:'承認者',approvalDate:'承認日',actualTotal:'税込実績額',receipt:'領収書',report:'事後報告'};
 const lines=['会食 GO / NO-GO 判定（暫定・正式承認に代わりません）','※ここでの判定が必ずしも正しいとは限りません。社内の担当部署や公取協に確認しましょう。','判定：'+last.headline,...last.reason.map(x=>'・'+x),'事後：'+(last.after||'未入力'),'一人当たり予算：'+pph.value,...Object.entries(labels).map(([k,label])=>label+'：'+(form.elements.namedItem(k)?.selectedOptions?.[0]?.text||get(k)||'未入力'))];const s=lines.join('\n');try{await navigator.clipboard.writeText(s);const b=document.getElementById('copyDecision');b.textContent='コピーしました';setTimeout(()=>b.textContent='判定・入力内容をコピー',1700);}catch(e){window.prompt('下記をコピーしてください',s);}});
 })();
