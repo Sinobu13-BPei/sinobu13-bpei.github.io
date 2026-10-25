@@ -1,0 +1,933 @@
+{
+  "updated": "2026-10-25",
+  "regions": [
+    {
+      "id": "otsu",
+      "name": "大津",
+      "municipalities": [
+        "大津市"
+      ],
+      "coord": [
+        35.004,
+        135.868
+      ],
+      "pop2025": 342879,
+      "pop2020Base": 345070,
+      "forecast2020Base": [
+        345070,
+        346490,
+        345055,
+        341592,
+        335925,
+        328470,
+        320021
+      ],
+      "aging2050": 38,
+      "beds2025": [
+        3076,
+        968,
+        969,
+        481,
+        599,
+        59
+      ],
+      "beds2040Indicative": 3141,
+      "physicianDensity2023": 385.9,
+      "specialties": {
+        "消化器内科(胃腸内科)": {
+          "area": 82.8,
+          "ref": 22.6
+        },
+        "循環器内科": {
+          "area": 60.7,
+          "ref": 19.1
+        },
+        "糖尿病内科(代謝内科)": {
+          "area": 40.8,
+          "ref": 8.4
+        },
+        "整形外科": {
+          "area": 74,
+          "ref": 31.8
+        },
+        "産婦人科": {
+          "area": 58.5,
+          "ref": 16
+        },
+        "小児科": {
+          "area": 89.4,
+          "ref": 25.2
+        },
+        "放射線科": {
+          "area": 43.1,
+          "ref": 10.3
+        },
+        "脳神経内科": {
+          "area": 38.6,
+          "ref": 8.3
+        },
+        "救急科": {
+          "area": 13.2,
+          "ref": 5.5
+        }
+      },
+      "driver": "大学病院・広域高度急性期",
+      "action": "高額機器共同利用・大学病院連携",
+      "majorHospitals": [
+        "滋賀医科大学医学部附属病院",
+        "大津赤十字病院",
+        "市立大津市民病院",
+        "JCHO滋賀病院"
+      ]
+    },
+    {
+      "id": "konan",
+      "name": "湖南",
+      "municipalities": [
+        "草津市",
+        "守山市",
+        "栗東市",
+        "野洲市"
+      ],
+      "coord": [
+        35.015,
+        135.96
+      ],
+      "pop2025": 352267,
+      "pop2020Base": 346482,
+      "forecast2020Base": [
+        346482,
+        353323,
+        355664,
+        355271,
+        352324,
+        347518,
+        341536
+      ],
+      "aging2050": 32.3,
+      "beds2025": [
+        2785,
+        347,
+        1347,
+        516,
+        575,
+        0
+      ],
+      "beds2040Indicative": 2886,
+      "physicianDensity2023": 428.2,
+      "specialties": {
+        "消化器内科(胃腸内科)": {
+          "area": 56.4,
+          "ref": 22.6
+        },
+        "循環器内科": {
+          "area": 43,
+          "ref": 19.1
+        },
+        "糖尿病内科(代謝内科)": {
+          "area": 22.8,
+          "ref": 8.4
+        },
+        "整形外科": {
+          "area": 88.6,
+          "ref": 31.8
+        },
+        "産婦人科": {
+          "area": 44.3,
+          "ref": 16
+        },
+        "小児科": {
+          "area": 85.9,
+          "ref": 25.2
+        },
+        "放射線科": {
+          "area": 26.9,
+          "ref": 10.3
+        },
+        "脳神経内科": {
+          "area": 20.1,
+          "ref": 8.3
+        },
+        "救急科": {
+          "area": 16.1,
+          "ref": 5.5
+        }
+      },
+      "driver": "人口増・診療所・在宅需要",
+      "action": "診療所整備と紹介検査の接続",
+      "majorHospitals": [
+        "滋賀県立総合病院",
+        "済生会滋賀県病院",
+        "淡海医療センター",
+        "近江草津徳洲会病院"
+      ]
+    },
+    {
+      "id": "koka",
+      "name": "甲賀",
+      "municipalities": [
+        "甲賀市",
+        "湖南市"
+      ],
+      "coord": [
+        34.966,
+        136.167
+      ],
+      "pop2025": 138447,
+      "pop2020Base": 142818,
+      "forecast2020Base": [
+        142818,
+        138744,
+        133874,
+        128414,
+        122365,
+        115897,
+        109310
+      ],
+      "aging2050": 38.4,
+      "beds2025": [
+        1128,
+        8,
+        545,
+        234,
+        341,
+        0
+      ],
+      "beds2040Indicative": 1140,
+      "physicianDensity2023": 189.5,
+      "specialties": {
+        "消化器内科(胃腸内科)": {
+          "area": 33.9,
+          "ref": 22.6
+        },
+        "循環器内科": {
+          "area": 31.3,
+          "ref": 19.1
+        },
+        "糖尿病内科(代謝内科)": {
+          "area": 10.4,
+          "ref": 8.4
+        },
+        "整形外科": {
+          "area": 52.2,
+          "ref": 31.8
+        },
+        "産婦人科": {
+          "area": 20.9,
+          "ref": 16
+        },
+        "小児科": {
+          "area": 26.1,
+          "ref": 25.2
+        },
+        "放射線科": {
+          "area": 18.3,
+          "ref": 10.3
+        },
+        "脳神経内科": {
+          "area": 18.3,
+          "ref": 8.3
+        },
+        "救急科": {
+          "area": 0,
+          "ref": 5.5
+        }
+      },
+      "driver": "医師偏在・分散立地",
+      "action": "省力化・地域アクセス支援",
+      "majorHospitals": [
+        "公立甲賀病院",
+        "甲南病院",
+        "生田病院"
+      ]
+    },
+    {
+      "id": "higashiomi",
+      "name": "東近江",
+      "municipalities": [
+        "近江八幡市",
+        "東近江市",
+        "日野町",
+        "竜王町"
+      ],
+      "coord": [
+        35.112,
+        136.207
+      ],
+      "pop2025": 220302,
+      "pop2020Base": 226694,
+      "forecast2020Base": [
+        226694,
+        221317,
+        214925,
+        207667,
+        199632,
+        191109,
+        182410
+      ],
+      "aging2050": 37.7,
+      "beds2025": [
+        2148,
+        152,
+        825,
+        409,
+        622,
+        140
+      ],
+      "beds2040Indicative": 2060,
+      "physicianDensity2023": 268.9,
+      "specialties": {
+        "消化器内科(胃腸内科)": {
+          "area": 40,
+          "ref": 22.6
+        },
+        "循環器内科": {
+          "area": 51.2,
+          "ref": 19.1
+        },
+        "糖尿病内科(代謝内科)": {
+          "area": 12.8,
+          "ref": 8.4
+        },
+        "整形外科": {
+          "area": 59.3,
+          "ref": 31.8
+        },
+        "産婦人科": {
+          "area": 32,
+          "ref": 16
+        },
+        "小児科": {
+          "area": 57.7,
+          "ref": 25.2
+        },
+        "放射線科": {
+          "area": 16,
+          "ref": 10.3
+        },
+        "脳神経内科": {
+          "area": 8,
+          "ref": 8.3
+        },
+        "救急科": {
+          "area": 6.4,
+          "ref": 5.5
+        }
+      },
+      "driver": "広域高齢化・病床機能調整",
+      "action": "病床転換と在宅接続",
+      "majorHospitals": [
+        "近江八幡市立総合医療センター",
+        "NHO東近江総合医療センター",
+        "日野記念病院"
+      ]
+    },
+    {
+      "id": "koto",
+      "name": "湖東",
+      "municipalities": [
+        "彦根市",
+        "愛荘町",
+        "豊郷町",
+        "甲良町",
+        "多賀町"
+      ],
+      "coord": [
+        35.275,
+        136.252
+      ],
+      "pop2025": 151495,
+      "pop2020Base": 155308,
+      "forecast2020Base": [
+        155308,
+        151129,
+        148447,
+        145168,
+        141271,
+        136935,
+        132376
+      ],
+      "aging2050": 36.4,
+      "beds2025": [
+        1109,
+        14,
+        551,
+        161,
+        255,
+        128
+      ],
+      "beds2040Indicative": 931,
+      "physicianDensity2023": 204.8,
+      "specialties": {
+        "消化器内科(胃腸内科)": {
+          "area": 35.5,
+          "ref": 22.6
+        },
+        "循環器内科": {
+          "area": 32.9,
+          "ref": 19.1
+        },
+        "糖尿病内科(代謝内科)": {
+          "area": 10.1,
+          "ref": 8.4
+        },
+        "整形外科": {
+          "area": 40.5,
+          "ref": 31.8
+        },
+        "産婦人科": {
+          "area": 5.1,
+          "ref": 16
+        },
+        "小児科": {
+          "area": 35.5,
+          "ref": 25.2
+        },
+        "放射線科": {
+          "area": 7.6,
+          "ref": 10.3
+        },
+        "脳神経内科": {
+          "area": 0,
+          "ref": 8.3
+        },
+        "救急科": {
+          "area": 0,
+          "ref": 5.5
+        }
+      },
+      "driver": "中核病院と町部の連携",
+      "action": "検査共同利用・地域連携",
+      "majorHospitals": [
+        "彦根市立病院",
+        "豊郷病院",
+        "彦根中央病院"
+      ]
+    },
+    {
+      "id": "kohoku",
+      "name": "湖北",
+      "municipalities": [
+        "長浜市",
+        "米原市"
+      ],
+      "coord": [
+        35.381,
+        136.278
+      ],
+      "pop2025": 143515,
+      "pop2020Base": 150861,
+      "forecast2020Base": [
+        150861,
+        144568,
+        137792,
+        130793,
+        123626,
+        116331,
+        108910
+      ],
+      "aging2050": 40.3,
+      "beds2025": [
+        1142,
+        295,
+        406,
+        181,
+        57,
+        203
+      ],
+      "beds2040Indicative": 801,
+      "physicianDensity2023": 255.7,
+      "specialties": {
+        "消化器内科(胃腸内科)": {
+          "area": 36.9,
+          "ref": 22.6
+        },
+        "循環器内科": {
+          "area": 29.9,
+          "ref": 19.1
+        },
+        "糖尿病内科(代謝内科)": {
+          "area": 11.5,
+          "ref": 8.4
+        },
+        "整形外科": {
+          "area": 43.8,
+          "ref": 31.8
+        },
+        "産婦人科": {
+          "area": 25.3,
+          "ref": 16
+        },
+        "小児科": {
+          "area": 39.2,
+          "ref": 25.2
+        },
+        "放射線科": {
+          "area": 23,
+          "ref": 10.3
+        },
+        "脳神経内科": {
+          "area": 2.3,
+          "ref": 8.3
+        },
+        "救急科": {
+          "area": 13.8,
+          "ref": 5.5
+        }
+      },
+      "driver": "救急広域・人口減少",
+      "action": "維持更新・保守網・救急連携",
+      "majorHospitals": [
+        "長浜赤十字病院",
+        "市立長浜病院",
+        "長浜市立湖北病院"
+      ]
+    },
+    {
+      "id": "kosei",
+      "name": "湖西",
+      "municipalities": [
+        "高島市"
+      ],
+      "coord": [
+        35.353,
+        136.036
+      ],
+      "pop2025": 43103,
+      "pop2020Base": 46377,
+      "forecast2020Base": [
+        46377,
+        43409,
+        40374,
+        37326,
+        34240,
+        31196,
+        28228
+      ],
+      "aging2050": 50,
+      "beds2025": [
+        406,
+        0,
+        224,
+        82,
+        100,
+        0
+      ],
+      "beds2040Indicative": 352,
+      "physicianDensity2023": 238.3,
+      "specialties": {
+        "消化器内科(胃腸内科)": {
+          "area": 18,
+          "ref": 22.6
+        },
+        "循環器内科": {
+          "area": 36,
+          "ref": 19.1
+        },
+        "糖尿病内科(代謝内科)": {
+          "area": 0,
+          "ref": 8.4
+        },
+        "整形外科": {
+          "area": 66.1,
+          "ref": 31.8
+        },
+        "産婦人科": {
+          "area": 0,
+          "ref": 16
+        },
+        "小児科": {
+          "area": 30,
+          "ref": 25.2
+        },
+        "放射線科": {
+          "area": 12,
+          "ref": 10.3
+        },
+        "脳神経内科": {
+          "area": 6,
+          "ref": 8.3
+        },
+        "救急科": {
+          "area": 0,
+          "ref": 5.5
+        }
+      },
+      "driver": "移動負担・高齢化・BCP",
+      "action": "訪問診療・小型機器・災害耐性",
+      "majorHospitals": [
+        "高島市民病院",
+        "マキノ病院",
+        "今津病院"
+      ]
+    }
+  ],
+  "hospitals": [
+    {
+      "name": "滋賀医科大学医学部附属病院",
+      "area": "大津",
+      "url": "https://www.shiga-med.ac.jp/hospital/"
+    },
+    {
+      "name": "大津赤十字病院",
+      "area": "大津",
+      "url": "https://www.otsu.jrc.or.jp/"
+    },
+    {
+      "name": "市立大津市民病院",
+      "area": "大津",
+      "url": "https://och.or.jp/"
+    },
+    {
+      "name": "JCHO滋賀病院",
+      "area": "大津",
+      "url": "https://shiga.jcho.go.jp/"
+    },
+    {
+      "name": "滋賀県立総合病院",
+      "area": "湖南",
+      "url": "https://www.pref.shiga.lg.jp/kensou/"
+    },
+    {
+      "name": "済生会滋賀県病院",
+      "area": "湖南",
+      "url": "https://www.saiseikai-shiga.jp/"
+    },
+    {
+      "name": "淡海医療センター",
+      "area": "湖南",
+      "url": "https://www.seikoukai-sc.or.jp/omi-mc/"
+    },
+    {
+      "name": "近江草津徳洲会病院",
+      "area": "湖南",
+      "url": "https://www.oumi-kusatsu-hp.jp/"
+    },
+    {
+      "name": "公立甲賀病院",
+      "area": "甲賀",
+      "url": "https://www.kohka-hp.or.jp/"
+    },
+    {
+      "name": "甲南病院",
+      "area": "甲賀",
+      "url": "https://www.kohnan-shiga.or.jp/"
+    },
+    {
+      "name": "生田病院",
+      "area": "甲賀",
+      "url": "https://ikuta-hospital.com/"
+    },
+    {
+      "name": "近江八幡市立総合医療センター",
+      "area": "東近江",
+      "url": "https://www.kenkou1.com/"
+    },
+    {
+      "name": "NHO東近江総合医療センター",
+      "area": "東近江",
+      "url": "https://higashiomi.hosp.go.jp/"
+    },
+    {
+      "name": "日野記念病院",
+      "area": "東近江",
+      "url": "https://www.hino-hp.jp/"
+    },
+    {
+      "name": "彦根市立病院",
+      "area": "湖東",
+      "url": "https://www.municipal-hp.hikone.shiga.jp/"
+    },
+    {
+      "name": "豊郷病院",
+      "area": "湖東",
+      "url": "https://www.toyosato.or.jp/"
+    },
+    {
+      "name": "彦根中央病院",
+      "area": "湖東",
+      "url": "https://www.hikone.or.jp/"
+    },
+    {
+      "name": "長浜赤十字病院",
+      "area": "湖北",
+      "url": "https://www.nagahama.jrc.or.jp/"
+    },
+    {
+      "name": "市立長浜病院",
+      "area": "湖北",
+      "url": "https://www.nagahama-hp.jp/"
+    },
+    {
+      "name": "長浜市立湖北病院",
+      "area": "湖北",
+      "url": "https://www.ikbk.jp/"
+    },
+    {
+      "name": "高島市民病院",
+      "area": "湖西",
+      "url": "https://www.city.takashima.lg.jp/iryo_kenko_fukushi/tmh/index.html"
+    },
+    {
+      "name": "マキノ病院",
+      "area": "湖西",
+      "url": "http://www.makino-hosp.or.jp/"
+    },
+    {
+      "name": "今津病院",
+      "area": "湖西",
+      "url": "https://imazuhp.jp/"
+    }
+  ],
+  "associations": [
+    {
+      "name": "大津市医師会",
+      "area": "大津",
+      "address": "滋賀県大津市浜大津4-1-1",
+      "url": "https://www.otsu.shiga.med.or.jp/"
+    },
+    {
+      "name": "草津栗東医師会",
+      "area": "湖南",
+      "address": "滋賀県草津市大路2-1-35",
+      "url": "https://kusatsu-ritto.shiga.med.or.jp/"
+    },
+    {
+      "name": "守山野洲医師会",
+      "area": "湖南",
+      "address": "滋賀県守山市下之郷3-2-5",
+      "url": "https://moriyama-yasu.shiga.med.or.jp/"
+    },
+    {
+      "name": "甲賀湖南医師会",
+      "area": "甲賀",
+      "address": "滋賀県甲賀市水口町松尾1256",
+      "url": "https://k-ishikai.jp/"
+    },
+    {
+      "name": "近江八幡市蒲生郡医師会",
+      "area": "東近江",
+      "address": "滋賀県近江八幡市出町381",
+      "url": "https://o8gma.jp/"
+    },
+    {
+      "name": "東近江医師会",
+      "area": "東近江",
+      "address": "滋賀県東近江市中小路町483-4",
+      "url": "https://higashiomi-ishikai.jp/"
+    },
+    {
+      "name": "彦根医師会",
+      "area": "湖東",
+      "address": "滋賀県彦根市八坂町1900-4",
+      "url": "https://isikai-h.jp/"
+    },
+    {
+      "name": "湖北医師会",
+      "area": "湖北",
+      "address": "滋賀県長浜市宮司町1181-2",
+      "url": "https://kohokuishikai.jp/"
+    },
+    {
+      "name": "高島市医師会",
+      "area": "湖西",
+      "address": "滋賀県高島市勝野1667",
+      "url": "https://shiga.med.or.jp/doctor/local-associations/"
+    }
+  ],
+  "healthOffices": [
+    {
+      "name": "大津市保健所",
+      "area": "大津",
+      "address": "滋賀県大津市浜大津4-1-1",
+      "url": "https://www.city.otsu.lg.jp/h/"
+    },
+    {
+      "name": "草津保健所",
+      "area": "湖南",
+      "address": "滋賀県草津市草津3-14-75",
+      "url": "https://www.pref.shiga.lg.jp/kusatsu-hokensyo/index.html"
+    },
+    {
+      "name": "甲賀保健所",
+      "area": "甲賀",
+      "address": "滋賀県甲賀市水口町水口6200",
+      "url": "https://www.pref.shiga.lg.jp/kouka-hokensyo/"
+    },
+    {
+      "name": "東近江保健所",
+      "area": "東近江",
+      "address": "滋賀県東近江市八日市緑町8-22",
+      "url": "https://www.pref.shiga.lg.jp/higashioumi-hokensyo/index.html"
+    },
+    {
+      "name": "彦根保健所",
+      "area": "湖東",
+      "address": "滋賀県彦根市和田町41",
+      "url": "https://www.pref.shiga.lg.jp/hikone-hokensyo/index.html"
+    },
+    {
+      "name": "長浜保健所",
+      "area": "湖北",
+      "address": "滋賀県長浜市平方町1152-2",
+      "url": "https://www.pref.shiga.lg.jp/nagahama-hokensyo/index.html"
+    },
+    {
+      "name": "高島保健所",
+      "area": "湖西",
+      "address": "滋賀県高島市今津町今津448-45",
+      "url": "https://www.pref.shiga.lg.jp/takashima-hokensyo/index.html"
+    }
+  ],
+  "modalities": [
+    {
+      "name": "CT",
+      "total": 110,
+      "adjusted": 8.2,
+      "national": 11.1,
+      "hospital": 67,
+      "clinic": 43
+    },
+    {
+      "name": "MRI",
+      "total": 63,
+      "adjusted": 4.6,
+      "national": 5.5,
+      "hospital": 55,
+      "clinic": 8
+    },
+    {
+      "name": "PET",
+      "total": 9,
+      "adjusted": 0.67,
+      "national": 0.46,
+      "hospital": 7,
+      "clinic": 2
+    },
+    {
+      "name": "マンモグラフィ",
+      "total": 39,
+      "adjusted": 2.8,
+      "national": 3.4,
+      "hospital": 28,
+      "clinic": 11
+    },
+    {
+      "name": "体外照射",
+      "total": 14,
+      "adjusted": 1.04,
+      "national": 0.91,
+      "hospital": 14,
+      "clinic": 0
+    }
+  ],
+  "sources": [
+    {
+      "title": "令和7年国勢調査確定値",
+      "year": "2025",
+      "url": "https://www.pref.shiga.lg.jp/cv00/press-release/33718.html"
+    },
+    {
+      "title": "令和7年度病床機能報告",
+      "year": "2025",
+      "url": "https://www.pref.shiga.lg.jp/ef00/24657.html"
+    },
+    {
+      "title": "滋賀県保健医療計画",
+      "year": "2024",
+      "url": "https://www.pref.shiga.lg.jp/file/attachment/5486320.pdf"
+    },
+    {
+      "title": "滋賀県外来医療計画・医療機器配置",
+      "year": "2024刊・2020実績",
+      "url": "https://www.pref.shiga.lg.jp/file/attachment/5477025.pdf"
+    },
+    {
+      "title": "滋賀県医師確保計画",
+      "year": "2024-2026",
+      "url": "https://www.pref.shiga.lg.jp/ef00/4026.html"
+    },
+    {
+      "title": "令和8年度第2回医療審議会",
+      "year": "2026-10-15",
+      "url": "https://www.pref.shiga.lg.jp/ef00/34207.html"
+    },
+    {
+      "title": "社人研 市区町村別人口推計",
+      "year": "2023推計（2020基準）",
+      "url": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
+    },
+    {
+      "title": "厚労省2040年地域医療構想",
+      "year": "2026",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000080850_00019.html"
+    },
+    {
+      "title": "厚労省保健所所管区域案内",
+      "year": "2026確認",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/25shiga.html"
+    },
+    {
+      "title": "滋賀県医師会地域職域医師会一覧",
+      "year": "2026確認",
+      "url": "https://shiga.med.or.jp/doctor/local-associations/"
+    },
+    {
+      "title": "滋賀医科大学附属病院ニュース",
+      "year": "2026",
+      "url": "https://www.shiga-med.ac.jp/hospital/doc/magazines/news.html"
+    },
+    {
+      "title": "滋賀大学DS医療機器人材育成",
+      "year": "2024–2026",
+      "url": "https://dsaic.shiga-u.ac.jp/project/1125/"
+    },
+    {
+      "title": "地域医療介護総合確保基金",
+      "year": "2026",
+      "url": "https://www.pref.shiga.lg.jp/ef00/4159.html"
+    },
+    {
+      "title": "滋賀県災害医療",
+      "year": "2026-06",
+      "url": "https://www.pref.shiga.lg.jp/ej00/4180.html"
+    },
+    {
+      "title": "公立病院経営強化プラン一覧",
+      "year": "2024中心",
+      "url": "https://www.pref.shiga.lg.jp/bh00/9227.html"
+    },
+    {
+      "title": "病院一覧オープンデータ",
+      "year": "2026-10",
+      "url": "https://www.pref.shiga.lg.jp/ef00/4190.html"
+    },
+    {
+      "title": "滋賀県基金事業概要",
+      "year": "2026",
+      "url": "https://www.pref.shiga.lg.jp/file/attachment/5608829.pdf"
+    },
+    {
+      "title": "JMAP 医療資源",
+      "year": "参照日2026",
+      "url": "https://jmap.jp/cities/detail/pref/25"
+    }
+  ],
+  "national": {
+    "pop2025": 122972528,
+    "aging2025": 29.4,
+    "popDecline": -2.52
+  },
+  "scoreWeights": {
+    "need": 30,
+    "equity": 25,
+    "change": 20,
+    "access": 15,
+    "execution": 10
+  },
+  "notes": {
+    "forecast": "社人研令和5年推計。2020年基準推計系列で、2025年の確定値とは一致する設計ではない。",
+    "bed": "2025年病床機能報告による病棟自己申告。2040年欄は審議会公表の参考推計で未確定。",
+    "devices": "2024年版外来医療計画掲載の2020年医療施設調査等による保有台数。稼働台数・現在設備台数ではない。"
+  }
+}
