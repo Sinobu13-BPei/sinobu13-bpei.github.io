@@ -22,3 +22,24 @@ jobs:
         run: node --check medical-intelligence/shiga/js/app.js
       - name: Check data, 12 sections, UI hooks, public sources and neutrality
         run: node medical-intelligence/shiga/tests/smoke.mjs
+
+  browser-ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Playwright and Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install chromium
+      - name: Serve static website
+        run: |
+          python3 -m http.server 8098 --bind 127.0.0.1 > /tmp/shiga-http.log 2>&1 &
+          sleep 2
+      - name: Browser responsive and interactions test
+        run: node medical-intelligence/shiga/tests/browser.mjs
