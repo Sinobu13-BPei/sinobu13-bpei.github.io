@@ -78,6 +78,16 @@
         "大津赤十字病院",
         "市立大津市民病院",
         "JCHO滋賀病院"
+      ],
+      "physicians2024": 1303,
+      "physicianBias2026": 399.9,
+      "beds2026DeclaredPlan": [
+        2931,
+        947,
+        936,
+        453,
+        595,
+        0
       ]
     },
     {
@@ -160,6 +170,16 @@
         "済生会滋賀県病院",
         "淡海医療センター",
         "近江草津徳洲会病院"
+      ],
+      "physicians2024": 889,
+      "physicianBias2026": 272,
+      "beds2026DeclaredPlan": [
+        2770,
+        402,
+        1277,
+        516,
+        575,
+        0
       ]
     },
     {
@@ -239,6 +259,16 @@
         "公立甲賀病院",
         "甲南病院",
         "生田病院"
+      ],
+      "physicians2024": 209,
+      "physicianBias2026": 160,
+      "beds2026DeclaredPlan": [
+        1128,
+        8,
+        545,
+        234,
+        341,
+        0
       ]
     },
     {
@@ -320,6 +350,16 @@
         "近江八幡市立総合医療センター",
         "NHO東近江総合医療センター",
         "日野記念病院"
+      ],
+      "physicians2024": 488,
+      "physicianBias2026": 225.9,
+      "beds2026DeclaredPlan": [
+        2061,
+        152,
+        825,
+        402,
+        682,
+        0
       ]
     },
     {
@@ -402,6 +442,16 @@
         "彦根市立病院",
         "豊郷病院",
         "彦根中央病院"
+      ],
+      "physicians2024": 237,
+      "physicianBias2026": 197.6,
+      "beds2026DeclaredPlan": [
+        1017,
+        14,
+        541,
+        156,
+        255,
+        51
       ]
     },
     {
@@ -481,6 +531,16 @@
         "長浜赤十字病院",
         "市立長浜病院",
         "長浜市立湖北病院"
+      ],
+      "physicians2024": 298,
+      "physicianBias2026": 225.1,
+      "beds2026DeclaredPlan": [
+        1108,
+        310,
+        483,
+        171,
+        109,
+        35
       ]
     },
     {
@@ -559,6 +619,16 @@
         "高島市民病院",
         "マキノ病院",
         "今津病院"
+      ],
+      "physicians2024": 88,
+      "physicianBias2026": 226.7,
+      "beds2026DeclaredPlan": [
+        406,
+        0,
+        224,
+        82,
+        100,
+        0
       ]
     }
   ],
@@ -911,6 +981,41 @@
       "title": "JMAP 医療資源",
       "year": "参照日2026",
       "url": "https://jmap.jp/cities/detail/pref/25"
+    },
+    {
+      "title": "滋賀県2025年人口動態年報（自然・社会増減）",
+      "year": "2024/10〜2025/9",
+      "url": "https://www.pref.shiga.lg.jp/cv00/press-release/24851.html"
+    },
+    {
+      "title": "厚労省2024年医師統計",
+      "year": "2024年12月31日",
+      "url": "https://www.mhlw.go.jp/toukei/saikin/hw/ishi/24/index.html"
+    },
+    {
+      "title": "厚労省医師偏在指標（2026年4月公表）",
+      "year": "2026年4月",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    },
+    {
+      "title": "滋賀県がん診療連携協議会",
+      "year": "2026年7月27日",
+      "url": "https://www.pref.shiga.lg.jp/kensou/19717.html"
+    },
+    {
+      "title": "厚労省救命救急センター設置状況",
+      "year": "2026年閲覧",
+      "url": "https://www.mhlw.go.jp/stf/newpage_32614.html"
+    },
+    {
+      "title": "厚労省がん診療連携拠点病院指定",
+      "year": "2026年10月現在",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/gan/gan_byoin.html"
+    },
+    {
+      "title": "厚労省医療施設動態調査",
+      "year": "2025年6月末",
+      "url": "https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/m25/is2506.html"
     }
   ],
   "national": {
@@ -928,6 +1033,115 @@
   "notes": {
     "forecast": "社人研令和5年推計。2020年基準推計系列で、2025年の確定値とは一致する設計ではない。",
     "bed": "2025年病床機能報告による病棟自己申告。2040年欄は審議会公表の参考推計で未確定。",
-    "devices": "2024年版外来医療計画掲載の2020年医療施設調査等による保有台数。稼働台数・現在設備台数ではない。"
+    "devices": "2024年版外来医療計画掲載の2020年医療施設調査等による保有台数。稼働台数・現在設備台数ではない。",
+    "physicians": "医療施設従事医師数は2024年12月31日時点の主な従業地・二次医療圏別集計。偏在指標は2026年4月公表版の相対指標。診療科数は主たる診療科別で重複を避ける。"
+  },
+  "migration": {
+    "period": "2024年10月〜2025年9月",
+    "inflowFromOtherPrefecture": 38261,
+    "outflowToOtherPrefecture": 35733,
+    "socialBalance": 2528,
+    "births": 8918,
+    "deaths": 15726,
+    "naturalBalance": -6808,
+    "netPopulationChange": -4280,
+    "source": "https://www.pref.shiga.lg.jp/cv00/press-release/24851.html",
+    "caution": "年報の県外移動は県内市町間移動を含まない。2025国勢調査確定人口とは統計系列と基準が異なる。"
+  },
+  "specialtyDoctors2024": [
+    {
+      "name": "内科",
+      "count": 558
+    },
+    {
+      "name": "小児科",
+      "count": 237
+    },
+    {
+      "name": "整形外科",
+      "count": 223
+    },
+    {
+      "name": "消化器内科",
+      "count": 180
+    },
+    {
+      "name": "循環器内科",
+      "count": 175
+    },
+    {
+      "name": "精神科",
+      "count": 146
+    },
+    {
+      "name": "眼科",
+      "count": 134
+    },
+    {
+      "name": "外科",
+      "count": 124
+    },
+    {
+      "name": "産婦人科",
+      "count": 124
+    },
+    {
+      "name": "麻酔科",
+      "count": 122
+    },
+    {
+      "name": "放射線科",
+      "count": 103
+    }
+  ],
+  "designations": [
+    {
+      "type": "特定機能病院",
+      "members": [
+        "滋賀医科大学医学部附属病院"
+      ],
+      "asOf": "2026年10月現在・公式病院情報",
+      "source": "https://www.shiga-med.ac.jp/hospital/"
+    },
+    {
+      "type": "救命救急センター",
+      "members": [
+        "大津赤十字病院",
+        "長浜赤十字病院",
+        "済生会滋賀県病院",
+        "近江八幡市立総合医療センター"
+      ],
+      "asOf": "厚生労働省公表設置状況（2026年閲覧）",
+      "source": "https://www.mhlw.go.jp/stf/newpage_32614.html"
+    },
+    {
+      "type": "がん診療連携拠点病院等の県協議会構成病院",
+      "members": [
+        "滋賀県立総合病院",
+        "滋賀医科大学医学部附属病院",
+        "大津赤十字病院",
+        "公立甲賀病院",
+        "彦根市立病院",
+        "市立長浜病院"
+      ],
+      "asOf": "滋賀県がん診療連携協議会・2026年7月更新",
+      "source": "https://www.pref.shiga.lg.jp/kensou/19717.html"
+    },
+    {
+      "type": "がん診療病院（県協議会構成）",
+      "members": [
+        "高島市民病院"
+      ],
+      "asOf": "滋賀県がん診療連携協議会・2026年7月更新",
+      "source": "https://www.pref.shiga.lg.jp/kensou/19717.html"
+    }
+  ],
+  "facilityCount2025": {
+    "hospital": 57,
+    "generalClinic": 1139,
+    "dentalClinic": 559,
+    "asOf": "2025年6月末概数",
+    "source": "https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/m25/is2506.html",
+    "caution": "2025年病床機能報告対象医療機関数、2026年10月現在の施設数とは異なる。"
   }
 }
