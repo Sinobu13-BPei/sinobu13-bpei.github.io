@@ -148,6 +148,16 @@ function draw(){
       niigataLink.textContent='新潟MKT ↗';
       actions.appendChild(niigataLink);
     }
+    if(p[0]==='愛知県'){
+      const aichiMkt=document.createElement('a');
+      aichiMkt.href='https://sinobu13-bpei.github.io/medical-intelligence/aichi/';
+      aichiMkt.target='_blank';
+      aichiMkt.rel='noopener noreferrer';
+      aichiMkt.className='nagano-mkt-btn';
+      aichiMkt.textContent='愛知MKT ↗';
+      aichiMkt.setAttribute('aria-label','愛知県医療マーケット総合分析を開く');
+      actions.appendChild(aichiMkt);
+    }
     if(p[0]==='長野県'){
       let naganoLink=document.createElement('a');
       naganoLink.href='https://sinobu13-bpei.github.io/medical-intelligence/nagano/';
