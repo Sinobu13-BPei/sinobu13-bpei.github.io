@@ -1,0 +1,28 @@
+
+/* REV 4: actual medical area map, accessible overlay labels and Rizno One link */
+.r4-author-row{display:flex;align-items:center;flex-wrap:wrap;gap:12px 18px;margin-top:16px}
+.r4-author-row .credited{margin:0!important;color:#c9f4f2;font-weight:850;font-size:clamp(.89rem,1.65vw,1.04rem);line-height:1.65}
+.r4-company-button{display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:9px 19px;background:#fef3d2;border:2px solid #ffce57;border-radius:999px;box-shadow:0 6px 16px #06192760;color:#17314c!important;font-weight:900;white-space:nowrap;text-decoration:none;transition:transform .18s,background .18s}
+.r4-company-button:hover,.r4-company-button:focus-visible{background:#fff;transform:translateY(-2px);outline:3px solid #7cdfdd;outline-offset:3px}
+.r4-medical-map{min-width:0}
+.r4-map-toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:3px 9px;font-size:.88rem;margin-bottom:9px;color:#184962}
+.r4-map-toolbar>span{font-size:.73rem;color:#487084}
+.r4-map-frame{position:relative;overflow:hidden;width:100%;max-width:505px;aspect-ratio:505/648;margin-inline:auto;border:1px solid #c9d8e4;border-radius:13px;background:#ececec;box-shadow:0 8px 24px #23364b1a;isolation:isolate}
+.r4-map-frame>img{width:100%;height:100%;object-fit:contain;display:block}
+.r4-map-hotspot{position:absolute;z-index:2;display:flex;justify-content:flex-end;align-items:flex-start;cursor:pointer;border-radius:7px;outline-offset:2px;transition:background .18s,outline .18s;background:transparent}
+.r4-map-hotspot:after{content:'↗';position:absolute;right:0;top:-5px;width:21px;height:21px;display:grid;place-items:center;border-radius:50%;background:#17415d;color:white;border:2px solid #fff;font-size:13px;font-weight:900;box-shadow:0 2px 7px #132b4659}
+.r4-map-hotspot:is(:hover,:focus-visible){background:#2d98e828;outline:3px solid #176db9}
+.r4-map-hotspot:is(:hover,:focus-visible):after{background:#076cb1;transform:scale(1.15)}
+.r4-screenreader{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.r4-map-notice{font-size:.72rem;line-height:1.65;color:#557084;margin:11px 0 0!important}
+.r4-area-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:10px 0 18px}
+.r4-area-item{min-height:68px;padding:10px 11px 10px 13px;border:1px solid #cfdde8;border-left:6px solid var(--area-color);border-radius:12px;background:#fff;color:#123955!important;text-decoration:none;display:flex;flex-direction:column;justify-content:center;gap:2px;box-shadow:0 3px 10px #24435a10}
+.r4-area-item:hover,.r4-area-item:focus-visible{border-color:#087ba4;background:#eef9fc;outline:2px solid #168bbb;outline-offset:2px}
+.r4-area-name{font-size:.94rem;font-weight:900}
+.r4-area-location{font-size:.71rem;color:#476c83}
+.r4-area-location b{color:#0074ab}
+.r4-map-crossref,.r4-source-pointer{padding:10px 13px;border-left:4px solid #319ba9;border-radius:6px;background:#eef8fa;font-size:.84rem;color:#26485f;line-height:1.6;margin:14px 0}
+.r4-source-pointer a,.r4-map-crossref a{font-weight:850}
+@media(max-width:720px){.shiga-geo{grid-template-columns:1fr!important}.r4-area-links{grid-template-columns:repeat(2,minmax(0,1fr))}.r4-author-row{gap:10px}.r4-map-frame{border-radius:9px}}
+@media(max-width:390px){.r4-area-links{grid-template-columns:1fr 1fr;gap:6px}.r4-area-item{padding:8px 7px;min-height:57px}.r4-area-name{font-size:.8rem}.r4-area-location{font-size:.66rem}.r4-map-toolbar{font-size:.79rem}.r4-map-hotspot:after{width:17px;height:17px;font-size:11px}}
+@media print{.r4-map-hotspot:after{display:none}.r4-company-button{box-shadow:none}}
