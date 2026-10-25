@@ -64,7 +64,9 @@
     const contacts=[...document.querySelectorAll('a[href^="mailto:"]')].filter(a=>!foot.contains(a));
     const addresses=[...new Set(contacts.map(a=>a.getAttribute('href')?.split('?')[0]).filter(Boolean))];
     if(addresses.length===1){
-      const a=el('a','jm-contact','問合せ');a.href=addresses[0];links.appendChild(a);
+      const a=el('a','jm-contact','問合せ');
+      const preferred=contacts.find(x=>(x.getAttribute('href')||'').startsWith(addresses[0]))?.getAttribute('href')||addresses[0];
+      a.href=preferred;links.appendChild(a);
       contacts.forEach(old=>{
         if(/^\s*(?:✉\s*)?問合せ\s*(?:↗)?\s*$/.test(old.textContent||'')){
           old.replaceWith(document.createTextNode(''));
