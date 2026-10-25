@@ -1,0 +1,7 @@
+
+.compiled-hero{display:inline-flex;align-items:center;gap:12px;margin-top:25px;padding:11px 17px 11px 12px;border:1px solid rgba(255,255,255,.42);background:linear-gradient(110deg,rgba(255,255,255,.17),rgba(255,255,255,.065));box-shadow:0 8px 24px rgba(0,0,0,.1);border-radius:999px;backdrop-filter:blur(5px)}
+.compiled-hero .compiled-mark{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#d8f4fa;color:#173c54;font-size:21px;font-weight:800;flex:none}
+.compiled-hero .compiled-label{font-size:11px;color:#d4eef6;letter-spacing:.12em;display:block;line-height:1.1}
+.compiled-hero .compiled-name{font-weight:800;font-size:17px;letter-spacing:.09em;color:#fff;line-height:1.5;display:block}
+.compiled-footer{display:inline-block;padding:5px 10px;margin:0 8px;background:#e7f2f8;border-radius:20px;color:#1a5068;font-weight:700}
+@media(max-width:600px){.compiled-hero{max-width:100%;padding:9px 13px 9px 9px}.compiled-hero .compiled-name{font-size:15px}}
