@@ -1,0 +1,138 @@
+{
+  "lastReviewed": "2026-10-25",
+  "classification": "public primary sources; one historical modality benchmark reference",
+  "sources": [
+    {
+      "id": "N01",
+      "title": "2025年国勢調査確定人口",
+      "year": "2026-10-02",
+      "url": "https://www.pref.nagano.lg.jp/tokei/happyou/7kokucho_1002.html"
+    },
+    {
+      "id": "N02",
+      "title": "2025年人口増減・社会増減",
+      "year": "2026-01-30",
+      "url": "https://www.pref.nagano.lg.jp/tokei/happyou/jinkou_nenkan2025.html"
+    },
+    {
+      "id": "N03",
+      "title": "毎月人口異動調査・市町村別",
+      "year": "2026-09-01",
+      "url": "https://www.pref.nagano.lg.jp/tokei/tyousa/jinkou.html"
+    },
+    {
+      "id": "N04",
+      "title": "社人研2023年地域別将来推計",
+      "year": "2023-12",
+      "url": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
+    },
+    {
+      "id": "N05",
+      "title": "県地域医療構想・審議会",
+      "year": "2026-07-29",
+      "url": "https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/rmv.html"
+    },
+    {
+      "id": "N06",
+      "title": "県の2025年度病床機能の推移",
+      "year": "2026-05-28",
+      "url": "https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/documents/shiryo3-1.pdf"
+    },
+    {
+      "id": "N07",
+      "title": "厚労省 令和7年度病床機能報告",
+      "year": "2025年度",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html"
+    },
+    {
+      "id": "N08",
+      "title": "厚労省 2026年4月医師偏在指標",
+      "year": "2026-04",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    },
+    {
+      "id": "N09",
+      "title": "県保有医療機器・外来医療計画",
+      "year": "R5外来機能報告掲載",
+      "url": "https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/gairai.html"
+    },
+    {
+      "id": "N10",
+      "title": "長野県病院・診療所名簿",
+      "year": "2025-10-01",
+      "url": "https://www.pref.nagano.lg.jp/iryo/kenko/iryo/iryo/mebo.html"
+    },
+    {
+      "id": "N11",
+      "title": "長野県地域医療介護総合確保基金",
+      "year": "2026-09-07",
+      "url": "https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/sogokakuhokikin/portal.html"
+    },
+    {
+      "id": "N12",
+      "title": "県救命救急センター一覧",
+      "year": "2026",
+      "url": "https://www.pref.nagano.lg.jp/iryo/kenko/iryo/kyukyu/kinouhyoka/index.html"
+    },
+    {
+      "id": "N13",
+      "title": "県がん診療連携拠点病院等",
+      "year": "2026-06-10",
+      "url": "https://www.pref.nagano.lg.jp/shippei-kansen/gan/iryou/hyouka/"
+    },
+    {
+      "id": "N14",
+      "title": "県地域医療支援病院",
+      "year": "公開一覧",
+      "url": "https://www.pref.nagano.lg.jp/iryo/kenko/iryo/hoken/tiikiiryousien.html"
+    },
+    {
+      "id": "N15",
+      "title": "信州大学附属病院2025–26概要",
+      "year": "2025–26",
+      "url": "https://www.shinshu-u.ac.jp/guidance/publication/summary/2025/shinshu_u_hospital/pageindices/index3.html"
+    },
+    {
+      "id": "N16",
+      "title": "県医師会 2026年度事業計画",
+      "year": "2026年度",
+      "url": "https://www.nagano.med.or.jp/about/business/yearplan.php"
+    },
+    {
+      "id": "N17",
+      "title": "県公表防災・土砂・洪水",
+      "year": "2026-02",
+      "url": "https://www.pref.nagano.lg.jp/bosai/shinsyubosai.html"
+    },
+    {
+      "id": "N18",
+      "title": "地理院地図",
+      "year": "随時",
+      "url": "https://maps.gsi.go.jp/"
+    },
+    {
+      "id": "N19",
+      "title": "長野県がん医療・地域別施設情報",
+      "year": "2026",
+      "url": "https://www.pref.nagano.lg.jp/shippei-kansen/gan/index.html"
+    },
+    {
+      "id": "N20",
+      "title": "県救急・災害拠点・地域病院報告",
+      "year": "県の公開一覧",
+      "url": "https://www.pref.nagano.lg.jp/iryo/kenko/iryo/kyukyu/kinouhyoka/index.html"
+    },
+    {
+      "id": "N21",
+      "title": "県診療所開業・承継支援",
+      "year": "2026年度",
+      "url": "https://www.pref.nagano.lg.jp/doctor/kenko/iryo/ishikakuho/shinryoujoshien.html"
+    },
+    {
+      "id": "N22",
+      "title": "2025年度かかりつけ医機能報告",
+      "year": "2025年度",
+      "url": "https://www.pref.nagano.lg.jp/iryo/kakaritsuke.html"
+    }
+  ]
+}
