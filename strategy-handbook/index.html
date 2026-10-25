@@ -745,7 +745,7 @@
 </footer><div class="finalcard" id="contact"><h3>戦略ハンドブック・立案編</h3><p>編纂：<b>高橋</b>　｜　医療機器メーカー・商社・販社・薬業卸向け公開学習資料</p><div class="final-actions"><a class="actionlink mail" href="mailto:sinobu13@mac.com?subject=%E6%88%A6%E7%95%A5%E3%83%8F%E3%83%B3%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E3%83%BB%E7%AB%8B%E6%A1%88%E7%B7%A8%E3%81%AE%E3%81%8A%E5%95%8F%E5%90%88%E3%81%9B&amp;body=%E3%81%8A%E5%95%8F%E5%90%88%E3%81%9B%E5%86%85%E5%AE%B9%EF%BC%9A%0A">✉ 問合せ・メールを作成</a><a class="actionlink" href="https://sinobu13-bpei.github.io/medical-intelligence/" rel="noopener noreferrer" target="_blank">国内医療機器MKT参考 ↗</a></div><p class="note">連絡先：<a href="mailto:sinobu13@mac.com">sinobu13@mac.com</a></p></div></section>
 </main>
 </div>
-<div aria-label="表示操作" class="read-tools" id="read-tools"><button aria-label="表示モード切替" id="themeToggle" title="表示モード切替" type="button">☾</button><button aria-label="印刷またはPDF保存" id="printBook" title="印刷またはPDF保存" type="button">印刷</button><button aria-label="ページ先頭へ戻る" id="backTop" title="ページ先頭へ戻る" type="button">↑</button></div><div aria-label="図の拡大表示" aria-modal="true" class="image-viewer" hidden="" id="imageViewer" role="dialog"><button aria-label="拡大表示を閉じる" class="viewer-close" id="viewerClose" type="button">閉じる ×</button><img alt="" id="viewerImage"/><p id="viewerCaption"></p></div><script>(() => {
+<div aria-label="表示操作" class="read-tools" id="read-tools"><button aria-label="印刷またはPDF保存" id="printBook" title="印刷またはPDF保存" type="button">印刷</button><button aria-label="ページ先頭へ戻る" id="backTop" title="ページ先頭へ戻る" type="button">↑</button></div><div aria-label="図の拡大表示" aria-modal="true" class="image-viewer" hidden="" id="imageViewer" role="dialog"><button aria-label="拡大表示を閉じる" class="viewer-close" id="viewerClose" type="button">閉じる ×</button><img alt="" id="viewerImage"/><p id="viewerCaption"></p></div><script>(() => {
 'use strict';
 const root=document.documentElement;
 const $=sel=>document.querySelector(sel);
@@ -754,7 +754,7 @@ const chapters=[...document.querySelectorAll('main > section.ch')];
 const progress=$('.reading-progress');
 const fill=$('#readingProgressFill');
 const topButton=$('#backTop');
-const themeButton=$('#themeToggle');
+root.removeAttribute('data-theme');
 const imageDialog=$('#imageViewer');
 const imageNode=$('#viewerImage');
 const captionNode=$('#viewerCaption');
@@ -780,8 +780,6 @@ updateProgress();updateActive();
 const toc=$('#mobile-toc');
 if(toc)toc.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{toc.open=false}));
 if(topButton)topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
-function setTheme(dark){root.setAttribute('data-theme',dark?'dark':'light');themeButton.textContent=dark?'☀':'☾';themeButton.setAttribute('aria-pressed',String(dark));themeButton.setAttribute('aria-label',dark?'明るい表示に切り替える':'暗い表示に切り替える')}
-if(themeButton){let dark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;setTheme(dark);themeButton.addEventListener('click',()=>setTheme(root.getAttribute('data-theme')!=='dark'))}
 const printButton=$('#printBook');if(printButton)printButton.addEventListener('click',()=>window.print());
 function closeViewer(){if(!imageDialog||imageDialog.hidden)return;imageDialog.hidden=true;document.body.style.overflow='';imageNode.removeAttribute('src');lastFigureButton?.focus();}
 function openViewer(button){const img=button.querySelector('img');if(!img||!imageDialog)return;lastFigureButton=button;imageNode.src=img.currentSrc||img.src;imageNode.alt=img.alt;captionNode.textContent=img.alt;imageDialog.hidden=false;document.body.style.overflow='hidden';closeButton?.focus()}
