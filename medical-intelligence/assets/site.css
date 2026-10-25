@@ -17,7 +17,7 @@ body.jm-site{
 body.jm-site,body.jm-site *{box-sizing:border-box}
 body.jm-site img,body.jm-site video,body.jm-site svg{max-width:100%;height:auto}
 body.jm-site :where(p,li,td,th,dd,dt,blockquote){line-height:1.7}
-body.jm-site :where(small,caption,figcaption,.note,.footnote,.muted){font-size:max(13px,1em * 0.813)}
+body.jm-site :where(small,caption,figcaption,.note,.footnote,.muted){font-size:max(13px,.813em)}
 body.jm-site :where(h1,h2,h3){color:var(--jm-navy);font-weight:700;line-height:1.45;overflow-wrap:anywhere}
 body.jm-site :where(h1){font-size:28px}
 body.jm-site :where(h2){font-size:22px}
@@ -77,3 +77,24 @@ body.jm-site :where(.btn-secondary,.button-secondary){background:var(--jm-white)
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{#site-header,.jm-toc,.jm-menu-toggle{display:none!important}#site-footer{position:static}}
+
+/* Cross-page typography and color normalization */
+body.jm-site :is(h1,h2,h3){font-family:"Noto Sans JP",system-ui,sans-serif!important}
+body.jm-site h1{font-size:28px!important;line-height:1.45!important}
+body.jm-site h2{font-size:22px!important;line-height:1.45!important}
+body.jm-site h3{font-size:18px!important;line-height:1.5!important}
+body.jm-site :is(.hero,.cover,.page-hero,.banner,.footer,.end){box-shadow:none!important;background-image:none!important}
+body.jm-site :is(.links a,.footer-link-strip a,.handbook-stack a,.google-map-btn){box-shadow:none!important;background-image:none!important;border-radius:8px!important}
+body.jm-site :is(.links a,.footer-link-strip a,.handbook-stack a,.google-map-btn):not(.btn-secondary){
+  background-color:var(--jm-accent)!important;color:#fff!important;border-color:var(--jm-accent)!important
+}
+body.jm-site :is(.card,.panel,.hero,.cover,.footer,.end){border-radius:8px!important;box-shadow:none!important}
+body.jm-site :is(.hero,.cover){padding-block:24px!important}
+body.jm-site :is(.footer,.end){padding-block:16px!important}
+body.jm-site :is(.wrap,.container,.layout,.page-container){max-width:1120px}
+body.jm-site .jm-site :is(h1,h2,h3){font-variant-numeric:tabular-nums}
+#site-header{position:relative!important;top:auto!important;z-index:200!important;background-color:var(--jm-navy)!important;color:#fff!important}
+#site-header .jm-primary-nav a,#site-header .jm-brand{color:#fff!important;font-size:13px!important}
+#site-footer{background-color:var(--jm-navy)!important;color:#fff!important}
+#site-footer .jm-footer-nav a{color:#fff!important}
+@media(max-width:760px){body.jm-site :is(.hero,.cover){padding-block:16px!important}}
