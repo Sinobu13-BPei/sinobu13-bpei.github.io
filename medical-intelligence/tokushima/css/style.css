@@ -1,0 +1,39 @@
+
+/* Tokushima 2026 research expansion; additive styles, mobile-first */
+.deep-panel{background:#fff;border:1px solid #d8e4eb;border-radius:15px;padding:22px;margin:16px 0;box-shadow:0 7px 23px #133c5708}
+.deep-panel h3{margin:0 0 13px;color:#153957}
+.deep-panel p,.deep-panel li{font-size:14px;line-height:1.8}
+.year-label{display:inline-block;background:#eaf1fb;color:#1c5b86;border-radius:5px;padding:2px 7px;font-size:11px;font-weight:700}
+.est-label{display:inline-block;background:#fff4e2;color:#91530b;border-radius:5px;padding:2px 7px;font-size:11px;font-weight:700}
+.src-link{font-size:11px;white-space:normal;overflow-wrap:anywhere}
+.gsi-group{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0}
+.gsi-group a{padding:5px 10px;border:1px solid #b6cfe1;border-radius:7px;font-size:12px;background:#eef8fd;text-decoration:none;display:inline-flex;align-items:center}
+.gsi-group a:hover{background:#d8f0fd;color:#16486e}
+.timeline-layers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.timeline-layers .deep-panel{border-top:4px solid #1e7aa1}
+.timeline-layers .deep-panel:nth-child(2){border-top-color:#dd905e}
+.timeline-layers .deep-panel:nth-child(3){border-top-color:#57a48a}
+.framework-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.framework-grid article{border:1px solid #dce7ed;border-radius:12px;padding:18px;background:#fff}
+.framework-grid article h3{margin:0 0 8px;color:#1e536e;font-size:18px}
+.framework-grid article p{margin:0;color:#556a78;font-size:13px}
+.score-layout{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}
+.score-matrix input[type=range]{width:100%;accent-color:#197cba;cursor:pointer}
+.score-matrix .score-row{display:grid;grid-template-columns:140px 1fr 70px;gap:10px;align-items:center;margin:8px 0}
+.score-matrix .score-row label{font-size:12px}
+.score-matrix .score-row strong{font-size:13px;color:#1b587d;text-align:right}
+.score-result{font-size:28px;font-weight:800;color:#102843}
+.table-fit{overflow-x:auto;max-width:100%}
+.table-fit table{min-width:730px}
+.bar-stack{display:flex;width:100%;border-radius:5px;overflow:hidden;height:16px;background:#dae2e8}
+.bar-stack b{display:block;height:100%}
+.minicards{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.minicard{border-radius:12px;background:#edf4f8;padding:12px}
+.minicard strong{display:block;font-size:23px;color:#1c5d83}
+.minicard small{color:#667d8e;font-size:11px}
+.deep-kicker{font-size:12px;color:#4c7590;letter-spacing:.09em}
+.deep-ref{margin-top:12px;color:#657c8c;font-size:11px;line-height:1.6}
+.device-table td,.device-table th{white-space:normal}
+#deep-doctors,#deep-devices{min-height:245px}
+@media(max-width:900px){.timeline-layers,.framework-grid,.score-layout{grid-template-columns:1fr}.minicards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:550px){.deep-panel{padding:15px}.score-matrix .score-row{grid-template-columns:90px 1fr 40px}.gsi-group a{font-size:11px}nav a{flex:0 0 auto}}
