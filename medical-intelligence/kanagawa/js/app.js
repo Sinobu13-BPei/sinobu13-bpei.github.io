@@ -1,6 +1,6 @@
 "use strict";
 (function(){
- var D=JSON.parse(document.getElementById("dataset").textContent),A=D.areas;
+ var D=window.KANAGAWA_DATA,A=D.areas;
  function e(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
  function enc(s){return encodeURIComponent(s)}function n(x){return Number(x).toLocaleString("ja-JP")}function rate(a){return (a.f/a.p-1)*100}
  function pct(a){var x=rate(a);return (x>0?"+":"")+x.toFixed(1)+"%"}
