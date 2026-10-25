@@ -1086,6 +1086,42 @@
       "title": "JMAP岐阜県・静岡県・三重県医療資源比較",
       "year": "2026-10閲覧",
       "url": "https://jmap.jp/cities/detail/pref/21"
+    },
+    {
+      "id": "SRC21",
+      "category": "DPC 2026年度",
+      "title": "名古屋掖済会病院・2026年度愛知県DPC特定病院群14施設",
+      "year": "2026-06-01",
+      "url": "https://www.nagoya-ekisaikaihosp.jp/about/quality/dpc"
+    },
+    {
+      "id": "SRC22",
+      "category": "災害指定",
+      "title": "愛知県災害拠点病院一覧",
+      "year": "2026-04-01",
+      "url": "https://www.pref.aichi.jp/press-release/saigai-20260401.html"
     }
-  ]
+  ],
+  "dpc": {
+    "asOf": "2026-06-01",
+    "universityMainGroup": 4,
+    "designatedGroup": 14,
+    "names": [
+      "愛知県がんセンター",
+      "名古屋市立大学医学部附属東部医療センター",
+      "日本赤十字社愛知医療センター名古屋第一病院",
+      "日本赤十字社愛知医療センター名古屋第二病院",
+      "名古屋掖済会病院",
+      "JCHO中京病院",
+      "豊橋市民病院",
+      "一宮西病院",
+      "名古屋徳洲会総合病院",
+      "豊田厚生病院",
+      "安城更生病院",
+      "江南厚生病院",
+      "小牧市民病院",
+      "海南病院"
+    ],
+    "source": "https://www.nagoya-ekisaikaihosp.jp/about/quality/dpc"
+  }
 }
