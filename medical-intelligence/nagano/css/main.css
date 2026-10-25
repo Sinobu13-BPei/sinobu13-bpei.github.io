@@ -299,3 +299,5 @@ body{font-family:"Meiryo UI",Meiryo,"Noto Sans JP",sans-serif}
 canvas{max-width:100%;display:block;min-height:220px}
 .dataTruth{font-size:12px;color:#496984;background:#edf5fb;border:1px solid #cbe0ee;border-left:4px solid #3682b6;border-radius:12px;padding:14px 17px;margin:14px 0}
 @media(max-width:720px){#latest-evidence .big{font-size:31px}canvas{min-height:210px}}
+
+.institutionGeo{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.institutionGeo a{display:inline-block;border:1px solid #d2e2f0;background:#f4f8fc;padding:4px 6px;border-radius:6px;font-size:10px;text-decoration:none;color:#1c547f;font-weight:750}.institutionGeo a:hover{color:#a8464c;border-color:#c0878c}
