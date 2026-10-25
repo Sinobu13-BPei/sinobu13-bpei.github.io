@@ -54,8 +54,8 @@ body.jm-site :where(.btn-secondary,.button-secondary){background:var(--jm-white)
 .jm-primary-nav a{display:inline-flex;min-height:44px;align-items:center;color:#fff!important;text-decoration:none;padding:8px;border-radius:8px;font-size:13px;white-space:nowrap}
 .jm-primary-nav a[aria-current="page"],.jm-primary-nav a:hover{background:var(--jm-accent)}
 .jm-meta{display:block;padding:8px 0;color:var(--jm-muted);font-size:13px;line-height:1.5}
-.jm-toc{display:flex;gap:8px;overflow-x:auto;max-width:1120px;margin:16px auto 24px;padding:8px 16px;border-block:1px solid var(--jm-line);background:var(--jm-surface);white-space:nowrap;scrollbar-width:thin}
-.jm-toc a{display:inline-flex;align-items:center;gap:8px;padding:8px;border-radius:8px;min-height:44px;text-decoration:none;font-size:13px;white-space:nowrap}
+.jm-toc{display:flex;flex-wrap:nowrap;align-items:center;gap:8px;overflow-x:auto;overflow-y:hidden;max-width:1120px;margin:8px auto 12px;padding:4px 12px;border-block:1px solid var(--jm-line);background:var(--jm-surface);white-space:nowrap;scrollbar-width:thin;overscroll-behavior-inline:contain}
+.jm-toc a{display:inline-flex;flex:0 0 auto;align-items:center;gap:6px;padding:6px 8px;border-radius:8px;min-height:40px;line-height:1.35;text-decoration:none;font-size:13px;white-space:nowrap}
 .jm-toc a:hover,.jm-toc a:focus-visible{background:#e5f1f2}
 .jm-section-label{display:block;font-size:13px;font-weight:700;color:var(--jm-accent);letter-spacing:.05em;margin:16px 0 4px}
 .jm-main-wrap{max-width:1120px;margin-inline:auto}
