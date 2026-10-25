@@ -1016,6 +1016,26 @@
       "title": "厚労省医療施設動態調査",
       "year": "2025年6月末",
       "url": "https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/m25/is2506.html"
+    },
+    {
+      "title": "京都府の令和７年国勢調査人口等基本集計（確定値）",
+      "year": "2025年10月１日",
+      "url": "https://www.pref.kyoto.jp/tokei/cycle/kokucho/index.html"
+    },
+    {
+      "title": "福井県の令和７年国勢調査人口等基本集計（確定値）",
+      "year": "2025年10月１日",
+      "url": "https://www.pref.fukui.lg.jp/doc/toukei-jouhou/kokutyou/kokusei2025.html"
+    },
+    {
+      "title": "岐阜県の令和７年国勢調査人口等基本集計（確定値）",
+      "year": "2025年10月１日",
+      "url": "https://www.pref.gifu.lg.jp/page/488219.html"
+    },
+    {
+      "title": "三重県の令和７年国勢調査人口等基本集計（確定値）",
+      "year": "2025年10月１日",
+      "url": "https://www.pref.mie.lg.jp/TOPICS/m0002700612.htm"
     }
   ],
   "national": {
@@ -1143,5 +1163,43 @@
     "asOf": "2025年6月末概数",
     "source": "https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/m25/is2506.html",
     "caution": "2025年病床機能報告対象医療機関数、2026年10月現在の施設数とは異なる。"
-  }
+  },
+  "peers2025": [
+    {
+      "area": "全国",
+      "population": 122972528,
+      "change": -2.52,
+      "source": "https://www.pref.shiga.lg.jp/cv00/press-release/33718.html"
+    },
+    {
+      "area": "滋賀県",
+      "population": 1392008,
+      "change": -1.53,
+      "source": "https://www.pref.shiga.lg.jp/cv00/press-release/33718.html"
+    },
+    {
+      "area": "京都府",
+      "population": 2500173,
+      "change": -3,
+      "source": "https://www.pref.kyoto.jp/tokei/cycle/kokucho/index.html"
+    },
+    {
+      "area": "福井県",
+      "population": 728588,
+      "change": -4.99,
+      "source": "https://www.pref.fukui.lg.jp/doc/toukei-jouhou/kokutyou/kokusei2025.html"
+    },
+    {
+      "area": "岐阜県",
+      "population": 1889576,
+      "change": -4.5,
+      "source": "https://www.pref.gifu.lg.jp/page/488219.html"
+    },
+    {
+      "area": "三重県",
+      "population": 1693225,
+      "change": -4.4,
+      "source": "https://www.pref.mie.lg.jp/TOPICS/m0002700612.htm"
+    }
+  ]
 }
