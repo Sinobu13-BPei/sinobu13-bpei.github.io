@@ -22,7 +22,11 @@ function render(){
  $("#regionTabs").innerHTML=P.map((r,i)=>'<button type="button" class="tab" role="tab" id="tab-'+i+'" aria-controls="regionDetails" aria-selected="'+(i===0)+'" data-area="'+esc(r.name)+'">'+esc(r.name)+'</button>').join("");
  $$(".tab",$("#regionTabs")).forEach(b=>b.addEventListener("click",()=>selectRegion(b.dataset.area)));
  selectRegion(P[0].name);
- $("#hospitalItems").innerHTML=data.hospitals.map(h=>'<article class="dir-card" data-search="'+esc(h.area+" "+h.name)+'"><h3><a href="'+esc(h.url)+'" target="_blank" rel="noopener noreferrer">'+esc(h.name)+' ↗</a></h3><p>'+esc(h.area)+'医療圏</p>'+linkSet(h)+'</article>').join("");
+ $("#bedPlanTable tbody").innerHTML=P.map(r=>'<tr><th scope="row">'+r.name+'</th><td class="num">'+num(r.beds2025[0])+'</td><td class="num">'+num(r.beds2026DeclaredPlan[0])+'</td><td class="num">'+(r.beds2026DeclaredPlan[0]-r.beds2025[0]>=0?'+':'')+num(r.beds2026DeclaredPlan[0]-r.beds2025[0])+'</td>'+r.beds2026DeclaredPlan.slice(1).map(v=>'<td class="num">'+num(v)+'</td>').join('')+'</tr>').join("");
+$("#physiciansTable tbody").innerHTML=P.map(r=>'<tr><th scope="row">'+r.name+'</th><td class="num">'+num(r.physicians2024)+'</td><td class="num">'+r.physicianBias2026.toFixed(1)+'</td><td>'+esc(r.action)+'</td></tr>').join('');
+const known=data.hospitals;
+$("#designationTable tbody").innerHTML=data.designations.map(g=>'<tr><th scope="row">'+esc(g.type)+'</th><td>'+g.members.map(n=>{const h=known.find(z=>z.name===n);return h?'<a href="'+esc(h.url)+'" target="_blank" rel="noopener noreferrer">'+esc(n)+' ↗</a>':esc(n)}).join(' / ')+'</td><td>'+esc(g.asOf)+'<br><a href="'+esc(g.source)+'" target="_blank" rel="noopener noreferrer">出典 ↗</a></td></tr>').join('');
+$("#hospitalItems").innerHTML=data.hospitals.map(h=>'<article class="dir-card" data-search="'+esc(h.area+" "+h.name)+'"><h3><a href="'+esc(h.url)+'" target="_blank" rel="noopener noreferrer">'+esc(h.name)+' ↗</a></h3><p>'+esc(h.area)+'医療圏</p>'+linkSet(h)+'</article>').join("");
  $("#officeItems").innerHTML=[...data.healthOffices,...data.associations].map(h=>'<article class="dir-card" data-search="'+esc(h.area+" "+h.name)+'"><h3><a href="'+esc(h.url)+'" target="_blank" rel="noopener noreferrer">'+esc(h.name)+' ↗</a></h3><p>'+esc(h.area)+'医療圏｜'+esc(h.address)+'</p>'+linkSet(h)+'</article>').join("");
  $("#sourcesItems").innerHTML=sites.map((s,i)=>'<div class="source"><a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+String(i+1).padStart(2,"0")+'｜'+esc(s.title)+' ↗</a><small>データ年次：'+esc(s.year)+'</small></div>').join("");
  $("#hospitalCount").textContent=data.hospitals.length+"施設を掲載";
@@ -53,7 +57,10 @@ function renderCharts(){const P=data.regions;
  draw("chartPop","bar",P.map(r=>r.name),[{label:"2025確定人口",data:P.map(r=>r.pop2025),backgroundColor:"#2583ab"}]);
  draw("chartFuture","line",[2020,2025,2030,2035,2040,2045,2050],P.map((r,i)=>({label:r.name,data:r.forecast2020Base,borderColor:["#1567a9","#12a09f","#d69c4e","#6d71bd","#4f8c4b","#c05a75","#8b6798"][i],tension:.28,pointRadius:2})),{interaction:{mode:"index",intersect:false}});
  draw("chartBeds","bar",P.map(r=>r.name),[["高度急性期",1,"#2764a7"],["急性期",2,"#4c9cc0"],["回復期",3,"#59bfa8"],["慢性期",4,"#d5a65a"],["休棟",5,"#9ba9b5"]].map(([label,i,color])=>({label,data:P.map(r=>r.beds2025[i]),backgroundColor:color})),{scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true}}});
- draw("chartDevice","bar",data.modalities.map(d=>d.name),[{label:"滋賀県（調整人口あたり）",data:data.modalities.map(d=>d.adjusted),backgroundColor:"#188e9a"},{label:"全国（同条件）",data:data.modalities.map(d=>d.national),backgroundColor:"#a6bdd0"}]);
+ draw("chartDoctors","bar",P.map(r=>r.name),[{label:"医療施設従事医師数（人・2024年）",data:P.map(r=>r.physicians2024),backgroundColor:"#137a96"}]);
+draw("chartBias","bar",P.map(r=>r.name),[{label:"医師偏在指標（2026年4月）",data:P.map(r=>r.physicianBias2026),backgroundColor:"#c4894d"}]);
+draw("chartSpecialties","bar",data.specialtyDoctors2024.map(d=>d.name),[{label:"主たる診療科（2024年）",data:data.specialtyDoctors2024.map(d=>d.count),backgroundColor:"#548bb0"}],{indexAxis:"y",scales:{x:{beginAtZero:true},y:{ticks:{font:{size:10}}}}});
+draw("chartDevice","bar",data.modalities.map(d=>d.name),[{label:"滋賀県（調整人口あたり）",data:data.modalities.map(d=>d.adjusted),backgroundColor:"#188e9a"},{label:"全国（同条件）",data:data.modalities.map(d=>d.national),backgroundColor:"#a6bdd0"}]);
 }
 function renderMap(){if(typeof L==="undefined"){const map=$("#gsiMap");map.innerHTML='<p class="empty">地図ライブラリが読み込めません。下のGoogleマップ・地理院地図リンクをご利用ください。</p>';return}
  map=L.map("gsiMap",{scrollWheelZoom:false}).setView([35.20,136.05],9);
