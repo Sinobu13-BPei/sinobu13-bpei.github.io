@@ -1,0 +1,831 @@
+{
+  "meta": {
+    "version": "2026-10-26",
+    "scope": "岡山県",
+    "review": "公開情報に基づく。個別の契約・シェア・機器既設台数を推計で補完しない",
+    "sourceYear": "国勢調査2025／医師統計2024／偏在指数2026／病床2024／必要数2025"
+  },
+  "areas": [
+    {
+      "id": "east",
+      "name": "県南東部",
+      "base": 916760,
+      "p25": 897452,
+      "p30": 876658,
+      "p40": 825869,
+      "p50": 767701,
+      "a20": 28.1,
+      "a25": 29.4,
+      "a40": 34,
+      "a50": 36.4,
+      "color": "#dd4c4c",
+      "places": "岡山市・玉野市・備前市・瀬戸内市・赤磐市・和気町・吉備中央町",
+      "core": "岡山大学病院・NHO岡山医療センター・岡山赤十字病院",
+      "theme": "大学病院・高度急性期・がん・循環器・地域連携",
+      "need": "高機能画像診断、施設横断の機器更新、病診連携、PACS、保守・教育",
+      "lat": 34.6618,
+      "lon": 133.935
+    },
+    {
+      "id": "west",
+      "name": "県南西部",
+      "base": 697598,
+      "p25": 682306,
+      "p30": 662784,
+      "p40": 618431,
+      "p50": 571488,
+      "a20": 28.7,
+      "a25": 31.2,
+      "a40": 35.4,
+      "a50": 37.4,
+      "color": "#ed9b36",
+      "places": "倉敷市・笠岡市・井原市・総社市・浅口市・早島町・里庄町・矢掛町",
+      "core": "川崎医科大学附属病院・倉敷中央病院",
+      "theme": "高度急性期・救急・手術・周産期・広域流入",
+      "need": "大型画像・超音波・手術周辺機器・医療材料・SPD・物流・院内DX",
+      "lat": 34.585,
+      "lon": 133.77
+    },
+    {
+      "id": "tsuyama",
+      "name": "津山・英田",
+      "base": 173385,
+      "p25": 162733,
+      "p30": 153388,
+      "p40": 135210,
+      "p50": 117443,
+      "a20": 34.3,
+      "a25": 36.1,
+      "a40": 40,
+      "a50": 43.1,
+      "color": "#5987d5",
+      "places": "津山市・美作市・鏡野町・勝央町・奈義町・西粟倉村・久米南町・美咲町",
+      "core": "津山中央病院など",
+      "theme": "県北の急性期ハブ・地域完結・搬送・広域アクセス",
+      "need": "汎用画像装置、可搬・小型機器、遠隔支援、更新支援、広域保守網",
+      "lat": 35.069,
+      "lon": 134.005
+    },
+    {
+      "id": "takahashi",
+      "name": "高梁・新見",
+      "base": 57151,
+      "p25": 50091,
+      "p30": 45227,
+      "p40": 36425,
+      "p50": 28724,
+      "a20": 41.1,
+      "a25": 44.5,
+      "a40": 47.6,
+      "a50": 50.4,
+      "color": "#4aa8a0",
+      "places": "高梁市・新見市",
+      "core": "地域の公立・中核病院、診療所",
+      "theme": "人口減少・高齢化・交通制約・地域包括医療",
+      "need": "小型・可搬機器、在宅・訪問診療、保守効率化、地域連携",
+      "lat": 34.793,
+      "lon": 133.616
+    },
+    {
+      "id": "maniwa",
+      "name": "真庭",
+      "base": 43538,
+      "p25": 39619,
+      "p30": 36351,
+      "p40": 30425,
+      "p50": 25104,
+      "a20": 40,
+      "a25": 42.4,
+      "a40": 45.5,
+      "a50": 48.9,
+      "color": "#8c75c6",
+      "places": "真庭市・新庄村",
+      "core": "地域中核病院・診療所",
+      "theme": "小人口・高齢化・医療アクセス・地域包括ケア",
+      "need": "訪問診療機器、可搬超音波、移動・院外保守、在宅連携",
+      "lat": 35.075,
+      "lon": 133.753
+    }
+  ],
+  "institutions": [
+    {
+      "n": "岡山大学病院",
+      "area": "県南東部",
+      "t": "大学病院本院／特定機能病院",
+      "url": "https://www.okayama-u.ac.jp/user/hospital/",
+      "desc": "許可病床853床（2024年４月時点）。医学教育・臨床研究・高度急性期・紹介患者受入れを担う。"
+    },
+    {
+      "n": "川崎医科大学附属病院",
+      "area": "県南西部",
+      "t": "大学病院本院／特定機能病院",
+      "url": "https://h.kawasaki-m.ac.jp/data/info_04_01_figure/info_dtl/",
+      "desc": "2026年４月公表：1,138床、2025年度１日平均入院575人・外来1,528人。"
+    },
+    {
+      "n": "倉敷中央病院",
+      "area": "県南西部",
+      "t": "広域高度急性期",
+      "url": "https://www.kchnet.or.jp/",
+      "desc": "県西部の高度急性期・救急・専門診療を担う重要施設。"
+    },
+    {
+      "n": "津山中央病院",
+      "area": "津山・英田",
+      "t": "県北の地域中核",
+      "url": "",
+      "desc": "県北の高度医療・搬送・病診連携の主要ハブ。"
+    },
+    {
+      "n": "岡山赤十字病院",
+      "area": "県南東部",
+      "t": "急性期・災害医療",
+      "url": "",
+      "desc": "救急・災害・地域連携の観点から確認する主要施設。"
+    },
+    {
+      "n": "国立病院機構 岡山医療センター",
+      "area": "県南東部",
+      "t": "急性期・専門医療",
+      "url": "",
+      "desc": "大規模病院として医療圏の診療機能と連携体制を把握。"
+    },
+    {
+      "n": "岡山済生会総合病院",
+      "area": "県南東部",
+      "t": "地域急性期・診療連携",
+      "url": "",
+      "desc": "地域における診療・病診連携・病床機能を確認。"
+    },
+    {
+      "n": "岡山市立市民病院",
+      "area": "県南東部",
+      "t": "地域中核・救急",
+      "url": "",
+      "desc": "急性期・地域医療政策との整合を確認。"
+    },
+    {
+      "n": "川崎医科大学総合医療センター",
+      "area": "県南東部",
+      "t": "大学系病院・岡山市",
+      "url": "https://g.kawasaki-m.ac.jp/",
+      "desc": "岡山中心市街地の川崎医科大学関連施設。"
+    },
+    {
+      "n": "岡山旭東病院",
+      "area": "県南東部",
+      "t": "専門領域・地域医療",
+      "url": "",
+      "desc": "専門診療と画像・リハビリ・紹介ネットワークを把握。"
+    }
+  ],
+  "dealers": [
+    {
+      "n": "カワニシ",
+      "u": "https://www.kawanishi-md.co.jp/kw/about/",
+      "domain": "医療機器／医療材料／保守・修理／物流・在庫管理",
+      "note": "公式会社概要に医療機器・材料、物流システム、物品在庫管理受託を明記。特定病院への納入・契約シェアとは別。"
+    },
+    {
+      "n": "ホスネット・ジャパン",
+      "u": "https://www.hosnet-21.co.jp/business.php",
+      "domain": "SPD／診療材料購買・在庫・消費管理／日用品・医薬品管理",
+      "note": "病院内の物流・物品情報を支える事業。病院との契約の有無は個別に確認。"
+    },
+    {
+      "n": "西日本メディカルリンク",
+      "u": "https://www.jml-west.jp/company/",
+      "domain": "医療機器／病院設備／福祉用具／理化学機器",
+      "note": "岡山を拠点とする総合商社。公式企業情報と個々の営業圏・納品機器は区別。"
+    },
+    {
+      "n": "小西医療器",
+      "u": "https://www.kns-md.co.jp/spd/",
+      "domain": "医療消耗品／医療機器／SPD／物流・在庫管理",
+      "note": "SPDの発注・在庫・経営分析サービスを公式に公表。県内の契約実績は別途検証。"
+    }
+  ],
+  "physicians": [
+    "岡山市医師会",
+    "西大寺医師会",
+    "倉敷医師会",
+    "児島医師会",
+    "玉島医師会",
+    "津山市医師会",
+    "玉野市医師会",
+    "笠岡医師会",
+    "井原医師会",
+    "吉備医師会",
+    "高梁医師会",
+    "新見医師会",
+    "御津医師会",
+    "赤磐医師会",
+    "和気医師会",
+    "邑久医師会",
+    "北児島医師会",
+    "都窪医師会",
+    "浅口医師会",
+    "真庭市医師会",
+    "苫田郡医師会",
+    "勝田郡医師会",
+    "美作市医師会",
+    "岡山大学医師会"
+  ],
+  "sources": [
+    [
+      "県｜第９次岡山県保健医療計画",
+      "https://www.pref.okayama.jp/page/852360.html",
+      "計画の総論・医療圏・疾病別・地域別"
+    ],
+    [
+      "県｜二次医療圏設定図（計画第３章PDF）",
+      "https://www.pref.okayama.jp/uploaded/life/908918_8683345_misc.pdf",
+      "５医療圏・構成市町村・人口"
+    ],
+    [
+      "県｜2024年度病床機能報告",
+      "https://www.pref.okayama.jp/page/995388.html",
+      "病床機能・圏域別・医療機関別"
+    ],
+    [
+      "県｜保健所一覧",
+      "https://www.pref.okayama.jp/page/detail-5694.html",
+      "保健所・所管区域・連絡窓口"
+    ],
+    [
+      "県｜衛生統計年報・人口動態・医療施設",
+      "https://www.pref.okayama.jp/page/detail-3645.html",
+      "施設数・病床・人材・人口動態の確認入口"
+    ],
+    [
+      "岡山県医師会｜郡市等医師会リンク",
+      "https://www.okayama.med.or.jp/about/gunsi.html",
+      "全郡市等医師会の公式入口"
+    ],
+    [
+      "日本医師会 JMAP 岡山県",
+      "https://www.jmap.jp/cities/detail/pref/33?pref_id=7",
+      "2020～2050年年齢階級別人口推計"
+    ],
+    [
+      "国立社会保障・人口問題研究所",
+      "https://www.ipss.go.jp/",
+      "2023年版地域別将来人口推計"
+    ],
+    [
+      "岡山大学病院 2024–2025病院案内",
+      "https://www.okayama-u.ac.jp/user/hospital/common/photo/free/files/11248/202408221004530855318.pdf",
+      "病床・医師・患者実績"
+    ],
+    [
+      "川崎医科大学附属病院｜病院情報",
+      "https://h.kawasaki-m.ac.jp/data/info_04_01_figure/info_dtl/",
+      "2026年４月情報・病床・患者・人員"
+    ],
+    [
+      "厚生労働省｜医療計画",
+      "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/iryou_keikaku/index.html",
+      "第８次医療計画と政策枠組み"
+    ],
+    [
+      "国土地理院 地理院地図",
+      "https://maps.gsi.go.jp/",
+      "地形・交通・行政区域・アクセス"
+    ],
+    [
+      "カワニシ｜会社概要",
+      "https://www.kawanishi-md.co.jp/kw/about/",
+      "公開の事業内容"
+    ],
+    [
+      "ホスネット｜事業案内",
+      "https://www.hosnet-21.co.jp/business.php",
+      "SPDの公開業務内容"
+    ],
+    [
+      "西日本メディカルリンク｜会社概要",
+      "https://www.jml-west.jp/company/",
+      "医療機器・設備・福祉関連事業"
+    ],
+    [
+      "小西医療器｜SPD事業",
+      "https://www.kns-md.co.jp/spd/",
+      "SPDサービス・物流業務"
+    ],
+    [
+      "SCUEL｜岡山県の医療機器・材料 市場統計",
+      "https://scueldata.me/ph/device/okayama/",
+      "NDBの９領域診療報酬換算"
+    ],
+    [
+      "岡山医師協同組合｜組合概要",
+      "https://odc.or.jp/overview",
+      "医療機器・材料共同購入"
+    ]
+  ],
+  "beds": [
+    {
+      "name": "県南東部",
+      "code": "3301",
+      "actual": [
+        1977,
+        4043,
+        2169,
+        2567
+      ],
+      "needed": [
+        1187,
+        3335,
+        2927,
+        2029
+      ],
+      "pdf": "https://nkgr.co.jp/wp-content/hsa/chugoku/hsa3301-okayama-kennantobu.pdf",
+      "p": 25
+    },
+    {
+      "name": "県南西部",
+      "code": "3302",
+      "actual": [
+        1706,
+        2998,
+        1483,
+        1653
+      ],
+      "needed": [
+        888,
+        2722,
+        2761,
+        1866
+      ],
+      "pdf": "https://nkgr.co.jp/wp-content/hsa/chugoku/hsa3302-okayama-kennanseibu.pdf",
+      "p": 23
+    },
+    {
+      "name": "津山・英田",
+      "code": "3305",
+      "actual": [
+        124,
+        754,
+        384,
+        545
+      ],
+      "needed": [
+        132,
+        501,
+        483,
+        414
+      ],
+      "pdf": "https://nkgr.co.jp/wp-content/hsa/chugoku/hsa3305-okayama-tsuyama-aida.pdf",
+      "p": 19
+    },
+    {
+      "name": "高梁・新見",
+      "code": "3303",
+      "actual": [
+        0,
+        218,
+        232,
+        207
+      ],
+      "needed": [
+        17,
+        123,
+        134,
+        192
+      ],
+      "pdf": "https://nkgr.co.jp/wp-content/hsa/chugoku/hsa3303-okayama-takahashi-niimi.pdf",
+      "p": 19
+    },
+    {
+      "name": "真庭",
+      "code": "3304",
+      "actual": [
+        0,
+        128,
+        260,
+        96
+      ],
+      "needed": [
+        25,
+        157,
+        175,
+        106
+      ],
+      "pdf": "https://nkgr.co.jp/wp-content/hsa/chugoku/hsa3304-okayama-maniwa.pdf",
+      "p": 19
+    }
+  ],
+  "doctors": [
+    {
+      "n": "県南東部",
+      "count": 3218,
+      "index": 331.3
+    },
+    {
+      "n": "県南西部",
+      "count": 2153,
+      "index": 301.8
+    },
+    {
+      "n": "津山・英田",
+      "count": 351,
+      "index": 212
+    },
+    {
+      "n": "高梁・新見",
+      "count": 82,
+      "index": 172.9
+    },
+    {
+      "n": "真庭",
+      "count": 69,
+      "index": 182.2
+    }
+  ],
+  "resources": [
+    {
+      "name": "岡山県｜2025年国勢調査の確定値",
+      "url": "https://www.pref.okayama.jp/page/1057823.html",
+      "year": "2025年・2026年9月公表",
+      "use": "県人口1,807,160人、人口等基本集計"
+    },
+    {
+      "name": "岡山県｜国勢調査の長期系列",
+      "url": "https://www.pref.okayama.jp/page/detail-56631.html",
+      "year": "2005–2025年",
+      "use": "人口・年齢構成・世帯数"
+    },
+    {
+      "name": "岡山県｜第９次保健医療計画",
+      "url": "https://www.pref.okayama.jp/page/852360.html",
+      "year": "2024–2029年度",
+      "use": "医療圏・医療政策・病床"
+    },
+    {
+      "name": "岡山県｜2024年度病床機能報告",
+      "url": "https://www.pref.okayama.jp/page/995388.html",
+      "year": "2024年7月報告・2026年公表",
+      "use": "現況・次年度見込・圏域別機能"
+    },
+    {
+      "name": "日本経営｜医療需給総覧（５圏域）",
+      "url": "https://nkgr.co.jp/hsa/okayama/",
+      "year": "2026年版、各図に原統計年",
+      "use": "５圏域の必要病床・DPC・人口"
+    },
+    {
+      "name": "厚生労働省｜医師確保対策と偏在指標",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html",
+      "year": "2026年4月版",
+      "use": "医師偏在指標・多寡区域の判断"
+    },
+    {
+      "name": "医師・歯科医師・薬剤師統計 二次加工",
+      "url": "https://scueldata.me/insight/workforce/doctor/okayama/",
+      "year": "2024年医師・2026年偏在指数",
+      "use": "県内５圏域医師数・診療科"
+    },
+    {
+      "name": "総務省｜住民基本台帳人口移動報告",
+      "url": "https://www.stat.go.jp/data/idou/",
+      "year": "2025年結果",
+      "use": "転入・転出・社会増減"
+    },
+    {
+      "name": "岡山県｜月報人口調査",
+      "url": "https://www.pref.okayama.jp/page/268956.html",
+      "year": "2026年9月1日",
+      "use": "速報値ベースの月次推計、国勢調査と別"
+    },
+    {
+      "name": "日本医師会｜JMAP 岡山県",
+      "url": "https://jmap.jp/cities/detail/pref/33",
+      "year": "参照時点により可変",
+      "use": "医療資源・全国比較、集計範囲に注意"
+    },
+    {
+      "name": "岡山県医師会｜郡市等医師会",
+      "url": "https://www.okayama.med.or.jp/about/gunsi.html",
+      "year": "2026年参照",
+      "use": "医師会ネットワーク24団体"
+    },
+    {
+      "name": "岡山県｜保健所一覧",
+      "url": "https://www.pref.okayama.jp/page/detail-5694.html",
+      "year": "2026年参照",
+      "use": "保健行政"
+    },
+    {
+      "name": "岡山県｜地域医療介護総合確保基金（医療分）",
+      "url": "https://www.pref.okayama.jp/page/638790.html",
+      "year": "2026年4月更新",
+      "use": "補助対象・募集・交付要綱"
+    },
+    {
+      "name": "岡山県｜介護分の基金補助",
+      "url": "https://www.pref.okayama.jp/page/1008674.html",
+      "year": "2026年6月更新",
+      "use": "介護施設整備・市町村窓口"
+    },
+    {
+      "name": "岡山県｜南海トラフ・地震被害想定",
+      "url": "https://www.pref.okayama.jp/page/1019383.html",
+      "year": "2026年7月修正版",
+      "use": "医療BCP・地震リスク"
+    },
+    {
+      "name": "岡山県防災マップ",
+      "url": "https://www.gis.pref.okayama.jp/bousai/",
+      "year": "随時更新",
+      "use": "洪水・土砂・地震ハザード"
+    },
+    {
+      "name": "岡山市WEB版ハザードマップ",
+      "url": "https://www.city.okayama.jp/bosai/hazardmap/index.html",
+      "year": "2026年参照",
+      "use": "洪水・津波・高潮等"
+    },
+    {
+      "name": "厚生労働省｜高額医療機器共同利用政策",
+      "url": "https://www.mhlw.go.jp/content/10801000/000480277.pdf",
+      "year": "2019年",
+      "use": "CT/MRI等の効率的利用・指標定義"
+    },
+    {
+      "name": "岡山県｜外来医療計画・共同利用関係",
+      "url": "https://www.pref.okayama.jp/uploaded/life/999021_9627383_misc.pdf",
+      "year": "2022年国資料再掲",
+      "use": "CT・MRI・PET・放射線治療・マンモ共同利用"
+    },
+    {
+      "name": "e-Stat｜2024医療施設調査 都道府県編",
+      "url": "https://www.e-stat.go.jp/stat-search/files?cycle=7&layout=datalist&month=0&tclass1=000001232326&tclass2=000001232328&toukei=00450021&tstat=000001030908&year=20240",
+      "year": "2024年",
+      "use": "病院・診療所・病床の同年次比較"
+    },
+    {
+      "name": "岡山大学病院｜公式",
+      "url": "https://www.okayama-u.ac.jp/user/hospital/",
+      "year": "2024–2026年公開情報",
+      "use": "教育・臨床・病院機能"
+    },
+    {
+      "name": "川崎医科大学附属病院｜公式",
+      "url": "https://h.kawasaki-m.ac.jp/data/info_04_01_figure/info_dtl/",
+      "year": "2026年4月公開",
+      "use": "病床・患者実績"
+    },
+    {
+      "name": "カワニシ｜事業紹介",
+      "url": "https://www.kawanishi-md.co.jp/kw/about/",
+      "year": "2026年参照",
+      "use": "機器・材料・物流・SPD"
+    },
+    {
+      "name": "ホスネット・ジャパン｜事業紹介",
+      "url": "https://www.hosnet-21.co.jp/business.php",
+      "year": "2026年参照",
+      "use": "SPD・材料消費管理"
+    },
+    {
+      "name": "西日本メディカルリンク｜公式",
+      "url": "https://www.jml-west.jp/company/",
+      "year": "2026年参照",
+      "use": "機器・設備・地域流通"
+    },
+    {
+      "name": "小西医療器｜SPD",
+      "url": "https://www.kns-md.co.jp/spd/",
+      "year": "2026年参照",
+      "use": "SPD・材料供給"
+    },
+    {
+      "name": "岡山医師協同組合",
+      "url": "https://odc.or.jp/overview",
+      "year": "2026年参照",
+      "use": "診療所共同購入"
+    },
+    {
+      "name": "日本医師会 JMAP 医療資源",
+      "url": "https://jmap.jp/cities/detail/pref/33",
+      "year": "公開更新可変",
+      "use": "一般診療所・病院対全国参考"
+    },
+    {
+      "name": "国土地理院｜地理院タイル一覧",
+      "url": "https://maps.gsi.go.jp/development/ichiran.html",
+      "year": "随時",
+      "use": "地図出典・利用規約"
+    }
+  ],
+  "places": [
+    {
+      "name": "岡山大学病院",
+      "type": "大学病院・特定機能",
+      "area": "県南東部",
+      "address": "岡山市北区鹿田町2-5-1",
+      "lat": 34.6474,
+      "lng": 133.9178,
+      "site": "https://www.okayama-u.ac.jp/user/hospital/"
+    },
+    {
+      "name": "川崎医科大学附属病院",
+      "type": "大学病院・特定機能",
+      "area": "県南西部",
+      "address": "倉敷市松島577",
+      "lat": 34.6031,
+      "lng": 133.8103,
+      "site": "https://h.kawasaki-m.ac.jp/"
+    },
+    {
+      "name": "倉敷中央病院",
+      "type": "高度急性期・地域中核",
+      "area": "県南西部",
+      "address": "倉敷市美和1-1-1",
+      "lat": 34.602,
+      "lng": 133.7726,
+      "site": "https://www.kchnet.or.jp/"
+    },
+    {
+      "name": "岡山赤十字病院",
+      "type": "急性期・救急",
+      "area": "県南東部",
+      "address": "岡山市北区青江2-1-1",
+      "lat": 34.6305,
+      "lng": 133.9272,
+      "site": "https://www.okayama-med.jrc.or.jp/"
+    },
+    {
+      "name": "津山中央病院",
+      "type": "県北ハブ・救急",
+      "area": "津山・英田",
+      "address": "津山市川崎1756",
+      "lat": 35.0755,
+      "lng": 134.0392,
+      "site": "https://www.tch.or.jp/"
+    },
+    {
+      "name": "国立病院機構 岡山医療センター",
+      "type": "急性期・専門医療",
+      "area": "県南東部",
+      "address": "岡山市北区田益1711-1",
+      "lat": 34.705,
+      "lng": 133.917,
+      "site": "https://okayama.hosp.go.jp/"
+    },
+    {
+      "name": "川崎医科大学総合医療センター",
+      "type": "大学系・地域医療",
+      "area": "県南東部",
+      "address": "岡山市北区中山下2-6-1",
+      "lat": 34.6604,
+      "lng": 133.9295,
+      "site": "https://g.kawasaki-m.ac.jp/"
+    },
+    {
+      "name": "岡山県庁",
+      "type": "行政",
+      "area": "県南東部",
+      "address": "岡山市北区内山下2-4-6",
+      "lat": 34.6628,
+      "lng": 133.9343,
+      "site": "https://www.pref.okayama.jp/"
+    },
+    {
+      "name": "岡山市保健所",
+      "type": "保健所",
+      "area": "県南東部",
+      "address": "岡山市北区鹿田町1-1-1",
+      "lat": 34.651,
+      "lng": 133.919,
+      "site": "https://www.city.okayama.jp/"
+    },
+    {
+      "name": "倉敷市保健所",
+      "type": "保健所",
+      "area": "県南西部",
+      "address": "倉敷市笹沖170",
+      "lat": 34.5746,
+      "lng": 133.7596,
+      "site": "https://www.city.kurashiki.okayama.jp/"
+    },
+    {
+      "name": "備前保健所",
+      "type": "保健所",
+      "area": "県南東部",
+      "address": "岡山市中区古京町1-1-17",
+      "lat": 34.671,
+      "lng": 133.949,
+      "site": "https://www.pref.okayama.jp/page/detail-5694.html"
+    },
+    {
+      "name": "備中保健所",
+      "type": "保健所",
+      "area": "県南西部",
+      "address": "倉敷市羽島1083",
+      "lat": 34.596,
+      "lng": 133.784,
+      "site": "https://www.pref.okayama.jp/page/detail-5694.html"
+    },
+    {
+      "name": "備北保健所",
+      "type": "保健所",
+      "area": "高梁・新見",
+      "address": "高梁市落合町近似286-1",
+      "lat": 34.788,
+      "lng": 133.604,
+      "site": "https://www.pref.okayama.jp/page/detail-5694.html"
+    },
+    {
+      "name": "真庭保健所",
+      "type": "保健所",
+      "area": "真庭",
+      "address": "真庭市勝山591",
+      "lat": 35.081,
+      "lng": 133.693,
+      "site": "https://www.pref.okayama.jp/page/detail-5694.html"
+    },
+    {
+      "name": "美作保健所",
+      "type": "保健所",
+      "area": "津山・英田",
+      "address": "津山市椿高下114",
+      "lat": 35.069,
+      "lng": 134.001,
+      "site": "https://www.pref.okayama.jp/page/detail-5694.html"
+    },
+    {
+      "name": "岡山県医師会",
+      "type": "医師会",
+      "area": "県南東部",
+      "address": "岡山市北区駅元町19-2",
+      "lat": 34.6687,
+      "lng": 133.9189,
+      "site": "https://www.okayama.med.or.jp/"
+    }
+  ],
+  "scores": [
+    {
+      "n": "県南東部",
+      "v": [
+        5,
+        5,
+        3,
+        5,
+        4
+      ],
+      "r": "高度急性期・大学病院、需要集積。共同利用と機器更新の競争性も重視。"
+    },
+    {
+      "n": "県南西部",
+      "v": [
+        5,
+        5,
+        4,
+        5,
+        4
+      ],
+      "r": "急性期・専門治療・医療材料流通の複合性が高い。"
+    },
+    {
+      "n": "津山・英田",
+      "v": [
+        3,
+        4,
+        5,
+        4,
+        3
+      ],
+      "r": "北部ハブ機能と広域の保守・アクセス課題。"
+    },
+    {
+      "n": "高梁・新見",
+      "v": [
+        1,
+        2,
+        5,
+        3,
+        2
+      ],
+      "r": "人口縮小と医師偏在、可搬・遠隔・共同利用の地域価値。"
+    },
+    {
+      "n": "真庭",
+      "v": [
+        1,
+        2,
+        5,
+        3,
+        2
+      ],
+      "r": "小人口・高齢化、維持費と訪問・在宅医療の持続性。"
+    }
+  ],
+  "scoreWeights": [
+    25,
+    25,
+    20,
+    15,
+    15
+  ]
+}
