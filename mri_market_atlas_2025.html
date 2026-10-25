@@ -7,54 +7,12 @@
 <meta property="og:title" content="Japan MRI Market Atlas 2025"><meta property="og:description" content="国内MRI Installed Baseの公開版・中立分析"><meta property="og:type" content="website">
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
-<style>
-:root{--ink:#1e2529;--muted:#67747a;--line:#dfe4e7;--soft:#f5f7f8;--accent:#b51224;--blue:#1d668c;--green:#2d9b63;--orange:#d79223;--purple:#6f52b5}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:#fff;font-family:Meiryo UI,Meiryo,"Noto Sans JP",Arial,sans-serif;line-height:1.7}a{color:#125d83}button,select,input{font:inherit}.wrap{width:min(1220px,calc(100% - 40px));margin:auto}
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.head{height:66px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-weight:700;letter-spacing:.02em}.brand small{display:block;color:var(--muted);font-weight:400;font-size:10px}nav{display:flex;gap:20px;flex-wrap:wrap}nav a{font-size:12px;color:#333;text-decoration:none}nav a:hover{color:var(--accent)}
-.hero{padding:76px 0 58px;background:linear-gradient(135deg,#fff 0,#f4f6f7 70%,#eef3f5 100%);border-bottom:1px solid var(--line)}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.14em;font-size:11px}h1{font-size:clamp(38px,6vw,68px);line-height:1.08;letter-spacing:-.04em;margin:14px 0 18px;font-weight:650}.hero p{max-width:870px;color:#55646b;font-size:16px}.hero-note{margin-top:28px;padding:15px 18px;border-left:4px solid var(--accent);background:#fff;font-size:12px;color:#5e686e}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-top:34px;background:white}.kpi{padding:22px;border-right:1px solid var(--line)}.kpi:last-child{border-right:0}.kpi span{font-size:10px;color:var(--muted);letter-spacing:.07em}.kpi strong{display:block;font-size:29px;margin-top:5px}.kpi small{display:block;color:#859197;font-size:10px;margin-top:3px}
-section{padding:64px 0;border-bottom:1px solid #edf0f1}h2{font-size:31px;letter-spacing:-.025em;margin:0 0 12px}.lead{color:var(--muted);max-width:900px;margin:0 0 30px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.card{border:1px solid var(--line);background:#fff;padding:24px}.card h3{margin:0 0 6px;font-size:18px}.sub{font-size:11px;color:var(--muted)}
-.bar-row{display:grid;grid-template-columns:150px 1fr 70px;gap:12px;align-items:center;margin:12px 0}.bar-row label{font-size:12px}.track{height:12px;background:#edf0f1;overflow:hidden}.fill{height:100%}.bar-row b{font-size:12px;text-align:right}.tabs{display:flex;gap:8px;margin-bottom:16px}.tabs button{border:1px solid #ccd4d8;background:#fff;padding:7px 12px;font-size:11px;cursor:pointer}.tabs button.active{background:#222;color:white;border-color:#222}
-.stack{display:flex;height:26px;background:#eee;overflow:hidden;margin:18px 0 12px}.stack i{height:100%;display:block}.legend-list{display:flex;gap:15px;flex-wrap:wrap;font-size:10px;color:#5f6a70}.dot{width:9px;height:9px;display:inline-block;margin-right:5px;vertical-align:-1px}
-.map-shell{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:22px}.map-card{border:1px solid var(--line);background:#f8fafb;min-height:600px;position:relative;overflow:hidden}#map{width:100%;height:600px}.pref{stroke:#fff;stroke-width:.8;cursor:pointer;transition:.15s}.pref:hover{stroke:#222;stroke-width:1.5}.map-controls{position:absolute;left:14px;top:14px;z-index:3;background:rgba(255,255,255,.95);padding:10px;border:1px solid var(--line)}.map-controls select{padding:7px 9px;border:1px solid #cdd5d9;background:#fff;font-size:11px}.region-side{border:1px solid var(--line);padding:22px;background:#fff}.region-side h3{font-size:22px;margin:4px 0}.region-metric{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px solid #e8ecee;font-size:11px}.region-metric b{font-size:13px}.rank{margin-top:18px}.rank-row{display:grid;grid-template-columns:26px 1fr 70px;gap:8px;padding:8px 0;border-bottom:1px solid #eef1f2;font-size:11px}
-.table-wrap{overflow:auto;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;font-size:11px}th,td{padding:11px 12px;border-bottom:1px solid #e7ebed;text-align:right;white-space:nowrap}th:first-child,td:first-child{text-align:left}th{background:#f3f5f6;color:#5e6b71;position:sticky;top:0}.note-box{padding:18px 20px;background:#fafafa;border:1px solid var(--line);font-size:11px;color:#5e686e}
-.insights{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.insight{border-top:3px solid #394b55;background:#f7f8f9;padding:20px}.insight b{display:block;margin-bottom:7px}.insight p{margin:0;color:#667279;font-size:12px}
-.sources li{margin:9px 0;font-size:12px}footer{padding:30px 0 48px;color:#7b858a;font-size:10px}
-@media(max-width:900px){.kpis{grid-template-columns:1fr 1fr}.kpi:nth-child(2){border-right:0}.grid2,.map-shell{grid-template-columns:1fr}.insights{grid-template-columns:1fr}nav{display:none}}@media(max-width:560px){.wrap{width:min(100% - 24px,1220px)}.hero{padding:48px 0}.kpis{grid-template-columns:1fr}.kpi{border-right:0;border-bottom:1px solid var(--line)}.bar-row{grid-template-columns:110px 1fr 52px}#map{height:470px}.map-card{min-height:470px}}
+<link rel="stylesheet" href="./jm-legacy-1.css" data-jm-legacy>
 
-
-/* Related report navigation: MRI Atlas ↔ Medical Intelligence */
-.hero-related{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-.hero-related a{display:inline-flex;align-items:center;justify-content:center;gap:10px;max-width:100%;padding:12px 18px;border-radius:8px;background:#233743;color:#fff;text-decoration:none;font-size:13px;font-weight:700;line-height:1.6;box-shadow:0 3px 10px rgba(20,40,50,.12);transition:background-color .15s ease}
-.hero-related a:hover{background:#125d83;color:#fff}
-.hero-related a:focus-visible{outline:3px solid #b51224;outline-offset:3px}
-@media(max-width:560px){.hero-related a{width:100%}}
-/* Public credit / contact */
-footer .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-footer .footer-credit{display:flex;flex-direction:column;gap:3px}
-footer .footer-credit b{font-size:11px;color:#333;font-weight:700}
-footer .footer-credit span{font-size:9px;color:#8a9499}
-.contact-btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 18px;border:1px solid #1e2529;background:#1e2529;color:#fff;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.02em;transition:.18s ease}
-.contact-btn:hover{background:#b51224;border-color:#b51224;color:#fff}
-@media(max-width:640px){footer .footer-inner{align-items:flex-start}.contact-btn{width:100%}}
-
-/* Google Maps integration */
-.map-google-note{margin-top:10px;font-size:11px;color:#718087}
-.gmaps-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;margin-top:12px;min-height:38px;padding:0 14px;border:1px solid #d9e0e4;background:#fff;color:#1e2529!important;text-decoration:none;font-size:11px;font-weight:700;transition:.16s ease}
-.gmaps-btn:hover{border-color:#1d668c;color:#1d668c!important;background:#f7fbfd}
-.gmaps-btn::before{content:"↗";font-size:12px}
-.map-google-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 20px}
-.map-google-tools label{font-weight:700;font-size:12px;color:#475860}
-.map-google-tools select{min-width:190px;max-width:100%;padding:10px;border:1px solid #cad5da;border-radius:6px;background:#fff;color:#233743}
-.map-google-tools .gmaps-btn{margin-top:0;border-radius:6px}
-.pref-link:focus-visible .pref{stroke:#171c20;stroke-width:3}
-.map-fallback{padding:35px 24px;display:flex;flex-direction:column;gap:12px;justify-content:center;align-items:flex-start;min-height:240px}
-@media(max-width:560px){.map-google-tools select,.map-google-tools .gmaps-btn{width:100%}}
-.rank-row a{color:inherit;text-decoration:none}
-.rank-row a:hover{color:#1d668c;text-decoration:underline}
-</style>
+<link rel="stylesheet" href="https://sinobu13-bpei.github.io/medical-intelligence/assets/site.css">
+<script src="https://sinobu13-bpei.github.io/medical-intelligence/assets/site.js" defer></script>
 </head>
-<body>
+<body data-site-type="atlas" data-data-year="2025" data-last-updated="2026-10-25"><header id="site-header"></header>
 <header><div class="wrap head"><div class="brand">Japan MRI Market Atlas 2025<small>Installed Base / Public Neutral Edition</small></div><nav><a href="#overview">概要</a><a href="#structure">市場構造</a><a href="#mapsec">地域</a><a href="#specialty">診療科</a><a href="#quality">データ品質</a><a href="#sources">出典・定義</a><a href="mailto:sinobu13@mac.com?subject=Japan%20MRI%20Market%20Atlas%202025%20%E5%95%8F%E5%90%88%E3%81%9B">お問い合わせ</a></nav></div></header>
 <main>
 <div class="hero"><div class="wrap"><div class="eyebrow">JAPAN MRI INSTALLED BASE / 2025</div><h1>国内MRI市場を、<br>「既設台数」から見る。</h1><p>メーカー、磁場強度、病院・診療所、診療科、都道府県の違いを一つの画面で整理した公開版です。特定メーカーの販売促進を目的とせず、2025年Installed Baseの構造を中立的に可視化します。</p><div class="hero-note"><b>読み方：</b>このページのメーカー構成は2025年の既設台数（Stock）であり、2025年単年の販売台数（Flow）ではありません。Installed Baseと年間販売シェアを混同しないことが重要です。</div><div class="hero-related"><a href="https://sinobu13-bpei.github.io/medical-intelligence/" target="_blank" rel="noopener noreferrer" aria-label="日本医療政策・医療機器市場インテリジェンスを開く">関連研究：医療政策・医療機器市場インテリジェンス <span aria-hidden="true">↗</span></a></div><div class="kpis"><div class="kpi"><span>MRI設置施設</span><strong>5,953</strong><small>施設</small></div><div class="kpi"><span>MRI設置台数</span><strong>7,369</strong><small>台</small></div><div class="kpi"><span>1.5T構成比</span><strong>59.5%</strong><small>4,381台</small></div><div class="kpi"><span>撮影件数取得率</span><strong>38.5%</strong><small>2,294施設 / 未取得は0件扱いしない</small></div></div></div></div>
@@ -91,4 +49,4 @@ function valueOf(p){const k=metric.value;if(k==='units')return p.units;if(k==='t
 function renderMap(){if(!features)return;const vals=DATA.prefs.map(valueOf).filter(Number.isFinite),max=d3.max(vals)||1;const seq=metric.value==='units'?d3.scaleSequential(d3.interpolateBlues).domain([0,max]):d3.scaleSequential(d3.interpolateReds).domain([0,Math.max(max,.01)]);mapSvg.selectAll('*').remove();const g=mapSvg.append('g');g.selectAll('a.pref-link').data(features).join('a').attr('class','pref-link').attr('href',f=>{const p=prefByCode[String(f.id).padStart(2,'0')];return googleMapUrl(p?p.name:'日本')}).attr('target','_blank').attr('rel','noopener noreferrer').attr('aria-label',f=>{const p=prefByCode[String(f.id).padStart(2,'0')];return (p?p.name:'日本')+'をGoogleマップで開く'}).append('path').attr('class','pref').attr('d',path).attr('fill',f=>{const code=String(f.id).padStart(2,'0'),p=prefByCode[code];return p?seq(valueOf(p)):'#eee'}).on('click',(e,f)=>{const code=String(f.id).padStart(2,'0');choosePref(prefByCode[code]||null)}).append('title').text(f=>{const code=String(f.id).padStart(2,'0'),p=prefByCode[code];return p?`${p.name} / ${fmt(p.units)}台 / Googleマップで開く`:code});const bounds=path.bounds({type:'FeatureCollection',features}),dx=bounds[1][0]-bounds[0][0],dy=bounds[1][1]-bounds[0][1],x=(bounds[0][0]+bounds[1][0])/2,y=(bounds[0][1]+bounds[1][1])/2,scale=.92/Math.max(dx/900,dy/720),tr=[900/2-scale*x,720/2-scale*y];g.attr('transform',`translate(${tr[0]},${tr[1]}) scale(${scale})`);}
 metric.onchange=renderMap;Promise.all([d3.json('https://unpkg.com/jpn-atlas@1/japan/japan.json')]).then(([t])=>{topo=t;features=topojson.feature(t,t.objects.prefectures).features;renderMap()}).catch(()=>{document.getElementById('map').outerHTML='<div class="map-fallback" role="status"><b>地図の境界データを読み込めませんでした。</b><span>上の都道府県一覧から選択してGoogleマップを開けます。集計表もご利用いただけます。</span><a class="gmaps-btn" href="'+googleMapUrl('日本')+'" target="_blank" rel="noopener noreferrer">日本をGoogleマップで開く</a></div>'});
 </script>
-</body></html>
+<footer id="site-footer"></footer></body></html>
