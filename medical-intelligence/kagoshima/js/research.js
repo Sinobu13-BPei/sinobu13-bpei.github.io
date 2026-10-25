@@ -13,7 +13,8 @@ function maplinks(n,a,lat,lon){
 }
 function refLink(d,id){var s=d.sources.find(function(x){return x.id===id;});return s?'<a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.title)+'（'+esc(s.year)+'）</a>':'出典未取得';}
 function drawChart(canvas,kind,labels,datasets,other){
- if(!el(canvas)||typeof Chart==='undefined')return;
+ var target=el(canvas);if(!target)return;
+ if(typeof Chart==='undefined'){target.parentNode.innerHTML='<p class="warning">グラフライブラリを読み込めません。図の元データは同ページの比較表・医療圏別詳細表で確認できます。</p>';return;}
  return new Chart(el(canvas),{type:kind,data:{labels:labels,datasets:datasets},options:Object.assign({responsive:true,maintainAspectRatio:false,plugins:{legend:{display:datasets.length>1,position:'bottom'},tooltip:{enabled:true}},scales:{y:{beginAtZero:true,grid:{color:'#e6edf4'},ticks:{color:'#51677b'}},x:{grid:{display:false},ticks:{color:'#415c75',autoSkip:false,maxRotation:45}}}},other||{})});
 }
 function render(d){
