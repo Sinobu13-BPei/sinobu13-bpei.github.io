@@ -5,44 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="日本国内CT市場の2025 Installed Baseを都道府県集計で可視化したPublic Neutral Edition。">
 <title>Japan CT Market Atlas 2025 | Public Neutral Edition</title>
-<style>
-:root{--red:#cc0000;--ink:#202124;--muted:#687076;--line:#e2e5e7;--soft:#f6f7f8;--blue:#2563eb;}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:#fff;font-family:"Meiryo UI","Meiryo","Yu Gothic UI",sans-serif;line-height:1.7}
-a{color:#0b5cab;text-decoration:none}a:hover{text-decoration:underline}button,select,input{font:inherit}
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{max-width:1280px;margin:auto;padding:14px 24px;display:flex;align-items:center;gap:24px}.brand{font-weight:800;letter-spacing:.02em;margin-right:auto}.brand span{color:var(--red)}.nav a{font-size:13px;color:#3d464c}
-.hero{background:linear-gradient(135deg,#fff 0%,#f4f6f7 58%,#eef2f4 100%);border-bottom:1px solid var(--line)}.heroInner{max-width:1280px;margin:auto;padding:78px 24px 64px}
-.eyebrow{font-size:12px;color:var(--red);font-weight:700;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(38px,6vw,72px);line-height:1.1;letter-spacing:-.04em;margin:12px 0 20px;font-weight:650}.lead{max-width:850px;font-size:17px;color:#566168}
-.noteBanner{margin-top:28px;padding:14px 16px;border-left:4px solid var(--red);background:#fff;font-size:12px;color:#5a646a}
-.container{max-width:1280px;margin:auto;padding:58px 24px}h2{font-size:30px;margin:0 0 10px;letter-spacing:-.02em}.sectionLead{color:var(--muted);margin:0 0 28px}
-.kpis{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.kpi{padding:22px 18px;border-right:1px solid var(--line)}.kpi:last-child{border-right:0}.kpi label{font-size:10px;color:#7a8388;display:block;letter-spacing:.06em}.kpi strong{font-size:28px;font-weight:600;display:block;margin-top:6px}.kpi small{font-size:10px;color:#899196}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}.card{border:1px solid var(--line);background:#fff;padding:24px}.soft{background:var(--soft)}.card h3{margin:0 0 14px;font-size:19px}.barRow{display:grid;grid-template-columns:150px 1fr 70px;gap:12px;align-items:center;margin:11px 0}.track{height:10px;background:#edf0f2;overflow:hidden}.fill{height:100%}.barRow b{text-align:right;font-size:12px}
-.badge{display:inline-block;padding:3px 8px;border:1px solid #d7dce0;border-radius:999px;font-size:10px;color:#5d676d;margin:3px 4px 3px 0}
-.mapLayout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(320px,.55fr);gap:22px}.mapCard{border:1px solid var(--line);background:#fafbfb;padding:12px;min-height:600px;position:relative}svg{width:100%;height:580px;display:block}.pref{stroke:#fff;stroke-width:1;vector-effect:non-scaling-stroke;cursor:pointer;transition:.15s}.pref:hover{stroke:#111;stroke-width:2}.tooltip{position:absolute;pointer-events:none;display:none;background:#fff;border:1px solid #cfd5d8;padding:10px 12px;font-size:11px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:220px}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}.controls select{padding:8px 10px;border:1px solid #cfd5d8;background:#fff}
-.sidePanel{border:1px solid var(--line);padding:22px;background:#fff}.sidePanel h3{margin-top:0}.big{font-size:34px;font-weight:650}.muted{color:var(--muted)}.detailGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.mini{border-top:1px solid var(--line);padding-top:9px}.mini label{font-size:9px;color:#7a8388;display:block}.mini b{font-size:16px}
-.insights{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.insight{border-top:4px solid #202124;background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px}.insight.red{border-top-color:var(--red)}.insight h3{margin:0 0 8px;font-size:17px}.insight p{font-size:12px;color:#5f686e;margin:0}
-.tableWrap{overflow:auto;border:1px solid var(--line)}table{border-collapse:collapse;width:100%;min-width:920px}th,td{padding:10px 12px;border-bottom:1px solid #edf0f2;text-align:right;font-size:11px}th{position:sticky;top:0;background:#f6f7f8;color:#5c666c}th:first-child,td:first-child{text-align:left}tbody tr:hover{background:#fbfbfb}
-.sourceGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.source{padding:18px;border:1px solid var(--line)}.source b{display:block;margin-bottom:7px}.source p{font-size:11px;color:#667076;margin:0 0 10px}
-.guard{border:1px solid #f0c9c9;background:#fff8f8;padding:20px}.guard ul{margin:8px 0 0;padding-left:20px;font-size:12px}
-footer{border-top:1px solid var(--line);padding:28px 24px;color:#7a8388;font-size:10px;text-align:center}
-.mapActionWrap{margin-top:16px}.mapAction{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:#202124;color:#fff!important;padding:10px 14px;font-size:12px;font-weight:700;border-radius:6px;text-decoration:none!important}.mapAction:hover{background:#cc0000}.mapHint{font-size:10px;color:#6b7479;margin-top:8px}.tableMapLink{font-weight:700;white-space:nowrap}
-@media(max-width:980px){.kpis{grid-template-columns:repeat(3,1fr)}.kpi:nth-child(3){border-right:0}.mapLayout,.grid2{grid-template-columns:1fr}.insights,.sourceGrid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.nav a{display:none}.heroInner{padding-top:46px}.kpis{grid-template-columns:1fr 1fr}.kpi:nth-child(2n){border-right:0}.insights,.sourceGrid{grid-template-columns:1fr}.container{padding:42px 16px}.mapCard{min-height:470px}svg{height:440px}}
+<link rel="stylesheet" href="./jm-legacy-1.css" data-jm-legacy>
 
-.portalBand{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 16px;border:1px solid #d8dee2;background:#fff}
-.portalBand b{font-size:12px}.portalBand span{display:block;font-size:11px;color:#6f787e;margin-top:2px}.portalBand a{display:inline-flex;align-items:center;white-space:nowrap;background:#202124;color:#fff;padding:9px 13px;font-size:11px;font-weight:700}
-.portalBand a:hover{background:#cc0000;text-decoration:none}
-.benchmarkGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0}
-.benchmarkCard{border:1px solid var(--line);background:#fff;padding:20px}
-.benchmarkCard label{display:block;font-size:10px;color:#7a8388;letter-spacing:.06em}.benchmarkCard strong{display:block;font-size:27px;margin-top:6px}.benchmarkCard small{display:block;font-size:10px;color:#7a8388;margin-top:5px}
-.benchmarkTable{overflow:auto;border:1px solid var(--line);margin-top:18px}.benchmarkTable table{min-width:760px}.deltaPlus{color:#9b1c1c;font-weight:700}.deltaMinus{color:#1f5d8f;font-weight:700}
-.benchmarkNote{margin-top:16px;padding:16px 18px;background:#fff8f8;border-left:4px solid var(--red);font-size:12px;color:#59636a}
-.compiler{margin-top:8px;font-size:11px;color:#687076}
-@media(max-width:900px){.benchmarkGrid{grid-template-columns:1fr 1fr}.portalBand{align-items:flex-start;flex-direction:column}}
-@media(max-width:640px){.benchmarkGrid{grid-template-columns:1fr}}
-</style>
+<link rel="stylesheet" href="https://sinobu13-bpei.github.io/medical-intelligence/assets/site.css">
+<script src="https://sinobu13-bpei.github.io/medical-intelligence/assets/site.js" defer></script>
 </head>
-<body>
+<body data-site-type="atlas" data-data-year="2025" data-last-updated="2026-10-25"><header id="site-header"></header>
 <header><div class="nav"><div class="brand">Japan CT Market Atlas <span>2025</span></div><a href="#overview">概況</a><a href="#benchmark">外部検証</a><a href="#map">都道府県</a><a href="#insights">分析</a><a href="#technology">技術動向</a><a href="#method">定義</a><a href="https://sinobu13-bpei.github.io/medical-intelligence/" target="_blank" rel="noopener">医療MKT ↗</a></div></header>
 <section class="hero"><div class="heroInner"><div class="eyebrow">PUBLIC NEUTRAL EDITION / JAPAN CT MARKET INTELLIGENCE</div><h1>日本のCT市場を、<br>Installed Baseから読む。</h1><p class="lead">2025年のCT設置情報を、全国・都道府県・装置クラス・施設種別の観点から集計。施設単位の詳細データは公開せず、競争構造と更新余地を理解するための集計情報に限定した公開版です。</p><div class="noteBanner"><b>公開版の原則：</b> 第三者有償資料の原表、施設名・住所・個別装置リストは掲載しません。メーカーシェアは販売シェアではなくInstalled Baseの推定構成です。</div><div class="portalBand"><div><b>関連研究ポータル</b><span>日本医療政策・医療機器市場インテリジェンスと相互リンクしています。</span></div><a href="https://sinobu13-bpei.github.io/medical-intelligence/" target="_blank" rel="noopener">医療政策・医療機器市場インテリジェンスへ ↗</a></div></div></section>
 
@@ -159,4 +127,4 @@ function selectPref(d){document.getElementById('pn').textContent=d.n;document.ge
 metric.addEventListener('change',renderMap);renderMap();
 const tb=document.querySelector('#tbl tbody');D.slice().sort((a,b)=>b.u-a.u).forEach(d=>{const tr=document.createElement('tr');const g='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(d.n+' 日本');tr.innerHTML=`<td>${d.n}</td><td>${d.fac.toLocaleString()}</td><td>${d.u.toLocaleString()}</td><td>${(d.s64*100).toFixed(1)}%</td><td>${(d.cmsc*100).toFixed(1)}%</td><td>${(d.fuji*100).toFixed(1)}%</td><td>${(d.ge*100).toFixed(1)}%</td><td>${(d.siemens*100).toFixed(1)}%</td><td>${(d.philips*100).toFixed(1)}%</td><td>${(d.unk*100).toFixed(1)}%</td><td>${(d.scov*100).toFixed(1)}%</td><td>${d.cls}</td><td><a class="tableMapLink" href="${g}" target="_blank" rel="noopener noreferrer" aria-label="${d.n}をGoogle Mapsで開く">地図 ↗</a></td>`;tb.appendChild(tr);});
 </script>
-</body></html>
+<footer id="site-footer"></footer></body></html>
