@@ -28,7 +28,25 @@
 <rect x="737" y="286" width="223" height="55" rx="14" fill="#f6ecde" stroke="#d6b185"/><text x="850" y="320">横須賀・三浦</text></g>
 <g fill="#607b90" font-size="12"><text x="50" y="44">山梨・丹沢側</text><text x="857" y="38">東京都側</text><text x="62" y="321">箱根・静岡側</text><text x="600" y="332">湘南海岸</text></g></svg>
 <figcaption>青＝京浜・東京接続、緑＝都市複合・交通結節、砂色＝山間・半島・高齢化論点。色は分析上の概念分類です。</figcaption></div>
-<section id="areas"><div class="section-head"><span class="no">03 / AREA INTELLIGENCE</span><h2>二次医療圏別 詳細データベース</h2></div><p class="deck">病院・診療所参考数、医師会、地域特徴、主要鉄道・道路、基幹病院と地図をひとつのカードに集約。医療圏名・施設名・診療圏で検索できます。</p>
+<section id="beds2025" class="research-section">
+<div class="section-head"><span class="no">04 / VERIFIED HOSPITAL CAPACITY</span><h2>2025年 病床機能：9医療圏の最新実績</h2></div>
+<p class="deck">2025年7月1日時点の県報告に基づく4機能の実績と、旧地域医療構想の2025年必要病床数を別列で表示。病床機能報告は医療機関の自己申告で、必要病床数と集計方法が異なります。</p>
+<div class="metrics">
+<div class="metric"><div class="tag">2025報告病床｜県全域</div><div class="num">61,033床</div><small>休棟中等を含む・2025/7</small></div>
+<div class="metric"><div class="tag">高度急性期｜2025報告</div><div class="num">9,611床</div><small>医療機関自己申告</small></div>
+<div class="metric"><div class="tag">回復期｜2025報告</div><div class="num">8,856床</div><small>必要病床数20,934床とは定義が異なる</small></div>
+<div class="metric"><div class="tag">必要病床数｜2025推計</div><div class="num">72,410床</div><small>将来推計・開設許可可能数ではない</small></div>
+</div>
+<div class="panel" style="margin-top:14px"><h3>4機能別・医療圏別の病床積上げ図</h3><div class="chart-box"><canvas id="bedChart" aria-label="医療圏別病床機能の積み上げ棒グラフ"></canvas></div><p class="fine">出典：神奈川県「令和7年度病床機能報告」（2025年7月、2026年7月修正）。公開元 <a href="https://www.pref.kanagawa.jp/docs/f6z/byoshokinouhoukoku2025.html" target="_blank" rel="noopener noreferrer">公式集計 ↗</a></p></div>
+<div class="table-wrap" style="margin-top:14px"><table><thead><tr><th>医療圏</th><th>報告総数</th><th>高度急性期</th><th>急性期</th><th>回復期</th><th>慢性期</th><th>2025必要数<br><small>推計</small></th></tr></thead><tbody id="bedVerifiedRows"></tbody></table></div>
+<p class="fine" id="bedsTimestamp">出典：2025年病床機能報告</p>
+<p class="notice">注意：報告総数には休棟中等の病床が含まれるため4機能合計と一致しません。「実績−必要数」を新規病床・装置の確定需要とみなすことはできません。</p>
+</section>
+<section id="geo-map" class="research-section">
+<div class="section-head"><span class="no">05 / INTERACTIVE GEOGRAPHY</span><h2>医療圏 × 重点病院 × 地理院タイル</h2></div>
+<div class="panel"><div id="verifiedMap" role="region" aria-label="神奈川県の9医療圏中心点と主要病院の地理院タイル地図" style="min-height:380px;border-radius:10px;border:1px solid #cbdce8"></div>
+<p class="fine">背景地図出典：<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院「地理院タイル」</a>。青＝二次医療圏の代表点、オレンジ＝公開所在地から求めた重点病院の概略位置（初期表示は非表示）。医療圏の境界や施設の正確な敷地を示すものではありません。</p></div>
+</section><section id="areas"><div class="section-head"><span class="no">03 / AREA INTELLIGENCE</span><h2>二次医療圏別 詳細データベース</h2></div><p class="deck">病院・診療所参考数、医師会、地域特徴、主要鉄道・道路、基幹病院と地図をひとつのカードに集約。医療圏名・施設名・診療圏で検索できます。</p>
 <div class="search"><input id="areaQuery" type="search" placeholder="医療圏・病院・市町村・医師会で検索" aria-label="医療圏検索"><select id="areaSort" aria-label="並び替え"><option value="default">医療圏の標準順</option><option value="population">2025年人口順</option><option value="future">2040年人口順</option><option value="growth">人口増減率順</option><option value="clinics">診療所参考数順</option></select><button class="btn" id="exportCSV">9医療圏CSVを保存</button></div><div class="count" id="matchCount"></div><div id="areaGrid" class="areas" aria-live="polite"></div><p class="fine">医療圏別の診療所/病院数は統計の集計対象・年次を統一できていないため数値を留保。二次医療圏別の一次統計表との再照合が未了のため「参考・要確認」と表示。最新実数が必要な場合はS07（2024年調査）とJMAPを優先。年次の異なる指標は直接比較しない。</p></section>
 <section id="people"><div class="section-head"><span class="no">04 / DEMOGRAPHICS</span><h2>人口動態・2040年構造変化・医療費</h2></div><div class="cols"><div class="panel"><h3>医療圏ごとの2025→2040年人口増減</h3><div id="growthChart" class="bar-graph"></div><p class="fine">出典：県会議資料S02。2025年は住民基本台帳、2040年は社人研推計。表示率は再計算値。</p></div><div class="panel"><h3>人口規模だけでは測れない医療ニーズ</h3><p>2025年国勢調査速報では、県人口は2020年から減少する一方、世帯数は増加。小世帯化、在宅医療への接続、通院移動の変化が装置需要の質を左右する。</p><p>県内では川崎市多摩区・大和市・藤沢市が増加数上位、横須賀市・横浜市金沢区・港南区などが減少数上位。成長エリアと縮小エリアの違いを市区町村で見る。</p><div class="buttons"><a class="btn" href="https://www.pref.kanagawa.jp/docs/x6z/tc30/jinko/kokucho/r7_sokuhou.html" target="_blank" rel="noopener noreferrer">国勢調査・速報</a><a class="btn" href="https://www.pref.kanagawa.jp/docs/x6z/tc30/jinko/nenreibetu.html" target="_blank" rel="noopener noreferrer">年齢別人口統計</a></div></div></div>
 <div class="table-wrap" style="margin-top:14px"><table><thead><tr><th>二次医療圏</th><th>2025人口</th><th>2040推計</th><th>増減率</th><th>基準病床</th><th>既存病床（25/4）</th><th>2025必要病床</th></tr></thead><tbody id="areaTable"></tbody></table></div><p class="fine">基準病床・既存病床・必要病床は異なる制度上の概念。「必要病床−既存病床」を新規開設余地とは解釈できない。出典：S02。</p>
@@ -44,4 +62,4 @@
 <section id="sources"><div class="section-head"><span class="no">11 / EVIDENCE & LIMITATIONS</span><h2>出典・方法・要確認</h2></div><div class="notice"><b>公開時の品質管理：</b>公的統計（行政資料）、民間市場推計、分析上の示唆・仮説を区別。医療機器末端市場地域分析等は提供された調査資料の推計であり、県の公式集計ではない。著作権のある原図表・市場シェア一覧は転載せず、公式に公開された地図と本ページ独自のグラフで構成。医療圏別の病院・診療所件数は最新一次表の突合前につき未掲載。医療機関の指定・名称・開閉院や販社取引は随時更新される。</div><div class="src-list" id="srcGrid" style="margin-top:14px"></div><p class="fine">本サイトは意思決定の補助資料であり、許認可、特定企業の取引実績や患者動線を保証するものではありません。最新の行政決定や医療施設数は官公庁・各医療機関の一次資料を参照してください。</p></section></main>
 <footer><p><b>神奈川県 医療市場インテリジェンス 2026–2040</b><br>一般医療機器商社向け・中立公開版｜編纂：医療市場インテリジェンス調査</p><p><a class="btn" href="https://sinobu13-bpei.github.io/medical-intelligence/?v=20261025-qa-responsive&utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Japan Medical Market Intelligence 総合ハブへ</a></p><small>© 2026 Medical Market Intelligence Research. 各種統計・名称・図の権利は各出典に帰属します。</small></footer>
 <script src="./data/kanagawa-data.js"></script>
-<script src="./js/app.js"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script><script src="./js/enhance.js" defer></script></body></html>
+<script src="./data/verified.js"></script><script src="./js/app.js"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script><script src="./js/enhance.js" defer></script></body></html>
