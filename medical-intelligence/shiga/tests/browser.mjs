@@ -23,7 +23,7 @@ for(const [width,height] of [[375,812],[390,844],[768,1024],[1440,900]]){
  const offices=await page.locator("#officeItems .dir-card:visible").count();
  const mapLib=await page.locator(".leaflet-container").count();
  const canvasDrawn=await page.evaluate(()=>[...document.querySelectorAll('.chart-box canvas')].filter(c=>c.getContext('2d')&&c.width>0&&c.height>0).length);
- if(!response?.ok()||links!==7||diseases!==4||doctors!==7||beds!==7||hospital!==23||charts!==7||before.overflow||!tab.includes("甲賀")||visibleHospitals<1||visibleHospitals>=23||offices<1||mapLib!==1||consoleError.length)failures.push({width,response:response?.status(),links,diseases,doctors,beds,hospital,charts,overflow:before,tab,visibleHospitals,offices,mapLib,consoleError});
+ if(!response?.ok()||links!==7||diseases!==4||doctors!==7||beds!==7||hospital!==23||charts!==8||before.overflow||!tab.includes("甲賀")||visibleHospitals<1||visibleHospitals>=23||offices<1||mapLib!==1||consoleError.length)failures.push({width,response:response?.status(),links,diseases,doctors,beds,hospital,charts,overflow:before,tab,visibleHospitals,offices,mapLib,consoleError});
  results.push({width,response:response.status(),links,diseases,doctors,beds,hospital,charts,overflow:before.overflow,visibleHospitals,offices,mapLib,canvasDrawn,pageErrors:consoleError});
  }catch(e){failures.push({width,error:String(e),consoleError});}
  await page.close();
