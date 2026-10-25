@@ -27,6 +27,9 @@ assert(d.sources.every(h=>h.url.startsWith("http")&&!!h.year),"出典と年次")
 assert(regions.reduce((t,r)=>t+r.physicians2024,0)===3512,"2024年医師数合計3512");
 assert(regions.reduce((t,r)=>t+r.beds2026DeclaredPlan[0],0)===11421,"2026年予定病床合計11421");
 assert(regions.every(r=>r.beds2026DeclaredPlan?.slice(1).reduce((a,b)=>a+b,0)===r.beds2026DeclaredPlan[0]),"2026年予定病床区分整合");
+assert(d.peers2025.length===6,"全国および隣接4府県の2025年確定人口");
+assert(d.peers2025.every(p=>p.population>0&&p.source.startsWith("https://")),"隣接府県の人口と出典");
+assert(html.includes('id="chartNeighbors"')&&html.includes('id="neighborsTable"'),"人口比較グラフと表");
 assert(d.migration.inflowFromOtherPrefecture-d.migration.outflowToOtherPrefecture===2528,"転入超過2528");
 assert(d.migration.births-d.migration.deaths===-6808,"自然増減−6808");
 assert(d.designations.length===4,"公式指定等４分類");
