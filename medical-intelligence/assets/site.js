@@ -74,11 +74,15 @@
       foot.dataset.audit='multiple-contact-destinations';
     }
     inner.append(left,links);foot.appendChild(inner);
-    const meta=document.querySelector('[data-site-meta]');
-    if(meta){
-      if(!meta.textContent.trim())meta.textContent='最終更新 '+new Date(document.lastModified).toISOString().slice(0,10)+'｜データ基準 '+(document.body.dataset.dataYear||DATA_YEAR[kind]||'要確認')+'年';
-      meta.classList.add('jm-meta');
+    const meta=document.querySelector('[data-site-meta]')||el('div','jm-shell jm-meta');
+    meta.setAttribute('data-site-meta','');
+    if(!meta.parentNode)head.insertAdjacentElement('afterend',meta);
+    if(!meta.textContent.trim()){
+      const base=document.body.dataset.dataYear;
+      const version=document.body.dataset.lastUpdated||'2026-10-25';
+      meta.textContent='最終更新 '+version+'｜データ基準 '+(base?base+'年':'要確認');
     }
+    meta.classList.add('jm-meta');
   }
   function smallRepairs(){
     document.querySelectorAll('a[href]').forEach(a=>{
@@ -89,7 +93,7 @@
         if(u.hostname==='sinobu13-bpei.github.io'){
           u.searchParams.delete('utm_source');u.searchParams.delete('v');
           const target=u.pathname+u.search+u.hash;
-          a.href=target; // same GitHub Pages site, path-relative to origin
+          a.href=relative(target.replace(/^\//,'')); // same GitHub Pages repository: relative URL
         }else{
           a.target='_blank';a.rel='noopener';
         }
