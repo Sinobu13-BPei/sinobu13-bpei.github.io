@@ -24,6 +24,15 @@ assert(d.hospitals.every(h=>h.url.startsWith("https://")||h.url.startsWith("http
 assert(d.associations.every(h=>h.url.startsWith("http")),"医師会URLあり");
 assert(d.healthOffices.every(h=>h.url.startsWith("http")),"保健所URLあり");
 assert(d.sources.every(h=>h.url.startsWith("http")&&!!h.year),"出典と年次");
+assert(regions.reduce((t,r)=>t+r.physicians2024,0)===3512,"2024年医師数合計3512");
+assert(regions.reduce((t,r)=>t+r.beds2026DeclaredPlan[0],0)===11421,"2026年予定病床合計11421");
+assert(regions.every(r=>r.beds2026DeclaredPlan?.slice(1).reduce((a,b)=>a+b,0)===r.beds2026DeclaredPlan[0]),"2026年予定病床区分整合");
+assert(d.migration.inflowFromOtherPrefecture-d.migration.outflowToOtherPrefecture===2528,"転入超過2528");
+assert(d.migration.births-d.migration.deaths===-6808,"自然増減−6808");
+assert(d.designations.length===4,"公式指定等４分類");
+assert(d.designations.every(g=>g.source.startsWith("https://")),"指定機能の公式出典");
+assert(d.specialtyDoctors2024.length>=10,"診療科別医師10分類以上");
+for (const id of ["mobility-review","bed-2026-plans","doctor-statistics","physiciansTable","bedPlanTable","designationTable","designations","chartDoctors","chartBias","chartSpecialties","channel-offices","facility-statistics"]) assert(html.includes('id="'+id+'"'),"追加分析DOM #"+id);
 const ids=["summary","population","areas","system","workforce","facilities","institutions","devices","distribution","external","strategy","sources"];
 for(const id of ids)assert(html.includes('id="'+id+'"'),"HTML内に章#"+id);
 for(const id of ["totalPop","totalBeds","popTable","bedTable","deviceTable","regionTabs","regionDetails","hospitalItems","hospitalSearch","hospitalCount","officeItems","officeSearch","officeCount","sourcesItems","ranking","gsiMap","csvButton","loadstate","critical"]){
