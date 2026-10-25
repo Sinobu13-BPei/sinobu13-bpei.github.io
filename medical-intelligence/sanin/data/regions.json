@@ -1,0 +1,580 @@
+{
+  "meta": {
+    "title": "山陰医療圏MKT研究2026",
+    "updated": "2026-10-26",
+    "scope": "鳥取県3医療圏・島根県7医療圏",
+    "sourcePopulation": "2020年国勢調査を基礎にした過去資料の圏域人口。現在人口ではない",
+    "sourceBeds": "2025年7月1日病床機能報告;鳥取県・島根県",
+    "scoreNote": "仮説スコア・公的順位ではない"
+  },
+  "weights": [
+    {
+      "id": "size",
+      "label": "市場規模・施設集積",
+      "weight": 30
+    },
+    {
+      "id": "needs",
+      "label": "地域医療の構造課題",
+      "weight": 25
+    },
+    {
+      "id": "access",
+      "label": "保守・物流の到達可能性",
+      "weight": 20
+    },
+    {
+      "id": "renew",
+      "label": "設備更新・投資の可視性",
+      "weight": 15
+    },
+    {
+      "id": "social",
+      "label": "医療継続への公共的価値",
+      "weight": 10
+    }
+  ],
+  "regions": [
+    {
+      "id": "to",
+      "pref": "鳥取",
+      "name": "東部",
+      "city": "鳥取市",
+      "population2020": 224492,
+      "lat": 35.501,
+      "lng": 134.235,
+      "beds2025": {
+        "total": 2535,
+        "high": 65,
+        "acute": 1260,
+        "recovery": 504,
+        "chronic": 613,
+        "rest": 93
+      },
+      "institutions": "鳥取県立中央病院・鳥取赤十字病院・鳥取市立病院",
+      "focus": "県都・救急・がん診療",
+      "opportunity": "救急、画像診断更新、病診連携",
+      "constraints": "公開調達・病院間ネットワーク・地域医師会",
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "score": 80
+    },
+    {
+      "id": "tc",
+      "pref": "鳥取",
+      "name": "中部",
+      "city": "倉吉市",
+      "population2020": 99193,
+      "lat": 35.43,
+      "lng": 133.825,
+      "beds2025": {
+        "total": 1231,
+        "high": 106,
+        "acute": 474,
+        "recovery": 334,
+        "chronic": 282,
+        "rest": 35
+      },
+      "institutions": "鳥取県立厚生病院・地域中小病院",
+      "focus": "県中部・回復期と慢性期",
+      "opportunity": "訪問診療、US、一般撮影、リハ",
+      "constraints": "中山間移動・少人数運用・保守巡回",
+      "scores": [
+        3,
+        5,
+        3,
+        3,
+        3
+      ],
+      "score": 70
+    },
+    {
+      "id": "tw",
+      "pref": "鳥取",
+      "name": "西部",
+      "city": "米子市",
+      "population2020": 229722,
+      "lat": 35.428,
+      "lng": 133.33,
+      "beds2025": {
+        "total": 2909,
+        "high": 661,
+        "acute": 1164,
+        "recovery": 468,
+        "chronic": 577,
+        "rest": 39
+      },
+      "institutions": "鳥取大学医学部附属病院・山陰労災病院・米子医療センター",
+      "focus": "大学高度急性期と広域紹介",
+      "opportunity": "CT、MRI、血管撮影、PACS、専門診療",
+      "constraints": "高機能・高稼働装置、地域教育、共同利用",
+      "scores": [
+        5,
+        4,
+        4,
+        5,
+        4
+      ],
+      "score": 89
+    },
+    {
+      "id": "sm",
+      "pref": "島根",
+      "name": "松江",
+      "city": "松江市",
+      "population2020": 240678,
+      "lat": 35.47,
+      "lng": 133.05,
+      "beds2025": {
+        "total": 2614,
+        "high": 487,
+        "acute": 806,
+        "recovery": 537,
+        "chronic": 630,
+        "rest": 154
+      },
+      "institutions": "松江赤十字病院・松江市立病院",
+      "focus": "県都・救急・病診連携",
+      "opportunity": "循環器、一般撮影、画像IT、在宅",
+      "constraints": "医師会・行政との連携、更新・教育",
+      "scores": [
+        5,
+        4,
+        4,
+        4,
+        4
+      ],
+      "score": 86
+    },
+    {
+      "id": "su",
+      "pref": "島根",
+      "name": "雲南",
+      "city": "雲南市",
+      "population2020": 52433,
+      "lat": 35.29,
+      "lng": 132.9,
+      "beds2025": {
+        "total": 538,
+        "high": 0,
+        "acute": 252,
+        "recovery": 183,
+        "chronic": 103,
+        "rest": 0
+      },
+      "institutions": "雲南市立病院・奥出雲病院・飯南病院",
+      "focus": "中山間・医療アクセス",
+      "opportunity": "可搬機、在宅、POCUS、遠隔",
+      "constraints": "保守訪問頻度・人員・小型機器",
+      "scores": [
+        2,
+        5,
+        2,
+        3,
+        4
+      ],
+      "score": 62
+    },
+    {
+      "id": "si",
+      "pref": "島根",
+      "name": "出雲",
+      "city": "出雲市",
+      "population2020": 172775,
+      "lat": 35.367,
+      "lng": 132.75,
+      "beds2025": {
+        "total": 2278,
+        "high": 320,
+        "acute": 998,
+        "recovery": 392,
+        "chronic": 568,
+        "rest": 0
+      },
+      "institutions": "島根大学医学部附属病院・島根県立中央病院",
+      "focus": "大学・県立の高度医療",
+      "opportunity": "高度画像・専門診療・教育",
+      "constraints": "高度機器のLCC・安全性・基盤整備",
+      "scores": [
+        5,
+        4,
+        4,
+        5,
+        4
+      ],
+      "score": 89
+    },
+    {
+      "id": "so",
+      "pref": "島根",
+      "name": "大田",
+      "city": "大田市",
+      "population2020": 50612,
+      "lat": 35.19,
+      "lng": 132.5,
+      "beds2025": {
+        "total": 461,
+        "high": 0,
+        "acute": 249,
+        "recovery": 186,
+        "chronic": 26,
+        "rest": 0
+      },
+      "institutions": "大田市立病院・公立邑智病院",
+      "focus": "中山間・高齢医療",
+      "opportunity": "在宅・地域包括、US、一般撮影",
+      "constraints": "人員省力化・搬送・巡回保守",
+      "scores": [
+        2,
+        5,
+        2,
+        3,
+        4
+      ],
+      "score": 62
+    },
+    {
+      "id": "sh",
+      "pref": "島根",
+      "name": "浜田",
+      "city": "浜田市",
+      "population2020": 77551,
+      "lat": 34.899,
+      "lng": 132.08,
+      "beds2025": {
+        "total": 763,
+        "high": 10,
+        "acute": 269,
+        "recovery": 141,
+        "chronic": 308,
+        "rest": 35
+      },
+      "institutions": "浜田医療センター・済生会江津総合病院",
+      "focus": "石見中核・域内完結",
+      "opportunity": "救急・検査更新・回復期・透析",
+      "constraints": "医療圏内ネットワーク・保守基盤",
+      "scores": [
+        3,
+        5,
+        3,
+        4,
+        3
+      ],
+      "score": 73
+    },
+    {
+      "id": "ss",
+      "pref": "島根",
+      "name": "益田",
+      "city": "益田市",
+      "population2020": 57955,
+      "lat": 34.676,
+      "lng": 131.842,
+      "beds2025": {
+        "total": 628,
+        "high": 40,
+        "acute": 296,
+        "recovery": 203,
+        "chronic": 44,
+        "rest": 45
+      },
+      "institutions": "益田赤十字病院・益田地域医療センター医師会病院",
+      "focus": "西部・広域移動",
+      "opportunity": "急性期から在宅への連携、US、DR",
+      "constraints": "長距離搬送・納入物流・保守窓口",
+      "scores": [
+        3,
+        5,
+        2,
+        3,
+        3
+      ],
+      "score": 66
+    },
+    {
+      "id": "sk",
+      "pref": "島根",
+      "name": "隠岐",
+      "city": "隠岐の島町",
+      "population2020": 19122,
+      "lat": 36.21,
+      "lng": 133.32,
+      "beds2025": {
+        "total": 135,
+        "high": 0,
+        "acute": 91,
+        "recovery": 44,
+        "chronic": 0,
+        "rest": 0
+      },
+      "institutions": "隠岐病院・隠岐島前病院",
+      "focus": "離島・搬送",
+      "opportunity": "遠隔画像・可搬機・救急",
+      "constraints": "フェリー・航空条件、代替機と部品供給",
+      "scores": [
+        1,
+        5,
+        1,
+        3,
+        5
+      ],
+      "score": 54
+    }
+  ],
+  "facilities2025": [
+    {
+      "name": "全国",
+      "hospital": 8001,
+      "clinic": 105521,
+      "hospitalPer100k": 6.5,
+      "clinicPer100k": 85.8
+    },
+    {
+      "name": "鳥取県",
+      "hospital": 43,
+      "clinic": 468,
+      "hospitalPer100k": 8.2,
+      "clinicPer100k": 89.4
+    },
+    {
+      "name": "島根県",
+      "hospital": 46,
+      "clinic": 677,
+      "hospitalPer100k": 7.3,
+      "clinicPer100k": 107.6
+    },
+    {
+      "name": "岡山県",
+      "hospital": 156,
+      "clinic": 1568,
+      "hospitalPer100k": 8.6,
+      "clinicPer100k": 86.7
+    },
+    {
+      "name": "広島県",
+      "hospital": 228,
+      "clinic": 2500,
+      "hospitalPer100k": 8.5,
+      "clinicPer100k": 93.2
+    },
+    {
+      "name": "山口県",
+      "hospital": 135,
+      "clinic": 1181,
+      "hospitalPer100k": 10.7,
+      "clinicPer100k": 93.4
+    }
+  ],
+  "futurePopulation": [
+    {
+      "name": "鳥取県",
+      "v2020": 553407,
+      "v2030": null,
+      "v2040": null,
+      "v2050": 405528
+    },
+    {
+      "name": "島根県",
+      "v2020": 671126,
+      "v2030": 610073,
+      "v2040": 553085,
+      "v2050": 496994
+    }
+  ],
+  "needs2025Shimane": {
+    "method": "旧地域医療構想・パターンⅠ（2016年策定の2025年度推計）。2025年度実績ではない。2025年病床機能報告と単純差引しない",
+    "areas": [
+      [
+        "松江",
+        2414,
+        212,
+        810,
+        644,
+        748
+      ],
+      [
+        "雲南",
+        523,
+        15,
+        113,
+        254,
+        141
+      ],
+      [
+        "出雲",
+        1661,
+        255,
+        644,
+        421,
+        341
+      ],
+      [
+        "大田",
+        417,
+        13,
+        107,
+        174,
+        123
+      ],
+      [
+        "浜田",
+        760,
+        62,
+        255,
+        212,
+        231
+      ],
+      [
+        "益田",
+        599,
+        47,
+        200,
+        179,
+        173
+      ],
+      [
+        "隠岐",
+        135,
+        8,
+        39,
+        50,
+        38
+      ]
+    ]
+  },
+  "deviceFields": [
+    [
+      "超音波診断装置（US）",
+      "診療所・病院・在宅",
+      "診療科別把握、台数は統一母集団で未集計"
+    ],
+    [
+      "CT",
+      "病院・有床診療所",
+      "マルチスライスCT列数別の公的施設票あり"
+    ],
+    [
+      "MRI",
+      "大学・中核病院",
+      "3T以上 / 1.5T～3T未満等、病院報告で把握"
+    ],
+    [
+      "PET・PET/CT",
+      "核医学施設",
+      "実装施設数と検査実績の確認必要"
+    ],
+    [
+      "リニアック",
+      "がん診療拠点病院等",
+      "放射線治療装置の導入・稼働施設別把握必要"
+    ],
+    [
+      "血管撮影",
+      "救急・循環器等",
+      "DSA施設票、IVR実施量と更新年"
+    ],
+    [
+      "内視鏡",
+      "消化器・外来・健診",
+      "診療科と患者数、洗浄消毒導線"
+    ],
+    [
+      "心電図・生体情報",
+      "急性期・循環器・在宅",
+      "台数・消耗品・遠隔管理"
+    ],
+    [
+      "透析機器",
+      "透析施設",
+      "患者数・シャント管理・水処理・保守"
+    ],
+    [
+      "XR/DR",
+      "病院・診療所・健診",
+      "装置台数と部屋改修の確認必要"
+    ]
+  ],
+  "staff2024": {
+    "tottori": 1697,
+    "shimane": 2014
+  },
+  "sources": [
+    {
+      "id": "S35",
+      "title": "鳥取県 令和7年度病床機能報告（10医療圏の鳥取3圏）",
+      "year": "2025年7月1日",
+      "url": "https://www.pref.tottori.lg.jp/329598.htm"
+    },
+    {
+      "id": "S36",
+      "title": "島根県 令和7年度病床機能報告（7医療圏）",
+      "year": "2025年7月1日",
+      "url": "https://www.pref.shimane.lg.jp/medical/kenko/iryo/shimaneno_iryo/kinouhoukoku/r7byousyoukinou.html"
+    },
+    {
+      "id": "S37",
+      "title": "厚労省 医療施設調査2025 都道府県表",
+      "year": "2025年10月1日 / 2026年9月29日公開",
+      "url": "https://www.e-stat.go.jp/stat-search/files?cycle=7&layout=datalist&page=1&tclass1=000001247656&tclass2=000001247658&tclass3val=0&toukei=00450021&tstat=000001030908"
+    },
+    {
+      "id": "S38",
+      "title": "厚労省 医師偏在指標（2026年4月版）",
+      "year": "2026年4月",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    },
+    {
+      "id": "S39",
+      "title": "厚労省 2025年病床機能報告・病院施設票（医療機器台数）",
+      "year": "2025年7月1日",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html"
+    },
+    {
+      "id": "S40",
+      "title": "鳥取県・島根県 保健所一覧",
+      "year": "2026年閲覧",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/31tottori.html"
+    },
+    {
+      "id": "S41",
+      "title": "島根県 保健所所管区域",
+      "year": "2026年閲覧",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/32shimane.html"
+    },
+    {
+      "id": "S42",
+      "title": "島根県 地域医療構想 必要病床数パターンⅠ",
+      "year": "2016年策定（2025年推計）",
+      "url": "https://www.pref.shimane.lg.jp/medical/kenko/iryo/shimaneno_iryo/chiikiiryoukousou.data/zenpen.pdf"
+    },
+    {
+      "id": "S43",
+      "title": "日本の地域別将来推計人口（社人研 2023年推計）",
+      "year": "2023年推計・2050年まで",
+      "url": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/6houkoku/houkoku.asp"
+    },
+    {
+      "id": "S44",
+      "title": "鳥取県・2025年度医療施設調査の全国比較（厚労省概要）",
+      "year": "2025年10月1日",
+      "url": "https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/25/"
+    },
+    {
+      "id": "S45",
+      "title": "島根県保健所の所管市町村",
+      "year": "2026年閲覧",
+      "url": "https://www.pref.shimane.lg.jp/bousai_info/yakuji/yakuji/yakuji_info/hc_shokatsu.html"
+    },
+    {
+      "id": "S46",
+      "title": "医療機関の病床機能・医療機器報告制度",
+      "year": "2026年度",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000055891.html"
+    }
+  ]
+}
