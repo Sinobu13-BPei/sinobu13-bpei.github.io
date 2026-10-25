@@ -68,6 +68,22 @@ for(const file of files){
   if(!/data-data-year="20\d{2}"/.test(html))issue(warnings,file,'Data baseline year not independently verified');
   stats.push({file,bytes:Buffer.byteLength(html),links:links.length,styles:styles.length,scripts:jsCount});
 }
+/* Guard the hub's population chart against invisible gradient-only bars. */
+{
+  const hubPath=path.join(root,'medical-intelligence/index.html');
+  const cssPath=path.join(root,'medical-intelligence/jm-legacy-1.css');
+  if(fs.existsSync(hubPath)&&fs.existsSync(cssPath)){
+    const hub=fs.readFileSync(hubPath,'utf8');
+    const css=fs.readFileSync(cssPath,'utf8');
+    if(!hub.includes('class="population-chart" role="img"'))
+      issue(errors,'medical-intelligence/index.html','Population chart accessibility wrapper missing');
+    if(!hub.includes('class="population-chart__bar" style="height:100%"')||
+       !hub.includes('class="population-chart__bar" style="height:83%"'))
+      issue(errors,'medical-intelligence/index.html','Population chart bars missing');
+    if(!/\.population-chart__bar\{[^}]*background:#0E7C86!important/.test(css))
+      issue(errors,'medical-intelligence/jm-legacy-1.css','Population chart solid color missing');
+  }
+}
 for(const file of unavailable)issue(warnings,file,'Large original: connector could not retrieve complete text; no source file was overwritten');
 console.log(JSON.stringify({
   name:'Japan Medical Market Intelligence',
