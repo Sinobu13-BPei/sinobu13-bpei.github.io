@@ -40,3 +40,8 @@ canvas{max-width:100%;height:auto!important;max-height:380px;display:block}
 @media(max-width:980px){.figure-row,.map-shell,.risk-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.map-shell{grid-template-columns:1fr}.directory{grid-template-columns:1fr}}
 @media(max-width:620px){.figure-row,.risk-grid,.strategy-grid{grid-template-columns:1fr}#okMap{height:390px}.metric{font-size:26px}}
 @media print{#okMap{height:340px!important}.map-shell{display:block}.prominent{background:white;color:#173b5b}.prominent h3{color:#173b5b}.map-shell #okMap{display:none}}
+
+/* 2026-10-25 usability QA: mobile section navigation stays accessible */
+@media(max-width:960px){.sitehead .nav{display:block;padding-top:8px;padding-bottom:8px}.sitehead .menu{display:flex;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;max-width:100%;gap:7px;padding-bottom:6px;scrollbar-width:thin}.sitehead .menu a{font-size:12px;background:rgba(255,255,255,.11);flex:0 0 auto;min-height:39px;display:inline-flex;align-items:center}.sitehead .brand{margin-bottom:5px}.sitehead .brand small{display:none}}
+@media(max-width:610px){.container{padding-left:16px;padding-right:16px}.sitehead{position:relative}.section .tablewrap{overscroll-behavior-inline:contain}.figure-row canvas{max-height:320px}#mapView .map-shell{display:block}}
+@media print{.sitehead{display:none!important}.nav,.menu{display:none!important}}
