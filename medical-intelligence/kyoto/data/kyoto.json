@@ -1,0 +1,679 @@
+{
+  "lastUpdated": "2026-10-26",
+  "regions": [
+    {
+      "id": "tango",
+      "name": "丹後",
+      "cities": "宮津市・京丹後市・伊根町・与謝野町",
+      "pop": [
+        89638,
+        81963,
+        74876,
+        67985,
+        61293,
+        54934,
+        48885
+      ],
+      "bed": [
+        16,
+        707,
+        196,
+        185,
+        92
+      ],
+      "need": [
+        71,
+        263,
+        352,
+        184
+      ],
+      "doctor": 162.8,
+      "priority": [
+        3,
+        2,
+        4,
+        5,
+        5,
+        4
+      ],
+      "lat": 35.6,
+      "lon": 135.15,
+      "hub": "京都府立医科大学附属北部医療センター",
+      "needtext": "人口・労働力減少が急速。交通距離と救急/在宅医療の両立、装置維持・巡回保守・検査共有を優先。",
+      "opp": "救急・在宅連携、可搬型US、検査共同利用、設備長寿命化",
+      "bedTotal": 1196,
+      "bedFunctional": 1104,
+      "score": 72.0,
+      "popChange2040": -31.6
+    },
+    {
+      "id": "chutan",
+      "name": "中丹",
+      "cities": "福知山市・舞鶴市・綾部市",
+      "pop": [
+        189488,
+        180638,
+        171843,
+        163022,
+        154182,
+        145255,
+        136498
+      ],
+      "bed": [
+        73,
+        952,
+        487,
+        333,
+        180
+      ],
+      "need": [
+        184,
+        634,
+        557,
+        282
+      ],
+      "doctor": 201.8,
+      "priority": [
+        3,
+        3,
+        4,
+        5,
+        4,
+        4
+      ],
+      "lat": 35.31,
+      "lon": 135.21,
+      "hub": "市立福知山市民病院",
+      "needtext": "福知山・舞鶴・綾部に複数の診療拠点。拠点間搬送、急性期の診断・地域連携を強化。",
+      "opp": "救急CT・画像連携、CT/MRI更新、保守BCP、診療所との共同利用",
+      "bedTotal": 2025,
+      "bedFunctional": 1845,
+      "score": 74.0,
+      "popChange2040": -18.6
+    },
+    {
+      "id": "nantan",
+      "name": "南丹",
+      "cities": "亀岡市・南丹市・京丹波町",
+      "pop": [
+        130710,
+        124158,
+        117052,
+        109528,
+        101621,
+        93751,
+        86274
+      ],
+      "bed": [
+        46,
+        586,
+        103,
+        419,
+        148
+      ],
+      "need": [
+        80,
+        360,
+        278,
+        516
+      ],
+      "doctor": 188.9,
+      "priority": [
+        3,
+        2,
+        4,
+        5,
+        5,
+        4
+      ],
+      "lat": 35.13,
+      "lon": 135.47,
+      "hub": "京都中部総合医療センター",
+      "needtext": "山間地域のアクセスと回復期・在宅連携が論点。通院負担と地域偏在に配慮した配置。",
+      "opp": "健診・一般診療US、遠隔画像診断、在宅訪問検査、巡回保守",
+      "bedTotal": 1302,
+      "bedFunctional": 1154,
+      "score": 72.0,
+      "popChange2040": -22.3
+    },
+    {
+      "id": "kyoto-otokuni",
+      "name": "京都・乙訓",
+      "cities": "京都市11区・向日市・長岡京市・大山崎町",
+      "pop": [
+        1617143,
+        1593300,
+        1560760,
+        1521086,
+        1473602,
+        1423859,
+        1374937
+      ],
+      "bed": [
+        2996,
+        6752,
+        3117,
+        3428,
+        776
+      ],
+      "need": [
+        2487,
+        6865,
+        6005,
+        5926
+      ],
+      "doctor": 396.9,
+      "priority": [
+        5,
+        5,
+        4,
+        3,
+        4,
+        5
+      ],
+      "lat": 35.011,
+      "lon": 135.753,
+      "hub": "京都大学医学部附属病院・京都府立医科大学附属病院",
+      "needtext": "大学・高度急性期・研究拠点が集積。高機能診断、臨床研究、専門医紹介、外来/病院間の検査連携。",
+      "opp": "高度画像診断・核医学・治験研究、PACS/画像共有、更新TCO、専門診療所",
+      "bedTotal": 17069,
+      "bedFunctional": 16293,
+      "score": 88.0,
+      "popChange2040": -8.9
+    },
+    {
+      "id": "yamashiro-kita",
+      "name": "山城北",
+      "cities": "宇治市・城陽市・八幡市・京田辺市・久御山町・井手町・宇治田原町",
+      "pop": [
+        429990,
+        417066,
+        399934,
+        380407,
+        359530,
+        338629,
+        318707
+      ],
+      "bed": [
+        298,
+        1220,
+        1047,
+        1239,
+        116
+      ],
+      "need": [
+        309,
+        1200,
+        1191,
+        1648
+      ],
+      "doctor": 219.6,
+      "priority": [
+        4,
+        4,
+        4,
+        3,
+        3,
+        4
+      ],
+      "lat": 34.89,
+      "lon": 135.78,
+      "hub": "宇治徳洲会病院・京都岡本記念病院",
+      "needtext": "大阪・京都への移動と高齢化が並存。救急病院・住宅地・診療所の機能分担と検査紹介が鍵。",
+      "opp": "救急画像・心血管・透析、クリニック更新、画像紹介ネットワーク",
+      "bedTotal": 3920,
+      "bedFunctional": 3804,
+      "score": 75.0,
+      "popChange2040": -16.4
+    },
+    {
+      "id": "yamashiro-minami",
+      "name": "山城南",
+      "cities": "木津川市・笠置町・和束町・精華町・南山城村",
+      "pop": [
+        121118,
+        121265,
+        120727,
+        119133,
+        116793,
+        113941,
+        110674
+      ],
+      "bed": [
+        30,
+        333,
+        191,
+        115,
+        28
+      ],
+      "need": [
+        56,
+        221,
+        159,
+        129
+      ],
+      "doctor": 149.5,
+      "priority": [
+        3,
+        2,
+        4,
+        4,
+        5,
+        4
+      ],
+      "lat": 34.74,
+      "lon": 135.82,
+      "hub": "京都山城総合医療センター",
+      "needtext": "学研都市の住宅地と山間集落の二層構造。奈良・大阪への受療圏越えを前提に連携。",
+      "opp": "診療所US・DX、地域画像読影、在宅・高齢者検査、広域搬送支援",
+      "bedTotal": 697,
+      "bedFunctional": 669,
+      "score": 69.0,
+      "popChange2040": -3.6
+    }
+  ],
+  "facilities": [
+    {
+      "name": "京都大学医学部附属病院",
+      "region": "京都・乙訓",
+      "kind": "大学・特定機能・救命救急・がん・災害",
+      "address": "京都市左京区聖護院川原町54",
+      "site": "https://www.kuhp.kyoto-u.ac.jp/",
+      "lat": 35.019,
+      "lon": 135.781
+    },
+    {
+      "name": "京都府立医科大学附属病院",
+      "region": "京都・乙訓",
+      "kind": "大学・特定機能・救命救急・がん・災害",
+      "address": "京都市上京区河原町通広小路上る梶井町465",
+      "site": "https://www.h.kpu-m.ac.jp/",
+      "lat": 35.028,
+      "lon": 135.769
+    },
+    {
+      "name": "京都第二赤十字病院",
+      "region": "京都・乙訓",
+      "kind": "高度救命救急・がん",
+      "address": "京都市上京区春帯町355-5",
+      "site": "https://www.kyoto2.jrc.or.jp/",
+      "lat": 35.018,
+      "lon": 135.752
+    },
+    {
+      "name": "京都第一赤十字病院",
+      "region": "京都・乙訓",
+      "kind": "災害基幹・救命救急・がん",
+      "address": "京都市東山区本町15-749",
+      "site": "http://www.kyoto1-jrc.org/",
+      "lat": 34.981,
+      "lon": 135.772
+    },
+    {
+      "name": "京都市立病院",
+      "region": "京都・乙訓",
+      "kind": "公立・がん・災害",
+      "address": "京都市中京区壬生東高田町1-2",
+      "site": "https://www.kch-org.jp/",
+      "lat": 35.0,
+      "lon": 135.73
+    },
+    {
+      "name": "京都医療センター",
+      "region": "京都・乙訓",
+      "kind": "NHO・がん・救命救急・災害",
+      "address": "京都市伏見区深草向畑町1-1",
+      "site": "https://kyoto.hosp.go.jp/",
+      "lat": 34.942,
+      "lon": 135.775
+    },
+    {
+      "name": "洛和会音羽病院",
+      "region": "京都・乙訓",
+      "kind": "民間・救命救急・災害",
+      "address": "京都市山科区音羽珍事町2",
+      "site": "https://www.rakuwa.or.jp/otowa/",
+      "lat": 34.989,
+      "lon": 135.826
+    },
+    {
+      "name": "京都桂病院",
+      "region": "京都・乙訓",
+      "kind": "民間・がん診療拠点",
+      "address": "京都市西京区山田平尾町17",
+      "site": "https://www.katsura.com/",
+      "lat": 34.993,
+      "lon": 135.695
+    },
+    {
+      "name": "京都済生会病院",
+      "region": "京都・乙訓",
+      "kind": "済生会・災害拠点",
+      "address": "長岡京市下海印寺下内田101",
+      "site": "https://www.kyoto.saiseikai.or.jp/",
+      "lat": 34.93,
+      "lon": 135.691
+    },
+    {
+      "name": "宇治徳洲会病院",
+      "region": "山城北",
+      "kind": "高度救命救急・がん・災害",
+      "address": "宇治市槇島町石橋145",
+      "site": "https://www.ujitoku.or.jp/",
+      "lat": 34.902,
+      "lon": 135.782
+    },
+    {
+      "name": "京都岡本記念病院",
+      "region": "山城北",
+      "kind": "民間・がん・災害",
+      "address": "久世郡久御山町佐山西ノ口100",
+      "site": "https://www.okamoto-hp.or.jp/",
+      "lat": 34.877,
+      "lon": 135.732
+    },
+    {
+      "name": "京都山城総合医療センター",
+      "region": "山城南",
+      "kind": "地域がん診療病院・災害",
+      "address": "木津川市木津駅前1-27",
+      "site": "https://www.yamashiro-hp.jp/",
+      "lat": 34.735,
+      "lon": 135.829
+    },
+    {
+      "name": "京都中部総合医療センター",
+      "region": "南丹",
+      "kind": "地域がん診療病院・災害",
+      "address": "南丹市八木町八木上野25",
+      "site": "https://www.kyoto-chubumedc.or.jp/",
+      "lat": 35.103,
+      "lon": 135.529
+    },
+    {
+      "name": "市立福知山市民病院",
+      "region": "中丹",
+      "kind": "公立・救命救急・がん・災害",
+      "address": "福知山市厚中町231",
+      "site": "https://www.city.fukuchiyama.lg.jp/site/hosp/",
+      "lat": 35.296,
+      "lon": 135.116
+    },
+    {
+      "name": "京都府立医科大学附属北部医療センター",
+      "region": "丹後",
+      "kind": "大学附属・がん・災害",
+      "address": "与謝郡与謝野町男山481",
+      "site": "https://nmc.kpu-m.ac.jp/",
+      "lat": 35.583,
+      "lon": 135.154
+    },
+    {
+      "name": "丹後中央病院",
+      "region": "丹後",
+      "kind": "地域基幹病院",
+      "address": "京丹後市峰山町杉谷158-1",
+      "site": "https://www.tangohp.com/",
+      "lat": 35.624,
+      "lon": 135.059
+    },
+    {
+      "name": "京都府庁",
+      "region": "京都・乙訓",
+      "kind": "行政・保健医療計画",
+      "address": "京都市上京区下立売通新町西入薮ノ内町",
+      "site": "https://www.pref.kyoto.jp/",
+      "lat": 35.019,
+      "lon": 135.756
+    },
+    {
+      "name": "京都府医師会",
+      "region": "京都・乙訓",
+      "kind": "医師会・地域医療連携",
+      "address": "京都市中京区西ノ京東栂尾町6",
+      "site": "https://www.kyoto.med.or.jp/",
+      "lat": 35.014,
+      "lon": 135.741
+    },
+    {
+      "name": "乙訓保健所",
+      "region": "京都・乙訓",
+      "kind": "府保健所",
+      "address": "向日市上植野町馬立8",
+      "site": "https://www.pref.kyoto.jp/hokensyo/index.html",
+      "lat": 34.938,
+      "lon": 135.694
+    },
+    {
+      "name": "山城北保健所",
+      "region": "山城北",
+      "kind": "府保健所",
+      "address": "宇治市宇治若森7-6",
+      "site": "https://www.pref.kyoto.jp/hokensyo/index.html",
+      "lat": 34.887,
+      "lon": 135.803
+    },
+    {
+      "name": "山城南保健所",
+      "region": "山城南",
+      "kind": "府保健所",
+      "address": "木津川市木津上戸18-1",
+      "site": "https://www.pref.kyoto.jp/hokensyo/index.html",
+      "lat": 34.734,
+      "lon": 135.822
+    },
+    {
+      "name": "南丹保健所",
+      "region": "南丹",
+      "kind": "府保健所",
+      "address": "南丹市園部町小山東町藤ノ木21",
+      "site": "https://www.pref.kyoto.jp/hokensyo/index.html",
+      "lat": 35.107,
+      "lon": 135.472
+    },
+    {
+      "name": "中丹西保健所",
+      "region": "中丹",
+      "kind": "府保健所",
+      "address": "福知山市篠尾新町1-91",
+      "site": "https://www.pref.kyoto.jp/hokensyo/index.html",
+      "lat": 35.294,
+      "lon": 135.115
+    },
+    {
+      "name": "中丹東保健所",
+      "region": "中丹",
+      "kind": "府保健所",
+      "address": "舞鶴市倉谷1350-23",
+      "site": "https://www.pref.kyoto.jp/hokensyo/index.html",
+      "lat": 35.447,
+      "lon": 135.327
+    },
+    {
+      "name": "丹後保健所",
+      "region": "丹後",
+      "kind": "府保健所",
+      "address": "京丹後市峰山町丹波855",
+      "site": "https://www.pref.kyoto.jp/hokensyo/index.html",
+      "lat": 35.627,
+      "lon": 135.073
+    }
+  ],
+  "sources": [
+    {
+      "name": "京都府推計人口（月報）",
+      "year": "2026年9月1日現在",
+      "url": "https://www.pref.kyoto.jp/tokei/monthly/suikeijinkou/index.html",
+      "note": "2025年国勢調査確定値への基準改定を反映した公表系列"
+    },
+    {
+      "name": "令和7年国勢調査京都府人口速報",
+      "year": "2025年10月1日",
+      "url": "https://www.pref.kyoto.jp/tokei/news/press/2026/5/20.html",
+      "note": "速報値。確定値との相違に留意"
+    },
+    {
+      "name": "社人研・日本の地域別将来推計人口",
+      "year": "2023年推計／基準2020年",
+      "url": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp",
+      "note": "2020～2050年。2025年国勢調査改定値とは別系列"
+    },
+    {
+      "name": "京都府保健医療計画 第8次",
+      "year": "2024～2029年度",
+      "url": "https://www.pref.kyoto.jp/hofukuki/news/keikaku6to11.html",
+      "note": "地域医療、5疾病6事業・在宅の体系"
+    },
+    {
+      "name": "京都府病床機能報告",
+      "year": "2025年7月1日",
+      "url": "https://www.pref.kyoto.jp/iryo/byousyoukinou/byousyoukinou-7nendo.html",
+      "note": "病院の自主申告値、休棟・無回答を含む"
+    },
+    {
+      "name": "京都府病床機能報告",
+      "year": "2024年7月1日",
+      "url": "https://www.pref.kyoto.jp/iryo/byousyoukinou/byousyoukinou-6nendo.html",
+      "note": "前年度比較用"
+    },
+    {
+      "name": "京都府地域医療構想・必要病床数",
+      "year": "2025年必要量（計画策定当時の推計）",
+      "url": "https://www.pref.kyoto.jp/iryo/chiikiiryo/documents/shiryo7.pdf",
+      "note": "将来の必要量。2025年病床機能報告と単純な過不足計算は不可"
+    },
+    {
+      "name": "厚労省・医師偏在指標／医師確保",
+      "year": "2026年4月公表版",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html",
+      "note": "二次医療圏別医師偏在指標；絶対的充足数ではない"
+    },
+    {
+      "name": "京都府 がん診療拠点指定一覧",
+      "year": "2026年6月18日更新",
+      "url": "https://www.pref.kyoto.jp/gan/shinryou.html",
+      "note": "国指定13、府指定8（公表時点）"
+    },
+    {
+      "name": "京都府 三次救急医療",
+      "year": "2024年4月1日指定見直し",
+      "url": "https://www.pref.kyoto.jp/iryo/news/sanjikyukyu.html",
+      "note": "高度救命救急2、救命救急6"
+    },
+    {
+      "name": "京都府 災害拠点病院",
+      "year": "府指定一覧",
+      "url": "https://www.pref.kyoto.jp/iryo/saigaiiryo.html",
+      "note": "基幹1、地域12"
+    },
+    {
+      "name": "京都府 医療機器効率的活用",
+      "year": "2023年11月審議資料",
+      "url": "https://www.pref.kyoto.jp/shingikai/iryo-01/documents/siryo1-2_20231120.pdf",
+      "note": "CT/MRI/PET/マンモ/放射線治療の配置・調整人口指標の定義"
+    },
+    {
+      "name": "厚労省／e-Stat医療施設（静態）調査",
+      "year": "2023年調査",
+      "url": "https://www.e-stat.go.jp/dbview?sid=0004024960",
+      "note": "装置保有台数・施設数の確認窓口。今回未抽出項目を捏造しない"
+    },
+    {
+      "name": "京都府 地域医療介護総合確保基金",
+      "year": "2026年4月更新",
+      "url": "https://www.pref.kyoto.jp/kaigo-jigyo/chiikiiryoukaigokikin.html",
+      "note": "制度・計画掲載"
+    },
+    {
+      "name": "京都府地域医療介護総合確保基金 計画",
+      "year": "2025年度事業計画",
+      "url": "https://www.pref.kyoto.jp/shingikai/iryo-01/documents/070310_shiryo6-1.pdf",
+      "note": "病床再編、在宅医療、人材、働き方改革"
+    },
+    {
+      "name": "京都府の保健所",
+      "year": "2026年3月更新",
+      "url": "https://www.pref.kyoto.jp/hokensyo/index.html",
+      "note": "府所管7か所、綴喜分室。京都市所管は別体系"
+    },
+    {
+      "name": "京都府内地区医師会案内",
+      "year": "2026年7月6日現在",
+      "url": "https://www.kyoto.med.or.jp/business/guide",
+      "note": "郡市区医師会の名称・所在地・連絡先"
+    },
+    {
+      "name": "京都市 高度管理医療機器等販売貸与業者",
+      "year": "2025年4月1日",
+      "url": "https://www.city.kyoto.lg.jp/hokenfukushi/cmsfiles/contents/0000253/253035/20250401koudo.pdf",
+      "note": "許可の存在を示すもので販売高やシェアではない"
+    }
+  ],
+  "populationSeries": {
+    "years": [
+      2020,
+      2025,
+      2030,
+      2035,
+      2040,
+      2045,
+      2050
+    ],
+    "totals": [
+      2578087,
+      2518390,
+      2445192,
+      2361161,
+      2267021,
+      2170369,
+      2075975
+    ],
+    "elderly": [
+      756404,
+      758721,
+      764864,
+      780166,
+      814565,
+      816356,
+      799876
+    ]
+  },
+  "bed2025": {
+    "reported": 26209,
+    "high": 3459,
+    "acute": 10550,
+    "recovery": 5141,
+    "chronic": 5719,
+    "idle": 1340
+  },
+  "scores": {
+    "weights": [
+      25,
+      20,
+      20,
+      15,
+      10,
+      10
+    ],
+    "axes": [
+      "需要変化",
+      "高度医療/急性期集積",
+      "更新・再編機会",
+      "アクセス・BCP課題",
+      "人材制約",
+      "在宅/病診連携"
+    ]
+  },
+  "market": [
+    "US（超音波）",
+    "CT",
+    "MRI",
+    "PET/PET-CT",
+    "リニアック等放射線治療",
+    "血管撮影・IVR",
+    "内視鏡",
+    "心電図・生体モニタ",
+    "透析機器",
+    "PACS・画像/医療DX"
+  ]
+}
