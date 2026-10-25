@@ -37,6 +37,8 @@ function render(d){
  return '<tr><td><strong>'+esc(a.name)+'</strong><div class="minor">'+esc(a.code)+'</div></td><td class="num">'+fmt(tot)+'</td><td class="num">'+fmt(need)+'</td><td class="num">'+esc(a.phys)+'</td><td>'+esc(a.drivers)+'</td></tr>';
  });
  el('area-data').innerHTML=lines.join('');
+ el('bed-function-data').innerHTML=d.areas.map(function(a){return '<tr><td><strong>'+esc(a.name)+'</strong></td>'+a.beds24.concat(a.need25).map(function(x){return '<td class="num">'+fmt(x)+'</td>';}).join('')+'</tr>';}).join('');
+
  el('strategy-areas').innerHTML=areas.map(function(a){
   return '<article class="card"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><h3>'+esc(a.name)+'医療圏</h3><strong class="badge estimate">'+score(a).toFixed(1)+' / 100（推計）</strong></div><p class="minor">'+esc(a.municipal)+'</p><p><strong>需要の背景：</strong>'+esc(a.drivers)+'</p><p><strong>主な課題：</strong>'+esc(a.risks)+'</p><p><strong>注目施設・地域：</strong>'+esc(a.focus)+'</p><p><strong>今後3〜5年の論点：</strong>'+esc(a.opportunity)+'</p></article>';
  }).join('');
