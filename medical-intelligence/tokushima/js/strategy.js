@@ -18,10 +18,39 @@ function render(){
  const refs=byId('deep-source-list');if(refs){refs.innerHTML=D.sources.map((s,i)=>'<tr><td>'+String(i+1).padStart(2,'0')+'</td><td>'+esc(s.t)+'</td><td>'+esc(s.year)+'</td><td>'+srcLink(s.url)+'</td></tr>').join('')}
  const scores=byId('score-rows');if(scores){scores.innerHTML=D.areas.map(a=>'<tr><td>'+a.name+'</td><td>'+a.objectives.map((v,i)=>v+' /5').join('</td><td>')+'</td><td id="score-'+a.name+'">—</td></tr>').join('');calc()}
  const mapextra=byId('gsi-map-note');if(mapextra)mapextra.innerHTML='ベースマップ：<a target="_blank" rel="noopener" href="https://maps.gsi.go.jp/">国土地理院「地理院タイル」</a>。所在地マーカーは参考位置。個別の地理院地図は以下のリンク一覧を参照。';
- addExistingFacilityLinks();
+ addExistingFacilityLinks();associationGeo();
  drawCharts();
 }
 function calc(){if(!D)return;let w=D.weights.map((v,i)=>Number(byId('weight-'+i)?.value||v.weight));let sum=w.reduce((a,b)=>a+b,0);byId('weight-total').textContent=sum+'%';D.areas.forEach(a=>{let v=a.objectives.reduce((s,sc,i)=>s+sc*w[i],0)/(sum||100);let t=byId('score-'+a.name);if(t)t.textContent=v.toFixed(2)+' /5'})}
+
+function associationGeo(){
+ const base=byId('associations');
+ if(!base)return;
+ const loc={
+ '徳島市医師会':['徳島市幸町3丁目77',34.0711,134.5499],
+ '小松島市医師会':['小松島市横須町12-48',34.001,134.582],
+ '阿南市医師会':['阿南市宝田町荒井6-1',33.930,134.640],
+ '海部郡医師会':['海部郡海陽町大里字松原34-47',33.610,134.350],
+ '徳島西医師会':['徳島市国府町早淵56-1',34.070,134.475],
+ '名西郡医師会':['名西郡石井町浦庄字下浦689-1',34.069,134.410],
+ '鳴門市医師会':['鳴門市撫養町南浜字東浜435',34.172,134.608],
+ '板野郡医師会':['板野郡藍住町徳命字前須西126-1',34.118,134.499],
+ '阿波市医師会':['阿波市土成町吉田字原田市の四31',34.134,134.343],
+ '吉野川市医師会':['吉野川市鴨島町飯尾400-1',34.058,134.361],
+ '美馬市医師会':['美馬市脇町大字猪尻字八幡神社下南130-3',34.066,134.156],
+ '三好市医師会':['三好市池田町シマ842-1',34.028,133.804],
+ '徳島大学医学部医師会':['徳島市蔵本町2丁目50-1',34.073,134.522]
+ };
+ Array.from(base.children).forEach(card=>{
+  const name=card.querySelector('strong')?.textContent||'';
+  const info=loc[name];if(!info)return;
+  const wrapper=document.createElement('div');wrapper.style.cssText='border:1px solid #dce8ef;border-radius:10px;background:#fff;overflow:hidden';
+  const g=document.createElement('div');g.className='gsi-group';g.style.cssText='padding:0 8px 8px;margin-top:-3px';
+  const x=document.createElement('a');x.textContent='Google Maps';x.href=gMap(name,info[0]);x.target='_blank';x.rel='noopener';
+  const y=document.createElement('a');y.textContent='地理院地図';y.href=gsi(info[1],info[2]);y.target='_blank';y.rel='noopener';y.title='掲載住所周辺の参考座標';
+  g.append(x,y);card.parentNode.replaceChild(wrapper,card);wrapper.append(card,g)
+ })
+}
 function addExistingFacilityLinks(){const tb=byId('hospitalRows');if(tb){Array.from(tb.rows).forEach(row=>{if(row.cells.length<6)return;const name=row.cells[0]?.textContent?.trim()||'';const found=D.institutions.find(p=>p[0]===name);let a=document.createElement('a');a.textContent='地理院地図';a.className='btn';a.style.padding='4px 8px';a.style.marginLeft='6px';a.target='_blank';a.rel='noopener';a.href=found?gsi(found[3],found[4]):'https://maps.gsi.go.jp/#12/34.04/134.52/';a.title=found?'参考位置を地理院地図で見る':'徳島県の地理院地図を表示（施設位置ではありません）';row.cells[5].appendChild(a)})}}
 function drawCharts(){if(!window.Chart||!D)return;Chart.defaults.font.family='"Meiryo UI",Meiryo,"Yu Gothic",sans-serif';Chart.defaults.color='#426075';let c=byId('deep-doctors');if(c)new Chart(c,{type:'bar',data:{labels:D.areas.map(a=>a.name),datasets:[{label:'2024 医師数',data:D.areas.map(a=>a.doctors2024),backgroundColor:['#247bb1','#d48252','#66a185']} ]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}},responsive:true,maintainAspectRatio:false}});c=byId('deep-devices');if(c)new Chart(c,{type:'bar',data:{labels:D.equipment.map(e=>e.label),datasets:[{label:'徳島県（旧計画）',data:D.equipment.map(e=>e.prefRate),backgroundColor:'#167eb0'},{label:'全国（同計画）',data:D.equipment.map(e=>e.nationalRate),backgroundColor:'#cba05b'}]},options:{indexAxis:'y',plugins:{legend:{position:'bottom'}},scales:{x:{beginAtZero:true,title:{display:true,text:'調整人口あたり台数：2020年計画記載値'}}},responsive:true,maintainAspectRatio:false}})}
 function init(){if(!D){fetch('./data/research.json').then(r=>r.json()).then(v=>{window.TOKUSHIMA_RESEARCH=v;render()}).catch(()=>{const p=byId('research-load');if(p)p.textContent='外部データを読み込めません。公開HTMLの本文・原典リンクを参照してください。'});return}render()}
