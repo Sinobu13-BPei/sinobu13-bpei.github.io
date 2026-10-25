@@ -98,3 +98,14 @@ body.jm-site .jm-site :is(h1,h2,h3){font-variant-numeric:tabular-nums}
 #site-footer{background-color:var(--jm-navy)!important;color:#fff!important}
 #site-footer .jm-footer-nav a{color:#fff!important}
 @media(max-width:760px){body.jm-site :is(.hero,.cover){padding-block:16px!important}}
+
+/* Contrast safeguard for former gradient-only hero/footer components */
+body.jm-site :is(.hero,.cover,.page-hero,.banner){background-color:var(--jm-surface)!important;color:var(--jm-text)!important}
+body.jm-site :is(.hero,.cover,.page-hero,.banner) :is(h1,h2,h3,p,.lead,.note,.eyebrow){color:var(--jm-navy)!important}
+body.jm-site :is(.hero,.cover) .chip{background-color:#fff!important;color:var(--jm-text)!important;border-color:var(--jm-line)!important}
+body.jm-site :is(.footer,.end){background-color:var(--jm-navy)!important;color:#fff!important}
+body.jm-site :is(.footer,.end) :is(h1,h2,h3,p,span,small,strong){color:#fff!important}
+body.jm-site :is(.hero,.cover) a:not(.btn):not(.button){text-decoration-thickness:1px}
+body.jm-site :is(.hero,.cover) :is(.links a,.handbook-stack a){color:#fff!important}
+body.jm-site :is(.footer,.end) :is(.footer-link-strip a,.handbook-stack a){color:#fff!important}
+body.jm-site :is(.hero,.cover) .links a{background-color:var(--jm-accent)!important}
