@@ -1,0 +1,79 @@
+/* Japan Medical Market Intelligence | site.css | 2026-10-25
+   Shared foundation. Facts, chart values, citations and source URLs are not modified. */
+:root{
+  --jm-navy:#0F2A4A;--jm-accent:#0E7C86;--jm-good:#2E7D32;
+  --jm-caution:#B26A00;--jm-warning:#C62828;--jm-white:#FFFFFF;
+  --jm-surface:#F5F7FA;--jm-text:#1F2933;--jm-muted:#5B6770;
+  --jm-line:#DDE3EA;--jm-series-1:#0E7C86;--jm-series-2:#3A6EA5;
+  --jm-series-3:#8A6FB0;--jm-series-4:#C27C2C;
+  --jm-series-5:#5B8C5A;--jm-series-6:#9AA5B1;
+}
+html{scroll-behavior:smooth;scroll-padding-top:104px}
+body.jm-site{
+  margin:0;color:var(--jm-text);background:var(--jm-white);
+  font-family:"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:16px;line-height:1.7;overflow-wrap:anywhere
+}
+body.jm-site,body.jm-site *{box-sizing:border-box}
+body.jm-site img,body.jm-site video,body.jm-site svg{max-width:100%;height:auto}
+body.jm-site :where(p,li,td,th,dd,dt,blockquote){line-height:1.7}
+body.jm-site :where(small,caption,figcaption,.note,.footnote,.muted){font-size:max(13px,1em * 0.813)}
+body.jm-site :where(h1,h2,h3){color:var(--jm-navy);font-weight:700;line-height:1.45;overflow-wrap:anywhere}
+body.jm-site :where(h1){font-size:28px}
+body.jm-site :where(h2){font-size:22px}
+body.jm-site :where(h3){font-size:18px}
+body.jm-site :where(a){color:var(--jm-accent);text-underline-offset:3px}
+body.jm-site :where(a,button,input,select,textarea):focus-visible{
+  outline:2px solid var(--jm-accent);outline-offset:3px
+}
+body.jm-site :where(button,input,select,textarea){font:inherit}
+body.jm-site :where(table){border-collapse:separate;border-spacing:0;font-variant-numeric:tabular-nums}
+body.jm-site :where(th,td){border:1px solid var(--jm-line);padding:8px;vertical-align:top}
+body.jm-site :where(th){background:var(--jm-surface);color:var(--jm-navy);position:sticky;top:0;z-index:1}
+body.jm-site :where(td[data-numeric],.numeric,.num,.metric-value){text-align:right;font-variant-numeric:tabular-nums}
+body.jm-site :where(.tablewrap,.table-wrap,.table-scroll,.data-table-wrap){max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain}
+body.jm-site :where(.card,.panel,.stat,.kpi,.box){box-shadow:none}
+body.jm-site :where(.card,.panel,.stat,.kpi){border-radius:8px}
+body.jm-site :where(.btn,.button,button,[role="button"]){box-shadow:none;border-radius:8px}
+body.jm-site :where(.btn,.button,button,[role="button"]):not(:disabled){cursor:pointer}
+body.jm-site :where(.btn-primary,.button-primary){background:var(--jm-accent);color:#fff;border:1px solid var(--jm-accent)}
+body.jm-site :where(.btn-secondary,.button-secondary){background:var(--jm-white);color:var(--jm-accent);border:1px solid var(--jm-line)}
+/* Text first, with no decorative gradients or drop shadows in the shared UI. */
+.jm-header,.jm-footer,.jm-toc,.jm-kpi,.jm-site-card,.jm-note{
+  background-image:none!important;box-shadow:none!important
+}
+#site-header,#site-footer{display:block;position:relative;z-index:101}
+#site-header{background:var(--jm-navy);color:#fff;border-bottom:1px solid var(--jm-line)}
+.jm-shell{max-width:1120px;margin-inline:auto;padding-inline:16px}
+.jm-header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.jm-brand{font-size:16px;font-weight:700;color:#fff!important;text-decoration:none;white-space:normal}
+.jm-menu-toggle{display:none;border:1px solid #8ba2b2;border-radius:8px;background:transparent;color:#fff;padding:8px 12px;font-size:13px;min-height:44px}
+.jm-primary-nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.jm-primary-nav a{display:inline-flex;min-height:44px;align-items:center;color:#fff!important;text-decoration:none;padding:8px;border-radius:8px;font-size:13px;white-space:nowrap}
+.jm-primary-nav a[aria-current="page"],.jm-primary-nav a:hover{background:var(--jm-accent)}
+.jm-meta{display:block;padding:8px 0;color:var(--jm-muted);font-size:13px;line-height:1.5}
+.jm-toc{display:flex;gap:8px;overflow-x:auto;max-width:1120px;margin:16px auto 24px;padding:8px 16px;border-block:1px solid var(--jm-line);background:var(--jm-surface);white-space:nowrap;scrollbar-width:thin}
+.jm-toc a{display:inline-flex;align-items:center;gap:8px;padding:8px;border-radius:8px;min-height:44px;text-decoration:none;font-size:13px;white-space:nowrap}
+.jm-toc a:hover,.jm-toc a:focus-visible{background:#e5f1f2}
+.jm-section-label{display:block;font-size:13px;font-weight:700;color:var(--jm-accent);letter-spacing:.05em;margin:16px 0 4px}
+.jm-main-wrap{max-width:1120px;margin-inline:auto}
+.jm-footer{background:var(--jm-navy);color:#fff;border-top:1px solid var(--jm-line);padding:24px 0}
+.jm-footer .jm-footer-inner{display:flex;justify-content:space-between;align-items:start;gap:16px;flex-wrap:wrap}
+.jm-footer a{color:#fff!important;font-size:13px}
+.jm-footer .jm-footer-nav{display:flex;gap:16px;flex-wrap:wrap}
+.jm-footer-title{font-size:16px;font-weight:700}
+.jm-footer-note{font-size:13px;color:#d8e0e6}
+.jm-callout{border:1px solid var(--jm-line);border-left:4px solid var(--jm-accent);padding:16px;background:var(--jm-surface);border-radius:8px}
+.jm-load-error{font-size:13px;color:var(--jm-muted);padding:8px;border:1px solid var(--jm-line);border-radius:8px}
+@media(max-width:760px){
+  .jm-header-inner{min-height:56px;flex-wrap:wrap;padding-block:8px}
+  .jm-menu-toggle{display:inline-flex;align-items:center}
+  .jm-primary-nav{display:none;flex:1 0 100%;flex-direction:column;align-items:stretch;border-top:1px solid #557087;padding-top:8px}
+  .jm-primary-nav.is-open{display:flex}
+  .jm-primary-nav a{min-height:44px}
+  .jm-shell{padding-inline:16px}
+  .jm-footer .jm-footer-inner{flex-direction:column}
+  body.jm-site :where(.tablewrap,.table-wrap,.table-scroll,.data-table-wrap){max-width:calc(100vw - 32px)}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{#site-header,.jm-toc,.jm-menu-toggle{display:none!important}#site-footer{position:static}}
