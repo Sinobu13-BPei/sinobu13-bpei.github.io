@@ -917,15 +917,33 @@
   "peer": [
     {
       "name": "愛知",
-      "pop2020": 7542415,
       "clinicsPer100k": 64.91,
-      "hospitalsPer100k": 4
+      "hospitalsPer100k": 4,
+      "source": "https://jmap.jp/cities/detail/pref/23"
     },
     {
       "name": "全国",
-      "pop2020": null,
       "clinicsPer100k": 70.25,
-      "hospitalsPer100k": 6.3
+      "hospitalsPer100k": 6.3,
+      "source": "https://jmap.jp/cities/detail/pref/23"
+    },
+    {
+      "name": "岐阜",
+      "clinicsPer100k": 64.69,
+      "hospitalsPer100k": 4.6,
+      "source": "https://jmap.jp/cities/detail/pref/21"
+    },
+    {
+      "name": "静岡",
+      "clinicsPer100k": 61.98,
+      "hospitalsPer100k": 4.6,
+      "source": "https://jmap.jp/cities/detail/pref/22"
+    },
+    {
+      "name": "三重",
+      "clinicsPer100k": 68.01,
+      "hospitalsPer100k": 5.2,
+      "source": "https://jmap.jp/cities/detail/pref/24"
     }
   ],
   "sources": [
@@ -1061,6 +1079,13 @@
       "title": "国土地理院 地理院地図",
       "year": "閲覧時点",
       "url": "https://maps.gsi.go.jp/"
+    },
+    {
+      "id": "SRC20",
+      "category": "隣県比較",
+      "title": "JMAP岐阜県・静岡県・三重県医療資源比較",
+      "year": "2026-10閲覧",
+      "url": "https://jmap.jp/cities/detail/pref/21"
     }
   ]
 }
