@@ -1,0 +1,39 @@
+/* Mie public research addenda | 2026-10-26 */
+:root{--mi-navy:#17283f;--mi-blue:#2869ad;--mi-amber:#bc6b32;--mi-line:#d6e1ed}
+body{line-height:1.68} .hero{background:linear-gradient(130deg,#102b44,#225274 78%,#2d6d6b)}
+.hero .meta{align-items:center}.nav a{border:1px solid transparent}.nav a:hover,.nav a:focus-visible{background:#e5effb}
+.section.intelligence{scroll-margin-top:75px}.section.intelligence .head h2{font-size:clamp(23px,3vw,32px)}
+.mie-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.mie-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.mie-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.mie-fig{padding:16px;border:1px solid var(--mi-line);background:white;border-radius:14px;box-shadow:0 5px 22px #17283f0a}
+.mie-fig h3{margin:2px 0 10px}.mie-fig canvas{width:100%!important;max-height:360px}.mie-legend{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0 0;font-size:12px;color:#556b82}
+.mie-legend span{display:inline-flex;align-items:center;gap:5px}.mie-legend i{display:inline-block;width:11px;height:11px;border-radius:3px}
+.mi-badge{display:inline-block;background:#e9f2fa;color:#234e7a;padding:3px 9px;font-size:11px;font-weight:800;border-radius:30px}
+.mi-sources{margin-top:8px;font-size:11px;color:#576f87}.mi-sources a{word-break:break-all;font-size:11px}
+.mi-map{height:440px;background:#e5edf6;border-radius:12px;overflow:hidden;border:1px solid #d1dfeb}
+.mi-map-info{background:#eaf1f8;padding:10px 14px;border-radius:8px;margin-top:10px;color:#456079;font-size:12px}
+.mi-row{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:7px}
+.mi-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.mi-tile{border:1px solid #d9e3ed;border-top:5px solid var(--x);background:white;border-radius:11px;padding:14px;min-width:0}
+.mi-tile h3{color:var(--x);font-size:17px}.mi-tile p{font-size:12px;margin:6px 0;color:#4e657c}
+.mi-icon{display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;background:#e3eef8;border-radius:9px;margin-bottom:6px}
+.mi-icon svg{width:24px;height:24px;stroke:#225a8f;fill:none;stroke-width:1.8;stroke-linecap:round}
+.mi-score{font-size:36px;font-weight:900;color:#244f79}.mi-score small{font-size:12px;color:#6a7b89;font-weight:400}
+.mi-tablewrap{overflow-x:auto;border:1px solid #d6e1e9;border-radius:10px;background:white}
+.mi-table{border-collapse:collapse;width:100%;min-width:700px;font-size:12px}
+.mi-table thead th{background:#203752;color:white;font-weight:800;white-space:nowrap;text-align:left}
+.mi-table :is(th,td){padding:10px 12px;border-bottom:1px solid #e3e9ef;vertical-align:top}
+.mi-table tbody tr:nth-child(even){background:#f4f7fa}.mi-table tbody tr:hover{background:#eaf1f8}
+.mi-link{display:inline-flex;font-size:11px;font-weight:800;padding:5px 7px;border:1px solid #cbdce9;border-radius:6px;margin:2px;background:#fff;text-decoration:none;white-space:nowrap}
+.mi-link:hover{background:#dcebf8}.mi-flag{font-size:11px;font-weight:900;color:#8d3b1d}
+.mi-strat{border-left:4px solid #356da0;padding:13px;background:#ecf3fa;border-radius:8px;font-size:13px;margin-bottom:12px}
+.mi-strat h3{margin:0 0 6px}.mi-strat ul{padding-left:21px;margin:5px 0}
+.mi-stack{display:flex;gap:3px;height:29px;overflow:hidden;border-radius:6px}.mi-stack>span{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;min-width:1px}
+.mi-citation{font-size:11px;color:#667789}.mi-current{background:#e5f4ef;color:#1b6655;padding:3px 6px;font-size:10px;font-weight:700;border-radius:5px}
+.mi-old{background:#fbf0df;color:#885e21;padding:3px 6px;font-size:10px;font-weight:700;border-radius:5px}
+.mi-coverage{display:flex;flex-wrap:wrap;gap:8px}.mi-coverage span{border:1px solid #cad8e3;border-radius:8px;background:white;padding:7px 10px;font-size:12px}
+.mi-banner{background:linear-gradient(130deg,#e6eff9,#f2f6fb);border:1px solid #d0e0f0;padding:16px;border-radius:14px}
+.mi-hotlinks{display:flex;gap:9px;flex-wrap:wrap;margin:9px 0}.mi-hotlinks a{border:1px solid #abc5e0;color:#205a91;padding:7px 10px;text-decoration:none;background:#fff;border-radius:7px;font-size:12px;font-weight:800}
+.mi-kpi{border-radius:12px;padding:14px;background:#f4f8fc;border:1px solid #d5e3ee}.mi-kpi strong{font-size:27px;display:block;color:#224e7c;line-height:1.15}.mi-kpi span{display:block;font-size:12px;color:#5e7084}
+.mi-meta{color:#64788c;font-size:11px}
+@media(max-width:980px){.mie-three,.mi-tiles,.mie-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:680px){.mie-grid,.mie-three,.mi-tiles,.mie-stat-grid{grid-template-columns:1fr}.mi-map{height:340px}.mie-fig{padding:13px}.mi-table{font-size:11px}.mi-table :is(td,th){padding:8px 10px}}
