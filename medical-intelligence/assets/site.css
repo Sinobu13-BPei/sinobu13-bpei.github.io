@@ -106,15 +106,47 @@ body.jm-site :is(.hero,.cover,.page-hero,.banner){background-color:var(--jm-surf
 body.jm-site :is(.hero,.cover,.page-hero,.banner) :is(h1,h2,h3,p,.lead,.note,.eyebrow){color:var(--jm-navy)!important}
 body.jm-site :is(.hero,.cover) .chip{background-color:#fff!important;color:var(--jm-text)!important;border-color:var(--jm-line)!important}
 body.jm-site :is(.footer,.end){background-color:var(--jm-navy)!important;color:#fff!important}
-body.jm-site :is(.footer,.end) :is(h1,h2,h3,p,span,small,strong){color:#fff!important}
+body.jm-site :is(.footer,.end) :where(.footer-headline,.footer-headline strong,.footer-headline span){color:#fff!important}
 body.jm-site :is(.hero,.cover) a:not(.btn):not(.button){text-decoration-thickness:1px}
 body.jm-site :is(.hero,.cover) :is(.links a,.handbook-stack a){color:#fff!important}
 body.jm-site :is(.footer,.end) :is(.footer-link-strip a,.handbook-stack a){color:#fff!important}
 body.jm-site :is(.hero,.cover) .links a{background-color:var(--jm-accent)!important}
 
-/* Enforce 13px minimum on notes, controls, source links and table text. */
-body.jm-site :is(a,button,select,input,textarea,th,td,small,figcaption,.tag,.note,.muted,.footnote,.caption,.chip,.status){
-  font-size:max(13px,1em)!important
+/* Minimum font without inherited-em inflation that clipped regional buttons. */
+body.jm-site :where(small,figcaption,.tag,.note,.muted,.footnote,.caption,.chip,.status){font-size:13px}
+body.jm-site :where(input,button,select,textarea){font-size:16px;min-height:40px}
+body.jm-site :where(.jm-primary-nav a,.jm-menu-toggle){font-size:13px;min-height:44px}
+/* Hub region list: preserve contrast, accessible click targets, and scroll bounds. */
+body.jm-site #regionList{max-width:100%;overflow-y:auto;overflow-x:hidden;scroll-padding-top:8px}
+body.jm-site #regionList .region{
+  display:grid;grid-template-columns:minmax(72px,1fr) minmax(0,70%);
+  align-items:center;gap:8px;padding:10px 12px;min-height:64px;
+  background:var(--jm-white);border-bottom:1px solid var(--jm-line)
 }
-body.jm-site :is(input,button,select,textarea){min-height:40px}
-body.jm-site :is(.jm-primary-nav a,.jm-menu-toggle){min-height:44px}
+body.jm-site #regionList .region:nth-child(even){background:var(--jm-surface)}
+body.jm-site #regionList .region>strong{color:var(--jm-navy)!important;font-size:14px;line-height:1.6;min-width:0;white-space:normal}
+body.jm-site #regionList .region-actions{
+  display:flex;align-items:center;justify-content:flex-end;
+  flex-wrap:wrap;gap:6px;max-width:100%;min-width:0
+}
+body.jm-site #regionList .region-actions a{
+  display:inline-flex;align-items:center;justify-content:center;
+  max-width:100%;min-width:0;min-height:44px;padding:7px 9px;
+  line-height:1.4;font-size:13px!important;font-weight:700;
+  color:#fff!important;background:var(--jm-accent)!important;
+  background-image:none!important;border:1px solid var(--jm-accent)!important;
+  border-radius:8px!important;box-shadow:none!important;
+  text-decoration:none!important;text-align:center;white-space:normal;
+  overflow-wrap:anywhere
+}
+body.jm-site #regionList .region-actions a:hover,
+body.jm-site #regionList .region-actions a:focus-visible{
+  background:var(--jm-navy)!important;border-color:var(--jm-navy)!important;color:#fff!important
+}
+body.jm-site :where(.hero,.cover,.page-hero,.banner) strong{color:var(--jm-navy)}
+body.jm-site #site-header .jm-menu-toggle{background:transparent!important;color:#fff!important;border-color:#8ba2b2!important}
+@media(max-width:600px){
+  body.jm-site #regionList .region{grid-template-columns:minmax(63px,80px) minmax(0,1fr);gap:6px;padding:8px}
+  body.jm-site #regionList .region-actions{gap:5px}
+  body.jm-site #regionList .region-actions a{padding:7px 8px}
+}
