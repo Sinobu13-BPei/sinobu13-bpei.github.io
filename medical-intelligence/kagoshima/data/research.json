@@ -1,0 +1,740 @@
+{
+  "meta": {
+    "title": "鹿児島県 医療マーケット・地域医療戦略 2026",
+    "updated": "2026-10-26",
+    "view": "中立的な医療機器商社",
+    "note": "公開情報のみ。過去の添付民間調査に含まれるシェア・非公開企業販売高・顧客名簿は掲載しない。施設座標は概略であり正確な施設位置を保証しない。"
+  },
+  "population": {
+    "asOf": "2026-09-01",
+    "value": 1497411,
+    "fromPriorYear": -17616,
+    "census2025": 1512969,
+    "aging2024": 34.2,
+    "agingNational2024": 29.3,
+    "forecast2040": 1309000,
+    "forecastModel": "社人研2023年推計・2020年起点（概数、県計画掲載）",
+    "doctors2024": 4831,
+    "comparison": [
+      [
+        "全国",
+        29.3
+      ],
+      [
+        "熊本県",
+        32.6
+      ],
+      [
+        "宮崎県",
+        33.9
+      ],
+      [
+        "鹿児島県",
+        34.2
+      ]
+    ]
+  },
+  "beds": {
+    "types": [
+      "高度急性期",
+      "急性期",
+      "回復期",
+      "慢性期"
+    ],
+    "note": "2024年は医療機関が自己申告した病床機能報告。2025年必要量は医療需要推計に基づく別定義。単純な過不足・削減数を意味しない。"
+  },
+  "scoring": {
+    "axes": [
+      [
+        "地域の医療需要",
+        30
+      ],
+      [
+        "医療アクセス課題",
+        25
+      ],
+      [
+        "連携拠点の存在",
+        20
+      ],
+      [
+        "運用・物流実行性",
+        15
+      ],
+      [
+        "更新投資の実現性",
+        10
+      ]
+    ],
+    "method": "各軸1～5点の編集部評価。総合点=Σ(軸点/5×重み)。公的統計による客観順位ではなく相対比較の参考値。医療上の緊急度と商業上の投資優先は異なる。"
+  },
+  "areas": [
+    {
+      "code": "4601",
+      "name": "鹿児島",
+      "center": [
+        31.59,
+        130.55
+      ],
+      "municipal": "鹿児島市・日置市・いちき串木野市・鹿児島郡",
+      "beds24": [
+        1678,
+        3879,
+        2728,
+        2672,
+        446
+      ],
+      "need25": [
+        982,
+        2778,
+        2880,
+        2244
+      ],
+      "phys": 381.8,
+      "drivers": "高度急性期・がん・循環器・救急・医師養成・広域患者流入",
+      "risks": "高齢化に伴う病棟再編、設備投資余力、診療所との機能分担",
+      "focus": "大学病院・鹿児島市立病院・鹿児島医療センター",
+      "opportunity": "高度画像診断、内視鏡、IT連携、読影・検査共同利用",
+      "score": [
+        5,
+        3,
+        5,
+        5,
+        4
+      ]
+    },
+    {
+      "code": "4603",
+      "name": "南薩",
+      "center": [
+        31.26,
+        130.3
+      ],
+      "municipal": "枕崎市・指宿市・南さつま市・南九州市",
+      "beds24": [
+        4,
+        766,
+        821,
+        624,
+        119
+      ],
+      "need25": [
+        69,
+        353,
+        774,
+        649
+      ],
+      "phys": 200.3,
+      "drivers": "高齢患者、消化器、リハビリ、地域内の慢性疾患",
+      "risks": "人口減・交通距離・回復期と急性期の機能再編",
+      "focus": "県立薩南病院・指宿地域の医療機関",
+      "opportunity": "一般画像更新、腹部US、内視鏡、地域連携IT",
+      "score": [
+        4,
+        4,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "code": "4605",
+      "name": "川薩",
+      "center": [
+        31.82,
+        130.31
+      ],
+      "municipal": "薩摩川内市・薩摩郡",
+      "beds24": [
+        6,
+        695,
+        307,
+        400,
+        220
+      ],
+      "need25": [
+        77,
+        422,
+        499,
+        358
+      ],
+      "phys": 215.2,
+      "drivers": "救急・中核病院と診療所の紹介連携・慢性疾患",
+      "risks": "地域医師偏在、離島を含む移動距離、回復期需要",
+      "focus": "済生会川内病院・川内市医師会立市民病院",
+      "opportunity": "US・一般撮影・心電図、医療IT、広域点検",
+      "score": [
+        4,
+        3,
+        4,
+        4,
+        3
+      ]
+    },
+    {
+      "code": "4606",
+      "name": "出水",
+      "center": [
+        32.08,
+        130.35
+      ],
+      "municipal": "阿久根市・出水市・出水郡",
+      "beds24": [
+        6,
+        371,
+        273,
+        238,
+        63
+      ],
+      "need25": [
+        53,
+        176,
+        297,
+        227
+      ],
+      "phys": 188,
+      "drivers": "県境医療、救急、がん連携、在宅医療",
+      "risks": "熊本県との患者流動・人口減少・医師確保",
+      "focus": "出水郡医師会広域医療センター・出水総合医療センター",
+      "opportunity": "画像共同利用、CT・US更新、遠隔連携",
+      "score": [
+        4,
+        4,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "code": "4607",
+      "name": "姶良・伊佐",
+      "center": [
+        31.76,
+        130.76
+      ],
+      "municipal": "霧島市・伊佐市・姶良市・姶良郡",
+      "beds24": [
+        0,
+        1412,
+        817,
+        1382,
+        242
+      ],
+      "need25": [
+        125,
+        699,
+        1093,
+        1005
+      ],
+      "phys": 184.6,
+      "drivers": "人口規模、鹿児島市との往来、リハビリ、循環器・呼吸器",
+      "risks": "医師不足、医療圏内の機能偏在、高齢患者の移動",
+      "focus": "霧島市立医師会医療センター・南九州病院",
+      "opportunity": "CT・US・内視鏡・心電図・保守",
+      "score": [
+        5,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "code": "4609",
+      "name": "曽於",
+      "center": [
+        31.68,
+        131
+      ],
+      "municipal": "曽於市・志布志市・曽於郡",
+      "beds24": [
+        0,
+        225,
+        105,
+        308,
+        44
+      ],
+      "need25": [
+        17,
+        125,
+        249,
+        273
+      ],
+      "phys": 141.7,
+      "drivers": "高齢者・在宅・地域外受診の補完",
+      "risks": "医師偏在、宮崎県との患者流出入、低人口密度",
+      "focus": "曽於医師会立病院など地域中核施設",
+      "opportunity": "ポータブルUS、在宅診療支援、共同保守、低負担更新",
+      "score": [
+        3,
+        5,
+        2,
+        3,
+        3
+      ]
+    },
+    {
+      "code": "4610",
+      "name": "肝属",
+      "center": [
+        31.39,
+        130.85
+      ],
+      "municipal": "鹿屋市・垂水市・肝属郡",
+      "beds24": [
+        8,
+        993,
+        466,
+        343,
+        216
+      ],
+      "need25": [
+        114,
+        450,
+        570,
+        596
+      ],
+      "phys": 175.3,
+      "drivers": "大隅半島の救急拠点・慢性疾患・透析",
+      "risks": "鹿児島市への時間距離、医師確保、急性期と回復期",
+      "focus": "県民健康プラザ鹿屋医療センター・鹿屋地域の病院",
+      "opportunity": "US・透析関連・モニター・CT保守・遠隔画像",
+      "score": [
+        4,
+        5,
+        4,
+        3,
+        4
+      ]
+    },
+    {
+      "code": "4611",
+      "name": "熊毛",
+      "center": [
+        30.73,
+        130.98
+      ],
+      "municipal": "西之表市・熊毛郡（種子島・屋久島）",
+      "beds24": [
+        47,
+        169,
+        107,
+        94,
+        0
+      ],
+      "need25": [
+        25,
+        158,
+        214,
+        128
+      ],
+      "phys": 140.5,
+      "drivers": "離島救急・産科・検査の島内完結度向上",
+      "risks": "天候による交通遮断、部材運搬、医療人材の確保",
+      "focus": "種子島医療センター・屋久島地域医療機関",
+      "opportunity": "可搬型画像、保守在庫、遠隔支援、バックアップ契約",
+      "score": [
+        3,
+        5,
+        3,
+        1,
+        3
+      ]
+    },
+    {
+      "code": "4612",
+      "name": "奄美",
+      "center": [
+        28.38,
+        129.49
+      ],
+      "municipal": "奄美市・大島郡（奄美群島）",
+      "beds24": [
+        18,
+        865,
+        322,
+        457,
+        129
+      ],
+      "need25": [
+        78,
+        373,
+        472,
+        342
+      ],
+      "phys": 178.4,
+      "drivers": "島しょ中核医療・救急搬送・がん連携・透析",
+      "risks": "複数島に分かれる広域物流、人材・BCP、医療圏内格差",
+      "focus": "県立大島病院・徳之島地域医療機関",
+      "opportunity": "遠隔画像、US・一般撮影、島内保守、消耗品供給網",
+      "score": [
+        4,
+        5,
+        4,
+        2,
+        4
+      ]
+    }
+  ],
+  "facilities": [
+    {
+      "name": "鹿児島大学病院",
+      "area": "鹿児島",
+      "kind": "特定機能・教育研究・救急",
+      "address": "鹿児島市桜ヶ丘8-35-1",
+      "site": "https://www.hosp.kagoshima-u.ac.jp/",
+      "lat": 31.56,
+      "lon": 130.54
+    },
+    {
+      "name": "鹿児島市立病院",
+      "area": "鹿児島",
+      "kind": "救命救急・災害医療",
+      "address": "鹿児島市上荒田町37-1",
+      "site": "https://www.kch.kagoshima.jp/",
+      "lat": 31.58,
+      "lon": 130.55
+    },
+    {
+      "name": "鹿児島医療センター",
+      "area": "鹿児島",
+      "kind": "循環器・がん・地域医療支援",
+      "address": "鹿児島市城山町8-1",
+      "site": "https://kagomc.hosp.go.jp/",
+      "lat": 31.6,
+      "lon": 130.55
+    },
+    {
+      "name": "米盛病院",
+      "area": "鹿児島",
+      "kind": "救急・整形外科等",
+      "address": "鹿児島市与次郎1-7-1",
+      "site": "https://www.yonemorihp.jp/",
+      "lat": 31.58,
+      "lon": 130.56
+    },
+    {
+      "name": "今村総合病院",
+      "area": "鹿児島",
+      "kind": "急性期・専門診療",
+      "address": "鹿児島市鴨池新町11-23",
+      "site": "https://www.jiaikai.or.jp/imamura-general/",
+      "lat": 31.56,
+      "lon": 130.55
+    },
+    {
+      "name": "県立薩南病院",
+      "area": "南薩",
+      "kind": "地域がん診療病院",
+      "address": "南さつま市加世田村原4-11",
+      "site": "https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/seikatusyukan/cancer/gankyoten.html",
+      "lat": 31.42,
+      "lon": 130.32
+    },
+    {
+      "name": "済生会川内病院",
+      "area": "川薩",
+      "kind": "地域連携・がん等",
+      "address": "薩摩川内市原田町2-46",
+      "site": "https://www.saiseikai-sendai.jp/",
+      "lat": 31.82,
+      "lon": 130.3
+    },
+    {
+      "name": "出水郡医師会広域医療センター",
+      "area": "出水",
+      "kind": "地域がん診療病院",
+      "address": "阿久根市赤瀬川4513",
+      "site": "https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/seikatusyukan/cancer/gankyoten.html",
+      "lat": 32.02,
+      "lon": 130.21
+    },
+    {
+      "name": "霧島市立医師会医療センター",
+      "area": "姶良・伊佐",
+      "kind": "地域がん診療病院",
+      "address": "霧島市隼人町松永3320",
+      "site": "https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/seikatusyukan/cancer/gankyoten.html",
+      "lat": 31.76,
+      "lon": 130.72
+    },
+    {
+      "name": "国立病院機構南九州病院",
+      "area": "姶良・伊佐",
+      "kind": "呼吸器・神経など",
+      "address": "姶良市加治木町木田1882",
+      "site": "https://minamikyusyu.hosp.go.jp/",
+      "lat": 31.75,
+      "lon": 130.66
+    },
+    {
+      "name": "県民健康プラザ鹿屋医療センター",
+      "area": "肝属",
+      "kind": "大隅半島・地域がん診療病院",
+      "address": "鹿屋市札元1-8-8",
+      "site": "https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/seikatusyukan/cancer/gankyoten.html",
+      "lat": 31.39,
+      "lon": 130.87
+    },
+    {
+      "name": "種子島医療センター",
+      "area": "熊毛",
+      "kind": "島しょ・地域がん診療病院",
+      "address": "西之表市西之表7463",
+      "site": "https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/seikatusyukan/cancer/gankyoten.html",
+      "lat": 30.73,
+      "lon": 131
+    },
+    {
+      "name": "県立大島病院",
+      "area": "奄美",
+      "kind": "離島救急・地域がん診療病院",
+      "address": "奄美市名瀬真名津町18-1",
+      "site": "https://www.pref.kagoshima.jp/shisetsu/iryou/002.html",
+      "lat": 28.37,
+      "lon": 129.5
+    }
+  ],
+  "healthCenters": [
+    [
+      "鹿児島市保健所",
+      "鹿児島市山下町11-1",
+      31.6,
+      130.56
+    ],
+    [
+      "指宿保健所",
+      "指宿市十二町301",
+      31.25,
+      130.64
+    ],
+    [
+      "加世田保健所",
+      "南さつま市加世田村原2-1-1",
+      31.42,
+      130.32
+    ],
+    [
+      "伊集院保健所",
+      "日置市伊集院町下谷口1960-1",
+      31.63,
+      130.4
+    ],
+    [
+      "出水保健所",
+      "出水市昭和町18-18",
+      32.09,
+      130.35
+    ],
+    [
+      "大口保健所",
+      "伊佐市大口里53-1",
+      32.06,
+      130.61
+    ],
+    [
+      "志布志保健所",
+      "志布志市志布志町志布志2-1-11",
+      31.47,
+      131.1
+    ],
+    [
+      "鹿屋保健所",
+      "鹿屋市打馬2-16-6",
+      31.39,
+      130.86
+    ],
+    [
+      "西之表保健所",
+      "西之表市西之表7590",
+      30.73,
+      131
+    ],
+    [
+      "屋久島保健所",
+      "熊毛郡屋久島町安房650",
+      30.32,
+      130.66
+    ],
+    [
+      "名瀬保健所",
+      "奄美市名瀬永田町17-3",
+      28.38,
+      129.5
+    ],
+    [
+      "徳之島保健所",
+      "大島郡徳之島町亀津4943-2",
+      27.73,
+      129.02
+    ],
+    [
+      "川薩保健所",
+      "薩摩川内市隈之城町228-1",
+      31.81,
+      130.3
+    ],
+    [
+      "姶良保健所",
+      "霧島市隼人町松永3320-16",
+      31.75,
+      130.72
+    ]
+  ],
+  "distributors": [
+    "アイティーアイ",
+    "アステム",
+    "横尾ムトウ",
+    "鹿児島オルソ・メディカル",
+    "キシヤ",
+    "山下医科器械",
+    "釜付メディカル",
+    "八郷医療器",
+    "田島器械",
+    "中央医科器械",
+    "さくら医療器械",
+    "サウス・メディカル",
+    "ジーエムメディカル",
+    "総合メディカル"
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "year": "2026年9月",
+      "title": "鹿児島県・毎月推計人口",
+      "url": "https://www.pref.kagoshima.jp/ac09/tokei/bunya/jinko/jinkouidoutyousa/geppou.html"
+    },
+    {
+      "id": "S02",
+      "year": "2026年公表（2025年調査）",
+      "title": "鹿児島県・2025年国勢調査確報",
+      "url": "https://www.pref.kagoshima.jp/ac09/tokei/bunya/kokutyo/r7kokutyo/kihonsyuukei.html"
+    },
+    {
+      "id": "S03",
+      "year": "2024年",
+      "title": "鹿児島県・高齢化の現状",
+      "url": "https://www.pref.kagoshima.jp/ab13/kenko-fukushi/koreisya/koreika/kagoshimakennnokoureisyanogennzyounituite.html"
+    },
+    {
+      "id": "S04",
+      "year": "2024年3月",
+      "title": "鹿児島県・第8次保健医療計画",
+      "url": "https://www.pref.kagoshima.jp/ae01/kenko-fukushi/kenko-iryo/iryokeikaku/hokenniryoukeikaku8.html"
+    },
+    {
+      "id": "S05",
+      "year": "2024年度報告／2025年必要量",
+      "title": "鹿児島県・病床機能報告 二次医療圏別集計",
+      "url": "https://www.pref.kagoshima.jp/ae01/kenko-fukushi/kenko-iryo/byosyokinohokoku/documents/123553_20250922193127-1.pdf"
+    },
+    {
+      "id": "S06",
+      "year": "2024年3月策定",
+      "title": "鹿児島県・2025年必要病床数の算定",
+      "url": "https://www.pref.kagoshima.jp/ae01/kenko-fukushi/kenko-iryo/iryokeikaku/documents/111757_20240328155549-1.pdf"
+    },
+    {
+      "id": "S07",
+      "year": "2024年集計・2026年4月公表",
+      "title": "厚生労働省・医師偏在指標",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    },
+    {
+      "id": "S08",
+      "year": "2026年",
+      "title": "鹿児島県・医師数／地域偏在の現状",
+      "url": "https://www.pref.kagoshima.jp/ae03/kenko-fukushi/doctorbank/taisaku/ktiikiiryou1.html"
+    },
+    {
+      "id": "S09",
+      "year": "令和5（2023）年推計",
+      "title": "社人研・日本の地域別将来推計人口 2050年まで",
+      "url": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
+    },
+    {
+      "id": "S10",
+      "year": "2024年",
+      "title": "鹿児島県・高齢者の将来推計",
+      "url": "https://www.pref.kagoshima.jp/ab13/documents/112816_20240410090347-1.pdf"
+    },
+    {
+      "id": "S11",
+      "year": "2026年",
+      "title": "鹿児島県・地域医療介護総合確保基金",
+      "url": "https://www.pref.kagoshima.jp/ae01/kenko-fukushi/kenko-iryo/gaiyo/iryo-kaigo-sougoukakuho.html"
+    },
+    {
+      "id": "S12",
+      "year": "2026年",
+      "title": "鹿児島県・がん診療連携拠点病院等",
+      "url": "https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/seikatusyukan/cancer/gankyoten.html"
+    },
+    {
+      "id": "S13",
+      "year": "2026年",
+      "title": "厚生労働省・鹿児島県保健所所管区域一覧",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/46kagoshima.html"
+    },
+    {
+      "id": "S14",
+      "year": "2026年",
+      "title": "鹿児島県医師会・組織概要",
+      "url": "https://www.kagoshima.med.or.jp/gaiyou/"
+    },
+    {
+      "id": "S15",
+      "year": "2026年",
+      "title": "鹿児島大学病院・病院再整備計画",
+      "url": "https://www.hosp.kagoshima-u.ac.jp/information/saiseibi/"
+    },
+    {
+      "id": "S16",
+      "year": "2025年版・2024年人口",
+      "title": "内閣府・高齢社会白書 都道府県比較",
+      "url": "https://www8.cao.go.jp/kourei/whitepaper/w-2025/html/zenbun/s1_1_4.html"
+    },
+    {
+      "id": "S17",
+      "year": "2023年静態調査",
+      "title": "e-Stat 医療施設調査・CT／MRIほかの機器設置台数",
+      "url": "https://www.e-stat.go.jp/dbview?sid=0004024960"
+    },
+    {
+      "id": "S18",
+      "year": "2026年",
+      "title": "九州医療機器団体連合会・鹿児島県医療機器協会",
+      "url": "https://kyuren.jp/%E4%BC%9A%E5%93%A1%E7%B4%B9%E4%BB%8B/"
+    },
+    {
+      "id": "S19",
+      "year": "2026年",
+      "title": "厚生労働省・病床機能報告公表データ",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html"
+    },
+    {
+      "id": "S20",
+      "year": "2026年",
+      "title": "国土地理院・地理院タイル",
+      "url": "https://maps.gsi.go.jp/development/ichiran.html"
+    },
+    {
+      "id": "S21",
+      "year": "2026年9月会議・10月公表",
+      "title": "鹿児島県・地域医療対策協議会",
+      "url": "https://www.pref.kagoshima.jp/ae03/event/r8-1st-titaikyo.html"
+    }
+  ],
+  "excluded": [
+    "非公開販社シェア・企業別販売高",
+    "個別営業名簿・電話番号",
+    "社内方針・販促KPI・値引き条件",
+    "転載許諾が不明の民間PDF原図表"
+  ],
+  "unverified": [
+    "市町村別の最新機器実設置台数（US・CT・MRI・PET・LINACほか）",
+    "機器別の厳密な全国／隣県人口当たり比較",
+    "個別施設の装置更新時期・設置年",
+    "2026年度の補助金の個別公募採択額"
+  ]
+}
