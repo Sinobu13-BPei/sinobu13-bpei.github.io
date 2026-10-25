@@ -223,6 +223,16 @@ function draw(){
       okayamaLink.setAttribute('aria-label','岡山県の医療市場調査を開く');
       actions.appendChild(okayamaLink);
     }
+    if(p[0]==='徳島県'){
+      const tokushimaLink=document.createElement('a');
+      tokushimaLink.href='https://sinobu13-bpei.github.io/tokushima-medical-mkt/';
+      tokushimaLink.target='_blank';
+      tokushimaLink.rel='noopener noreferrer';
+      tokushimaLink.className='tokushima-mkt-btn';
+      tokushimaLink.textContent='徳島MKT ↗';
+      tokushimaLink.setAttribute('aria-label','徳島県の医療市場調査を開く');
+      actions.appendChild(tokushimaLink);
+    }
     let a=document.createElement('a');a.href=googleMapsUrl(p[0]);a.target='_blank';a.rel='noopener noreferrer';a.className='google-map-btn';a.textContent='Map';a.setAttribute('aria-label',p[0]+'のGoogle Mapsを開く');
     actions.appendChild(a);
     row.append(title,actions);
