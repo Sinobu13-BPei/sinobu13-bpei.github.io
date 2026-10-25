@@ -1,0 +1,25 @@
+document.addEventListener("DOMContentLoaded",function(){
+const count=(s,p,q,sel)=>{let n=0;document.querySelectorAll(s).forEach(e=>{const show=(p==="全て"||e.dataset.pref===p)&&(!q||e.dataset.q.toLowerCase().includes(q.toLowerCase()));e.hidden=!show;if(show)n++;});document.querySelector(sel).textContent=n+"件を表示";};
+const filterRegions=()=>{let p=document.getElementById("pref-select").value,q=document.getElementById("area-search").value.trim();count(".region-card",p,q,"#area-count");document.getElementById("area-count").textContent=document.getElementById("area-count").textContent.replace("件","圏域");};
+document.getElementById("pref-select").addEventListener("change",filterRegions);document.getElementById("area-search").addEventListener("input",filterRegions);
+const filterHosp=()=>count("#hospital-rows tr",document.getElementById("hospital-pref").value,document.getElementById("hospital-search").value.trim(),"#hospital-count");
+document.getElementById("hospital-pref").addEventListener("change",filterHosp);document.getElementById("hospital-search").addEventListener("input",filterHosp);
+const points=[{"name":"鳥取・東部","lat":35.501,"lng":134.235,"city":"鳥取市","desc":"県庁所在地・急性期","pop":224492,"pref":"鳥取"},{"name":"鳥取・中部","lat":35.43,"lng":133.825,"city":"倉吉市","desc":"中山間・地域包括","pop":99193,"pref":"鳥取"},{"name":"鳥取・西部","lat":35.428,"lng":133.33,"city":"米子市","desc":"大学病院集積","pop":229722,"pref":"鳥取"},{"name":"島根・松江","lat":35.47,"lng":133.05,"city":"松江市","desc":"県都・救急中核","pop":240678,"pref":"島根"},{"name":"島根・雲南","lat":35.29,"lng":132.9,"city":"雲南市","desc":"中山間医療","pop":52433,"pref":"島根"},{"name":"島根・出雲","lat":35.367,"lng":132.75,"city":"出雲市","desc":"大学・県立中核","pop":172775,"pref":"島根"},{"name":"島根・大田","lat":35.19,"lng":132.5,"city":"大田市","desc":"高齢化・山間部","pop":50612,"pref":"島根"},{"name":"島根・浜田","lat":34.899,"lng":132.08,"city":"浜田市","desc":"石見中核","pop":77551,"pref":"島根"},{"name":"島根・益田","lat":34.676,"lng":131.842,"city":"益田市","desc":"西端・広域","pop":57955,"pref":"島根"},{"name":"島根・隠岐","lat":36.21,"lng":133.32,"city":"隠岐の島町","desc":"離島医療","pop":19122,"pref":"島根"}];
+function initMap(){if(!window.L)return false;try{const m=L.map("map",{scrollWheelZoom:false}).setView([35.42,133.05],8);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",maxZoom:18}).addTo(m);points.forEach(r=>{const color=r.pref==="鳥取"?"#237ba1":"#c28b40";L.circleMarker([r.lat,r.lng],{radius:10,color:"#fff",weight:2,fillColor:color,fillOpacity:.94}).addTo(m).bindPopup("<b>"+r.name+"医療圏</b><br>代表都市："+r.city+"<br>人口（2020）："+r.pop.toLocaleString("ja-JP")+"人<br><small>都市付近の参考位置（病院所在地ではありません）</small>");});return true;}catch(e){return false;}}
+let i=0;const t=setInterval(()=>{i++;if(initMap()||i>20)clearInterval(t)},250);
+});
+
+
+window.addEventListener("DOMContentLoaded", async function(){
+ const q=(s)=>document.querySelector(s);
+ if(!window.Chart){console.warn("Chart.js unavailable; text tables remain available");return;}
+ let d;
+ try{const f=await fetch("./data/regions.json",{cache:"no-store"});if(!f.ok)throw new Error(f.status);d=await f.json()}catch(e){console.warn("data loading failed",e);return}
+ const make=(id,opts)=>{const canvas=q("#"+id);if(canvas){try{new Chart(canvas,opts)}catch(e){console.warn("chart:",id,e)}}};
+ make("clinicChart",{type:"bar",data:{labels:d.facilities2025.map(x=>x.name),datasets:[{label:"一般診療所 / 10万人（2025）",data:d.facilities2025.map(x=>x.clinicPer100k),backgroundColor:["#718b9a","#1c7997","#bc8544","#5b90a0","#5b90a0","#5b90a0"]}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:x=>x.raw+"施設 / 10万人"}}},scales:{x:{beginAtZero:true,max:125}}}});
+ const cats=[["high","#cb6170","高度急性期"],["acute","#edab5b","急性期"],["recovery","#3aabb4","回復期"],["chronic","#7173b4","慢性期"],["rest","#a8b8bf","休棟等"]];
+ make("bedsChart",{type:"bar",data:{labels:d.regions.map(r=>r.pref[0]+"・"+r.name),datasets:cats.map(([key,color,label])=>({label,data:d.regions.map(r=>r.beds2025[key]),backgroundColor:color}))},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom",labels:{boxWidth:10,font:{size:10}}}},scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true}}}});
+ make("popChart",{type:"bar",data:{labels:d.futurePopulation.map(x=>x.name),datasets:[{label:"2020年国勢調査",data:d.futurePopulation.map(x=>x.v2020),backgroundColor:"#277f9e"},{label:"2050年（社人研推計）",data:d.futurePopulation.map(x=>x.v2050),backgroundColor:"#d6a256"}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"}},scales:{y:{beginAtZero:true}}}});
+ const ranked=[...d.regions].sort((a,b)=>b.score-a.score);
+ make("scoreChart",{type:"bar",data:{labels:ranked.map(x=>x.pref[0]+"・"+x.name),datasets:[{label:"仮説スコア /100",data:ranked.map(x=>Math.round(x.score)),backgroundColor:ranked.map(x=>x.pref==="鳥取"?"#27869c":"#d19952")}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,max:100}}}});
+});
