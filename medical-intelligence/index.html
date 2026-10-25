@@ -120,6 +120,15 @@ function draw(){
       yamanashiLink.textContent='山梨MKT ↗';
       actions.appendChild(yamanashiLink);
     }
+    if(p[0]==='神奈川県'){
+      const kanagawaMktLink=document.createElement('a');
+      kanagawaMktLink.href='https://sinobu13-bpei.github.io/medical-intelligence/kanagawa/';
+      kanagawaMktLink.target='_blank';
+      kanagawaMktLink.rel='noopener noreferrer';
+      kanagawaMktLink.className='kanagawa-mkt-btn';
+      kanagawaMktLink.textContent='神奈川MKT ↗';
+      actions.appendChild(kanagawaMktLink);
+    }
     if(p[0]==='新潟県'){
       let niigataLink=document.createElement('a');
       niigataLink.href='https://sinobu13-bpei.github.io/niigata-medical-mkt/?utm_source=chatgpt.com';
