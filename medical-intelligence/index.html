@@ -193,6 +193,15 @@ function draw(){
       tohokuLink.textContent='東北MKT ↗';
       actions.appendChild(tohokuLink);
     }
+    if(p[0]==='愛知県'){
+      const aichiLink=document.createElement('a');
+      aichiLink.href='https://sinobu13-bpei.github.io/aichi-medical-mkt/';
+      aichiLink.target='_blank';
+      aichiLink.rel='noopener';
+      aichiLink.className='shizuoka-mkt-btn';
+      aichiLink.textContent='愛知MKT ↗';
+      actions.appendChild(aichiLink);
+    }
     let a=document.createElement('a');a.href=googleMapsUrl(p[0]);a.target='_blank';a.rel='noopener noreferrer';a.className='google-map-btn';a.textContent='Map';a.setAttribute('aria-label',p[0]+'のGoogle Mapsを開く');
     actions.appendChild(a);
     row.append(title,actions);
