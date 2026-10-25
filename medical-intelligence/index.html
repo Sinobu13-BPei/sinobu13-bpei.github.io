@@ -226,11 +226,12 @@ function draw(){
     }
     if(p[0]==='岡山県'){
       const okayamaLink=document.createElement('a');
-      okayamaLink.href='https://sinobu13-bpei.github.io/okayama-medical-mkt/';
+      okayamaLink.href='https://sinobu13-bpei.github.io/medical-intelligence/okayama/';
       okayamaLink.target='_blank';
       okayamaLink.rel='noopener noreferrer';
       okayamaLink.className='okayama-mkt-btn';
       okayamaLink.textContent='岡山MKT ↗';
+      okayamaLink.style.cssText='background:#b81d36;color:#fff;border-color:#b81d36;font-weight:800;';
       okayamaLink.setAttribute('aria-label','岡山県の医療市場調査を開く');
       actions.appendChild(okayamaLink);
     }
