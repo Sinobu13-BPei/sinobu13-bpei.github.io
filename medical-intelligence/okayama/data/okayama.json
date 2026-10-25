@@ -616,6 +616,24 @@
       "url": "https://maps.gsi.go.jp/development/ichiran.html",
       "year": "随時",
       "use": "地図出典・利用規約"
+    },
+    {
+      "name": "厚労省｜2024年6月再集計後の施設数・病床数",
+      "url": "https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/m24/dl/is2407_02.pdf",
+      "year": "2024年6月末・再集計後概数",
+      "use": "県別の病院・一般診療所・病床の同時点比較"
+    },
+    {
+      "name": "e-Stat｜2025年医療施設調査・動態",
+      "url": "https://www.e-stat.go.jp/stat-search/files?cycle=7&layout=datalist&page=1&tclass1=000001247656&tclass2=000001247658&tclass3val=0&toukei=00450021&tstat=000001030908",
+      "year": "2025年・2026年9月公表",
+      "use": "最新の施設数を取り出す表T1/T2"
+    },
+    {
+      "name": "岡山大学病院｜放射線部門設備・検査概要",
+      "url": "https://rad-tech.hospital.okayama-u.ac.jp/work/examination/",
+      "year": "閲覧時点公開情報",
+      "use": "CT導入台数・検査量の施設別確認"
     }
   ],
   "places": [
@@ -762,6 +780,60 @@
       "lat": 34.6687,
       "lng": 133.9189,
       "site": "https://www.okayama.med.or.jp/"
+    },
+    {
+      "name": "岡山済生会総合病院",
+      "type": "急性期・地域中核",
+      "area": "県南東部",
+      "address": "岡山市北区国体町2-25",
+      "lat": 34.6698,
+      "lng": 133.9229,
+      "site": "https://www.okayamasaiseikai.or.jp/"
+    },
+    {
+      "name": "岡山市立市民病院",
+      "type": "地域中核・救急",
+      "area": "県南東部",
+      "address": "岡山市北区北長瀬表町3-20-1",
+      "lat": 34.6723,
+      "lng": 133.8858,
+      "site": "https://okayama-gmc.or.jp/"
+    },
+    {
+      "name": "岡山旭東病院",
+      "type": "専門医療",
+      "area": "県南東部",
+      "address": "岡山市中区倉田567-1",
+      "lat": 34.6254,
+      "lng": 133.9728,
+      "site": "https://www.kyokuto.or.jp/"
+    },
+    {
+      "name": "倉敷成人病センター",
+      "type": "専門急性期",
+      "area": "県南西部",
+      "address": "倉敷市白楽町250",
+      "lat": 34.5853,
+      "lng": 133.7664,
+      "site": "https://www.fkmc.or.jp/"
+    },
+    {
+      "name": "岡山大学医学部",
+      "type": "医学部",
+      "area": "県南東部",
+      "address": "岡山市北区鹿田町2-5-1",
+      "lat": 34.6474,
+      "lng": 133.9178,
+      "site": "https://oumed.okayama-u.ac.jp/"
+    },
+    {
+      "name": "川崎医科大学医学部",
+      "type": "医学部",
+      "area": "県南西部",
+      "address": "倉敷市松島577",
+      "lat": 34.6031,
+      "lng": 133.8103,
+      "site": "https://med.kawasaki-m.ac.jp/"
     }
   ],
   "scores": [
