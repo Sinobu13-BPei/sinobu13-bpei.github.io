@@ -98,10 +98,25 @@ const gov=[
 function row(a){const gsi=(a.length>4?"https://maps.gsi.go.jp/#15/"+a[4]+"/"+a[5]+"/":gsiArea(a[1]));return '<div class="diritem"><strong><a href="'+a[3]+'" target="_blank" rel="noopener">'+a[0]+'</a></strong><div class="meta">'+a[2]+'　/ '+a[1]+'圏域</div><div class="inlineMap"><a href="'+gmap(a[0],a[2])+'" target="_blank" rel="noopener">Googleマップ</a><a href="'+gsi+'" target="_blank" rel="noopener">地理院地図'+(a.length>4?'（地点）':'（圏域中心参考）')+'</a></div></div>'}
 if(el("doctorsDirectory"))el("doctorsDirectory").innerHTML=people.map(row).join("");
 if(el("publicDirectory"))el("publicDirectory").innerHTML=gov.map(row).join("");
+const verifiedHospitals={
+"沖縄県立北部病院":[26.5924326,127.9861316],
+"北部地区医師会病院":[26.6078266,127.9656294],
+"琉球大学病院":[26.2896095,127.7668568],
+"沖縄県立中部病院":[26.354273,127.8353652],
+"中部徳洲会病院":[26.3170803,127.7972419],
+"那覇市立病院":[26.226487,127.710684],
+"沖縄県立南部医療センター・こども医療センター":[26.20589,127.72368],
+"友愛医療センター":[26.171131,127.6540195],
+"浦添総合病院":[26.2408253,127.7378167],
+"沖縄県立宮古病院":[24.7993432,125.2763435],
+"沖縄県立八重山病院":[24.34348,124.1838602]
+};
 if(el("hospitalRows"))Array.from(el("hospitalRows").querySelectorAll("tr")).forEach(r=>{
  const col=r.querySelector("td:last-child");
  const a=r.dataset.region;
- if(col&&a){const v=geoFor(a);const b=document.createElement("a");b.href="https://maps.gsi.go.jp/#15/"+v.lat+"/"+v.lon+"/";b.target="_blank";b.rel="noopener";b.textContent="｜地理院地図（圏域中心）";col.appendChild(b)}
+ const name=r.querySelector("td a")&&r.querySelector("td a").textContent.trim();
+ const pt=name&&verifiedHospitals[name];
+ if(col&&a){const v=geoFor(a);const b=document.createElement("a");b.href=pt?"https://maps.gsi.go.jp/#15/"+pt[0]+"/"+pt[1]+"/":"https://maps.gsi.go.jp/#15/"+v.lat+"/"+v.lon+"/";b.target="_blank";b.rel="noopener";b.textContent=pt?"｜地理院地図（施設地点）":"｜地理院地図（圏域中心参考）";col.appendChild(b)}
 });
 const sources=[
 ["N1 沖縄県・2025年国勢調査速報","https://www.pref.okinawa.lg.jp/toukeika/pc/2025/R07kokutyou.html"],
@@ -117,7 +132,9 @@ const sources=[
 ["N11 沖縄県・在宅医療連携拠点","https://www.pref.okinawa.jp/iryokenko/iryo/1005227/1029577/1036449.html"],
 ["N12 沖縄県・医療分地域医療介護総合確保基金","https://www.pref.okinawa.jp/iryokenko/iryo/1005807/1005824/1005830.html"],
 ["N13 沖縄県・2026年度医療提供体制協議会","https://www.pref.okinawa.jp/iryokenko/iryo/1005280/1029225/1040738.html"],
-["N14 琉球大学病院位置・地理情報参考","https://mapfan.com/spots/SC3YH%2CJ%2CVR"]
+["N14 琉球大学病院位置・地理情報参考","https://mapfan.com/spots/SC3YH%2CJ%2CVR"],
+["N15 沖縄県公開・地域医療構想セミナー資料（2025年1月、必要病床数）","https://www.pref.okinawa.lg.jp/_res/projects/default_project/_page_/001/032/343/03siryou3-1.pdf"],
+["N16 公開地図情報（各医療機関の座標）","https://mapfan.com/"]
 ];
 if(el("sourceLinks"))el("sourceLinks").insertAdjacentHTML("beforeend","<h3>追加一次資料・二次集計の出典</h3>"+sources.map(s=>'<a href="'+s[1]+'" target="_blank" rel="noopener">'+s[0]+' ↗</a>').join(""));
 const scores=[
