@@ -1,0 +1,22 @@
+/* Enhancements for the 2026 public release */
+.extras{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.reportNote{font-size:12px;color:#5c7084;margin:8px 0 12px}
+.marketTable{width:100%;border-collapse:collapse;font-size:12px;min-width:570px}
+.marketTable th,.marketTable td{padding:10px 12px;border-bottom:1px solid #e3edf4;text-align:left;vertical-align:top}
+.marketTable thead th{background:#0c294e;color:#fff}
+.reportFrame{overflow:auto;background:#fff;border:1px solid #dce7ef;border-radius:15px}
+.reportFrame .marketTable{border-radius:14px}
+.strategyChips{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.strategyChips b{font-size:12px;border-radius:12px;background:#e8f3f5;padding:8px 10px;color:#164b69}
+#medicalMap{height:410px;min-height:410px;border-radius:14px;border:1px solid #dce7ef;background:#e7f1f9}
+#medicalMap:empty:after{content:"地理院タイル地図を読み込み中です";padding:20px;display:block;color:#48687a}
+.chartsGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.chartPanel{border:1px solid #dce7ef;background:white;border-radius:15px;padding:15px;min-height:300px}
+.chartPanel canvas{height:250px!important;width:100%!important}
+.strategySteps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.strategySteps>div{background:#f3f8fb;padding:15px;border:1px solid #dce7ef;border-radius:13px;font-size:12px}
+.strategySteps b{display:block;color:#0c294e;font-size:17px}
+.linkgroup{display:flex;flex-wrap:wrap;gap:6px}
+.linkgroup a{font-size:11px;border:1px solid #bdd3e5;padding:5px 8px;border-radius:9px;white-space:nowrap}
+.mapNotice{font-size:12px;color:#657b8d;margin:7px 0}
+@media(max-width:760px){.extras,.chartsGrid{grid-template-columns:1fr}.strategySteps{grid-template-columns:repeat(2,minmax(0,1fr))}#medicalMap{height:350px;min-height:350px}}
