@@ -138,6 +138,15 @@ function draw(){
       naganoLink.textContent='長野MKT ↗';
       actions.appendChild(naganoLink);
     }
+    if(p[0]==='沖縄県'){
+      const okinawaLink=document.createElement('a');
+      okinawaLink.href='https://sinobu13-bpei.github.io/okinawa-medical-mkt/';
+      okinawaLink.target='_blank';
+      okinawaLink.rel='noopener noreferrer';
+      okinawaLink.className='shizuoka-mkt-btn';
+      okinawaLink.textContent='沖縄MKT ↗';
+      actions.appendChild(okinawaLink);
+    }
     if(p[0]==='静岡県'){
       let shizuokaLink=document.createElement('a');
       shizuokaLink.href='https://sinobu13-bpei.github.io/shizuoka-medical-atlas/';
