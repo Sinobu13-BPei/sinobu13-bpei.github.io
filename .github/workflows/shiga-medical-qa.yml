@@ -1,0 +1,24 @@
+name: Shiga Medical MKT QA
+on:
+  push:
+    paths:
+      - "medical-intelligence/shiga/**"
+      - ".github/workflows/shiga-medical-qa.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  static-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check JavaScript Syntax
+        run: node --check medical-intelligence/shiga/js/app.js
+      - name: Check data, 12 sections, UI hooks, public sources and neutrality
+        run: node medical-intelligence/shiga/tests/smoke.mjs
