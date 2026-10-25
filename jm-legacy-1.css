@@ -1,0 +1,45 @@
+
+:root{--ink:#1e2529;--muted:#67747a;--line:#dfe4e7;--soft:#f5f7f8;--accent:#b51224;--blue:#1d668c;--green:#2d9b63;--orange:#d79223;--purple:#6f52b5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:#fff;font-family:Meiryo UI,Meiryo,"Noto Sans JP",Arial,sans-serif;line-height:1.7}a{color:#125d83}button,select,input{font:inherit}.wrap{width:min(1220px,calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.head{height:66px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-weight:700;letter-spacing:.02em}.brand small{display:block;color:var(--muted);font-weight:400;font-size:10px}nav{display:flex;gap:20px;flex-wrap:wrap}nav a{font-size:12px;color:#333;text-decoration:none}nav a:hover{color:var(--accent)}
+.hero{padding:76px 0 58px;background:linear-gradient(135deg,#fff 0,#f4f6f7 70%,#eef3f5 100%);border-bottom:1px solid var(--line)}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.14em;font-size:11px}h1{font-size:clamp(38px,6vw,68px);line-height:1.08;letter-spacing:-.04em;margin:14px 0 18px;font-weight:650}.hero p{max-width:870px;color:#55646b;font-size:16px}.hero-note{margin-top:28px;padding:15px 18px;border-left:4px solid var(--accent);background:#fff;font-size:12px;color:#5e686e}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-top:34px;background:white}.kpi{padding:22px;border-right:1px solid var(--line)}.kpi:last-child{border-right:0}.kpi span{font-size:10px;color:var(--muted);letter-spacing:.07em}.kpi strong{display:block;font-size:29px;margin-top:5px}.kpi small{display:block;color:#859197;font-size:10px;margin-top:3px}
+section{padding:64px 0;border-bottom:1px solid #edf0f1}h2{font-size:31px;letter-spacing:-.025em;margin:0 0 12px}.lead{color:var(--muted);max-width:900px;margin:0 0 30px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.card{border:1px solid var(--line);background:#fff;padding:24px}.card h3{margin:0 0 6px;font-size:18px}.sub{font-size:11px;color:var(--muted)}
+.bar-row{display:grid;grid-template-columns:150px 1fr 70px;gap:12px;align-items:center;margin:12px 0}.bar-row label{font-size:12px}.track{height:12px;background:#edf0f1;overflow:hidden}.fill{height:100%}.bar-row b{font-size:12px;text-align:right}.tabs{display:flex;gap:8px;margin-bottom:16px}.tabs button{border:1px solid #ccd4d8;background:#fff;padding:7px 12px;font-size:11px;cursor:pointer}.tabs button.active{background:#222;color:white;border-color:#222}
+.stack{display:flex;height:26px;background:#eee;overflow:hidden;margin:18px 0 12px}.stack i{height:100%;display:block}.legend-list{display:flex;gap:15px;flex-wrap:wrap;font-size:10px;color:#5f6a70}.dot{width:9px;height:9px;display:inline-block;margin-right:5px;vertical-align:-1px}
+.map-shell{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:22px}.map-card{border:1px solid var(--line);background:#f8fafb;min-height:600px;position:relative;overflow:hidden}#map{width:100%;height:600px}.pref{stroke:#fff;stroke-width:.8;cursor:pointer;transition:.15s}.pref:hover{stroke:#222;stroke-width:1.5}.map-controls{position:absolute;left:14px;top:14px;z-index:3;background:rgba(255,255,255,.95);padding:10px;border:1px solid var(--line)}.map-controls select{padding:7px 9px;border:1px solid #cdd5d9;background:#fff;font-size:11px}.region-side{border:1px solid var(--line);padding:22px;background:#fff}.region-side h3{font-size:22px;margin:4px 0}.region-metric{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px solid #e8ecee;font-size:11px}.region-metric b{font-size:13px}.rank{margin-top:18px}.rank-row{display:grid;grid-template-columns:26px 1fr 70px;gap:8px;padding:8px 0;border-bottom:1px solid #eef1f2;font-size:11px}
+.table-wrap{overflow:auto;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;font-size:11px}th,td{padding:11px 12px;border-bottom:1px solid #e7ebed;text-align:right;white-space:nowrap}th:first-child,td:first-child{text-align:left}th{background:#f3f5f6;color:#5e6b71;position:sticky;top:0}.note-box{padding:18px 20px;background:#fafafa;border:1px solid var(--line);font-size:11px;color:#5e686e}
+.insights{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.insight{border-top:3px solid #394b55;background:#f7f8f9;padding:20px}.insight b{display:block;margin-bottom:7px}.insight p{margin:0;color:#667279;font-size:12px}
+.sources li{margin:9px 0;font-size:12px}footer{padding:30px 0 48px;color:#7b858a;font-size:10px}
+@media(max-width:900px){.kpis{grid-template-columns:1fr 1fr}.kpi:nth-child(2){border-right:0}.grid2,.map-shell{grid-template-columns:1fr}.insights{grid-template-columns:1fr}nav{display:none}}@media(max-width:560px){.wrap{width:min(100% - 24px,1220px)}.hero{padding:48px 0}.kpis{grid-template-columns:1fr}.kpi{border-right:0;border-bottom:1px solid var(--line)}.bar-row{grid-template-columns:110px 1fr 52px}#map{height:470px}.map-card{min-height:470px}}
+
+
+/* Related report navigation: MRI Atlas ↔ Medical Intelligence */
+.hero-related{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.hero-related a{display:inline-flex;align-items:center;justify-content:center;gap:10px;max-width:100%;padding:12px 18px;border-radius:8px;background:#233743;color:#fff;text-decoration:none;font-size:13px;font-weight:700;line-height:1.6;box-shadow:0 3px 10px rgba(20,40,50,.12);transition:background-color .15s ease}
+.hero-related a:hover{background:#125d83;color:#fff}
+.hero-related a:focus-visible{outline:3px solid #b51224;outline-offset:3px}
+@media(max-width:560px){.hero-related a{width:100%}}
+/* Public credit / contact */
+footer .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer .footer-credit{display:flex;flex-direction:column;gap:3px}
+footer .footer-credit b{font-size:11px;color:#333;font-weight:700}
+footer .footer-credit span{font-size:9px;color:#8a9499}
+.contact-btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 18px;border:1px solid #1e2529;background:#1e2529;color:#fff;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.02em;transition:.18s ease}
+.contact-btn:hover{background:#b51224;border-color:#b51224;color:#fff}
+@media(max-width:640px){footer .footer-inner{align-items:flex-start}.contact-btn{width:100%}}
+
+/* Google Maps integration */
+.map-google-note{margin-top:10px;font-size:11px;color:#718087}
+.gmaps-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;margin-top:12px;min-height:38px;padding:0 14px;border:1px solid #d9e0e4;background:#fff;color:#1e2529!important;text-decoration:none;font-size:11px;font-weight:700;transition:.16s ease}
+.gmaps-btn:hover{border-color:#1d668c;color:#1d668c!important;background:#f7fbfd}
+.gmaps-btn::before{content:"↗";font-size:12px}
+.map-google-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 20px}
+.map-google-tools label{font-weight:700;font-size:12px;color:#475860}
+.map-google-tools select{min-width:190px;max-width:100%;padding:10px;border:1px solid #cad5da;border-radius:6px;background:#fff;color:#233743}
+.map-google-tools .gmaps-btn{margin-top:0;border-radius:6px}
+.pref-link:focus-visible .pref{stroke:#171c20;stroke-width:3}
+.map-fallback{padding:35px 24px;display:flex;flex-direction:column;gap:12px;justify-content:center;align-items:flex-start;min-height:240px}
+@media(max-width:560px){.map-google-tools select,.map-google-tools .gmaps-btn{width:100%}}
+.rank-row a{color:inherit;text-decoration:none}
+.rank-row a:hover{color:#1d668c;text-decoration:underline}
