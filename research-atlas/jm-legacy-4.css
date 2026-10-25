@@ -1,0 +1,23 @@
+
+.cards{gap:22px}
+.cards .card:first-child{background:linear-gradient(140deg,#e7f3ff 0%,#d6eaff 55%,#f6fbff 100%);border:2px solid #63a3e5;border-top:8px solid #1666ca;box-shadow:0 13px 30px #065bb026}
+.cards .card:last-child{background:linear-gradient(140deg,#fff0f7 0%,#ffdeef 56%,#fff8fc 100%);border:2px solid #f39dcb;border-top:8px solid #d42a83;box-shadow:0 13px 30px #bc247e23}
+.cards .card:first-child .kicker{color:#124f9d;font-weight:900;letter-spacing:.085em}
+.cards .card:last-child .kicker{color:#b21a6a;font-weight:900;letter-spacing:.085em}
+.cards .card:first-child h3{color:#08366c}
+.cards .card:last-child h3{color:#81214e}
+.cards .card:first-child p,.cards .card:first-child .stats span{color:#365674}
+.cards .card:last-child p,.cards .card:last-child .stats span{color:#7e4264}
+.cards .card:first-child .stats strong{color:#0e56a7;font-weight:900}
+.cards .card:last-child .stats strong{color:#b51f70;font-weight:900}
+.cards .card .go{display:flex;align-items:center;justify-content:center;min-height:58px;font-size:17px;font-weight:900;letter-spacing:.025em;color:#fff!important;border-radius:9px;border:2px solid transparent;text-decoration:none;box-shadow:0 7px 0 #14293c2b,0 9px 18px #16223716;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+.cards .card:first-child .go{background:#074fa9;border-color:#003e86}
+.cards .card:last-child .go{background:#ad0b64;border-color:#85084f}
+.cards .card:first-child .go:hover,.cards .card:first-child .go:focus-visible{background:#003979}
+.cards .card:last-child .go:hover,.cards .card:last-child .go:focus-visible{background:#830946}
+.cards .card .go:hover{transform:translateY(-3px);box-shadow:0 10px 0 #14293c22,0 12px 22px #16223729;filter:saturate(1.1)}
+.cards .card .go:active{transform:translateY(3px);box-shadow:0 3px 0 #14293c22}
+.cards .card{border-radius:16px}
+.cards .card:hover{transform:translateY(-4px)}
+@media(max-width:680px){.cards{gap:17px}.cards .card .go{font-size:15px;min-height:54px}}
+@media(prefers-reduced-motion:reduce){.cards .card,.cards .card .go{transition:none!important;transform:none!important}}
