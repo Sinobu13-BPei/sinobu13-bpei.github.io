@@ -111,6 +111,16 @@ function draw(){
       riznoLink.textContent='リズノ・ワンに問合せ ↗';
       actions.appendChild(riznoLink);
     }
+    if(p[0]==='山口県'){
+      const yamaguchiLink=document.createElement('a');
+      yamaguchiLink.href='https://sinobu13-bpei.github.io/medical-intelligence/yamaguchi/';
+      yamaguchiLink.target='_blank';
+      yamaguchiLink.rel='noopener noreferrer';
+      yamaguchiLink.className='shiga-mkt-btn';
+      yamaguchiLink.style.cssText='background:#125e77;color:#fff;border-color:#125e77;font-weight:800;';
+      yamaguchiLink.textContent='山口MKT2026 ↗';
+      actions.appendChild(yamaguchiLink);
+    }
     if(p[0]==='山梨県'){
       let yamanashiLink=document.createElement('a');
       yamanashiLink.href='https://sinobu13-bpei.github.io/yamanashi-medical-mkt/';
