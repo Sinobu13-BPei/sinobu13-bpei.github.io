@@ -607,6 +607,12 @@
       "year": "2025年4月1日",
       "url": "https://www.city.kyoto.lg.jp/hokenfukushi/cmsfiles/contents/0000253/253035/20250401koudo.pdf",
       "note": "許可の存在を示すもので販売高やシェアではない"
+    },
+    {
+      "name": "国土交通省「令和6年度 近畿圏整備計画の実施に関する状況」図表2-3-4",
+      "year": "2024年10月末時点、2025年11月公表",
+      "url": "https://www.mlit.go.jp/kokudoseisaku/content/001970148.pdf",
+      "note": "全国・近畿圏病床数の人口10万人当たり比較。厚生労働省2024年医療施設調査に基づく。"
     }
   ],
   "populationSeries": {
@@ -675,5 +681,49 @@
     "心電図・生体モニタ",
     "透析機器",
     "PACS・画像/医療DX"
-  ]
+  ],
+  "adjacentBedComparison2024": {
+    "unit": "病院病床数/人口10万人",
+    "year": "2024-10",
+    "publisher": "国土交通省国土政策局（厚生労働省 令和6年医療施設（動態）調査を基に作成）",
+    "sourceUrl": "https://www.mlit.go.jp/kokudoseisaku/content/001970148.pdf",
+    "values": [
+      {
+        "region": "全国",
+        "bedsPer100k": 1187
+      },
+      {
+        "region": "京都府",
+        "bedsPer100k": 1258
+      },
+      {
+        "region": "滋賀県",
+        "bedsPer100k": 979
+      },
+      {
+        "region": "大阪府",
+        "bedsPer100k": 1174
+      },
+      {
+        "region": "兵庫県",
+        "bedsPer100k": 1188
+      },
+      {
+        "region": "奈良県",
+        "bedsPer100k": 1237
+      },
+      {
+        "region": "福井県",
+        "bedsPer100k": 1347
+      },
+      {
+        "region": "三重県",
+        "bedsPer100k": 1106
+      },
+      {
+        "region": "和歌山県",
+        "bedsPer100k": 1406
+      }
+    ]
+  }
 }
