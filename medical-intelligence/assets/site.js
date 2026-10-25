@@ -50,6 +50,11 @@
       nav.classList.toggle('is-open',next);toggle.setAttribute('aria-expanded',String(next));
     });
     line.append(brand,toggle,nav);head.appendChild(line);
+    /* On the original hub, the extra masthead is purely a duplicate link menu. */
+    if(path.startsWith('medical-intelligence/')){
+      const oldHeader=[...document.querySelectorAll('body > header')].find(x=>x!==head);
+      if(oldHeader&&!oldHeader.querySelector('h1')&&oldHeader.querySelector('nav'))oldHeader.hidden=true;
+    }
     const foot=document.getElementById('site-footer')||el('footer');foot.id='site-footer';
     if(!foot.parentNode)document.body.appendChild(foot);
     foot.replaceChildren();foot.className='jm-footer';
@@ -74,6 +79,21 @@
       });
     }else if(addresses.length>1){
       foot.dataset.audit='multiple-contact-destinations';
+    }
+    /* Move original hub's unique utility links into the shared footer; suppress duplicate strip. */
+    if(path.startsWith('medical-intelligence/')){
+      const oldRelated=document.querySelector('.footer-link-zone');
+      if(oldRelated){
+        const already=new Set([...links.querySelectorAll('a')].map(a=>new URL(a.href,document.baseURI).pathname));
+        const related=el('nav','jm-footer-nav');related.setAttribute('aria-label','関連リンク');
+        [...oldRelated.querySelectorAll('a[href]')].forEach(a=>{
+          const url=new URL(a.href,document.baseURI);
+          if(already.has(url.pathname)||url.protocol==='mailto:')return;
+          const clone=a.cloneNode(true);related.appendChild(clone);already.add(url.pathname);
+        });
+        if(related.childElementCount)inner.appendChild(related);
+        oldRelated.hidden=true;
+      }
     }
     inner.append(left,links);foot.appendChild(inner);
     const meta=document.querySelector('[data-site-meta]')||el('div','jm-shell jm-meta');
