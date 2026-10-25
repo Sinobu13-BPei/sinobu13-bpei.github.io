@@ -111,6 +111,17 @@ function draw(){
       riznoLink.textContent='リズノ・ワンに問合せ ↗';
       actions.appendChild(riznoLink);
     }
+    if(p[0]==='群馬県'){
+      const gunmaLink=document.createElement('a');
+      gunmaLink.href='https://sinobu13-bpei.github.io/medical-intelligence/gunma/';
+      gunmaLink.target='_blank';
+      gunmaLink.rel='noopener noreferrer';
+      gunmaLink.className='shiga-mkt-btn';
+      gunmaLink.style.cssText='background:#126887;color:#fff;border-color:#126887;font-weight:800;';
+      gunmaLink.textContent='群馬MKT ↗';
+      gunmaLink.setAttribute('aria-label','群馬県の医療マーケット分析を開く');
+      actions.appendChild(gunmaLink);
+    }
     if(p[0]==='山口県'){
       const yamaguchiLink=document.createElement('a');
       yamaguchiLink.href='https://sinobu13-bpei.github.io/medical-intelligence/yamaguchi/';
