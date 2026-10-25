@@ -10,7 +10,7 @@ const attr=(a)=>encodeURIComponent(a);
 const linkSet=(item,region)=>{const r=data.regions.find(a=>a.name===(region||item.area))||data.regions[0], exact=[item.name,item.address].filter(Boolean).join(" ");
 return '<span class="dir-links"><a href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(item.name)+'の公式サイト">公式サイト ↗</a><a href="'+mapQ(exact)+'" target="_blank" rel="noopener noreferrer">Googleマップ ↗</a><a href="'+gsi(r)+'" target="_blank" rel="noopener noreferrer" title="施設位置ではなく医療圏の代表点を表示">地理院地図（圏域概略） ↗</a></span>'};
 const source=(url,year)=>'<a href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">出典 ↗</a> <span class="muted">'+esc(year)+'</span>';
-async function boot(){try{const r=await fetch(asset("shiga"),{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);data=await r.json();render();$("#loadstate").textContent="一次情報・集計データを読み込みました。";}catch(e){$("#loadstate").textContent="データ読み込みに失敗しました。再読み込みしてください。";$("#loadstate").style.color="#ffe6a6";$("#critical").textContent="追加の分析データを読み込めませんでした。ネットワーク状態を確認してください。";console.error(e)}}
+async function boot(){try{const r=await fetch(asset("shiga"),{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);data=await r.json();render();$("#loadstate").textContent="一次情報・集計データを読み込みました。";}catch(e){$("#loadstate").textContent="データ読み込みに失敗しました。再読み込みしてください。";$("#loadstate").style.color="#ffe6a6";const problem=$("#critical");if(problem)problem.textContent="追加の分析データを読み込めませんでした。ネットワーク状態を確認してください。";console.error(e)}}
 const sectionDate='2025年10月（人口）・2025年7月（病床）';
 function render(){
  const P=data.regions,sites=data.sources,idx=(i)=>sites[i]?.url;
