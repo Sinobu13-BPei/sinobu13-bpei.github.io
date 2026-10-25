@@ -153,6 +153,105 @@
       if(holder&&!holder.querySelector('.jm-load-error'))holder.appendChild(notice);
     },true);
   }
-  const start=()=>{try{common();smallRepairs();structure();failSafe()}catch(e){console.warn('[JM shared UI]',e)}};
+
+  /* Contrast repair for legacy content. Evaluates actual foreground against the
+     composited ancestor background. Never edits copy, medical data, citations or URLs. */
+  function contrastRepair(){
+    const TARGET='h1,h2,h3,h4,h5,h6,p,span,small,strong,b,em,i,a,button,label,summary,li,dd,dt,th,td,caption,figcaption,blockquote,output,input,select,textarea,[role="button"],.note,.lead,.eyebrow';
+    const rgb=value=>{
+      if(!value)return null;
+      const match=value.match(/^rgba?\\(\\s*([\\d.]+)[,\\s]+([\\d.]+)[,\\s]+([\\d.]+)(?:[,\\s\\/]+([\\d.]+))?\\s*\\)$/i);
+      if(match)return[+match[1],+match[2],+match[3],match[4]===undefined?1:+match[4]];
+      const hex=value.match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
+      if(hex){let v=hex[1];if(v.length===3)v=[...v].map(c=>c+c).join('');return[parseInt(v.slice(0,2),16),parseInt(v.slice(2,4),16),parseInt(v.slice(4,6),16),1]}
+      return null;
+    };
+    const composite=(front,back)=>{
+      const a=Math.max(0,Math.min(1,front[3]));
+      return[0,1,2].map(i=>front[i]*a+back[i]*(1-a)).concat([1]);
+    };
+    const brightness=c=>{
+      const x=c.slice(0,3).map(v=>{v/=255;return v<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4)});
+      return .2126*x[0]+.7152*x[1]+.0722*x[2];
+    };
+    const ratio=(a,b)=>{
+      const l1=brightness(a),l2=brightness(b);return(Math.max(l1,l2)+.05)/(Math.min(l1,l2)+.05);
+    };
+    const DARK=[31,41,51,1],NAVY=[15,42,74,1],TEAL=[14,124,134,1],WHITE=[255,255,255,1];
+    let repaired=0,gradientsRemoved=0,checked=0;
+    function resolvedBackground(element){
+      const tree=[];let node=element;
+      while(node&&node.nodeType===1){tree.push(node);node=node.parentElement}
+      let bg=WHITE;
+      for(let i=tree.length-1;i>=0;i--){
+        const e=tree[i],cs=getComputedStyle(e);
+        /* Remove CSS gradients, but never remove actual imagery (url()). */
+        if(cs.backgroundImage.includes('gradient(')&&!cs.backgroundImage.includes('url(')){
+          e.style.setProperty('background-image','none','important');
+          gradientsRemoved++;
+          if((e.matches('a,button,[role="button"]'))&&(!rgb(cs.backgroundColor)||rgb(cs.backgroundColor)[3]<.1)){
+            e.style.setProperty('background-color','#0E7C86','important');
+          }
+        }
+        const color=rgb(getComputedStyle(e).backgroundColor);
+        if(color)bg=composite(color,bg);
+      }
+      return bg;
+    }
+    function repair(el){
+      if(el.closest('svg,canvas,template,[hidden],[aria-hidden="true"],#site-header .jm-menu-toggle[aria-expanded="false"] + .jm-primary-nav:not(.is-open)'))return;
+      if(!el.matches('input,select,textarea')){
+        let directText=false;
+        for(const child of el.childNodes){if(child.nodeType===3&&child.nodeValue.trim()){directText=true;break}}
+        if(!directText)return;
+      }
+      const cs=getComputedStyle(el);
+      if(cs.display==='none'||cs.visibility==='hidden'||cs.visibility==='collapse'||cs.opacity==='0')return;
+      const fg=rgb(cs.color);if(!fg)return;
+      const bg=resolvedBackground(el);const actual=composite(fg,bg);
+      const large=parseFloat(cs.fontSize)>=24||(parseFloat(cs.fontSize)>=18.66&&Number(cs.fontWeight)>=700);
+      const threshold=large?3:4.5;checked++;
+      if(ratio(actual,bg)>=threshold)return;
+      const isLink=el.matches('a')||el.closest('a,button,[role="button"]')!==null;
+      const candidates=isLink?[TEAL,WHITE,NAVY,DARK]:[DARK,NAVY,WHITE];
+      const best=candidates.map(c=>({c,r:ratio(c,bg)})).sort((a,b)=>b.r-a.r)[0];
+      /* Prefer the accent for light-background links when WCAG AA is met. */
+      let selected=best.c;
+      if(isLink&&ratio(TEAL,bg)>=threshold)selected=TEAL;
+      if(ratio(selected,bg)<threshold)return;
+      const hex='#'+selected.slice(0,3).map(v=>v.toString(16).padStart(2,'0')).join('').toUpperCase();
+      el.style.setProperty('color',hex,'important');
+      el.dataset.jmContrastFixed='true';
+      repaired++;
+    }
+    const scan=root=>{
+      const nodes=[];
+      if(root.nodeType===1&&root.matches?.(TARGET))nodes.push(root);
+      if(root.querySelectorAll)nodes.push(...root.querySelectorAll(TARGET));
+      for(const node of nodes)repair(node);
+      window.__jmContrastStatus={checked,repaired,gradientsRemoved,lastRun:new Date().toISOString()};
+    };
+    scan(document.body);
+    let pending=false,queued=[];
+    const flush=()=>{
+      pending=false;
+      const roots=queued;queued=[];
+      if(roots.length>30){scan(document.body);return}
+      roots.forEach(node=>{if(node.isConnected&&node.nodeType===1)scan(node)});
+    };
+    const observer=new MutationObserver(records=>{
+      for(const record of records){for(const node of record.addedNodes){if(node.nodeType===1)queued.push(node)}}
+      if(queued.length&&!pending){pending=true;
+        if('requestIdleCallback'in window)requestIdleCallback(flush,{timeout:500});
+        else setTimeout(flush,120);
+      }
+    });
+    observer.observe(document.body,{childList:true,subtree:true});
+    window.addEventListener('load',()=>scan(document.body),{once:true});
+    /* Accessible diagnosis: call JMContrastAudit() from the browser console. */
+    window.JMContrastAudit=()=>{scan(document.body);return {...window.__jmContrastStatus}};
+  }
+
+  const start=()=>{try{common();smallRepairs();structure();failSafe();contrastRepair()}catch(e){console.warn('[JM shared UI]',e)}};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
