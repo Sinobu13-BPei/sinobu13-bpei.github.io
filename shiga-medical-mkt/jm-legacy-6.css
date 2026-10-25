@@ -1,0 +1,7 @@
+/* Rev6: association and public health center official website navigation */
+#doctors-map .r6-office-site{color:#0a587e;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;overflow-wrap:anywhere;display:inline-block;max-width:100%;transition:color .12s ease}
+#doctors-map .r6-office-site:hover,#doctors-map .r6-office-site:focus-visible{color:#027c9b;text-decoration-thickness:2px}
+#doctors-map .r6-office-site:focus-visible{outline:3px solid #2da9c7;outline-offset:4px;border-radius:3px}
+#doctors-map .r6-office-site span{font-size:.82em;margin-left:.12em}
+#doctors-map .r6-verified-note{margin:5px 0 8px;font-size:.73rem;line-height:1.55;color:#586f7e}
+@media(max-width:520px){#doctors-map .r6-office-site{line-height:1.6}}
