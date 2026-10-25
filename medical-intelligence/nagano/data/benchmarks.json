@@ -1,0 +1,74 @@
+{
+  "meta": "医師偏在指標は2026年4月公表版。CT/MRI等の人口調整台数は令和元年度長野医療圏調整会議資料に掲載された歴史的比較値であり、2026年台数ではない。",
+  "physicianMaldistribution2026": [
+    [
+      "全国",
+      266.8
+    ],
+    [
+      "長野",
+      232.6
+    ],
+    [
+      "新潟",
+      201.7
+    ],
+    [
+      "群馬",
+      231.5
+    ],
+    [
+      "埼玉",
+      207.2
+    ],
+    [
+      "山梨",
+      260.1
+    ],
+    [
+      "静岡",
+      228.8
+    ],
+    [
+      "愛知",
+      258.3
+    ],
+    [
+      "岐阜",
+      234.2
+    ],
+    [
+      "富山",
+      284.8
+    ]
+  ],
+  "devicesHistorical": [
+    {
+      "name": "CT",
+      "nagano": 10.4,
+      "national": 11.1
+    },
+    {
+      "name": "MRI",
+      "nagano": 4.7,
+      "national": 5.5
+    },
+    {
+      "name": "PET",
+      "nagano": 0.53,
+      "national": 0.46
+    },
+    {
+      "name": "マンモグラフィー",
+      "nagano": 4,
+      "national": 3.4
+    },
+    {
+      "name": "放射線治療装置",
+      "nagano": 0.83,
+      "national": 0.91
+    }
+  ],
+  "reference": "https://www.pref.nagano.lg.jp/nagaho/documents/r1gijiroku1.pdf",
+  "referenceYear": "令和元年度の地域調整会議資料にある歴史的指標"
+}
