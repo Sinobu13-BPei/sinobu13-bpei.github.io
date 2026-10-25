@@ -160,7 +160,7 @@
     const TARGET='h1,h2,h3,h4,h5,h6,p,span,small,strong,b,em,i,a,button,label,summary,li,dd,dt,th,td,caption,figcaption,blockquote,output,input,select,textarea,[role="button"],.note,.lead,.eyebrow';
     const rgb=value=>{
       if(!value)return null;
-      const match=value.match(/^rgba?\\(\\s*([\\d.]+)[,\\s]+([\\d.]+)[,\\s]+([\\d.]+)(?:[,\\s\\/]+([\\d.]+))?\\s*\\)$/i);
+      const match=value.match(/^rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)(?:[,\s\/]+([\d.]+))?\s*\)$/i);
       if(match)return[+match[1],+match[2],+match[3],match[4]===undefined?1:+match[4]];
       const hex=value.match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
       if(hex){let v=hex[1];if(v.length===3)v=[...v].map(c=>c+c).join('');return[parseInt(v.slice(0,2),16),parseInt(v.slice(2,4),16),parseInt(v.slice(4,6),16),1]}
