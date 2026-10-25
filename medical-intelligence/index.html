@@ -101,6 +101,17 @@ function draw(){
       shigaLink.textContent='滋賀MKT ↗';
       actions.appendChild(shigaLink);
     }
+    if(p[0]==='鳥取県'||p[0]==='島根県'){
+      const saninLink=document.createElement('a');
+      saninLink.href='https://sinobu13-bpei.github.io/medical-intelligence/sanin/';
+      saninLink.target='_blank';
+      saninLink.rel='noopener noreferrer';
+      saninLink.className='shiga-mkt-btn';
+      saninLink.style.cssText='display:inline-flex;min-height:32px;align-items:center;padding:7px 12px;border-radius:8px;background:#0d797a;color:#fff;border:1px solid #0d797a;text-decoration:none;font-weight:900;';
+      saninLink.textContent=p[0]==='鳥取県'?'鳥取・山陰MKT ↗':'島根・山陰MKT ↗';
+      saninLink.setAttribute('aria-label','山陰医療圏MKT研究2026へ');
+      actions.appendChild(saninLink);
+    }
     const riznoPrefectures=['滋賀県','京都府','大阪府','兵庫県'];
     if(riznoPrefectures.includes(p[0])){
       let riznoLink=document.createElement('a');
