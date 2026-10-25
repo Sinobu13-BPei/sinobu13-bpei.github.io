@@ -110,6 +110,17 @@ function draw(){
       shigaLink.textContent='滋賀MKT ↗';
       actions.appendChild(shigaLink);
     }
+    if(p[0]==='京都府'){
+      const kyotoLink=document.createElement('a');
+      kyotoLink.href='https://sinobu13-bpei.github.io/medical-intelligence/kyoto/';
+      kyotoLink.target='_blank';
+      kyotoLink.rel='noopener noreferrer';
+      kyotoLink.className='kyoto-mkt-btn';
+      kyotoLink.textContent='京都MKT ↗';
+      kyotoLink.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:42px;background:#8051c8;color:#fff;font-weight:800;border:2px solid #6335ac;border-radius:10px;padding:7px 13px;text-decoration:none;box-shadow:0 3px 8px rgba(65,38,112,.22)';
+      kyotoLink.setAttribute('aria-label','京都府 医療機器市場・地域医療MKT研究2026を開く');
+      actions.appendChild(kyotoLink);
+    }
     const riznoPrefectures=['滋賀県','京都府','大阪府','兵庫県'];
     if(riznoPrefectures.includes(p[0])){
       let riznoLink=document.createElement('a');
