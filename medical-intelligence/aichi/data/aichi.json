@@ -1,0 +1,1066 @@
+{
+  "updated": "2026-10-25",
+  "scope": "public",
+  "pref": "愛知県",
+  "methodology": "観測・公表の機能報告病床（2025/7/1）と2025年必要病床数推計は定義・目的が異なり、差をそのまま不足／過剰病床とは判断しない。販社別シェア・契約・内部情報は非掲載。位置は市町村中心または施設近傍の参考座標で正確な建物座標ではない。",
+  "population": {
+    "census2020": 7542415,
+    "census2025": 7448043,
+    "estimate202609": 7443459,
+    "aging2020": 25.3,
+    "projections": [
+      {
+        "year": 2020,
+        "total": 7542415,
+        "senior": 1907392
+      },
+      {
+        "year": 2025,
+        "total": 7453098,
+        "senior": 1948197
+      },
+      {
+        "year": 2030,
+        "total": 7345554,
+        "senior": 2009001
+      },
+      {
+        "year": 2035,
+        "total": 7210578,
+        "senior": 2102854
+      },
+      {
+        "year": 2040,
+        "total": 7049961,
+        "senior": 2252453
+      },
+      {
+        "year": 2045,
+        "total": 6869521,
+        "senior": 2301160
+      },
+      {
+        "year": 2050,
+        "total": 6676331,
+        "senior": 2304814
+      }
+    ]
+  },
+  "bedTotal": {
+    "asOf": "2025-07-01",
+    "all": 54850,
+    "high": 11322,
+    "acute": 21921,
+    "recovery": 9269,
+    "chronic": 10924,
+    "closedPlanned": 1182,
+    "closedCancel": 232,
+    "needed2025": 57773
+  },
+  "regions": [
+    {
+      "name": "名古屋・尾張中部",
+      "pop2020": 2501526,
+      "lat": 35.169,
+      "lon": 136.907,
+      "reported2025": 20060,
+      "high": 5938,
+      "acute": 6805,
+      "recovery": 3535,
+      "chronic": 3183,
+      "required2025": 22039,
+      "doctorIndex2024": 305.4,
+      "doctorCategory2024": "医師多数",
+      "driver": "都市集積・大学・専門診療所",
+      "opportunity": "高度急性期・専門外来・DX連携",
+      "center": "名古屋市"
+    },
+    {
+      "name": "海部",
+      "pop2020": 325234,
+      "lat": 35.11,
+      "lon": 136.74,
+      "reported2025": 1779,
+      "high": 187,
+      "acute": 795,
+      "recovery": 482,
+      "chronic": 312,
+      "required2025": 1981,
+      "doctorIndex2024": 207.7,
+      "doctorCategory2024": "中間",
+      "driver": "人口高齢化と近隣都市流出",
+      "opportunity": "病診連携・在宅・訪問支援",
+      "center": "弥富市"
+    },
+    {
+      "name": "尾張東部",
+      "pop2020": 475816,
+      "lat": 35.16,
+      "lon": 137.046,
+      "reported2025": 4371,
+      "high": 2075,
+      "acute": 1331,
+      "recovery": 212,
+      "chronic": 683,
+      "required2025": 5268,
+      "doctorIndex2024": 333.2,
+      "doctorCategory2024": "医師多数",
+      "driver": "大学病院集積と高次医療",
+      "opportunity": "研究教育・高性能機器・遠隔連携",
+      "center": "長久手市"
+    },
+    {
+      "name": "尾張西部",
+      "pop2020": 514824,
+      "lat": 35.304,
+      "lon": 136.807,
+      "reported2025": 3807,
+      "high": 148,
+      "acute": 2165,
+      "recovery": 813,
+      "chronic": 582,
+      "required2025": 3922,
+      "doctorIndex2024": 214.9,
+      "doctorCategory2024": "中間",
+      "driver": "一宮都市圏と中核病院",
+      "opportunity": "急性期・診療所承継・保守",
+      "center": "一宮市"
+    },
+    {
+      "name": "尾張北部",
+      "pop2020": 735278,
+      "lat": 35.29,
+      "lon": 136.91,
+      "reported2025": 5237,
+      "high": 664,
+      "acute": 2506,
+      "recovery": 788,
+      "chronic": 1263,
+      "required2025": 5385,
+      "doctorIndex2024": 185.2,
+      "doctorCategory2024": "中間",
+      "driver": "春日井・小牧・江南の多拠点",
+      "opportunity": "救急・循環器・在宅・施設連携",
+      "center": "小牧市"
+    },
+    {
+      "name": "知多半島",
+      "pop2020": 628495,
+      "lat": 34.89,
+      "lon": 136.938,
+      "reported2025": 3291,
+      "high": 213,
+      "acute": 1550,
+      "recovery": 754,
+      "chronic": 528,
+      "required2025": 3310,
+      "doctorIndex2024": 196.5,
+      "doctorCategory2024": "中間",
+      "driver": "沿岸・半島地域の広域サービス",
+      "opportunity": "健診・救急・搬送／院内物流",
+      "center": "半田市"
+    },
+    {
+      "name": "西三河北部",
+      "pop2020": 484282,
+      "lat": 35.083,
+      "lon": 137.156,
+      "reported2025": 2891,
+      "high": 435,
+      "acute": 1263,
+      "recovery": 624,
+      "chronic": 550,
+      "required2025": 3064,
+      "doctorIndex2024": 192.3,
+      "doctorCategory2024": "中間",
+      "driver": "産業都市と山間部の混在",
+      "opportunity": "企業健診・救急・可搬／遠隔",
+      "center": "豊田市"
+    },
+    {
+      "name": "西三河南部東",
+      "pop2020": 427103,
+      "lat": 34.955,
+      "lon": 137.17,
+      "reported2025": 2464,
+      "high": 391,
+      "acute": 1022,
+      "recovery": 407,
+      "chronic": 594,
+      "required2025": 2325,
+      "doctorIndex2024": 188.8,
+      "doctorCategory2024": "中間",
+      "driver": "岡崎・幸田の人口・交通集積",
+      "opportunity": "急性期・高度画像・地域連携",
+      "center": "岡崎市"
+    },
+    {
+      "name": "西三河南部西",
+      "pop2020": 701627,
+      "lat": 34.962,
+      "lon": 137.084,
+      "reported2025": 4516,
+      "high": 567,
+      "acute": 2117,
+      "recovery": 941,
+      "chronic": 791,
+      "required2025": 4998,
+      "doctorIndex2024": 194.7,
+      "doctorCategory2024": "中間",
+      "driver": "製造業集積・基幹病院",
+      "opportunity": "手術・救急・循環器／健診",
+      "center": "安城市"
+    },
+    {
+      "name": "東三河北部",
+      "pop2020": 52751,
+      "lat": 35.04,
+      "lon": 137.522,
+      "reported2025": 305,
+      "high": 0,
+      "acute": 118,
+      "recovery": 61,
+      "chronic": 100,
+      "required2025": 267,
+      "doctorIndex2024": 165.2,
+      "doctorCategory2024": "医師少数",
+      "driver": "低密度・山間・搬送負荷",
+      "opportunity": "へき地・遠隔・在宅・保守動線",
+      "center": "新城市"
+    },
+    {
+      "name": "東三河南部",
+      "pop2020": 695479,
+      "lat": 34.768,
+      "lon": 137.39,
+      "reported2025": 6129,
+      "high": 704,
+      "acute": 2249,
+      "recovery": 652,
+      "chronic": 2338,
+      "required2025": 5214,
+      "doctorIndex2024": 184.2,
+      "doctorCategory2024": "中間",
+      "driver": "豊橋中心と渥美半島のアクセス差",
+      "opportunity": "急性期・慢性期・在宅・広域物流",
+      "center": "豊橋市"
+    }
+  ],
+  "universities": [
+    {
+      "name": "名古屋大学医学部附属病院",
+      "lat": 35.157,
+      "lon": 136.935,
+      "area": "名古屋・尾張中部",
+      "beds": 1076,
+      "bedsAsOf": "2026-07-01",
+      "url": "https://www.med.nagoya-u.ac.jp/hospital/outline/data/beds/",
+      "strength": "特定機能・研究教育・高度急性期"
+    },
+    {
+      "name": "名古屋市立大学病院",
+      "lat": 35.132,
+      "lon": 136.929,
+      "area": "名古屋・尾張中部",
+      "beds": 800,
+      "bedsAsOf": "病院公表概要（確認時点差）",
+      "url": "https://w3hosp.med.nagoya-cu.ac.jp/about/outline/results/",
+      "strength": "大学病院群・救急災害医療センター（2026年6月開棟）"
+    },
+    {
+      "name": "藤田医科大学病院",
+      "lat": 35.063,
+      "lon": 137.016,
+      "area": "尾張東部",
+      "beds": 1376,
+      "bedsAsOf": "病院公表概要",
+      "url": "https://hospital.fujita-hu.ac.jp/about/outline.html",
+      "strength": "救急・高度医療・複数病院グループ"
+    },
+    {
+      "name": "愛知医科大学病院",
+      "lat": 35.186,
+      "lon": 137.055,
+      "area": "尾張東部",
+      "beds": 900,
+      "bedsAsOf": "病院公表概要",
+      "url": "https://www.aichi-med-u.ac.jp/hospital/sh05/sh0503/index.html",
+      "strength": "大学病院・尾張東部の急性期医療"
+    }
+  ],
+  "hospitals": [
+    {
+      "name": "名古屋大学医学部附属病院",
+      "city": "名古屋市",
+      "url": "https://www.med.nagoya-u.ac.jp/hospital/",
+      "lat": 35.157,
+      "lon": 136.935,
+      "type": "特定機能",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "名古屋市立大学病院",
+      "city": "名古屋市",
+      "url": "https://w3hosp.med.nagoya-cu.ac.jp/",
+      "lat": 35.132,
+      "lon": 136.929,
+      "type": "特定機能",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "藤田医科大学病院",
+      "city": "豊明市",
+      "url": "https://hospital.fujita-hu.ac.jp/",
+      "lat": 35.063,
+      "lon": 137.016,
+      "type": "特定機能",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "愛知医科大学病院",
+      "city": "長久手市",
+      "url": "https://www.aichi-med-u.ac.jp/hospital/",
+      "lat": 35.186,
+      "lon": 137.055,
+      "type": "特定機能",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "愛知県がんセンター",
+      "city": "名古屋市",
+      "url": "https://cancer-c.pref.aichi.jp/",
+      "lat": 35.184,
+      "lon": 136.971,
+      "type": "がん・専門",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "名古屋医療センター",
+      "city": "名古屋市",
+      "url": "https://www.nnh.go.jp/",
+      "lat": 35.184,
+      "lon": 136.903,
+      "type": "公的・急性期",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "日本赤十字社愛知医療センター名古屋第一病院",
+      "city": "名古屋市",
+      "url": "https://www.nagoya-1st.jrc.or.jp/",
+      "lat": 35.168,
+      "lon": 136.869,
+      "type": "救命・急性期",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "日本赤十字社愛知医療センター名古屋第二病院",
+      "city": "名古屋市",
+      "url": "https://www.nagoya2.jrc.or.jp/",
+      "lat": 35.138,
+      "lon": 136.954,
+      "type": "救命・急性期",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "小牧市民病院",
+      "city": "小牧市",
+      "url": "https://www.komakihp.gr.jp/",
+      "lat": 35.286,
+      "lon": 136.918,
+      "type": "地域基幹",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "江南厚生病院",
+      "city": "江南市",
+      "url": "https://konankosei.jp/",
+      "lat": 35.347,
+      "lon": 136.868,
+      "type": "地域基幹",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "一宮西病院",
+      "city": "一宮市",
+      "url": "https://www.anzu.or.jp/ichinomiyanishi/",
+      "lat": 35.296,
+      "lon": 136.781,
+      "type": "地域基幹",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "安城更生病院",
+      "city": "安城市",
+      "url": "https://anjokosei.jp/",
+      "lat": 34.951,
+      "lon": 137.103,
+      "type": "地域基幹",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "岡崎市民病院",
+      "city": "岡崎市",
+      "url": "https://www.okazakihospital.jp/",
+      "lat": 34.951,
+      "lon": 137.206,
+      "type": "地域基幹",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "豊田厚生病院",
+      "city": "豊田市",
+      "url": "https://toyota-kosei.jp/",
+      "lat": 35.113,
+      "lon": 137.172,
+      "type": "地域基幹",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "刈谷豊田総合病院",
+      "city": "刈谷市",
+      "url": "https://www.toyota-kai.or.jp/",
+      "lat": 34.99,
+      "lon": 136.999,
+      "type": "地域基幹",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "豊橋市民病院",
+      "city": "豊橋市",
+      "url": "https://www.municipal-hospital.toyohashi.aichi.jp/",
+      "lat": 34.784,
+      "lon": 137.332,
+      "type": "地域基幹",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "公立西知多総合病院",
+      "city": "東海市",
+      "url": "https://www.nishichita-hp.aichi.jp/",
+      "lat": 35.031,
+      "lon": 136.897,
+      "type": "地域基幹",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "半田市立半田病院",
+      "city": "半田市",
+      "url": "https://www.handa-hosp.jp/",
+      "lat": 34.895,
+      "lon": 136.947,
+      "type": "地域基幹",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "海南病院",
+      "city": "弥富市",
+      "url": "https://www.kainan.jaaikosei.or.jp/",
+      "lat": 35.119,
+      "lon": 136.727,
+      "type": "地域基幹",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    },
+    {
+      "name": "新城市民病院",
+      "city": "新城市",
+      "url": "https://www.city.shinshiro.lg.jp/shinoshiminbyoin/",
+      "lat": 34.893,
+      "lon": 137.496,
+      "type": "山間・地域基幹",
+      "coordinateNote": "位置は施設周辺の参考座標（代表地点）、建物の正確な所在地はGoogle Mapsで検索"
+    }
+  ],
+  "doctors": [
+    {
+      "name": "名古屋市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "千種区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "東区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "北区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "西区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "中村区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "中区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "昭和区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "瑞穂区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "熱田区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "中川区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "港区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "南区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "守山区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "緑区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "名東区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "天白区医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "一宮市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "瀬戸旭医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "半田市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "春日井市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "津島市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "小牧市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "東海市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "岩倉市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "東名古屋医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "西名古屋医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "尾北医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "稲沢市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "海部医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "知多郡医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "豊橋市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "岡崎市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "豊川市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "碧南市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "刈谷医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "豊田加茂医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "蒲郡市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "安城市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "西尾市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "北設楽郡医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "新城市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "田原市医師会",
+      "category": "郡市区医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "名古屋大学医師会",
+      "category": "大学医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "名古屋市立大学医師会",
+      "category": "大学医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "藤田医科大学医師会",
+      "category": "大学医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "name": "愛知医科大学医師会",
+      "category": "大学医師会",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    }
+  ],
+  "health": [
+    {
+      "name": "瀬戸保健所",
+      "lat": 35.22,
+      "lon": 137.09,
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000000026.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "春日井保健所",
+      "lat": 35.25,
+      "lon": 136.97,
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000000026.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "江南保健所",
+      "lat": 35.33,
+      "lon": 136.87,
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000000026.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "清須保健所",
+      "lat": 35.2,
+      "lon": 136.85,
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000000026.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "津島保健所",
+      "lat": 35.18,
+      "lon": 136.73,
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000000026.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "半田保健所",
+      "lat": 34.89,
+      "lon": 136.94,
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000000026.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "知多保健所",
+      "lat": 35,
+      "lon": 136.86,
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000000026.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "衣浦東部保健所",
+      "lat": 34.98,
+      "lon": 136.99,
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000000026.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "西尾保健所",
+      "lat": 34.86,
+      "lon": 137.06,
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000000026.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "新城保健所",
+      "lat": 35.04,
+      "lon": 137.52,
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000000026.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "豊川保健所",
+      "lat": 34.83,
+      "lon": 137.38,
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000000026.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "名古屋市保健所",
+      "lat": 35.17,
+      "lon": 136.9,
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/23aichi.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "豊橋市保健所",
+      "lat": 34.77,
+      "lon": 137.39,
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/23aichi.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "岡崎市保健所",
+      "lat": 34.96,
+      "lon": 137.16,
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/23aichi.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "一宮市保健所",
+      "lat": 35.3,
+      "lon": 136.8,
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/23aichi.html",
+      "coordinateNote": "市域中心の概略位置"
+    },
+    {
+      "name": "豊田市保健所",
+      "lat": 35.08,
+      "lon": 137.16,
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/23aichi.html",
+      "coordinateNote": "市域中心の概略位置"
+    }
+  ],
+  "prefecture": {
+    "name": "愛知県庁・保健医療局",
+    "lat": 35.18,
+    "lon": 136.906,
+    "city": "名古屋市",
+    "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/2024-3iryokeikaku.html"
+  },
+  "dealers": [
+    {
+      "name": "八神製作所",
+      "office": "名古屋市",
+      "type": "総合医療機器商社",
+      "scope": "機器・保守・医療材料・在宅／介護",
+      "url": "https://www.yagami.co.jp/"
+    },
+    {
+      "name": "協和医科器械",
+      "office": "名古屋市など",
+      "type": "総合医療機器商社",
+      "scope": "機器・材料・消耗品・SPD",
+      "url": "https://www.kyowaika.co.jp/"
+    },
+    {
+      "name": "三輪器械",
+      "office": "名古屋市",
+      "type": "総合・専門機器",
+      "scope": "内視鏡・病院・医療材料",
+      "url": "https://www.kk-miwa.co.jp/"
+    },
+    {
+      "name": "リィツメディカル",
+      "office": "豊川市",
+      "type": "専門機器",
+      "scope": "眼科",
+      "url": "https://ritz-med.co.jp/"
+    },
+    {
+      "name": "スズケン",
+      "office": "名古屋市",
+      "type": "医薬品卸",
+      "scope": "医薬品・医療材料・診療所",
+      "url": "https://www.suzuken.co.jp/"
+    },
+    {
+      "name": "メディセオ",
+      "office": "清須市など",
+      "type": "医薬品卸",
+      "scope": "医薬品・ME・試薬・材料",
+      "url": "https://www.mediceo.co.jp/"
+    },
+    {
+      "name": "アルフレッサ",
+      "office": "県内営業所",
+      "type": "医薬品卸",
+      "scope": "医薬品・医療材料",
+      "url": "https://www.alfresa.co.jp/"
+    },
+    {
+      "name": "中北薬品",
+      "office": "名古屋市",
+      "type": "地域薬業卸",
+      "scope": "医薬品・診療所・流通",
+      "url": "https://www.nakakita.co.jp/"
+    },
+    {
+      "name": "東邦薬品",
+      "office": "県内営業所",
+      "type": "医薬品卸",
+      "scope": "医薬品流通",
+      "url": "https://www.tohoyk.co.jp/"
+    },
+    {
+      "name": "宮野医療器",
+      "office": "名古屋市",
+      "type": "医療機器商社",
+      "scope": "医療機器・医療材料",
+      "url": "https://www.miyano.co.jp/"
+    },
+    {
+      "name": "村中医療器",
+      "office": "名古屋市",
+      "type": "医療機器商社",
+      "scope": "手術機器・医療器材",
+      "url": "https://www.muranaka.co.jp/"
+    },
+    {
+      "name": "松吉医科器械",
+      "office": "名古屋市",
+      "type": "医療機器商社",
+      "scope": "診療備品・消耗品",
+      "url": "https://www.matsuyoshi.co.jp/"
+    }
+  ],
+  "peer": [
+    {
+      "name": "愛知",
+      "pop2020": 7542415,
+      "clinicsPer100k": 64.91,
+      "hospitalsPer100k": 4
+    },
+    {
+      "name": "全国",
+      "pop2020": null,
+      "clinicsPer100k": 70.25,
+      "hospitalsPer100k": 6.3
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC01",
+      "category": "県人口 2025国勢調査",
+      "title": "愛知県 令和7年国勢調査県分概要",
+      "year": "2025",
+      "url": "https://www.pref.aichi.jp/press-release/toukei20260929kokusei.html"
+    },
+    {
+      "id": "SRC02",
+      "category": "人口月報",
+      "title": "愛知県推計人口・自然増減・社会増減",
+      "year": "2026-09",
+      "url": "https://www.pref.aichi.jp/soshiki/toukei/jinko1new.html"
+    },
+    {
+      "id": "SRC03",
+      "category": "将来人口",
+      "title": "JMAP / IPSS 2023年12月推計",
+      "year": "2020-2050",
+      "url": "https://jmap.jp/cities/detail/pref/23"
+    },
+    {
+      "id": "SRC04",
+      "category": "第8次医療計画",
+      "title": "愛知県地域保健医療計画",
+      "year": "2024-2029",
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/2024-3iryokeikaku.html"
+    },
+    {
+      "id": "SRC05",
+      "category": "病床機能 2025",
+      "title": "愛知県令和7年度病床機能報告",
+      "year": "2025-07-01",
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/byousyoukinouhoukokur7.html"
+    },
+    {
+      "id": "SRC06",
+      "category": "2025必要病床数",
+      "title": "愛知県病床整備計画・病床必要量",
+      "year": "2025予測/2026現況",
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000024481.html"
+    },
+    {
+      "id": "SRC07",
+      "category": "医師偏在",
+      "title": "愛知県医師確保計画2024-2026",
+      "year": "2024計画",
+      "url": "https://www.pref.aichi.jp/soshiki/imu/ishikakuhokeikaku2.html"
+    },
+    {
+      "id": "SRC08",
+      "category": "医師偏在更新",
+      "title": "厚生労働省 医師偏在指標2026年4月版",
+      "year": "2026-04",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    },
+    {
+      "id": "SRC09",
+      "category": "医療施設比較",
+      "title": "日本医師会 JMAP 医療資源（集計母集団注意）",
+      "year": "閲覧時点",
+      "url": "https://jmap.jp/cities/detail/pref/23"
+    },
+    {
+      "id": "SRC10",
+      "category": "医師会",
+      "title": "愛知県医師会 地区・大学医師会一覧",
+      "year": "2024名簿",
+      "url": "https://www.aichi.med.or.jp/webcms/wp-content/uploads/2024/10/20241101address.pdf"
+    },
+    {
+      "id": "SRC11",
+      "category": "保健所",
+      "title": "愛知県保健所一覧",
+      "year": "閲覧時点",
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000000026.html"
+    },
+    {
+      "id": "SRC12",
+      "category": "基金",
+      "title": "愛知県地域医療介護総合確保基金",
+      "year": "2025年度計画",
+      "url": "https://www.pref.aichi.jp/soshiki/iryo-keikaku/0000082126.html"
+    },
+    {
+      "id": "SRC13",
+      "category": "災害",
+      "title": "愛知県南海トラフ地震被害予測調査",
+      "year": "2026-06/08",
+      "url": "https://www.pref.aichi.jp/soshiki/bosai/r8higaiyosoku.html"
+    },
+    {
+      "id": "SRC14",
+      "category": "機器設置状況",
+      "title": "厚労省病床機能報告 公表データ様式１（機器台数）",
+      "year": "2025年度",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html"
+    },
+    {
+      "id": "SRC15",
+      "category": "医療施設統計",
+      "title": "e-Stat 令和5年医療施設静態調査",
+      "year": "2023",
+      "url": "https://www.e-stat.go.jp/stat-search/files?toukei=00450021"
+    },
+    {
+      "id": "SRC16",
+      "category": "販社団体",
+      "title": "JAHID 医療機器販売業協会公開会員",
+      "year": "閲覧時点",
+      "url": "https://www.jahid.or.jp/about/member-introduction"
+    },
+    {
+      "id": "SRC17",
+      "category": "県大学病院",
+      "title": "名古屋大学医学部附属病院 病床数",
+      "year": "2026-07",
+      "url": "https://www.med.nagoya-u.ac.jp/hospital/outline/data/beds/"
+    },
+    {
+      "id": "SRC18",
+      "category": "大学病院再編",
+      "title": "名古屋市立大学附属病院 2026救急災害",
+      "year": "2026",
+      "url": "https://www.nagoya-cu.ac.jp/affiliate/hospital/"
+    },
+    {
+      "id": "SRC19",
+      "category": "地域地図",
+      "title": "国土地理院 地理院地図",
+      "year": "閲覧時点",
+      "url": "https://maps.gsi.go.jp/"
+    }
+  ]
+}
