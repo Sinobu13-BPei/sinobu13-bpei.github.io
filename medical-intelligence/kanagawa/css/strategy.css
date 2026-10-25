@@ -1,0 +1,66 @@
+/* Neutral Kanagawa Market Strategy — 2026-10-25 */
+.sc-section{scroll-margin-top:78px;margin:30px 0 42px}
+.sc-section h2{font-size:clamp(20px,2.4vw,28px);line-height:1.35;color:#113452;margin:0}
+.sc-intro{font-size:14px;line-height:1.85;color:#516983;max-width:960px}
+.sc-panel{background:#fff;border:1px solid #d2e1ec;box-shadow:0 8px 24px rgba(15,48,80,.06);padding:18px 20px;border-radius:13px;margin:13px 0}
+.sc-panel h3{font-size:17px;color:#163f63;margin:0 0 8px}
+.sc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.sc-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sc-mini{background:#fff;border-radius:12px;border:1px solid #d1dfe8;padding:15px;min-width:0}
+.sc-mini h3{margin:0 0 8px;color:#184762;font-size:16px}
+.sc-mini p{margin:4px 0}
+.sc-kicker{display:block;letter-spacing:.12em;font-size:11px;font-weight:850;color:#137f96;margin-bottom:6px}
+.sc-overline{font-weight:700;font-size:12px;letter-spacing:.1em;color:#1b6f85}
+.sc-side{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sc-side>div{border-left:4px solid #1a7898;background:#eff8fc;padding:14px 16px;border-radius:5px;color:#21384e}
+.sc-side>div+div{border-left-color:#15957f;background:#eff9f4}
+.sc-side p{margin:8px 0}
+.sc-pills{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}
+.sc-pill{display:inline-flex;border-radius:99px;background:#e8f2f7;padding:4px 12px;color:#155277;font-size:12px;border:1px solid #c1dbe9;font-weight:720}
+.sc-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.sc-controls label{font-size:14px;font-weight:750;color:#21394f}
+.sc-controls select{min-height:44px;border:1px solid #88aabb;border-radius:8px;background:#fff;color:#142d44;padding:8px 12px;min-width:min(100%,320px)}
+.sc-table-wrap{width:100%;overflow-x:auto;border:1px solid #d2e0eb;border-radius:10px;box-shadow:0 2px 10px rgba(32,60,80,.035)}
+.sc-table-wrap table{width:100%;min-width:880px;border-collapse:collapse;background:#fff;color:#253e51;font-size:12px}
+.sc-table-wrap th,.sc-table-wrap td{border-bottom:1px solid #deebf1;padding:11px 12px;vertical-align:top;text-align:left;overflow-wrap:anywhere}
+.sc-table-wrap thead th{background:#e9f3f9;color:#17415c;font-weight:800;white-space:nowrap}
+.sc-table-wrap tbody th{color:#173d59;font-weight:780;white-space:normal}
+.sc-table-wrap tbody tr:hover{background:#f8fbfd}
+.sc-table-wrap a{color:#165f9f;text-underline-offset:2px}
+.sc-unverified{font-size:12px;background:#fcf1df;color:#885716;border:1px solid #eddcbf;border-radius:5px;display:inline-block;padding:2px 6px}
+.sc-small{font-size:12px;line-height:1.7;color:#556a80}
+.sc-cite{display:inline-flex;text-decoration:none;min-height:28px;align-items:center;border-radius:5px;padding:3px 7px;background:#e3f0fa;color:#155e8b;font-size:11px;font-weight:770;margin:2px;border:1px solid #c7ddef}
+.sc-cite:hover{background:#cfe5f6}
+.sc-framework{border:1px solid #cbdae5;border-radius:12px;background:#fff;overflow:hidden;margin:12px 0;box-shadow:0 3px 12px rgba(16,50,84,.04)}
+.sc-framework summary{cursor:pointer;min-height:54px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 15px;background:#eef6fb;color:#183e59}
+.sc-framework[open] summary{background:#dcecf7;border-bottom:1px solid #bcd4e5}
+.sc-framework summary strong{font-size:17px;color:#0e638d}
+.sc-framework summary .sc-summary{margin-left:auto;color:#53728a;font-size:11px}
+.sc-framework summary::marker{color:#177e9a}
+.sc-framework .sc-table-wrap{border:0;border-radius:0}
+.sc-count{font-size:12px;font-weight:800;border:1px solid #b1cbdc;border-radius:7px;padding:4px 7px;background:#fff;color:#195a7e}
+.sc-flow{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:7px;margin:16px 0}
+.sc-step{position:relative;border:1px solid #c3dce8;border-radius:9px;background:linear-gradient(145deg,#e9f6fb,#fff);padding:11px 7px;text-align:center;min-width:0;box-shadow:0 3px 8px rgba(30,55,75,.035)}
+.sc-step span{display:block;font-size:11px;color:#678293}
+.sc-step strong{display:block;font-size:18px;color:#16618a;line-height:1.3;margin:4px 0}
+.sc-step small{display:block;font-size:10px;color:#526a7f;line-height:1.3}
+.sc-ksf-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sc-ksf{border:1px solid #cfdfea;background:#fff;border-radius:11px;padding:13px;display:flex;gap:11px}
+.sc-knum{background:#126785;color:#fff;font-weight:850;width:35px;height:35px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex:none}
+.sc-ksf h3{font-size:15px;color:#133b5b;line-height:1.5;margin:0 0 5px}
+.sc-ksf p{font-size:12px;line-height:1.8;margin:3px 0}
+.sc-heat{border-radius:5px;text-align:center;padding:6px 8px;min-width:60px;font-weight:800}
+.sc-heat.lv2{background:#e7eef4;color:#425f79}
+.sc-heat.lv3{background:#d7e9f6;color:#235e82}
+.sc-heat.lv4{background:#c8eadc;color:#16694e}
+.sc-heat.lv5{background:#bde2ea;color:#15556b}
+.sc-notice{background:#fff8e9;border-left:4px solid #d9a146;color:#594a31;padding:12px 15px;border-radius:8px;font-size:13px;line-height:1.75;margin:13px 0}
+.sc-source-type{font-size:12px;color:#60758c}
+#strategy-area-insight,#strategy-mode-detail{min-height:132px}
+.sc-source-list{display:flex;flex-wrap:wrap;gap:8px}
+.sc-source-list a{font-size:12px;text-decoration:none;background:#e6f2f8;padding:8px 12px;border-radius:7px;min-height:44px;display:inline-flex;align-items:center}
+.sc-section :focus-visible{outline:3px solid #db9922;outline-offset:2px}
+@media(max-width:1060px){.sc-flow{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:780px){.sc-grid,.sc-grid.two{grid-template-columns:1fr}.sc-side{grid-template-columns:1fr}.sc-ksf-grid{grid-template-columns:1fr}.sc-panel{padding:14px 13px}.sc-flow{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:460px){.sc-section{margin:20px 0 28px}.sc-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.sc-controls select{width:100%}.sc-controls{align-items:stretch;display:flex;flex-direction:column}.sc-panel h3{font-size:16px}.sc-table-wrap th,.sc-table-wrap td{padding:9px}}
+@media print{.sc-framework{break-inside:avoid;box-shadow:none}.sc-framework .sc-table-wrap{display:block}.sc-table-wrap{overflow:visible}.sc-table-wrap table{min-width:0}.sc-ksf{break-inside:avoid}}
