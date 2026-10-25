@@ -1,0 +1,38 @@
+name: Medical Market Site UI QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'medical-intelligence/**'
+      - 'clinic-medical-device-market/**'
+      - 'ct-market-atlas/**'
+      - 'medical-device-strategy-handbook/**'
+      - 'strategy-handbook/**'
+      - 'meeting-compliance/**'
+      - 'research-atlas/**'
+      - 'akita-medical-mkt/**'
+      - 'yamagata-medical-mkt/**'
+      - 'tohoku-medical-mkt/**'
+      - 'shiga-medical-mkt/**'
+      - 'nagano-medical-mkt/**'
+      - 'niigata-medical-mkt/**'
+      - 'yamanashi-medical-mkt/**'
+      - 'shizuoka-medical-atlas/**'
+      - 'shizuoka-medical-market-2026/**'
+      - 'medical-congress-2027/**'
+      - 'mri_market_atlas_2025.html'
+      - 'okinawa_medical_device_market_neutral_2026.html'
+      - '.github/workflows/medical-site-ui-qa.yml'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate HTML links, JS syntax and common shell
+        run: node medical-intelligence/assets/qa-site.mjs
