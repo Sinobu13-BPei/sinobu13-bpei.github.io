@@ -9,7 +9,7 @@
     "asOf": "2026-09-01",
     "value": 1497411,
     "fromPriorYear": -17616,
-    "census2025": 1512969,
+    "census2025": 1511783,
     "aging2024": 34.2,
     "agingNational2024": 29.3,
     "forecast2040": 1309000,
@@ -32,7 +32,39 @@
         "鹿児島県",
         34.2
       ]
-    ]
+    ],
+    "aging2025": 34.5,
+    "censusPopulationDate": "2025-10-01",
+    "censusPublished": "2026-09-29（人口等基本集計確定値）",
+    "migration2026Sep": {
+      "in": 1999,
+      "out": 2061,
+      "naturalChange": -1129,
+      "socialChange": -62
+    },
+    "municipalHighlights2025": [
+      {
+        "place": "鹿児島市",
+        "population": 580549,
+        "year": "2025年国勢調査確定"
+      },
+      {
+        "place": "姶良市",
+        "changeSince2020": 520,
+        "year": "2025年国勢調査確定・2020年比"
+      },
+      {
+        "place": "南大隅町",
+        "changePercentSince2020": -17.5,
+        "year": "2025年国勢調査確定・2020年比"
+      },
+      {
+        "place": "錦江町",
+        "changePercentSince2020": -17.3,
+        "year": "2025年国勢調査確定・2020年比"
+      }
+    ],
+    "reference2030To2040": "将来推計は2020年国勢調査基準の社人研令和5年推計を利用。2025年国勢調査新確報を推計へ直接反映していない。"
   },
   "beds": {
     "types": [
@@ -606,7 +638,7 @@
     },
     {
       "id": "S02",
-      "year": "2026年公表（2025年調査）",
+      "year": "2025年国勢調査／2026年9月29日確報",
       "title": "鹿児島県・2025年国勢調査確報",
       "url": "https://www.pref.kagoshima.jp/ac09/tokei/bunya/kokutyo/r7kokutyo/kihonsyuukei.html"
     },
@@ -626,7 +658,7 @@
       "id": "S05",
       "year": "2024年度報告／2025年必要量",
       "title": "鹿児島県・病床機能報告 二次医療圏別集計",
-      "url": "https://www.pref.kagoshima.jp/ae01/kenko-fukushi/kenko-iryo/byosyokinohokoku/documents/123553_20250922193127-1.pdf"
+      "url": "https://www.pref.kagoshima.jp/ae01/kenko-fukushi/kenko-iryo/byosyokinohokoku/r6.html"
     },
     {
       "id": "S06",
@@ -636,7 +668,7 @@
     },
     {
       "id": "S07",
-      "year": "2024年集計・2026年4月公表",
+      "year": "2026年4月公表",
       "title": "厚生労働省・医師偏在指標",
       "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
     },
@@ -723,6 +755,12 @@
       "year": "2026年9月会議・10月公表",
       "title": "鹿児島県・地域医療対策協議会",
       "url": "https://www.pref.kagoshima.jp/ae03/event/r8-1st-titaikyo.html"
+    },
+    {
+      "id": "S22",
+      "year": "2026年4月公表",
+      "title": "厚生労働省・二次医療圏別医師偏在指標（2026年4月公表値）",
+      "url": "https://www.mhlw.go.jp/content/001691397.pdf"
     }
   ],
   "excluded": [
