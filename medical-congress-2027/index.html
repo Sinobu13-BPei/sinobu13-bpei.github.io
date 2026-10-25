@@ -1,95 +1,10 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>2027年 国内医学系 学会・研究会｜会員数・参加数・モダリティ一覧</title>
-<style>
-:root{--bg:#f3f6f8;--panel:#fff;--ink:#17232d;--muted:#65737e;--line:#d7e0e6;--blue:#225b79}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Meiryo,"Yu Gothic",sans-serif;line-height:1.55}
-.wrap{max-width:1900px;margin:auto;padding:24px}h1{font-size:28px;margin:.2em 0}.lead{max-width:1300px;color:var(--muted)}
-.cards{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:160px}
-.card b{font-size:22px;color:var(--blue);display:block}.toolbar{position:sticky;top:0;z-index:10;background:rgba(243,246,248,.97);padding:10px 0;border-bottom:1px solid var(--line)}
-input{width:min(900px,100%);padding:12px 14px;border:1px solid var(--line);border-radius:9px;font:inherit}
-.legend{font-size:12px;color:var(--muted);margin:10px 0}.tablewrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:12px}
-table{border-collapse:collapse;width:100%;min-width:2100px}th,td{padding:10px 9px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left;font-size:12px}
-th{position:sticky;top:61px;background:#eaf0f4;z-index:5}.date{white-space:nowrap;color:var(--blue);font-weight:700}.sub{font-size:10px;color:var(--muted);margin-top:3px}
-.rank{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;font-weight:800}.rS{background:#dcefe4;color:#155b38}.rA{background:#e4eef8;color:#205784}.rB{background:#f5eddc;color:#7a5b16}
-.mods{font-weight:700;min-width:280px}.links a,.src{display:inline-block;margin:3px 6px 0 0}.src{font-size:10px}.hidden{display:none}
-.note{margin:18px 0;font-size:12px;color:var(--muted);max-width:1400px}
-@media(max-width:700px){.wrap{padding:12px}h1{font-size:21px}th{top:58px}}
-
-
-body{background:#f3f6f8;color:#173447}h1{color:#173f55}
-.lead{line-height:1.9;max-width:1170px}.cards .card{min-width:190px}.card b{color:#165c79}
-.control-panel{background:white;border:1px solid #d2e0e9;border-radius:12px;padding:20px;margin:22px 0;box-shadow:0 3px 18px rgba(20,66,89,.05)}
-.control-panel h2{font-size:19px;margin:0 0 15px;color:#1c516c}.filter-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:13px}
-.field{min-width:0}.field label{display:block;font-weight:700;color:#456171;font-size:12px;margin-bottom:5px}
-.field input,.field select{display:block;width:100%;height:39px;min-width:0;border:1px solid #c9d8e0;border-radius:7px;padding:7px 10px;background:white;color:#183748;font:inherit;font-size:12px}
-.field-wide{grid-column:span 2}.number-range{display:flex;align-items:center;gap:6px}.number-range input{min-width:0}
-.action-bar{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:16px;justify-content:space-between}
-.action-btn{border:1px solid #bed2dd;background:white;border-radius:7px;padding:9px 13px;color:#1c5877;font-weight:750;cursor:pointer}
-.action-btn.primary{background:#1b607c;color:white}.action-btn:hover{filter:brightness(.94)}.action-btn:focus-visible,.field select:focus-visible,.field input:focus-visible,th button:focus-visible{outline:3px solid #efb85c;outline-offset:2px}
-.sort-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.sort-help{font-size:12px;color:#617988;margin-top:9px}
-#rankingLabel{background:#edf5f9;border-left:3px solid #3b91a4;padding:9px 12px;margin-top:12px;font-size:12px}
-.tablewrap{max-height:75vh;overflow:auto}.tablewrap table{min-width:1900px}.tablewrap th{top:0;z-index:2;white-space:nowrap}
-.tablewrap th button{cursor:pointer;background:none;border:0;color:inherit;font-weight:800;padding:2px;font:inherit}
-.tablewrap td{vertical-align:top}.tablewrap tbody tr:hover{background:#f4f9fb}
-.tablewrap td:first-child,.tablewrap th:first-child{position:sticky;left:0;background:#ebf2f6;z-index:2;min-width:52px;text-align:center}
-.tablewrap th:first-child{z-index:4}.rank-number{font-size:16px;font-weight:800;color:#165575}.area-tag{display:inline-block;padding:3px 6px;background:#edf4f8;border:1px solid #d5e5ec;border-radius:6px;font-size:11px;white-space:nowrap}
-.category{min-width:130px}.mods{min-width:260px}.tablewrap td:nth-child(3){min-width:240px}
-.tablewrap td:nth-child(7){min-width:200px}.tablewrap td:nth-child(8),.tablewrap td:nth-child(9){min-width:145px}
-.tablewrap td:nth-child(10){min-width:220px}.tablewrap td:nth-child(11){min-width:120px}
-#empty{padding:32px;color:#647f8e;text-align:center;display:none}.tiny{font-size:11px;color:#617987}
-body.compact th[data-sort="reason"],body.compact td:nth-child(7){display:none}
-.note{line-height:2}.count-badge{color:#1a607e;font-weight:850}
-@media(max-width:1100px){.filter-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.sort-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:650px){.wrap{padding:14px}.control-panel{padding:13px}.filter-grid,.sort-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.field-wide{grid-column:span 2}.action-bar{justify-content:flex-start}.action-btn{flex:1}.tablewrap{max-height:72vh}}
-@media print{.control-panel,.action-bar{display:none}.tablewrap{max-height:none;overflow:visible}th,td{font-size:8pt}}
-
-
-:root{--paper:#f4f7f9;--white:#fff;--line:#dce8ed;--ink:#253e50;--sea:#2d7898;--teal:#329997}
-body{background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75}
-.wrap{max-width:1560px;padding:clamp(13px,2vw,32px)}h1{font-size:clamp(24px,3.5vw,37px);line-height:1.45}.lead{font-size:14px;max-width:970px;color:#637e8c}
-.cards{display:none}.kpi-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:20px 0}
-.metric{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:15px;padding:17px 15px;box-shadow:0 5px 20px rgba(24,65,82,.04)}
-.metric-icon{flex:0 0 42px;height:42px;background:#e8f4f7;border-radius:12px;color:#287999;display:grid;place-items:center;font-size:23px;font-weight:900}
-.metric small,.metric span:last-child{display:block;font-size:11px;color:#7b8f99}.metric strong{font-size:30px;color:#255774;display:block;line-height:1.45;font-variant-numeric:tabular-nums}
-.jump{position:sticky;top:0;z-index:20;display:flex;gap:7px;overflow:auto;scrollbar-width:thin;padding:11px 14px;background:#ffffffef;backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:12px;box-shadow:0 6px 15px #1845610a;margin:0 0 25px}
-.jump a{white-space:nowrap;text-decoration:none;padding:6px 12px;border-radius:8px;color:#2b6785;font-size:12px;font-weight:800}.jump a:hover{background:#e9f5f7}
-.section-intro{margin:15px 0 19px}.eyebrow,.viz-title small{font-size:10px;font-weight:900;letter-spacing:.13em;color:#31939a}.section-intro h2{font-size:clamp(20px,2vw,25px);margin:3px 0 2px;color:#204a64}.section-intro p,.viz-title p{color:#728995;font-size:12px;margin:3px 0 0;line-height:1.75}
-.viz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:25px}.viz{min-width:0;background:white;border:1px solid var(--line);border-radius:15px;padding:21px;box-shadow:0 7px 22px #19486508}.viz.geo,.viz.wide{grid-column:1/-1}
-.viz-title{display:flex;justify-content:space-between;align-items:start;gap:12px;margin:0 0 17px}.viz-title h2{font-size:18px;color:#2a556d;margin:4px 0}.viz-title>b{font-size:12px;white-space:nowrap;color:#2b7897;background:#eaf5f8;border-radius:99px;padding:5px 10px}
-.geo-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.7fr);gap:20px}.pref-map{height:425px;background:#e9f3f8;display:grid;place-items:center;border:1px solid #d6e6ed;border-radius:11px;overflow:hidden}.pref-map>p{max-width:290px;text-align:center;color:#588199;font-size:12px;padding:15px}
-.source-hint{font-size:11px;color:#7b929f;margin:8px 0 0}.geo-ranking{min-width:0;max-height:465px;overflow:auto;padding-right:5px}
-.chart-label{display:flex;justify-content:space-between;gap:8px;margin:0 0 11px;color:#456479;font-size:12px;font-weight:850}.chart-label span{font-size:10px;color:#90a2ab}
-.hbars{display:flex;flex-direction:column;gap:7px}.hbar{display:grid;grid-template-columns:minmax(78px,110px) 1fr 27px;gap:9px;align-items:center;width:100%;border:0;border-radius:8px;padding:6px 9px;background:#f6fafc;text-align:left;font:inherit;font-size:11px;color:#3d5d70;cursor:pointer}
-.hbar:hover,.hbar:focus-visible{background:#e9f5f8}.hbar span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:800}
-.hbar .track{height:8px;background:#e0ebf0;border-radius:99px;overflow:hidden}.hbar .fill{display:block;height:100%;background:linear-gradient(90deg,#70b8c3,#267ca0);border-radius:99px}.hbar b{text-align:right;color:#2b6987;font-variant-numeric:tabular-nums}
-.hbar[aria-pressed=true]{outline:2px solid #48a0ad;background:#e8f5f6}
-.month-chart{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:5px;height:240px;padding:15px 0 0}
-.month-bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:pointer;font:inherit;color:#66818d}
-.month-bar b{font-size:11px;font-variant-numeric:tabular-nums;color:#2c6886}.month-bar .shaft{display:flex;align-items:flex-end;flex:1;width:100%;border-bottom:1px solid #dbe9ee}
-.month-bar .column{display:block;width:100%;border-radius:5px 5px 0 0;background:linear-gradient(#61afbe,#2e7b9d);min-height:2px}
-.month-bar:hover .column,.month-bar[aria-pressed=true] .column{background:linear-gradient(#ffce84,#cd8863)}
-.month-bar small{font-size:10px;white-space:nowrap}
-.uni-overview{display:flex;gap:22px;align-items:center;margin-bottom:19px}.donut{width:148px;height:148px;border-radius:50%;background:#e2edf1;display:grid;place-items:center;flex:none}
-.donut>div{width:100px;height:100px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;flex-direction:column}
-.donut strong{font-size:27px;color:#27768d}.donut small{font-size:10px;color:#77919d}.uni-key{font-size:12px;display:flex;flex-direction:column;gap:9px}.uni-key span{color:#527081}.uni-key b{color:#2b617b}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px}
-.mod-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.mod-tile{border:1px solid #deeaee;border-radius:12px;background:#f7fafb;padding:11px 12px;text-align:left;cursor:pointer;font:inherit}
-.mod-tile:hover{background:#eaf5f8}.mod-tile .mod-top{display:flex;justify-content:space-between;gap:8px;align-items:center;color:#35627b;font-size:12px;font-weight:850}.mod-tile .mod-top b{font-size:19px;font-variant-numeric:tabular-nums}
-.mod-tile .track{display:block;margin-top:8px;height:6px;background:#e3edf0;border-radius:9px;overflow:hidden}.mod-tile .fill{display:block;background:#2b96a5;height:100%;border-radius:9px}
-.heat-scroll{overflow-x:auto}.heat-grid{display:grid;grid-template-columns:minmax(145px,1.5fr) repeat(12,minmax(42px,1fr));gap:4px;align-items:center;min-width:790px}
-.heat-grid .label{text-align:left;font-size:11px;color:#4d6b7a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.heat-grid .month-head{font-size:11px;color:#66808f;text-align:center;font-weight:800}
-.heat-grid button{border:1px solid #e5edf1;border-radius:5px;min-height:30px;font-size:11px;font-weight:800;color:#305f75;cursor:pointer}
-.control-panel{box-shadow:none}#filterAnchor,#listAnchor,.viz{scroll-margin-top:80px}
-.tablewrap{max-height:78vh}.tablewrap th{top:0}.tablewrap table{min-width:1750px}
-@media(max-width:1150px){.geo-layout{grid-template-columns:1fr}.geo-ranking{max-height:260px}}
-@media(max-width:850px){.viz-grid{grid-template-columns:1fr}.viz.geo,.viz.wide{grid-column:auto}.kpi-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:640px){.wrap{padding:13px}.kpi-strip{gap:8px}.metric{padding:12px 10px;gap:7px}.metric-icon{flex-basis:28px;height:28px;font-size:17px}.metric strong{font-size:22px}.metric small{font-size:10px}.viz{padding:14px}.viz-title h2{font-size:16px}.pref-map{height:350px}.uni-overview{gap:12px}.donut{width:116px;height:116px}.donut>div{width:78px;height:78px}.donut strong{font-size:21px}.jump{margin-bottom:15px}}
-.creator-credit{display:inline-block;margin:4px 0 22px;padding:6px 13px;border-left:3px solid #2d85a5;background:#eef5f8;border-radius:0 7px 7px 0;color:#315a6f;font-size:12px;font-weight:700;letter-spacing:.045em}
-
-.clinic-tag{display:inline-block;margin:5px 0 0 7px;padding:2px 7px;border-radius:999px;background:#e8f5ee;border:1px solid #c9e6d7;color:#246846;font-size:10px;font-weight:800;vertical-align:middle}
-.clinic-focus{border-left:4px solid #3b8a68;background:linear-gradient(90deg,#f0f8f4,#fff);padding:14px 16px;margin:18px 0;border-radius:0 10px 10px 0;font-size:12px;color:#3b5d4d}
-</style></head><body><main class="wrap">
+<link rel="stylesheet" href="./jm-legacy-1.css" data-jm-legacy>
+<link rel="stylesheet" href="https://sinobu13-bpei.github.io/medical-intelligence/assets/site.css">
+<script defer src="https://sinobu13-bpei.github.io/medical-intelligence/assets/site.js"></script>
+</head><body data-site-type="atlas" data-last-updated="2026-10-25"><header id="site-header"></header><main class="wrap">
 <h1>2027年 国内医学系 学会・研究会 総合カレンダー</h1>
 <p class="lead">国内医学系学会・研究会の会期、会場、学会員数、過去大会参加人数、関連する一般的な機器・医療IT技術をまとめた非公式一覧です。特定メーカー・製品の宣伝を目的としません。</p>
 <p class="creator-credit" aria-label="制作者">制作者　高橋裕子</p>
@@ -1468,4 +1383,4 @@ window.renderDashboard=function(all,selected){
 const link=document.createElement("link");link.rel="stylesheet";link.href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";document.head.appendChild(link);
 const lib=document.createElement("script");lib.src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";lib.onload=initMap;lib.onerror=()=>{by("prefMap").innerHTML="<p>外部地図に接続できません。右側の地域別グラフをご利用ください。</p>";};document.head.appendChild(lib);
 by("q").dispatchEvent(new Event("input",{bubbles:true}));
-})();</script></body></html>
+})();</script><footer id="site-footer"></footer></body></html>
