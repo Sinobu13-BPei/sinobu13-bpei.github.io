@@ -1,0 +1,385 @@
+{
+  "updated": "2026-10-26",
+  "sourceNotes": [
+    "2025年国勢調査は2026年9月29日公表の確定値",
+    "JMAPは施設母集団に差（538対医療圏計531）があり、そのまま併記",
+    "病床2024年報告と2025年必要量は手法が異なり差は機械的不足とは限らない",
+    "旧外来医療計画は医療機器の歴史的設置台数であり現行台数ではない"
+  ],
+  "bedSource": "https://www.pref.tokushima.lg.jp/file/attachment/1047121.pdf",
+  "physSource": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html",
+  "areas": [
+    {
+      "name": "東部",
+      "actual": [
+        530,
+        2533,
+        1644,
+        2637
+      ],
+      "needed": [
+        492,
+        1605,
+        2080,
+        1946
+      ],
+      "doctors2024": 1816,
+      "physIndex2026": 325.1,
+      "objectives": [
+        4,
+        5,
+        3,
+        5,
+        4
+      ],
+      "hospitals": "徳島大学病院、徳島県立中央病院、徳島市民病院、徳島県鳴門病院",
+      "demand": "大学・県基幹・専門診療所と病診連携",
+      "opportunity": "外来機能分化、画像連携、共同利用、診療所更新と在宅支援",
+      "risk": "更新需要と稼働状況は比例しない。高額設備の重複投資に注意"
+    },
+    {
+      "name": "南部",
+      "actual": [
+        283,
+        530,
+        649,
+        360
+      ],
+      "needed": [
+        179,
+        514,
+        613,
+        557
+      ],
+      "doctors2024": 402,
+      "physIndex2026": 248.2,
+      "objectives": [
+        5,
+        3,
+        4,
+        3,
+        3
+      ],
+      "hospitals": "徳島赤十字病院、阿南医療センター、徳島県立海部病院",
+      "demand": "救急・周産期、人口高齢化、沿岸・山間アクセス",
+      "opportunity": "救急搬送連携、故障時代替、可搬機器と消耗品物流",
+      "risk": "機能再編や地域間搬送を踏まえない機器増設は稼働率低下につながる"
+    },
+    {
+      "name": "西部",
+      "actual": [
+        0,
+        344,
+        242,
+        454
+      ],
+      "needed": [
+        47,
+        274,
+        310,
+        377
+      ],
+      "doctors2024": 148,
+      "physIndex2026": 182.1,
+      "objectives": [
+        5,
+        2,
+        5,
+        2,
+        2
+      ],
+      "hospitals": "徳島県立三好病院、つるぎ町立半田病院",
+      "demand": "医師確保、在宅・遠隔、山間の移動負担",
+      "opportunity": "保守・教育・可搬機器、遠隔支援、施設間共用",
+      "risk": "新規設備よりも運用継続・適正規模が優先される可能性"
+    }
+  ],
+  "weights": [
+    {
+      "name": "地域の医療アクセス・解決必要度",
+      "weight": 30
+    },
+    {
+      "name": "医療資源と需要の厚み",
+      "weight": 25
+    },
+    {
+      "name": "サービス継続性の改善余地",
+      "weight": 20
+    },
+    {
+      "name": "連携ネットワーク形成可能性",
+      "weight": 15
+    },
+    {
+      "name": "公開根拠の確かさ",
+      "weight": 10
+    }
+  ],
+  "equipment": [
+    {
+      "label": "CT",
+      "value": 170,
+      "hospital": 107,
+      "clinic": 63,
+      "prefRate": 20.3,
+      "nationalRate": 11.1,
+      "source": "https://www.pref.tokushima.lg.jp/file/attachment/554193.pdf",
+      "desc": "旧外来医療計画（2020年策定）の掲載基礎データ。現存台数ではない。"
+    },
+    {
+      "label": "MRI",
+      "value": 52,
+      "hospital": 47,
+      "clinic": 5,
+      "prefRate": 6.4,
+      "nationalRate": 5.5,
+      "source": "https://www.pref.tokushima.lg.jp/file/attachment/554193.pdf",
+      "desc": "旧外来医療計画（2020年策定）の掲載基礎データ。現存台数ではない。"
+    }
+  ],
+  "modalities": [
+    {
+      "name": "PET/CT・核医学",
+      "signal": "がん診療・高度施設配置",
+      "status": "県計・機器更新実績は要追加確認",
+      "url": "https://www.pref.tokushima.lg.jp/ippannokata/kenko/kenko/2015041000115/"
+    },
+    {
+      "name": "放射線治療（リニアック）",
+      "signal": "がん拠点の集約・設備維持",
+      "status": "設置台数の現行県計未検証",
+      "url": "https://www.pref.tokushima.lg.jp/ippannokata/kenko/kenko/2015041000115/"
+    },
+    {
+      "name": "血管撮影・IVR",
+      "signal": "救急・脳卒中・心血管疾患",
+      "status": "施設別運用と保守要件を確認",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/iryoukiki/index.html"
+    },
+    {
+      "name": "内視鏡",
+      "signal": "消化器・検診・がん診療",
+      "status": "施設数と更新時期を別途検証",
+      "url": "https://www.e-stat.go.jp/"
+    },
+    {
+      "name": "透析・循環器・心電図",
+      "signal": "慢性疾患・腎/心疾患・在宅",
+      "status": "透析患者数・透析医療機関数の別表と照合",
+      "url": "https://www.e-stat.go.jp/"
+    },
+    {
+      "name": "超音波",
+      "signal": "内科・循環器・周産期・整形・在宅",
+      "status": "全県の設備台数・稼働率未確認",
+      "url": "https://www.e-stat.go.jp/"
+    }
+  ],
+  "institutions": [
+    [
+      "徳島県庁・医療政策課",
+      "行政",
+      "徳島市万代町1丁目1",
+      34.0704,
+      134.5593,
+      "https://www.pref.tokushima.lg.jp/med/"
+    ],
+    [
+      "徳島大学医学部",
+      "大学",
+      "徳島市蔵本町3丁目18-15",
+      34.0721,
+      134.5183,
+      "https://www.tokushima-u.ac.jp/med/"
+    ],
+    [
+      "徳島大学病院",
+      "大学病院",
+      "徳島市蔵本町2丁目50-1",
+      34.0727,
+      134.5232,
+      "https://www.tokushima-hosp.jp/hospital/outline.html"
+    ],
+    [
+      "徳島県立中央病院",
+      "地域医療支援・救命救急",
+      "徳島市蔵本町1丁目10-3",
+      34.072,
+      134.525,
+      "https://tph.pref.tokushima.lg.jp/central/"
+    ],
+    [
+      "徳島赤十字病院",
+      "救命救急",
+      "小松島市小松島町字井利ノ口103",
+      34.008,
+      134.59,
+      "https://www.tokushima-med.jrc.or.jp/"
+    ],
+    [
+      "徳島県立三好病院",
+      "救命救急",
+      "三好市池田町シマ815-2",
+      34.026,
+      133.806,
+      "https://tph.pref.tokushima.lg.jp/miyoshi/"
+    ],
+    [
+      "徳島保健所",
+      "保健所",
+      "徳島市新蔵町3丁目80",
+      34.0633,
+      134.566,
+      "https://www.pref.tokushima.lg.jp/"
+    ],
+    [
+      "吉野川保健所",
+      "保健所",
+      "吉野川市鴨島町鴨島106-2",
+      34.063,
+      134.357,
+      "https://www.pref.tokushima.lg.jp/"
+    ],
+    [
+      "阿南保健所",
+      "保健所",
+      "阿南市領家町野神319",
+      33.918,
+      134.648,
+      "https://www.pref.tokushima.lg.jp/"
+    ],
+    [
+      "美波保健所",
+      "保健所",
+      "海部郡美波町奥河内弁才天17-1",
+      33.733,
+      134.533,
+      "https://www.pref.tokushima.lg.jp/"
+    ],
+    [
+      "美馬保健所",
+      "保健所",
+      "美馬市穴吹町穴吹字明連23",
+      34.056,
+      134.163,
+      "https://www.pref.tokushima.lg.jp/"
+    ],
+    [
+      "三好保健所",
+      "保健所",
+      "三好市池田町マチ2542-4",
+      34.028,
+      133.806,
+      "https://www.pref.tokushima.lg.jp/"
+    ],
+    [
+      "徳島県医師会",
+      "医師会",
+      "徳島市幸町3丁目61",
+      34.07,
+      134.551,
+      "https://tokushima.med.or.jp/"
+    ]
+  ],
+  "comparison": [
+    {
+      "area": "全国",
+      "ctOld": 11.1,
+      "mriOld": 5.5,
+      "doctor2024": null,
+      "note": "旧外来医療計画調整人口あたり台数"
+    },
+    {
+      "area": "徳島県",
+      "ctOld": 20.3,
+      "mriOld": 6.4,
+      "doctor2024": 2366,
+      "note": "同計画の旧機器配置値／医師は2024年"
+    },
+    {
+      "area": "香川・愛媛・高知",
+      "ctOld": null,
+      "mriOld": null,
+      "doctor2024": null,
+      "note": "隣県の同定義最新一次表が未収集のため空欄：架空比較値を作らない"
+    }
+  ],
+  "sources": [
+    {
+      "t": "2025年国勢調査人口等基本集計",
+      "year": "2025年実績／2026-09-29公表",
+      "url": "https://www.pref.tokushima.lg.jp/statistics/year/census/7316646/"
+    },
+    {
+      "t": "人口将来推計・市区町村別",
+      "year": "2023年12月推計（2020年起点）",
+      "url": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/"
+    },
+    {
+      "t": "2024病床機能報告と2025必要病床比較",
+      "year": "徳島県2026-03-09地域医療構想資料",
+      "url": "https://www.pref.tokushima.lg.jp/file/attachment/1047121.pdf"
+    },
+    {
+      "t": "第8次保健医療計画",
+      "year": "2024～2029年度",
+      "url": "https://t-cm.jp/meical-tokushima/tokushima-medical-plan"
+    },
+    {
+      "t": "医師偏在指標",
+      "year": "厚生労働省2026年4月版",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    },
+    {
+      "t": "医療施設従事医師数・医療圏別",
+      "year": "2024統計／集計2026",
+      "url": "https://scueldata.me/insight/workforce/doctor/tokushima/"
+    },
+    {
+      "t": "徳島県外来医療計画（旧版）",
+      "year": "2020年策定・過去設備値",
+      "url": "https://www.pref.tokushima.lg.jp/file/attachment/554193.pdf"
+    },
+    {
+      "t": "2026年度診療報酬改定",
+      "year": "2026",
+      "url": "https://www.mhlw.go.jp/stf/newpage_67729.html"
+    },
+    {
+      "t": "地域医療介護総合確保基金（在宅医療・介護連携）",
+      "year": "2026年度・公募",
+      "url": "https://www.pref.tokushima.lg.jp/med/categoryMedical/hojokin/7315016/"
+    },
+    {
+      "t": "徳島県の災害拠点病院・医療支援病院",
+      "year": "2026-04-01",
+      "url": "https://www.pref.tokushima.lg.jp/med/information/disaster/7233340/"
+    },
+    {
+      "t": "徳島市津波防災マップ・新浸水想定",
+      "year": "2025–2026",
+      "url": "https://www.city.tokushima.tokushima.jp/smph/anzen/shoubo_bousai/disaster_prevention/bousai_map/jishin.html"
+    },
+    {
+      "t": "救命救急センター設置状況一覧",
+      "year": "厚生労働省・閲覧時",
+      "url": "https://www.mhlw.go.jp/stf/newpage_32614.html"
+    },
+    {
+      "t": "徳島県がん診療連携拠点病院等",
+      "year": "2026-03-31",
+      "url": "https://www.pref.tokushima.lg.jp/ippannokata/kenko/kenko/2015041000115/"
+    },
+    {
+      "t": "医療機器・医療施設調査",
+      "year": "2023調査・政府統計",
+      "url": "https://www.e-stat.go.jp/stat-search/database?layout=dataset&statdisp_id=0004024361"
+    },
+    {
+      "t": "2025人口移動報告",
+      "year": "2025年（居住者間移動）",
+      "url": "https://www.stat.go.jp/data/idou/2025np/jissu/youyaku/index.html"
+    }
+  ]
+}
