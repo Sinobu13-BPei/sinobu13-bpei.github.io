@@ -74,7 +74,7 @@
 <div aria-label="ページ操作" class="cover-tools">
 <a class="tool-link primary" href="#map">◆ 戦略の全体像へ</a>
 <a class="tool-link" href="mailto:sinobu13@mac.com?subject=%E5%8C%BB%E7%99%82%E6%A9%9F%E5%99%A8%E6%B5%81%E9%80%9A%E6%88%A6%E7%95%A5%E3%83%8F%E3%83%B3%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%20%E5%9F%BA%E7%A4%8E%E7%B7%A8%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B&amp;body=%E3%80%90%E3%81%8A%E5%90%8D%E5%89%8D%E3%83%BB%E6%89%80%E5%B1%9E%E3%80%91%0A%0A%E3%80%90%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%86%85%E5%AE%B9%E3%80%91%0A%0A%E3%80%90%E8%A9%B2%E5%BD%93%E7%AB%A0%E3%83%BB%E3%83%9A%E3%83%BC%E3%82%B8%E3%80%91%0A">✉ お問い合わせ</a>
-<button aria-pressed="false" class="tool-btn" id="themeToggle" type="button">☾ ダーク表示</button>
+
 <button class="tool-btn" id="printGuide" type="button">▤ 印刷・PDF</button>
 </div>
 <p class="for" style="margin-top:1.15rem"><b>編纂</b>　高橋</p>
@@ -1046,11 +1046,7 @@
 <script>
 (function(){'use strict';
 const root=document.documentElement;
-const toggle=document.getElementById('themeToggle');
-try{const saved=localStorage.getItem('handbook-theme');if(saved==='dark'||saved==='light')root.setAttribute('data-theme',saved)}catch(e){}
-function sync(){if(toggle){const dark=(root.getAttribute('data-theme')==='dark'||(!root.hasAttribute('data-theme')&&matchMedia('(prefers-color-scheme:dark)').matches));toggle.textContent=dark?'☀ ライト表示':'☾ ダーク表示';toggle.setAttribute('aria-pressed',String(dark))}}
-sync();
-if(toggle)toggle.addEventListener('click',()=>{const current=root.getAttribute('data-theme')==='dark'||(!root.hasAttribute('data-theme')&&matchMedia('(prefers-color-scheme:dark)').matches);const next=current?'light':'dark';root.setAttribute('data-theme',next);try{localStorage.setItem('handbook-theme',next)}catch(e){}sync()});
+root.removeAttribute('data-theme');
 const print=document.getElementById('printGuide');if(print)print.addEventListener('click',()=>window.print());
 const mobile=document.querySelector('details.mnav');if(mobile)mobile.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{mobile.open=false}));
 const progress=document.getElementById('readingProgress');const top=document.getElementById('toTop');let ticking=false;
