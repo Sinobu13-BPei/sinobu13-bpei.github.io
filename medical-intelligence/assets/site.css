@@ -111,3 +111,10 @@ body.jm-site :is(.hero,.cover) a:not(.btn):not(.button){text-decoration-thicknes
 body.jm-site :is(.hero,.cover) :is(.links a,.handbook-stack a){color:#fff!important}
 body.jm-site :is(.footer,.end) :is(.footer-link-strip a,.handbook-stack a){color:#fff!important}
 body.jm-site :is(.hero,.cover) .links a{background-color:var(--jm-accent)!important}
+
+/* Enforce 13px minimum on notes, controls, source links and table text. */
+body.jm-site :is(a,button,select,input,textarea,th,td,small,figcaption,.tag,.note,.muted,.footnote,.caption,.chip,.status){
+  font-size:max(13px,1em)!important
+}
+body.jm-site :is(input,button,select,textarea){min-height:40px}
+body.jm-site :is(.jm-primary-nav a,.jm-menu-toggle){min-height:44px}
