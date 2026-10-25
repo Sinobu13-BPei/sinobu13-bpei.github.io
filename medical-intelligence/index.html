@@ -92,6 +92,15 @@ function draw(){
     let row=document.createElement('div');row.className='region';
     let title=document.createElement('strong');title.textContent=p[0];
     let actions=document.createElement('div');actions.className='region-actions';
+    if(p[0]==='愛媛県'){
+      const ehimeLink=document.createElement('a');
+      ehimeLink.href='https://sinobu13-bpei.github.io/medical-intelligence/ehime/';
+      ehimeLink.target='_blank';ehimeLink.rel='noopener noreferrer';
+      ehimeLink.className='ehime-mkt-btn';ehimeLink.textContent='愛媛MKT ↗';
+      ehimeLink.style.cssText='display:inline-block;background:#096784;color:#fff;font-weight:800;border:2px solid #075573;border-radius:10px;padding:7px 13px;text-decoration:none;box-shadow:0 2px 6px #0b405344';
+      ehimeLink.setAttribute('aria-label','愛媛県 医療マーケット総合分析を開く');
+      actions.appendChild(ehimeLink);
+    }
     if(p[0]==='滋賀県'){
       const shigaLink=document.createElement('a');
       shigaLink.href='https://sinobu13-bpei.github.io/medical-intelligence/shiga/';
