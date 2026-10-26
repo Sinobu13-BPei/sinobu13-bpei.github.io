@@ -222,3 +222,13 @@ footer p{line-height:1.8}
  .gallery-tab{font-size:.73rem}
 }
 @media(prefers-reduced-motion:reduce){.section:target{animation:none}}
+
+
+/* Keep the eight-item navigation from wrapping awkwardly on tablets. */
+@media (min-width:761px) and (max-width:980px){
+  .head-inner{min-height:64px}
+  .site-head nav{display:none;position:absolute;top:64px;left:0;right:0;background:white;padding:14px 20px;border-bottom:1px solid var(--line);box-shadow:var(--shadow);z-index:205}
+  .site-head nav.open{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+  .site-head nav.open a{font-size:.85rem;padding:9px 11px;background:#f6fafb;border:1px solid #e0eaee}
+  #menuToggle{display:block}
+}
