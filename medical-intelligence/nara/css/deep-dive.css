@@ -1,0 +1,60 @@
+
+/* NARA | Open-source quantitative infographic extension. 2026-10-27 */
+.deepSection{--ddInk:#16394d;--ddTeal:#127b83;--ddLine:#d5e5eb;color:var(--ddInk)}
+.deepLead{font-size:1.04rem;color:#375d6e;line-height:1.95;background:#eff8f9;padding:18px 22px;border-left:5px solid #329aa1;border-radius:10px}
+.deepStats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:25px 0}
+.deepStats>div{background:linear-gradient(150deg,#0c3349,#126479);color:#fff;border-radius:14px;padding:20px 16px;min-width:0;box-shadow:0 8px 24px #13384e14}
+.deepStats>div:nth-child(2){background:linear-gradient(150deg,#a35d52,#8b435e)}
+.deepStats>div:nth-child(3){background:linear-gradient(150deg,#116e6c,#16847d)}
+.deepStats>div:nth-child(4){background:linear-gradient(150deg,#425b8b,#6a74ae)}
+.deepStats span{display:block;color:#dfecf2;font-size:.79rem;font-weight:700;line-height:1.6}
+.deepStats strong{display:block;font-size:clamp(1.55rem,2.55vw,2.25rem);line-height:1.38;font-variant-numeric:tabular-nums;white-space:nowrap;margin:6px 0}
+.deepStats small{font-size:.72rem;color:#ebf2f4;line-height:1.6}
+.deepMethod{border:1px solid #d6e8e9;border-radius:13px;padding:17px 21px;background:#f6fbfa;margin:23px 0}
+.deepMethod>b{color:#0b6976;display:block;font-size:.9rem;margin-bottom:6px}
+.deepMethod>p{font-size:.87rem;margin:0;color:#385569}
+.deepSection .subsectionHeader{margin:43px 0 20px;border-bottom:2px solid #d2e6e8;padding-bottom:12px}
+.deepSection .subsectionHeader span{display:block;color:#157e84;font-size:.73rem;font-weight:900;letter-spacing:.13em;margin-bottom:5px}
+.deepSection .subsectionHeader h3{font-size:clamp(1.2rem,2.2vw,1.55rem);color:#153d53;line-height:1.6;margin:0}
+.deepChartGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin:16px 0 23px}
+.deepPanel{background:#fff;border:1px solid #d8e6ea;box-shadow:0 10px 28px #1734490a;border-radius:14px;padding:22px;min-width:0}
+.deepPanel>h4{font-size:1.04rem;color:#1a445a;margin:0 0 14px}
+.deepPanel>canvas{height:315px!important;min-height:260px!important;max-width:100%;width:100%!important;display:block}
+#deepCTChart,#deepMRIChart{height:425px!important}
+.deepCaption{font-size:.76rem;color:#587388;line-height:1.85;margin:14px 0 0}
+.deepCaption a{font-weight:bold}
+.deepTable{width:100%;min-width:850px;font-size:.83rem}
+.deepTable th,.deepTable td{padding:12px 13px}
+.deepTable thead th{background:#e1f0f2;color:#234d63}
+.deepTable tbody tr:nth-child(odd){background:#fcfefe}
+.deepTable tbody tr:hover{background:#edf9f8}
+.deepTable .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.deepFlowNotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:23px 0}
+.deepFlowNotes>div{background:#fff;border:1px solid #d8e5ed;border-left:4px solid #2c9197;border-radius:10px;padding:16px;display:grid;gap:8px}
+.deepFlowNotes b{color:#145c70;font-size:.92rem}
+.deepFlowNotes span{color:#3d596f;font-size:.84rem;line-height:1.8}
+.deepFlowNotes>div:nth-child(3){border-left-color:#b5667d}
+.roadConcept{display:block;height:auto;width:100%;max-width:650px;margin:0 auto;background:#f1f7f9;border-radius:13px}
+.deepRoadCards{display:grid;gap:10px}
+.deepRoadCards article{display:grid;grid-template-columns:45px minmax(0,1fr);gap:11px;border:1px solid #d7e5ea;border-radius:10px;background:#f8fcfc;padding:12px}
+.deepRoadNumber{height:39px;width:39px;border-radius:11px;background:#dceef0;color:#176c78;display:grid;place-items:center;font-size:1rem;font-weight:900}
+.deepRoadCards b{display:block;font-size:.84rem;color:#154a61}
+.deepRoadCards span{display:block;font-size:.8rem;line-height:1.6;color:#375d6b;margin-top:4px}
+.deepRoadCards small{display:block;margin-top:4px;color:#865b41;font-size:.75rem;line-height:1.6}
+.deepRegionInsights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:14px}
+.deepRegionInsights>div{background:#fff;border:1px solid #d4e6e5;border-radius:9px;padding:12px 15px;display:grid;gap:4px}
+.deepRegionInsights b{font-size:.86rem;color:#125c65}
+.deepRegionInsights span{color:#375f6c;font-size:.81rem;line-height:1.75}
+.deepSourceBlock{background:#fff;border-radius:15px;padding:25px;margin:28px 0 8px;border:1px solid #d7e5eb}
+.deepSourceBlock h3{margin:0}
+.deepSourceBlock ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 23px;list-style:none;margin:18px 0;padding:0}
+.deepSourceBlock li{border-bottom:1px solid #e5edf1;padding:9px 0;line-height:1.5;font-size:.82rem;overflow-wrap:anywhere}
+.deepSourceBlock li>a{display:block;font-weight:800}
+.deepSourceBlock li>small{color:#657989;display:block;margin-top:4px}
+.highContrast{font-weight:800;color:#155c75}
+.deepSection .controls input,.deepSection .controls select{max-width:325px}
+.deepSection .note{font-size:.85rem;line-height:1.75}
+@media(max-width:930px){.deepChartGrid{grid-template-columns:1fr}.deepStats{grid-template-columns:repeat(2,minmax(0,1fr))}.deepFlowNotes{grid-template-columns:1fr 1fr}.deepPanel>canvas{height:345px!important}}
+@media(max-width:650px){.deepStats{gap:9px}.deepStats>div{padding:14px 11px}.deepStats strong{font-size:1.53rem}.deepStats span{font-size:.72rem}.deepStats small{font-size:.69rem}.deepMethod{padding:14px}.deepLead{padding:14px;font-size:.93rem}.deepPanel{padding:15px}.deepPanel>canvas{height:280px!important}.deepFlowNotes{grid-template-columns:1fr}.deepRegionInsights{grid-template-columns:1fr}.deepSourceBlock{padding:15px}.deepSourceBlock ol{grid-template-columns:1fr}.deepChartGrid{gap:12px}.deepSection .subsectionHeader{margin-top:33px}.deepSection .controls input,.deepSection .controls select{max-width:100%}#deepCTChart,#deepMRIChart{height:390px!important}}
+@media(max-width:370px){.deepStats{grid-template-columns:1fr 1fr}.deepStats strong{font-size:1.33rem}.deepPanel>canvas{height:260px!important}}
+@media print{.deepSection .deepChartGrid{grid-template-columns:1fr 1fr}.deepPanel{box-shadow:none;break-inside:avoid}.deepStats>div{print-color-adjust:exact;-webkit-print-color-adjust:exact}.roadConcept{max-height:320px}.deepSourceBlock{break-inside:avoid}}
