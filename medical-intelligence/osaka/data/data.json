@@ -764,6 +764,12 @@
       "name": "近畿大学病院",
       "year": "2026年参照",
       "url": "https://www.med.kindai.ac.jp/"
+    },
+    {
+      "id": "national",
+      "name": "内閣府 令和8年版高齢社会白書・高齢化の状況",
+      "year": "2025年10月1日現在の全国高齢化率（2026年版公表）",
+      "url": "https://www8.cao.go.jp/kourei/whitepaper/w-2026/html/zenbun/s1_1_1.html"
     }
   ]
 }
