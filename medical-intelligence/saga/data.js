@@ -432,7 +432,7 @@ window.SAGA_DATA={
         "太良町"
       ],
       "address": "鹿島市高津原813",
-      "site": "https://www.saga.med.or.jp/residents/gunshi/gunshi_list.html",
+      "site": "https://www.kf-med.jp/",
       "lat": 33.104,
       "lon": 130.099
     }
