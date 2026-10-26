@@ -1,0 +1,859 @@
+{
+  "updated": "2026-10-26",
+  "dataPolicy": "行政・公的統計を優先。出典年次の混在、非公開資料、施設特定の誤認を避ける。将来・スコアは独自分析。",
+  "period": {
+    "pop": 2026,
+    "regions": 2020,
+    "beds": 2024,
+    "bedNeeded": 2025,
+    "devices": 2020,
+    "doctorIndex": 2026
+  },
+  "metrics": {
+    "population2026": 722475,
+    "popMonth": "2026-09-01",
+    "pop2020": 766863,
+    "aging2020": 30.3,
+    "aging2050": 40.3,
+    "beds2024": 8485,
+    "needed2025": 7591,
+    "ct2020": 103,
+    "mri2020": 58,
+    "pet2020": 8,
+    "rad2020": 11,
+    "mammo2020": 33,
+    "hospitalsJMAP": 67,
+    "clinicsLegacy": 567,
+    "doctorIndex": "医師偏在指標は2026年公表値（二次資料再集計）"
+  },
+  "areas": [
+    {
+      "id": "fukuisakai",
+      "name": "福井・坂井",
+      "city": "福井市・坂井市・あわら市・永平寺町",
+      "pop2020": 397298,
+      "beds2024": 5270,
+      "required2025": 4652,
+      "bedTypes": [
+        884,
+        2331,
+        1067,
+        988
+      ],
+      "neededTypes": [
+        588,
+        1691,
+        1502,
+        871
+      ],
+      "ct2020": 56,
+      "mri2020": 41,
+      "pet2020": 6,
+      "rad2020": 8,
+      "mammo2020": 20,
+      "doctor2026": 327.4,
+      "score": [
+        5,
+        5,
+        5,
+        4,
+        3
+      ],
+      "center": [
+        36.07,
+        136.25
+      ],
+      "driver": "大学病院・県立病院・高機能診療所と紹介連携",
+      "issue": "医療機器の高密度配置と回復期への接続・病院経営",
+      "opp": "画像診断の共同利用、更新時のTCO比較、PACS連携、臨床工学・教育",
+      "hosp": "福井大学医学部附属病院／福井県立病院／福井赤十字病院／福井県済生会病院"
+    },
+    {
+      "id": "okuetsu",
+      "name": "奥越",
+      "city": "大野市・勝山市",
+      "pop2020": 53436,
+      "beds2024": 394,
+      "required2025": 419,
+      "bedTypes": [
+        0,
+        219,
+        82,
+        93
+      ],
+      "neededTypes": [
+        16,
+        129,
+        181,
+        93
+      ],
+      "ct2020": 8,
+      "mri2020": 3,
+      "pet2020": 0,
+      "rad2020": 0,
+      "mammo2020": 1,
+      "doctor2026": 166.9,
+      "score": [
+        2,
+        3,
+        2,
+        5,
+        4
+      ],
+      "center": [
+        35.99,
+        136.49
+      ],
+      "driver": "高齢化・広域移動・訪問診療、地域病院機能",
+      "issue": "小規模人口と医師・技師確保、冬季搬送の制約",
+      "opp": "可搬型US、遠隔読影、低維持費更新、保守・代替機支援",
+      "hosp": "JCHO福井勝山総合病院／地域診療所"
+    },
+    {
+      "id": "tannan",
+      "name": "丹南",
+      "city": "越前市・鯖江市・越前町・南越前町・池田町",
+      "pop2020": 181456,
+      "beds2024": 1451,
+      "required2025": 1441,
+      "bedTypes": [
+        0,
+        517,
+        510,
+        424
+      ],
+      "neededTypes": [
+        55,
+        423,
+        577,
+        386
+      ],
+      "ct2020": 21,
+      "mri2020": 8,
+      "pet2020": 0,
+      "rad2020": 0,
+      "mammo2020": 8,
+      "doctor2026": 164,
+      "score": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "center": [
+        35.92,
+        136.16
+      ],
+      "driver": "一般診療所・整形/消化器・リハ・地域中核病院",
+      "issue": "外来機器更新と急性期・回復期役割の最適化",
+      "opp": "CT/US/内視鏡・骨粗鬆症画像診断と病診連携の組合せ",
+      "hosp": "公立丹南病院／林病院／越前町国保織田病院"
+    },
+    {
+      "id": "reinan",
+      "name": "嶺南",
+      "city": "敦賀市・小浜市・美浜町・若狭町・おおい町・高浜町",
+      "pop2020": 134673,
+      "beds2024": 1370,
+      "required2025": 1079,
+      "bedTypes": [
+        18,
+        636,
+        285,
+        431
+      ],
+      "neededTypes": [
+        76,
+        333,
+        386,
+        284
+      ],
+      "ct2020": 18,
+      "mri2020": 6,
+      "pet2020": 2,
+      "rad2020": 3,
+      "mammo2020": 4,
+      "doctor2026": 205.6,
+      "score": [
+        3,
+        4,
+        3,
+        5,
+        5
+      ],
+      "center": [
+        35.56,
+        135.93
+      ],
+      "driver": "敦賀・小浜の地域中核医療、観光・広域人口移動",
+      "issue": "東西に長い医療圏、京都・滋賀との往来、原子力災害BCP",
+      "opp": "分散機器の保守、クラウド画像共有、救急機器、医療BCP・災害時予備資材",
+      "hosp": "市立敦賀病院／杉田玄白記念公立小浜病院／敦賀医療センター"
+    }
+  ],
+  "cities": {
+    "福井市": [
+      36.064,
+      136.219
+    ],
+    "永平寺町": [
+      36.091,
+      136.307
+    ],
+    "坂井市": [
+      36.166,
+      136.232
+    ],
+    "あわら市": [
+      36.212,
+      136.23
+    ],
+    "大野市": [
+      35.979,
+      136.487
+    ],
+    "勝山市": [
+      36.061,
+      136.5
+    ],
+    "鯖江市": [
+      35.957,
+      136.184
+    ],
+    "越前市": [
+      35.903,
+      136.168
+    ],
+    "越前町": [
+      35.93,
+      136.08
+    ],
+    "敦賀市": [
+      35.645,
+      136.056
+    ],
+    "小浜市": [
+      35.493,
+      135.747
+    ],
+    "美浜町": [
+      35.6,
+      135.94
+    ],
+    "若狭町": [
+      35.55,
+      135.92
+    ],
+    "おおい町": [
+      35.48,
+      135.62
+    ],
+    "高浜町": [
+      35.49,
+      135.55
+    ],
+    "池田町": [
+      35.89,
+      136.34
+    ],
+    "南越前町": [
+      35.83,
+      136.19
+    ]
+  },
+  "facilities": [
+    {
+      "name": "福井大学医学部附属病院",
+      "city": "永平寺町",
+      "area": "福井・坂井",
+      "functionText": "特定機能／大学病院・高度医療",
+      "website": "https://www.hosp.u-fukui.ac.jp/",
+      "lat": 36.091,
+      "lng": 136.307,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "福井県立病院",
+      "city": "福井市",
+      "area": "福井・坂井",
+      "functionText": "県立・救命救急／がん拠点",
+      "website": "https://fph.pref.fukui.lg.jp/",
+      "lat": 36.064,
+      "lng": 136.219,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "福井赤十字病院",
+      "city": "福井市",
+      "area": "福井・坂井",
+      "functionText": "赤十字・地域医療支援／周産期",
+      "website": "https://www.fukui-med.jrc.or.jp/",
+      "lat": 36.064,
+      "lng": 136.219,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "福井県済生会病院",
+      "city": "福井市",
+      "area": "福井・坂井",
+      "functionText": "済生会・地域医療支援／がん拠点",
+      "website": "https://www.fukui-saiseikai.com/",
+      "lat": 36.064,
+      "lng": 136.219,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "福井総合病院",
+      "city": "福井市",
+      "area": "福井・坂井",
+      "functionText": "地域急性期・回復期",
+      "website": "https://www.f-gh.jp/",
+      "lat": 36.064,
+      "lng": 136.219,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "福井循環器病院",
+      "city": "福井市",
+      "area": "福井・坂井",
+      "functionText": "循環器医療",
+      "website": "",
+      "lat": 36.064,
+      "lng": 136.219,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "福井愛育病院",
+      "city": "福井市",
+      "area": "福井・坂井",
+      "functionText": "周産期・小児",
+      "website": "",
+      "lat": 36.064,
+      "lng": 136.219,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "坂井市立三国病院",
+      "city": "坂井市",
+      "area": "福井・坂井",
+      "functionText": "公立地域病院",
+      "website": "",
+      "lat": 36.166,
+      "lng": 136.232,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "JCHO福井勝山総合病院",
+      "city": "勝山市",
+      "area": "奥越",
+      "functionText": "JCHO・地域基幹病院",
+      "website": "https://fukui.jcho.go.jp/",
+      "lat": 36.061,
+      "lng": 136.5,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "公立丹南病院",
+      "city": "鯖江市",
+      "area": "丹南",
+      "functionText": "公立地域医療拠点",
+      "website": "https://www.tannanhp-jadecom.jp/",
+      "lat": 35.957,
+      "lng": 136.184,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "林病院",
+      "city": "越前市",
+      "area": "丹南",
+      "functionText": "地域急性期",
+      "website": "",
+      "lat": 35.903,
+      "lng": 136.168,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "越前町国保織田病院",
+      "city": "越前町",
+      "area": "丹南",
+      "functionText": "町立・地域包括医療",
+      "website": "",
+      "lat": 35.93,
+      "lng": 136.08,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "市立敦賀病院",
+      "city": "敦賀市",
+      "area": "嶺南",
+      "functionText": "公立基幹病院・がん拠点／周産期",
+      "website": "https://tsuruga-hp.jp/",
+      "lat": 35.645,
+      "lng": 136.056,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "国立病院機構 敦賀医療センター",
+      "city": "敦賀市",
+      "area": "嶺南",
+      "functionText": "国立病院機構・地域医療",
+      "website": "https://tsuruga.hosp.go.jp/",
+      "lat": 35.645,
+      "lng": 136.056,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "杉田玄白記念公立小浜病院",
+      "city": "小浜市",
+      "area": "嶺南",
+      "functionText": "公立病院・周産期／若狭地域拠点",
+      "website": "https://www.obamahp-wakasa.jp/",
+      "lat": 35.493,
+      "lng": 135.747,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    },
+    {
+      "name": "レイクヒルズ美方病院",
+      "city": "若狭町",
+      "area": "嶺南",
+      "functionText": "地域慢性期・療養",
+      "website": "",
+      "lat": 35.55,
+      "lng": 135.92,
+      "geoPrecision": "市町代表点（施設の正確位置ではない）"
+    }
+  ],
+  "associations": [
+    {
+      "name": "福井市医師会",
+      "city": "福井市",
+      "area": "福井・坂井",
+      "website": "https://www.fukui-dr.jp/",
+      "lat": 36.064,
+      "lng": 136.219
+    },
+    {
+      "name": "坂井地区医師会",
+      "city": "あわら市",
+      "area": "福井・坂井",
+      "website": "https://www.sakai-med.com/",
+      "lat": 36.212,
+      "lng": 136.23
+    },
+    {
+      "name": "福井大学医師会",
+      "city": "永平寺町",
+      "area": "福井・坂井",
+      "website": "",
+      "lat": 36.091,
+      "lng": 136.307
+    },
+    {
+      "name": "大野市医師会",
+      "city": "大野市",
+      "area": "奥越",
+      "website": "",
+      "lat": 35.979,
+      "lng": 136.487
+    },
+    {
+      "name": "勝山市医師会",
+      "city": "勝山市",
+      "area": "奥越",
+      "website": "",
+      "lat": 36.061,
+      "lng": 136.5
+    },
+    {
+      "name": "鯖江市医師会",
+      "city": "鯖江市",
+      "area": "丹南",
+      "website": "https://sabaemed.jp/",
+      "lat": 35.957,
+      "lng": 136.184
+    },
+    {
+      "name": "武生医師会",
+      "city": "越前市",
+      "area": "丹南",
+      "website": "https://takefu-med.jp/",
+      "lat": 35.903,
+      "lng": 136.168
+    },
+    {
+      "name": "丹生郡医師会",
+      "city": "越前町",
+      "area": "丹南",
+      "website": "https://nyugun-med.jp/",
+      "lat": 35.93,
+      "lng": 136.08
+    },
+    {
+      "name": "敦賀市医師会",
+      "city": "敦賀市",
+      "area": "嶺南",
+      "website": "https://www.tsuruga-med.or.jp/",
+      "lat": 35.645,
+      "lng": 136.056
+    },
+    {
+      "name": "三方郡医師会",
+      "city": "若狭町",
+      "area": "嶺南",
+      "website": "",
+      "lat": 35.55,
+      "lng": 135.92
+    },
+    {
+      "name": "小浜医師会",
+      "city": "小浜市",
+      "area": "嶺南",
+      "website": "",
+      "lat": 35.493,
+      "lng": 135.747
+    }
+  ],
+  "hokens": [
+    {
+      "name": "福井市保健所",
+      "city": "福井市",
+      "area": "福井・坂井",
+      "address": "福井市西木田2-8-8",
+      "lat": 36.064,
+      "lng": 136.219
+    },
+    {
+      "name": "福井保健所",
+      "city": "福井市",
+      "area": "福井・坂井",
+      "address": "福井市西木田2-8-8",
+      "lat": 36.064,
+      "lng": 136.219
+    },
+    {
+      "name": "坂井保健所",
+      "city": "あわら市",
+      "area": "福井・坂井",
+      "address": "あわら市春宮2-21-17",
+      "lat": 36.212,
+      "lng": 136.23
+    },
+    {
+      "name": "奥越保健所",
+      "city": "大野市",
+      "area": "奥越",
+      "address": "大野市天神町1-1",
+      "lat": 35.979,
+      "lng": 136.487
+    },
+    {
+      "name": "丹南保健所",
+      "city": "鯖江市",
+      "area": "丹南",
+      "address": "鯖江市水落町1-2-25",
+      "lat": 35.957,
+      "lng": 136.184
+    },
+    {
+      "name": "二州保健所",
+      "city": "敦賀市",
+      "area": "嶺南",
+      "address": "敦賀市開町6-5",
+      "lat": 35.645,
+      "lng": 136.056
+    },
+    {
+      "name": "若狭保健所",
+      "city": "小浜市",
+      "area": "嶺南",
+      "address": "小浜市四谷町3-10",
+      "lat": 35.493,
+      "lng": 135.747
+    }
+  ],
+  "distributors": [
+    {
+      "name": "ミタス",
+      "category": "地場医療機器卸",
+      "area": "福井県内",
+      "evidence": "福井県公式企業情報：医療機器・衛生材料・設備工事等",
+      "url": "https://291jobs.pref.fukui.lg.jp/shinsotsu/search/detail.php?ID=149"
+    },
+    {
+      "name": "冨木医療器 福井支店",
+      "category": "北陸広域医療機器卸",
+      "area": "福井市",
+      "evidence": "企業公式拠点一覧（北陸3県）",
+      "url": "https://tomiki.co.jp/company/office/"
+    },
+    {
+      "name": "丸文通商 福井支店",
+      "category": "北陸広域医療機器卸",
+      "area": "福井市",
+      "evidence": "日本医療機器販売業協会の県内会員資料（掲載年次2021）",
+      "url": "https://www.jahid.or.jp/pdf/meibo2021.pdf"
+    },
+    {
+      "name": "伊藤医療器",
+      "category": "地域医療機器卸",
+      "area": "福井市",
+      "evidence": "公開販売店一覧",
+      "url": "https://www.as-1.co.jp/agent/hospital/hokuriku/"
+    },
+    {
+      "name": "スズケン 福井支店",
+      "category": "医薬品・医療関連卸",
+      "area": "福井市",
+      "evidence": "公開販売店一覧",
+      "url": "https://www.as-1.co.jp/agent/hospital/hokuriku/"
+    },
+    {
+      "name": "セントラルメディカル",
+      "category": "北陸広域医療機器卸",
+      "area": "北陸広域",
+      "evidence": "公開販売店一覧（石川県拠点、福井県内の取引網は要個別確認）",
+      "url": "https://www.as-1.co.jp/agent/hospital/hokuriku/"
+    },
+    {
+      "name": "その他の薬業卸",
+      "category": "広域医薬品・医療関連卸",
+      "area": "県内営業状況は要確認",
+      "evidence": "メディセオ／アルフレッサ／東邦薬品等は個別の営業拠点・対象商材を別途照合",
+      "url": "https://www.jahid.or.jp/"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "org": "福井県統計調査課",
+      "desc": "2026年9月1日時点推計人口・月次人口移動",
+      "url": "https://www.pref.fukui.lg.jp/doc/toukei-jouhou/zinnkou/jinkou.html"
+    },
+    {
+      "id": "S02",
+      "org": "国立社会保障・人口問題研究所",
+      "desc": "2023年地域別将来人口推計（2020–2050）",
+      "url": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/6houkoku/houkoku.asp"
+    },
+    {
+      "id": "S03",
+      "org": "福井県",
+      "desc": "第8次福井県医療計画（2024–2029年度）",
+      "url": "https://www.pref.fukui.lg.jp/doc/iryou/iryoujouhou/8ji-iryoukeikaku.html"
+    },
+    {
+      "id": "S04",
+      "org": "福井県",
+      "desc": "地域医療構想の2025必要病床数（2016年策定時推計）",
+      "url": "https://www.pref.fukui.lg.jp/doc/iryou/kousou-iken_d/fil/20.pdf"
+    },
+    {
+      "id": "S05",
+      "org": "福井県地域医療構想調整会議",
+      "desc": "2020年度医療施設調査のCT/MRI/PET等保有台数",
+      "url": "https://www.pref.fukui.lg.jp/doc/iryou/iryoujouhou/kousou-6_d/fil/nisyu02.pdf"
+    },
+    {
+      "id": "S06",
+      "org": "厚生労働省",
+      "desc": "2025年度病床機能報告公表データ",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html"
+    },
+    {
+      "id": "S07",
+      "org": "福井県",
+      "desc": "福井県医師確保計画（2024年）",
+      "url": "https://www.pref.fukui.lg.jp/doc/iryou/ishikakuhokeikaku.html"
+    },
+    {
+      "id": "S08",
+      "org": "SCUEL（公表統計再集計）",
+      "desc": "医師偏在指標（2026年公表値）※二次資料",
+      "url": "https://scueldata.me/insight/workforce/doctor/fukui/"
+    },
+    {
+      "id": "S09",
+      "org": "福井県医師会",
+      "desc": "郡市区等医師会11団体の住所・組織（2026年7月）",
+      "url": "https://www.fukui.med.or.jp/fukui/about-us/page-155/"
+    },
+    {
+      "id": "S10",
+      "org": "厚生労働省",
+      "desc": "福井県保健所所管区域と設置者",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/18fukui.html"
+    },
+    {
+      "id": "S11",
+      "org": "福井県",
+      "desc": "がん診療連携拠点病院一覧",
+      "url": "https://www.pref.fukui.lg.jp/doc/kenkou/kyoten.html"
+    },
+    {
+      "id": "S12",
+      "org": "福井県",
+      "desc": "周産期医療センター指定状況（2026年3月）",
+      "url": "https://www.pref.fukui.lg.jp/doc/iryou/syusanki.html"
+    },
+    {
+      "id": "S13",
+      "org": "日本医師会 JMAP",
+      "desc": "県内病院施設検索・病床の補助確認",
+      "url": "https://jmap.jp/facilities/search/type%3A0/searchArea%3Apref/searchId%3A18"
+    },
+    {
+      "id": "S14",
+      "org": "福井県",
+      "desc": "外来医療計画・医療機器共同利用計画",
+      "url": "https://www.pref.fukui.lg.jp/doc/iryou/gairaiiryouhen.html"
+    },
+    {
+      "id": "S15",
+      "org": "福井県",
+      "desc": "原子力災害への対応（2026年10月）",
+      "url": "https://www.pref.fukui.lg.jp/doc/kikitaisaku/genbou.html"
+    },
+    {
+      "id": "S16",
+      "org": "福井県公式企業情報",
+      "desc": "県内医療機器販売事業（ミタス）",
+      "url": "https://291jobs.pref.fukui.lg.jp/shinsotsu/search/detail.php?ID=149"
+    },
+    {
+      "id": "S17",
+      "org": "冨木医療器",
+      "desc": "北陸3県拠点・福井支店",
+      "url": "https://tomiki.co.jp/company/office/"
+    },
+    {
+      "id": "S18",
+      "org": "日本医療機器販売業協会",
+      "desc": "福井県医療機器協会 会員情報（2021年度）",
+      "url": "https://www.jahid.or.jp/pdf/meibo2021.pdf"
+    },
+    {
+      "id": "S19",
+      "org": "福井県",
+      "desc": "保健医療関連行政計画・所管部局",
+      "url": "https://www.pref.fukui.lg.jp/doc/seiki/keikaku-kenkoufukushibu02.html"
+    },
+    {
+      "id": "S20",
+      "org": "厚生労働省",
+      "desc": "医療情報ネット（個別施設の最新情報に優先）",
+      "url": "https://www.iryou.teikyouseido.mhlw.go.jp/"
+    },
+    {
+      "id": "S21",
+      "org": "福井県",
+      "desc": "第8次計画・2023年検討資料（旧年次統計）",
+      "url": "https://www.pref.fukui.lg.jp/doc/iryou/iryoujouhou/kousou-6_d/fil/fukui02.pdf"
+    },
+    {
+      "id": "S22",
+      "org": "福井県医師会",
+      "desc": "組織・活動（2025年3月会員数）",
+      "url": "https://www.fukui.med.or.jp/fukui/about-us/page-140/"
+    }
+  ],
+  "weighting": [
+    [
+      "需要規模",
+      25
+    ],
+    [
+      "更新・連携余地",
+      25
+    ],
+    [
+      "医療拠点集積",
+      20
+    ],
+    [
+      "医療アクセス課題",
+      15
+    ],
+    [
+      "BCP・維持価値",
+      15
+    ]
+  ],
+  "devices": [
+    {
+      "name": "CT",
+      "total": 103,
+      "nationPer100kAdj": 11.5,
+      "localPer100kAdj": 12.8,
+      "areaKey": "ct2020"
+    },
+    {
+      "name": "MRI",
+      "total": 58,
+      "nationPer100kAdj": 5.7,
+      "localPer100kAdj": 7.3,
+      "areaKey": "mri2020"
+    },
+    {
+      "name": "PET",
+      "total": 8,
+      "nationPer100kAdj": 0.5,
+      "localPer100kAdj": 1,
+      "areaKey": "pet2020"
+    },
+    {
+      "name": "放射線治療装置",
+      "total": 11,
+      "nationPer100kAdj": 0.8,
+      "localPer100kAdj": 1.2,
+      "areaKey": "rad2020"
+    },
+    {
+      "name": "マンモグラフィ",
+      "total": 33,
+      "nationPer100kAdj": 3.4,
+      "localPer100kAdj": 4.3,
+      "areaKey": "mammo2020"
+    }
+  ],
+  "municipalityGroups": [
+    [
+      "福井・坂井",
+      "福井市",
+      "坂井市",
+      "あわら市",
+      "永平寺町"
+    ],
+    [
+      "奥越",
+      "大野市",
+      "勝山市"
+    ],
+    [
+      "丹南",
+      "鯖江市",
+      "越前市",
+      "越前町",
+      "南越前町",
+      "池田町"
+    ],
+    [
+      "嶺南",
+      "敦賀市",
+      "小浜市",
+      "美浜町",
+      "若狭町",
+      "おおい町",
+      "高浜町"
+    ]
+  ],
+  "challenges": [
+    "2026年の自治体別総人口と2020年の医療圏人口を同年として足し合わせない",
+    "2020年医療機器保有台数から2026年の現存・稼働台数を断定しない",
+    "第8次医療計画の基準病床数と地域医療構想の2025年必要病床数を混同しない",
+    "診療報酬改定の具体的影響は施設経営資料で個別検証する",
+    "メーカー販売台数・販社シェア・価格情報は検証困難なため非掲載",
+    "地図の施設リンクは市町代表点であり施設正確位置ではない",
+    "添付の第三者著作物の図表・内部分析・患者データを再配布しない"
+  ]
+}
