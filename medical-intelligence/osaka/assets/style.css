@@ -20,3 +20,17 @@
 .region-facility-strip small{flex-basis:100%;color:#586c7c;font-size:11px}
 @media(max-width:1180px){.menubtn{display:block;margin-left:auto}.top nav{display:none;position:absolute;top:69px;left:0;right:0;background:#12324d;flex-direction:column;align-items:stretch;padding:10px 18px;max-height:70vh;overflow:auto}.top nav.open{display:flex}.top nav a{font-size:14px;padding:10px}}
 @media(max-width:720px){#clinic-facilities .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}#clinic-facilities .toolbar{padding:10px;align-items:stretch}#clinic-facilities #assocRegion,#clinic-facilities #assocSearch{width:100%;min-width:0}#clinic-facilities .wrapcell{min-width:165px;max-width:260px}#clinic-facilities .scroll{overflow-x:auto}.region-facility-strip{gap:5px}.region-facility-strip span{font-size:11px}}
+
+/* Public demographic expansion - 2026-10-27 */
+#regional2050 .chartwrap{height:325px}
+#regional2050 .research-select{padding:9px 12px;border:1px solid #9db5c8;border-radius:8px;background:#fff;color:#163e5a;font-weight:700;min-width:155px;max-width:100%}
+#regional2050 .network-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin:18px 0}
+#regional2050 .network-card{background:#fff;border:1px solid #d2e0e8;border-radius:11px;padding:13px;display:flex;flex-direction:column;gap:8px;min-width:0}
+#regional2050 .network-card .name{font-size:14px;font-weight:800;color:#153a54}
+#regional2050 .network-card .sub{font-size:12px;color:#5c7385}
+#regional2050 .network-card .links{margin-top:auto;display:flex;gap:12px;flex-wrap:wrap;font-size:12px}
+#regional2050 .scroll tbody td:nth-child(4){color:#944b40;font-weight:800}
+#regional2050 .scroll tbody td:nth-child(7){color:#057a73;font-weight:800}
+@media(max-width:1000px){#regional2050 .network-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:720px){#regional2050 .network-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#regional2050 .chartwrap{height:300px}}
+@media(max-width:370px){#regional2050 .network-grid{grid-template-columns:1fr}}
