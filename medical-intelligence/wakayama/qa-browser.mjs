@@ -43,6 +43,10 @@ try {
     regions:document.querySelectorAll('#regionTable tbody tr').length,
     facilityCards:document.querySelectorAll('#facilityList article.facility').length,
     refs:document.querySelectorAll('#sourcesList li').length,
+    universityRows:document.querySelectorAll('#universityDoctorsTable tbody tr').length,
+    regionalMeetings:document.querySelectorAll('#regionalMeetingTable tbody tr').length,
+    agingSpotlight:!!document.querySelector('#town-aging'),
+    regionalPopulationCells:[...document.querySelectorAll('#municipalityFacilityTable tbody tr')].filter(tr=>tr.children.length===9).length,
     areaFacilityRows:document.querySelectorAll('#facilityAreaTable tbody tr').length,
     associationRows:document.querySelectorAll('#associationStatsTable tbody tr').length,
     municipalityRows:document.querySelectorAll('#municipalityFacilityTable tbody tr').length,
@@ -54,7 +58,7 @@ try {
     pathwayOverflow:getComputedStyle(document.querySelector('.pathway-scroll')).overflowX,
     duplicateIds:ids.filter((x,i)=>ids.indexOf(x)!==i),
     missingLocalAnchors:[...document.querySelectorAll('a[href^="#"]')].map(a=>a.hash.slice(1)).filter(id=>id&&!document.getElementById(id)),
-    chartsReady:typeof window.Chart==='function'?['bedDonutChart','physicianIndexChart','populationChart','bedChart','deviceChart','deviceDistributionChart','scoreChart','clinics2022Chart','areaFacilityTypesChart','associationClinicChart'].filter(id=>window.Chart.getChart(id)).length:null,
+    chartsReady:typeof window.Chart==='function'?['bedDonutChart','physicianIndexChart','populationChart','bedChart','deviceChart','deviceDistributionChart','scoreChart','clinics2022Chart','areaFacilityTypesChart','associationClinicChart','universityDoctorsChart'].filter(id=>window.Chart.getChart(id)).length:null,
     mapReady:typeof window.L==='object'&&!!document.querySelector('.leaflet-container'),
     leafletMarkers:document.querySelectorAll('#areaMap .leaflet-interactive').length,
     offenders:[...document.querySelectorAll('main *')].filter(e=>{
@@ -73,19 +77,23 @@ try {
   assert.equal(measures.regions,7,'All seven medical areas render');
   assert.equal(measures.cards,7,'Quick area buttons present');
   assert.equal(measures.facilityCards,37,'17 hospitals/admin + 9 health centers + 11 medical associations');
-  assert.equal(measures.refs,32,'All 32 public source entries');
+  assert.equal(measures.refs,36,'All 36 public source entries');
+  assert.equal(measures.universityRows,8,'All seven university doctor placement rows plus total');
+  assert.equal(measures.regionalMeetings,7,'Seven regional medical planning meetings');
+  assert(measures.agingSpotlight,'2026 aging report present');
+  assert.equal(measures.regionalPopulationCells,30,'30 towns have aligned aged-population and clinic columns');
   assert.equal(measures.areaFacilityRows,8,'Seven areas plus one total facility row');
   assert.equal(measures.associationRows,12,'Eleven medical associations plus one total row');
   assert.equal(measures.municipalityRows,30,'All 30 town/city facility rows');
   assert.equal(measures.associationCountText,'850','Association territorial clinic count 850');
   assert.equal(measures.heatRows,7,'Seven score matrix rows');
   assert(measures.graphicCount>=15,'Inline diagrams and pictograms');
-  assert.equal(measures.canvases,10,'Ten charts declared');
+  assert.equal(measures.canvases,11,'Eleven charts declared');
   assert.deepEqual(measures.duplicateIds,[],'Unique element IDs');
   assert.deepEqual(measures.missingLocalAnchors,[],'All internal links valid');
   assert.deepEqual(pageErrors,[],'No browser script exceptions');
   assert.equal(measures.offenders.length,0,'No uncontained overflow');
-  assert.equal(measures.chartsReady,10,'Chart.js renders all ten interactive charts');
+  assert.equal(measures.chartsReady,11,'Chart.js renders all eleven interactive charts');
   assert(measures.mapReady,'Interactive GSI map initializes');
   assert(measures.leafletMarkers>=7,'Seven medical-area map points');
   await page.locator('#areaSearch').fill('新宮');
@@ -97,7 +105,8 @@ try {
   assert((await page.locator('#municipalityFacilityTable tbody').innerText()).includes('日高医師会'),'Minabe town assigned to Hidaka association');
   await page.locator('#townFilter').fill('');
   await page.locator('#facilitySearch').fill('和歌山市医師会');
-  assert.equal(await page.locator('#facilityList article.facility').count(),1,'Facility search works');
+  assert((await page.locator('#facilityList article.facility').count())>=1,'Facility search returns relevant entries');
+  assert((await page.locator('#facilityList article.facility').allTextContents()).every(t=>t.includes('和歌山市医師会')),'Every returned facility is a genuine name match');
   await page.locator('#facilitySearch').fill('');
   await page.locator('#regionQuickCards button').first().click();
   assert((await page.locator('#areaSearch').inputValue()).length>0,'Area quick-select works');
