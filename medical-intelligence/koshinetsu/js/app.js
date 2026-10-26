@@ -47,9 +47,9 @@ const region=esc(a[0])+' / '+esc(a[1]);
 return '<tr><td><span class="region-tag">'+esc(a[0])+'</span></td><td><strong>'+esc(a[1])+'</strong><small class="cell-note">'+esc(a[2])+' 周辺</small></td><td class="num value-clinic">'+(fac?nf(fac[2]):'—')+'</td><td class="num">'+(fac?nf(fac[3]):'—')+'</td><td class="num value-total">'+(fac?nf(fac[2]+fac[3]):'—')+'</td><td class="association-links">'+as.map(x=>link(x[3],x[2])).join('')+'</td></tr>';
 }).join('');
 $('associationRows').innerHTML=associations.map(a=>{
-const city=a[4],fig=city?d.cityFacilities[city]:null,master=d.facilitySource.associations[a[0]];
+const city=a[4],cityFig=city?d.cityFacilities[city]:null,areaFig=d.getFacility(a[0],a[1]),fig=cityFig|| (areaFig?[areaFig[2],areaFig[3]]:null),master=d.facilitySource.associations[a[0]];
 const ref=a[3]===master?link(master,'県・地域医師会一覧'):link(a[3],'医師会・公式案内');
-return '<tr><td><b>'+esc(a[0])+'</b><small class="cell-note">'+esc(a[1])+'医療圏</small></td><td><b>'+esc(a[2])+'</b><small class="cell-note">'+ref+'</small></td><td>'+esc(city||'複数自治体・特定不能')+'</td><td class="num">'+(fig?nf(fig[0]):'—')+'</td><td class="num">'+(fig?nf(fig[1]):'—')+'</td><td><small>'+(fig?'2023年・自治体内実施設数（会員施設数ではない）':'団体ごとの加盟施設数は未取得')+'</small></td></tr>';
+return '<tr><td><b>'+esc(a[0])+'</b><small class="cell-note">'+esc(a[1])+'医療圏</small></td><td><b>'+esc(a[2])+'</b><small class="cell-note">'+ref+'</small></td><td>'+esc(city||a[1]+'医療圏全体')+'</td><td class="num">'+(fig?nf(fig[0]):'—')+'</td><td class="num">'+(fig?nf(fig[1]):'—')+'</td><td><small>'+(cityFig?'2023年・自治体内施設（医師会加盟数ではない）':'2023年・医療圏全体（複数の医師会で重複する参考値）')+'</small></td></tr>';
 }).join('');
 }
 
