@@ -1,0 +1,45 @@
+/* Oita Medical Intelligence: no-dependency regression checks. Run: node medical-intelligence/oita/tests/check.cjs */
+"use strict";
+const fs=require("node:fs"), path=require("node:path");
+const root=path.resolve(__dirname,"..");
+const read=p=>fs.readFileSync(path.join(root,p),"utf8");
+const html=read("index.html"),css=read("assets/site-v2.css"),js=read("assets/site-v2.js"),d=JSON.parse(read("data/data.json"));
+const failures=[],passes=[];
+const check=(test,message)=>{if(test)passes.push(message);else failures.push(message)};
+const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+const anchors=[...html.matchAll(/href="#([^"]+)"/g)].map(m=>m[1]);
+const unique=a=>new Set(a).size===a.length;
+check(html.startsWith("<!doctype html>"),"HTML5 doctype");
+check(html.includes('name="viewport"'),"viewport declared");
+check(ids.length>0&&unique(ids),"unique HTML IDs");
+check(anchors.every(a=>ids.includes(a)),"all in-page anchors resolve");
+check((html.match(/<section id=/g)||[]).length===12,"12 preserved sections");
+check((html.match(/<canvas /g)||[]).length===16,"16 source-grounded chart canvases");
+check((html.match(/src="\.\/assets\/site-v2\.js/g)||[]).length===1,"one local JavaScript bundle");
+check((html.match(/href="\.\/assets\/site-v2\.css/g)||[]).length===1,"one local CSS bundle");
+check((js.match(/fetch\("\.\/data\/data\.json"/g)||[]).length===1,"single JSON request");
+check(js.includes("is-compact-gallery")&&css.includes(".gallery-tabs"),"compact mobile chart navigation");
+check(js.includes("source-controls")&&css.includes(".source-controls"),"source search and pagination");
+check(css.includes("@media(max-width:760px)"),"mobile media queries");
+check(!css.includes("min-width:max-content"),"table max-content overflow bug excluded");
+check(js.includes("cyberjapandata.gsi.go.jp")&&js.includes("maps.gsi.go.jp")&&js.includes("google.com/maps"),"GSI tile and dual map links");
+check(html.includes('id="associations" hidden'),"duplicate association link list hidden");
+check(!html.includes("DyRO")&&!html.includes("仕切")&&!html.includes("特約店化"),"non-public partner strategy excluded from page");
+check(d.areas.length===6,"6 secondary medical areas");
+check(d.municipalFacilities.length===18,"18 municipalities");
+check(d.physicianAssociations.length===17,"17 medical associations");
+check(d.physicianAssociations.every(x=>x.membershipClinics===null),"no association membership figures fabricated");
+check(unique(d.sources.map(x=>x[0]))&&d.sources.length===44,"44 unique sources");
+check(d.sources.every(x=>Array.isArray(x)&&x.length>=4&&/^https:\/\//.test(x[3])),"source metadata and URL format");
+const sum=(arr,fn)=>arr.reduce((s,x)=>s+fn(x),0);
+check(sum(d.areas,a=>sum(a.beds,x=>x))===d.beds2025.total,"2025 beds reconcile");
+check(sum(d.areas,a=>sum(a.bedsPlanned2026,x=>x))===d.planned2026.total,"2026 planned beds reconcile");
+check(sum(d.areas,a=>a.demographicForecast.p2020)===d.population.actual2020,"2020 population reconcile");
+check(sum(d.areas,a=>a.demographicForecast.p2050)===841343,"2050 projected population reconcile");
+check(d.areas.every(a=>["clinics","hospitals","dental"].every(k=>sum(d.municipalFacilities.filter(m=>m.area===a.id),m=>m[k])===a.facilityCounts[k])),"municipality and area facility counts reconcile");
+for(const p of ["js/app.js","js/visuals.js","js/facilities.js","js/evidence.js"]){
+ check(fs.existsSync(path.join(root,p)),"legacy source preserved: "+p);
+}
+const result={checked:passes.length+failures.length,passes:passes.length,failures,notes:["External HTTP 200 checks and real Chrome responsive checks require network-enabled runtime.","This script checks data integrity and code presence, not validity of external source contents."]};
+console.log(JSON.stringify(result,null,2));
+if(failures.length)process.exitCode=1;
