@@ -35,6 +35,17 @@ function initMap() {
    return;
  }
  try {
+   const cssProbe=document.createElement('div');
+   cssProbe.className='leaflet-pane';
+   cssProbe.style.visibility='hidden';
+   document.body.appendChild(cssProbe);
+   const cssReady=window.getComputedStyle(cssProbe).position==='absolute';
+   cssProbe.remove();
+   if(!cssReady){
+     el.fallback.hidden=false;
+     el.fallback.textContent='地図の表示用スタイルが読み込めなかったため、崩れた地図の表示を停止しています。右の地点一覧と外部地図リンクをご利用ください。';
+     return;
+   }
    leafletMap=L.map(el.frame,{scrollWheelZoom:false,preferCanvas:true,zoomControl:false,attributionControl:true,keyboard:true,fadeAnimation:false})
       .setView([33.83,133.49],8);
    L.control.zoom({position:'topright'}).addTo(leafletMap);
@@ -160,7 +171,7 @@ el.list.addEventListener('click',evt=>{
 });
 el.mode.addEventListener('change',()=>update());
 el.cat.addEventListener('change',()=>update());
-el.pref.addEventListener('change',()=>update({syncTable:true}));
+el.pref.addEventListener('change',()=>{if(el.pref.value!=='全県'&&el.mode.value==='overview')el.mode.value='areas';update({syncTable:true});});
 el.reset.addEventListener('click',()=>{
  el.mode.value='overview';el.pref.value='全県';el.cat.value='all';
  update({syncTable:true});
