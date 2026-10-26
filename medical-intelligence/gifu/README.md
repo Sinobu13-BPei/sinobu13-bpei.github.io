@@ -2,7 +2,7 @@
 
 URL: https://sinobu13-bpei.github.io/medical-intelligence/gifu/
 
-公開資料を基礎に中立的に編纂。更新日 2026-10-26。
+公開資料を基礎に中立的に編纂。更新日 2026-10-27。
 
 ## ファイル
 - index.html: 本文（静的）
@@ -18,3 +18,8 @@ URL: https://sinobu13-bpei.github.io/medical-intelligence/gifu/
 
 ## 公開
 GitHub Pages: main / root、subdirectory gifu。
+
+## 図解拡張 (2026-10-27)
+- visuals.css / visuals.js: ピクトグラム、人口棒グラフ、医療圏概念図、病床機能構成、医療連携図、医療機器×圏域の仮説ヒートマップ、BCP図、5軸レーダー、戦略形成フローを追加。
+- ヒートマップとレーダーのスコアは分析仮説。実績の設置台数、県内シェア、病院購入計画とは異なる。
+- Leaflet＋地理院タイル地図は従来どおり。SVG概念図は法定医療圏境界の代替としない。
