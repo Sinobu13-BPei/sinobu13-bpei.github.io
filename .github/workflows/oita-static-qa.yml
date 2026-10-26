@@ -8,6 +8,7 @@ on:
 jobs:
   verify-oita-page:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       contents: read
     steps:
@@ -25,3 +26,21 @@ jobs:
           node --check medical-intelligence/oita/js/visuals.js
           node --check medical-intelligence/oita/js/facilities.js
           node --check medical-intelligence/oita/js/evidence.js
+      - name: Install Chromium browser test dependency
+        run: |
+          npm install --no-save playwright@1.55.1
+          npx playwright install --with-deps chromium
+      - name: Run mobile and desktop browser smoke tests
+        run: |
+          python3 -m http.server 8765 --directory . >/tmp/oita-http.log 2>&1 &
+          SERVER_PID=$!
+          trap "kill $SERVER_PID" EXIT
+          sleep 2
+          node medical-intelligence/oita/tests/browser-check.cjs
+      - name: Save browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: oita-qa-screenshots
+          path: medical-intelligence/oita/tests/screenshots/
+          if-no-files-found: ignore
