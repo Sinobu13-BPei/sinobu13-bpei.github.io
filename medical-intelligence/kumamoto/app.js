@@ -18,6 +18,14 @@ chart('needChart','bar',regions.map(r=>r.name),bednames.map((t,i)=>({label:t,dat
 const sorted=[...regions].sort((a,b)=>b.score-a.score);
 chart('scoreChart','bar',sorted.map(r=>r.name),[{label:'独自優先度',data:sorted.map(r=>r.score),backgroundColor:sorted.map(r=>r.score>=75?rose:teal)}],{horizontal:true});
 chart('clinicChart','bar',['全国','福岡','長崎','熊本','大分'],[{label:'人口10万人あたり診療所（2023年）',data:[84.4,94.2,103.9,86,86.4],backgroundColor:[blue,blue,blue,rose,blue]}]);
+
+const cohorts=(d.populationCohorts||[]).map(a=>({code:a[0],p2020:a[1],p2030:a[2],p2040:a[3],p2050:a[4],older2020:a[5],older2040:a[6]}));
+const byCode=new Map(cohorts.map(p=>[p.code,p]));const combined=regions.map(r=>({name:r.name,...byCode.get(r.code)}));
+if(cohorts.length===10&&combined.every(r=>Number.isFinite(r.p2040))){
+chart('forecastPopulationChart','bar',combined.map(r=>r.name),[{label:'2020年実績（人）',data:combined.map(r=>r.p2020),backgroundColor:blue},{label:'2040年推計（人）',data:combined.map(r=>r.p2040),backgroundColor:green}],{horizontal:true});
+chart('forecastOlderChart','bar',combined.map(r=>r.name),[{label:'75歳以上・2020年（人）',data:combined.map(r=>r.older2020),backgroundColor:blue},{label:'75歳以上・2040年推計（人）',data:combined.map(r=>r.older2040),backgroundColor:rose}],{horizontal:true});
+const tb=$('#projectionBody');if(tb)tb.innerHTML=combined.map(r=>'<tr><th>'+esc(r.name)+'</th>'+[r.p2020,r.p2030,r.p2040,r.p2050].map(n=>'<td class="numeric">'+format(n)+'</td>').join('')+'<td class="numeric">'+((r.p2040/r.p2020-1)*100).toFixed(1)+'%</td><td class="numeric">'+format(r.older2020)+'</td><td class="numeric">'+format(r.older2040)+'</td></tr>').join('')+'<tr><th>県計</th>'+[1,2,3,4].map(i=>'<td class="numeric"><b>'+format(d.populationCohorts.reduce((s,a)=>s+a[i],0))+'</b></td>').join('')+'<td class="numeric"><b>'+((d.populationCohorts.reduce((s,a)=>s+a[3],0)/d.populationCohorts.reduce((s,a)=>s+a[1],0)-1)*100).toFixed(1)+'%</b></td>'+[5,6].map(i=>'<td class="numeric"><b>'+format(d.populationCohorts.reduce((s,a)=>s+a[i],0))+'</b></td>').join('')+'</tr>';
+}
 const bd=$('#bedsBody'),rb=$('#regionBody');
 if(bd)bd.innerHTML=regions.map(r=>'<tr><th>'+esc(r.name)+'</th>'+[...r.beds,...r.need].map(x=>'<td class="numeric">'+format(x)+'</td>').join('')+'<td>'+link('https://scueldata.me/ph/plan/a/'+r.code+'/','原集計')+'</td></tr>').join('');
 if(rb)rb.innerHTML=sorted.map(r=>'<tr><th>'+esc(r.name)+'</th><td class="numeric"><b>'+r.score+'点</b></td><td>'+esc(r.driver)+'</td><td>'+esc(r.challenge)+'</td><td>'+esc(r.f<r.p?'人口減少下での機能再配分、医療機器更新、地域連携・保守設計':'新たな外来・健診需要と地域連携')+'</td></tr>').join('');
