@@ -88,7 +88,18 @@
         730,
         1084,
         33
-      ]
+      ],
+      "facilityCounts": {
+        "clinics": 131,
+        "hospitals": 33,
+        "dental": 77,
+        "pharmacies": 106,
+        "homeCareClinics": 35,
+        "population2020": 199000,
+        "elderly2020": 36.1,
+        "source": "https://www.jmap.jp/cities/detail/medical_area/4401",
+        "sourceBasis": "JMAPオンライン掲載値・2026-10-27閲覧（施設データ基準日は明示されない）"
+      }
     },
     {
       "id": "center",
@@ -124,7 +135,18 @@
         1500,
         1208,
         102
-      ]
+      ],
+      "facilityCounts": {
+        "clinics": 399,
+        "hospitals": 62,
+        "dental": 242,
+        "pharmacies": 287,
+        "homeCareClinics": 99,
+        "population2020": 560644,
+        "elderly2020": 29.4,
+        "source": "https://www.jmap.jp/cities/detail/medical_area/4403",
+        "sourceBasis": "JMAPオンライン掲載値・2026-10-27閲覧（施設データ基準日は明示されない）"
+      }
     },
     {
       "id": "south",
@@ -160,7 +182,18 @@
         224,
         113,
         0
-      ]
+      ],
+      "facilityCounts": {
+        "clinics": 43,
+        "hospitals": 7,
+        "dental": 29,
+        "pharmacies": 30,
+        "homeCareClinics": 9,
+        "population2020": 66851,
+        "elderly2020": 41.2,
+        "source": "https://www.jmap.jp/cities/detail/medical_area/4405",
+        "sourceBasis": "JMAPオンライン掲載値・2026-10-27閲覧（施設データ基準日は明示されない）"
+      }
     },
     {
       "id": "hohi",
@@ -196,7 +229,18 @@
         248,
         58,
         2
-      ]
+      ],
+      "facilityCounts": {
+        "clinics": 40,
+        "hospitals": 6,
+        "dental": 20,
+        "pharmacies": 26,
+        "homeCareClinics": 14,
+        "population2020": 54027,
+        "elderly2020": 45.8,
+        "source": "https://www.jmap.jp/cities/detail/medical_area/4406",
+        "sourceBasis": "JMAPオンライン掲載値・2026-10-27閲覧（施設データ基準日は明示されない）"
+      }
     },
     {
       "id": "west",
@@ -232,7 +276,18 @@
         412,
         169,
         0
-      ]
+      ],
+      "facilityCounts": {
+        "clinics": 51,
+        "hospitals": 20,
+        "dental": 37,
+        "pharmacies": 44,
+        "homeCareClinics": 6,
+        "population2020": 85584,
+        "elderly2020": 37.2,
+        "source": "https://www.jmap.jp/cities/detail/medical_area/4408",
+        "sourceBasis": "JMAPオンライン掲載値・2026-10-27閲覧（施設データ基準日は明示されない）"
+      }
     },
     {
       "id": "north",
@@ -268,7 +323,18 @@
         482,
         566,
         19
-      ]
+      ],
+      "facilityCounts": {
+        "clinics": 94,
+        "hospitals": 21,
+        "dental": 69,
+        "pharmacies": 73,
+        "homeCareClinics": 14,
+        "population2020": 157746,
+        "elderly2020": 33.8,
+        "source": "https://www.jmap.jp/cities/detail/medical_area/4409",
+        "sourceBasis": "JMAPオンライン掲載値・2026-10-27閲覧（施設データ基準日は明示されない）"
+      }
     }
   ],
   "facilities": [
@@ -695,6 +761,60 @@
       "日本医師会 地域医療情報システム：大分県・2020年国勢調査（65歳以上33.30%）",
       "2020年",
       "https://jmap.jp/cities/detail/pref/44?pref_id=2"
+    ],
+    [
+      "S32",
+      "日本医師会 JMAP 東部医療圏・施設種類別集計",
+      "2026年10月27日閲覧／施設統一基準日は不明",
+      "https://www.jmap.jp/cities/detail/medical_area/4401"
+    ],
+    [
+      "S33",
+      "日本医師会 JMAP 中部医療圏・施設種類別集計",
+      "2026年10月27日閲覧／施設統一基準日は不明",
+      "https://www.jmap.jp/cities/detail/medical_area/4403"
+    ],
+    [
+      "S34",
+      "日本医師会 JMAP 南部医療圏・施設種類別集計",
+      "2026年10月27日閲覧／施設統一基準日は不明",
+      "https://www.jmap.jp/cities/detail/medical_area/4405"
+    ],
+    [
+      "S35",
+      "日本医師会 JMAP 豊肥医療圏・施設種類別集計",
+      "2026年10月27日閲覧／施設統一基準日は不明",
+      "https://www.jmap.jp/cities/detail/medical_area/4406"
+    ],
+    [
+      "S36",
+      "日本医師会 JMAP 西部医療圏・施設種類別集計",
+      "2026年10月27日閲覧／施設統一基準日は不明",
+      "https://www.jmap.jp/cities/detail/medical_area/4408"
+    ],
+    [
+      "S37",
+      "日本医師会 JMAP 北部医療圏・施設種類別集計",
+      "2026年10月27日閲覧／施設統一基準日は不明",
+      "https://www.jmap.jp/cities/detail/medical_area/4409"
+    ],
+    [
+      "S38",
+      "大分県医師会 郡市等医師会名簿・17組織",
+      "令和8年7月1日時点",
+      "https://www.oita.med.or.jp/common/%E7%9C%8C%E5%86%85%E3%81%AE%E9%83%A1%E5%B8%82%E5%8C%BB%E5%B8%AB%E4%BC%9A/"
+    ],
+    [
+      "S39",
+      "大分県 令和7年版統計年鑑 第19章・市町村別医療施設数",
+      "2026年3月31日公開",
+      "https://pref.oita.jp/site/toukei/r0719.html"
+    ],
+    [
+      "S40",
+      "政府統計e-Stat 令和6年医療施設動態調査二次医療圏市区町村編",
+      "2024年",
+      "https://www.e-stat.go.jp/dbview?sid=0004048438"
     ]
   ],
   "planned2026": {
@@ -738,5 +858,452 @@
       "elderly2050": 40.8,
       "oldest2050": 25.6
     }
-  ]
+  ],
+  "municipalFacilities": [
+    {
+      "name": "大分市",
+      "code": "44201",
+      "area": "center",
+      "clinics": 343,
+      "hospitals": 54,
+      "dental": 206,
+      "source": "https://www.jmap.jp/cities/detail/city/44201"
+    },
+    {
+      "name": "別府市",
+      "code": "44202",
+      "area": "east",
+      "clinics": 88,
+      "hospitals": 24,
+      "dental": 51,
+      "source": "https://www.jmap.jp/cities/detail/city/44202"
+    },
+    {
+      "name": "中津市",
+      "code": "44203",
+      "area": "north",
+      "clinics": 50,
+      "hospitals": 11,
+      "dental": 36,
+      "source": "https://www.jmap.jp/cities/detail/city/44203"
+    },
+    {
+      "name": "日田市",
+      "code": "44204",
+      "area": "west",
+      "clinics": 36,
+      "hospitals": 17,
+      "dental": 26,
+      "source": "https://www.jmap.jp/cities/detail/city/44204"
+    },
+    {
+      "name": "佐伯市",
+      "code": "44205",
+      "area": "south",
+      "clinics": 43,
+      "hospitals": 7,
+      "dental": 29,
+      "source": "https://www.jmap.jp/cities/detail/city/44205"
+    },
+    {
+      "name": "臼杵市",
+      "code": "44206",
+      "area": "center",
+      "clinics": 25,
+      "hospitals": 4,
+      "dental": 15,
+      "source": "https://www.jmap.jp/cities/detail/city/44206"
+    },
+    {
+      "name": "津久見市",
+      "code": "44207",
+      "area": "center",
+      "clinics": 14,
+      "hospitals": 1,
+      "dental": 10,
+      "source": "https://www.jmap.jp/cities/detail/city/44207"
+    },
+    {
+      "name": "竹田市",
+      "code": "44208",
+      "area": "hohi",
+      "clinics": 18,
+      "hospitals": 3,
+      "dental": 6,
+      "source": "https://www.jmap.jp/cities/detail/city/44208"
+    },
+    {
+      "name": "豊後高田市",
+      "code": "44209",
+      "area": "north",
+      "clinics": 9,
+      "hospitals": 3,
+      "dental": 11,
+      "source": "https://www.jmap.jp/cities/detail/city/44209"
+    },
+    {
+      "name": "杵築市",
+      "code": "44210",
+      "area": "east",
+      "clinics": 15,
+      "hospitals": 3,
+      "dental": 7,
+      "source": "https://www.jmap.jp/cities/detail/city/44210"
+    },
+    {
+      "name": "宇佐市",
+      "code": "44211",
+      "area": "north",
+      "clinics": 35,
+      "hospitals": 7,
+      "dental": 22,
+      "source": "https://www.jmap.jp/cities/detail/city/44211"
+    },
+    {
+      "name": "豊後大野市",
+      "code": "44212",
+      "area": "hohi",
+      "clinics": 22,
+      "hospitals": 3,
+      "dental": 14,
+      "source": "https://www.jmap.jp/cities/detail/city/44212"
+    },
+    {
+      "name": "由布市",
+      "code": "44213",
+      "area": "center",
+      "clinics": 17,
+      "hospitals": 3,
+      "dental": 11,
+      "source": "https://www.jmap.jp/cities/detail/city/44213"
+    },
+    {
+      "name": "国東市",
+      "code": "44214",
+      "area": "east",
+      "clinics": 14,
+      "hospitals": 3,
+      "dental": 10,
+      "source": "https://www.jmap.jp/cities/detail/city/44214"
+    },
+    {
+      "name": "姫島村",
+      "code": "44322",
+      "area": "east",
+      "clinics": 1,
+      "hospitals": 0,
+      "dental": 1,
+      "source": "https://www.jmap.jp/cities/detail/city/44322"
+    },
+    {
+      "name": "日出町",
+      "code": "44341",
+      "area": "east",
+      "clinics": 13,
+      "hospitals": 3,
+      "dental": 8,
+      "source": "https://www.jmap.jp/cities/detail/city/44341"
+    },
+    {
+      "name": "九重町",
+      "code": "44461",
+      "area": "west",
+      "clinics": 5,
+      "hospitals": 0,
+      "dental": 3,
+      "source": "https://www.jmap.jp/cities/detail/city/44461"
+    },
+    {
+      "name": "玖珠町",
+      "code": "44462",
+      "area": "west",
+      "clinics": 10,
+      "hospitals": 3,
+      "dental": 8,
+      "source": "https://www.jmap.jp/cities/detail/city/44462"
+    }
+  ],
+  "physicianAssociations": [
+    {
+      "name": "豊後高田市医師会",
+      "area": "north",
+      "municipalities": [
+        "豊後高田市"
+      ],
+      "associationUrl": "https://www.oita.med.or.jp/common/%E7%9C%8C%E5%86%85%E3%81%AE%E9%83%A1%E5%B8%82%E5%8C%BB%E5%B8%AB%E4%BC%9A/",
+      "localFacilityReference": {
+        "clinics": 9,
+        "hospitals": 3,
+        "dental": 11
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "市内の施設総数。医師会会員施設数は別途確認。"
+    },
+    {
+      "name": "国東市医師会",
+      "area": "east",
+      "municipalities": [
+        "国東市"
+      ],
+      "associationUrl": "https://www.oita.med.or.jp/common/%E7%9C%8C%E5%86%85%E3%81%AE%E9%83%A1%E5%B8%82%E5%8C%BB%E5%B8%AB%E4%BC%9A/",
+      "localFacilityReference": {
+        "clinics": 14,
+        "hospitals": 3,
+        "dental": 10
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "市内の施設総数。医師会会員施設数は別途確認。"
+    },
+    {
+      "name": "速見郡杵築市医師会",
+      "area": "east",
+      "municipalities": [
+        "杵築市",
+        "日出町"
+      ],
+      "associationUrl": "https://hayaki-med.com/",
+      "localFacilityReference": {
+        "clinics": 28,
+        "hospitals": 6,
+        "dental": 15
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "杵築市＋日出町の所在施設数。会員施設数ではない。"
+    },
+    {
+      "name": "大分郡市医師会",
+      "area": "center",
+      "municipalities": [
+        "大分市"
+      ],
+      "associationUrl": "https://oitagunshi-ishikai.jp/",
+      "localFacilityReference": {
+        "clinics": 343,
+        "hospitals": 54,
+        "dental": 206
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "大分市全域の数を参照。会の対象地域・会員施設数の内訳は未確認。"
+    },
+    {
+      "name": "大分東医師会",
+      "area": "center",
+      "municipalities": [
+        "大分市"
+      ],
+      "associationUrl": "https://oitahigashi-ishikai.com/",
+      "localFacilityReference": {
+        "clinics": 343,
+        "hospitals": 54,
+        "dental": 206
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "大分市全域の数を参照。市内の部分地域を医師会ごとに配分していない。"
+    },
+    {
+      "name": "佐伯市医師会",
+      "area": "south",
+      "municipalities": [
+        "佐伯市"
+      ],
+      "associationUrl": "https://saiki-med.jp/",
+      "localFacilityReference": {
+        "clinics": 43,
+        "hospitals": 7,
+        "dental": 29
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "佐伯市の所在施設数。医師会会員施設数ではない。"
+    },
+    {
+      "name": "豊後大野市医師会",
+      "area": "hohi",
+      "municipalities": [
+        "豊後大野市"
+      ],
+      "associationUrl": "https://www.oono-med.jp/",
+      "localFacilityReference": {
+        "clinics": 22,
+        "hospitals": 3,
+        "dental": 14
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "豊後大野市の所在施設数。医師会会員施設数ではない。"
+    },
+    {
+      "name": "竹田市医師会",
+      "area": "hohi",
+      "municipalities": [
+        "竹田市"
+      ],
+      "associationUrl": "https://taketasiisikai.sakura.ne.jp/",
+      "localFacilityReference": {
+        "clinics": 18,
+        "hospitals": 3,
+        "dental": 6
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "竹田市の所在施設数。医師会会員施設数ではない。"
+    },
+    {
+      "name": "玖珠郡医師会",
+      "area": "west",
+      "municipalities": [
+        "九重町",
+        "玖珠町"
+      ],
+      "associationUrl": "https://kusudrs.com/",
+      "localFacilityReference": {
+        "clinics": 15,
+        "hospitals": 3,
+        "dental": 11
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "九重町＋玖珠町の所在施設数。医師会会員施設数ではない。"
+    },
+    {
+      "name": "日田市医師会",
+      "area": "west",
+      "municipalities": [
+        "日田市"
+      ],
+      "associationUrl": "https://www.hita-med.or.jp/",
+      "localFacilityReference": {
+        "clinics": 36,
+        "hospitals": 17,
+        "dental": 26
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "日田市の所在施設数。医師会会員施設数ではない。"
+    },
+    {
+      "name": "宇佐市医師会",
+      "area": "north",
+      "municipalities": [
+        "宇佐市"
+      ],
+      "associationUrl": "https://www.usa-med.jp/",
+      "localFacilityReference": {
+        "clinics": 35,
+        "hospitals": 7,
+        "dental": 22
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "宇佐市の所在施設数。医師会会員施設数ではない。"
+    },
+    {
+      "name": "大分市医師会",
+      "area": "center",
+      "municipalities": [
+        "大分市"
+      ],
+      "associationUrl": "https://oitashi-ishikai.jp/",
+      "localFacilityReference": {
+        "clinics": 343,
+        "hospitals": 54,
+        "dental": 206
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "大分市全域の数を参照。他の大分市内医師会と重複するため加算不可。"
+    },
+    {
+      "name": "別府市医師会",
+      "area": "east",
+      "municipalities": [
+        "別府市"
+      ],
+      "associationUrl": "https://www.beppu-med.or.jp/",
+      "localFacilityReference": {
+        "clinics": 88,
+        "hospitals": 24,
+        "dental": 51
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "別府市の所在施設数。医師会会員施設数ではない。"
+    },
+    {
+      "name": "中津市医師会",
+      "area": "north",
+      "municipalities": [
+        "中津市"
+      ],
+      "associationUrl": "https://www.nakatsu-med.jp/",
+      "localFacilityReference": {
+        "clinics": 50,
+        "hospitals": 11,
+        "dental": 36
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "中津市の所在施設数。医師会会員施設数ではない。"
+    },
+    {
+      "name": "津久見市医師会",
+      "area": "center",
+      "municipalities": [
+        "津久見市"
+      ],
+      "associationUrl": "https://tsukumi.oita.med.or.jp/",
+      "localFacilityReference": {
+        "clinics": 14,
+        "hospitals": 1,
+        "dental": 10
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "津久見市の所在施設数。医師会会員施設数ではない。"
+    },
+    {
+      "name": "臼杵市医師会",
+      "area": "center",
+      "municipalities": [
+        "臼杵市"
+      ],
+      "associationUrl": "https://usuki-med.projectz12.sky.linkclub.com/",
+      "localFacilityReference": {
+        "clinics": 25,
+        "hospitals": 4,
+        "dental": 15
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "臼杵市の所在施設数。医師会会員施設数ではない。"
+    },
+    {
+      "name": "大分大学医学部医師会",
+      "area": "center",
+      "municipalities": [],
+      "associationUrl": "https://www.oita.med.or.jp/common/%E7%9C%8C%E5%86%85%E3%81%AE%E9%83%A1%E5%B8%82%E5%8C%BB%E5%B8%AB%E4%BC%9A/",
+      "localFacilityReference": {
+        "clinics": null,
+        "hospitals": null,
+        "dental": null
+      },
+      "membershipClinics": null,
+      "memberCountStatus": "非公表/未照合",
+      "note": "大学医学部の医師会。特定地域の一般診療所施設数に対応しないため、非算出。"
+    }
+  ],
+  "facilityCountMethodology": {
+    "source": "日本医師会JMAP、2026年10月27日閲覧、全国平均対人口10万人率はJMAPに従い2020年国勢調査人口を使用",
+    "facilityCountYear": "施設データの統一基準日未公開・2026-10-27閲覧時点の公開値",
+    "regionFacilityCounts": "同一時点のJMAP県下6圏域の掲載数。病院・一般診療所・歯科・薬局を相互に重複加算せず集計する",
+    "associationCount": "県医師会2026年7月1日名簿17組織。各医師会の『会員診療所数』は未検証。表は地理的な市町村所在施設の参考値に限る。複数医師会に紐づく大分市の参照数は医師会ごとに重複するため合計禁止。",
+    "referenceAlternative": "県2026年3月31日公表の令和7年版統計年鑑に市町村別施設統計表あり。JMAPは県の全許認可施設数と一致しないため2026年時点の公式認可数として扱わない。",
+    "licenseCaveat": "県病床機能報告（2025年7月）の対象病院123・有床診療所186とJMAP掲載病院149は母集団・調査目的が異なるため同一視しない。",
+    "jmapNationalClinicRate": 70.28
+  }
 }
