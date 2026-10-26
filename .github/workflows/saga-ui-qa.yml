@@ -1,0 +1,47 @@
+name: Saga Market UI QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'medical-intelligence/saga/**'
+      - '.github/workflows/saga-ui-qa.yml'
+permissions:
+  contents: read
+jobs:
+  browser-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JavaScript syntax checks
+        run: |
+          node --check medical-intelligence/saga/app.js
+          node --check medical-intelligence/saga/data.js
+          node --check medical-intelligence/saga/supplement.js
+          node --check medical-intelligence/saga/ui-rev2.js
+          node --check medical-intelligence/saga/qa-ui.mjs
+      - name: Install Playwright and Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start local website
+        run: |
+          nohup python3 -m http.server 8765 --bind 127.0.0.1 --directory medical-intelligence/saga > /tmp/saga-qa-server.log 2>&1 &
+          sleep 2
+          curl -fI http://127.0.0.1:8765/
+      - name: Run three-viewport browser QA
+        run: node medical-intelligence/saga/qa-ui.mjs
+      - name: Upload QA logs and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: saga-ui-qa
+          path: |
+            qa-output/
+            /tmp/saga-qa-server.log
+          if-no-files-found: warn
+          retention-days: 14
