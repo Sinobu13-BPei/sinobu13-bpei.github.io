@@ -1,4 +1,4 @@
-/* Tokyo Medical Market Intelligence: public sources only; 2026-10-26 */
+/* Tokyo Medical Market Intelligence: public sources only; updated 2026-10-26 */
 window.TOKYO_DATA={
   "regions": [
     {
@@ -768,6 +768,66 @@ window.TOKYO_DATA={
       "2026-04",
       "https://www.mhlw.go.jp/content/001691091.pdf",
       "全国・東京・隣接3県比較"
+    ],
+    [
+      "東京都2026年福祉保健資料・令和6年医療施設調査",
+      "2024-10-01",
+      "https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/tokyonofukushihoken2026",
+      "病院633、診療所15146、23区病院420・診療所11850"
+    ],
+    [
+      "医療施設（動態）調査・東京都令和6年結果",
+      "2024",
+      "https://www.hokeniryo.metro.tokyo.lg.jp/kiban/chosa_tokei/iryosisetsu/reiwa06nen",
+      "医療施設の年次・地域比較"
+    ],
+    [
+      "日本医療機器販売業協会 会員紹介",
+      "2026-10-21",
+      "https://www.jahid.or.jp/about/member-introduction",
+      "公開構成員924社など・会員母集団"
+    ],
+    [
+      "戸田中央メディカルケアグループ 公式施設一覧",
+      "2026参照",
+      "https://www.tmg.or.jp/kango/facilities/",
+      "都内公開グループ病院一覧"
+    ],
+    [
+      "上尾中央医科グループ 公式",
+      "2026参照",
+      "https://www.amg.or.jp/",
+      "グループ医院の個別確認窓口"
+    ],
+    [
+      "地域医療機能推進機構（JCHO） 病院一覧",
+      "2026参照",
+      "https://www.jcho.go.jp/facility/%E7%97%85%E9%99%A2/",
+      "東京都内5施設・所在地"
+    ],
+    [
+      "国立病院機構 病院一覧",
+      "2026参照",
+      "https://nho.hosp.go.jp/about/cnt1-0_000103.html",
+      "都内4病院と所在地"
+    ],
+    [
+      "東京都地域医療構想調整会議・令和8年度",
+      "2026年度",
+      "https://www.hokeniryo.metro.tokyo.lg.jp/iryo/iryo_hoken/kanren/kyogikai/r8-1chouseikaigishomen",
+      "病床数適正化緊急支援事業の都内議論"
+    ],
+    [
+      "厚生労働省 病床数適正化緊急支援事業",
+      "2026年度",
+      "https://www.mhlw.go.jp/stf/newpage_72383.html",
+      "制度概要・実施要綱・申請様式"
+    ],
+    [
+      "国立健康危機管理研究機構（JIHS）",
+      "2025-04-01",
+      "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/jihs.html",
+      "国立国際医療研究センターの組織変更・新名称"
     ]
   ],
   "scoring": {
@@ -813,9 +873,27 @@ window.TOKYO_DATA={
     "islands": 21604
   },
   "facilities": {
-    "year": 2023,
-    "hospitals": 637,
-    "clinics": 14894
+    "year": 2024,
+    "asOf": "2024-10-01",
+    "hospitals": 633,
+    "clinics": 15146,
+    "wardsHospitals": 420,
+    "wardsClinics": 11850,
+    "source": "https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/tokyonofukushihoken2026",
+    "history": [
+      {
+        "year": 2023,
+        "hospitals": 637,
+        "clinics": 14894,
+        "source": "https://www.metro.tokyo.lg.jp/information/press/2025/12/2025121009"
+      },
+      {
+        "year": 2024,
+        "hospitals": 633,
+        "clinics": 15146,
+        "source": "https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/tokyonofukushihoken2026"
+      }
+    ]
   },
   "necessaryBeds": {
     "targetYear": 2025,
@@ -825,5 +903,171 @@ window.TOKYO_DATA={
     "recovery": 34628,
     "chronic": 20973,
     "estimatedIn": 2016
+  },
+  "distribution": {
+    "jahid": {
+      "asOf": "2026-10-21",
+      "associations": 43,
+      "memberOrganizations": 924,
+      "corporateMembers": 141,
+      "supportingMembers": 118,
+      "source": "https://www.jahid.or.jp/about/member-introduction"
+    },
+    "annotation": "会員数は協会の構成員・会員種別の統計。東京都内の医療機器販売業者総数・シェアではない。"
+  },
+  "publicGroupFacilities": [
+    {
+      "group": "戸田中央メディカルケアグループ",
+      "name": "西東京中央総合病院",
+      "address": "東京都西東京市芝久保町2-4-19",
+      "zone": "北多摩北部",
+      "groupOfficial": "https://www.tmg.or.jp/kango/facilities/"
+    },
+    {
+      "group": "戸田中央メディカルケアグループ",
+      "name": "佐々総合病院",
+      "address": "東京都西東京市田無町4-24-15",
+      "zone": "北多摩北部",
+      "groupOfficial": "https://www.tmg.or.jp/kango/facilities/"
+    },
+    {
+      "group": "戸田中央メディカルケアグループ",
+      "name": "小平中央リハビリテーション病院",
+      "address": "東京都小平市鈴木町1-146",
+      "zone": "北多摩北部",
+      "groupOfficial": "https://www.tmg.or.jp/kango/facilities/"
+    },
+    {
+      "group": "戸田中央メディカルケアグループ",
+      "name": "一橋病院",
+      "address": "東京都小平市学園西町1-2-25",
+      "zone": "北多摩北部",
+      "groupOfficial": "https://www.tmg.or.jp/kango/facilities/"
+    },
+    {
+      "group": "戸田中央メディカルケアグループ",
+      "name": "八王子山王病院",
+      "address": "東京都八王子市中野山王2-15-16",
+      "zone": "南多摩",
+      "groupOfficial": "https://www.tmg.or.jp/kango/facilities/"
+    },
+    {
+      "group": "戸田中央メディカルケアグループ",
+      "name": "奥沢病院",
+      "address": "東京都世田谷区奥沢2-11-11",
+      "zone": "区西南部",
+      "groupOfficial": "https://www.tmg.or.jp/kango/facilities/"
+    },
+    {
+      "group": "戸田中央メディカルケアグループ",
+      "name": "世田谷神経内科病院",
+      "address": "東京都世田谷区等々力6-37-12",
+      "zone": "区西南部",
+      "groupOfficial": "https://www.tmg.or.jp/kango/facilities/"
+    },
+    {
+      "group": "戸田中央メディカルケアグループ",
+      "name": "田園調布中央病院",
+      "address": "東京都大田区田園調布2-43-1",
+      "zone": "区南部",
+      "groupOfficial": "https://www.tmg.or.jp/kango/facilities/"
+    },
+    {
+      "group": "戸田中央メディカルケアグループ",
+      "name": "大田池上病院",
+      "address": "東京都大田区池上2-7-10",
+      "zone": "区南部",
+      "groupOfficial": "https://www.tmg.or.jp/kango/facilities/"
+    },
+    {
+      "group": "上尾中央医科グループ",
+      "name": "浅草病院",
+      "address": "東京都台東区今戸2-26-15",
+      "zone": "区中央部",
+      "groupOfficial": "https://www.amg.or.jp/"
+    },
+    {
+      "group": "上尾中央医科グループ",
+      "name": "杉並リハビリテーション病院",
+      "address": "東京都杉並区西荻北2-5-5",
+      "zone": "区西部",
+      "groupOfficial": "https://www.amg.or.jp/"
+    },
+    {
+      "group": "地域医療機能推進機構（JCHO）",
+      "name": "東京高輪病院",
+      "address": "東京都港区高輪3-10-11",
+      "zone": "区中央部",
+      "groupOfficial": "https://www.jcho.go.jp/facility/%E7%97%85%E9%99%A2/"
+    },
+    {
+      "group": "地域医療機能推進機構（JCHO）",
+      "name": "東京新宿メディカルセンター",
+      "address": "東京都新宿区津久戸町5-1",
+      "zone": "区西部",
+      "groupOfficial": "https://www.jcho.go.jp/facility/%E7%97%85%E9%99%A2/"
+    },
+    {
+      "group": "地域医療機能推進機構（JCHO）",
+      "name": "東京山手メディカルセンター",
+      "address": "東京都新宿区百人町3-22-1",
+      "zone": "区西部",
+      "groupOfficial": "https://www.jcho.go.jp/facility/%E7%97%85%E9%99%A2/"
+    },
+    {
+      "group": "地域医療機能推進機構（JCHO）",
+      "name": "東京城東病院",
+      "address": "東京都江東区亀戸9-13-1",
+      "zone": "区東部",
+      "groupOfficial": "https://www.jcho.go.jp/facility/%E7%97%85%E9%99%A2/"
+    },
+    {
+      "group": "地域医療機能推進機構（JCHO）",
+      "name": "東京蒲田医療センター",
+      "address": "東京都大田区南蒲田2-19-2",
+      "zone": "区南部",
+      "groupOfficial": "https://www.jcho.go.jp/facility/%E7%97%85%E9%99%A2/"
+    },
+    {
+      "group": "国立病院機構（NHO）",
+      "name": "東京医療センター",
+      "address": "東京都目黒区東が丘2-5-1",
+      "zone": "区西南部",
+      "groupOfficial": "https://nho.hosp.go.jp/about/cnt1-0_000103.html"
+    },
+    {
+      "group": "国立病院機構（NHO）",
+      "name": "東京病院",
+      "address": "東京都清瀬市竹丘3-1-1",
+      "zone": "北多摩北部",
+      "groupOfficial": "https://nho.hosp.go.jp/about/cnt1-0_000103.html"
+    },
+    {
+      "group": "国立病院機構（NHO）",
+      "name": "村山医療センター",
+      "address": "東京都武蔵村山市学園2-37-1",
+      "zone": "北多摩西部",
+      "groupOfficial": "https://nho.hosp.go.jp/about/cnt1-0_000103.html"
+    },
+    {
+      "group": "国立病院機構（NHO）",
+      "name": "災害医療センター",
+      "address": "東京都立川市緑町3256",
+      "zone": "北多摩西部",
+      "groupOfficial": "https://nho.hosp.go.jp/about/cnt1-0_000103.html"
+    }
+  ],
+  "validationNotes": {
+    "excluded": [
+      "「東京都23区超越活動」等の担当者・案件・営業戦略・価格、機密情報",
+      "R&D社等の有料調査データの地域別推計市場金額/競合シェア",
+      "推計US44.4億円・病院730/診療所810台は独自按分で、行政の実測ではない",
+      "JH病院一覧は2025年JIHS改編以前の旧施設名を含み、新制度に名寄せするまで一括掲載しない"
+    ],
+    "discrepancies": [
+      "添付の病床サマリーに区西北部1,496床等の部分集計があり、東京都2024年度公式14,431床と矛盾するため不採用",
+      "添付DPC指標の100%超は『完結率』ではなく所在地症例数÷患者住所地症例数等の可能性があり不採用",
+      "2026年1月末の病院623・診療所15,445は商用集計に掲載があるが、本版では2024年10月1日の公的確定値633・15,146を使用"
+    ]
   }
 };
