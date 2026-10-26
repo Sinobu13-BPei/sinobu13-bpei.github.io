@@ -149,7 +149,7 @@ a,button,select,input{touch-action:manipulation}
 .chart canvas,.viz-canvas canvas,.evidence-canvas canvas,.fac-canvas canvas{display:block}
 .table-wrap{overflow-x:auto;overflow-y:visible;scrollbar-width:thin;scrollbar-color:#aac2cb #f5f9fb;isolation:isolate}
 .table-wrap:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
-.table-wrap table{min-width:max-content;max-width:none}
+.table-wrap table{min-width:840px;max-width:none;width:100%} #areaTable{min-width:1050px} #associationFacilityTable{min-width:1180px} #regionEvidenceTable{min-width:1060px} #facilityTable{min-width:960px}
 .table-wrap th,.table-wrap td{overflow-wrap:normal;word-break:normal}
 .table-wrap tbody tr:hover{background:#ecf7f8}
 .table-scroll-help{font-size:.71rem;color:#567081;margin:4px 0 0;display:flex;gap:5px;align-items:center}
