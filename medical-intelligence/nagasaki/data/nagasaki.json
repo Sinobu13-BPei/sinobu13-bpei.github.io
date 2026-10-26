@@ -238,6 +238,27 @@
       "year": "2026年8月10日時点",
       "url": "https://po.nagasaki.med.or.jp/citizen/about/",
       "scope": "医師会の所在地・名称（医師会の会員施設数ではない）"
+    },
+    {
+      "id": "kyushu2026medical",
+      "title": "九州厚生局 保険医療機関一覧表（長崎県・医科）",
+      "year": "2026年5月1日現在／5月7日作成",
+      "url": "https://kouseikyoku.mhlw.go.jp/kyushu/000483254.pdf",
+      "scope": "病院・医科診療所の名称・所在地・公表病床・診療科"
+    },
+    {
+      "id": "kyushu2026dental",
+      "title": "九州厚生局 保険医療機関一覧表（長崎県・歯科）",
+      "year": "2026年5月1日現在／5月7日作成",
+      "url": "https://kouseikyoku.mhlw.go.jp/kyushu/000483256.pdf",
+      "scope": "歯科診療所・所在地"
+    },
+    {
+      "id": "kyushu2026pharma",
+      "title": "九州厚生局 保険薬局一覧表（長崎県）",
+      "year": "2026年5月1日現在／5月7日作成",
+      "url": "https://kouseikyoku.mhlw.go.jp/kyushu/000483257.pdf",
+      "scope": "保険薬局・所在地"
     }
   ],
   "areas": [
@@ -280,6 +301,12 @@
         "clinics": 466,
         "dental": 260,
         "total": 775
+      },
+      "register2026": {
+        "hospitals": 49,
+        "medicalClinics": 483,
+        "dentalClinics": 287,
+        "pharmacies": 299
       }
     },
     {
@@ -321,6 +348,12 @@
         "clinics": 197,
         "dental": 119,
         "total": 350
+      },
+      "register2026": {
+        "hospitals": 34,
+        "medicalClinics": 202,
+        "dentalClinics": 131,
+        "pharmacies": 156
       }
     },
     {
@@ -362,6 +395,12 @@
         "clinics": 190,
         "dental": 119,
         "total": 341
+      },
+      "register2026": {
+        "hospitals": 32,
+        "medicalClinics": 201,
+        "dentalClinics": 126,
+        "pharmacies": 136
       }
     },
     {
@@ -403,6 +442,12 @@
         "clinics": 73,
         "dental": 60,
         "total": 148
+      },
+      "register2026": {
+        "hospitals": 15,
+        "medicalClinics": 72,
+        "dentalClinics": 64,
+        "pharmacies": 59
       }
     },
     {
@@ -444,6 +489,12 @@
         "clinics": 26,
         "dental": 12,
         "total": 42
+      },
+      "register2026": {
+        "hospitals": 4,
+        "medicalClinics": 20,
+        "dentalClinics": 14,
+        "pharmacies": 16
       }
     },
     {
@@ -485,6 +536,12 @@
         "clinics": 14,
         "dental": 10,
         "total": 25
+      },
+      "register2026": {
+        "hospitals": 1,
+        "medicalClinics": 14,
+        "dentalClinics": 11,
+        "pharmacies": 12
       }
     },
     {
@@ -526,6 +583,12 @@
         "clinics": 12,
         "dental": 8,
         "total": 25
+      },
+      "register2026": {
+        "hospitals": 4,
+        "medicalClinics": 11,
+        "dentalClinics": 8,
+        "pharmacies": 13
       }
     },
     {
@@ -567,6 +630,12 @@
         "clinics": 25,
         "dental": 12,
         "total": 39
+      },
+      "register2026": {
+        "hospitals": 2,
+        "medicalClinics": 25,
+        "dentalClinics": 13,
+        "pharmacies": 9
       }
     }
   ],
@@ -1576,5 +1645,19 @@
       703,
       734
     ]
+  },
+  "register2026": {
+    "asOf": "2026-05-01",
+    "source": "九州厚生局・コード内容別医療機関一覧（医科/歯科/薬局、現存・休止含む）",
+    "counts": {
+      "hospitals": 141,
+      "medicalClinics": 1028,
+      "dentalClinics": 654,
+      "pharmacies": 700,
+      "total": 2523,
+      "suspended": 18
+    },
+    "method": "公開一次名簿の施設単位再集計。ナビイおよび厚労省医療施設調査とは統計の種類・対象が異なり増減比較不可",
+    "publicDataset": "./data/facilities-public.json"
   }
 }
