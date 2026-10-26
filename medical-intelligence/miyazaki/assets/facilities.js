@@ -11,7 +11,6 @@ const sum=(arr,key)=>arr.reduce((t,x)=>t+x[key],0);
 let dataset;
 const regionCenters={"宮崎東諸県":[31.91,131.42],"都城北諸県":[31.72,131.06],"延岡西臼杵":[32.58,131.66],"日南串間":[31.60,131.38],"西諸":[31.99,130.98],"西都児湯":[32.11,131.40],"日向入郷":[32.43,131.63]};
 const gsiRegion = area => {const v=regionCenters[area];return v?'https://maps.gsi.go.jp/#14/'+v[0]+'/'+v[1]+'/':'https://maps.gsi.go.jp/'};
-const refYear="基準年未確認";
 const makeTable=(rows,headers,classes='')=>'<div class="fac-table-wrap"><table class="fac-table '+classes+'"><thead><tr>'+headers.map(x=>'<th scope="col">'+esc(x)+'</th>').join('')+'</tr></thead><tbody>'+rows.join('')+'</tbody></table></div>';
 function renderOfficial(data){
 const o=data.official2022, a=o.areas, total=o.totals;
@@ -41,7 +40,7 @@ $('facilityAssocCount').textContent=a.length+' 医師会';
 $('facilityReferenceWarning').innerHTML='【参考値・集計年次未確認】各医師会の「所在地域の病院数・一般診療所数」は、添付Excel「市町村_市場」シートの市町村数値を集計したものです。<strong>医師会加盟施設数ではありません。</strong>基準年不明につき、県公式2022年の施設数とは差があり、更新状況は未確認です。医師会別の正確な会員施設数は各医師会へ個別確認が必要です。';
 $('facilityAssociationList').innerHTML=a.map(x=>{
  const n=x.regionalFacilityCountsReference;
- return '<article class="fac-assoc"><span class="fac-region">'+esc(x.area)+'</span><h4>'+esc(x.name)+'</h4><p>対象：'+x.municipalities.map(esc).join('・')+'</p><div class="fac-assoc-metrics"><div><small>所在地域の一般診療所（参考）</small><strong>'+fmt(n.generalClinics)+'</strong></div><div><small>所在地域の病院（参考）</small><strong>'+fmt(n.hospitals)+'</strong></div></div><p>'+esc(x.work)+'</p><div class="fac-assoc-links">'+href(x.url,'医師会公式 ↗')+' '+href(gmap(x.name,x.address),'Googleマップ ↗')+' '+href(gsiRegion(x.area),'地理院地図（地域概略） ↗')+'</div><p class="fac-note">※会員数ではなく医師会対象市町村の参考合計。'+refYear+'。</p></article>'
+ return '<article class="fac-assoc"><span class="fac-region">'+esc(x.area)+'</span><h4>'+esc(x.name)+'</h4><p>対象：'+x.municipalities.map(esc).join('・')+'</p><div class="fac-assoc-metrics"><div><small>所在地域の一般診療所（参考）</small><strong>'+fmt(n.generalClinics)+'</strong></div><div><small>所在地域の病院（参考）</small><strong>'+fmt(n.hospitals)+'</strong></div></div><p>'+esc(x.work)+'</p><div class="fac-assoc-links">'+href(x.url,'医師会公式 ↗')+' '+href(gmap(x.name,x.address),'Googleマップ ↗')+' '+href(gsiRegion(x.area),'地理院地図（地域概略） ↗')+'</div></article>'
 }).join('');
 const select=$('facilityAreaSelect');select.innerHTML='<option value="all">宮崎県内すべて</option>'+data.official2022.areas.map(x=>'<option value="'+esc(x.name)+'">'+esc(x.name)+'</option>').join('');
 const selectAssoc=$('facilityAssocSelect');selectAssoc.innerHTML='<option value="all">すべての郡市医師会</option>'+a.map(x=>'<option value="'+esc(x.name)+'">'+esc(x.name)+'</option>').join('');
