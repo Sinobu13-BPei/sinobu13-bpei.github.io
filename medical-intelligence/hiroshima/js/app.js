@@ -13,6 +13,9 @@ const GSI=(lat,lng)=>'https://maps.gsi.go.jp/#15/'+Number(lat).toFixed(5)+'/'+Nu
 const colors=['#114d75','#3196aa','#e5ac54','#7e83b8','#a2b5b9'];
 // 出典リンク一覧
 const src=$('#sourceList');if(src){Object.entries(D.source).forEach(([id,s])=>{const li=make('li');li.id='src-'+id;li.append(make('strong',s.title),make('em','年次：'+s.year+' ／ '),link(s.url,'公式資料を開く ↗'));src.appendChild(li)})}
+// 2025年国勢調査・確定値：23市町を実数と増減率で表示
+const munibody=$('#municipalityTable tbody');
+if(munibody){D.municipalities.forEach(([city,pop,change])=>{const tr=make('tr');appendCell(tr,city);appendCell(tr,fmt(pop));appendCell(tr,(change>0?'+':'')+change.toFixed(change===0.03?2:1)+'%');munibody.appendChild(tr)})}
 // 病床データ表
 const tbody=$('#areaTable tbody');D.areas.forEach(a=>{const tr=make('tr');appendCell(tr,a.name);appendCell(tr,fmt(a.total));a.beds.forEach(n=>appendCell(tr,fmt(n)));tbody.appendChild(tr)});
 // 圏域カード
@@ -65,7 +68,7 @@ else {
 Chart.defaults.font.family='system-ui, sans-serif';Chart.defaults.color='#365468';
 const legend={position:'bottom',labels:{boxWidth:11,usePointStyle:true,padding:15}};
 const opt={responsive:true,maintainAspectRatio:false,plugins:{legend},interaction:{intersect:false,mode:'index'}};
-new Chart($('#populationChart'),{type:'line',data:{labels:['2020実績','2026推計','2030社人研','2040社人研','2050社人研'],datasets:[{label:'人口（万人）※異なる統計系列',data:[D.population.census2020/10000,D.population.estimate202609/10000,D.population.ipss2030/10000,D.population.ipss2040/10000,D.population.ipss2050/10000],borderColor:'#087e86',backgroundColor:'rgba(8,126,134,.13)',fill:true,tension:.15,pointRadius:5}]},options:{...opt,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.y.toFixed(1)+'万人（系列に注意）'}}},scales:{y:{beginAtZero:false,title:{display:true,text:'万人'}}}}});
+new Chart($('#populationChart'),{type:'line',data:{labels:['2020実績','2025確定','2026推計','2030社人研','2040社人研','2050社人研'],datasets:[{label:'人口（万人）※異なる統計系列',data:[D.population.census2020/10000,D.population.census2025/10000,D.population.estimate202609/10000,D.population.ipss2030/10000,D.population.ipss2040/10000,D.population.ipss2050/10000],borderColor:'#087e86',backgroundColor:'rgba(8,126,134,.13)',fill:true,tension:.15,pointRadius:5}]},options:{...opt,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.y.toFixed(1)+'万人（系列に注意）'}}},scales:{y:{beginAtZero:false,title:{display:true,text:'万人'}}}}});
 new Chart($('#bedsChart'),{type:'bar',data:{labels:D.areas.map(x=>x.name),datasets:['高度急性期','急性期','回復期','慢性期','休棟等'].map((label,i)=>({label,data:D.areas.map(x=>x.beds[i]),backgroundColor:colors[i],borderRadius:2}))},options:{...opt,scales:{x:{stacked:true,ticks:{maxRotation:40,minRotation:0}},y:{stacked:true,beginAtZero:true,title:{display:true,text:'床'}}}}});
 new Chart($('#doctorChart'),{type:'bar',data:{labels:['全国','広島','岡山','山口','島根','愛媛'],datasets:[{label:'2026年医師偏在指標',data:[D.doctorIndex.national,D.doctorIndex.hiroshima,D.doctorIndex.okayama,D.doctorIndex.yamaguchi,D.doctorIndex.shimane,D.doctorIndex.ehime],backgroundColor:['#95b2be','#087e86','#7ea7c5','#7ea7c5','#7ea7c5','#7ea7c5'],borderRadius:5}]},options:{...opt,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}});
 new Chart($('#scoreChart'),{type:'bar',data:{labels:scores.map(a=>a.name),datasets:[{label:'暫定スコア / 100',data:scores.map(score),backgroundColor:'#188b92',borderRadius:5}]},options:{...opt,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.x+'点（独自分析）'}}},scales:{x:{min:0,max:100},y:{ticks:{autoSkip:false}}}}});
