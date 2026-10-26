@@ -121,6 +121,21 @@
       "title": "令和8年度 県予算事業別公開",
       "year": "2026",
       "url": "https://www.pref.saitama.lg.jp/yosan-info/ST2026-10/main.html"
+    },
+    "P25": {
+      "title": "厚生労働省 医師確保対策・2026年4月医師偏在指標",
+      "year": "2026-04",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    },
+    "P26": {
+      "title": "埼玉県 2024年医師数・診療科・医師偏在指標（県医療人材事業、SCUEL集計）",
+      "year": "医師2024年・偏在指標2026年4月公表",
+      "url": "https://scueldata.me/insight/workforce/doctor/saitama/"
+    },
+    "P27": {
+      "title": "埼玉県 外来医師偏在指標・第8次前期（県資料）",
+      "year": "2024-2026",
+      "url": "https://www.pref.saitama.lg.jp/documents/256909/04.pdf"
     }
   },
   "areas": [
@@ -153,7 +168,11 @@
         3.7,
         4.8,
         4.4
-      ]
+      ],
+      "physicians2024": 1333,
+      "physicianMaldistributionIndex2026": 204,
+      "outpatientPhysicianIndex2024Plan": 100.2,
+      "opportunity3to5": "総合病院と診療所の診療情報連携、救急・慢性疾患検査の更新支援"
     },
     {
       "name": "南西部",
@@ -184,7 +203,11 @@
         4,
         3.9,
         4.3
-      ]
+      ],
+      "physicians2024": 1098,
+      "physicianMaldistributionIndex2026": 187.7,
+      "outpatientPhysicianIndex2024Plan": 98.7,
+      "opportunity3to5": "都県境の医療連携、画像共同利用と地域密着診療所の開業・承継支援"
     },
     {
       "name": "東部",
@@ -215,7 +238,11 @@
         4.4,
         4.5,
         4.2
-      ]
+      ],
+      "physicians2024": 2042,
+      "physicianMaldistributionIndex2026": 199.9,
+      "outpatientPhysicianIndex2024Plan": 80.2,
+      "opportunity3to5": "東部急性期病院の機能分化と回復期・在宅接続、検査動線改善"
     },
     {
       "name": "さいたま",
@@ -246,7 +273,11 @@
         4.1,
         5,
         4.1
-      ]
+      ],
+      "physicians2024": 2834,
+      "physicianMaldistributionIndex2026": 250.5,
+      "outpatientPhysicianIndex2024Plan": 108.8,
+      "opportunity3to5": "高度急性期更新と地域病院・診療所の画像共有、救急ワークフロー"
     },
     {
       "name": "県央",
@@ -277,7 +308,11 @@
         3.8,
         4.2,
         4.1
-      ]
+      ],
+      "physicians2024": 930,
+      "physicianMaldistributionIndex2026": 198.6,
+      "outpatientPhysicianIndex2024Plan": 82.1,
+      "opportunity3to5": "がん診療と画像診断共同利用、地域基幹病院と診療所間の接続"
     },
     {
       "name": "川越比企",
@@ -308,7 +343,11 @@
         4.6,
         4.7,
         4
-      ]
+      ],
+      "physicians2024": 2011,
+      "physicianMaldistributionIndex2026": 240.4,
+      "outpatientPhysicianIndex2024Plan": 87.8,
+      "opportunity3to5": "医学部・大学病院との広域紹介機能、放射線・画像診断装置の効率更新"
     },
     {
       "name": "西部",
@@ -339,7 +378,11 @@
         4.1,
         4.8,
         4.1
-      ]
+      ],
+      "physicians2024": 1910,
+      "physicianMaldistributionIndex2026": 239.3,
+      "outpatientPhysicianIndex2024Plan": 88.3,
+      "opportunity3to5": "専門高度医療の安全設備・保守更新、救急と慢性期の機能連携"
     },
     {
       "name": "利根",
@@ -370,7 +413,11 @@
         4.3,
         3.6,
         4.3
-      ]
+      ],
+      "physicians2024": 850,
+      "physicianMaldistributionIndex2026": 147.1,
+      "outpatientPhysicianIndex2024Plan": 87.6,
+      "opportunity3to5": "医師不足対応、検査の集約・遠隔読影・搬送負担軽減"
     },
     {
       "name": "北部",
@@ -401,7 +448,11 @@
         5,
         3.4,
         4.4
-      ]
+      ],
+      "physicians2024": 741,
+      "physicianMaldistributionIndex2026": 149.2,
+      "outpatientPhysicianIndex2024Plan": 93.8,
+      "opportunity3to5": "救急維持と医師・技師負担の軽減、訪問・地域診療支援"
     },
     {
       "name": "秩父",
@@ -432,7 +483,11 @@
         5,
         2.5,
         5
-      ]
+      ],
+      "physicians2024": 114,
+      "physicianMaldistributionIndex2026": 149.7,
+      "outpatientPhysicianIndex2024Plan": 113.4,
+      "opportunity3to5": "山間医療の施設間接続、在宅POCUS・可搬型検査・物流BCP"
     }
   ],
   "places": [
