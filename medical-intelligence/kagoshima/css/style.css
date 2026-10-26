@@ -71,3 +71,15 @@ section[id]{scroll-margin-top:82px}
 @media(max-width:700px){.region-grid{grid-template-columns:1fr}.hero .svgbanner{display:none}.hero-btn{flex:1 1 165px}.expandable-hint{display:none}.region-summary{padding:14px 16px;min-height:78px}.region-heading strong{font-size:17px}.region-body{padding:6px 16px 12px}.back-to-top{right:10px;bottom:11px;padding:9px 13px}.filters input{flex:1 1 100%;width:100%}.filters label{width:100%}.filters button{min-height:44px}.topbar .wrap{font-size:11px}}
 @media(max-width:390px){.hero-btn{width:100%;flex-basis:100%}.region-summary .badge{font-size:10px;padding:4px 7px}.region-summary:after{font-size:17px}.back-to-top span{display:none}.table-scroll table{font-size:12px}}
 @media print{.nav,.topbar,.back-to-top,.filters,.hero-actions{display:none!important}.hero{color:#10283f;background:#fff;padding:10px 0}.hero .lead{color:#345}.hero .svgbanner{display:none}.section{page-break-inside:avoid}.card{box-shadow:none}body{background:#fff;color:#111}.wrap{max-width:none}.expandable:not([open])>summary{border-bottom:1px solid #bbb}.footer{background:#fff;color:#333}.footer a{color:#164a75}a{color:#174a7d}}
+
+
+/* UI/QA link and map controls */
+.map-region-actions{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px}
+.map-focus{cursor:pointer;flex:1 1 auto;white-space:normal;min-height:42px}
+.map-focus:hover{background:#cceaf1;color:#103f59}
+.map-focus:disabled{opacity:.5;cursor:not-allowed}
+.location-name-link{color:#0f527e;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.location-name-link:hover{color:#0b6976;text-decoration-thickness:2px}
+.location-name-link:focus-visible{outline:3px solid #e4ac42}
+.location .links{display:flex}
+@media(max-width:560px){.map-region-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.map-focus{font-size:11px;padding:8px 5px}.nav .wrap{scroll-snap-type:x proximity}.nav a{scroll-snap-align:start}}
