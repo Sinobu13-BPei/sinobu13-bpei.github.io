@@ -22,26 +22,26 @@ d.facilityByArea=[
 ];
 /* 市・郡の関連団体が明確な場合のみ自治体統計を掲示。医師会管轄の精密な境界や会員施設数を意味しない。 */
 d.cityFacilities={
-"新潟市":[651,42],"長岡市":[182,11],"上越市":[140,10],"三条市":[65,7],"柏崎市":[55,5],"加茂市":[19,1],"燕市":[69,2],"佐渡市":[38,2],"糸魚川市":[30,2],"見附市":[30,1],"村上市":[40,6],"五泉市":[37,2],"小千谷市":[27,2],"十日町市":[36,2],"南魚沼市":[28,5],"魚沼市":[28,2],
+"新発田市":[77,6],"新潟市":[651,42],"長岡市":[182,11],"上越市":[140,10],"三条市":[65,7],"柏崎市":[55,5],"加茂市":[19,1],"燕市":[69,2],"佐渡市":[38,2],"糸魚川市":[30,2],"見附市":[30,1],"村上市":[40,6],"五泉市":[37,2],"小千谷市":[27,2],"十日町市":[36,2],"南魚沼市":[28,5],"魚沼市":[28,2],
 "佐久市":[83,7],"小諸市":[31,2],"上田市":[100,13],"諏訪市":[47,3],"岡谷市":[30,3],"松本市":[231,16],"安曇野市":[81,5],"長野市":[297,24],"千曲市":[41,4],"須坂市":[39,2],"大町市":[25,1],"中野市":[29,2],"飯山市":[16,1],
 "甲府市":[219,14],"山梨市":[26,4],"笛吹市":[41,8],"富士吉田市":[54,1],"都留市":[16,3],"大月市":[20,1],"上野原市":[16,2],"北杜市":[23,2],"甲斐市":[67,4],"中央市":[23,1]
 };
 /* [県, 二次医療圏, 医師会名, 公式リンク（なければ県の公的一覧）, 代表自治体(数値表示用)] */
 d.associationRows=[
-["新潟県","下越","新発田北蒲原医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","新発田市"],
-["新潟県","下越","村上市岩船郡医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","村上市"],
+["新潟県","下越","新発田北蒲原医師会","https://www.inet-shibata.or.jp/~ishikai/","新発田市"],
+["新潟県","下越","村上市岩船郡医師会","https://mura-med.skr.jp/","村上市"],
 ["新潟県","新潟","新潟市医師会","https://www.niigatashi-ishikai.or.jp/","新潟市"],
 ["新潟県","新潟","五泉市東蒲原郡医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","五泉市"],
 ["新潟県","県央","三条市医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","三条市"],
 ["新潟県","県央","加茂市医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","加茂市"],
-["新潟県","県央","燕市医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","燕市"],
+["新潟県","県央","燕市医師会","https://tsubameshi-med.jp/","燕市"],
 ["新潟県","中越","長岡市医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","長岡市"],
-["新潟県","中越","柏崎市刈羽郡医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","柏崎市"],
+["新潟県","中越","柏崎市刈羽郡医師会","https://www.kisnet.or.jp/ishikai/","柏崎市"],
 ["新潟県","中越","見附市南蒲原郡医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","見附市"],
-["新潟県","魚沼","十日町市中魚沼郡医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","十日町市"],
+["新潟県","魚沼","十日町市中魚沼郡医師会","https://www.tokamachi-tsunan-med.jp/","十日町市"],
 ["新潟県","魚沼","小千谷市魚沼市医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","魚沼市"],
 ["新潟県","魚沼","南魚沼郡市医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","南魚沼市"],
-["新潟県","上越","上越医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","上越市"],
+["新潟県","上越","上越医師会","https://www.joetsu-med.or.jp/","上越市"],
 ["新潟県","上越","糸魚川市医師会","https://www.niigatashi-ishikai.or.jp/siteinfo/links.html","糸魚川市"],
 ["新潟県","佐渡","佐渡医師会","https://www.pref.niigata.lg.jp/site/opendata/niigatabyouinmeibo20220401.html","佐渡市"],
 ["長野県","佐久","佐久医師会","https://www.saku-ishikai.or.jp/","佐久市"],
