@@ -368,6 +368,18 @@
       "name": "第8次宮崎県医療計画の概要（2025・2030・2040年病床）",
       "year": "2024年",
       "url": "https://www.pref.miyazaki.lg.jp/documents/91388/91388_20240822215150-1.pdf"
+    },
+    {
+      "id": "nobeoka",
+      "name": "宮崎県立延岡病院 公式サイト",
+      "year": "2026確認",
+      "url": "https://www.nobeoka-kenbyo.jp/"
+    },
+    {
+      "id": "nichinan",
+      "name": "宮崎県立日南病院 公式サイト",
+      "year": "2026確認",
+      "url": "https://www.nichinan-kenbyo.jp/"
     }
   ],
   "facilities": [
@@ -394,7 +406,7 @@
       "where": "延岡市新小路2-1-10",
       "area": "延岡西臼杵",
       "kind": "県立・救命救急",
-      "url": "https://www.pref.miyazaki.lg.jp/",
+      "url": "https://www.nobeoka-kenbyo.jp/",
       "lat": 32.58,
       "lng": 131.66
     },
@@ -412,7 +424,7 @@
       "where": "日南市木山1-9-5",
       "area": "日南串間",
       "kind": "県立・県南医療",
-      "url": "https://www.pref.miyazaki.lg.jp/",
+      "url": "https://www.nichinan-kenbyo.jp/",
       "lat": 31.6,
       "lng": 131.38
     },
