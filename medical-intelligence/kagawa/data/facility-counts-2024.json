@@ -1,0 +1,336 @@
+{
+  "updated": "2026-10-27",
+  "year": "2024年10月",
+  "populationBase": "2024年10月の医療施設数（病院・一般診療所）；病院病床は別定義。令和6年医療施設動態調査、添付37香川.xlsxの市町別集計に基づく",
+  "municipalities": [
+    {
+      "region": "island",
+      "name": "土庄町",
+      "hospitals": 0,
+      "clinics": 9,
+      "hospitalBeds": 0
+    },
+    {
+      "region": "island",
+      "name": "小豆島町",
+      "hospitals": 3,
+      "clinics": 8,
+      "hospitalBeds": 465
+    },
+    {
+      "region": "east",
+      "name": "高松市",
+      "hospitals": 33,
+      "clinics": 405,
+      "hospitalBeds": 5533
+    },
+    {
+      "region": "east",
+      "name": "さぬき市",
+      "hospitals": 2,
+      "clinics": 38,
+      "hospitalBeds": 407
+    },
+    {
+      "region": "east",
+      "name": "東かがわ市",
+      "hospitals": 3,
+      "clinics": 19,
+      "hospitalBeds": 260
+    },
+    {
+      "region": "east",
+      "name": "三木町",
+      "hospitals": 3,
+      "clinics": 18,
+      "hospitalBeds": 692
+    },
+    {
+      "region": "east",
+      "name": "直島町",
+      "hospitals": 0,
+      "clinics": 2,
+      "hospitalBeds": 0
+    },
+    {
+      "region": "west",
+      "name": "丸亀市",
+      "hospitals": 12,
+      "clinics": 86,
+      "hospitalBeds": 1885
+    },
+    {
+      "region": "west",
+      "name": "坂出市",
+      "hospitals": 6,
+      "clinics": 47,
+      "hospitalBeds": 1302
+    },
+    {
+      "region": "west",
+      "name": "善通寺市",
+      "hospitals": 3,
+      "clinics": 30,
+      "hospitalBeds": 776
+    },
+    {
+      "region": "west",
+      "name": "観音寺市",
+      "hospitals": 5,
+      "clinics": 46,
+      "hospitalBeds": 1219
+    },
+    {
+      "region": "west",
+      "name": "三豊市",
+      "hospitals": 6,
+      "clinics": 39,
+      "hospitalBeds": 617
+    },
+    {
+      "region": "west",
+      "name": "宇多津町",
+      "hospitals": 1,
+      "clinics": 8,
+      "hospitalBeds": 56
+    },
+    {
+      "region": "west",
+      "name": "綾川町",
+      "hospitals": 2,
+      "clinics": 18,
+      "hospitalBeds": 254
+    },
+    {
+      "region": "west",
+      "name": "琴平町",
+      "hospitals": 2,
+      "clinics": 10,
+      "hospitalBeds": 87
+    },
+    {
+      "region": "west",
+      "name": "多度津町",
+      "hospitals": 4,
+      "clinics": 16,
+      "hospitalBeds": 318
+    },
+    {
+      "region": "west",
+      "name": "まんのう町",
+      "hospitals": 1,
+      "clinics": 14,
+      "hospitalBeds": 40
+    }
+  ],
+  "associations": [
+    {
+      "id": "takamatsu",
+      "name": "高松市医師会",
+      "area": "east",
+      "site": "https://www.takamatsu-med.com/",
+      "address": "香川県高松市松島町1丁目16-20",
+      "emergency": 143,
+      "municipalHint": "高松市（市内に木田・綾歌の対象地区を含むため市全体の施設数は医師会所属数ではない）",
+      "municipalNames": [
+        "高松市"
+      ],
+      "officialMembership": null,
+      "detail": "高松市全域405診療所は市内施設数の参考値。医師会所属施設数としては扱わない。"
+    },
+    {
+      "id": "okawa",
+      "name": "大川地区医師会",
+      "area": "east",
+      "site": "https://www.ookawa-ishikai.jp/",
+      "address": "香川県さぬき市津田町津田1673-2",
+      "emergency": 44,
+      "municipalHint": "さぬき市・東かがわ市",
+      "municipalNames": [
+        "さぬき市",
+        "東かがわ市"
+      ],
+      "officialMembership": null,
+      "detail": "2市の施設数を地域参考値として併記。医師会会員数とは別。"
+    },
+    {
+      "id": "kida",
+      "name": "木田地区医師会",
+      "area": "east",
+      "site": "https://kitachiku-ishikai.or.jp/",
+      "address": "香川県木田郡三木町池戸2991-2",
+      "emergency": 30,
+      "municipalHint": "三木町・高松市の一部（旧木田郡15町）",
+      "municipalNames": [],
+      "officialMembership": {
+        "total": 33,
+        "hospitals": null,
+        "clinics": null,
+        "year": "2024年6月",
+        "source": "https://kitachiku-ishikai.or.jp/about/greeting.html"
+      },
+      "detail": "医師会公式の所属医療機関数は33施設。市町集計は高松市の一部と重なるため単純集計しない。"
+    },
+    {
+      "id": "shozu",
+      "name": "小豆郡医師会",
+      "area": "island",
+      "site": "https://www.shozu-med.jp/",
+      "address": "香川県小豆郡小豆島町片城甲44-341",
+      "emergency": 7,
+      "municipalHint": "土庄町・小豆島町",
+      "municipalNames": [
+        "土庄町",
+        "小豆島町"
+      ],
+      "officialMembership": null,
+      "detail": "島内医療の参考値。医師会所属施設数ではない。"
+    },
+    {
+      "id": "sakaide",
+      "name": "坂出市医師会",
+      "area": "west",
+      "site": "https://www.sakaide-med.jp/",
+      "address": "香川県坂出市久米町1-17-11",
+      "emergency": 35,
+      "municipalHint": "坂出市・宇多津町（公式サイトに宇多津エリアの案内）",
+      "municipalNames": [
+        "坂出市",
+        "宇多津町"
+      ],
+      "officialMembership": null,
+      "detail": "坂出市＋宇多津町の行政区域集計。所属施設数とは区別。"
+    },
+    {
+      "id": "marugame",
+      "name": "丸亀市医師会",
+      "area": "west",
+      "site": "https://marugame-med.or.jp/",
+      "address": "香川県丸亀市中府町5-1-3",
+      "emergency": 57,
+      "municipalHint": "丸亀市の一部（綾歌町・飯山町を除く）",
+      "municipalNames": [],
+      "officialMembership": null,
+      "detail": "丸亀市全域の86診療所には綾歌地区が含まれるため所属施設数に換算しない。"
+    },
+    {
+      "id": "ayauta",
+      "name": "綾歌地区医師会",
+      "area": "west",
+      "site": "https://ayauta-med.or.jp/",
+      "address": "香川県綾歌郡綾川町滝宮220-1",
+      "emergency": 43,
+      "municipalHint": "綾川町・丸亀市綾歌町/飯山町・高松市国分寺町など",
+      "municipalNames": [],
+      "officialMembership": {
+        "total": 43,
+        "hospitals": 3,
+        "clinics": 40,
+        "year": "2024年6月",
+        "source": "https://ayauta-med.or.jp/about/"
+      },
+      "detail": "2024年6月の医師会所属：病院3・診療所40、合計43。市町境界をまたぐため別枠。"
+    },
+    {
+      "id": "nakatado",
+      "name": "仲多度郡・善通寺市医師会",
+      "area": "west",
+      "site": "https://www.nz-ishikai.or.jp/",
+      "address": "香川県善通寺市文京町2丁目2-27",
+      "emergency": 54,
+      "municipalHint": "善通寺市・琴平町・多度津町・まんのう町",
+      "municipalNames": [
+        "善通寺市",
+        "琴平町",
+        "多度津町",
+        "まんのう町"
+      ],
+      "officialMembership": null,
+      "detail": "善通寺市＋仲多度郡の地域参考集計。"
+    },
+    {
+      "id": "mitoyo",
+      "name": "三豊・観音寺市医師会",
+      "area": "west",
+      "site": "https://www.kanonji-mitoyo-med.or.jp/",
+      "address": "香川県三豊市豊中町本山甲201-1",
+      "emergency": 52,
+      "municipalHint": "三豊市・観音寺市",
+      "municipalNames": [
+        "三豊市",
+        "観音寺市"
+      ],
+      "officialMembership": null,
+      "detail": "2市の地域参考集計。"
+    }
+  ],
+  "unassigned": "直島町（行政区域内の施設数は医療圏集計に含む。どの地区医師会の所属施設かの割付は未検証）",
+  "university": {
+    "name": "香川大学医師会",
+    "site": "https://kagawa-univ-med.org/",
+    "note": "職域・大学医学部の医師会。医療圏内の診療所を重複カウントしない。"
+  },
+  "sourceRefs": [
+    {
+      "id": "KC1",
+      "label": "厚生労働省「令和6年医療施設（動態）調査」二次医療圏・市区町村編 N2、第2表（一般診療所数）",
+      "year": "2024年、2026年3月11日公開",
+      "url": "https://www.e-stat.go.jp/dbview?sid=0004048438"
+    },
+    {
+      "id": "KC2",
+      "label": "厚生労働省「医療施設動態調査（令和6年10月末概数）」県別施設数",
+      "year": "2024年10月",
+      "url": "https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/m24/is2410.html"
+    },
+    {
+      "id": "KC3",
+      "label": "香川県医師会「郡市地区医師会ご案内」",
+      "year": "2026年10月閲覧",
+      "url": "https://www.kagawa.med.or.jp/map.aspx"
+    },
+    {
+      "id": "KC4",
+      "label": "厚生労働省「救急医療提供体制の現況調べ（初期救急医療機関）」",
+      "year": "2023年4月1日現在／2025年公表",
+      "url": "https://www.mhlw.go.jp/content/10800000/001391871.pdf"
+    },
+    {
+      "id": "KC5",
+      "label": "木田地区医師会「会長あいさつ」（医療機関数33）",
+      "year": "2024年6月",
+      "url": "https://kitachiku-ishikai.or.jp/about/greeting.html"
+    },
+    {
+      "id": "KC6",
+      "label": "綾歌地区医師会「会長挨拶」（病院3・診療所40）",
+      "year": "2024年6月",
+      "url": "https://ayauta-med.or.jp/about/"
+    },
+    {
+      "id": "KC7",
+      "label": "丸亀市医師会「会長挨拶」（綾歌・飯山町を除外）",
+      "year": "2026年10月閲覧",
+      "url": "https://marugame-med.or.jp/about/message/"
+    },
+    {
+      "id": "KC8",
+      "label": "坂出市医師会「宇多津エリア」",
+      "year": "2026年10月閲覧",
+      "url": "https://www.sakaide-med.jp/"
+    },
+    {
+      "id": "KC9",
+      "label": "香川県医師会・各地区医師会の公式リンク",
+      "year": "2026年10月閲覧",
+      "url": "https://www.kagawa.med.or.jp/map.aspx"
+    }
+  ],
+  "notes": [
+    "市町村の病院数・一般診療所数は2024年10月の施設数。医師会会員施設数ではない。",
+    "初期救急の参加医療機関数は2023年4月1日、在宅当番医制に参加した医療機関数。所属会員の全数ではない。",
+    "木田地区医師会・綾歌地区医師会は市町村をまたぐ。行政区域の施設数を組織の会員数に読み替えない。",
+    "香川大学医師会は職域団体であり、地域の市町別施設数との加算を行わない。",
+    "2024年10月の市町別病院病床数は病床機能報告の許可病床と一致しないことがある。"
+  ]
+}
