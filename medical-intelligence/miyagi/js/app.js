@@ -19,7 +19,17 @@ $("doctor-rows").innerHTML=beds.map(r=>'<tr><th scope="row">'+esc(r.name)+'</th>
 $("assessment").innerHTML=D.weightLabels.map((x,i)=>'<span class="pill">'+esc(x)+' '+weights[i]+'%</span>').join(' ');
 $("association-list").innerHTML=D.associations.map(a=>'<li>'+esc(a)+' '+link('https://www.miyagi.med.or.jp/',"県医師会")+' '+link('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(a),"Googleマップ")+' <span class="note">個別公式HP未確認</span></li>').join('');
 $("source-list").innerHTML=D.sources.map(s=>'<div class="source" id="'+esc(s[0])+'">'+link(safeUrl(s[3]),esc(s[0])+' '+esc(s[1]))+'<small>基準：'+esc(s[2])+' ｜ '+esc(s[3])+'</small></div>').join('');
-$("device-rows").innerHTML=["US（超音波）","CT","MRI","PET・PET/CT","リニアック・放射線治療","血管撮影装置","内視鏡","心電図・生体情報","透析機器"].map(a=>'<tr><th scope="row">'+a+'</th><td>各施設・メーカー混在／県内全数は未検証</td><td>比較不可（機器定義・年次を統一中）</td><td>施設別型式・導入年・共同利用体制・更新予定を収集</td></tr>').join('');
+$("device-rows").innerHTML=[
+["US（超音波）","県内全数は未検証","比較不可（母集団・年次未統一）","診療科別・プローブ構成・型式・更新年"],
+["CT","233台（県医療計画の2020年基礎）","調整人口10万人対：宮城10.2／全国11.5（2020年）","2026年現役機器・検査件数・入札公告を再照合"],
+["MRI","131台（県医療計画の2020年基礎）","調整人口10万人対：宮城5.8／全国5.7（2020年）","1.5T・3T・稼働・ヘリウム・更新年を精査"],
+["PET・PET/CT","9台（県医療計画の2020年基礎）","仙台8・大崎栗原1・仙南0・沿岸0（旧時点）","核医学紹介・PET薬剤・2026年現在台数を確認"],
+["リニアック・放射線治療","20台（県医療計画の2020年基礎）","診断装置とは別の治療市場","治療計画・医学物理・稼働率・BCP"],
+["マンモグラフィ","66台（県医療計画の2020年基礎）","仙台45・大崎9・沿岸7・仙南5（旧時点）","検診件数・精度管理・DBT導入・人材"],
+["血管撮影装置","全県同一定義の台数は未検証","主要病院の公開設備表を部分確認","手技件数・バイプレーン・IVR-CT・搬送"],
+["PACS・RIS・読影","全県一律集計は未検証","共同利用計画と病院公式のシステムを照合","画像返却・DICOM・保守・セキュリティ"],
+["内視鏡／生体情報／透析","画像診断基幹機器と分けて整理","本レポートの5機器分類には含まない","領域別の設備・受療・投資を調査"]
+].map(a=>'<tr><th scope="row">'+a[0]+'</th><td>'+a[1]+'</td><td>'+a[2]+'</td><td>'+a[3]+'</td></tr>').join('');
 $("facility2025-rows").innerHTML=D.facilities2025.map(r=>'<tr><th scope="row">'+esc(r.name)+'</th><td>'+n(r.hosp)+'</td><td>'+r.hospRate.toFixed(1)+'</td><td>'+n(r.clinic)+'</td><td>'+r.clinicRate.toFixed(1)+'</td></tr>').join('');
 $("census-rows").innerHTML=[["全国",123049524],["宮城県",2227240],["青森県",1140395],["岩手県",1125502],["秋田県",882100],["山形県",993127],["福島県",1711937]].map(([a,b])=>'<tr><th scope="row">'+a+'</th><td>'+n(b)+'</td><td>'+((b/123049524)*100).toFixed(2)+'%</td></tr>').join('');
 function renderPlaceList(){
