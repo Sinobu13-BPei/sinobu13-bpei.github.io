@@ -66,7 +66,7 @@
   </div>
   <div class="overview-illustration">
    <div class="illustration-head"><div><span>HIROSHIMA MEDICAL CARE SYSTEM</span><h3>「高度医療集積 × 地域アクセス」概念図</h3></div><small>独自イラスト：実際の地理・患者移動量・施設間送客を表すものではありません</small></div>
-   <svg class="network-illustration" viewBox="0 0 1100 275" role="img" aria-labelledby="net-title net-desc">
+   <div class="illustration-viewport" tabindex="0" role="region" aria-label="医療機能ネットワーク概念図。幅の狭い画面では横スクロール可能"><svg class="network-illustration" viewBox="0 0 1100 275" role="img" aria-labelledby="net-title net-desc">
     <title id="net-title">広島県の医療機能をつなぐ概念図</title><desc id="net-desc">左の地域診療所から中央の基幹病院を経て右の大学高度医療・医療DXに至る機能連携の模式図</desc>
     <defs><linearGradient id="ill-bg" x1="0" x2="1"><stop stop-color="#edf9fb"/><stop offset="1" stop-color="#edf1ff"/></linearGradient><linearGradient id="ill-line" x1="0" x2="1"><stop stop-color="#1b9ba2"/><stop offset="1" stop-color="#536caa"/></linearGradient></defs>
     <rect x="1" y="1" width="1098" height="273" rx="23" fill="url(#ill-bg)"/>
@@ -77,7 +77,7 @@
     <g transform="translate(846 56)"><rect x="0" y="29" width="181" height="157" rx="14" fill="#fff" stroke="#9aadd0"/><rect x="24" y="48" width="132" height="91" rx="11" fill="#d8e0f4"/><circle cx="90" cy="93" r="37" fill="#fff" stroke="#647ca9" stroke-width="9"/><circle cx="90" cy="93" r="19" fill="#dae8f5"/><path d="M53 150h74m-51 0v26h28v-26" stroke="#768ab8" stroke-width="7" fill="none"/><text x="90" y="179" text-anchor="middle" font-size="13" font-weight="700" fill="#2e4777">高度画像・研究</text></g>
     <g fill="#1a7881" font-size="12" font-weight="700" text-anchor="middle"><text x="344" y="140">紹介・連携</text><text x="752" y="140">高度専門診療</text></g>
     <g transform="translate(520 1)"><rect width="120" height="32" rx="16" fill="#e2faf7"/><text x="60" y="21" text-anchor="middle" fill="#087f85" font-weight="800" font-size="13">医療DX</text></g>
-   </svg>
+   </svg></div>
   </div>
 </section>
 <section id="demography" class="section tint"><div class="shell"><div class="section-h"><div><span class="eyebrow dark">02 / DEMOGRAPHY & REGIONS</span><h2>人口構造と7医療圏</h2></div><p>人口は2020年国勢調査・2026年推計・社人研将来推計。異なる統計系列を明示します。</p></div>
@@ -99,7 +99,7 @@
 <div class="panel"><h3>病床数の相対構成で見る地域特性</h3><div class="chart tall"><canvas id="bedRatioChart" role="img" aria-label="7医療圏の病床機能構成比100パーセント積み上げグラフ"></canvas></div><p class="small">各医療圏の総数を100%に正規化した独自計算。病床機能報告に基づく構成比で、患者需要比率ではありません。</p></div>
 <div class="split map-intelligence">
 <article class="panel"><h3>7医療圏の位置関係 <span class="eyebrow-sub">模式図</span></h3>
-<svg class="region-schematic" viewBox="0 0 620 360" role="img" aria-labelledby="region-svg-title region-svg-desc"><title id="region-svg-title">広島県の二次医療圏・概念的な位置関係</title><desc id="region-svg-desc">左から広島西、広島、呉、広島中央、尾三、福山府中、北側に備北を配置した地理概略図。行政境界・距離・道路を示さない。</desc>
+<div class="schema-viewport" tabindex="0" role="region" aria-label="7医療圏の概念図。小画面では横スクロール可能"><svg class="region-schematic" viewBox="0 0 620 360" role="img" aria-labelledby="region-svg-title region-svg-desc"><title id="region-svg-title">広島県の二次医療圏・概念的な位置関係</title><desc id="region-svg-desc">左から広島西、広島、呉、広島中央、尾三、福山府中、北側に備北を配置した地理概略図。行政境界・距離・道路を示さない。</desc>
 <rect width="620" height="360" rx="22" fill="#eff7f9"/>
 <path d="M12 270Q90 240 160 260T310 254T520 240T620 275V360H0Z" fill="#c5edf0" opacity=".75"/>
 <path d="M20 110Q150 67 227 154T425 126T600 85" fill="none" stroke="#a4c2cb" stroke-width="3" stroke-dasharray="6 9"/>
@@ -110,7 +110,7 @@
 <g class="schema-node" tabindex="0" data-region="備北"><circle cx="392" cy="78" r="40" fill="#546e9a"/><text x="392" y="74">備北</text><text x="392" y="92" class="schema-sub">1,464床</text></g>
 <g class="schema-node" tabindex="0" data-region="尾三"><circle cx="467" cy="223" r="45" fill="#3c819a"/><text x="467" y="217">尾三</text><text x="467" y="234" class="schema-sub">3,126床</text></g>
 <g class="schema-node" tabindex="0" data-region="福山・府中"><circle cx="551" cy="155" r="57" fill="#1c6e80"/><text x="551" y="149">福山・府中</text><text x="551" y="170" class="schema-sub">4,977床</text></g>
-</svg>
+</svg></div>
 <p class="small">円の大きさは見やすさを優先した参考表現です。実際の医療圏境界・面積・位置・病床数との正確な比例関係を保証しません。各円を選択すると医療圏の分析カードへ移動します。</p></article>
 <article class="panel"><h3>医療圏別・病床集積比率</h3><div class="chart donut"><canvas id="regionShareChart" role="img" aria-label="7医療圏別病床の総数シェア"></canvas></div><p class="small">県全体29,606床を母数に各圏域の病床構成比を計算。<a href="https://www.pref.hiroshima.lg.jp/soshiki/54/reiwa07.html" target="_blank" rel="noopener">令和7年度病床機能報告</a>。</p></article></div>
 <div class="panel"><h3>医療圏ごとの需要ドライバー・課題・3〜5年の機会</h3><div id="regionCards" class="region-grid"></div></div>
