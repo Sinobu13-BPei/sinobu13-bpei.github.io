@@ -28,6 +28,11 @@ const rows=d.medicalAssociations.filter(a=>(value==='all'||a.pref===value)&&(!te
 const dest=document.querySelector('#associationTable tbody');if(dest)dest.innerHTML=rows.length?rows.map(a=>assocRow(a,d)).join(''):'<tr><td colspan="7">条件に一致する医師会がありません。検索条件を変更してください。</td></tr>';
 const count=document.getElementById('assocResultCount');if(count)count.textContent=rows.length+' / '+d.medicalAssociations.length+' 団体';
 }
+function renderNeighbors(d){
+const rows=[...d.pref.map(p=>({name:p.name,p2020:p.p2020,p2050:p.p2050,relation:p.context})),...(d.neighbors||[])];
+const table=document.querySelector('#neighborTable tbody');
+if(table)table.innerHTML=rows.map(p=>'<tr><th scope="row">'+esc(p.name)+'</th><td class="numeric">'+fmt(p.p2020)+'</td><td class="numeric">'+fmt(p.p2050)+'</td><td class="numeric">'+((p.p2050/p.p2020-1)*100).toFixed(1)+'%</td><td>'+esc(p.relation)+'</td></tr>').join('');
+}
 function renderDevices(d){const labels=d.pref.map(p=>p.name);for(const [id,key] of [['ctChart','ctDensity'],['mriChart','mriDensity']])chart(id,{type:'bar',data:{labels,datasets:[{label:'県別の過去調査値',data:d.pref.map(p=>p[key]),backgroundColor:d.pref.map(p=>colors[p.id])}]},options:option('台/10万人')});}
 function renderChannels(d){$('#channelTable tbody').innerHTML=d.channels.map(c=>'<tr><td>'+esc(c.t)+'</td><td><b>'+esc(c.n)+'</b></td><td>'+esc(c.range)+'</td><td>'+esc(c.logic)+'</td><td>'+link(c.u,'公式情報 ↗')+'</td></tr>').join('')}
 function renderWeights(d){$id('weights').innerHTML=d.weights.map(w=>'<div class="weight"><strong>'+w.w+'%</strong><small>'+esc(w.name)+'</small></div>').join('')}
