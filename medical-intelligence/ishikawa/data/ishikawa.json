@@ -1,0 +1,627 @@
+{
+ "updated": "2026-10-26",
+ "population": {
+  "year2020": 1132526,
+  "year2025": 1086596,
+  "year2026sept": 1078686,
+  "future2030": 1056997,
+  "future2040": 978926,
+  "future2050": 896801,
+  "naturalMonthly": -632,
+  "socialMonthly": -77
+ },
+ "neighbor": [
+  [
+   "全国",
+   126146099,
+   null
+  ],
+  [
+   "石川県",
+   1132526,
+   1086596
+  ],
+  [
+   "富山県",
+   1034814,
+   982147
+  ],
+  [
+   "福井県",
+   766863,
+   728588
+  ]
+ ],
+ "beds": {
+  "types": [
+   "高度急性期",
+   "急性期",
+   "回復期",
+   "慢性期",
+   "休棟等"
+  ],
+  "reported2025": [
+   2231,
+   4715,
+   2171,
+   3522,
+   465
+  ],
+  "required2025": [
+   1226,
+   3929,
+   3695,
+   3050
+  ]
+ },
+ "devices": {
+  "names": [
+   "CT",
+   "MRI",
+   "PET",
+   "マンモグラフィー",
+   "放射線治療装置"
+  ],
+  "hospital": [
+   93,
+   55,
+   8,
+   29,
+   12
+  ],
+  "clinic": [
+   46,
+   30,
+   1,
+   9,
+   0
+  ],
+  "national": [
+   11.5,
+   5.7,
+   0.5,
+   3.4,
+   0.8
+  ],
+  "pref": [
+   12,
+   7.4,
+   0.8,
+   3.4,
+   1.03
+  ],
+  "areas": {
+   "南加賀": [
+    12.4,
+    4.3,
+    0,
+    2.2,
+    0
+   ],
+   "石川中央": [
+    12.5,
+    9.1,
+    1.2,
+    3.9,
+    1.47
+   ],
+   "能登中部": [
+    10.6,
+    4.9,
+    0.7,
+    1.6,
+    1.3
+   ],
+   "能登北部": [
+    9.8,
+    5.9,
+    0,
+    4.8,
+    0
+   ]
+  }
+ },
+ "areas": [
+  {
+   "name": "南加賀",
+   "municipalities": "小松市・加賀市・能美市・川北町",
+   "population2020": 224094,
+   "projection2050": 170248,
+   "aging2020": 30.2,
+   "doctorIndex": 203,
+   "doctorClass": "中間",
+   "beds2025": [
+    25,
+    856,
+    430,
+    593,
+    81
+   ],
+   "bedNeed2025": [
+    146,
+    696,
+    567,
+    604
+   ],
+   "score": [
+    4,
+    4,
+    3,
+    4,
+    4
+   ],
+   "lat": 36.35,
+   "lng": 136.45,
+   "opportunity": "CT・US更新、回復期、診療所承継"
+  },
+  {
+   "name": "石川中央",
+   "municipalities": "金沢市・白山市・野々市市・かほく市・津幡町・内灘町",
+   "population2020": 729320,
+   "projection2050": 637157,
+   "aging2020": 26.4,
+   "doctorIndex": 328,
+   "doctorClass": "多数",
+   "beds2025": [
+    2178,
+    2941,
+    1325,
+    2625,
+    257
+   ],
+   "bedNeed2025": [
+    940,
+    2659,
+    2648,
+    1913
+   ],
+   "score": [
+    5,
+    3,
+    4,
+    5,
+    3
+   ],
+   "lat": 36.57,
+   "lng": 136.66,
+   "opportunity": "大学・高度医療、検査共同利用、病診連携"
+  },
+  {
+   "name": "能登中部",
+   "municipalities": "七尾市・羽咋市・志賀町・宝達志水町・中能登町",
+   "population2020": 117998,
+   "projection2050": 63657,
+   "aging2020": 39.8,
+   "doctorIndex": 197,
+   "doctorClass": "中間",
+   "beds2025": [
+    28,
+    652,
+    308,
+    304,
+    0
+   ],
+   "bedNeed2025": [
+    108,
+    417,
+    325,
+    425
+   ],
+   "score": [
+    3,
+    4,
+    5,
+    3,
+    5
+   ],
+   "lat": 37.04,
+   "lng": 136.96,
+   "opportunity": "救急・在宅、保守BCP、遠隔画像連携"
+  },
+  {
+   "name": "能登北部",
+   "municipalities": "輪島市・珠洲市・穴水町・能登町",
+   "population2020": 61114,
+   "projection2050": 25739,
+   "aging2020": 48.8,
+   "doctorIndex": 152,
+   "doctorClass": "少数",
+   "beds2025": [
+    0,
+    266,
+    108,
+    0,
+    127
+   ],
+   "bedNeed2025": [
+    31,
+    158,
+    154,
+    108
+   ],
+   "score": [
+    2,
+    5,
+    5,
+    2,
+    5
+   ],
+   "lat": 37.37,
+   "lng": 137.09,
+   "opportunity": "奥能登4病院、サテライト、災害対応"
+  }
+ ],
+ "facilities": [
+  {
+   "name": "金沢大学附属病院",
+   "area": "石川中央",
+   "address": "石川県金沢市宝町13-1",
+   "lat": 36.554,
+   "lng": 136.674,
+   "type": "大学・高度医療",
+   "web": "https://web.hosp.kanazawa-u.ac.jp/"
+  },
+  {
+   "name": "金沢医科大学病院",
+   "area": "石川中央",
+   "address": "石川県河北郡内灘町大学1-1",
+   "lat": 36.651,
+   "lng": 136.643,
+   "type": "大学・高度医療",
+   "web": "https://www.kanazawa-med.ac.jp/"
+  },
+  {
+   "name": "石川県立中央病院",
+   "area": "石川中央",
+   "address": "石川県金沢市鞍月東2-1",
+   "lat": 36.595,
+   "lng": 136.63,
+   "type": "県立・地域支援",
+   "web": "https://www.pref.ishikawa.jp/ipch/"
+  },
+  {
+   "name": "金沢医療センター",
+   "area": "石川中央",
+   "address": "石川県金沢市下石引町1-1",
+   "lat": 36.563,
+   "lng": 136.667,
+   "type": "地域医療支援",
+   "web": "https://kanazawa.hosp.go.jp/"
+  },
+  {
+   "name": "公立松任石川中央病院",
+   "area": "石川中央",
+   "address": "石川県白山市倉光3-8",
+   "lat": 36.52,
+   "lng": 136.563,
+   "type": "地域医療支援",
+   "web": "https://www.mattohp.jp/"
+  },
+  {
+   "name": "金沢市立病院",
+   "area": "石川中央",
+   "address": "石川県金沢市平和町3-7-3",
+   "lat": 36.54,
+   "lng": 136.671,
+   "type": "地域医療支援",
+   "web": ""
+  },
+  {
+   "name": "金沢赤十字病院",
+   "area": "石川中央",
+   "address": "石川県金沢市三馬2-251",
+   "lat": 36.532,
+   "lng": 136.636,
+   "type": "災害・専門診療",
+   "web": "https://kanazawa-rc-hosp.jp/"
+  },
+  {
+   "name": "小松市民病院",
+   "area": "南加賀",
+   "address": "石川県小松市向本折町ホ60",
+   "lat": 36.399,
+   "lng": 136.455,
+   "type": "地域医療支援",
+   "web": "https://hosp.komatsu.ishikawa.jp/"
+  },
+  {
+   "name": "加賀市医療センター",
+   "area": "南加賀",
+   "address": "石川県加賀市作見町リ36",
+   "lat": 36.319,
+   "lng": 136.353,
+   "type": "公立中核",
+   "web": "https://kagacityhp.jp/"
+  },
+  {
+   "name": "芳珠記念病院",
+   "area": "南加賀",
+   "address": "石川県能美市緑が丘11-71",
+   "lat": 36.446,
+   "lng": 136.556,
+   "type": "民間中核",
+   "web": ""
+  },
+  {
+   "name": "恵寿総合病院",
+   "area": "能登中部",
+   "address": "石川県七尾市富岡町94",
+   "lat": 37.045,
+   "lng": 136.965,
+   "type": "地域医療支援",
+   "web": "https://www.keiju.co.jp/"
+  },
+  {
+   "name": "公立能登総合病院",
+   "area": "能登中部",
+   "address": "石川県七尾市藤橋町ア6-4",
+   "lat": 37.036,
+   "lng": 136.972,
+   "type": "地域医療支援",
+   "web": ""
+  },
+  {
+   "name": "公立羽咋病院",
+   "area": "能登中部",
+   "address": "石川県羽咋市的場町松崎24",
+   "lat": 36.893,
+   "lng": 136.783,
+   "type": "公立中核",
+   "web": ""
+  },
+  {
+   "name": "市立輪島病院",
+   "area": "能登北部",
+   "address": "石川県輪島市山岸町は1-1",
+   "lat": 37.388,
+   "lng": 136.907,
+   "type": "奥能登4公立",
+   "web": ""
+  },
+  {
+   "name": "珠洲市総合病院",
+   "area": "能登北部",
+   "address": "石川県珠洲市野々江町ユ1-1",
+   "lat": 37.436,
+   "lng": 137.263,
+   "type": "奥能登4公立",
+   "web": ""
+  },
+  {
+   "name": "公立穴水総合病院",
+   "area": "能登北部",
+   "address": "石川県鳳珠郡穴水町川島タ8",
+   "lat": 37.227,
+   "lng": 136.907,
+   "type": "奥能登4公立",
+   "web": ""
+  },
+  {
+   "name": "公立宇出津総合病院",
+   "area": "能登北部",
+   "address": "石川県鳳珠郡能登町宇出津タ97",
+   "lat": 37.306,
+   "lng": 137.147,
+   "type": "奥能登4公立",
+   "web": ""
+  },
+  {
+   "name": "石川県庁",
+   "area": "石川中央",
+   "address": "石川県金沢市鞍月1-1",
+   "lat": 36.594,
+   "lng": 136.626,
+   "type": "行政",
+   "web": "https://www.pref.ishikawa.lg.jp/"
+  },
+  {
+   "name": "石川県医師会",
+   "area": "石川中央",
+   "address": "石川県金沢市鞍月東2-48",
+   "lat": 36.593,
+   "lng": 136.629,
+   "type": "県医師会",
+   "web": "https://www.ishikawa.med.or.jp/"
+  },
+  {
+   "name": "金沢市保健所",
+   "area": "石川中央",
+   "address": "石川県金沢市西念3-4-25",
+   "lat": 36.578,
+   "lng": 136.635,
+   "type": "保健所",
+   "web": ""
+  },
+  {
+   "name": "南加賀保健所",
+   "area": "南加賀",
+   "address": "石川県小松市園町ヌ48",
+   "lat": 36.405,
+   "lng": 136.457,
+   "type": "保健所",
+   "web": ""
+  },
+  {
+   "name": "石川中央保健所",
+   "area": "石川中央",
+   "address": "石川県白山市馬場2-7",
+   "lat": 36.519,
+   "lng": 136.566,
+   "type": "保健所",
+   "web": ""
+  },
+  {
+   "name": "能登中部保健所",
+   "area": "能登中部",
+   "address": "石川県七尾市本府中町ソ27-9",
+   "lat": 37.037,
+   "lng": 136.97,
+   "type": "保健所",
+   "web": ""
+  },
+  {
+   "name": "能登北部保健所",
+   "area": "能登北部",
+   "address": "石川県輪島市鳳至町畠田102-4",
+   "lat": 37.393,
+   "lng": 136.9,
+   "type": "保健所",
+   "web": ""
+  },
+  {
+   "name": "金沢市医師会",
+   "area": "石川中央",
+   "address": "石川県金沢市西念3-4-25",
+   "lat": 36.579,
+   "lng": 136.635,
+   "type": "地域医師会",
+   "web": ""
+  },
+  {
+   "name": "小松市医師会",
+   "area": "南加賀",
+   "address": "石川県小松市京町81-2",
+   "lat": 36.407,
+   "lng": 136.451,
+   "type": "地域医師会",
+   "web": ""
+  },
+  {
+   "name": "加賀市医師会",
+   "area": "南加賀",
+   "address": "石川県加賀市作見町リ36",
+   "lat": 36.319,
+   "lng": 136.353,
+   "type": "地域医師会",
+   "web": ""
+  }
+ ],
+ "sources": [
+  [
+   "石川県 令和7年国勢調査確定値",
+   "2025・2026年9月公表",
+   "https://toukei.pref.ishikawa.lg.jp/search/detail.asp?d_id=5364"
+  ],
+  [
+   "石川県の人口と世帯",
+   "2026年9月1日現在",
+   "https://toukei.pref.ishikawa.lg.jp/search/detail.asp?d_id=5378"
+  ],
+  [
+   "社人研 地域別将来推計人口",
+   "2023年推計",
+   "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
+  ],
+  [
+   "石川県 第8次医療計画",
+   "2024～2029年度",
+   "https://www.pref.ishikawa.lg.jp/iryou/support/iryoukeikaku/iryoukeikaku.html"
+  ],
+  [
+   "石川県 令和7年度病床機能報告",
+   "2025年7月1日実績",
+   "https://www.pref.ishikawa.lg.jp/iryou/support/byoushoukinou/r7houkoku.html"
+  ],
+  [
+   "石川県 必要病床数・医療計画概要",
+   "2025年計画推計",
+   "https://www.pref.ishikawa.lg.jp/iryou/support/iryoukeikaku/iryoukeikaku/documents/iryoukeikaku_gaiyou_pubkome.pdf"
+  ],
+  [
+   "石川県 外来医療計画・機器配置",
+   "2020年施設調査",
+   "https://www.pref.ishikawa.lg.jp/iryou/support/iryoukeikaku/documents/5_gairaiiryoteikyotaisei.pdf"
+  ],
+  [
+   "石川県 地域医療対策協議会・医師確保",
+   "2026年度計画資料",
+   "https://www.pref.ishikawa.lg.jp/iryou/support/chitaikyou.html"
+  ],
+  [
+   "石川県 地域医療支援病院",
+   "2026年閲覧",
+   "https://www.pref.ishikawa.lg.jp/iryou/chiikishienhp.html"
+  ],
+  [
+   "石川県 奥能登公立4病院機能強化検討会",
+   "2026年8月",
+   "https://www.pref.ishikawa.lg.jp/okunotoiryou/okunotokouritu.html"
+  ],
+  [
+   "石川県医療機器協会 会員名簿",
+   "2026年閲覧",
+   "https://ishikawa-mea.jp/member/"
+  ],
+  [
+   "石川県医師会",
+   "2026年閲覧",
+   "https://www.ishikawa.med.or.jp/"
+  ],
+  [
+   "郡市医師会・医療体制",
+   "2026年閲覧",
+   "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html"
+  ],
+  [
+   "地域医療介護総合確保基金",
+   "2026年公表",
+   "https://www.pref.ishikawa.lg.jp/iryou/support/iryoukaigokikin.html"
+  ],
+  [
+   "金沢大学附属病院",
+   "2026年閲覧",
+   "https://web.hosp.kanazawa-u.ac.jp/"
+  ],
+  [
+   "金沢医科大学",
+   "2026年閲覧",
+   "https://www.kanazawa-med.ac.jp/"
+  ],
+  [
+   "富山県 2025国勢調査確定値",
+   "2026年9月公表",
+   "https://www.pref.toyama.lg.jp/1117/20260929.html"
+  ],
+  [
+   "福井県 2025国勢調査確定値",
+   "2026年9月公表",
+   "https://www.pref.fukui.lg.jp/doc/toukei-jouhou/kokutyou/kokusei2025.html"
+  ],
+  [
+   "総務省 2020国勢調査",
+   "2020年",
+   "https://www.stat.go.jp/data/kokusei/2020/kekka/pdf/outline_01.pdf"
+  ],
+  [
+   "日本医師会 JMAP",
+   "2020年実績・2023年将来推計",
+   "https://jmap.jp/cities/detail/pref/17"
+  ],
+  [
+   "厚生労働省 保健所一覧",
+   "2026年閲覧",
+   "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/17ishikawa.html"
+  ],
+  [
+   "石川県 2026年災害医療・豪雨",
+   "2026年8月",
+   "https://www.pref.ishikawa.lg.jp/iryou/tsuchi/iryoukikan_oshirase_ooame0827.html"
+  ]
+ ],
+ "scoring": {
+  "weights": [
+   30,
+   25,
+   20,
+   15,
+   10
+  ],
+  "axes": [
+   "市場規模",
+   "医療課題",
+   "政策整合",
+   "実現可能性",
+   "災害対応"
+  ]
+ }
+}
