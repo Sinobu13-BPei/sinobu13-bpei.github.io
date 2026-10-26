@@ -271,6 +271,16 @@ function draw(){
       yamagataLink.textContent='山形MKT ↗';
       actions.appendChild(yamagataLink);
     }
+    if(p[0]==='青森県'){
+      const aomoriLink=document.createElement('a');
+      aomoriLink.href='./aomori/';
+      aomoriLink.target='_blank';
+      aomoriLink.rel='noopener noreferrer';
+      aomoriLink.className='aomori-mkt-btn';
+      aomoriLink.textContent='青森MKT ↗';
+      aomoriLink.setAttribute('aria-label','青森県の医療市場調査を開く');
+      actions.appendChild(aomoriLink);
+    }
     const tohokuPrefectures=['青森県','岩手県','宮城県','秋田県','山形県','福島県'];
     if(tohokuPrefectures.includes(p[0])){
       const tohokuLink=document.createElement('a');
@@ -289,14 +299,6 @@ function draw(){
       iwateLink.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:42px;background:#087a79;color:#fff;border:1px solid #086361;border-radius:10px;padding:7px 13px;font-weight:800;text-decoration:none;box-shadow:0 2px 6px #063c3b33;';
       iwateLink.setAttribute('aria-label','岩手県の医療市場調査を開く');
       actions.appendChild(iwateLink);
-    }
-    if(p[0]==='青森県'){
-      const aomoriLink=document.createElement('a');
-      aomoriLink.href='./aomori/';
-      aomoriLink.className='aomori-mkt-btn';
-      aomoriLink.textContent='青森MKT ↗';
-      aomoriLink.setAttribute('aria-label','青森県の医療市場調査を開く');
-      actions.appendChild(aomoriLink);
     }
     if(p[0]==='愛知県'){
       const aichiLink=document.createElement('a');
