@@ -192,7 +192,19 @@ function drawStaticGeo(){
  root.querySelectorAll('[data-mapregion]').forEach(g=>{const action=()=>{pick.value=g.getAttribute('data-mapregion');regionInfo(pick.value);sync()};g.addEventListener('click',action);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();action()}})});
  pick.addEventListener('change',sync);
 }
-if(window.L){const map=L.map('map',{zoomControl:true,scrollWheelZoom:false}).setView([37.1,137.6],5);L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{attribution:'地理院タイル © 国土地理院',maxZoom:17}).addTo(map);d.regions.forEach((r,i)=>{const m=L.marker([r.lat,r.lng]).addTo(map);m.bindPopup(`<b>${esc(r.name)} / ${esc(r.hub)}</b><div>${esc(r.description)}</div><p>${a(`https://maps.gsi.go.jp/#12/${r.lat}/${r.lng}/`,'地理院地図')}</p>`);m.on('click',()=>{pick.value=String(i);regionInfo(String(i))})});pick.addEventListener('change',()=>{if(pick.value==='all')map.setView([37.1,137.6],5);else{let r=d.regions[Number(pick.value)];map.setView([r.lat,r.lng],8)}})}else{drawStaticGeo()}
+if(window.L){
+ try{
+ let mapActive=true,tileLoaded=false,tileFailures=0;
+ const map=L.map('map',{zoomControl:true,scrollWheelZoom:false}).setView([37.1,137.6],5);
+ const tiles=L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{attribution:'地理院タイル © 国土地理院',maxZoom:17}).addTo(map);
+ tiles.on('tileload',()=>{tileLoaded=true});
+ tiles.on('tileerror',()=>{tileFailures++;if(!tileLoaded&&tileFailures>=3&&mapActive){mapActive=false;try{map.remove()}catch(e){}drawStaticGeo()}});
+ d.regions.forEach((r,i)=>{const marker=L.marker([r.lat,r.lng]).addTo(map);
+ marker.bindPopup('<b>'+esc(r.name)+' / '+esc(r.hub)+'</b><div>'+esc(r.description)+'</div><p>'+a('https://maps.gsi.go.jp/#12/'+r.lat+'/'+r.lng+'/','地理院地図')+'</p>');
+ marker.on('click',()=>{pick.value=String(i);regionInfo(String(i))})});
+ pick.addEventListener('change',()=>{if(!mapActive)return;if(pick.value==='all')map.setView([37.1,137.6],5);else{const r=d.regions[Number(pick.value)];map.setView([r.lat,r.lng],8)}});
+ }catch(error){$('map').innerHTML='';drawStaticGeo()}
+}else{drawStaticGeo()}
 
 function staticBars(target,rows,caption){
 const usable=rows.filter(x=>Number.isFinite(Number(x.value))).slice(0,10),max=Math.max(1,...usable.map(x=>Number(x.value)));
