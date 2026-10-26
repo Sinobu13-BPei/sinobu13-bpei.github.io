@@ -1,0 +1,324 @@
+{
+  "version": "2026-10-27",
+  "scope": "PUBLIC ONLY",
+  "method": "User supplied 19 files reviewed; private customer, target, device shares, contract and internal price data excluded. All public figures sourced to facility or government disclosures. Hospital facility selection is not a prefecture-wide top N ranking.",
+  "hospitals": [
+    {
+      "name": "大垣市民病院",
+      "area": "西濃",
+      "city": "大垣市",
+      "beds": 817,
+      "role": "救命救急・DPC・地域基幹",
+      "asOf": "2025年度の許可病床",
+      "url": "https://www.ogaki-mh.jp/byouin/kurinikaru.html",
+      "note": "2025年度臨床指標では入院手術12,007件。設備台数・購入予定を表す数値ではない。"
+    },
+    {
+      "name": "岐阜県総合医療センター",
+      "area": "岐阜",
+      "city": "岐阜市",
+      "beds": 620,
+      "role": "救命救急・総合周産期・県中央の専門拠点",
+      "asOf": "2026年4月1日",
+      "url": "https://www.gifu-hp.jp/outline/index.html",
+      "note": "一般病床620床。"
+    },
+    {
+      "name": "岐阜大学医学部附属病院",
+      "area": "岐阜",
+      "city": "岐阜市",
+      "beds": 614,
+      "role": "特定機能病院・医学教育・研究",
+      "asOf": "2026年9月確認",
+      "url": "https://hosp.gifu-u.ac.jp/guide/gaiyo.html",
+      "note": "一般577床、精神37床。"
+    },
+    {
+      "name": "岐阜市民病院",
+      "area": "岐阜",
+      "city": "岐阜市",
+      "beds": 555,
+      "role": "地域基幹・急性期・精神医療",
+      "asOf": "2026年の医療情報ネット",
+      "url": "https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2430/initialize?kikanCd=1341000103&kikanKbn=1&prefCd=21",
+      "note": "一般505床、精神50床。添付の旧資料にある565床ではなく更新値555床。"
+    },
+    {
+      "name": "岐阜県立多治見病院",
+      "area": "東濃",
+      "city": "多治見市",
+      "beds": 539,
+      "role": "三次救急・東濃のがん診療拠点",
+      "asOf": "2025年9月現況報告",
+      "url": "https://hospdb.ganjoho.jp/kyoten/detail/yoken/A21003",
+      "note": "一般487床ほか精神・結核・感染症病床を含む。"
+    },
+    {
+      "name": "中部国際医療センター",
+      "area": "中濃",
+      "city": "美濃加茂市",
+      "beds": 502,
+      "role": "三次救急・がん診療・高度画像診断",
+      "asOf": "2026年4月",
+      "url": "https://resident.cjimc-hp.jp/about/outline",
+      "note": "施設公開情報では320列CT、PET-CT、MRI、放射線治療装置などを紹介。"
+    },
+    {
+      "name": "松波総合病院",
+      "area": "岐阜",
+      "city": "笠松町",
+      "beds": 501,
+      "role": "地域支援・救急・がん医療",
+      "asOf": "2025年9月現況報告",
+      "url": "https://hospdb.ganjoho.jp/kyoten/detail/yoken/A21009",
+      "note": "一般501床。"
+    },
+    {
+      "name": "中濃厚生病院",
+      "area": "中濃",
+      "city": "関市",
+      "beds": 495,
+      "role": "救命救急・地域基幹",
+      "asOf": "2026年5月",
+      "url": "https://www.chuno.gfkosei.or.jp/about/outline.php",
+      "note": "495床中44床が休床と公式記載。許可と稼働を区別。"
+    },
+    {
+      "name": "公立東濃中部医療センター",
+      "area": "東濃",
+      "city": "土岐市",
+      "beds": 400,
+      "role": "2026年2月開院・急性期から回復期まで",
+      "asOf": "2026年2月1日開院",
+      "url": "https://tono-chubu.gfkosei.or.jp/about/outline.php",
+      "note": "一般296、回復期リハ44、地域包括ケア40、緩和ケア20床。旧院の病床と二重計上しない。"
+    },
+    {
+      "name": "西濃厚生病院",
+      "area": "西濃",
+      "city": "大野町",
+      "beds": 400,
+      "role": "急性期・回復期・緩和ケアの複合",
+      "asOf": "2026年10月公開値",
+      "url": "https://seino.gfkosei.or.jp/about/outline.php",
+      "note": "2023年10月開院。一般293、回復期82、緩和ケア25床。"
+    },
+    {
+      "name": "高山赤十字病院",
+      "area": "飛騨",
+      "city": "高山市",
+      "beds": 394,
+      "role": "飛騨の救命救急・周産期・がん医療",
+      "asOf": "2025年9月現況報告",
+      "url": "https://hospdb.ganjoho.jp/kyoten/detail/yoken/A21004",
+      "note": "許可病床394床。"
+    },
+    {
+      "name": "中津川市民病院",
+      "area": "東濃",
+      "city": "中津川市",
+      "beds": 316,
+      "role": "東濃東部の地域基幹・救急",
+      "asOf": "公表ページ確認（年度未記載）",
+      "url": "https://www.jmha.or.jp/jmha/inst/info/100548",
+      "note": "自治体病院協議会の基本情報で316床。最新の稼働数を表すものではない。"
+    },
+    {
+      "name": "飛騨医療センター久美愛厚生病院",
+      "area": "飛騨",
+      "city": "高山市",
+      "beds": 300,
+      "role": "飛騨の地域医療・画像診断・在宅医療への橋渡し",
+      "asOf": "2026年6月病床再編",
+      "url": "https://www.kumiai.gfkosei.or.jp/about-us/overview/",
+      "note": "公式沿革には2026年6月300床（休床15）。同じ公式ページ概要欄に285床の記載があり、休床を差し引いた数字と一致。"
+    },
+    {
+      "name": "岐阜県立下呂温泉病院",
+      "area": "飛騨",
+      "city": "下呂市",
+      "beds": 196,
+      "role": "へき地医療・急性期と療養の接続",
+      "asOf": "2026年10月",
+      "url": "https://gero-hp.jp/about/facility.html",
+      "note": "2025年4月198床、2025年10月196床、2026年10月196床。古い198床表記に注意。"
+    }
+  ],
+  "events": [
+    {
+      "date": "2023-10",
+      "area": "西濃",
+      "title": "西濃厚生病院が開院",
+      "desc": "揖斐・西濃地域で一般・回復期・緩和ケアを担う400床の拠点へ集約。",
+      "url": "https://seino.gfkosei.or.jp/about/outline.php",
+      "kind": "再編"
+    },
+    {
+      "date": "2025-02",
+      "area": "飛騨",
+      "title": "久美愛厚生病院がPET-CTを更新",
+      "desc": "既設医療機器の更新実績。新規導入余地や今後の更新予定を意味しない。",
+      "url": "https://www.kumiai.gfkosei.or.jp/about-us/overview/",
+      "kind": "設備更新"
+    },
+    {
+      "date": "2025-10",
+      "area": "飛騨",
+      "title": "久美愛厚生病院で電子カルテ更新・サーバークラウド化",
+      "desc": "画像・診療情報の連携、バックアップ、セキュリティ要件の実例。",
+      "url": "https://www.kumiai.gfkosei.or.jp/about-us/overview/",
+      "kind": "医療DX"
+    },
+    {
+      "date": "2026-02",
+      "area": "東濃",
+      "title": "公立東濃中部医療センター開院（400床）",
+      "desc": "土岐市で開院。36診療科、救急対応、急性期から回復期までを担う新拠点。",
+      "url": "https://tono-chubu.gfkosei.or.jp/about/outline.php",
+      "kind": "再編"
+    },
+    {
+      "date": "2026-02",
+      "area": "飛騨",
+      "title": "久美愛厚生病院のMRI更新",
+      "desc": "公式沿革に機器更新が掲載。メーカーや機種・台数は本ページでは断定しない。",
+      "url": "https://www.kumiai.gfkosei.or.jp/about-us/overview/",
+      "kind": "設備更新"
+    },
+    {
+      "date": "2026-08",
+      "area": "全県",
+      "title": "2026年度圏域地域医療構想等調整会議が開始",
+      "desc": "第8期医療計画中間見直し、2025病床機能報告、2026年度末の医療機関方針などを協議。",
+      "url": "https://www.pref.gifu.lg.jp/page/504301.html",
+      "kind": "医療政策"
+    },
+    {
+      "date": "2026-10",
+      "area": "飛騨",
+      "title": "下呂温泉病院の許可病床196床",
+      "desc": "2025年9月の暫定病院ランキングの198床から時点が変わっているため更新。",
+      "url": "https://gero-hp.jp/about/facility.html",
+      "kind": "病床再編"
+    }
+  ],
+  "lenses": [
+    {
+      "area": "岐阜",
+      "title": "高度医療の集積",
+      "evidence": "大学病院・総合医療センター・市民病院などが集中。圏域の2025一般診療所は712施設。",
+      "focus": "専門医療・救急と診療所の画像共同利用、紹介逆紹介、医療DXの接続。",
+      "caution": "装置の病院別保有台数・更新計画は個別施設確認が必要。"
+    },
+    {
+      "area": "西濃",
+      "title": "急性期から在宅への接続",
+      "evidence": "大垣市民病院817床、西濃厚生病院400床。2025一般診療所260施設。",
+      "focus": "救急・回復期・在宅連携の効率、病院設備の停止対策と広域移動。",
+      "caution": "広域の県境越え受療は施設・疾患別に再検証が必要。"
+    },
+    {
+      "area": "中濃",
+      "title": "広い生活圏と高次医療",
+      "evidence": "中部国際医療センター502床、中濃厚生病院495床。2025一般診療所264施設。",
+      "focus": "山間部と都市部のアクセス差、搬送・医療機器保守・検査の集約。",
+      "caution": "院内の休床状況を稼働病床・需要と混同しない。"
+    },
+    {
+      "area": "東濃",
+      "title": "2026年の病院再編を反映",
+      "evidence": "県立多治見病院539床、東濃中部医療センター400床、中津川市民病院316床。2025一般診療所252施設。",
+      "focus": "多治見・土岐/瑞浪・中津川/恵那の機能分担、急性期と回復期の紹介経路。",
+      "caution": "開院前の過去統計は旧病院を含む場合があり、2026年の施設総数と直接比較しない。"
+    },
+    {
+      "area": "飛騨",
+      "title": "広域・低密度の医療継続",
+      "evidence": "高山赤十字病院394床、久美愛厚生病院300床、下呂温泉病院196床。2025一般診療所132施設。",
+      "focus": "長距離移動・交通遮断時の医療継続、院外連携、遠隔支援、移動負担の軽減。",
+      "caution": "観光流入と常住人口から推計した医療需要は同じではない。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "G31",
+      "name": "岐阜県 2026年度圏域地域医療構想等調整会議",
+      "url": "https://www.pref.gifu.lg.jp/page/504301.html"
+    },
+    {
+      "id": "G32",
+      "name": "岐阜県 2025年度病床機能報告",
+      "url": "https://www.pref.gifu.lg.jp/page/492373.html"
+    },
+    {
+      "id": "G33",
+      "name": "厚生労働省 2040年に向けた地域医療構想",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000080850_00019.html"
+    },
+    {
+      "id": "G34",
+      "name": "大垣市民病院 臨床指標（2025年度実績）",
+      "url": "https://www.ogaki-mh.jp/byouin/kurinikaru.html"
+    },
+    {
+      "id": "G35",
+      "name": "公立東濃中部医療センター 病院概要",
+      "url": "https://tono-chubu.gfkosei.or.jp/about/outline.php"
+    },
+    {
+      "id": "G36",
+      "name": "瑞浪市 2026年2月1日開院の公表",
+      "url": "https://www.city.mizunami.lg.jp/shisei/kouchou_kouhou/1001316/1011650/1011640.html"
+    },
+    {
+      "id": "G37",
+      "name": "久美愛厚生病院 概要・沿革・設備履歴",
+      "url": "https://www.kumiai.gfkosei.or.jp/about-us/overview/"
+    },
+    {
+      "id": "G38",
+      "name": "岐阜県立下呂温泉病院 沿革・病床変遷",
+      "url": "https://gero-hp.jp/about/facility.html"
+    },
+    {
+      "id": "G39",
+      "name": "岐阜市民病院 医療情報ネット・届出病床",
+      "url": "https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2430/initialize?kikanCd=1341000103&kikanKbn=1&prefCd=21"
+    },
+    {
+      "id": "G40",
+      "name": "岐阜県総合医療センター 病院概要",
+      "url": "https://www.gifu-hp.jp/outline/index.html"
+    },
+    {
+      "id": "G41",
+      "name": "中濃厚生病院 病院概要・休床状況",
+      "url": "https://www.chuno.gfkosei.or.jp/about/outline.php"
+    },
+    {
+      "id": "G42",
+      "name": "西濃厚生病院 病院概要",
+      "url": "https://seino.gfkosei.or.jp/about/outline.php"
+    },
+    {
+      "id": "G43",
+      "name": "中部国際医療センター 設備・病院概要",
+      "url": "https://resident.cjimc-hp.jp/about/outline"
+    },
+    {
+      "id": "G44",
+      "name": "国立がん研究センター がん診療拠点施設情報",
+      "url": "https://hospdb.ganjoho.jp/"
+    },
+    {
+      "id": "G45",
+      "name": "岐阜県 市町村別医療施設状況（2025年）",
+      "url": "https://www.pref.gifu.lg.jp/uploaded/attachment/475576.pdf"
+    },
+    {
+      "id": "G46",
+      "name": "厚生労働省 医療情報ネット（ナビイ）",
+      "url": "https://www.iryou.teikyouseido.mhlw.go.jp/"
+    }
+  ]
+}
