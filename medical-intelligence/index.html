@@ -538,6 +538,16 @@ function draw(){
       regionLink.setAttribute('aria-label','北陸3県の医療機器市場横断分析を開く');
       actions.appendChild(regionLink);
     }
+    if(['新潟県','長野県','山梨県'].includes(p[0])){
+      const koshinetsuLink=document.createElement('a');
+      koshinetsuLink.href='./koshinetsu/';
+      koshinetsuLink.target='_blank';
+      koshinetsuLink.rel='noopener noreferrer';
+      koshinetsuLink.className='koshinetsu-mkt-btn';
+      koshinetsuLink.textContent='甲信越MKT ↗';
+      koshinetsuLink.setAttribute('aria-label',p[0]+'から甲信越3県の医療市場分析を開く');
+      actions.appendChild(koshinetsuLink);
+    }
     let a=document.createElement('a');a.href=googleMapsUrl(p[0]);a.target='_blank';a.rel='noopener noreferrer';a.className='google-map-btn';a.textContent='Map';a.setAttribute('aria-label',p[0]+'のGoogle Mapsを開く');
     actions.appendChild(a);
     row.append(title,actions);
