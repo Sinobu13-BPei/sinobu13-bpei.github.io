@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#103351"><meta name="description" content="香川県の医療マーケット。東部・小豆・西部の3医療圏、人口、病床機能、医療機器、医師・行政・大学・流通・戦略を一次情報中心に分析。"><title>香川県 医療MKT調査・地域医療戦略 2026 | Medical Intelligence</title>
 <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyo0f0EFdE7zU8g=" crossorigin="">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script><script src="./app.js" defer></script></head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script><script src="./app.js" defer></script><link rel="stylesheet" href="./visual.css"><script src="./visual.js" defer></script></head>
 <body><header class="top"><div class="wrap"><a class="brand" href="../">MEDICAL INTELLIGENCE / SHIKOKU</a><div class="updated">公開資料分析 | 最終更新 2026.10.26</div></div></header>
-<nav aria-label="ページ内ナビゲーション"><div class="wrap"><a href="#summary">サマリー</a><a href="#population">人口・医療圏</a><a href="#beds">病床</a><a href="#providers">医療提供体制</a><a href="#institutions">大学・医師会・行政</a><a href="#equipment">機器市場</a><a href="#distribution">流通</a><a href="#external">外部環境</a><a href="#strategy">戦略</a><a href="#sources">出典</a></div></nav>
+<nav aria-label="ページ内ナビゲーション"><div class="wrap"><a href="#summary">サマリー</a><a href="#visual-atlas">図解ダッシュボード</a><a href="#population">人口・医療圏</a><a href="#beds">病床</a><a href="#providers">医療提供体制</a><a href="#institutions">大学・医師会・行政</a><a href="#equipment">機器市場</a><a href="#distribution">流通</a><a href="#external">外部環境</a><a href="#strategy">戦略</a><a href="#sources">出典</a></div></nav>
 <main><section class="hero"><div class="wrap"><div class="eyebrow">KAGAWA / REGIONAL MEDICAL MARKET 2026</div><h1>香川県<br>医療市場・地域医療戦略</h1><p>人口縮小と医療高度化が交差する瀬戸内。東部の高度医療集積、西部の広域連携、小豆の離島医療を、政策・人口・病床・画像診断機器・医療流通から読み解く。</p>
 <div><span class="pill">中立的な医療機器商社の視点</span> <span class="pill">2024–2029 第8次計画</span> <span class="pill">3二次医療圏</span> <span class="pill">公的統計 / 独自分析を区別</span></div>
 <div class="hero-links"><a href="#strategy">Where to Play / How to Win</a><a href="#providers">主要病院と地図</a><a href="#equipment">CT・MRI比較</a><a class="soft" href="../">全国Medical Intelligence</a></div>
@@ -15,6 +15,103 @@
 <div class="card"><svg class="mini-svg" viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 29l8-12 7 5 13-14"/><path d="M26 8h8v8"/></svg><div class="stat">32.8%</div><p>65歳以上人口割合（2024年推計）。全国29.3%、年次・定義に注意。<a href="#S26" class="badge-source">[S26]</a></p></div>
 <div class="card"><svg class="mini-svg" viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 3l14 10v17L20 38 6 30V13z"/><path d="M20 3v35M6 13l14 9 14-9"/></svg><div class="stat">3医療圏</div><p>東部・小豆・西部。離島小豆は政策上独立して検討。<a href="#S25" class="badge-source">[S25]</a></p></div></div>
 <div class="callout" style="margin-top:18px"><strong>市場分析の焦点：</strong>①急性期中心から地域連携・回復期への転換、②診療所のUS・内視鏡・検査・PACS、③小豆など医療アクセス制約地域の診断機能維持、④検査件数・共同利用率・装置稼働の可視化。人口当たり台数だけで過剰・不足とは断定しない。</div></div></section>
+
+<section class="section visual-atlas" id="visual-atlas" aria-labelledby="atlas-heading">
+  <div class="wrap">
+    <div class="v-kicker"><span class="v-spark" aria-hidden="true">✦</span> VISUAL INTELLIGENCE / KAGAWA 2026</div>
+    <h2 id="atlas-heading">香川県の医療市場を、図と地図で読み解く</h2>
+    <p class="intro">患者・医師・医療機器・地域連携の4層を可視化。<strong>統計値と戦略仮説を明確に分離</strong>し、比較可能な定義・年次だけを図表化しています。</p>
+    <div class="v-keyline" aria-label="凡例"><span><i class="v-dot v-east"></i>東部医療圏</span><span><i class="v-dot v-west"></i>西部医療圏</span><span><i class="v-dot v-island"></i>小豆医療圏</span><span class="v-evidence">● 公開統計</span><span class="v-inference">◇ 独自分析</span></div>
+    <div class="v-kpi-row">
+      <div class="v-mini"><div class="v-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l12 6v7c0 8-5 12-12 14C9 28 4 24 4 16V9z"/><path d="M10 16h12M16 10v12"/></svg></div><div><span>第8次医療計画</span><strong>2024–2029</strong><small>第8次計画 [S01]</small></div></div>
+      <div class="v-mini"><div class="v-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26V13l11-8 11 8v13H5z"/><path d="M11 26v-9h10v9"/></svg></div><div><span>2025年速報人口</span><strong>90.8<span class="v-unit">万人</span></strong><small>国勢調査 [S02]</small></div></div>
+      <div class="v-mini"><div class="v-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="7" width="22" height="19" rx="2"/><path d="M16 11v11M10 16.5h12"/></svg></div><div><span>報告病床（2024）</span><strong>11,575<span class="v-unit">床</span></strong><small>休棟を含む [S04]</small></div></div>
+      <div class="v-mini"><div class="v-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="10" cy="10" r="5"/><path d="M2 27c0-10 17-10 17 0M24 10v17M19 19h10"/></svg></div><div><span>診療所医師65歳以上</span><strong>43.4<span class="v-unit">%</span></strong><small>2020年 [S06]</small></div></div>
+    </div>
+    <div class="v-figure-card v-geo-overview">
+      <div class="v-card-title"><div><span class="v-tag">MAP 01</span><h3>医療圏と患者アクセスの地理構造</h3><p>この図は位置関係を示す<strong>模式図</strong>です。区域境界・面積・航路を正確に表す地図ではありません。</p></div><a href="#providers" class="v-inline-link">実地図・主要病院を見る</a></div>
+      <div class="v-geo-grid">
+        <figure class="v-concept-figure">
+          <svg viewBox="0 0 930 455" role="img" aria-labelledby="vmap-title vmap-desc" xmlns="http://www.w3.org/2000/svg">
+            <title id="vmap-title">香川県の東部・小豆・西部の医療圏概念図</title><desc id="vmap-desc">西部には中讃・三豊、東部には高松と東かがわ、小豆には小豆島が位置し、離島から本土への連携が重要となることを模式的に示す。</desc>
+            <defs><pattern id="vwater" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M2 25q12-8 24 0t24 0" fill="none" stroke="#d3e8f5" stroke-width="2"/></pattern><filter id="vshadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="9" flood-color="#163a58" flood-opacity=".10"/></filter></defs>
+            <rect width="930" height="455" rx="22" fill="#e7f4fb"/><rect width="930" height="455" rx="22" fill="url(#vwater)"/>
+            <text x="40" y="44" fill="#65869e" font-size="22" font-weight="700">瀬戸内海 / SETO INLAND SEA</text>
+            <path d="M40 279Q77 245 143 259Q197 257 234 229L300 234Q345 205 397 213L456 222L485 261L476 321Q421 328 392 348L326 337Q280 353 224 344L157 357L81 333Z" fill="#5aaeba" stroke="#fff" stroke-width="5" filter="url(#vshadow)"/>
+            <path d="M485 261L456 222Q506 216 559 225L620 208L690 233Q750 229 796 257L887 247L899 305L830 328L749 311L692 351L621 329L573 350L510 322L476 321Z" fill="#3b87c0" stroke="#fff" stroke-width="5" filter="url(#vshadow)"/>
+            <path d="M542 107Q580 82 646 89Q687 85 722 103L754 145L734 178Q679 190 625 166Q573 184 534 159Z" fill="#e9aa4e" stroke="#fff" stroke-width="5" filter="url(#vshadow)"/>
+            <path d="M297 141q20-19 45-5l17 20-25 17-37-10zM373 172q14-12 27-1l8 14-19 10z" fill="#5aaeba" opacity=".9"/>
+            <path d="M655 182Q647 211 693 236" stroke="#b5752c" stroke-width="3" stroke-dasharray="8 8" fill="none"/><path d="M670 194l-13-12-7 16" fill="none" stroke="#b5752c" stroke-width="3"/>
+            <g fill="#fff" font-size="28" font-weight="800" text-anchor="middle"><text x="265" y="285">西部</text><text x="698" y="290">東部</text><text x="648" y="138">小豆</text></g>
+            <g fill="#143c50" font-size="17" font-weight="700"><circle cx="154" cy="305" r="6" fill="#fff"/><text x="95" y="381">観音寺・三豊</text><circle cx="335" cy="263" r="6" fill="#fff"/><text x="305" y="303">丸亀・坂出</text><circle cx="604" cy="269" r="6" fill="#fff"/><text x="571" y="308">高松</text><circle cx="816" cy="277" r="6" fill="#fff"/><text x="754" y="372">東かがわ</text><circle cx="647" cy="128" r="5" fill="#fff"/></g>
+            <text x="760" y="190" font-size="16" fill="#85541e" font-weight="700">航路連携の考慮</text><text x="22" y="424" font-size="15" fill="#547a95">模式図：縮尺・海岸線・医療圏境界は実際と異なります</text>
+          </svg>
+          <figcaption class="v-small">区域区分・構成市町：香川県第8次保健医療計画（2024年策定）。<a href="#S25">[S25]</a>。正確な位置・移動は下部の地理院タイル地図で確認してください。</figcaption>
+        </figure>
+        <div class="v-geopanel">
+          <div class="v-subhead">医療圏を選択 <span>各指標：人口2023年・病床2024年</span></div>
+          <div class="v-area-actions" role="group" aria-label="医療圏の切替">
+            <button class="v-area-button" type="button" data-visual-area="east" aria-pressed="true">東部</button>
+            <button class="v-area-button" type="button" data-visual-area="west" aria-pressed="false">西部</button>
+            <button class="v-area-button" type="button" data-visual-area="island" aria-pressed="false">小豆</button>
+          </div>
+          <div id="visualAreaDetail" class="v-region-detail" aria-live="polite"><h4>東部医療圏</h4><p>高松市・さぬき市・東かがわ市・三木町・直島町</p><div class="v-focus-row"><span>地域の主要テーマ</span><strong>高度医療と病診連携</strong></div></div>
+          <div class="v-legend"><span><i class="v-dot v-east"></i>東部：専門医療</span><span><i class="v-dot v-west"></i>西部：広域医療</span><span><i class="v-dot v-island"></i>小豆：離島医療</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="v-visual-grid">
+      <article class="v-figure-card"><div class="v-card-title"><div><span class="v-tag">GRAPH 01</span><h3>人口構成｜医療圏の重み</h3><p>2023年4月の医療圏別人口構成</p></div></div><div class="v-chart"><canvas id="visualRegionPop" role="img" aria-label="東部・西部・小豆の人口構成円グラフ"></canvas></div><p class="v-small">2023年人口：東部512,310人・西部389,320人・小豆25,236人。<a href="#S25">[S25]</a></p><div id="visualRegionPopFallback" class="v-fallback">東部55.3%／西部42.0%／小豆2.7%。出典[S25]。</div></article>
+      <article class="v-figure-card"><div class="v-card-title"><div><span class="v-tag">GRAPH 02</span><h3>病床構成｜医療圏別の機能分布</h3><p>2024年7月の報告病床・休棟を除く</p></div></div><div class="v-chart"><canvas id="visualBedsRegion" role="img" aria-label="医療圏ごとの病床機能別構成・横積み上げグラフ"></canvas></div><p class="v-small">凡例：高度急性期・急性期・回復期・慢性期。許可病床・報告値。<a href="#S04">[S04]</a></p><div id="visualBedsRegionFallback" class="v-fallback">高度／急性／回復／慢性：東部861/2728/935/1111、西部128/2115/1208/1436、小豆0/93/66/78床。</div></article>
+      <article class="v-figure-card"><div class="v-card-title"><div><span class="v-tag">GRAPH 03</span><h3>診療所医師の高齢化</h3><p>65歳以上割合（2020年調査）</p></div></div><div class="v-chart"><canvas id="visualPhysicianAge" role="img" aria-label="診療所医師の65歳以上割合の全国・香川県・3医療圏比較"></canvas></div><p class="v-small">全国35.7%／香川43.4%／東部44.0%／西部41.5%／小豆75.0%。<strong>小豆は8人中6人</strong>で標本が小さい。<a href="#S06">[S06]</a></p><div id="visualPhysicianAgeFallback" class="v-fallback">全国35.7%、香川県43.4%、東部44.0%、西部41.5%、小豆75.0%。2020年。</div></article>
+      <article class="v-figure-card"><div class="v-card-title"><div><span class="v-tag">GRAPH 04</span><h3>医療機器密度｜全国＝100</h3><p>調整人口10万人当たり台数を指数化</p></div></div><div class="v-chart"><canvas id="visualDeviceIndex" role="img" aria-label="全国を100としたCT MRI PET 放射線治療 マンモの地域別指数"></canvas></div><p class="v-small">2024年策定の第8次計画掲載指標を独自指数化。<strong>設備実台数・不足率ではない。</strong><a href="#S06">[S06]</a></p><div id="visualDeviceIndexFallback" class="v-fallback">CT指数：東部139／西部141／小豆71。MRI指数：東部147／西部174／小豆102（全国=100）。</div></article>
+    </div>
+    <div class="v-figure-card" id="atlas-matrix">
+      <div class="v-card-title"><div><span class="v-tag">HEATMAP / MARKET SIGNAL</span><h3>5モダリティ × 3医療圏の設置密度ヒートマップ</h3><p>第8次計画の調整人口10万人当たり台数を全国平均=100とした相対指数。<span class="v-inference">指数加工は独自分析</span></p></div><a href="#equipment" class="v-inline-link">元データ表を見る</a></div>
+      <div class="v-heatmap-scroll"><div id="visualHeatmap" class="v-heatmap" role="group" aria-label="モダリティごとの全国平均に対する医療圏別指数"><div class="v-loading">データ読込中（数値は機器市場の比較表でも確認できます）</div></div></div>
+      <div class="v-heatmap-foot"><span>低い ← 全国指数 → 高い（設置密度の相対比較）</span><div class="v-gradient" aria-hidden="true"></div><span>強い色ほど相対密度が高い</span></div>
+      <p class="v-small">指数は必要性や設備過不足の判断ではありません。PET・放射線治療などのゼロは公開指標上の0を示します。<a href="#S06">[S06]</a></p>
+    </div>
+    <div class="v-figure-card">
+      <div class="v-card-title"><div><span class="v-tag">INFOGRAPHIC / CARE PATHWAY</span><h3>患者の検査動線：どこに価値が生まれるか</h3><p>医療提供の流れを把握し、販売・保守・共同利用を一体で評価するための独自分析図。</p></div></div>
+      <div class="v-care-flow">
+        <div class="v-flow-step"><span class="v-step-n">01</span><span class="v-flow-icon"><svg viewBox="0 0 36 36"><circle cx="18" cy="10" r="6"/><path d="M5 32c0-14 26-14 26 0"/></svg></span><b>地域住民</b><small>高齢者・家族・在宅</small></div>
+        <div class="v-flow-arrow" aria-hidden="true">→</div>
+        <div class="v-flow-step"><span class="v-step-n">02</span><span class="v-flow-icon"><svg viewBox="0 0 36 36"><rect x="5" y="7" width="26" height="26" rx="3"/><path d="M18 11v17M10 19h16"/></svg></span><b>診療所</b><small>US・心電・内視鏡</small></div>
+        <div class="v-flow-arrow" aria-hidden="true">↔</div>
+        <div class="v-flow-step"><span class="v-step-n">03</span><span class="v-flow-icon"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="13"/><circle cx="18" cy="18" r="6"/><path d="M18 2v6M34 18h-6"/></svg></span><b>基幹病院</b><small>CT・MRI・救急・がん</small></div>
+        <div class="v-flow-arrow" aria-hidden="true">↔</div>
+        <div class="v-flow-step"><span class="v-step-n">04</span><span class="v-flow-icon"><svg viewBox="0 0 36 36"><rect x="3" y="7" width="30" height="22" rx="3"/><path d="M7 23l7-8 5 5 7-9M11 32h14"/></svg></span><b>情報共有</b><small>画像・診療情報・遠隔</small></div>
+        <div class="v-flow-arrow" aria-hidden="true">↔</div>
+        <div class="v-flow-step"><span class="v-step-n">05</span><span class="v-flow-icon"><svg viewBox="0 0 36 36"><path d="M4 29V13L18 4l14 9v16H4zM10 28v-9h16v9"/></svg></span><b>在宅・回復期</b><small>継続管理・再入院予防</small></div>
+      </div>
+      <div class="v-three-questions"><div><b>WHO</b><span>患者流入・紹介元</span></div><div><b>WHERE</b><span>検査実施場所・移動</span></div><div><b>HOW</b><span>機器・人員・情報の接続</span></div></div>
+    </div>
+    <div class="v-figure-card">
+      <div class="v-card-title"><div><span class="v-tag">PICTOGRAM / MODALITIES</span><h3>主要9領域の医療機器ポートフォリオ</h3><p>病院・診療所・在宅の機能に合わせて対象モダリティを整理。数値未照合の機器は設置台数を表示しません。</p></div></div>
+      <svg class="v-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><symbol id="v-ct" viewBox="0 0 48 48"><circle cx="24" cy="23" r="17"/><circle cx="24" cy="23" r="9"/><path d="M7 42h34"/></symbol><symbol id="v-mri" viewBox="0 0 48 48"><rect x="5" y="6" width="38" height="32" rx="8"/><circle cx="24" cy="22" r="11"/><path d="M17 44h14"/></symbol><symbol id="v-us" viewBox="0 0 48 48"><path d="M17 9q9-8 18 0l-6 9-7 1zM25 19l-2 17 8 7M7 13l11 9-3 8-11-9z"/></symbol><symbol id="v-endoscopy" viewBox="0 0 48 48"><path d="M12 6v14q0 8 8 8h7q10 0 10 10M34 38h8M11 6h5"/></symbol><symbol id="v-ecg" viewBox="0 0 48 48"><rect x="4" y="6" width="40" height="34" rx="4"/><path d="M7 25h8l4-9 7 20 6-12h9"/></symbol><symbol id="v-angiography" viewBox="0 0 48 48"><path d="M24 5v13l-9 9v14M24 18l11 10v13M15 27l-7-5M35 28l7-5"/><circle cx="24" cy="5" r="3"/><circle cx="15" cy="41" r="3"/><circle cx="35" cy="41" r="3"/></symbol><symbol id="v-pet" viewBox="0 0 48 48"><circle cx="24" cy="23" r="15"/><circle cx="24" cy="23" r="6"/><path d="M24 4v8M24 34v9M5 23h8M35 23h8"/></symbol><symbol id="v-dialysis" viewBox="0 0 48 48"><rect x="6" y="6" width="26" height="34" rx="4"/><path d="M13 15h12M19 11v16M31 24h9v17M11 44h17"/></symbol><symbol id="v-it" viewBox="0 0 48 48"><rect x="4" y="7" width="40" height="29" rx="4"/><path d="M17 42h14M24 36v6M12 18h24M12 25h15"/></symbol></svg>
+      <div class="v-modality-grid">
+        <div><svg><use href="#v-ct"/></svg><b>CT</b><span>救急・肺・腹部</span></div><div><svg><use href="#v-mri"/></svg><b>MRI</b><span>脳神経・整形</span></div><div><svg><use href="#v-us"/></svg><b>超音波</b><span>外来・在宅・POCUS</span></div><div><svg><use href="#v-endoscopy"/></svg><b>内視鏡</b><span>消化器・健診</span></div><div><svg><use href="#v-ecg"/></svg><b>心電・生体</b><span>循環器・救急</span></div><div><svg><use href="#v-angiography"/></svg><b>血管撮影</b><span>循環器・脳血管</span></div><div><svg><use href="#v-pet"/></svg><b>PET・放射線</b><span>腫瘍・治療計画</span></div><div><svg><use href="#v-dialysis"/></svg><b>透析・検査</b><span>継続医療・院内検査</span></div><div><svg><use href="#v-it"/></svg><b>PACS・DX</b><span>画像共有・遠隔</span></div>
+      </div>
+    </div>
+    <div class="v-visual-grid">
+      <article class="v-figure-card"><div class="v-card-title"><div><span class="v-tag">SWOT / 4 QUADRANTS</span><h3>香川市場の構造をひと目で</h3></div></div><div class="v-swot"><div class="v-swot-s"><b>S / 強み</b><span>高度医療拠点・地域中核病院</span></div><div class="v-swot-w"><b>W / 弱み</b><span>人口減少・医師偏在・離島アクセス</span></div><div class="v-swot-o"><b>O / 機会</b><span>共同利用・診療所更新・在宅DX</span></div><div class="v-swot-t"><b>T / 脅威</b><span>財務制約・災害・供給と人員</span></div></div><p class="v-small"><span class="v-inference">独自分析：</span>県の人口・病床・医療圏データに基づく仮説であり、特定事業者の評価ではありません。</p></article>
+      <article class="v-figure-card"><div class="v-card-title"><div><span class="v-tag">PRIORITY MATRIX</span><h3>医療圏別 戦略評価の内訳</h3></div></div><div id="visualPriorityMatrix" class="v-priority-grid"><div class="v-loading">5評価軸のスコアを表示します</div></div><p class="v-small"><span class="v-inference">独自分析：</span>潜在需要30%／機能ギャップ25%／アクセス20%／持続可能性15%／連携余地10%。1〜5点で加重、100点換算。売上予測ではありません。</p></article>
+    </div>
+    <div class="v-figure-card v-timeline-card">
+      <div class="v-card-title"><div><span class="v-tag">ROADMAP / POLICY × MARKET</span><h3>政策と市場機会の時間軸</h3><p>制度・統計と戦略アクションを区別し、目先の案件対応と中長期投資判断を接続する。</p></div></div>
+      <div class="v-timeline">
+        <div class="v-milestone"><span>2024</span><b>第8次医療計画開始</b><small>公式政策 [S01]</small></div>
+        <div class="v-milestone"><span>2025</span><b>地域医療構想・必要病床目標年</b><small>既存推計 [S05]</small></div>
+        <div class="v-milestone is-now"><span>2026</span><b>診療報酬・医師確保・DX観測</b><small>現在の戦略検証</small></div>
+        <div class="v-milestone"><span>2029</span><b>第8次計画の最終年度</b><small>公式期間 [S01]</small></div>
+        <div class="v-milestone"><span>2040–50</span><b>将来人口・アクセス再設計</b><small>社人研推計 [S03]</small></div>
+      </div>
+      <div class="v-roadmap-actions"><div><b>短期 0–90日</b><p>装置台帳・病床機能・医師の配置・患者流動を照合</p></div><div><b>中期 1–3年</b><p>病診連携・機器共同利用・保守・BCPをPoCで検証</p></div><div><b>長期 3–5年</b><p>更新・医療DXを地域の持続可能性に合わせ再設計</p></div></div>
+      <p class="v-small">年次は統計・計画によるもので、短・中・長期施策は公開情報に基づく独自提言。</p>
+    </div>
+  </div>
+</section>
 <section id="population" class="section"><div class="wrap"><div class="kicker">02 / Population & geographies</div><h2>人口動態・二次医療圏・医療アクセス</h2><div class="grid two"><div class="card chart-card"><h3>2020–2050年人口シナリオ</h3><div class="chartbox"><canvas id="populationChart" role="img" aria-label="人口推移、2020年実績と2025年以降の2023年推計"></canvas></div><div class="chart-fallback" id="populationFallback">人口：2020年950,244人（国勢調査）、2030年874,789人・2040年800,036人・2050年724,120人（社人研2023年推計）。</div><p class="footnote">2025年の国勢調査速報907,725人と、社人研2023年時点の2025年推計910,504人を混同しない。<a href="#S02">[S02]</a><a href="#S03">[S03]</a></p></div>
 <div class="card"><h3>人口変動の構造</h3><p><span class="pill">2025年</span> 年間人口増減 <strong>−8,137人</strong>。自然減が構造要因。<a href="#S16">[S16]</a></p><p><span class="pill">2024年</span> 県内移動を含む転入 <strong>32,692人</strong>、転出 <strong>32,570人</strong>、社会増減 <strong>＋122人</strong>。県外移動だけの超過と定義が異なる。<a href="#S18">[S18]</a></p><p>2025年国勢調査速報では<strong>17市町すべて人口減</strong>。高松の都市機能集積、さぬき・東かがわ・中讃・西讃の高齢化、島内交通と瀬戸内の航路を別軸で見る。<a href="#S02">[S02]</a></p><div class="callout warn">人口推計は2023年時点の前提による将来シナリオであり、確定未来ではない。都市部の減少率と離島の減少率を一律とみなさない。</div></div></div>
 <h3>医療圏別の分析（人口は2023年4月1日、病床は2024年7月1日）</h3><div class="grid" id="regionCards"><div class="card">東部：高松市・さぬき市・東かがわ市・三木町・直島町。高度医療集積と病診連携。</div><div class="card">小豆：土庄町・小豆島町。島内医療の維持と保守BCP。</div><div class="card">西部：中讃・三豊の広域市場。救急・回復期・共同利用。</div></div><div class="footnote">人口：香川県第8次計画（2023年4月）東部512,310人、小豆25,236人、西部389,320人。2025年の県人口速報とは年次が異なる。<a href="#S25">[S25]</a></div></div></section>
