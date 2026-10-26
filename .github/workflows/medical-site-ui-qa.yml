@@ -36,6 +36,10 @@ jobs:
           node-version: '22'
       - name: Validate HTML links, JS syntax and common shell
         run: node medical-intelligence/assets/qa-site.mjs
+      - name: Install Japanese fonts for reliable Hyogo visual screenshots
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk
       - name: Validate Hyogo research data, SVGs, source citations, anchors and JavaScript
         run: node medical-intelligence/hyogo/qa-hyogo.mjs
       - name: Verify Hyogo desktop tablet and mobile layouts in headless Chrome
