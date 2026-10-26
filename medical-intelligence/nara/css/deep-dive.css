@@ -58,3 +58,13 @@
 @media(max-width:650px){.deepStats{gap:9px}.deepStats>div{padding:14px 11px}.deepStats strong{font-size:1.53rem}.deepStats span{font-size:.72rem}.deepStats small{font-size:.69rem}.deepMethod{padding:14px}.deepLead{padding:14px;font-size:.93rem}.deepPanel{padding:15px}.deepPanel>canvas{height:280px!important}.deepFlowNotes{grid-template-columns:1fr}.deepRegionInsights{grid-template-columns:1fr}.deepSourceBlock{padding:15px}.deepSourceBlock ol{grid-template-columns:1fr}.deepChartGrid{gap:12px}.deepSection .subsectionHeader{margin-top:33px}.deepSection .controls input,.deepSection .controls select{max-width:100%}#deepCTChart,#deepMRIChart{height:390px!important}}
 @media(max-width:370px){.deepStats{grid-template-columns:1fr 1fr}.deepStats strong{font-size:1.33rem}.deepPanel>canvas{height:260px!important}}
 @media print{.deepSection .deepChartGrid{grid-template-columns:1fr 1fr}.deepPanel{box-shadow:none;break-inside:avoid}.deepStats>div{print-color-adjust:exact;-webkit-print-color-adjust:exact}.roadConcept{max-height:320px}.deepSourceBlock{break-inside:avoid}}
+
+
+.deepLineage{background:#f7fbfc;border:1px solid #d4e6eb;border-radius:15px;padding:24px;margin:28px 0 20px}
+.deepLineage h3{margin:0;color:#163f54;font-size:1.1rem}
+.lineageSteps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin-top:14px}
+.lineageSteps>div{min-width:0;background:#fff;border-radius:12px;border-top:5px solid #19858c;padding:14px 10px;box-shadow:0 5px 14px #15394a0a}
+.lineageSteps>div:nth-child(2){border-top-color:#4d8fba}.lineageSteps>div:nth-child(3){border-top-color:#daa35d}.lineageSteps>div:nth-child(4){border-top-color:#936aaf}.lineageSteps>div:nth-child(5){border-top-color:#77a77c}
+.lineageSteps b{display:block;color:#126d7a;font-size:.83rem}.lineageSteps strong{display:block;font-size:.82rem;color:#20485d;margin:8px 0 4px}.lineageSteps span{display:block;font-size:.69rem;line-height:1.65;color:#576f7c}
+@media(max-width:920px){.lineageSteps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:650px){.lineageSteps{grid-template-columns:repeat(2,minmax(0,1fr))}.deepLineage{padding:15px}}
