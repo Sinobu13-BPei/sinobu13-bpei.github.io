@@ -190,6 +190,16 @@ function draw(){
       riznoLink.textContent='リズノワン';
       actions.appendChild(riznoLink);
     }
+    if(p[0]==='大分県'){
+      const oitaLink=document.createElement('a');
+      oitaLink.href='./oita/';
+      oitaLink.target='_blank';oitaLink.rel='noopener noreferrer';
+      oitaLink.className='oita-mkt-btn';
+      oitaLink.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:42px;background:#096b80;color:#fff;border:2px solid #07586b;border-radius:10px;padding:7px 13px;font-weight:800;text-decoration:none;';
+      oitaLink.textContent='大分MKT ↗';
+      oitaLink.setAttribute('aria-label','大分県の医療機器市場調査を開く');
+      actions.appendChild(oitaLink);
+    }
     if(p[0]==='鹿児島県'){
       const kagoshimaLink=document.createElement('a');
       kagoshimaLink.href='https://sinobu13-bpei.github.io/medical-intelligence/kagoshima/';
