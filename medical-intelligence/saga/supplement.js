@@ -8,6 +8,8 @@ const D={
   dpcResident:[34.0,10.1,13.4,8.4,17.8],
   dpcMedical:[39.3,3.8,11.6,4.7,17.1],
   mdcDigestive:[19.9,27.2,26.5,29.3,23.0],
+  mdcResp:[9.5,14.8,14.7,11.9,14.6],
+  mdcCardio:[8.9,12.1,9.3,6.6,10.8],
   oldListCount:[268,88,87,47,97],
   specialtyLabels:["内科・消化器等","小児科","整形外科","皮膚科","眼科","耳鼻咽喉科","精神・心療内科","産科・婦人科"],
   specialtyCount:[381,145,74,48,47,35,31,30]
@@ -17,7 +19,7 @@ function chart(id,type,labels,datasets,opts={}){if(!window.Chart||!n(id))return;
 chart("marketTrend","line",D.years.map(String),[{label:"県内医療機器末端市場（民間推計・億円）",data:D.market,pointRadius:5,borderWidth:3,borderColor:"#188295",backgroundColor:"#188295"}],{scales:{x:{},y:{beginAtZero:false,min:150,max:250}}});
 chart("areaMarket","bar",D.areaLabels,[{label:"2024年度参考市場推計（億円）",data:D.marketAreas,backgroundColor:"#267f9b"}],{indexAxis:"y",scales:{x:{beginAtZero:true},y:{}}});
 chart("dpcCompletion","bar",D.areaLabels,[{label:"2023年度 DPC完結率（％）",data:D.dpcCompletion,backgroundColor:D.dpcCompletion.map(x=>x>=100?"#216c8a":x>=80?"#43a39f":"#d9a351")}],{scales:{x:{},y:{beginAtZero:true,max:130}}});
-chart("mdcDigestive","bar",D.areaLabels,[{label:"消化器系・肝胆膵のDPC退院患者構成比（％）",data:D.mdcDigestive,backgroundColor:"#23889f"}],{indexAxis:"y",scales:{x:{beginAtZero:true,max:35},y:{}}});
+chart("mdcDigestive","bar",D.areaLabels,[{label:"消化器系・肝胆膵（％）",data:D.mdcDigestive,backgroundColor:"#23889f"},{label:"呼吸器系（％）",data:D.mdcResp,backgroundColor:"#d5a44b"},{label:"循環器系（％）",data:D.mdcCardio,backgroundColor:"#6ca7bd"}],{indexAxis:"y",scales:{x:{beginAtZero:true,max:35},y:{}}});
 chart("specialtySample","bar",D.specialtyLabels,[{label:"2024年4月提供リスト内該当施設数（重複あり）",data:D.specialtyCount,backgroundColor:"#468ca3"}],{indexAxis:"y",scales:{x:{beginAtZero:true},y:{}}});
 chart("ageChange","bar",D.areaLabels,[{label:"15〜64歳（2050/2020年指数）",data:[71.1,81.7,59.2,57.9,57.9],backgroundColor:"#176e91"},{label:"75歳以上（2050/2020年指数）",data:[128.9,141.7,107.1,105.0,104.7],backgroundColor:"#e0a950"}],{indexAxis:"y",scales:{x:{beginAtZero:true,max:160},y:{}}});
 n("dpcAreaRows").innerHTML=D.areaLabels.map((area,i)=>"<tr><th>"+area+"</th><td>"+D.dpcCompletion[i].toFixed(1)+"%</td><td>"+D.dpcResident[i].toFixed(1)+"千件</td><td>"+D.dpcMedical[i].toFixed(1)+"千件</td><td>"+D.mdcDigestive[i].toFixed(1)+"%</td><td>"+D.oldListCount[i]+"件</td></tr>").join("");
