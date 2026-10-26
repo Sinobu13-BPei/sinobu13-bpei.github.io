@@ -1,0 +1,94 @@
+/* 甲信越地域医療MKT / 公開情報・2026-10-27。病床の集計定義は県ごとに異なり単純合算不可。 */
+window.KOSHINETSU={
+ updated:"2026-10-27",
+ population:[
+  {name:"新潟県",code:"niigata",p2020:2201272,p2025:2084429,p2050:1525004,doctor:0,plan:"https://www.pref.niigata.lg.jp/sec/chiikiiryo/1356890019056.html",beds:"https://www.pref.niigata.lg.jp/sec/chiikiiryo/r7byousyoukinou.html",assoc:"https://www.niigata.med.or.jp/",hq:[37.9022,139.0236]},
+  {name:"長野県",code:"nagano",p2020:2048011,p2025:1973948,p2050:1581949,doctor:232.6,plan:"https://www.pref.nagano.lg.jp/kenko-fukushi/kenko/iryo/shisaku/3rdsogokeikaku.html",beds:"https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/documents/shiryodai2.pdf",assoc:"https://www.nagano.med.or.jp/",hq:[36.6515,138.1810]},
+  {name:"山梨県",code:"yamanashi",p2020:809974,p2025:782238,p2050:611586,doctor:260.1,plan:"https://www.pref.yamanashi.jp/imuka/42_002.html",beds:"https://www.pref.yamanashi.jp/imuka/kikaku/r7byousyouhoukoku.html",assoc:"https://www.yamanashi-med.or.jp/",hq:[35.6642,138.5684]}
+ ],
+ /* 指標は厚生労働省 令和8年4月公表版（第三者の転記と照合した暫定入力）。
+    2024年度長野=許可病床ベースと休棟、山梨=2025/7/1最大使用病床数。定義相違につき県横断合算不可。 */
+ areas:[
+ ["新潟県","下越","新発田",37.95,139.327,154.7,"新潟県立新発田病院","E7日本海東北道・国道7号","高齢救急・生活圏維持","山間部・県境・雪害","救急US・CT更新・保守拠点",[4,3,4,4,3]],
+ ["新潟県","新潟","新潟市",37.916,139.036,248.4,"新潟大学医歯学総合病院","E7・E8・国道8号／新潟港","大学病院・高度急性期・紹介連携","都市部の施設投資競争","高度画像診断・PACS・共同利用",[5,5,2,5,5]],
+ ["新潟県","県央","三条・燕",37.635,138.966,158.3,"済生会新潟県央基幹病院","E8・国道8号・燕三条","病院再編・救急集約","紹介導線・設備再配置","再編後の画像診断・地域連携",[5,4,3,5,4]],
+ ["新潟県","中越","長岡",37.449,138.851,175.9,"長岡赤十字病院","E8・E17・長岡JCT","急性期・がん・広域搬送","豪雪と中山間地の配送","CT/MRI・血管撮影・保守拠点",[5,5,4,4,5]],
+ ["新潟県","魚沼","南魚沼",37.067,138.877,172.9,"魚沼基幹病院","E17・国道17号・越後湯沢","へき地救急・病院機能分担","積雪・山間部・移動長距離","移動診療・保守・POCUS",[4,3,5,5,3]],
+ ["新潟県","上越","上越",37.148,138.238,178.5,"新潟県立中央病院","E8・E18・上越JCT","県境流動・急性期・がん","富山/長野への広域配送","画像診断拠点・物流中継",[4,4,4,4,4]],
+ ["新潟県","佐渡","佐渡",38.015,138.366,160.5,"佐渡総合病院","新潟～両津／直江津～小木航路","島内完結医療・遠隔支援","欠航・海上制約・代替装置","予備機・部材前置き・遠隔保守",[4,2,5,5,2]],
+ ["長野県","佐久","佐久",36.248,138.476,253.5,"佐久医療センター","E18・E52・佐久小諸JCT","広域救急・高齢者医療","山岳部アクセス","画像診断・予防・在宅連携",[4,4,3,4,4],[86,1262,400,203,40]],
+ ["長野県","上小","上田",36.402,138.25,174.2,"信州上田医療センター","E18・国道18号","地域中核と診療所連携","医師配置・東信エリア連携","外来/在宅US・検査共有",[4,3,3,4,4],[41,779,504,457,93]],
+ ["長野県","諏訪","諏訪",36.04,138.113,237.2,"諏訪赤十字病院","E20・岡谷JCT・国道20号","救急・循環器・観光地","冬季・南北交差点渋滞","心エコー・血管撮影・CT",[4,4,3,4,4],[315,785,367,317,0]],
+ ["長野県","上伊那","伊那",35.838,137.953,166.6,"伊那中央病院","E19・国道153号","高齢化・地域連携","長い谷筋・技師不足","地域基幹CT・US保守",[4,3,4,4,3],[161,546,304,218,0]],
+ ["長野県","飯伊","飯田",35.515,137.821,177.7,"飯田市立病院","E19・国道153号／151号","周産期・救急・広域高齢","南信州の長距離配送","複数拠点保守・医療DX",[4,3,5,5,3],[156,701,341,132,0]],
+ ["長野県","木曽","木曽福島",35.842,137.69,222.8,"長野県立木曽病院","国道19号（木曽谷）","小規模圏域・救急アクセス","幹線一本依存・土砂災害","小型装置・予備部品・共同利用",[3,2,5,5,2],[0,94,32,19,0]],
+ ["長野県","松本","松本",36.238,137.972,329.7,"信州大学医学部附属病院","E19・E20・長野道・松本空港","大学病院・研究・高度診療","設備高度化と収益制約","高機能MRI/CT・IT・共同利用",[5,5,3,4,5],[535,1967,705,508,189]],
+ ["長野県","大北","大町",36.503,137.851,225.7,"市立大町総合病院","国道147/148号・大糸線","高齢・観光・山岳救急","白馬方面の降雪/崩落","可搬型US・救急医療BCP",[3,2,5,5,3],[0,251,100,67,0]],
+ ["長野県","長野","長野市",36.648,138.195,207.0,"長野赤十字病院","E18・E19・国道18号","北信基幹・がん・救急","北信越への広域配送","基幹CT・血管撮影・SPD",[5,5,3,4,5],[536,2367,709,1278,76]],
+ ["長野県","北信","中野・飯山",36.75,138.369,216.9,"北信総合病院","E18・国道117号","豪雪地急性期・在宅","豪雪・県境・移動時間","更新・部材前置き・遠隔読影",[3,3,5,5,3],[75,339,140,82,60]],
+ ["山梨県","中北","甲府・中央",35.663,138.568,294.7,"山梨大学医学部附属病院","E20・E52・甲府盆地","大学・高度医療・救急","都市部競争・限られた人員","高度CT/MRI・がん・AI/PACS",[5,5,3,4,5],[698,1682,725,1249]],
+ ["山梨県","峡東","山梨・笛吹",35.693,138.687,187.5,"山梨厚生病院","E20・国道20/140号","診療所承継・高齢医療","診療所不足・農山村分散","US・在宅診療・承継パッケージ",[4,3,3,5,4],[0,546,734,429]],
+ ["山梨県","峡南","富士川・身延",35.562,138.47,218.7,"峡南医療センター富士川病院","E52・国道52号","高齢医療・地域維持","山間部・大雨・山沿い配送","小型US・内視鏡・BCP",[4,2,5,5,3],[0,191,0,106]],
+ ["山梨県","富士・東部","富士吉田・都留",35.488,138.807,207.4,"富士吉田市立病院","E68・国道139号・中央道","観光救急・透析・広域通院","富士山周辺交通・降雪","CT・US・透析・予備機構築",[4,3,4,4,4],[8,574,193,113]]
+ ],
+ schools:[
+ {pref:"新潟県",name:"新潟大学医学部・医歯学総合病院",address:"新潟県新潟市中央区旭町通1番町754",lat:37.9189,lon:139.0343,url:"https://www.nuh.niigata-u.ac.jp/",note:"県内の高度診療・医学教育・専門医研修の中核"},
+ {pref:"長野県",name:"信州大学医学部・医学部附属病院",address:"長野県松本市旭3丁目1-1",lat:36.250,lon:137.979,url:"https://wwwhp.md.shinshu-u.ac.jp/",note:"中信の高度診療、県内医局・紹介ネットワークの核"},
+ {pref:"山梨県",name:"山梨大学医学部・医学部附属病院",address:"山梨県中央市下河東1110",lat:35.610,lon:138.529,url:"https://www.hosp.yamanashi.ac.jp/",note:"中北の専門診療・高度医療と医学教育拠点"}
+ ],
+ institutions:[
+ {pref:"新潟県",kind:"県庁",name:"新潟県庁 地域医療政策課",address:"新潟県新潟市中央区新光町4-1",lat:37.902,lon:139.024,url:"https://www.pref.niigata.lg.jp/sec/chiikiiryo/1356890019056.html"},
+ {pref:"長野県",kind:"県庁",name:"長野県庁 医療政策課",address:"長野県長野市大字南長野字幅下692-2",lat:36.651,lon:138.181,url:"https://www.pref.nagano.lg.jp/iryo/kensei/soshiki/soshiki/kencho/iryo/index.html"},
+ {pref:"山梨県",kind:"県庁",name:"山梨県庁 医務課",address:"山梨県甲府市丸の内1-6-1",lat:35.665,lon:138.568,url:"https://www.pref.yamanashi.jp/imuka/42_002.html"},
+ {pref:"新潟県",kind:"医師会",name:"新潟県医師会",address:"新潟県新潟市中央区医学町通2番町13",lat:37.916,lon:139.040,url:"https://www.niigata.med.or.jp/"},
+ {pref:"長野県",kind:"医師会",name:"長野県医師会",address:"長野県長野市大字三輪1316番地9",lat:36.663,lon:138.198,url:"https://www.nagano.med.or.jp/"},
+ {pref:"山梨県",kind:"医師会",name:"山梨県医師会",address:"山梨県甲府市徳行5丁目13-5",lat:35.659,lon:138.537,url:"https://www.yamanashi-med.or.jp/"},
+ {pref:"新潟県",kind:"保健所",name:"新潟市保健所",address:"新潟県新潟市中央区紫竹山3-3-11",lat:37.895,lon:139.064,url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/15niigata.html"},
+ {pref:"新潟県",kind:"保健所",name:"佐渡保健所",address:"新潟県佐渡市相川2町目浜町20-1",lat:38.033,lon:138.239,url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/15niigata.html"},
+ {pref:"長野県",kind:"保健所",name:"長野市保健所",address:"長野県長野市若里6-6-1",lat:36.625,lon:138.192,url:"https://www.pref.nagano.lg.jp/iryo/kenko/iryo/sodan/iryo-net.html"},
+ {pref:"長野県",kind:"保健所",name:"木曽保健所",address:"長野県木曽郡木曽町福島2757-1",lat:35.846,lon:137.692,url:"https://www.pref.nagano.lg.jp/iryo/kenko/iryo/sodan/iryo-net.html"},
+ {pref:"山梨県",kind:"保健所",name:"中北保健所",address:"山梨県韮崎市本町4-2-4",lat:35.705,lon:138.450,url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/19yamanashi.html"},
+ {pref:"山梨県",kind:"保健所",name:"峡南保健所",address:"山梨県南巨摩郡富士川町鰍沢771-2",lat:35.55,lon:138.463,url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/19yamanashi.html"}
+ ],
+ bedNotes:{nagano:"長野: 2024年度の病床機能報告・許可病床区分（休棟別掲）",yamanashi:"山梨: 2025年7月1日時点の最大使用病床数（未選択除外）",niigata:"新潟: 2025年7月1日時点の自主選択による病床機能報告。数値は原表・画像照合後反映"},
+ sources:[
+ ["S01","国立社会保障・人口問題研究所 地域別将来推計人口（令和5年）","2023年公表・2020～2050年","https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"],
+ ["S02","新潟県 第8次地域保健医療計画","2024～2029年度","https://www.pref.niigata.lg.jp/sec/chiikiiryo/1356890019056.html"],
+ ["S03","長野県 第3期信州保健医療総合計画（第8次）","2024～2029年度","https://www.pref.nagano.lg.jp/kenko-fukushi/kenko/iryo/shisaku/3rdsogokeikaku.html"],
+ ["S04","山梨県 第8次地域保健医療計画","2024～2029年度","https://www.pref.yamanashi.jp/imuka/42_002.html"],
+ ["S05","長野県 新たな地域医療構想に関する懇談会資料（病床・流出）","2025年9月（2024年度病床報告）","https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/documents/shiryodai2.pdf"],
+ ["S06","山梨県 令和7年度病床機能報告","2025年7月1日・2026年8月更新","https://www.pref.yamanashi.jp/imuka/kikaku/r7byousyouhoukoku.html"],
+ ["S07","新潟県 令和7年度病床機能報告","2025年7月1日・2026年6月更新","https://www.pref.niigata.lg.jp/sec/chiikiiryo/r7byousyoukinou.html"],
+ ["S08","厚生労働省 医師偏在指標（令和8年4月公表版）","2026年4月","https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"],
+ ["S09","厚生労働省 医療施設調査 N32（検査装置・件数）","2023年調査／2025年公開","https://www.e-stat.go.jp/index.php/stat-search/database?cycle=7&layout=datalist&page=1&statdisp_id=0004024960&tclass1=000001222880&tclass2=000001222883&tclass3val=0&toukei=00450021&toukei_kind=6&tstat=000001030908"],
+ ["S10","国交省 国道・高速道路ナンバリング","公開路線一覧","https://www.mlit.go.jp/road/sign/numbering/list/index.html"],
+ ["S11","国交省 中部横断自動車道 長坂～八千穂","公開整備計画（未開通）","https://www.ktr.mlit.go.jp/koufu/koufu00636.html"],
+ ["S12","山梨県北杜市 中部日本横断道路の現状","2025年10月更新","https://www.city.hokuto.yamanashi.jp/docs/1360.html"],
+ ["S13","佐渡汽船 2026年運航時刻表","2026年","https://www.sadokisen.co.jp/reservation/timetables/?route=1"],
+ ["S14","厚生労働省 保健所所管区域 新潟","2026年確認","https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/15niigata.html"],
+ ["S15","長野県内の保健所一覧","2026年確認","https://www.pref.nagano.lg.jp/iryo/kenko/iryo/sodan/iryo-net.html"],
+ ["S16","厚生労働省 保健所所管区域 山梨","2026年確認","https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/19yamanashi.html"],
+ ["S17","山梨県 重点医師偏在対策支援区域","2026年3月","https://www.pref.yamanashi.jp/imuka/kikaku/ishihenzai/ishihenzaitaisaku.html"],
+ ["S18","厚生労働省 地域医療支援病院制度・名簿","2026年9月","https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000137801_00015.html"],
+ ["S19","厚生労働省 医療機関機能・病床機能報告","2026年10月","https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000055891.html"],
+ ["S20","医療関連メーカー公開販売店一覧（流通実在確認用）","2026年確認","https://www.alcare.co.jp/stoma-care/shop/"],
+ ["S21","ワケンビーテック 甲信越エリア販売店一覧","2026年確認","https://www.wakenbtech.co.jp/agencylist"],
+ ["S22","地理院タイル 利用規約・地理院地図","2026年確認","https://maps.gsi.go.jp/"],
+ ["S23","山梨大学医学部附属病院 アクセス","2026年確認","https://www.hosp.yamanashi.ac.jp/access/102/"],
+ ["S24","信州大学医学部附属病院 アクセス","2026年確認","https://wwwhp.md.shinshu-u.ac.jp/access/index.html"],
+ ["S25","新潟大学医歯学総合病院（厚労省 医療情報ネット）","2025年更新","https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2430/initialize?kikanCd=BYNCX00003&kikanKbn=1&prefCd=15"],
+ ["S26","厚生労働省 地域別医療機関情報・医療DX","公開資料","https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/"],
+ ["S27","長野県 県内基準病床数と既存病床数","2024年1月現在／2025年公開","https://www.pref.nagano.lg.jp/iryo/kenko/iryo/iryo/byousyousuu.html"],
+ ["S28","山梨県 地域医療構想","2025年12月更新","https://www.pref.yamanashi.jp/imuka/kikaku/yamanasikentiikiiryoukousou.html"]
+ ],
+ distributor:[
+ ["新潟県","クロスウィルメディカル","医療機器・消耗材/病院領域","https://www.wakenbtech.co.jp/agencylist","公開販売店リストで所在確認"],
+ ["新潟県","アズサイエンス 新潟営業所","医療・検査関連の広域供給","https://www.wakenbtech.co.jp/agencylist","県境をまたぐ拠点ネットワーク"],
+ ["長野県","中日本メディカルリンク","病院・医療機器全般","https://www.astec-bio.com/agency_area/chubu/","松本の公開拠点"],
+ ["長野県","上條器械店","病院・診療所・地域商社","https://www.alcare.co.jp/stoma-care/shop/","松本・長野・飯田など公開拠点"],
+ ["長野県","アズサイエンス","医療・検査・研究/広域配送","https://www.wakenbtech.co.jp/agencylist","松本・長野と県外営業所"],
+ ["山梨県","マコト医科精機","地域医療機器供給","https://www.alcare.co.jp/stoma-care/shop/","山梨中央市の公開拠点"],
+ ["山梨県","豊前医化","地域医療機器供給","https://www.wakenbtech.co.jp/agencylist","山梨中央市の公開拠点"],
+ ["山梨県","ムトウ山梨","地域医療機器供給","https://www.alcare.co.jp/stoma-care/shop/","甲斐市の公開拠点"]
+ ]
+};
