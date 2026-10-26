@@ -38,6 +38,16 @@ jobs:
         run: node medical-intelligence/assets/qa-site.mjs
       - name: Validate Kagawa visual atlas data, accessible SVG and JS syntax
         run: node medical-intelligence/kagawa/qa-kagawa.mjs
+      - name: Verify Kagawa atlas desktop tablet and mobile in headless Chrome
+        run: node medical-intelligence/kagawa/qa-kagawa-browser.mjs
+      - name: Store Kagawa atlas screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kagawa-visual-screenshots
+          path: medical-intelligence/kagawa/qa-artifacts/*.png
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Validate Miyazaki source data, JavaScript, medical areas and links
         run: node medical-intelligence/miyazaki/qa-miyazaki.mjs
       - name: Validate Ehime MKT data, accessibility and fallbacks
