@@ -28,7 +28,7 @@ window.HIROSHIMA_RESOURCES={
     {name:"賀茂東部医師会",area:"広島中央",coverage:"東広島市の一部",url:"https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/",address:"東広島市福富町久芳1539-27"},
     {name:"竹原地区医師会",area:"広島中央",coverage:"竹原市",url:"https://www.takehara-ishikai.com/",address:"竹原市中央3-14-1"},
     {name:"豊田郡医師会",area:"広島中央",coverage:"大崎上島町を含む豊田郡",url:"https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/",address:"大崎上島町中野4322-3"},
-    {name:"三原市医師会",area:"尾三",coverage:"三原市",url:"https://www.mihara-hiroshima-med.jp/",address:"三原市宮浦1-15-1"},
+    {name:"三原市医師会",area:"尾三",coverage:"三原市（久井町を除く）・尾道市瀬戸田町",url:"https://mihara-hiroshima-med.jp/mma/mma_info/mma-constitution/",address:"三原市宮浦1-15-1",memberFacilities:53,clinics:44,hospitals:9,bedded:2,nonBedded:42,memberCount:197,countYear:"2025年8月1日",countUrl:"https://mihara-hiroshima-med.jp/mma/mma_info/mma-constitution/",countLabel:"医療機関数（診療所44＋病院9）"},
     {name:"尾道市医師会",area:"尾三",coverage:"尾道市の一部（因島医師会とは組織が異なる）",url:"https://www.onomichi-med.or.jp/outline/summary.php",address:"尾道市栗原東2-4-33",memberFacilities:87,memberCount:300,countYear:"2025年4月",countUrl:"https://www.onomichi-med.or.jp/outline/summary.php",countLabel:"医療機関数"},
     {name:"因島医師会",area:"尾三",coverage:"尾道市因島など",url:"https://ishikai.innoshima-med.jp/",address:"尾道市因島中庄町1962"},
     {name:"世羅郡医師会",area:"尾三",coverage:"世羅町",url:"https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/",address:"世羅町本郷614-1"},
