@@ -1,0 +1,23 @@
+name: Medical Intelligence Hub Contrast QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'medical-intelligence/index.html'
+      - 'medical-intelligence/assets/site.css'
+      - 'medical-intelligence/assets/site.js'
+      - 'medical-intelligence/assets/qa-hub-contrast.mjs'
+      - '.github/workflows/hub-contrast-qa.yml'
+permissions:
+  contents: read
+jobs:
+  contrast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check hub contrast and six representative region links
+        run: node medical-intelligence/assets/qa-hub-contrast.mjs
