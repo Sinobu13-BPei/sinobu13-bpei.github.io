@@ -2,17 +2,17 @@
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="福岡県13二次保健医療圏の人口・医療提供体制・病床機能・大学病院・医療機器市場・医師会・流通・戦略を公開データから中立的に分析。">
 <meta name="theme-color" content="#102b48"><title>福岡県 医療機器市場分析 2026 | Medical Intelligence</title>
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/style.css"><link rel="stylesheet" href="./css/attached-research.css">
 <link rel="stylesheet" href="./css/facility-insights.css">
 <link rel="stylesheet" href="./css/visual-atlas.css"><link rel="stylesheet" href="./css/medical-figures.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-<script src="./data/research.js" defer></script>
-<script src="./data/facility-counts-2023.js" defer></script><script src="./js/app.js" defer></script>
+<script src="./data/research.js" defer></script><script src="./data/attached-research-2026.js" defer></script>
+<script src="./data/facility-counts-2023.js" defer></script><script src="./js/app.js" defer></script><script src="./js/attached-research.js" defer></script>
 <script src="./js/facility-insights.js" defer></script><script src="./js/visual-atlas.js" defer></script><script src="./js/medical-figures.js" defer></script></head>
 <body id="top"><header><div class="shell"><a class="brand" href="../">MEDICAL INTELLIGENCE ／ 福岡県</a><nav aria-label="ページ内ナビゲーション">
-<a href="#summary">サマリー</a><a href="#visual-atlas">図解ダッシュボード</a><a href="#population">人口・医療圏</a><a href="#facility-by-medical-area">診療所・病院数</a><a href="#facility-by-medical-association">医師会別施設</a><a href="#health">病床・提供体制</a><a href="#university">大学・医師会・行政</a><a href="#device">機器市場</a><a href="#distribution">流通</a><a href="#environment">外部環境</a><a href="#strategy">戦略</a><a href="#sources">出典</a></nav></div></header>
+<a href="#summary">サマリー</a><a href="#visual-atlas">図解ダッシュボード</a><a href="#deep-research">13圏域 深掘り</a><a href="#population">人口・医療圏</a><a href="#facility-by-medical-area">診療所・病院数</a><a href="#facility-by-medical-association">医師会別施設</a><a href="#health">病床・提供体制</a><a href="#university">大学・医師会・行政</a><a href="#device">機器市場</a><a href="#distribution">流通</a><a href="#environment">外部環境</a><a href="#strategy">戦略</a><a href="#sources">出典</a></nav></div></header>
 <section class="hero"><div class="shell"><div class="kicker">FUKUOKA / REGIONAL HEALTHCARE INTELLIGENCE 2026</div>
 <h1>福岡県<br>医療機器マーケット分析</h1><div class="hero-svg" aria-hidden="true" style="display:flex;gap:14px;align-items:center;margin:12px 0;opacity:.92">
 <svg width="42" height="42" viewBox="0 0 48 48" fill="none" stroke="#c8f6f3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 41V15h32v26M16 15V7h16v8M5 41h38M20 41V30h8v11M24 19v9M20 23.5h8"/></svg>
@@ -75,6 +75,40 @@
 <article class="viz-panel"><span class="viz-eyebrow">GRAPH 03 / RELATIVE POSITION</span><h3>医師偏在 × 回復期・慢性期構成比 × 病床規模</h3><div class="viz-chart-frame"><canvas id="vizScatter" role="img" aria-label="13圏域について横軸医師偏在指標、縦軸回復期と慢性期病床割合、泡のサイズ総病床数を表す散布図"></canvas></div><p class="viz-caption">2026医師偏在指標と2024病床機能報告の異なる時点を重ねた分析散布図。円の面積は病床規模の目安。施設別の品質・医療水準の評価ではありません。</p></article>
 <article class="viz-panel"><span class="viz-eyebrow">GRAPH 04 / CONCENTRATION</span><h3>福岡・糸島、北九州、久留米への病床集中</h3><div class="viz-chart-frame"><canvas id="vizConcentration" role="img" aria-label="県内3大医療圏とその他10医療圏の病床占有構成を示すドーナツグラフ"></canvas></div><p class="viz-caption">2024年7月1日病床機能報告の4機能計。大規模医療圏の存在を示す指標であり、医療機器販売シェアを示しません。</p></article>
 </div><p class="viz-warning">図表の数値は出典記載の公表値です。一方、病院・診療所の実際の設備投資額、機器販売額、CT/MRI設置台数などの未集計項目は推測によって補完していません。</p>
+</div></section>
+<section id="deep-research" class="section deep-research"><div class="shell">
+<div class="eyebrow">10 / ATTACHED RESEARCH INTEGRATION</div>
+<h2>13医療圏の人口・患者移動・地域医療の構造を深掘り</h2>
+<p class="lede">添付「医療需給総覧1.0」13圏域版（株式会社日本経営・2026年）および添付「福岡県 医療マーケット地域医療構造分析」を読み合わせ、引用可能な公的統計を基に<strong>独自の図表を再作図</strong>しました。添付PDFの画像・グラフをそのまま転載せず、診療需要と地域医療政策の比較に必要な集計値を表示します。</p>
+<div class="deep-totals">
+<div class="deep-total"><small>2020年人口・実績</small><strong id="deepPopulationNow">5,135,214</strong><small>2020年国勢調査ベース／人</small></div>
+<div class="deep-total"><small>2050年人口・推計</small><strong id="deepPopulationFuture">4,479,021</strong><small>社人研2023年推計／人</small></div>
+<div class="deep-total"><small>2050年生産年齢人口・推計</small><strong id="deepWorkersFuture">2,401,316</strong><small>15–64歳／人</small></div>
+<div class="deep-total"><small>2050年75歳以上人口・推計</small><strong id="deepOver75Future">955,875</strong><small>2020年71.7万人→2050年95.6万人</small></div>
+</div>
+<div class="deep-mini-trends" aria-label="医療市場を読む三つの模式図">
+<article><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 42h38M9 40V22h8v18M21 40V13h8v27M33 40V5h8v35"/><path d="M7 13l10 8 9-13 12 6"/></svg><strong>人口縮小 ≠ 医療需要の比例縮小</strong><p>診療ニーズは年齢構成や疾患構造で異なるため、人口総数・65歳以上割合・75歳以上人口を併読する。</p></article>
+<article><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l6 8-6 8-6-8zM11 24l6 7-6 7-6-7zM37 24l6 7-6 7-6-7z"/><path d="M24 21v7l-13 2M24 28l13 2"/></svg><strong>医療圏を越える患者移動</strong><p>DPCの居住地・所在地別症例数の比から、流入集積型と周辺依存型の地域差を可視化する。</p></article>
+<article><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4c-9 8-15 15-15 24a15 15 0 0030 0C39 19 33 12 24 4z"/><path d="M17 29h14M24 22v14"/></svg><strong>設備投資は医療機能×継続性</strong><p>CT/MRI/US・内視鏡・生体情報・医療DXに加え、保守とBCPを地域医療の運用制約として検証する。</p></article>
+</div>
+<div class="deep-chart-grid">
+<article class="deep-card"><p class="deep-eyebrow">FIGURE 01 / 2020–2050 POPULATION</p><h3>13医療圏の人口規模：2020年実績と2050年推計</h3><div class="deep-canvas big"><canvas id="deepPopChart" role="img" aria-label="13二次保健医療圏の2020年人口と2050年人口推計"></canvas></div><p class="deep-copy">単位：万人。社人研の2023年推計は2025年国勢調査によって補正した将来予測ではありません。</p></article>
+<article class="deep-card"><p class="deep-eyebrow">FIGURE 02 / LONG-TERM AGING</p><h3>13医療圏の高齢化率：2020年→2050年</h3><div class="deep-canvas big"><canvas id="deepAgingChart" role="img" aria-label="各医療圏の2020年と2050年の65歳以上人口割合"></canvas></div><p class="deep-copy">前期・後期高齢者の合計。2050年は社人研2023年推計。</p></article>
+<article class="deep-card"><p class="deep-eyebrow">FIGURE 03 / WORKFORCE DECLINE</p><h3>生産年齢人口の増減率（2020→2050年）</h3><div class="deep-canvas big"><canvas id="deepWorkChart" role="img" aria-label="福岡県13医療圏の15〜64歳人口増減率の比較"></canvas></div><p class="deep-copy">地域の医療従事者数を直接推計したものではありません。医療需要と供給人材の双方への圧力を検討する基礎指標です。</p></article>
+<article class="deep-card"><p class="deep-eyebrow">FIGURE 04 / DPC PATIENT FLOWS</p><h3>DPC症例：医療機関所在地／患者住所地の比率</h3><div class="deep-canvas big"><canvas id="deepDpcChart" role="img" aria-label="13医療圏の2023年度DPC施設所在地別症例数と患者住所地別症例数の比率"></canvas></div><p class="deep-copy">2023年度。100％超＝当該圏域に所在する施設の症例数が居住患者の症例数を上回る。「地域内で診療完結した患者の割合」ではありません。</p></article>
+</div>
+<div class="deep-chart-grid">
+<article class="deep-card"><p class="deep-eyebrow">MAP 05 / GSI TILES</p><h3>DPC診療集積の地理的分布</h3><div id="deepMap" class="deep-map" role="region" aria-label="2023年度DPC居住地・所在地別症例数比の13医療圏概略地図"></div><div class="deep-key"><span><i style="background:#207c90"></i>施設所在地比率100%以上</span><span><i style="background:#dda05c"></i>75〜100%未満</span><span><i style="background:#b95a5d"></i>75%未満</span></div><p class="deep-copy">円の位置は医療圏の代表地点（概略）であり施設の所在地・行政境界ではありません。出典：国土地理院「地理院タイル」。</p></article>
+<article class="deep-card"><p class="deep-eyebrow">REGIONAL FINDINGS / YOUR REGION</p><h3>医療圏を選んで人口とDPCの構造を確認</h3><div class="deep-controls"><label for="deepRegionSelect">医療圏</label><select id="deepRegionSelect" aria-label="医療圏別の人口DPC分析を選択"></select></div><div id="deepProfile" class="deep-area-profile" aria-live="polite"></div>
+<div class="deep-alert">医療圏別の「人口・高齢化・DPC症例」の構造は、機器販売額・装置更新件数・医師会の会員数を示すものではありません。営業・販社の非公開売上やシェアは公表対象から除外しています。</div>
+<div class="deep-copy">分析の読み方：<strong>流入集積型</strong>は高度医療・救急・専門施設の稼働と地域外患者の移動、<strong>周辺依存型</strong>は病診連携・共同利用・通院移動の負担、<strong>高齢化先行型</strong>は慢性疾患・在宅支援・機器保守を優先論点とします。いずれも公的統計に基づく独自解釈です。</div>
+</article></div>
+<div class="deep-card"><p class="deep-eyebrow">REGION DATABASE / 13 AREAS × 10 METRICS</p><h3>13医療圏・人口／高齢化／DPCの数値一覧</h3>
+<div class="deep-overview"><table id="deepTable"><thead><tr><th scope="col">医療圏</th><th scope="col">2020人口</th><th scope="col">2050人口</th><th scope="col">人口増減率</th><th scope="col">2020高齢化率</th><th scope="col">2050高齢化率</th><th scope="col">75歳以上増減率</th><th scope="col">15–64歳増減率</th><th scope="col">DPC患者住所地（千件）</th><th scope="col">DPC施設所在地（千件）</th><th scope="col">所在地/住所地</th></tr></thead><tbody></tbody></table></div>
+<p class="deep-copy">人口：2020年国勢調査・2050年推計（社人研2023年公表、2020年基準）。DPC：2023年度、厚生労働省調査をもとにした添付「医療需給総覧1.0」の圏域別集計・図表を照合。DPC件数は千件単位で小数1桁の図表掲載値のため、比率に丸め誤差があります。</p>
+<div class="deep-copy"><strong>引用・検証元：</strong><div class="site-link"><a href="https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp" target="_blank" rel="noopener noreferrer">社人研・地域別将来推計人口2023</a><a href="https://www.mhlw.go.jp/stf/shingi2/newpage_00137.html" target="_blank" rel="noopener noreferrer">厚労省・令和5年度DPC退院患者調査</a><a href="https://www.pref.fukuoka.lg.jp/contents/hoken-iryo-keikaku-2024.html" target="_blank" rel="noopener noreferrer">福岡県・第8次保健医療計画</a></div></div>
+<p class="deep-copy">添付文献：株式会社日本経営「医療需給総覧1.0 地域分析」福岡県13二次医療圏（2026年版）。現行サイトの診療所施設数・病床数は同文献の調査年と統計の定義が異なるため、元の公的原表による2023年施設数・2024年病床数を維持しています。</p>
+</div>
 </div></section>
 <section id="population" class="section" style="background:#eaf2f8"><div class="shell"><div class="eyebrow">02 / POPULATION & 13 AREAS</div><h2>人口動態・13二次保健医療圏</h2><p class="lede">2025年国勢調査による直近実績と、2020年基準の社人研2023年推計を区別します。</p>
 <div class="grid two"><div class="card"><h3>社人研将来人口（2020年基準）</h3><div class="chart"><canvas id="populationChart" role="img" aria-label="福岡県人口の2020～2050年推計"></canvas><p class="chart-fallback">2020年513.5万人 → 2050年447.9万人（社人研2023年推計）</p></div><p class="subnote">推計は2025年国勢調査を反映した更新予測ではありません。<a href="https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/3kekka/Municipalities.asp" target="_blank" rel="noopener">出典：社人研 2023年推計</a></p></div>
