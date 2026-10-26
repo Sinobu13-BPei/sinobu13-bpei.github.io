@@ -28,7 +28,7 @@ endo:svg('<path d="M18 12c27-6 40 8 39 29-1 18-21 16-24 6-3-10 6-12 12-8M18 12l-
 ecg:svg('<path d="M6 44h16l7-20 13 35 8-19h24"/>',"viz-mod-icon"),
 hd:svg('<path d="M20 12v43q0 16 20 16t20-16V12M20 35h40M30 12v15m20-15v15"/>',"viz-mod-icon")};
 function appendFeatureCards(){
- const root=$("vizFeatures");if(!root)return;
+ const root=$("vizFeatures");if(!root)return;root.replaceChildren();
  const items=[["人口・需要構造",pict.patient,"2020年から2050年へ。地域別の絶対数とアクセス需要を並べて読む。"],["機能別病床",pict.hospital,"実績の報告病床と政策上の必要病床を分離し、機能を比較。"],["画像・検査機器",pict.machine,"台数の未検証値を避け、疾患・用途から機器機会を整理。"],["BCP・地域連携",pict.network,"救急・診療所・在宅を結ぶ運用、保守、情報基盤を俯瞰。"]];
  for(const [title,ico,sub]of items){const e=E("article","viz-feature");e.innerHTML=ico; e.append(E("strong","",title),E("p","",sub));root.append(e)}
 }
