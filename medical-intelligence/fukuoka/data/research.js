@@ -782,6 +782,18 @@ window.FUKUOKA_DATA={
       "2023",
       "13医療圏・医師会担当地域内の一般診療所数／所在地集計",
       "https://www.e-stat.go.jp/dbview?sid=0004024930"
+    ],
+    [
+      "厚労省 令和5年度DPC退院患者調査",
+      "2023年度",
+      "二次医療圏の医療機関所在地／患者住所地別症例数の基礎統計（添付圏域資料にて集計）",
+      "https://www.mhlw.go.jp/stf/shingi2/newpage_00137.html"
+    ],
+    [
+      "社人研 日本の地域別将来推計人口（令和5年推計）",
+      "2020年国勢調査基準・2050年推計",
+      "13医療圏の総人口・生産年齢人口・75歳以上人口／高齢化率の比較",
+      "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
     ]
   ],
   "associations": [
