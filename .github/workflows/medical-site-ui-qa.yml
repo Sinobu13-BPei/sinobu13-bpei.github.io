@@ -44,6 +44,16 @@ jobs:
         run: node medical-intelligence/ehime/qa-ehime.mjs
       - name: Validate Tochigi map CSS, responsive UI, data and fallbacks
         run: node medical-intelligence/tochigi/qa-tochigi.mjs
+      - name: Verify Miyazaki infographic desktop tablet and mobile
+        run: node medical-intelligence/miyazaki/qa-miyazaki-browser.mjs
+      - name: Upload Miyazaki visual screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: miyazaki-visual-screenshots
+          path: medical-intelligence/miyazaki/qa-artifacts/*.png
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Verify Tochigi desktop, tablet and mobile in headless Chrome
         run: node medical-intelligence/tochigi/qa-tochigi-browser.mjs
       - name: Store Tochigi UI screenshots
