@@ -23,6 +23,26 @@
   const populationSum=d.regions.reduce((sum,x)=>sum+x.population,0);
   function setHTML(id, html){if($(id))$(id).innerHTML=html;}
   function bootTables(){
+    setHTML("facilityAreaRows",d.regions.map(r=>{const f=r.facilityCounts2021;return '<tr><th scope="row">'+esc(r.name)+'</th><td class="num">'+n(f.hospitals)+'</td><td class="num"><strong>'+n(f.generalClinics)+'</strong></td><td class="num">'+n(f.dentalClinics)+'</td><td class="num">'+n(f.total)+'</td><td class="num">'+n(r.memberClinicCount2023)+'</td><td><a href="'+d.sources.S25.url+'" target="_blank" rel="noopener noreferrer">施設2021</a> / <a href="'+d.sources.S26.url+'" target="_blank" rel="noopener noreferrer">会員2023</a></td></tr>'}).join(""));
+    setHTML("regionFacilityCards",d.regions.map(r=>{const f=r.facilityCounts2021;return '<article class="regionFacilityItem"><h3>'+esc(r.name)+'医療圏</h3><div class="regionFacNumbers"><div><strong>'+n(f.generalClinics)+'</strong><span>一般診療所</span></div><div><strong>'+n(f.hospitals)+'</strong><span>病院</span></div><div><strong>'+n(f.dentalClinics)+'</strong><span>歯科診療所</span></div></div><div class="regionMemberTag">医師会会員診療所（2023年）<b>'+n(r.memberClinicCount2023)+'施設</b></div><p class="small">一般診療所・病院・歯科：2021年（S25）。会員：2023年（S26）。</p></article>'}).join(""));
+    const assocSelector=$("associationAreaFilter");
+    if(assocSelector){d.regions.forEach(r=>{const opt=document.createElement("option");opt.value=r.name;opt.textContent=r.name;assocSelector.appendChild(opt)})}
+    function drawAssociation(){
+      const region=assocSelector?.value||"",q=($("associationSearch")?.value||"").trim().toLowerCase();
+      const list=d.associationDetails.filter(a=>(!region||a.regions.includes(region))&&(!q||[a.name,a.coverage,...a.regions].join(" ").toLowerCase().includes(q)));
+      setHTML("associationRows",list.map(a=>{
+        const isKnown=Number.isFinite(a.clinicMembers);
+        const splits=a.parts?a.parts.map(p=>'<span class="splitPart">'+esc(p.region)+' '+esc(p.name)+'：<b>'+n(p.count)+'</b>施設</span>').join(""):"";
+        const loc=d.associationMap[a.name], map=loc?links({name:a.name,...loc}):"所在地を県医師会一覧で確認";
+        const count=isKnown?n(a.clinicMembers)+'施設':'未公表';
+        const coop=Number.isFinite(a.cooperating)?n(a.cooperating)+'施設':'未公表';
+        return '<tr><th scope="row"><a href="'+esc(a.officialUrl)+'" rel="noopener noreferrer" target="_blank">'+esc(a.name)+'</a></th><td><div>'+esc(a.coverage)+'</div>'+splits+'</td><td>'+a.regions.map(esc).join("・")+(a.type?'（職域等）':'')+'</td><td class="num">'+count+'</td><td class="num">'+coop+'<div class="small">'+esc(a.cooperationScope)+'</div></td><td><a href="'+esc(a.officialUrl)+'" target="_blank" rel="noopener noreferrer">公式サイト・一覧</a><div class="small">'+map+'</div><a href="'+d.sources.S26.url+'" target="_blank" rel="noopener noreferrer">計数出典</a></td></tr>';
+      }).join("")||'<tr><td colspan="6">該当する医師会はありません。</td></tr>');
+    }
+    assocSelector?.addEventListener("change",drawAssociation);
+    $("associationSearch")?.addEventListener("input",drawAssociation);
+    drawAssociation();
+
     setHTML("regions", d.regions.map(r=>'<article class="region"><h3>'+esc(r.name)+'医療圏 <b class="score">'+score(r)+'/100</b></h3><p><strong>主要施設：</strong>'+esc(r.hospitals)+'</p><p><strong>需要：</strong>'+esc(r.driver)+'</p><p><strong>課題：</strong>'+esc(r.issue)+'</p><p><strong>3–5年の機会（独自分析）：</strong>'+esc(r.play)+'</p><p class="small">人口：2020年国勢調査 '+n(r.population)+'人／病床：2025年7月 '+n(r.total)+'床。<a href="'+d.sources.S02.url+'">S02</a>・<a href="'+d.sources.S03.url+'">S03</a></p></article>').join(""));
     setHTML("bedsRows", d.regions.map(r=>'<tr><th scope="row">'+esc(r.name)+'</th><td class="num">'+n(r.total)+'</td>'+r.beds.map(x=>'<td class="num">'+n(x)+'</td>').join("")+'<td class="num">'+n(r.needed)+'</td><td class="num">'+n(r.standard)+'</td></tr>').join(""));
     setHTML("priorityRows",d.regions.map(r=>'<tr><th scope="row">'+esc(r.name)+'</th>'+r.ratings.map((q,i)=>'<td class="num">'+Math.round(q*d.scoreAxis[i].weight/5)+'</td>').join("")+'<td class="num"><b>'+score(r)+'</b></td></tr>').join(""));
@@ -43,6 +63,8 @@
     drawHospitals();
   }
   function buildGraphics(){
+    setHTML("clinicAreaLegend",d.regions.map(r=>'<div><i style="background:'+regionColors[r.name]+'"></i><span>'+esc(r.name)+'</span><strong>'+n(r.facilityCounts2021.generalClinics)+'</strong></div>').join(""));
+
     const stack=(id,key,sum)=>setHTML(id,d.regions.map(r=>{
       const value=key==="population"?r.population:r.areaKm2,percent=value/sum*100;
       return '<div class="stackPart" style="width:'+percent.toFixed(3)+'%;background:'+regionColors[r.name]+'" tabindex="0" title="'+esc(r.name)+'：'+percent.toFixed(1)+'%" aria-label="'+esc(r.name)+' '+percent.toFixed(1)+'パーセント">'+(percent>=8?percent.toFixed(0)+"%":"")+'</div>';
@@ -74,7 +96,7 @@
     return {total,functions,idle,colors,labels};
   }
   function renderCharts(care){
-    const ids=["migrationChart","agingChart","populationChart","bedsChart","priorityChart","doctorChart","doctorPrefChart","ageCompositionChart","densityChart","bedDonutChart","opportunityBubbleChart"];
+    const ids=["facilityMixChart","clinicAreaDonutChart","associationCountChart","associationAreaChart","migrationChart","agingChart","populationChart","bedsChart","priorityChart","doctorChart","doctorPrefChart","ageCompositionChart","densityChart","bedDonutChart","opportunityBubbleChart"];
     if(!window.Chart){for(const id of ids){const el=$(id);if(el)el.insertAdjacentHTML("afterend",'<p class="vizFoot">グラフを表示できません。付近の数値・比較表をご利用ください。</p>')}return}
     Chart.defaults.font.family='"Meiryo UI",system-ui,sans-serif';
     Chart.defaults.font.size=11;
@@ -85,6 +107,13 @@
       try{new Chart(el,{type,data:{labels,datasets},options:{...common,...overrides}})}
       catch(e){console.error("Chart "+id,e);el.insertAdjacentHTML("afterend",'<p class="vizFoot">グラフを表示できません。下記のテキストまたは表を参照してください。</p>')}
     }
+    
+    graph("facilityMixChart","bar",regionOrder,["一般診療所","歯科診療所","病院"].map((name,i)=>({label:name,data:d.regions.map(r=>i===0?r.facilityCounts2021.generalClinics:i===1?r.facilityCounts2021.dentalClinics:r.facilityCounts2021.hospitals),backgroundColor:["#15858a","#e0a365","#5b88b0"][i]})),{scales:{x:{stacked:true},y:{stacked:true}},plugins:{legend:{position:"bottom"}}});
+    graph("clinicAreaDonutChart","doughnut",regionOrder,[{data:d.regions.map(r=>r.facilityCounts2021.generalClinics),backgroundColor:d.regions.map(r=>regionColors[r.name]),borderWidth:0,hoverOffset:4}],{cutout:"75%",plugins:{legend:{display:false}}});
+    const namedAssociations=d.associationDetails.filter(a=>Number.isFinite(a.clinicMembers)).sort((a,b)=>b.clinicMembers-a.clinicMembers);
+    graph("associationCountChart","bar",namedAssociations.map(a=>a.name.replace("地区医師会","医師会")),[{label:"会員診療所（施設）",data:namedAssociations.map(a=>a.clinicMembers),backgroundColor:"#277f91"}],{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{min:0}}});
+    graph("associationAreaChart","bar",regionOrder,[{label:"会員診療所（2023年）",data:d.regions.map(r=>r.memberClinicCount2023),backgroundColor:d.regions.map(r=>regionColors[r.name])}],{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{min:0}}});
+
     graph("migrationChart","bar",["自然増減","社会増減","年間人口増減"],[{label:"人",data:[d.statistics.natural,d.statistics.social,d.statistics.yearlydecline],backgroundColor:["#cc6c68","#2c9d8d","#b45d53"]}],{indexAxis:"y",plugins:{legend:{display:false}}});
     graph("agingChart","bar",["奈良県","全国"],[{label:"65歳以上人口割合（％）",data:[d.statistics.age65rate,d.statistics.nationalAge65],backgroundColor:["#148686","#97b7c6"]}],{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{min:0,max:40}}});
     graph("ageCompositionChart","doughnut",["65歳以上","65歳未満"],[{data:[d.statistics.age65,d.statistics.population2025-d.statistics.age65],backgroundColor:["#13898b","#dbe7ed"],borderWidth:0,hoverOffset:3}],{cutout:"76%",plugins:{legend:{display:false}}});
