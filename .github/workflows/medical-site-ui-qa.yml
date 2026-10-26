@@ -38,6 +38,8 @@ jobs:
         run: node medical-intelligence/assets/qa-site.mjs
       - name: Validate Kagawa visual atlas data, accessible SVG and JS syntax
         run: node medical-intelligence/kagawa/qa-kagawa.mjs
+      - name: Verify Kagawa 17 municipal counts and nine medical associations
+        run: node medical-intelligence/kagawa/qa-facility-counts.mjs
       - name: Verify Kagawa atlas desktop tablet and mobile in headless Chrome
         run: node medical-intelligence/kagawa/qa-kagawa-browser.mjs
       - name: Store Kagawa atlas screenshots
