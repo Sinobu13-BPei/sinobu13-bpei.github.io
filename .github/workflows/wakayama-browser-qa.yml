@@ -1,0 +1,33 @@
+name: Wakayama Medical Market Browser QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'medical-intelligence/wakayama/**'
+      - '.github/workflows/wakayama-browser-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  visual-browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify Wakayama charts, map, mobile layout and search interactions
+        run: node medical-intelligence/wakayama/qa-browser.mjs
+      - name: Store screenshots for desktop, tablet and smartphone
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wakayama-visual-qa-screenshots
+          path: medical-intelligence/wakayama/qa-screenshots/*.png
+          if-no-files-found: ignore
+          retention-days: 7
