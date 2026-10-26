@@ -15,7 +15,11 @@ function refLink(d,id){var s=d.sources.find(function(x){return x.id===id;});retu
 function drawChart(canvas,kind,labels,datasets,other){
  var target=el(canvas);if(!target)return;
  if(typeof Chart==='undefined'){target.parentNode.innerHTML='<p class="warning">グラフライブラリを読み込めません。図の元データは同ページの比較表・医療圏別詳細表で確認できます。</p>';return;}
- return new Chart(el(canvas),{type:kind,data:{labels:labels,datasets:datasets},options:Object.assign({responsive:true,maintainAspectRatio:false,plugins:{legend:{display:datasets.length>1,position:'bottom'},tooltip:{enabled:true}},scales:{y:{beginAtZero:true,grid:{color:'#e6edf4'},ticks:{color:'#51677b'}},x:{grid:{display:false},ticks:{color:'#415c75',autoSkip:false,maxRotation:45}}}},other||{})});
+ try{
+ var options=Object.assign({responsive:true,maintainAspectRatio:false,animation:{duration:250},plugins:{legend:{display:datasets.length>1,position:'bottom'},tooltip:{enabled:true}},scales:{y:{beginAtZero:true,grid:{color:'#e6edf4'},ticks:{color:'#51677b'}},x:{grid:{display:false},ticks:{color:'#415c75',autoSkip:false,maxRotation:45}}}},other||{});
+ if(kind==='doughnut' && (!other || !other.scales)){delete options.scales;}
+ return new Chart(target,{type:kind,data:{labels:labels,datasets:datasets},options:options});
+ }catch(error){target.parentNode.innerHTML='<p class="warning">図表を描画できませんでした。下記の表と出典データから数値をご確認ください。</p>';if(window.console)console.warn('Chart render:',canvas,error);return null;}
 }
 function render(d){
  var weights=d.scoring.axes.map(function(x){return x[1];});
@@ -40,8 +44,8 @@ function render(d){
  el('area-data').innerHTML=lines.join('');
  el('bed-function-data').innerHTML=d.areas.map(function(a){return '<tr><td><strong>'+esc(a.name)+'</strong></td>'+a.beds24.concat(a.need25).map(function(x){return '<td class="num">'+fmt(x)+'</td>';}).join('')+'</tr>';}).join('');
 
- el('strategy-areas').innerHTML=areas.map(function(a){
-  return '<article class="card"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><h3>'+esc(a.name)+'医療圏</h3><strong class="badge estimate">'+score(a).toFixed(1)+' / 100（推計）</strong></div><p class="minor">'+esc(a.municipal)+'</p><p><strong>需要の背景：</strong>'+esc(a.drivers)+'</p><p><strong>主な課題：</strong>'+esc(a.risks)+'</p><p><strong>注目施設・地域：</strong>'+esc(a.focus)+'</p><p><strong>今後3〜5年の論点：</strong>'+esc(a.opportunity)+'</p></article>';
+ el('strategy-areas').innerHTML=areas.map(function(a,index){
+  return '<details class="card region-detail"'+(index===0?' open':'')+'><summary class="region-summary"><span class="region-heading"><strong>'+esc(a.name)+'医療圏</strong><small>'+esc(a.municipal)+'</small></span><span class="badge estimate">'+score(a).toFixed(1)+' / 100（独自評価）</span></summary><div class="region-body"><p><strong>需要の背景：</strong>'+esc(a.drivers)+'</p><p><strong>主な課題：</strong>'+esc(a.risks)+'</p><p><strong>注目施設・地域：</strong>'+esc(a.focus)+'</p><p><strong>今後3〜5年の論点：</strong>'+esc(a.opportunity)+'</p></div></details>';
  }).join('');
  var fHtml=d.facilities.map(function(h){
  return '<article class="location"><h3>'+esc(h.name)+'</h3><div class="minor">'+esc(h.area)+'｜'+esc(h.kind)+'</div><div class="minor">'+esc(h.address)+'</div><div class="links"><a href="'+esc(h.site)+'" rel="noopener noreferrer" target="_blank">施設・行政関連Web ↗</a></div>'+maplinks(h.name,h.address,h.lat,h.lon)+'</article>';
@@ -52,7 +56,7 @@ function render(d){
  }).join('');
  el('health-center-list').innerHTML=centers;
  el('dealer-list').innerHTML=d.distributors.map(function(x){return '<span class="chip">'+esc(x)+'</span>';}).join('');
- el('sources-table').innerHTML=d.sources.map(function(s){return '<tr><td>'+esc(s.id)+'</td><td><a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.title)+'</a></td><td>'+esc(s.year)+'</td><td class="source-url">'+esc(s.url)+'</td></tr>';}).join('');
+ el('sources-table').innerHTML=d.sources.map(function(s){return '<tr><td>'+esc(s.id)+'</td><td><a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.title)+' ↗</a></td><td>'+esc(s.year)+'</td></tr>';}).join('');
  el('excluded-list').innerHTML=d.excluded.map(function(x){return '<li>'+esc(x)+'</li>';}).join('');
  el('pending-list').innerHTML=d.unverified.map(function(x){return '<li>'+esc(x)+'</li>';}).join('');
  el('score-weights').innerHTML=d.scoring.axes.map(function(a){return '<tr><td>'+esc(a[0])+'</td><td class="num">'+fmt(a[1])+'%</td><td>地域ごとに1〜5点を付与</td></tr>';}).join('');
@@ -80,10 +84,21 @@ function render(d){
   el('medical-map').innerHTML='<p class="warning">地図ライブラリまたは地理院タイルを利用できません。下記施設名からGoogleマップと地理院地図へ移動できます。</p>';
  }
  el('status').textContent='2026年10月26日版｜県・厚生労働省・社人研の公表資料と編集部の独自評価を区別して掲載しています。';
- el('filter-areas').addEventListener('input',function(){
-   var q=this.value.trim().toLowerCase();
-   Array.prototype.forEach.call(el('strategy-areas').children,function(card){card.hidden=!!q && !card.textContent.toLowerCase().includes(q);});
- });
+ var search=el('filter-areas'),counter=el('filter-count'),clear=el('clear-filter');
+ function applyRegionFilter(){
+  var q=search.value.trim().toLocaleLowerCase('ja-JP');
+  var shown=0;
+  Array.prototype.forEach.call(el('strategy-areas').children,function(card){
+   var match=!q || card.textContent.toLocaleLowerCase('ja-JP').includes(q);
+   card.hidden=!match;if(match)shown++;
+  });
+  counter.textContent=q ? shown+' / '+d.areas.length+'医療圏を表示' : '全'+d.areas.length+'医療圏を表示';
+  counter.setAttribute('data-empty',shown===0?'true':'false');
+  clear.disabled=!q;
+ }
+ search.addEventListener('input',applyRegionFilter);
+ clear.addEventListener('click',function(){search.value='';applyRegionFilter();search.focus();});
+ applyRegionFilter();
 }
 fetch('./data/research.json',{cache:'no-store'}).then(function(response){
  if(!response.ok)throw Error('データ読み込み失敗 '+response.status);
