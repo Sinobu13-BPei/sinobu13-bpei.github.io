@@ -168,3 +168,11 @@ footer p{margin:5px 0}
 @media(max-width:700px){html{scroll-padding-top:116px}.hero{padding:30px 0 32px}.hero-in{display:flex;flex-direction:column;align-items:stretch;gap:12px}.hero-art{display:none}.section{padding:30px 0 36px}.metrics,.ui-dashboard{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.metrics article{min-height:108px;padding:12px}.metrics strong{font-size:23px}.featuregrid,.facgrid,.devicegrid,.cardgrid,.twocol,.frameworks,.swot,.sources{grid-template-columns:1fr}.ui-mini-cols{grid-template-columns:1fr}.atlas-infographic{gap:8px}.atlas-step{padding:11px}.atlas-step svg{width:28px;height:28px}.atlas-step p{font-size:10.5px}.chartwrap,.ui-mini-cols .chartwrap{height:280px}.panel{padding:13px}.ui-rail{padding:9px 14px;top:74px}.ui-rail a{font-size:11px;padding:6px 10px}#map{height:320px;min-height:320px}#regional2050 .network-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#regional2050 .chartwrap{height:315px}.regioncard{padding:13px}.toolbar{gap:7px}footer{padding:24px 0}}
 @media(max-width:370px){.metrics,.ui-dashboard{grid-template-columns:1fr}.atlas-infographic{grid-template-columns:1fr}.atlas-step::after{display:none}#regional2050 .network-grid{grid-template-columns:1fr}.top .logo{font-size:11px;min-width:0}table th,table td{padding:8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Fix sticky rail and avoid two separate menus on wide screens. */
+body{overflow-x:clip}
+@media(min-width:1221px){.top nav{display:none!important}.menubtn{display:none!important}}
+#summary .ui-mini-cols .panel .chartwrap{height:265px}
+#summary .ui-mini-cols .panel h3{font-size:14px}
+@media(max-width:900px){#summary .ui-mini-cols .panel .chartwrap{height:270px}}
+@media(max-width:700px){#summary .ui-mini-cols .panel .chartwrap{height:285px}}
