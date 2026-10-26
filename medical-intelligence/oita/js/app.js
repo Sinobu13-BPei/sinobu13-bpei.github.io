@@ -21,7 +21,19 @@ common($("#scoreChart"),"bar",{labels:d.areas.map(a=>a.name),datasets:[{label:"�
 }else{document.querySelectorAll(".chart").forEach(e=>e.insertAdjacentHTML("beforeend",'<p role="status">グラフ配信を読み込めません。数値は表にも掲載しています。</p>'));}
 if(window.L){const map=L.map("map",{scrollWheelZoom:false}).setView([33.17,131.48],8);
 L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png",{attribution:'地理院タイル（国土地理院）',maxZoom:18}).addTo(map);
-d.facilities.forEach(x=>L.circleMarker([x.lat,x.lon],{radius:x.kind==="保健所"?5:7,color:"#0c647e",weight:2,fillColor:x.kind==="保健所"?"#ffda83":"#5bbeb5",fillOpacity:.9}).addTo(map).bindPopup("<b>"+safe(x.name)+"</b><br>"+safe(x.address)+"<br>"+mapUrls(x))); setTimeout(()=>map.invalidateSize(),100);
+const groups=d.facilities.map(x=>{
+const category=x.kind==="保健所"?"health":(x.kind==="行政"||x.kind==="医師会"?"government":"hospital");
+const fill=category==="health"?"#ffda83":category==="government"?"#678fd6":"#5bbeb5";
+const marker=L.circleMarker([x.lat,x.lon],{radius:category==="health"?5:7,color:"#0c647e",weight:2,fillColor:fill,fillOpacity:.9}).addTo(map).bindPopup("<b>"+safe(x.name)+"</b><br>"+safe(x.address)+"<br>"+mapUrls(x));
+return {marker,category};
+});
+window.oitaMap=map; window.oitaMapGroups=groups;
+document.querySelectorAll(".facility-toggle").forEach(el=>el.addEventListener("change",()=>{
+const enabled=new Set(Array.from(document.querySelectorAll(".facility-toggle:checked")).map(x=>x.value));
+groups.forEach(({marker,category})=>enabled.has(category)?marker.addTo(map):map.removeLayer(marker));
+}));
+document.querySelector("#fitMap")?.addEventListener("click",()=>map.setView([33.17,131.48],8));
+setTimeout(()=>map.invalidateSize(),100);
 }else{const el=$("#map");el.querySelector(".map-fallback").textContent="地図ライブラリが利用できません。施設一覧の地図リンクをご利用ください。";}
 }
 $("#menuToggle").addEventListener("click",()=>{const nav=$("#navigation");let open=nav.classList.toggle("open");$("#menuToggle").setAttribute("aria-expanded",String(open));});
