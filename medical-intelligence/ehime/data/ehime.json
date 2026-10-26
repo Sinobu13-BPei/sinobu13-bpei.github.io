@@ -6,7 +6,9 @@
     "forecast2040": 1073827,
     "forecast2050": 944634,
     "scope": "愛媛県6二次医療圏",
-    "note": "2025病床機能報告（2025/7/1）の病床数。休棟等を含む総数は機能4分類計と異なる"
+    "note": "2025病床機能報告（2025/7/1）の病床数。休棟等を含む総数は機能4分類計と異なる",
+    "editor": "日野富子",
+    "edition": "追加資料の内容を検証・公表可能な部分のみ反映した公開版"
   },
   "population": [
     {
@@ -590,6 +592,95 @@
       "社人研 日本の将来推計人口・全国2023年推計",
       "2020実績・2040推計（千人単位）",
       "https://www.ipss.go.jp/pp-zenkoku/j/zenkoku2023/pp_zenkoku2023.asp"
+    ],
+    [
+      "S20",
+      "愛媛県 保健統計年報 第4章・第1表 医療施設数・率（全国比較）",
+      "2023-10-01（令和6年版年報収録）",
+      "https://www.pref.ehime.jp/uploaded/attachment/161770.pdf"
+    ],
+    [
+      "S21",
+      "愛媛県 保健統計年報 第4章・第3表 医療施設数（市町別）",
+      "2023-10-01（令和6年版年報収録）",
+      "https://www.pref.ehime.jp/uploaded/attachment/161772.pdf"
+    ],
+    [
+      "S22",
+      "愛媛県 保健福祉課 死亡の統計（主要死因）",
+      "2023（2025年12月掲載）",
+      "https://www.pref.ehime.jp/page/14774.html"
+    ],
+    [
+      "S23",
+      "厚生労働省 新たな地域医療構想等に関する検討会 2040年医療需要資料",
+      "2024-08-26作成／2020-2040年全国推計",
+      "https://www.mhlw.go.jp/content/12300000/001417710.pdf"
+    ],
+    [
+      "S24",
+      "四国厚生支局 令和8年度 特掲診療料施設基準・CT/MRI届出",
+      "2026年10月9日更新",
+      "https://kouseikyoku.mhlw.go.jp/shikoku/shinsei/shido_kansa/shitei_kijun/tokukei_shinryo_r08.html"
+    ],
+    [
+      "S25",
+      "厚生労働省 医療情報ネット・医療機関オープンデータ",
+      "2026年公開資料",
+      "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/newpage_43373.html"
     ]
-  ]
+  ],
+  "additionalEvidence": {
+    "clinic2023": {
+      "year": "2023-10-01",
+      "hospitals": 134,
+      "clinics": 1175,
+      "per100k": {
+        "hospitalsEhime": 10.4,
+        "hospitalsJapan": 6.5,
+        "clinicsEhime": 91,
+        "clinicsJapan": 84.4
+      },
+      "cities": {
+        "松山市": 475,
+        "今治市": 109,
+        "新居浜市": 81,
+        "西条市": 81,
+        "宇和島市": 72
+      },
+      "source": "S20,S21"
+    },
+    "death2023": {
+      "unit": "粗死亡率/人口10万人",
+      "causes": [
+        [
+          "悪性新生物",
+          349.6,
+          315.6
+        ],
+        [
+          "心疾患",
+          275.5,
+          190.7
+        ],
+        [
+          "老衰",
+          209.6,
+          156.7
+        ]
+      ],
+      "source": "S22"
+    },
+    "age85Japan2040": {
+      "emergencyAmbulanceChangePercent": 75,
+      "homeCareDemandChangePercent": 62,
+      "scope": "全国推計であり愛媛県予測ではない",
+      "source": "S23"
+    },
+    "ctClinicList": {
+      "ehimeCoverage": "追加資料の部分リストに未収録。設置0台ではなく未検証",
+      "status": "県別全数未確定",
+      "source": "S24,S25"
+    }
+  }
 }
