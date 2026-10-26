@@ -18,27 +18,22 @@ function fillAreas(){
 let areas=D.areas.filter(x=>(s==='全県'||x[0]===s)&&(!term||[...x,doctorIndex.get(x[0]+'|'+x[1])?.[3]||''].join(' ').toLocaleLowerCase().includes(term)));
  $('#areaCount').textContent=areas.length+' / '+D.areas.length+'医療圏';
  $('#arearows').innerHTML=areas.length?areas.map(p=>{const d=doctorIndex.get(p[0]+'|'+p[1]);return row([esc(p[0]),'<b>'+esc(p[1])+'</b>'+(d?'<div class="area-doctor">医師偏在指標 2026：<b>'+d[2].toFixed(1)+'</b></div><div class="mini">'+esc(d[3])+'</div>':'')+'<div class="mini">'+esc(p[2])+'</div>',esc(p[3]),esc(p[4]),esc(p[5]),esc(p[6]),'<span class="score">'+p[7]+'/100</span><div class="mini">独自仮説</div>',a(gsi(p[8],p[9]),'地理院地図')+' '+a(maps(p[1],p[0]),'Google Maps')]);}).join(''):'<tr><td colspan="8" class="empty-row">一致する医療圏はありません。検索語を変更してください。</td></tr>';
- drawScores(areas);
+ if($('#scoreDisclosure')?.open)drawScores(areas);
 }
-$('#areaFilter').addEventListener('change',fillAreas);
+$('#areaFilter').addEventListener('change',()=>{fillAreas();document.dispatchEvent(new CustomEvent('shikoku:area-filter',{detail:{pref:$('#areaFilter').value}}));});
 $('#areaSearch')?.addEventListener('input',fillAreas);
+$('#scoreDisclosure')?.addEventListener('toggle',()=>{if($('#scoreDisclosure').open)fillAreas();});
 function renderPlaces(){
 const q=($('#institutionSearch')?.value||'').trim().toLocaleLowerCase();
 const list=D.places.filter(p=>!q||p.slice(0,3).join(' ').toLocaleLowerCase().includes(q));
 $('#institutionCount').textContent=list.length+' / '+D.places.length+'地点';
 $('#institutions').innerHTML=list.map(p=>'<div class="place"><strong>'+esc(p[1])+' <span class="mini">'+esc(p[2])+' / '+esc(p[0])+'</span></strong>'+a(maps(p[1],p[0]),'Google マップ')+a(gsi(p[3],p[4]),'地理院地図')+(p[5]?' '+a(p[5],'公式サイト'):'')+'</div>').join('')||'<div class="empty-row">該当する地点がありません。</div>';
-$('#dealers').innerHTML=D.dealers.map(p=>row(['<b>'+esc(p[0])+'</b>',esc(p[1]),'<span class="mini">公開事業範囲の整理。地域別売上高・占有率は未検証</span>'])).join('');
 }
 $('#institutionSearch')?.addEventListener('input',renderPlaces);
 renderPlaces();
+$('#dealers').innerHTML=D.dealers.map(p=>row(['<b>'+esc(p[0])+'</b>',esc(p[1]),'<span class="mini">公開事業範囲の整理。地域別売上高・占有率は未検証</span>'])).join('');
 $('#sourcerows').innerHTML=D.sources.map(p=>row([esc(p[0]),esc(p[1]),esc(p[2]),a(p[3],'一次情報を見る')])).join('');
 $('#bedrows').innerHTML=D.kochiBeds.map(p=>row([esc(p[0]),...p.slice(1)])).join('');
-let map;try{if(window.L){map=L.map('map',{scrollWheelZoom:false}).setView([33.85,133.72],8);
-L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{maxZoom:18,attribution:'<a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">地理院タイル</a>'}).addTo(map);
-D.areas.forEach(p=>L.circleMarker([p[8],p[9]],{radius:5,weight:2,color:'#086681',fillColor:'#2eb9a0',fillOpacity:.7}).bindPopup('<b>'+esc(p[0]+' '+p[1])+'医療圏</b><br>代表地点（行政的境界を示すものではありません）<br>'+a(maps(p[1],p[0]),'Google Maps')).addTo(map));
-D.places.forEach(p=>L.circleMarker([p[3],p[4]],{radius:3,color:'#ca6a18',fillOpacity:.7}).bindPopup(esc(p[1])+'<br>'+a(maps(p[1],p[0]),'Google Maps')+'<br>'+a(gsi(p[3],p[4]),'地理院地図')).addTo(map));
-}else $('#map').textContent='地図ライブラリの読み込みに失敗しました。名称リンクをご利用ください。';}
-catch(e){$('#map').textContent='地図の表示に失敗しました。リスト内のマップリンクをご利用ください。';}
 const charts={};function chart(id,type,labels,sets,opts={}){if(!window.Chart)return;let old=charts[id];if(old)old.destroy();let canvas=document.getElementById(id);if(!canvas)return;charts[id]=new Chart(canvas,{type,data:{labels,datasets:sets},options:{responsive:true,maintainAspectRatio:false,indexAxis:opts.indexAxis||'x',plugins:{legend:{display:sets.length>1},tooltip:{mode:'index',intersect:false}},scales:opts.scales||{y:{beginAtZero:true}}}});}
 function drawScores(areas){chart('scoreChart','bar',areas.map(p=>p[0]+'・'+p[1]),[{label:'独自優先度（仮説）',data:areas.map(p=>p[7]),backgroundColor:'#11788e',borderRadius:4}],{indexAxis:'y',scales:{x:{min:0,max:100},y:{ticks:{autoSkip:false}}}});}
 
