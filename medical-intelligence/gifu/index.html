@@ -63,7 +63,20 @@
 <div class="viz-roles" id="vizInstitutionRoles"></div><p class="viz-muted">各主体の一般的役割を整理。機関同士の上下関係・指揮命令を意味しません。</p>
 </div>
 <div class="three"><div class="panel"><h3>大学医学部・附属病院</h3><p>県内で医学部医学科と附属病院を持つ大学は<b>岐阜大学</b>。教育・地域医療人材供給、専門医育成、大学病院の高度医療を分けて評価。大学医局の個別派遣範囲は公表資料で確定できないため推測しない。</p><p><a href="https://hosp.gifu-u.ac.jp/" target="_blank" rel="noopener">大学病院公式サイト</a>｜<a href="https://www.med.gifu-u.ac.jp/" target="_blank" rel="noopener">岐阜大学医学部</a></p></div><div class="panel"><h3>岐阜県医師会・郡市医師会</h3><p>県医師会は岐阜・西濃・中濃・東濃・飛騨の各地区医師会の案内を公開。地域包括ケア、医師の生涯教育、在宅医療、疾病予防の連携先。実施状況の評価は各医師会の公開事業で判断。</p><p><a href="https://www.gifu.med.or.jp/association/districts/" target="_blank" rel="noopener">地区医師会一覧</a></p></div><div class="panel"><h3>県庁・保健所・基金</h3><p>県健康福祉部医療整備課が医療計画・許認可等を所管。保健所・支所は圏域横断で配置。地域医療介護総合確保基金は公募・交付要件を都度確認し、補助金が自動的に付くと誤認しない。</p><p><a href="https://www.pref.gifu.lg.jp/page/9184.html" target="_blank" rel="noopener">保健所窓口</a></p></div></div>
-<div class="panel"><h3>地区医師会一覧（県医師会公表名称）</h3><div class="tablewrap"><table><thead><tr><th>組織</th><th>地区</th><th>公式・位置情報</th></tr></thead><tbody id="associationTable"></tbody></table></div><p class="footnote">資料S09・2026年時点の掲載名称。会館の正確な住所や個別サイトURLは岐阜県医師会の公式一覧で確認してください。GSI初期位置は代表自治体中心付近。</p></div>
+<div class="panel" id="associationFacilityStats">
+<div class="split-title"><div><h3>地区医師会一覧（県医師会公表名称）</h3><p class="viz-muted">県内23地区医師会を一覧化。施設数は<strong>2025年10月1日時点の岐阜県公式・市町村別統計</strong>から対象自治体を集計したもので、医師会への加入施設数とは異なります。</p></div><span class="viz-tag">施設統計：2025年10月1日</span></div>
+<div class="association-kpis" aria-label="県内の医療施設数">
+<div class="assoc-kpi"><small>岐阜県内 一般診療所</small><strong>1,620<span>施設</span></strong><small>全42市町村・県公式統計</small></div>
+<div class="assoc-kpi"><small>岐阜県内 病院</small><strong>93<span>施設</span></strong><small>全42市町村・県公式統計</small></div>
+<div class="assoc-kpi"><small>医師会別に市町村を対応付け</small><strong>22<span>地域医師会</span></strong><small>＋岐阜大学医師会（地域割当なし）</small></div></div>
+<div id="associationRegionBars" class="assoc-areas" aria-label="岐阜県5医療圏の一般診療所数を比較するグラフ"></div>
+<div class="controls assoc-filter-controls">
+<label for="associationRegionFilter">地区フィルター</label><select id="associationRegionFilter"><option value="all">全地区</option><option value="岐阜">岐阜</option><option value="西濃">西濃</option><option value="中濃">中濃</option><option value="東濃">東濃</option><option value="飛騨">飛騨</option></select>
+<span class="viz-muted">数字は地理的な対象範囲内の全医療施設です。</span></div>
+<div class="tablewrap"><table class="assoc-table"><thead><tr><th>地区医師会</th><th>地区</th><th>一般診療所<br><small>地域内</small></th><th>病院<br><small>地域内</small></th><th>合計<br><small>地域内</small></th><th>会員施設数<br><small>確認できた場合のみ</small></th><th>集計対象市町村</th><th>公式・地図</th></tr></thead><tbody id="associationTable"></tbody></table></div>
+<p class="footnote">出典：<a href="https://www.pref.gifu.lg.jp/uploaded/attachment/475576.pdf" target="_blank" rel="noopener noreferrer">岐阜県「市町村別医療施設状況」（2025年10月1日、S27）</a>、<a href="https://www.gifu.med.or.jp/association/districts/" target="_blank" rel="noopener noreferrer">岐阜県医師会の地区一覧（S09）</a>。一般診療所には会員以外の施設を含み、歯科診療所は含めません。医師会公表の会員施設数がある場合は、別欄に年次・出典付きで表示します。</p>
+<p class="footnote">注：岐阜大学医師会は勤務地・所属を基礎とする組織で、特定市町村への施設数割当ができないため「—」。<strong>白川村の一般診療所3施設</strong>は所属医師会の対応関係を確認できなかったため、各医師会の合算から除外しています（ただし県合計1,620施設には含む）。このため医師会別の集計対象は診療所1,617施設、病院93施設です。施設数は地区医師会の正確な会員数を示しません。</p>
+<p class="footnote">公式情報・GSI位置の補足：各会館の正確な所在地は<a href="https://www.gifu.med.or.jp/association/districts/" target="_blank" rel="noopener noreferrer">県医師会掲載情報</a>で確認してください。地理院地図は代表自治体中心付近を初期位置としており、会館住所の正確な位置を保証するものではありません。</p></div>
 <div class="two"><div class="panel"><h3>外来医療計画：共同利用計画</h3><p>岐阜県はCT・MRI・PET・放射線治療装置・マンモグラフィを設置・更新する際に共同利用計画を求める制度を案内。個々の医療機関に義務・例外・取扱いを確認してから提案する（S13）。</p></div><div class="panel"><h3>医療DXの進展</h3><p>国は2026年10月、医療情報化推進方針を公表（S16）。画像・診療情報の連携、クラウド化、標準規格、アクセス管理が重要。一方で個人情報・ネットワーク障害・サイバー対策を投資評価に含める。</p></div></div></div></section>
 <section class="section alternate" id="devices"><div class="wrap"><div class="section-label">06 / MEDICAL DEVICE MARKET</div><h2>設置台数より「検査需要・更新条件・共同利用」</h2>
 <div class="viz-surface" style="margin-bottom:24px">
