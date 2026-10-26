@@ -1,0 +1,1675 @@
+{
+  "updated": "2026-10-27",
+  "groups": [
+    {
+      "id": "g1",
+      "name": "SHIPヘルスケアホールディングス",
+      "previous_name": "SHIPヘルスケアホールディングス",
+      "category": "狭義HD",
+      "listed": "東証プライム",
+      "period": "2026/3",
+      "sales": 7181,
+      "devices": 5096,
+      "device_kind": "医療材料・機器を含む報告セグメント売上（機器単体ではない）",
+      "assets": 3851,
+      "employees": 7819,
+      "area": "全国",
+      "activities": "病院新築・移転、画像診断、大型機器、SPD、メディカルサプライ",
+      "subsidiaries": "グリーンホスピタルサプライ、小西医療器ほか",
+      "source": "https://www.shiphd.co.jp/ir/management/message/",
+      "website": "https://www.shiphd.co.jp/ir/management/message/",
+      "notes": "最新通期",
+      "source_year": "2026/3",
+      "quality": "公開情報・添付資料の照合値"
+    },
+    {
+      "id": "g2",
+      "name": "メディアスホールディングス",
+      "previous_name": "メディアスホールディングス",
+      "category": "狭義HD",
+      "listed": "東証プライム",
+      "period": "2026/6",
+      "sales": 3023.36,
+      "devices": null,
+      "device_kind": null,
+      "assets": 1130,
+      "employees": 2614,
+      "area": "関東・中部・東北・北海道",
+      "activities": "総合医療機器、SPD、低侵襲、介護・福祉",
+      "subsidiaries": "栗原医療器械店、協和医科器械、アルバースほか",
+      "source": "https://disclosure.catr.jp/companies/4d20d/47379/tdnet/7a184/776580",
+      "website": "https://www.medius.co.jp/ir/news/",
+      "notes": "2026年8月12日通期決算公表。機器売上は前年度値のまま掲載せず非表示。",
+      "source_year": "2026/6",
+      "quality": "公開情報・添付資料の照合値"
+    },
+    {
+      "id": "g3",
+      "name": "セイエイ・エル・サンテホールディング",
+      "previous_name": "セイエイ・エル・サンテホールディング",
+      "category": "狭義HD",
+      "listed": "非上場",
+      "period": "2025/12",
+      "sales": 2241,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": 2149,
+      "area": "東海・中国・関西・北部九州・北関東",
+      "activities": "総合医療機器、介護・予防、物流",
+      "subsidiaries": "八神製作所、西日本メディカルリンク、中日本メディカルリンク、豊前医化、日成メディカルほか",
+      "source": "https://www.seiei-ashd.co.jp/company/about/",
+      "website": "https://www.seiei-ashd.co.jp/company/about/",
+      "notes": "公式会社概要",
+      "source_year": "2025/12",
+      "quality": "公開情報・添付資料の照合値"
+    },
+    {
+      "id": "g4",
+      "name": "OLBA DVx HEALTHCARE（旧オルバHD）",
+      "previous_name": "オルバヘルスケアホールディングス",
+      "category": "狭義HD",
+      "listed": "東証スタンダード",
+      "period": "2025/6",
+      "sales": 1227,
+      "devices": null,
+      "device_kind": null,
+      "assets": 459,
+      "employees": 1393,
+      "area": "中国・四国、東北、関西、関東",
+      "activities": "総合医療機器、SPD、病院経営支援",
+      "subsidiaries": "カワニシ、サンセイ医機、日光医科器械、ホスネット・ジャパン、ライフケアほか",
+      "source": "https://www.olbadvx.jp/ir/management/management_02.html",
+      "website": "https://www.olbadvx.jp/ir/management/management_02.html",
+      "notes": "2026年9月1日経営統合・商号変更。売上は旧OLBAの2025/6期値で統合後連結額ではない。",
+      "source_year": "2025/6",
+      "quality": "公開情報・添付資料の照合値"
+    },
+    {
+      "id": "g5",
+      "name": "アイヴイエスホールディングス",
+      "previous_name": "アイヴイエスホールディングス",
+      "category": "狭義HD",
+      "listed": "非上場",
+      "period": "2022/6",
+      "sales": 1092,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": 1012,
+      "area": "九州・沖縄、山口、関東、長野、四国",
+      "activities": "総合医療、画像診断、低侵襲、産業機械",
+      "subsidiaries": "アイティーアイ、上條器械店、シーメックほか",
+      "source": "https://ivs-hldgs.co.jp/",
+      "website": "https://ivs-hldgs.co.jp/",
+      "notes": "公開規模は2022年基準",
+      "source_year": "2022/6",
+      "quality": "添付資料値・一次情報で要確認"
+    },
+    {
+      "id": "g6",
+      "name": "ウイン・パートナーズ",
+      "previous_name": "ウイン・パートナーズ",
+      "category": "狭義HD",
+      "listed": "東証プライム",
+      "period": "2026/3",
+      "sales": 904,
+      "devices": null,
+      "device_kind": null,
+      "assets": 506,
+      "employees": 653,
+      "area": "関東・東北・北海道",
+      "activities": "循環器、心臓血管、低侵襲、医療資産管理",
+      "subsidiaries": "ウイン・インターナショナル、テスコ、トーセイメディカル、トライテック、プラステンメディカル",
+      "source": "https://www.win-partners.co.jp/",
+      "website": "https://www.win-partners.co.jp/",
+      "notes": "最新通期",
+      "source_year": "2026/3",
+      "quality": "添付資料値・一次情報で要確認"
+    },
+    {
+      "id": "g7",
+      "name": "ヤマシタヘルスケアホールディングス",
+      "previous_name": "ヤマシタヘルスケアホールディングス",
+      "category": "狭義HD",
+      "listed": "東証スタンダード",
+      "period": "2026/5",
+      "sales": 641,
+      "devices": null,
+      "device_kind": null,
+      "assets": 271,
+      "employees": 613,
+      "area": "九州・山口・西日本",
+      "activities": "総合医療機器、画像診断、低侵襲、検査、物流",
+      "subsidiaries": "山下医科器械、トムス、マイクロソニックほか",
+      "source": "https://www.yhchd.co.jp/",
+      "website": "https://www.yhchd.co.jp/",
+      "notes": "最新決算短信",
+      "source_year": "2026/5",
+      "quality": "添付資料値・一次情報で要確認"
+    },
+    {
+      "id": "g8",
+      "name": "メディライズホールディングス",
+      "previous_name": "メディライズホールディングス",
+      "category": "狭義HD",
+      "listed": "非上場",
+      "period": "2023",
+      "sales": 580,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": 600,
+      "area": "東北",
+      "activities": "総合医療機器、病院設備、検査",
+      "subsidiaries": "シバタインテック、共立医科器械、レジットメディカル",
+      "source": "https://medi-rise.co.jp/",
+      "website": "https://medi-rise.co.jp/",
+      "notes": "公開規模は2023年基準",
+      "source_year": "2023",
+      "quality": "添付資料値・一次情報で要確認"
+    },
+    {
+      "id": "g9",
+      "name": "エム・シー・ヘルスケアホールディングス",
+      "previous_name": "エム・シー・ヘルスケアホールディングス",
+      "category": "狭義HD",
+      "listed": "非上場",
+      "period": "2025/3",
+      "sales": null,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": 2835,
+      "area": "全国",
+      "activities": "SPD、共同購買、調達代行、保守、資産管理、移動型CT・MRI",
+      "subsidiaries": "エム・シー・ヘルスケア、エム・シー・メディカル、フリーエールほか",
+      "source": "https://mchg.jp/about/company/",
+      "website": "https://mchg.jp/about/company/",
+      "notes": "添付資料に記載の4,835億円は売上／取扱高の定義の一次確認が完了していないため集計から除外。",
+      "source_year": "2025/3",
+      "quality": "公開情報・添付資料の照合値"
+    },
+    {
+      "id": "g10",
+      "name": "USCIホールディングス",
+      "previous_name": "USCIホールディングス",
+      "category": "狭義HD",
+      "listed": "非上場",
+      "period": "公式掲載値",
+      "sales": 260,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": 160,
+      "area": "関東・関西・中部・北陸",
+      "activities": "循環器、心臓血管、輸入・製造・販売",
+      "subsidiaries": "エムシー、メドケア、アクト、ハイメック、ニューポートメディカル、USCIジャパン",
+      "source": "https://www.usciholdings.com/company/outline.shtml",
+      "website": "https://www.usciholdings.com/company/outline.shtml",
+      "notes": "公式会社概要",
+      "source_year": "公式掲載値",
+      "quality": "添付資料値・一次情報で要確認"
+    },
+    {
+      "id": "g11",
+      "name": "TSUMUGU HOLDINGS（旧ほくやく・竹山HD）",
+      "previous_name": "ほくやく・竹山ホールディングス",
+      "category": "混合型HD",
+      "listed": "札証",
+      "period": "2026/3",
+      "sales": 3036.67,
+      "devices": 701,
+      "device_kind": "医療材料・機器を含む報告セグメント売上（機器単体ではない）",
+      "assets": 1557,
+      "employees": 2824,
+      "area": "北海道",
+      "activities": "医薬品、医療機器、薬局、介護、ICT。大型設備から診療材料まで",
+      "subsidiaries": "ほくやく、竹山、テスコ、そえる、マルベリー、アドウイックほか",
+      "source": "https://www.sse.or.jp/wp-content/uploads/2026/05/hokutake2026.3.pdf",
+      "website": "https://www.tsumuguhd.co.jp/company/profile/",
+      "notes": "2026年3月期連結売上高。医療機器売上とは異なる。",
+      "source_year": "2026/3",
+      "quality": "公式決算（連結実績）"
+    },
+    {
+      "id": "g12",
+      "name": "ムトウ",
+      "previous_name": "ムトウ",
+      "category": "非HD大手",
+      "listed": "非上場",
+      "period": "2025/6",
+      "sales": 1793,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": 1241,
+      "area": "全国、札幌・東京本社",
+      "activities": "総合医療機器、SPD、理化学、EC、病院コンサル",
+      "subsidiaries": "ムトウを中核とする23社グループ",
+      "source": "https://www.wism-mutoh.jp/company/company/",
+      "website": "https://www.wism-mutoh.jp/company/company/",
+      "notes": "公式会社概要",
+      "source_year": "2025/6",
+      "quality": "添付資料値・一次情報で要確認"
+    },
+    {
+      "id": "g13",
+      "name": "宮野医療器グループ",
+      "previous_name": "宮野医療器グループ",
+      "category": "非HD大手",
+      "listed": "非上場",
+      "period": "最新非公表",
+      "sales": null,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": null,
+      "area": "関西・西日本",
+      "activities": "総合医療機器、病院支援、専門営業",
+      "subsidiaries": "宮野医療器を中核とする独立グループ",
+      "source": "https://www.miyano.co.jp/",
+      "website": "https://www.miyano.co.jp/",
+      "notes": "最新連結規模非公表",
+      "source_year": "最新非公表",
+      "quality": "添付資料値・一次情報で要確認"
+    },
+    {
+      "id": "g14",
+      "name": "キシヤ",
+      "previous_name": "キシヤ",
+      "category": "非HD大手",
+      "listed": "非上場",
+      "period": "最新非公表",
+      "sales": null,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": null,
+      "area": "九州全域",
+      "activities": "総合医療機器、SPD、新築・建替、専門営業、保守、レンタル",
+      "subsidiaries": "独立企業グループ。OLBAの子会社ではない",
+      "source": "https://www.kishiya.co.jp/",
+      "website": "https://www.kishiya.co.jp/",
+      "notes": "規模非公表",
+      "source_year": "最新非公表",
+      "quality": "添付資料値・一次情報で要確認"
+    },
+    {
+      "id": "g15",
+      "name": "メディパルホールディングス",
+      "previous_name": "メディパルホールディングス",
+      "category": "医薬品卸HD",
+      "listed": "東証プライム",
+      "period": "2026/3",
+      "sales": 38173.54,
+      "devices": null,
+      "device_kind": null,
+      "assets": 19220,
+      "employees": 13024,
+      "area": "全国",
+      "activities": "医薬品卸、医療材料、SPD、物流。メディセオ、MCヘルスケアHD20%保有",
+      "subsidiaries": "メディセオ、エバルス、アトル、MMコーポレーションほか",
+      "source": "https://www2.jpx.co.jp/disc/74590/140120260514532761.pdf",
+      "website": "https://www.medipal.co.jp/ir/financial/performance/",
+      "notes": "2026年3月期連結売上高。医療機器売上とは異なる。",
+      "source_year": "2026/3",
+      "quality": "公式決算（連結実績）"
+    },
+    {
+      "id": "g16",
+      "name": "アルフレッサホールディングス",
+      "previous_name": "アルフレッサホールディングス",
+      "category": "医薬品卸HD",
+      "listed": "東証プライム",
+      "period": "2026/3",
+      "sales": 31040.64,
+      "devices": null,
+      "device_kind": null,
+      "assets": 15070,
+      "employees": 15595,
+      "area": "全国",
+      "activities": "医薬品卸、診断薬、医療材料、院内物流・SPD",
+      "subsidiaries": "アルフレッサ、明祥、四国アルフレッサ、アルフレッサメディカルサービスほか",
+      "source": "https://www2.jpx.co.jp/disc/27840/140120260515536054.pdf",
+      "website": "https://www.alfresa.com/ir/about/",
+      "notes": "2026年3月期連結売上高。医療機器売上とは異なる。",
+      "source_year": "2026/3",
+      "quality": "公式決算（連結実績）"
+    },
+    {
+      "id": "g17",
+      "name": "スズケン",
+      "previous_name": "スズケン",
+      "category": "医薬品卸HD",
+      "listed": "東証プライム",
+      "period": "2026/3",
+      "sales": 24866.47,
+      "devices": null,
+      "device_kind": null,
+      "assets": 11558,
+      "employees": 12717,
+      "area": "全国",
+      "activities": "医薬品卸、診断薬、医療機器、物流プラットフォーム",
+      "subsidiaries": "サンキ、アスティス、翔薬、ナカノ薬品ほか",
+      "source": "https://www2.jpx.co.jp/disc/99870/140120260513528833.pdf",
+      "website": "https://www.suzuken.co.jp/company/about.html",
+      "notes": "2026年3月期連結売上高。医療機器売上とは異なる。",
+      "source_year": "2026/3",
+      "quality": "公式決算（連結実績）"
+    },
+    {
+      "id": "g18",
+      "name": "東邦ホールディングス",
+      "previous_name": "東邦ホールディングス",
+      "category": "医薬品卸HD",
+      "listed": "東証プライム",
+      "period": "2026/3",
+      "sales": 15533.64,
+      "devices": null,
+      "device_kind": null,
+      "assets": 7408,
+      "employees": 7675,
+      "area": "全国、特に関東・東北",
+      "activities": "医薬品卸、医療材料、SPD、病院・薬局支援",
+      "subsidiaries": "東邦薬品、九州東邦、セイコーメディカルブレーンほか",
+      "source": "https://www.tohohd.co.jp/assets/data/2603.pdf",
+      "website": "https://ir.tohohd.co.jp/ja/management/topmessage.html",
+      "notes": "2026年3月期連結売上高。医療機器売上とは異なる。",
+      "source_year": "2026/3",
+      "quality": "公式決算（連結実績）"
+    },
+    {
+      "id": "g19",
+      "name": "バイタルケーエスケー・ホールディングス",
+      "previous_name": "バイタルケーエスケー・ホールディングス",
+      "category": "医薬品卸HD",
+      "listed": "東証プライム",
+      "period": "2026/3",
+      "sales": 6104.97,
+      "devices": null,
+      "device_kind": null,
+      "assets": 3206,
+      "employees": 3871,
+      "area": "東北・関西・中国",
+      "activities": "医薬品卸、医療機器・材料、介護、レンタル",
+      "subsidiaries": "バイタルネット、KSKほか",
+      "source": "https://www2.jpx.co.jp/disc/31510/140120260513528728.pdf",
+      "website": "https://www.vitalksk.co.jp/ir/",
+      "notes": "2026年3月期連結売上高。医療機器売上とは異なる。",
+      "source_year": "2026/3",
+      "quality": "公式決算（連結実績）"
+    },
+    {
+      "id": "p20",
+      "name": "フォレストホールディングス",
+      "previous_name": "フォレストホールディングス",
+      "category": "医薬品卸HD",
+      "listed": "非上場",
+      "period": "2026/3",
+      "sales": 5224,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": 1980,
+      "area": "九州",
+      "activities": "医薬品・医療機器卸、医療関連サービス。アステムを中核とするグループ",
+      "subsidiaries": "アステム／リードヘルスケア等",
+      "source": "https://www.forestg.jp/about/corporate/",
+      "website": "https://www.forestg.jp/about/corporate/",
+      "notes": "2026年3月期会社概要に掲載のグループ連結売上。医療機器単独ではない。",
+      "source_year": "2026/3",
+      "quality": "企業公式会社概要"
+    },
+    {
+      "id": "ind21",
+      "name": "イノメディックス",
+      "previous_name": "イノメディックス",
+      "category": "独立・地域商社",
+      "listed": "非上場",
+      "period": "2025/10",
+      "sales": 817,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": 583,
+      "area": "関東・東日本",
+      "activities": "医療機器・材料・SPD・病院移転支援",
+      "subsidiaries": "",
+      "source": "https://www.innomedics.co.jp/company.html",
+      "website": "https://www.innomedics.co.jp/company.html",
+      "notes": "参考情報。原典会社概要の更新時点・売上定義を確認して利用。",
+      "source_year": "2025/10",
+      "quality": "企業概要・既存調査照合（詳細再確認対象）"
+    },
+    {
+      "id": "ind22",
+      "name": "九州風雲堂販売",
+      "previous_name": "九州風雲堂販売",
+      "category": "独立・地域商社",
+      "listed": "非上場",
+      "period": "2025/4",
+      "sales": 229.27,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": 263,
+      "area": "九州・山口",
+      "activities": "整形外科・手術材料・インプラント",
+      "subsidiaries": "",
+      "source": "https://fuundo.jp/company/information/",
+      "website": "https://fuundo.jp/company/information/",
+      "notes": "参考情報。原典会社概要の更新時点・売上定義を確認して利用。",
+      "source_year": "2025/4",
+      "quality": "企業概要・既存調査照合（詳細再確認対象）"
+    },
+    {
+      "id": "ind23",
+      "name": "琉球光和",
+      "previous_name": "琉球光和",
+      "category": "独立・地域商社",
+      "listed": "非上場",
+      "period": "2026/10",
+      "sales": null,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": null,
+      "area": "沖縄",
+      "activities": "医療機器・医療物流・病院支援",
+      "subsidiaries": "",
+      "source": "https://rkowa.com/company",
+      "website": "https://rkowa.com/company",
+      "notes": "参考情報。原典会社概要の更新時点・売上定義を確認して利用。",
+      "source_year": "2026/10",
+      "quality": "企業概要・既存調査照合（詳細再確認対象）"
+    },
+    {
+      "id": "ind24",
+      "name": "沖縄メディコ",
+      "previous_name": "沖縄メディコ",
+      "category": "独立・地域商社",
+      "listed": "非上場",
+      "period": "2026/10",
+      "sales": null,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": null,
+      "area": "沖縄",
+      "activities": "画像診断・透析・循環器・診療材料",
+      "subsidiaries": "",
+      "source": "https://okinawa-medico.com/",
+      "website": "https://okinawa-medico.com/",
+      "notes": "参考情報。原典会社概要の更新時点・売上定義を確認して利用。",
+      "source_year": "2026/10",
+      "quality": "企業概要・既存調査照合（詳細再確認対象）"
+    },
+    {
+      "id": "ind25",
+      "name": "マコト医科精機",
+      "previous_name": "マコト医科精機",
+      "category": "独立・地域商社",
+      "listed": "非上場",
+      "period": "2026/7",
+      "sales": null,
+      "devices": null,
+      "device_kind": null,
+      "assets": null,
+      "employees": null,
+      "area": "山梨・関東",
+      "activities": "画像診断・設備施工・保守・医療材料",
+      "subsidiaries": "",
+      "source": "https://www.makotomc.co.jp/company/",
+      "website": "https://www.makotomc.co.jp/company/",
+      "notes": "参考情報。原典会社概要の更新時点・売上定義を確認して利用。",
+      "source_year": "2026/7",
+      "quality": "企業概要・既存調査照合（詳細再確認対象）"
+    }
+  ],
+  "subsidiaries": [
+    {
+      "name": "グリーンホスピタルサプライ",
+      "group": "SHIPヘルスケアホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.shiphd.co.jp/ir/management/message/",
+      "source": "https://www.shiphd.co.jp/ir/management/message/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "小西医療器",
+      "group": "SHIPヘルスケアホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.shiphd.co.jp/ir/management/message/",
+      "source": "https://www.shiphd.co.jp/ir/management/message/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "エフエスユニマネジメント",
+      "group": "SHIPヘルスケアホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.shiphd.co.jp/ir/management/message/",
+      "source": "https://www.shiphd.co.jp/ir/management/message/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "セイコーメディカル",
+      "group": "SHIPヘルスケアホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.shiphd.co.jp/ir/management/message/",
+      "source": "https://www.shiphd.co.jp/ir/management/message/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "西野医科器械",
+      "group": "SHIPヘルスケアホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.shiphd.co.jp/ir/management/message/",
+      "source": "https://www.shiphd.co.jp/ir/management/message/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "栗原医療器械店",
+      "group": "メディアスホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "関東・中部・東北・北海道",
+      "website": "https://www.medius.co.jp/ir/news/",
+      "source": "https://www.medius.co.jp/ir/news/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "協和医科器械",
+      "group": "メディアスホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "関東・中部・東北・北海道",
+      "website": "https://www.medius.co.jp/ir/news/",
+      "source": "https://www.medius.co.jp/ir/news/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "アルバース",
+      "group": "メディアスホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "関東・中部・東北・北海道",
+      "website": "https://www.medius.co.jp/ir/news/",
+      "source": "https://www.medius.co.jp/ir/news/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "メディアスソリューション",
+      "group": "メディアスホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "関東・中部・東北・北海道",
+      "website": "https://www.medius.co.jp/ir/news/",
+      "source": "https://www.medius.co.jp/ir/news/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "八神製作所",
+      "group": "セイエイ・エル・サンテホールディング",
+      "category": "構成企業・関連企業",
+      "area": "東海・中国・関西・北部九州・北関東",
+      "website": "https://www.seiei-ashd.co.jp/company/about/",
+      "source": "https://www.seiei-ashd.co.jp/company/about/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "西日本メディカルリンク",
+      "group": "セイエイ・エル・サンテホールディング",
+      "category": "構成企業・関連企業",
+      "area": "東海・中国・関西・北部九州・北関東",
+      "website": "https://www.seiei-ashd.co.jp/company/about/",
+      "source": "https://www.seiei-ashd.co.jp/company/about/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "中日本メディカルリンク",
+      "group": "セイエイ・エル・サンテホールディング",
+      "category": "構成企業・関連企業",
+      "area": "東海・中国・関西・北部九州・北関東",
+      "website": "https://www.seiei-ashd.co.jp/company/about/",
+      "source": "https://www.seiei-ashd.co.jp/company/about/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "豊前医化",
+      "group": "セイエイ・エル・サンテホールディング",
+      "category": "構成企業・関連企業",
+      "area": "東海・中国・関西・北部九州・北関東",
+      "website": "https://www.seiei-ashd.co.jp/company/about/",
+      "source": "https://www.seiei-ashd.co.jp/company/about/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "日成メディカル",
+      "group": "セイエイ・エル・サンテホールディング",
+      "category": "構成企業・関連企業",
+      "area": "東海・中国・関西・北部九州・北関東",
+      "website": "https://www.seiei-ashd.co.jp/company/about/",
+      "source": "https://www.seiei-ashd.co.jp/company/about/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "ジェイテック",
+      "group": "セイエイ・エル・サンテホールディング",
+      "category": "構成企業・関連企業",
+      "area": "東海・中国・関西・北部九州・北関東",
+      "website": "https://www.seiei-ashd.co.jp/company/about/",
+      "source": "https://www.seiei-ashd.co.jp/company/about/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "カワニシ",
+      "group": "OLBA DVx HEALTHCARE（旧オルバHD）",
+      "category": "構成企業・関連企業",
+      "area": "中国・四国、東北、関西、関東",
+      "website": "https://www.olbadvx.jp/ir/management/management_02.html",
+      "source": "https://www.olbadvx.jp/ir/management/management_02.html",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "サンセイ医機",
+      "group": "OLBA DVx HEALTHCARE（旧オルバHD）",
+      "category": "構成企業・関連企業",
+      "area": "中国・四国、東北、関西、関東",
+      "website": "https://www.olbadvx.jp/ir/management/management_02.html",
+      "source": "https://www.olbadvx.jp/ir/management/management_02.html",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "日光医科器械",
+      "group": "OLBA DVx HEALTHCARE（旧オルバHD）",
+      "category": "構成企業・関連企業",
+      "area": "中国・四国、東北、関西、関東",
+      "website": "https://www.olbadvx.jp/ir/management/management_02.html",
+      "source": "https://www.olbadvx.jp/ir/management/management_02.html",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "ホスネット・ジャパン",
+      "group": "OLBA DVx HEALTHCARE（旧オルバHD）",
+      "category": "構成企業・関連企業",
+      "area": "中国・四国、東北、関西、関東",
+      "website": "https://www.olbadvx.jp/ir/management/management_02.html",
+      "source": "https://www.olbadvx.jp/ir/management/management_02.html",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "ディーブイエックス",
+      "group": "OLBA DVx HEALTHCARE（旧オルバHD）",
+      "category": "構成企業・関連企業",
+      "area": "中国・四国、東北、関西、関東",
+      "website": "https://www.olbadvx.jp/ir/management/management_02.html",
+      "source": "https://www.olbadvx.jp/ir/management/management_02.html",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "アイティーアイ",
+      "group": "アイヴイエスホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "九州・沖縄、山口、関東、長野、四国",
+      "website": "https://ivs-hldgs.co.jp/",
+      "source": "https://ivs-hldgs.co.jp/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "上條器械店",
+      "group": "アイヴイエスホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "九州・沖縄、山口、関東、長野、四国",
+      "website": "https://ivs-hldgs.co.jp/",
+      "source": "https://ivs-hldgs.co.jp/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "シーメック",
+      "group": "アイヴイエスホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "九州・沖縄、山口、関東、長野、四国",
+      "website": "https://ivs-hldgs.co.jp/",
+      "source": "https://ivs-hldgs.co.jp/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "ウイン・インターナショナル",
+      "group": "ウイン・パートナーズ",
+      "category": "構成企業・関連企業",
+      "area": "関東・東北・北海道",
+      "website": "https://www.win-partners.co.jp/",
+      "source": "https://www.win-partners.co.jp/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "トーセイメディカル",
+      "group": "ウイン・パートナーズ",
+      "category": "構成企業・関連企業",
+      "area": "関東・東北・北海道",
+      "website": "https://www.win-partners.co.jp/",
+      "source": "https://www.win-partners.co.jp/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "プラステンメディカル",
+      "group": "ウイン・パートナーズ",
+      "category": "構成企業・関連企業",
+      "area": "関東・東北・北海道",
+      "website": "https://www.win-partners.co.jp/",
+      "source": "https://www.win-partners.co.jp/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "山下医科器械",
+      "group": "ヤマシタヘルスケアホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "九州・山口・西日本",
+      "website": "https://www.yhchd.co.jp/",
+      "source": "https://www.yhchd.co.jp/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "トムス",
+      "group": "ヤマシタヘルスケアホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "九州・山口・西日本",
+      "website": "https://www.yhchd.co.jp/",
+      "source": "https://www.yhchd.co.jp/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "シバタインテック",
+      "group": "メディライズホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "東北",
+      "website": "https://medi-rise.co.jp/",
+      "source": "https://medi-rise.co.jp/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "共立医科器械",
+      "group": "メディライズホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "東北",
+      "website": "https://medi-rise.co.jp/",
+      "source": "https://medi-rise.co.jp/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "レジットメディカル",
+      "group": "メディライズホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "東北",
+      "website": "https://medi-rise.co.jp/",
+      "source": "https://medi-rise.co.jp/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "エム・シー・ヘルスケア",
+      "group": "エム・シー・ヘルスケアホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://mchg.jp/about/company/",
+      "source": "https://mchg.jp/about/company/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "エム・シー・メディカル",
+      "group": "エム・シー・ヘルスケアホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://mchg.jp/about/company/",
+      "source": "https://mchg.jp/about/company/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "ほくやく",
+      "group": "TSUMUGU HOLDINGS（旧ほくやく・竹山HD）",
+      "category": "構成企業・関連企業",
+      "area": "北海道",
+      "website": "https://www.tsumuguhd.co.jp/company/profile/",
+      "source": "https://www.tsumuguhd.co.jp/company/profile/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "竹山",
+      "group": "TSUMUGU HOLDINGS（旧ほくやく・竹山HD）",
+      "category": "構成企業・関連企業",
+      "area": "北海道",
+      "website": "https://www.tsumuguhd.co.jp/company/profile/",
+      "source": "https://www.tsumuguhd.co.jp/company/profile/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "テスコ",
+      "group": "TSUMUGU HOLDINGS（旧ほくやく・竹山HD）",
+      "category": "構成企業・関連企業",
+      "area": "北海道",
+      "website": "https://www.tsumuguhd.co.jp/company/profile/",
+      "source": "https://www.tsumuguhd.co.jp/company/profile/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "ノバメディカル",
+      "group": "TSUMUGU HOLDINGS（旧ほくやく・竹山HD）",
+      "category": "構成企業・関連企業",
+      "area": "北海道",
+      "website": "https://www.tsumuguhd.co.jp/company/profile/",
+      "source": "https://www.tsumuguhd.co.jp/company/profile/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "アドウイック",
+      "group": "TSUMUGU HOLDINGS（旧ほくやく・竹山HD）",
+      "category": "構成企業・関連企業",
+      "area": "北海道",
+      "website": "https://www.tsumuguhd.co.jp/company/profile/",
+      "source": "https://www.tsumuguhd.co.jp/company/profile/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "メディセオ",
+      "group": "メディパルホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.medipal.co.jp/ir/financial/performance/",
+      "source": "https://www.medipal.co.jp/ir/financial/performance/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "エバルス",
+      "group": "メディパルホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.medipal.co.jp/ir/financial/performance/",
+      "source": "https://www.medipal.co.jp/ir/financial/performance/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "アトル",
+      "group": "メディパルホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.medipal.co.jp/ir/financial/performance/",
+      "source": "https://www.medipal.co.jp/ir/financial/performance/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "東七",
+      "group": "メディパルホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.medipal.co.jp/ir/financial/performance/",
+      "source": "https://www.medipal.co.jp/ir/financial/performance/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "MMコーポレーション",
+      "group": "メディパルホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.medipal.co.jp/ir/financial/performance/",
+      "source": "https://www.medipal.co.jp/ir/financial/performance/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "アステック",
+      "group": "メディパルホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.medipal.co.jp/ir/financial/performance/",
+      "source": "https://www.medipal.co.jp/ir/financial/performance/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "四国薬業",
+      "group": "メディパルホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.medipal.co.jp/ir/financial/performance/",
+      "source": "https://www.medipal.co.jp/ir/financial/performance/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "よんやく",
+      "group": "メディパルホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.medipal.co.jp/ir/financial/performance/",
+      "source": "https://www.medipal.co.jp/ir/financial/performance/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "中澤氏家",
+      "group": "メディパルホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.medipal.co.jp/ir/financial/performance/",
+      "source": "https://www.medipal.co.jp/ir/financial/performance/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "アルフレッサ",
+      "group": "アルフレッサホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.alfresa.com/ir/about/",
+      "source": "https://www.alfresa.com/ir/about/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "TSアルフレッサ",
+      "group": "アルフレッサホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.alfresa.com/ir/about/",
+      "source": "https://www.alfresa.com/ir/about/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "明祥",
+      "group": "アルフレッサホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.alfresa.com/ir/about/",
+      "source": "https://www.alfresa.com/ir/about/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "琉薬",
+      "group": "アルフレッサホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.alfresa.com/ir/about/",
+      "source": "https://www.alfresa.com/ir/about/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "東北アルフレッサ",
+      "group": "アルフレッサホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.alfresa.com/ir/about/",
+      "source": "https://www.alfresa.com/ir/about/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "四国アルフレッサ",
+      "group": "アルフレッサホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.alfresa.com/ir/about/",
+      "source": "https://www.alfresa.com/ir/about/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "アルフレッサ メディカルサービス",
+      "group": "アルフレッサホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.alfresa.com/ir/about/",
+      "source": "https://www.alfresa.com/ir/about/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "サンキ",
+      "group": "スズケン",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.suzuken.co.jp/company/about.html",
+      "source": "https://www.suzuken.co.jp/company/about.html",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "アスティス",
+      "group": "スズケン",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.suzuken.co.jp/company/about.html",
+      "source": "https://www.suzuken.co.jp/company/about.html",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "翔薬",
+      "group": "スズケン",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.suzuken.co.jp/company/about.html",
+      "source": "https://www.suzuken.co.jp/company/about.html",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "沖縄薬品",
+      "group": "スズケン",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.suzuken.co.jp/company/about.html",
+      "source": "https://www.suzuken.co.jp/company/about.html",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "ナカノ薬品",
+      "group": "スズケン",
+      "category": "構成企業・関連企業",
+      "area": "全国",
+      "website": "https://www.suzuken.co.jp/company/about.html",
+      "source": "https://www.suzuken.co.jp/company/about.html",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "東邦薬品",
+      "group": "東邦ホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国、特に関東・東北",
+      "website": "https://ir.tohohd.co.jp/ja/management/topmessage.html",
+      "source": "https://ir.tohohd.co.jp/ja/management/topmessage.html",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "九州東邦",
+      "group": "東邦ホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "全国、特に関東・東北",
+      "website": "https://ir.tohohd.co.jp/ja/management/topmessage.html",
+      "source": "https://ir.tohohd.co.jp/ja/management/topmessage.html",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "バイタルネット",
+      "group": "バイタルケーエスケー・ホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "東北・関西・中国",
+      "website": "https://www.vitalksk.co.jp/ir/",
+      "source": "https://www.vitalksk.co.jp/ir/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    },
+    {
+      "name": "KSK",
+      "group": "バイタルケーエスケー・ホールディングス",
+      "category": "構成企業・関連企業",
+      "area": "東北・関西・中国",
+      "website": "https://www.vitalksk.co.jp/ir/",
+      "source": "https://www.vitalksk.co.jp/ir/",
+      "relationship_note": "主要グループ情報に基づく。個別の最新資本比率・取扱額は未確認。"
+    }
+  ],
+  "consultants": [
+    {
+      "name": "エム・シー・ヘルスケア",
+      "service": "医療機器調達・仕様策定・SPD",
+      "area": "全国",
+      "source": "https://mchg.jp/business/support/",
+      "website": "https://mchg.jp/business/support/",
+      "revenue": null,
+      "employees": null,
+      "devices": null,
+      "note": "サービス提供範囲は公式事業紹介による。医療機器取扱高・コンサル部門売上は個別に確認できず未掲載。"
+    },
+    {
+      "name": "日本経営",
+      "service": "病院経営・コスト改善・購買ベンチマーク",
+      "area": "全国",
+      "source": "https://nihon-keiei.co.jp/service/hospital/improvement-hosp/cost-management/",
+      "website": "https://nihon-keiei.co.jp/service/hospital/improvement-hosp/cost-management/",
+      "revenue": null,
+      "employees": null,
+      "devices": null,
+      "note": "サービス提供範囲は公式事業紹介による。医療機器取扱高・コンサル部門売上は個別に確認できず未掲載。"
+    },
+    {
+      "name": "MRP（エムアールピー）",
+      "service": "調達交渉・価格比較・SPD・原価分析",
+      "area": "全国",
+      "source": "https://www.mrp-spd.co.jp/home/service/consulting.html",
+      "website": "https://www.mrp-spd.co.jp/home/service/consulting.html",
+      "revenue": null,
+      "employees": null,
+      "devices": null,
+      "note": "サービス提供範囲は公式事業紹介による。医療機器取扱高・コンサル部門売上は個別に確認できず未掲載。"
+    },
+    {
+      "name": "メディヴァ",
+      "service": "病院経営・再整備・事業再生・診療所開業",
+      "area": "全国（案件別）",
+      "source": "https://mediva.co.jp/service/hospital-consulting/",
+      "website": "https://mediva.co.jp/service/hospital-consulting/",
+      "revenue": null,
+      "employees": null,
+      "devices": null,
+      "note": "サービス提供範囲は公式事業紹介による。医療機器取扱高・コンサル部門売上は個別に確認できず未掲載。"
+    },
+    {
+      "name": "グリーンホスピタルサプライ",
+      "service": "新築移転・機器整備・病院プロデュース",
+      "area": "全国",
+      "source": "https://ghs-inc.co.jp/about/",
+      "website": "https://ghs-inc.co.jp/about/",
+      "revenue": null,
+      "employees": null,
+      "devices": null,
+      "note": "サービス提供範囲は公式事業紹介による。医療機器取扱高・コンサル部門売上は個別に確認できず未掲載。"
+    },
+    {
+      "name": "エア・ウォーター・メディエイチ",
+      "service": "SPD・共同購買・保守・経営支援",
+      "area": "全国",
+      "source": "https://awmh.co.jp/spd.html",
+      "website": "https://awmh.co.jp/spd.html",
+      "revenue": null,
+      "employees": null,
+      "devices": null,
+      "note": "サービス提供範囲は公式事業紹介による。医療機器取扱高・コンサル部門売上は個別に確認できず未掲載。"
+    },
+    {
+      "name": "メディアスソリューション",
+      "service": "調達分析・SPD・診療原価",
+      "area": "全国（案件別）",
+      "source": "https://healthcaresolution.jp/company.html",
+      "website": "https://healthcaresolution.jp/company.html",
+      "revenue": null,
+      "employees": null,
+      "devices": null,
+      "note": "サービス提供範囲は公式事業紹介による。医療機器取扱高・コンサル部門売上は個別に確認できず未掲載。"
+    },
+    {
+      "name": "協和医科器械",
+      "service": "調達支援・医療材料ベンチマーク・開業支援",
+      "area": "東海・関東等",
+      "source": "https://www.kyowaika.co.jp/service/fm_support/",
+      "website": "https://www.kyowaika.co.jp/service/fm_support/",
+      "revenue": null,
+      "employees": null,
+      "devices": null,
+      "note": "サービス提供範囲は公式事業紹介による。医療機器取扱高・コンサル部門売上は個別に確認できず未掲載。"
+    },
+    {
+      "name": "NHA（一般社団法人日本ホスピタルアライアンス）",
+      "service": "病院共同購買・経営ベンチマーク",
+      "area": "全国",
+      "source": "https://nha-gpo.or.jp/",
+      "website": "https://nha-gpo.or.jp/",
+      "revenue": null,
+      "employees": null,
+      "devices": null,
+      "note": "サービス提供範囲は公式事業紹介による。医療機器取扱高・コンサル部門売上は個別に確認できず未掲載。"
+    },
+    {
+      "name": "JMGPO（日本医療共同購買機構）",
+      "service": "医療材料共同購買・価格データ",
+      "area": "全国",
+      "source": "https://jmgpo.co.jp/service/index2.html",
+      "website": "https://jmgpo.co.jp/service/index2.html",
+      "revenue": null,
+      "employees": null,
+      "devices": null,
+      "note": "サービス提供範囲は公式事業紹介による。医療機器取扱高・コンサル部門売上は個別に確認できず未掲載。"
+    },
+    {
+      "name": "表示灯メディカルGPO",
+      "service": "共同購買・保守コスト・適正化",
+      "area": "全国（案件別）",
+      "source": "https://fm2.hmgpo.com/business/consulting/",
+      "website": "https://fm2.hmgpo.com/business/consulting/",
+      "revenue": null,
+      "employees": null,
+      "devices": null,
+      "note": "サービス提供範囲は公式事業紹介による。医療機器取扱高・コンサル部門売上は個別に確認できず未掲載。"
+    },
+    {
+      "name": "日本生産性本部",
+      "service": "病院経営・業務改善・SPD",
+      "area": "全国（案件別）",
+      "source": "https://www.jpc-net.jp/consulting/mc/hospital/support.html",
+      "website": "https://www.jpc-net.jp/consulting/mc/hospital/support.html",
+      "revenue": null,
+      "employees": null,
+      "devices": null,
+      "note": "サービス提供範囲は公式事業紹介による。医療機器取扱高・コンサル部門売上は個別に確認できず未掲載。"
+    }
+  ],
+  "regions": [
+    {
+      "name": "北海道",
+      "description": "道内広域・冬季道路障害・離島配送、医薬品／機器の複合物流",
+      "players": [
+        "TSUMUGU HOLDINGS",
+        "ムトウ",
+        "SHIP",
+        "ウイン"
+      ],
+      "hub": "札幌",
+      "lat": 43.0621,
+      "lng": 141.3544
+    },
+    {
+      "name": "東北",
+      "description": "人口縮小・拠点病院再編・中核/周辺拠点の供給時間差",
+      "players": [
+        "メディアス",
+        "メディライズ",
+        "サンセイ医機",
+        "バイタルネット"
+      ],
+      "hub": "仙台",
+      "lat": 38.2682,
+      "lng": 140.8694
+    },
+    {
+      "name": "関東",
+      "description": "高度急性期・大規模SPD・循環器専門商社・価格比較の高密度競争",
+      "players": [
+        "SHIP",
+        "メディアス",
+        "MCヘルスケア",
+        "ウイン",
+        "USCI"
+      ],
+      "hub": "東京",
+      "lat": 35.6762,
+      "lng": 139.6503
+    },
+    {
+      "name": "東海・北陸",
+      "description": "名古屋を中核とする総合商社・医療設備の裾野",
+      "players": [
+        "セイエイ",
+        "メディアス",
+        "ムトウ",
+        "USCI"
+      ],
+      "hub": "名古屋",
+      "lat": 35.1815,
+      "lng": 136.9066
+    },
+    {
+      "name": "関西",
+      "description": "大学病院・病院再整備・SPDと専門販社の重層ネットワーク",
+      "players": [
+        "SHIP",
+        "宮野医療器",
+        "セイエイ",
+        "MCヘルスケア"
+      ],
+      "hub": "大阪",
+      "lat": 34.6937,
+      "lng": 135.5023
+    },
+    {
+      "name": "中国・四国",
+      "description": "島嶼部・山間部と瀬戸内軸、施設集約と在庫共同化",
+      "players": [
+        "OLBA DVx",
+        "SHIP",
+        "セイエイ",
+        "アスティス"
+      ],
+      "hub": "広島",
+      "lat": 34.3853,
+      "lng": 132.4553
+    },
+    {
+      "name": "九州・沖縄",
+      "description": "九州広域配送・長崎/鹿児島等の離島・沖縄海上航空輸送",
+      "players": [
+        "IVS",
+        "ヤマシタ",
+        "キシヤ",
+        "SHIP",
+        "翔薬"
+      ],
+      "hub": "福岡",
+      "lat": 33.5904,
+      "lng": 130.4017
+    }
+  ],
+  "prefectures": [
+    {
+      "name": "北海道",
+      "region": "北海道"
+    },
+    {
+      "name": "青森県",
+      "region": "東北"
+    },
+    {
+      "name": "岩手県",
+      "region": "東北"
+    },
+    {
+      "name": "宮城県",
+      "region": "東北"
+    },
+    {
+      "name": "秋田県",
+      "region": "東北"
+    },
+    {
+      "name": "山形県",
+      "region": "東北"
+    },
+    {
+      "name": "福島県",
+      "region": "東北"
+    },
+    {
+      "name": "茨城県",
+      "region": "関東"
+    },
+    {
+      "name": "栃木県",
+      "region": "関東"
+    },
+    {
+      "name": "群馬県",
+      "region": "関東"
+    },
+    {
+      "name": "埼玉県",
+      "region": "関東"
+    },
+    {
+      "name": "千葉県",
+      "region": "関東"
+    },
+    {
+      "name": "東京都",
+      "region": "関東"
+    },
+    {
+      "name": "神奈川県",
+      "region": "関東"
+    },
+    {
+      "name": "新潟県",
+      "region": "東海・北陸"
+    },
+    {
+      "name": "富山県",
+      "region": "東海・北陸"
+    },
+    {
+      "name": "石川県",
+      "region": "東海・北陸"
+    },
+    {
+      "name": "福井県",
+      "region": "東海・北陸"
+    },
+    {
+      "name": "山梨県",
+      "region": "東海・北陸"
+    },
+    {
+      "name": "長野県",
+      "region": "東海・北陸"
+    },
+    {
+      "name": "岐阜県",
+      "region": "東海・北陸"
+    },
+    {
+      "name": "静岡県",
+      "region": "東海・北陸"
+    },
+    {
+      "name": "愛知県",
+      "region": "東海・北陸"
+    },
+    {
+      "name": "三重県",
+      "region": "東海・北陸"
+    },
+    {
+      "name": "滋賀県",
+      "region": "関西"
+    },
+    {
+      "name": "京都府",
+      "region": "関西"
+    },
+    {
+      "name": "大阪府",
+      "region": "関西"
+    },
+    {
+      "name": "兵庫県",
+      "region": "関西"
+    },
+    {
+      "name": "奈良県",
+      "region": "関西"
+    },
+    {
+      "name": "和歌山県",
+      "region": "関西"
+    },
+    {
+      "name": "鳥取県",
+      "region": "中国・四国"
+    },
+    {
+      "name": "島根県",
+      "region": "中国・四国"
+    },
+    {
+      "name": "岡山県",
+      "region": "中国・四国"
+    },
+    {
+      "name": "広島県",
+      "region": "中国・四国"
+    },
+    {
+      "name": "山口県",
+      "region": "中国・四国"
+    },
+    {
+      "name": "徳島県",
+      "region": "中国・四国"
+    },
+    {
+      "name": "香川県",
+      "region": "中国・四国"
+    },
+    {
+      "name": "愛媛県",
+      "region": "中国・四国"
+    },
+    {
+      "name": "高知県",
+      "region": "中国・四国"
+    },
+    {
+      "name": "福岡県",
+      "region": "九州・沖縄"
+    },
+    {
+      "name": "佐賀県",
+      "region": "九州・沖縄"
+    },
+    {
+      "name": "長崎県",
+      "region": "九州・沖縄"
+    },
+    {
+      "name": "熊本県",
+      "region": "九州・沖縄"
+    },
+    {
+      "name": "大分県",
+      "region": "九州・沖縄"
+    },
+    {
+      "name": "宮崎県",
+      "region": "九州・沖縄"
+    },
+    {
+      "name": "鹿児島県",
+      "region": "九州・沖縄"
+    },
+    {
+      "name": "沖縄県",
+      "region": "九州・沖縄"
+    }
+  ],
+  "sources": [
+    {
+      "title": "JAHID会員紹介（2026年10月21日）",
+      "url": "https://www.jahid.or.jp/about/member-introduction",
+      "year": "2026-10-21"
+    },
+    {
+      "title": "厚生労働省 医薬品・医療機器産業実態調査（卸売業）",
+      "url": "https://www.e-stat.go.jp/stat-search/files?cycle=8&layout=datalist&month=0&tclass1=000001242036&tclass2=000001242039&toukei=00450152&tstat=000001034412&year=20241",
+      "year": "2024年度・2026年公表"
+    },
+    {
+      "title": "SHIP HD IR",
+      "url": "https://www.shiphd.co.jp/ir/management/message/",
+      "year": "2026/3"
+    },
+    {
+      "title": "SHIP HD メディカルサプライ事業",
+      "url": "https://www.shiphd.co.jp/business/msp/",
+      "year": "2026/3"
+    },
+    {
+      "title": "メディパルHD 連結業績",
+      "url": "https://www.medipal.co.jp/ir/financial/performance/",
+      "year": "2026/3"
+    },
+    {
+      "title": "アルフレッサHD 早わかり",
+      "url": "https://www.alfresa.com/ir/about/",
+      "year": "2026/3"
+    },
+    {
+      "title": "スズケン 会社概要",
+      "url": "https://www.suzuken.co.jp/company/about.html",
+      "year": "2026/3"
+    },
+    {
+      "title": "東邦HD IR",
+      "url": "https://ir.tohohd.co.jp/ja/management/topmessage.html",
+      "year": "2026/3"
+    },
+    {
+      "title": "セイエイ 会社概要",
+      "url": "https://www.seiei-ashd.co.jp/company/about/",
+      "year": "2025/12"
+    },
+    {
+      "title": "TSUMUGU HD 会社概要",
+      "url": "https://www.tsumuguhd.co.jp/company/profile/",
+      "year": "2026/10"
+    },
+    {
+      "title": "OLBA DVx 商号変更",
+      "url": "https://www.olbadvx.jp/ir/management/management_02.html",
+      "year": "2026/9"
+    },
+    {
+      "title": "NHA公式",
+      "url": "https://nha-gpo.or.jp/",
+      "year": "2026/4"
+    },
+    {
+      "title": "MRP 病院経営コンサルティング",
+      "url": "https://www.mrp-spd.co.jp/home/service/consulting.html",
+      "year": "2026/10確認"
+    },
+    {
+      "title": "エム・シー・ヘルスケア 調達支援",
+      "url": "https://mchg.jp/business/support/",
+      "year": "2026/10確認"
+    },
+    {
+      "title": "日本経営 コストマネジメント",
+      "url": "https://nihon-keiei.co.jp/service/hospital/improvement-hosp/cost-management/",
+      "year": "2026/10確認"
+    },
+    {
+      "title": "国立病院機構 共同入札コンサル公告の取消",
+      "url": "https://nho.hosp.go.jp/news/nw1-1_00880.html",
+      "year": "2026/10/13"
+    },
+    {
+      "title": "メディパルホールディングス 2026年3月期 連結売上高一次資料",
+      "url": "https://www2.jpx.co.jp/disc/74590/140120260514532761.pdf",
+      "year": "2026年3月期・公開2026年5月（フォレストは会社概要）"
+    },
+    {
+      "title": "アルフレッサホールディングス 2026年3月期 連結売上高一次資料",
+      "url": "https://www2.jpx.co.jp/disc/27840/140120260515536054.pdf",
+      "year": "2026年3月期・公開2026年5月（フォレストは会社概要）"
+    },
+    {
+      "title": "スズケン 2026年3月期 連結売上高一次資料",
+      "url": "https://www2.jpx.co.jp/disc/99870/140120260513528833.pdf",
+      "year": "2026年3月期・公開2026年5月（フォレストは会社概要）"
+    },
+    {
+      "title": "東邦ホールディングス 2026年3月期 連結売上高一次資料",
+      "url": "https://www.tohohd.co.jp/assets/data/2603.pdf",
+      "year": "2026年3月期・公開2026年5月（フォレストは会社概要）"
+    },
+    {
+      "title": "バイタルケーエスケー・ホールディングス 2026年3月期 連結売上高一次資料",
+      "url": "https://www2.jpx.co.jp/disc/31510/140120260513528728.pdf",
+      "year": "2026年3月期・公開2026年5月（フォレストは会社概要）"
+    },
+    {
+      "title": "フォレストホールディングス 2026年3月期 連結売上高一次資料",
+      "url": "https://www.forestg.jp/about/corporate/",
+      "year": "2026年3月期・公開2026年5月（フォレストは会社概要）"
+    },
+    {
+      "title": "TSUMUGU HOLDINGS（旧ほくやく・竹山HD） 2026年3月期 連結売上高一次資料",
+      "url": "https://www.sse.or.jp/wp-content/uploads/2026/05/hokutake2026.3.pdf",
+      "year": "2026年3月期・公開2026年5月（フォレストは会社概要）"
+    },
+    {
+      "title": "イノメディックス 企業情報",
+      "url": "https://www.innomedics.co.jp/company.html",
+      "year": "2025/10"
+    },
+    {
+      "title": "九州風雲堂販売 企業情報",
+      "url": "https://fuundo.jp/company/information/",
+      "year": "2025/4"
+    },
+    {
+      "title": "琉球光和 企業情報",
+      "url": "https://rkowa.com/company",
+      "year": "2026/10"
+    },
+    {
+      "title": "沖縄メディコ 企業情報",
+      "url": "https://okinawa-medico.com/",
+      "year": "2026/10"
+    },
+    {
+      "title": "マコト医科精機 企業情報",
+      "url": "https://www.makotomc.co.jp/company/",
+      "year": "2026/7"
+    }
+  ],
+  "metrics": {
+    "jahid_group_members": 924,
+    "jahid_corporate": 141,
+    "jahid_asof": "2026-10-21",
+    "nha_hospitals": 383,
+    "nha_beds": 139011,
+    "nha_asof": "2026-04",
+    "drug_hds_confirmed": 7
+  },
+  "notes": [
+    "企業数は法人・店舗・支店・資本グループで母数が異なり、相互に合計できない。",
+    "卸売上・コンサル収入・SPD取扱高・総取扱額を加算しない。",
+    "全国の医療機器商社すべての網羅リストではない。",
+    "添付の内部営業評価・取引区分・担当者・未公開数値は掲載しない。"
+  ]
+}
