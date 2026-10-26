@@ -1,4 +1,4 @@
-/* Nagasaki Medical Intelligence | Public-source Atlas | 2026-10-26 */
+/* Nagasaki Medical Intelligence | Public-source Atlas | 2026-10-27 */
 (() => {
   'use strict';
   const node = document.getElementById('site-data');
@@ -36,7 +36,7 @@
   function areaCards() {
     const box = $('areaCards');
     if (!box) return;
-    box.innerHTML = db.areas.map(a => `<article class="area-card"><h3>${clean(a.name)}医療圏 <span class="score">優先度 ${a.score.toFixed(0)}/100</span></h3><div class="area-info">${clean(a.municipalities)}　｜　病床 ${nf.format(a.beds2025.total)}床 / 2025年</div><p><strong>需要ドライバー：</strong>${clean(a.drivers)}</p><p><strong>主な医療機関：</strong>${clean(a.hospitals)}</p><p><strong>3〜5年の仮説：</strong>${clean(a.opportunities)}</p><div class="area-links">${out(google(a.name + ' 医療機関', '長崎県'), 'Googleマップ')}　${out(gsi(a.lat, a.lon), '地理院地図')}　<span class="estimate-tag">提言／独自分析</span></div></article>`).join('');
+    box.innerHTML = db.areas.map(a => `<article class="area-card"><h3>${clean(a.name)}医療圏 <span class="score">優先度 ${a.score.toFixed(0)}/100</span></h3><div class="area-info">${clean(a.municipalities)}　｜　一般診療所 ${nf.format(a.facilities2026?.clinics ?? 0)}施設／病院 ${nf.format(a.facilities2026?.hospitals ?? 0)}施設（ナビイ2026）　｜　病床 ${nf.format(a.beds2025.total)}床 / 2025年</div><p><strong>需要ドライバー：</strong>${clean(a.drivers)}</p><p><strong>主な医療機関：</strong>${clean(a.hospitals)}</p><p><strong>3〜5年の仮説：</strong>${clean(a.opportunities)}</p><div class="area-links">${out(google(a.name + ' 医療機関', '長崎県'), 'Googleマップ')}　${out(gsi(a.lat, a.lon), '地理院地図')}　<span class="estimate-tag">提言／独自分析</span></div></article>`).join('');
   }
   areaCards();
 
@@ -115,6 +115,7 @@
     {label:'2023年社人研推計（万人）',data:Array(years.length-2).fill(null).concat([Math.round(hist['2024']/10000*10)/10,db.population.proj2035/10000]),borderColor:'#df9e64',borderDash:[6,5],pointRadius:4,borderWidth:3}
   ]},options:{...baseOpts(),scales:{...baseOpts().scales,y:{beginAtZero:false,suggestedMin:95,grid:{color:'#e8eff0'},ticks:{callback:v=>v+'万人'}}}}});
   make('bedsChart', {type:'bar',data:{labels:areas,datasets:[['高度急性期','high'],['急性期','acute'],['回復期','recovery'],['慢性期','chronic']].map(([label,key],i)=>({label,data:db.areas.map(a=>a.beds2025[key]),backgroundColor:palette[i],borderRadius:2}))},options:{...baseOpts(),indexAxis:'y',scales:{x:{stacked:true,beginAtZero:true,grid:{color:'#edf1f2'}},y:{stacked:true,grid:{display:false}}},plugins:{legend:{position:'bottom',labels:{boxWidth:12,font:{size:11}}},tooltip:{mode:'index'}}}});
+  make('clinicAreaChart',{type:'bar',data:{labels:areas,datasets:[{label:'病院',data:db.areas.map(a=>a.facilities2026?.hospitals??0),backgroundColor:'#146a88'},{label:'一般診療所',data:db.areas.map(a=>a.facilities2026?.clinics??0),backgroundColor:'#239c9c'},{label:'歯科診療所',data:db.areas.map(a=>a.facilities2026?.dental??0),backgroundColor:'#df9e64'}]},options:{...baseOpts(),indexAxis:'y',scales:{x:{stacked:true,beginAtZero:true,grid:{color:'#edf1f2'}},y:{stacked:true,grid:{display:false}}},plugins:{legend:{position:'bottom'},tooltip:{mode:'index',intersect:false}}}});
   make('doctorsChart',{type:'bar',data:{labels:areas,datasets:[{label:'医師偏在指標 2026',data:db.areas.map(a=>a.doctorIndex2026),backgroundColor:db.areas.map((a,i)=>i>=4?'#38a5a8':'#146a88'),borderRadius:5}]},options:{...baseOpts(),indexAxis:'y',plugins:{legend:{display:false},tooltip:{enabled:true}}}});
   make('needBedsChart',{type:'bar',data:{labels:['高度急性期','急性期','回復期','慢性期'],datasets:[{label:'2025年報告',data:['high','acute','recovery','chronic'].map(k=>db.areas.reduce((t,a)=>t+a.beds2025[k],0)),backgroundColor:'#176784',borderRadius:3},{label:'2025年必要量の参考値',data:['high','acute','recovery','chronic'].map(k=>db.needBeds2025[k]),backgroundColor:'#58ada2',borderRadius:3}]},options:{...baseOpts(),plugins:{legend:{position:'bottom'},tooltip:{enabled:true}}}});
   make('deviceIndexChart',{type:'bar',data:{labels:db.devicesBenchmark.categories,datasets:[{label:'全国',data:db.devicesBenchmark.national,backgroundColor:'#b4cad1',borderRadius:3},{label:'長崎県',data:db.devicesBenchmark.nagasaki,backgroundColor:'#177b83',borderRadius:3}]},options:{...baseOpts(),plugins:{legend:{position:'bottom'}}}});
