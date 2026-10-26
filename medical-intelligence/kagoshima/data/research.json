@@ -35,7 +35,7 @@
         34.2
       ]
     ],
-    "aging2025": 34.5,
+    "aging2025": 34.7,
     "censusPopulationDate": "2025-10-01",
     "censusPublished": "2026-09-29（人口等基本集計確定値）",
     "migration2026Sep": {
@@ -66,7 +66,9 @@
         "year": "2025年国勢調査確定・2020年比"
       }
     ],
-    "reference2030To2040": "将来推計は2020年国勢調査基準の社人研令和5年推計を利用。2025年国勢調査新確報を推計へ直接反映していない。"
+    "reference2030To2040": "将来推計は2020年国勢調査基準の社人研令和5年推計を利用。2025年国勢調査新確報を推計へ直接反映していない。",
+    "elderly2025": 510572,
+    "aging2025Source": "S23"
   },
   "beds": {
     "types": [
@@ -763,6 +765,12 @@
       "year": "2026年4月公表",
       "title": "厚生労働省・二次医療圏別医師偏在指標（2026年4月公表値）",
       "url": "https://www.mhlw.go.jp/content/001691397.pdf"
+    },
+    {
+      "id": "S23",
+      "year": "2025年国勢調査確定値・2026年10月1日公開資料",
+      "title": "鹿児島県 令和7年国勢調査 市町村別・各歳別人口（65歳以上34.7%、510,572人）",
+      "url": "https://www.pref.kagoshima.jp/ac09/tokei/bunya/jinko/jinkouidoutyousa/documents/56541_20261001131510-1.pdf"
     }
   ],
   "excluded": [
