@@ -528,6 +528,16 @@ function draw(){
       kumamotoLink.setAttribute('aria-label','熊本県の医療市場調査を開く');
       actions.appendChild(kumamotoLink);
     }
+    if(['富山県','石川県','福井県'].includes(p[0])){
+      const regionLink=document.createElement('a');
+      regionLink.href='https://sinobu13-bpei.github.io/medical-intelligence/hokuriku3/';
+      regionLink.target='_blank';regionLink.rel='noopener noreferrer';
+      regionLink.className='fukui-mkt-btn';
+      regionLink.style.cssText='background:#e9f5ef;color:#104c49;border:1px solid #4e9c8b;font-weight:800;';
+      regionLink.textContent='北陸3県MKT ↗';
+      regionLink.setAttribute('aria-label','北陸3県の医療機器市場横断分析を開く');
+      actions.appendChild(regionLink);
+    }
     let a=document.createElement('a');a.href=googleMapsUrl(p[0]);a.target='_blank';a.rel='noopener noreferrer';a.className='google-map-btn';a.textContent='Map';a.setAttribute('aria-label',p[0]+'のGoogle Mapsを開く');
     actions.appendChild(a);
     row.append(title,actions);
