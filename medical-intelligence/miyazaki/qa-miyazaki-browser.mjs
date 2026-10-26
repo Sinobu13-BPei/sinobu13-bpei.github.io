@@ -14,7 +14,11 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const port=server.address().port;
 const cb=['chromium','google-chrome','chromium-browser','google-chrome-stable'].map(s=>{const r=spawnSync('which',[s],{encoding:'utf8'});return r.status===0?r.stdout.trim():null}).find(Boolean);
 assert(cb,'Chrome binary missing');
-const profile=mkdtempSync(join(tmpdir(),'miyazaki-ui-')),debug=29417;
+const profile=mkdtempSync(join(tmpdir(),'miyazaki-ui-'));
+const debugAllocator=createServer();
+await new Promise(resolve=>debugAllocator.listen(0,'127.0.0.1',resolve));
+const debug=debugAllocator.address().port;
+await new Promise(resolve=>debugAllocator.close(resolve));
 const chrome=spawn(cb,['--headless=new','--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--disable-extensions','--no-first-run','--remote-debugging-port='+debug,'--user-data-dir='+profile,'about:blank'],{stdio:'ignore'});
 let ws,id=1;const pending=new Map(),results=[];
 const send=(method,params={})=>new Promise((resolve,reject)=>{const n=id++,timer=setTimeout(()=>{pending.delete(n);reject(Error('Timeout '+method))},25000);pending.set(n,{resolve,reject,timer});ws.send(JSON.stringify({id:n,method,params}))});
@@ -79,6 +83,12 @@ try{
   assert.equal(interaction.headers,7,'official 2022 facility table has 7 columns');
   assert.ok(interaction.cols.every(n=>n===7),'every official table row matches headers');
 
+  await evalCode("window.scrollTo({top:0,behavior:'instant'})");await sleep(200);
+  const heroCapture=await send('Page.captureScreenshot',{format:'png',fromSurface:true});
+  writeFileSync(join(shotDir,'miyazaki-'+label+'-hero.png'),Buffer.from(heroCapture.data,'base64'));
+  await evalCode("window.scrollTo({top:document.getElementById('facility-counts').offsetTop-90,behavior:'instant'})");await sleep(200);
+  const facilitiesCapture=await send('Page.captureScreenshot',{format:'png',fromSurface:true});
+  writeFileSync(join(shotDir,'miyazaki-'+label+'-facilities.png'),Buffer.from(facilitiesCapture.data,'base64'));
   await evalCode("window.scrollTo({top:document.getElementById('visual-heatmap').offsetTop-90,behavior:'instant'})");await sleep(300);
   const image=await send('Page.captureScreenshot',{format:'png',fromSurface:true});
   writeFileSync(join(shotDir,'miyazaki-'+label+'.png'),Buffer.from(image.data,'base64'));
