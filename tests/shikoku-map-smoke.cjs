@@ -9,7 +9,7 @@ const html=read('index.html'),css=read('style.css'),dataJs=read('data.js'),mapJs
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(x=>x[1]);
 assert.equal(ids.length,new Set(ids).size,'HTML IDs must be unique');
 for(const href of html.matchAll(/href="#([^"]+)"/g))assert(ids.includes(href[1]),'Missing internal hash anchor '+href[1]);
-for(const script of ['data.js','app.js','map.js'])assert(html.includes('src="./'+script+'"'),'Missing script: '+script);
+for(const script of ['data.js','app.js','map.js'])assert(new RegExp('src="\\./'+script.replace('.','\\.')+'(?:\\?v=[^" ]+)?"').test(html),'Missing script: '+script);
 for(const needed of ['mapMode','mapPref','mapCategory','mapStatus','mapList','mapReset','mapFallback','mapCount','areaFilter','arearows'])assert(ids.includes(needed),'Missing interface control '+needed);
 assert(css.includes('@media(max-width:580px)'),'Mobile map layout missing');
 assert(mapJs.includes('layer.clearLayers()'),'Map layer cleanup missing');
