@@ -38,3 +38,5 @@ jobs:
         run: node medical-intelligence/assets/qa-site.mjs
       - name: Validate Ehime MKT data, accessibility and fallbacks
         run: node medical-intelligence/ehime/qa-ehime.mjs
+      - name: Validate Tochigi map CSS, responsive UI, data and fallbacks
+        run: node medical-intelligence/tochigi/qa-tochigi.mjs
