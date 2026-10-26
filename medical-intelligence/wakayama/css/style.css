@@ -74,3 +74,16 @@
  .strategy-cycle{flex-wrap:wrap;justify-content:flex-start;gap:5px}.cycle-stage{min-width:95px}.strategy-cycle>span{font-size:14px}
  .extra-wide-chart{height:290px;min-height:290px}
 }
+
+/* Legible illustrations on 320–430px mobile screens */
+.landscape-scroll,.pathway-scroll{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin}
+.landscape-scroll:focus-visible,.pathway-scroll:focus-visible{outline:3px solid #edac4b;outline-offset:2px}
+.landscape-scroll::-webkit-scrollbar,.pathway-scroll::-webkit-scrollbar{height:7px}
+.landscape-scroll::-webkit-scrollbar-thumb,.pathway-scroll::-webkit-scrollbar-thumb{background:#a9d0d8;border-radius:4px}
+@media(max-width:680px){
+  .healthcare-landscape{min-width:775px;height:auto;max-height:none}
+  .pathway-cards{min-width:720px;display:flex;gap:6px}
+  .pathway-cards>div{flex:1;padding:10px 5px}
+  .pathway-cards>div:nth-of-type(3),.pathway-cards>div:nth-of-type(4){grid-column:auto}
+  .pathway-cards>b:nth-of-type(2),.pathway-cards>b:nth-of-type(3){grid-column:auto}
+}
