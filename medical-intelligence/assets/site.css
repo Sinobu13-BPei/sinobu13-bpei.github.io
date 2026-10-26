@@ -232,3 +232,23 @@ body.jm-site .hero .hero-cta-layout :is(.links,.handbook-stack) a:focus-visible{
   background-color:#0F2A4A!important;
   border-color:#0F2A4A!important;
 }
+
+/* Wide-area hospital groups: accessible responsive directory */
+#hospital-groups{scroll-margin-top:80px}
+#hospital-groups .hg-note{padding:14px 16px;background:#FFF7E9;border:1px solid #D7B780;border-radius:8px;color:#26384A;line-height:1.7;margin:14px 0}
+#hospital-groups .hg-toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:16px 0}
+#hospital-groups .hg-toolbar label{font-weight:700;color:#0F2A4A}
+#hospital-groups #hospitalGroupSearch{background:#fff;color:#172B40;border:1px solid #A3B7C6;border-radius:8px;padding:11px 14px;min-width:min(100%,300px);max-width:100%}
+#hospital-groups .hg-scroll{overflow-x:auto;max-width:100%;border:1px solid #D5DFE6;border-radius:8px;-webkit-overflow-scrolling:touch}
+#hospital-groups #hospitalGroupTable{min-width:900px;width:100%;border-collapse:collapse;font-size:13px;line-height:1.6}
+#hospital-groups #hospitalGroupTable th{background:#0F2A4A!important;color:#fff!important;-webkit-text-fill-color:#fff!important;text-align:left;padding:12px 10px;white-space:nowrap}
+#hospital-groups #hospitalGroupTable td{background:#fff;color:#1F2937!important;-webkit-text-fill-color:#1F2937!important;border-bottom:1px solid #DDE4EA;padding:11px 10px;vertical-align:top}
+#hospital-groups #hospitalGroupTable tbody tr:nth-child(even) td{background:#F4F7FA}
+#hospital-groups #hospitalGroupTable .hg-name{font-weight:700;min-width:150px}
+#hospital-groups #hospitalGroupTable td a{color:#006B78!important;-webkit-text-fill-color:#006B78!important;font-weight:700}
+#hospital-groups #hospitalGroupTable td small{display:block;margin-top:4px;color:#526577!important;-webkit-text-fill-color:#526577!important}
+#hospital-groups #hospitalGroupTable tr[hidden]{display:none!important}
+#hospital-groups .hg-network{background:#EAF6F6;border:1px solid #B5D7D8;border-radius:8px;color:#17394A;padding:14px 16px;line-height:1.7}
+#hospital-groups .hg-network a{color:#006B78!important}
+#hospital-groups .hg-foot{font-size:13px;color:#445566;line-height:1.75}
+@media(max-width:600px){#hospital-groups .hg-toolbar{align-items:stretch;flex-direction:column}#hospital-groups #hospitalGroupSearch{width:100%}#hospital-groups .hg-note{padding:12px}}
