@@ -239,14 +239,14 @@
       "那賀",
       "紀の川市打田1282",
       "地域中核・救急",
-      "https://www.naga-hp.jp/"
+      "https://www.nagahp.jp/"
     ],
     [
       "橋本市民病院",
       "橋本",
       "橋本市小峰台2-8-1",
       "地域中核・がん診療連携",
-      "https://www.hashimoto-hp.jp/"
+      "https://hashimoto-hsp.jp/"
     ],
     [
       "和歌山県立医科大学附属病院紀北分院",
@@ -260,7 +260,7 @@
       "有田",
       "有田市宮崎町6",
       "有田地域医療",
-      "https://www.aridahp.jp/"
+      "https://www.city.arida.lg.jp/shisetsu/iryohokenfukushi/1001524.html"
     ],
     [
       "済生会有田病院",
@@ -274,7 +274,7 @@
       "御坊",
       "御坊市薗116-2",
       "地域中核・がん診療連携推進",
-      "https://www.hidaka-hp.jp/"
+      "https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2430/initialize?kikanCd=1007200000&kikanKbn=1&prefCd=30"
     ],
     [
       "紀南病院",
@@ -295,14 +295,14 @@
       "新宮",
       "新宮市蜂伏18-7",
       "紀南東部中核・がん診療連携推進",
-      "https://www.hospital.city.shingu.wakayama.jp/"
+      "https://hsp.shingu.wakayama.jp/"
     ],
     [
       "くしもと町立病院",
       "新宮",
       "東牟婁郡串本町サンゴ台691-7",
       "本州最南端地域の医療",
-      "https://www.kushimoto-hp.jp/"
+      "https://www.town.kushimoto.wakayama.jp/fukushi/hospital/"
     ],
     [
       "和歌山県庁 医務課",
@@ -517,6 +517,75 @@
       "全国医療施設調査 令和6年都道府県編",
       "2024年度",
       "https://www.e-stat.go.jp/stat-search/database?cycle=7&layout=datalist&month=0&tclass1=000001232326&tclass2=000001232328&toukei=00450021&tstat=000001030908&year=20240"
+    ],
+    [
+      "S25",
+      "有田市 新有田市立病院建設事業（2027年開院を目指す）",
+      "2026-09-03",
+      "https://www.city.arida.lg.jp/shisei/machizukuri/1005202/index.html"
+    ],
+    [
+      "S26",
+      "和歌山県医師会 郡市医師会公式リンク",
+      "2026-10確認",
+      "https://wakayama.med.or.jp/association/links/"
+    ]
+  ],
+  "associations": [
+    [
+      "和歌山市医師会",
+      "和歌山",
+      "https://www.wakayamacity-med.com/"
+    ],
+    [
+      "海南医師会",
+      "和歌山",
+      "http://www.kainan.wakayama.med.or.jp/"
+    ],
+    [
+      "那賀医師会",
+      "那賀",
+      "http://www.naga.wakayama.med.or.jp/"
+    ],
+    [
+      "伊都医師会",
+      "橋本",
+      "http://www.ito.wakayama.med.or.jp/"
+    ],
+    [
+      "有田医師会",
+      "有田",
+      "http://www.arida.wakayama.med.or.jp/gun/"
+    ],
+    [
+      "有田市医師会",
+      "有田",
+      "http://www.arida.wakayama.med.or.jp/city/index.html"
+    ],
+    [
+      "日高医師会",
+      "御坊",
+      "https://hidaka.wakayama.med.or.jp/"
+    ],
+    [
+      "田辺市医師会",
+      "田辺",
+      "http://tanabeshi-ishikai.org/"
+    ],
+    [
+      "西牟婁郡医師会",
+      "田辺",
+      "https://www.nishimuro-ishikai.or.jp"
+    ],
+    [
+      "東牟婁郡医師会",
+      "新宮",
+      "http://www.higashimuro.wakayama.med.or.jp/"
+    ],
+    [
+      "新宮市医師会",
+      "新宮",
+      "http://singuu.wakayama.med.or.jp/"
     ]
   ]
 }
