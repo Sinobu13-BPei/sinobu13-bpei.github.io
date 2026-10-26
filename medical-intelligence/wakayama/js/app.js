@@ -33,6 +33,31 @@
     try { new window.Chart($(id), opts); }
     catch(e){ console.warn('Chart skipped:',id,e); }
   };
+  // Graphs intentionally separate 2025 bed reports, 2026 workforce indicators and 2017 device inventory.
+  const bedTotals=[0,1,2,3].map(i=>areas.reduce((t,a)=>t+a.beds[i],0));
+  chart('bedDonutChart',{
+    type:'doughnut',data:{labels:['高度急性期','急性期','回復期','慢性期'],datasets:[{data:bedTotals,
+      backgroundColor:['#187eaa','#18a8a8','#dfa446','#7870b9'],borderColor:'#ffffff',borderWidth:3,hoverOffset:6}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'61%',plugins:{
+      legend:{position:'bottom',labels:{color:'#27495a',font:{size:12},padding:15,boxWidth:13}},
+      tooltip:{callbacks:{label:c=>c.label+' '+fmt(c.parsed)+'床 / '+(100*c.parsed/bedTotals.reduce((a,b)=>a+b,0)).toFixed(1)+'%'}}
+    }}
+  });
+  chart('physicianIndexChart',{
+    type:'bar',data:{labels:areas.map(a=>a.name),datasets:[{label:'医師偏在指標（2026年）',
+      data:areas.map(a=>a.physIndex),
+      backgroundColor:areas.map(a=>a.physIndex<200?'#b77c41':a.physIndex>=300?'#087d83':'#86bdc2'),
+      borderRadius:5,maxBarThickness:35}]},
+    options:{...chartDefault,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'指標 '+c.parsed.x.toFixed(1)}}},
+      scales:{x:{beginAtZero:true,grid:{color:'#e7eff1'},ticks:{color:'#567381'}},y:{grid:{display:false},ticks:{color:'#244757',font:{size:11}}}}}
+  });
+  chart('deviceDistributionChart',{
+    type:'bar',data:{labels:areas.map(a=>a.name),
+      datasets:[{label:'CT（2017年）',data:areas.map(a=>a.ct),backgroundColor:'#077d8b',borderRadius:4,maxBarThickness:35},
+        {label:'MRI（2017年）',data:areas.map(a=>a.mri),backgroundColor:'#e2a44a',borderRadius:4,maxBarThickness:35}]},
+    options:{...chartDefault,plugins:{...chartDefault.plugins,tooltip:{callbacks:{label:c=>c.dataset.label+' '+c.parsed.y+'台'}}},
+      scales:{x:{grid:{display:false},ticks:{color:'#315769',maxRotation:35,minRotation:0}},y:{beginAtZero:true,grid:{color:'#e7eff1'},title:{display:true,text:'設置台数（台）',color:'#496579'}}}}
+  });
   chart('populationChart',{
     type:'line',
     data:{labels:['2020 実績','2025 推計','2030 推計','2040 推計','2050 推計'],
@@ -59,6 +84,25 @@
     options:{...chartDefault,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{min:0,max:5,ticks:{stepSize:1},grid:{color:'#e7eff1'}},y:{grid:{display:false}}}}
   });
   if($('scoreText')) $('scoreText').textContent='評価点：'+byScore.map(a=>a.name+score(a).toFixed(2)).join('／')+'。需要規模25%、アクセス課題25%、更新・共同利用20%、中核連携15%、BCP15%。いずれも独自評価。';
+  // Compact per-area data navigation; no additional or undisclosed facility metrics.
+  const regionCards=$('regionQuickCards');
+  if(regionCards) {
+    regionCards.innerHTML=areas.map(a=>'<button type="button" data-area="'+escapeHTML(a.name)+'" aria-label="'+escapeHTML(a.name)+'医療圏の表を表示"><b>'+escapeHTML(a.name)+'</b><span>'+fmt(a.beds.reduce((s,n)=>s+n,0))+'</span><small>報告病床・2025年</small></button>').join('');
+    regionCards.addEventListener('click',event=>{
+      const button=event.target.closest('button[data-area]');
+      if(!button || !regionCards.contains(button))return;
+      if($('areaSearch'))$('areaSearch').value=button.dataset.area;
+      renderRegions();
+      $('regionTable')?.scrollIntoView({behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'auto':'smooth',block:'center'});
+    });
+  }
+  const matrix=$('priorityMatrix');
+  if(matrix) {
+    const labels=['需要規模 25%','アクセス課題 25%','更新・共同利用 20%','中核連携 15%','BCP・保守 15%'];
+    const rows=[...areas].sort((a,b)=>score(b)-score(a));
+    matrix.innerHTML='<table aria-label="医療圏の定性評価マトリクス"><caption>全セルは独自の5段階定性評価。最終列のみ重み付き合計。</caption><thead><tr><th>医療圏</th>'+labels.map(l=>'<th>'+l+'</th>').join('')+'<th>総合/5</th></tr></thead><tbody>'+
+      rows.map(a=>'<tr><td>'+escapeHTML(a.name)+'</td>'+a.score.map((v,i)=>'<td class="heat'+v+'" title="'+escapeHTML(labels[i])+'：'+v+'点（分析者による定性評価）">'+v+'</td>').join('')+'<td>'+score(a).toFixed(2)+'</td></tr>').join('')+'</tbody></table>';
+  }
   const regionTbody = $('regionTable')?.tBodies[0];
   function renderRegions(){
     if(!regionTbody)return;
@@ -94,8 +138,8 @@
     try {
       const map = window.L.map('areaMap',{scrollWheelZoom:false}).setView([33.98,135.45],8);
       window.L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{maxZoom:18,attribution:'出典：<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener noreferrer">地理院タイル</a>'}).addTo(map);
-      const markers = areas.map(a=>window.L.circleMarker([a.lat,a.lng],{radius:7,color:'#063c5e',weight:2,fillColor:'#09a5a0',fillOpacity:.92}).addTo(map)
-        .bindPopup('<b>'+escapeHTML(a.name)+'医療圏（代表地点）</b><br>'+escapeHTML(a.municipalities)+'<br>報告病床 '+fmt(a.beds.reduce((x,y)=>x+y,0))+'床<br><a href="'+gmaps(a.name+' 医療機関','和歌山県')+'" target="_blank" rel="noopener noreferrer">Googleマップで医療機関検索 ↗</a>'));
+      const markers = areas.map(a=>window.L.circleMarker([a.lat,a.lng],{radius:Math.min(19,5+Math.sqrt(a.beds.reduce((s,n)=>s+n,0))/6),color:'#063c5e',weight:2,fillColor:'#09a5a0',fillOpacity:.80}).addTo(map)
+        .bindPopup('<b>'+escapeHTML(a.name)+'医療圏（代表地点）</b><br>'+escapeHTML(a.municipalities)+'<br>2025年報告病床 '+fmt(a.beds.reduce((x,y)=>x+y,0))+'床<br>医師偏在指標（2026） '+a.physIndex.toFixed(1)+'<br><small>円の大きさは報告病床規模の概略比較／地点は圏域中心</small><br><a href="'+gmaps(a.name+' 医療機関','和歌山県')+'" target="_blank" rel="noopener noreferrer">Googleマップで医療機関検索 ↗</a>'));
       window.L.featureGroup(markers).getBounds().isValid() && map.fitBounds(window.L.featureGroup(markers).getBounds().pad(.12));
     } catch(error) {console.warn('Geographical tiles unavailable:', error);}
   }
