@@ -1,0 +1,44 @@
+/* 高知県 Medical Intelligence – public sources only / Updated 2026-10-26 */
+window.KOCHI_DATA={
+sources:[
+{id:"s1",name:"高知県・第8期保健医療計画（2024策定、2025修正）",year:"2024–2025",url:"https://www.pref.kochi.lg.jp/doc/2024032600623/"},
+{id:"s2",name:"高知県・外来医療計画 第10章 図表10-5-1～3（機器データ）",year:"2024計画収載（原データ年次は原表参照）",url:"https://www.pref.kochi.lg.jp/doc/2024032600623/file_contents/file_20247221163439_1.pdf"},
+{id:"s3",name:"高知県・令和4年度病床機能報告（二次医療圏別）",year:"2022年7月現在／2024公開",url:"https://www.pref.kochi.lg.jp/doc/2024081900194/"},
+{id:"s4",name:"高知県・推計人口（月報／市町村別）",year:"2026年10月20日更新",url:"https://www.pref.kochi.lg.jp/doc/t-suikei"},
+{id:"s5",name:"国立社会保障・人口問題研究所 地域別将来推計人口",year:"2023年推計・2050年まで",url:"https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"},
+{id:"s6",name:"厚生労働省・医師偏在指標（都道府県／二次医療圏）",year:"2026年4月版",url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"},
+{id:"s7",name:"厚生労働省・保健所所管区域 高知県",year:"確認日 2026-10-26",url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/39kochi.html"},
+{id:"s8",name:"高知県・令和9年度地域医療介護総合確保基金（医療分）提案要領",year:"2026年6月",url:"https://www.pref.kochi.lg.jp/doc/2021062500275/"},
+{id:"s9",name:"高知県医師会",year:"確認日 2026-10-26",url:"https://www.kochi.med.or.jp/"},
+{id:"s10",name:"高知市医師会",year:"確認日 2026-10-26",url:"https://www.kochi-med.or.jp/"},
+{id:"s11",name:"厚生労働省・令和7年度病床機能報告公表データ",year:"2025年度報告／2026公開",url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html"},
+{id:"s12",name:"高知県・地域医療介護総合確保基金について",year:"2026年4月",url:"https://www.pref.kochi.lg.jp/doc/2021042200164/"},
+{id:"s13",name:"高知県立幡多けんみん病院",year:"確認日 2026-10-26",url:"https://www.pref.kochi.lg.jp/hata/"},
+{id:"s14",name:"高知県立あき総合病院",year:"確認日 2026-10-26",url:"https://akihp.jp/index.html"}
+],
+areas:[
+{id:"aki",name:"安芸",town:"安芸市・室戸市・東洋町ほか",lat:33.502,lng:133.907,ct:6,mri:5,pet:0,mammo:1,linac:0,high:0,acute:182,recovery:125,chronic:235,closed:0,score:[5,3,5,5,3],drivers:"中山間・東部の移動距離、救急アクセス、在宅と高齢化",challenge:"機器稼働率・人材・広域搬送のトレードオフ",focus:"県立あき総合病院、田野病院、室戸地域",action:"地域拠点を中心にPOCUS・遠隔読影・画像共有と保守継続性を検討"},
+{id:"chuo",name:"中央",town:"高知市・南国市・香美市・いの町ほか",lat:33.568,lng:133.543,ct:120,mri:59,pet:3,mammo:18,linac:7,high:1025,acute:3599,recovery:1538,chronic:4244,closed:248,score:[3,5,4,4,4],drivers:"大学病院・高度急性期、専門画像診断、病診連携、更新案件",challenge:"機器の集中と稼働効率、慢性期・回復期の再構成",focus:"高知大学医学部附属病院、高知医療センター、高知赤十字病院",action:"検査プロセス改善、画像共有、更新計画と共同利用の経営効果を提示"},
+{id:"koban",name:"高幡",town:"須崎市・中土佐町・四万十町ほか",lat:33.397,lng:133.286,ct:13,mri:4,pet:0,mammo:1,linac:0,high:0,acute:234,recovery:209,chronic:212,closed:0,score:[5,2,5,5,3],drivers:"中山間人口減少、訪問診療、救急搬送、移動困難",challenge:"設備過剰投資を避け、機能の最低限確保と広域連携を両立",focus:"須崎くろしお病院、四万十町の地域医療機関",action:"共同利用・可搬超音波・訪問診療の業務効率化を優先"},
+{id:"hata",name:"幡多",town:"四万十市・宿毛市・土佐清水市ほか",lat:32.991,lng:132.934,ct:17,mri:5,pet:0,mammo:1,linac:1,high:6,acute:476,recovery:218,chronic:481,closed:50,score:[4,4,5,5,3],drivers:"県西部の救急・がん・検査需要、幹線距離と南海トラフ対策",challenge:"圏域内完結性と中央への紹介の適切な線引き",focus:"県立幡多けんみん病院、四万十市周辺の地域中核施設",action:"CT/MRI更新は搬送回避と稼働を検証、BCPと画像共有を組み合わせる"}
+],
+equipNational:{ct:11.5,mri:5.7,pet:.5,mammo:3.4,linac:.8},
+equipKochi:{ct:21,mri:10.1,pet:.71,mammo:2.7,linac:1},
+facilities:[
+{name:"高知大学医学部附属病院",address:"高知県南国市岡豊町小蓮185-1",lat:33.595,lng:133.629,area:"中央",type:"大学病院",url:"https://www.kochi-u.ac.jp/kms/"},
+{name:"高知医療センター",address:"高知県高知市池2125-1",lat:33.521,lng:133.571,area:"中央",type:"高度医療",url:"https://www2.khsc.or.jp/"},
+{name:"高知赤十字病院",address:"高知県高知市秦南町1丁目4-63-11",lat:33.578,lng:133.54,area:"中央",type:"救急・災害",url:"https://kochi-med.jrc.or.jp/"},
+{name:"高知県立あき総合病院",address:"高知県安芸市宝永町3-33",lat:33.505,lng:133.901,area:"安芸",type:"県立地域拠点",url:"https://akihp.jp/index.html"},
+{name:"高知県立幡多けんみん病院",address:"高知県宿毛市山奈町芳奈3番地1",lat:32.935,lng:132.731,area:"幡多",type:"県立地域拠点",url:"https://www.pref.kochi.lg.jp/hata/"},
+{name:"高知県庁 医療政策課",address:"高知県高知市丸ノ内1丁目2番20号",lat:33.561,lng:133.531,area:"中央",type:"行政",url:"https://www.pref.kochi.lg.jp/doc/2024032600623/"},
+{name:"高知県医師会",address:"高知県高知市丸ノ内1丁目7番45号",lat:33.557,lng:133.529,area:"中央",type:"医師会",url:"https://www.kochi.med.or.jp/"},
+{name:"高知市医師会",address:"高知県高知市丸ノ内1丁目7番45号",lat:33.557,lng:133.529,area:"中央",type:"医師会",url:"https://www.kochi-med.or.jp/"},
+{name:"高知市保健所",address:"高知県高知市丸ノ内1丁目7番45号",lat:33.557,lng:133.529,area:"中央",type:"保健所",url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/39kochi.html"},
+{name:"安芸福祉保健所",address:"高知県安芸市矢の丸1丁目4番36号",lat:33.506,lng:133.906,area:"安芸",type:"保健所",url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/39kochi.html"},
+{name:"中央東福祉保健所",address:"高知県香美市土佐山田町山田1128-1",lat:33.604,lng:133.685,area:"中央",type:"保健所",url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/39kochi.html"},
+{name:"中央西福祉保健所",address:"高知県高岡郡佐川町甲1243-4",lat:33.5,lng:133.285,area:"中央",type:"保健所",url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/39kochi.html"},
+{name:"須崎福祉保健所",address:"高知県須崎市東古市町6-26",lat:33.395,lng:133.283,area:"高幡",type:"保健所",url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/39kochi.html"},
+{name:"幡多福祉保健所",address:"高知県四万十市中村山手通19",lat:32.99,lng:132.933,area:"幡多",type:"保健所",url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/39kochi.html"}
+],
+scoreWeights:[{name:"医療アクセス・未充足",w:30},{name:"拠点性・波及",w:25},{name:"高齢化・慢性疾患",w:20},{name:"災害・供給継続",w:15},{name:"実装実現性",w:10}]
+};
