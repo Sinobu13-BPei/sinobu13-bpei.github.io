@@ -122,3 +122,8 @@ footer .footer-button{min-height:44px}
 }
 
 .chart-values{margin:7px 0 12px;border:1px solid #dbe7ee;border-radius:10px;background:#f8fbfd;padding:3px 12px 10px}.chart-values>summary{min-height:44px;display:list-item;align-content:center;font-size:13px;font-weight:850;color:#105573;cursor:pointer}.chart-values .table-scroll{margin-top:5px;background:#fff}.chart-values table{min-width:410px;font-size:12px}.chart-values th,.chart-values td{padding:8px}.chart-values[open]>summary{margin-bottom:5px}
+
+/* Fix 375px overflow: expanded and collapsed numeric-table details must not impose the table's intrinsic width on the viewport. */
+.chart-values{width:100%;max-width:100%;min-width:0;overflow-x:clip;box-sizing:border-box}
+.chart-values .table-scroll{display:block;width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;contain:inline-size}
+.chart-values table{width:max-content;min-width:410px;max-width:none}
