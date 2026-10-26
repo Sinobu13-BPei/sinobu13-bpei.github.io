@@ -57,7 +57,7 @@ const strat=$('#regionBody');if(strat)strat.innerHTML=sorted.map(r=>'<tr><th sco
 const equip=[['CT','検出器列数別・医療施設調査','救急・脳/肺疾患・共同利用'],['MRI','磁場強度別・医療施設調査','整形・脳神経・がん'],['超音波（US）','医療施設調査・診療実績','消化器・循環器・産科・POCUS'],['PET・核医学','専門施設・届出・診療実績','がん診療連携'],['リニアック','放射線治療指定・認定施設','がん治療の専門拠点'],['血管撮影・IVR','循環器・救急機能の公開情報','高度急性期・低侵襲治療'],['内視鏡','検査実施・病院と診療所調査','消化器・健診'],['心電図・生体情報','在宅・循環器・救急部門','遠隔・慢性疾患管理'],['透析装置','人工透析施設と慢性期医療','通院・装置と材料の安定供給']];
 const equipment=$('#equipmentBody');if(equipment)equipment.innerHTML=equip.map(e=>'<tr>'+e.map(s=>'<td>'+esc(s)+'</td>').join('')+'<td><span class="pill">設置総数未検証</span></td></tr>').join('');
 const sources=$('#sourcesBody');if(sources)sources.innerHTML=data.sources.map(s=>'<div class="source"><strong>'+esc(s[0])+'</strong>'+link(s[3],s[1])+'<small>データ年次：'+esc(s[2])+'</small></div>').join('');
-let focusMap=()=>{};
+let focusMap=()=>{},resetMap=()=>{};
 const cards=$('#regionCards'),detail=$('#regionDetail'),focusSelector=$('#focusRegion');
 function presentRegion(r,scrollMap=false){
 if(!r)return;for(const b of cards?.querySelectorAll('.region-card')||[])b.setAttribute('aria-pressed',String(b.dataset.code===String(r.code)));
@@ -102,10 +102,11 @@ places.forEach(p=>pin(p,officeTypes.includes(p.type)?'office':'hospital'));
 const syncMap=()=>{const type=maptype?.value||'all';markers.forEach(m=>{if(type==='all'||type===m.kind){if(!map.hasLayer(m.marker))m.marker.addTo(map)}else if(map.hasLayer(m.marker))map.removeLayer(m.marker)})};
 maptype?.addEventListener('change',syncMap);
 focusMap=(r,scrollMap)=>{if(maptype&&maptype.value==='hospital'){maptype.value='all';syncMap()}map.flyTo([r.lat,r.lon],10,{animate:!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches,duration:.35});const marker=areaMarkers.get(String(r.code));if(marker&&map.hasLayer(marker))marker.openPopup();if(scrollMap)document.querySelector('#map-section')?.scrollIntoView({behavior:'smooth',block:'start'});};
-focusSelector?.addEventListener('change',()=>{const r=byCode.get(focusSelector.value);if(r)presentRegion(r,false);else{map.setView([32.7,130.7],8);for(const btn of cards?.querySelectorAll('button[data-code]')||[])btn.setAttribute('aria-pressed','false');if(detail)detail.textContent='県内全域を表示しています。';}});
+resetMap=()=>map.setView([32.7,130.7],8);
 window.addEventListener('resize',()=>map.invalidateSize(),{passive:true});
 }catch(error){console.error('地図描画失敗',error);mapEl.innerHTML='<div class="chart-fallback">地図を表示できません。下の医療機関一覧からGoogleマップ・地理院地図へ移動できます。</div>'}
 }else if(mapEl){mapEl.innerHTML='<div class="chart-fallback">地図の読み込みができません。医療機関一覧の外部地図をご利用ください。</div>'}
+focusSelector?.addEventListener('change',()=>{const r=byCode.get(focusSelector.value);if(r)presentRegion(r,false);else{resetMap();for(const button of cards?.querySelectorAll('button[data-code]')||[])button.setAttribute('aria-pressed','false');if(detail)detail.textContent='県内全域を表示しています。'}});
 }).catch(error=>{
 console.error('熊本県医療市場データ読み込み失敗',error);
 const notice=document.createElement('p');notice.className='note';notice.setAttribute('role','alert');notice.textContent='集計データを読み込めませんでした。基本の施設数一覧は表示できますが、グラフ・絞り込み機能は利用できません。再読み込みをお試しください。';
