@@ -18,13 +18,14 @@ sources:[
 {id:"s15",name:"高知県・地域医療構想 2025年必要病床数（2026年資料）",year:"2025年推計（2026年公開資料）",url:"https://www.pref.kochi.lg.jp/doc/2021042200164/file_contents/file_20264175112737_1.pdf"},
 {id:"s16",name:"総務省統計局 令和2年国勢調査 人口等基本集計（都道府県）",year:"2020年調査・2021年公表",url:"https://www.stat.go.jp/data/kokusei/2020/kekka/pdf/outline_01.pdf"},
 {id:"s17",name:"高知県・県政だより2026年10月号（県人口：2026年8月1日現在）",year:"2026年8月1日",url:"https://www.pref.kochi.lg.jp/doc/2026091500036/"},
-{id:"s18",name:"高知県元気な未来創造戦略：社人研準拠推計と県独自の将来展望",year:"2024年3月資料／2023社人研準拠",url:"https://www.pref.kochi.lg.jp/doc/2020060100272/file_contents/file_2025127111365_1.pdf"}
+{id:"s18",name:"高知県元気な未来創造戦略：社人研準拠推計と県独自の将来展望",year:"2024年3月資料／2023社人研準拠",url:"https://www.pref.kochi.lg.jp/doc/2020060100272/file_contents/file_2025127111365_1.pdf"},
+{id:"s19",name:"高知県第8期保健医療計画・第3章（図表3-1-2・3-1-3：二次医療圏と人口・面積）",year:"人口：2020年国勢調査／面積：2023年調査",url:"https://www.pref.kochi.lg.jp/doc/2024032600623/file_contents/file_20247221152725_1.pdf"}
 ],
 areas:[
-{id:"aki",name:"安芸",town:"安芸市・室戸市・東洋町ほか",lat:33.502,lng:133.907,ct:6,mri:5,pet:0,mammo:1,linac:0,high:0,acute:182,recovery:125,chronic:235,closed:0,score:[5,3,5,5,3],drivers:"中山間・東部の移動距離、救急アクセス、在宅と高齢化",challenge:"機器稼働率・人材・広域搬送のトレードオフ",focus:"県立あき総合病院、田野病院、室戸地域",action:"地域拠点を中心にPOCUS・遠隔読影・画像共有と保守継続性を検討"},
-{id:"chuo",name:"中央",town:"高知市・南国市・香美市・いの町ほか",lat:33.568,lng:133.543,ct:120,mri:59,pet:3,mammo:18,linac:7,high:1025,acute:3599,recovery:1538,chronic:4244,closed:248,score:[3,5,4,4,4],drivers:"大学病院・高度急性期、専門画像診断、病診連携、更新案件",challenge:"機器の集中と稼働効率、慢性期・回復期の再構成",focus:"高知大学医学部附属病院、高知医療センター、高知赤十字病院",action:"検査プロセス改善、画像共有、更新計画と共同利用の経営効果を提示"},
-{id:"koban",name:"高幡",town:"須崎市・中土佐町・四万十町ほか",lat:33.397,lng:133.286,ct:13,mri:4,pet:0,mammo:1,linac:0,high:0,acute:234,recovery:209,chronic:212,closed:0,score:[5,2,5,5,3],drivers:"中山間人口減少、訪問診療、救急搬送、移動困難",challenge:"設備過剰投資を避け、機能の最低限確保と広域連携を両立",focus:"須崎くろしお病院、四万十町の地域医療機関",action:"共同利用・可搬超音波・訪問診療の業務効率化を優先"},
-{id:"hata",name:"幡多",town:"四万十市・宿毛市・土佐清水市ほか",lat:32.991,lng:132.934,ct:17,mri:5,pet:0,mammo:1,linac:1,high:6,acute:476,recovery:218,chronic:481,closed:50,score:[4,4,5,5,3],drivers:"県西部の救急・がん・検査需要、幹線距離と南海トラフ対策",challenge:"圏域内完結性と中央への紹介の適切な線引き",focus:"県立幡多けんみん病院、四万十市周辺の地域中核施設",action:"CT/MRI更新は搬送回避と稼働を検証、BCPと画像共有を組み合わせる"}
+{id:"aki",name:"安芸",population2020:43666,areaKm2:1128.47,density2020:38.7,town:"安芸市・室戸市・東洋町ほか",lat:33.502,lng:133.907,ct:6,mri:5,pet:0,mammo:1,linac:0,high:0,acute:182,recovery:125,chronic:235,closed:0,score:[5,3,5,5,3],drivers:"中山間・東部の移動距離、救急アクセス、在宅と高齢化",challenge:"機器稼働率・人材・広域搬送のトレードオフ",focus:"県立あき総合病院、田野病院、室戸地域",action:"地域拠点を中心にPOCUS・遠隔読影・画像共有と保守継続性を検討"},
+{id:"chuo",name:"中央",population2020:516816,areaKm2:3008.38,density2020:171.8,town:"高知市・南国市・香美市・いの町ほか",lat:33.568,lng:133.543,ct:120,mri:59,pet:3,mammo:18,linac:7,high:1025,acute:3599,recovery:1538,chronic:4244,closed:248,score:[3,5,4,4,4],drivers:"大学病院・高度急性期、専門画像診断、病診連携、更新案件",challenge:"機器の集中と稼働効率、慢性期・回復期の再構成",focus:"高知大学医学部附属病院、高知医療センター、高知赤十字病院",action:"検査プロセス改善、画像共有、更新計画と共同利用の経営効果を提示"},
+{id:"koban",name:"高幡",population2020:50797,areaKm2:1405,density2020:36.2,town:"須崎市・中土佐町・四万十町ほか",lat:33.397,lng:133.286,ct:13,mri:4,pet:0,mammo:1,linac:0,high:0,acute:234,recovery:209,chronic:212,closed:0,score:[5,2,5,5,3],drivers:"中山間人口減少、訪問診療、救急搬送、移動困難",challenge:"設備過剰投資を避け、機能の最低限確保と広域連携を両立",focus:"須崎くろしお病院、四万十町の地域医療機関",action:"共同利用・可搬超音波・訪問診療の業務効率化を優先"},
+{id:"hata",name:"幡多",population2020:80248,areaKm2:1561.06,density2020:51.4,town:"四万十市・宿毛市・土佐清水市ほか",lat:32.991,lng:132.934,ct:17,mri:5,pet:0,mammo:1,linac:1,high:6,acute:476,recovery:218,chronic:481,closed:50,score:[4,4,5,5,3],drivers:"県西部の救急・がん・検査需要、幹線距離と南海トラフ対策",challenge:"圏域内完結性と中央への紹介の適切な線引き",focus:"県立幡多けんみん病院、四万十市周辺の地域中核施設",action:"CT/MRI更新は搬送回避と稼働を検証、BCPと画像共有を組み合わせる"}
 ],
 equipNational:{ct:11.5,mri:5.7,pet:.5,mammo:3.4,linac:.8},
 equipKochi:{ct:21,mri:10.1,pet:.71,mammo:2.7,linac:1},
