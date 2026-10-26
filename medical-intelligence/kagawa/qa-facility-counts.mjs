@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+import {fileURLToPath} from 'node:url';
+const dir=path.dirname(fileURLToPath(import.meta.url));
+const d=JSON.parse(fs.readFileSync(path.join(dir,'data/facility-counts-2024.json'),'utf8'));
+const html=fs.readFileSync(path.join(dir,'index.html'),'utf8');
+const css=fs.readFileSync(path.join(dir,'facility-counts.css'),'utf8');
+const js=fs.readFileSync(path.join(dir,'facility-counts.js'),'utf8');
+new vm.Script(js,{filename:'facility-counts.js'});
+assert.equal(d.municipalities.length,17);
+assert.equal(d.associations.length,9);
+assert.equal(d.year,'2024年10月');
+const by=key=>d.municipalities.filter(x=>x.region===key);
+const sum=rows=>rows.reduce((a,b)=>({clinics:a.clinics+b.clinics,hospitals:a.hospitals+b.hospitals,beds:a.beds+b.hospitalBeds}),{clinics:0,hospitals:0,beds:0});
+assert.deepEqual(sum(d.municipalities),{clinics:813,hospitals:86,beds:13911});
+assert.deepEqual(sum(by('east')),{clinics:482,hospitals:41,beds:6892});
+assert.deepEqual(sum(by('west')),{clinics:314,hospitals:42,beds:6554});
+assert.deepEqual(sum(by('island')),{clinics:17,hospitals:3,beds:465});
+assert.equal(new Set(d.municipalities.map(m=>m.name)).size,17);
+assert.equal(new Set(d.associations.map(m=>m.name)).size,9);
+assert.equal(d.associations.reduce((s,a)=>s+a.emergency,0),465);
+assert.equal(d.associations.find(a=>a.id==='kida').officialMembership.total,33);
+assert.deepEqual(d.associations.find(a=>a.id==='ayauta').officialMembership,{total:43,hospitals:3,clinics:40,year:'2024年6月',source:'https://ayauta-med.or.jp/about/'});
+for(const a of d.associations){assert.ok(a.site.startsWith('https://'));assert.ok(a.municipalNames.every(name=>d.municipalities.some(m=>m.name===name)));assert.ok(a.emergency>0)}
+for(const x of d.sourceRefs)assert.ok(x.url.startsWith('https://')&&x.year);
+assert.ok(html.includes('id="facility-supply"')&&html.includes('id="district-med-associations"'));
+assert.ok(html.includes('id="fsAreaChart"')&&html.includes('id="fsTownChart"'));
+assert.ok(html.includes('id="fsMunicipalityRows"')&&html.includes('id="fsAssociationRows"'));
+assert.ok(html.includes('src="./facility-counts.js"')&&html.includes('href="./facility-counts.css"'));
+assert.ok(css.includes('@media(max-width:650px)'));
+assert.ok(js.includes('aria-pressed')&&js.includes('https://www.google.com/maps/search/?api=1&query='));
+assert.ok(!/CMSC|社内秘|利益率|社内限定|販社シェア|顧客別販売額/.test(html+js+JSON.stringify(d)));
+const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length,'duplicate HTML IDs');
+console.log(JSON.stringify({status:'PASS',municipalities:17,medicalAreas:3,associations:9,totals:sum(d.municipalities),associationMemberCountSupported:2,emergencyYear:'2023-04-01',facilityYear:'2024-10'},null,2));
