@@ -95,3 +95,61 @@
  .schema-viewport .region-schematic{width:560px;max-width:none}
  .illustration-viewport:after,.schema-viewport:after{content:"← 横にスクロールして全体を見る →";display:block;text-align:center;font-size:11px;color:#516f7a;padding:6px}
 }
+
+
+/* Facility census 2022 and official medical association network — Oct 2026 */
+.facility-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:18px}
+.facility-mini{border:1px solid #cce2e7;background:#fff;border-radius:13px;padding:15px 17px;box-shadow:var(--shadow);display:grid;grid-template-columns:40px 1fr;align-items:center;gap:2px 8px}
+.facility-glyph{grid-row:span 3;border-radius:12px;width:37px;height:37px;display:grid;place-items:center;background:#e5f3f5;color:#007987;font-size:22px;font-weight:850}
+.facility-mini span:not(.facility-glyph){font-size:11px;font-weight:800;color:#446476}
+.facility-mini strong{font-size:clamp(1.25rem,2.4vw,1.85rem);font-variant-numeric:tabular-nums;color:#0d5869;line-height:1.4}
+.facility-mini small{font-size:10px;color:#688091;line-height:1.4}
+#facilityCensusTable{min-width:920px}
+#facilityCensusTable th:nth-child(n+2),#facilityCensusTable td:nth-child(n+2){text-align:right}
+#facilityCensusTable thead th{position:sticky;top:0}
+#facilityCensusTable tfoot th{background:#d9ecee;color:#0b4b59;font-weight:850}
+#facilityCensusTable tbody tr:hover{background:#e8f4f5}
+.region-facility-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:13px 0 10px;padding:12px 10px;border:1px solid #a5d1d6;border-radius:10px;background:#ecf8f8}
+.facility-summary-head{grid-column:1/-1;display:flex;justify-content:space-between;gap:8px;align-items:center;border-bottom:1px solid #c4dfe2;padding-bottom:7px}
+.facility-summary-head strong{font-size:12px;color:#0c6871}
+.facility-summary-head small{font-size:10px;color:#527981}
+.region-stat{background:white;border:1px solid #e1eaed;border-radius:7px;padding:7px 10px;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.region-stat span{font-size:10px;color:#4e6e7a}
+.region-stat b{font-size:17px;color:#0d5e6e;font-variant-numeric:tabular-nums}
+.bedded-note{grid-column:1/-1;font-size:10px;color:#587584}
+.association-overview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}
+.association-totals{border-radius:10px;border:1px solid #c7e0e3;background:#eaf6f5;display:grid;grid-template-columns:auto 1fr;gap:3px 10px;align-items:center;padding:16px}
+.association-totals strong{font-size:30px;letter-spacing:-.04em;color:#126a77;grid-row:span 2}
+.association-totals span{font-size:13px;font-weight:800;color:#325b6b}
+.association-totals small{grid-column:1/-1;font-size:11px;color:#577181}
+.association-totals a{font-size:11px}
+.assoc-controls{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:18px 0 13px;padding:13px;background:#f2f7fa;border-radius:10px}
+.assoc-controls label{font-weight:800;font-size:12px;color:#30586c}
+.assoc-controls select,.assoc-controls input{border-radius:8px;background:white;padding:9px 12px;border:1px solid #b2cdd8;font:inherit;font-size:13px;color:#254252}
+.assoc-controls select{min-width:130px}.assoc-controls input{flex:1;min-width:180px}
+.assoc-result-count{color:#4c6d7c;font-size:12px}
+.assoc-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.assoc-resource-card{display:flex;flex-direction:column;gap:9px;min-width:0;background:#fff;border:1px solid #d9e7ed;border-radius:12px;padding:17px}
+.assoc-resource-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.assoc-resource-head h4{font-size:15px;color:#17485b;margin:0}
+.zone-tag{font-size:10px;padding:2px 8px;background:#dbe9ef;color:#215b71;border-radius:12px;white-space:nowrap}
+.assoc-territory{font-size:11px;margin:0;color:#5b7180;line-height:1.55}
+.assoc-number{display:grid;grid-template-columns:1fr;gap:0;padding:11px 12px;background:#edf8f7;border-left:3px solid #108b8e;border-radius:5px}
+.assoc-number>span{font-size:10px;color:#587381;font-weight:800}
+.assoc-number strong{font-size:19px;color:#0a6571}
+.assoc-number small{font-size:10px;color:#516b7e;line-height:1.5}
+.assoc-number.unknown{background:#f3f5f7;border-left-color:#b9c5d0}
+.assoc-number.unknown strong{font-size:13px;color:#687987}
+.assoc-members{font-size:11px;margin:0}
+.assoc-sub-stats{display:grid;gap:2px;border-radius:8px;background:#f4faf9;padding:9px;font-size:11px;color:#335b63}
+.assoc-area-reference{padding:9px 11px;border:1px dashed #b1ccd8;border-radius:8px;background:#f9fcfd;display:grid;gap:0}
+.assoc-area-reference span{font-size:10px;color:#667b8a}
+.assoc-area-reference strong{font-size:13px;color:#395d6d}
+.assoc-area-reference small{font-size:10px;color:#68818d}
+.assoc-resource-links{display:flex;flex-wrap:wrap;gap:5px 12px;margin-top:auto;padding-top:9px;border-top:1px solid #e5edef}
+.assoc-resource-links a{font-size:11px;font-weight:800}
+.association-panel>.notice{margin-top:12px}
+@media(max-width:1100px){.assoc-results{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.facility-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.assoc-results,.association-overview{grid-template-columns:1fr}.assoc-controls{display:grid;grid-template-columns:1fr}.assoc-controls select,.assoc-controls input{width:100%;min-width:0}.region-facility-summary{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:360px){.facility-mini{grid-template-columns:1fr;padding:10px}.facility-glyph{grid-row:auto;width:30px;height:30px}.facility-mini strong{font-size:1.25rem}.facility-summary-head{flex-wrap:wrap}.region-stat b{font-size:14px}}
