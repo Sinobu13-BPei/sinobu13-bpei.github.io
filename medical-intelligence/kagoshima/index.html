@@ -20,7 +20,7 @@
 <p style="font-size:12px;margin-top:18px">編集方針：中立的な医療機器商社の視座。資料内の独自評価・推計は行政の公式評価ではありません。出典・年次・未確認データを区別します。</p>
 <svg class="svgbanner" viewBox="0 0 800 150" role="img" aria-label="地域医療：都市の中核病院から離島までを結ぶ診療連携の概念図">
 <g fill="none" stroke="#8fd4d9" stroke-width="2"><path d="M70 90Q220 12 390 75T740 65"/><path d="M70 110Q250 155 425 99T740 100" stroke-dasharray="6 7"/><circle cx="90" cy="90" r="30"/><circle cx="310" cy="48" r="23"/><circle cx="530" cy="97" r="26"/><circle cx="728" cy="66" r="28"/></g><g fill="#fff"><rect x="76" y="76" width="28" height="28" rx="5"/><rect x="85" y="67" width="10" height="45" rx="3" fill="#e2f7fa"/><rect x="68" y="84" width="45" height="10" rx="3" fill="#e2f7fa"/><rect x="306" y="35" width="8" height="26" rx="3"/><rect x="298" y="44" width="24" height="8" rx="3"/><path d="M520 85h20v24h-20zM515 91h30"/><path d="M718 52h21v28h-21z"/></g><g fill="#d4faf6" font-family="sans-serif" font-size="12"><text x="45" y="140">中核病院</text><text x="278" y="90">診療所</text><text x="488" y="144">地域拠点</text><text x="698" y="110">島しょ医療</text></g>
-</svg></div></header>
+</svg><div class="hero-actions"><a href="#summary" class="hero-btn">調査概要を見る</a><a href="#population" class="hero-btn">医療圏・地図を見る</a><a href="#strategy" class="hero-btn">戦略・優先度を見る</a></div></div></header>
 <nav class="nav" aria-label="章へのナビゲーション"><div class="wrap">
 <a href="#summary">01 要約</a><a href="#population">02 人口・医療圏</a><a href="#healthcare">03 提供体制</a><a href="#institutions">04 大学・行政</a><a href="#devices">05 機器市場</a><a href="#distribution">06 流通</a><a href="#risks">07 外部環境</a><a href="#strategy">08 戦略</a><a href="#sources">09 出典</a>
 </div></nav>
@@ -66,7 +66,7 @@
 <div class="links"><a href="https://www.pref.kagoshima.jp/" target="_blank" rel="noopener noreferrer">鹿児島県庁 ↗</a><a href="https://www.google.com/maps/search/?api=1&query=%E9%B9%BF%E5%85%90%E5%B3%B6%E7%9C%8C%E5%BA%81+%E9%B9%BF%E5%85%90%E5%B3%B6%E5%B8%82%E9%B4%A8%E6%B1%A0%E6%96%B0%E7%94%BA10-1" target="_blank" rel="noopener noreferrer">Googleマップ ↗</a><a href="https://maps.gsi.go.jp/#15/31.558/130.556/" target="_blank" rel="noopener noreferrer">地理院地図 ↗</a></div>
 <p class="minor">出典S04・S11・S21（2024〜2026年）。基金の採択状況は県の各年度公表値を参照。</p></div>
 <div class="card navy"><h3>大学医局・人材配置の構造</h3><p>大学医局の専門研修・派遣、県立／市立／国立系病院、医師会立・民間病院が地域ごとの医療機能を支える。医師数だけではなく麻酔科、放射線診断科、救急、産科、整形外科、臨床工学技士、診療放射線技師、臨床検査技師の確保可能性を調べる。</p><p>装置更新は人員の勤務計画・保守契約・稼働率・医療安全を同時に評価。施設・医局の人事に関する非公開情報は掲載しない。</p></div></div>
-<div class="card" style="margin-top:16px"><h3>保健所・地域行政のアクセスリンク</h3><p class="minor">保健所の所管・統廃合・移転は変更されるため、正式住所と所管は<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/46kagoshima.html" target="_blank" rel="noopener noreferrer">厚労省・保健所一覧（S13）</a>で確認。地理院地図のピンは概略座標です。</p><div id="health-center-list" class="locations"></div></div></section>
+<details class="card expandable" style="margin-top:16px"><summary><span class="expandable-title">保健所・地域行政のアクセスリンク（14拠点）</span><span class="expandable-hint">クリックで展開</span></summary><p class="minor">保健所の所管・統廃合・移転は変更されるため、正式住所と所管は<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/46kagoshima.html" target="_blank" rel="noopener noreferrer">厚労省・保健所一覧（S13）</a>で確認。地理院地図のピンは概略座標です。</p><div id="health-center-list" class="locations"></div></details></section>
 <section id="devices" class="section"><div class="kicker">05 / MEDICAL DEVICE INSTALLED BASE</div><h2>医療機器市場｜設置・更新・診療との接続</h2>
 <div class="warning"><strong>統計上の重要な制約：</strong>都道府県・医療圏・病院／診療所・装置の性能区分が一致する公開原表を照合していないため、US・CT・MRI・PET・リニアック・血管撮影・内視鏡・心電図・透析等の県別<strong>実台数・人口当たり台数の全国比較を推定で補っていません</strong>。CT/MRIは2023年医療施設静態調査 e-Stat の原表から追加照合できます（出典S17）。</div>
 <div class="table-scroll"><table><thead><tr><th>モダリティ</th><th>主な地域需要・診療接点</th><th>設置・更新の確認項目</th><th>医療商社の供給・支援論点</th></tr></thead><tbody>
@@ -112,8 +112,8 @@
 <h3 style="margin-top:30px">STEP 3：9医療圏の優先度スコア（編集部推計）</h3>
 <p>評価軸と重みを固定し、5段階評価を百分率へ換算。これは「どこで一体的な市場開発を行うか」の参考であり、<strong>医療必要度の順位や医療機関の価値判断ではない</strong>。事業者の固有商材・既存契約を反映しない。</p>
 <div class="grid two"><div class="chartbox"><h3>地域市場への投資・対応優先度</h3><div class="chartarea tall"><canvas id="chart-priority"></canvas></div><div class="minor">編集部推計、0〜100点。スコアは公開統計そのものではない。</div></div><div class="card"><h3>算定式・重み</h3><div class="table-scroll"><table><thead><tr><th>評価軸</th><th>重み</th><th>評価尺度</th></tr></thead><tbody id="score-weights"></tbody></table></div><p class="minor">総合点＝Σ（各軸1〜5点 ÷ 5 × 重み）。主観を抑えるため、導入案件に使う際は定量データ・ヒアリング根拠で再採点する。</p></div></div>
-<div class="filters" style="margin-top:17px"><label for="filter-areas"><strong>医療圏を絞り込み</strong></label><input id="filter-areas" type="search" placeholder="医療圏名・地域課題・機器を入力" autocomplete="off"></div>
-<div class="grid two" id="strategy-areas"></div>
+<div class="filters" style="margin-top:17px"><label for="filter-areas"><strong>医療圏を絞り込み</strong></label><input id="filter-areas" type="search" placeholder="例：奄美、離島、超音波、医師" autocomplete="off" aria-describedby="filter-count"><button id="clear-filter" class="btn" type="button" aria-label="医療圏の検索条件を消去">クリア</button><span id="filter-count" class="filter-count" role="status" aria-live="polite">全9医療圏を表示</span></div>
+<div class="grid two region-grid" id="strategy-areas"></div><p class="minor">医療圏名を押すと、需要・課題・注目施設・今後3〜5年の施策を展開できます。初期表示は一覧性を優先しています。</p>
 <h3 style="margin-top:30px">STEP 4：短期・中期の実行ロードマップ</h3>
 <div class="steps"><div class="card"><span class="step-number">1</span><h3>0〜6か月｜実態把握</h3><p>公開情報から施設・診療科・機器配置・病床機能・採択補助事業の台帳を構築。医療圏別の検査機能、物流経路、在庫・技術員の到達条件を可視化する。</p><p class="minor">KPI：台帳カバー率、公開情報の照合率、拠点別の保守到達計画整備率。</p></div>
 <div class="card"><span class="step-number">2</span><h3>6〜18か月｜実証</h3><p>本土拠点＋島しょ拠点で、機器・共同読影・保守・配送を組み合わせた地域連携モデルを検証。医療機関・地域卸・自治体と事前協議し、採算性と医療効果を別々に評価。</p><p class="minor">KPI：保守復旧日数、検査待機日数、稼働率、共同利用件数、患者の地域外移動負担。</p></div>
@@ -121,10 +121,11 @@
 <div class="warning"><strong>反対意見・実行上の懸念：</strong>①人口減少下で機器を分散しすぎると稼働率が低下。②共同利用は搬送・予約・検査結果共有の調整費が大きい。③離島保守は採算性が脆弱。④中立卸が複数メーカーの契約・保守を一括管理するには責任分界と医療安全が必要。代替策は、高度医療の拠点集中と地域の必要最小限の検査継続を組み合わせ、SLAを示した段階導入とすること。</div></section>
 <section id="sources" class="section"><div class="kicker">09 / SOURCES & DATA GOVERNANCE</div><h2>出典一覧・検証・公開データの範囲</h2>
 <p>数値・計画・指定の出典を原則一次資料とし、独立市場推計・本サイトの評価・未確認情報を区別。資料年と更新日を表示しています。リンク先の内容は発表時点で変わる場合があります。</p>
-<div class="table-scroll"><table><thead><tr><th>ID</th><th>出典・公表主体</th><th>年次</th><th>URL</th></tr></thead><tbody id="sources-table"></tbody></table></div>
+<details class="card expandable sources-panel"><summary><span class="expandable-title">出典・参照資料をすべて表示（22件）</span><span class="expandable-hint">クリックで展開</span></summary><div class="table-scroll"><table><thead><tr><th>ID</th><th>公表機関・資料（原典にリンク）</th><th>資料年次</th></tr></thead><tbody id="sources-table"></tbody></table></div></details>
 <div class="grid two" style="margin-top:15px"><div class="card"><h3>公開情報から除外したもの</h3><ul class="list-tight" id="excluded-list"></ul><p>添付資料の個別施設・販売実績が公的資料であることを確認できない場合、営業・顧客情報として取り扱い公開しません。</p></div><div class="card"><h3>未確認・今後の精査項目</h3><ul class="list-tight" id="pending-list"></ul><p>確認が済むまでは補完値・予測値を事実として掲載しません。</p></div></div>
 <div id="status" aria-live="polite"></div><div id="fallback" class="noscript" hidden>JavaScriptの一部が読み込めません。図表表示にはブラウザでJavaScriptを有効にしてください。主要な戦略分析と外部出典リンクは表示されています。</div>
 <noscript><div class="noscript">このページの地図・医療圏比較グラフ・施設リンク一覧はJavaScriptで描画します。JavaScriptを有効にしてください。本文・戦略分析と出典の一部はそのまま閲覧できます。</div></noscript>
 </section></div></main>
 <footer class="footer"><div class="wrap"><strong>鹿児島県 医療マーケット・地域医療戦略 2026</strong><p>最終更新：2026年10月26日｜研究・編集：Japan Medical Market Intelligence（公開情報に基づく独立調査）</p><p><strong>免責事項：</strong>本サイトは公開情報と資料提供を受けた情報のうち公開可能な範囲を編集した独立分析です。掲載情報の正確性、完全性、最新性、医療・経営判断上の適合性を保証しません。特定メーカー、流通事業者、医療機関を推奨・批判する趣旨ではありません。医療行為・機器選定・診療判断には公式資料、関係機関・専門家の確認が必要です。</p><p><a class="btn primary" href="https://sinobu13-bpei.github.io/medical-intelligence/">国内医療機器MKT 総合トップページ ↗</a></p><div class="bottom">© 2026 Japan Medical Market Intelligence｜地図出典：国土地理院「地理院タイル」</div></div></footer>
+<a href="#content" class="back-to-top" aria-label="ページ先頭付近へ戻る">↑<span> 上へ</span></a>
 </body></html>
