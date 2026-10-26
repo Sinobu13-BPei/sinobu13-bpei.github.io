@@ -1,0 +1,642 @@
+{
+  "metadata": {
+    "lastUpdated": "2026-10-26",
+    "editor": "高橋裕子",
+    "policy": "公開一次情報を優先。シェア・取引条件・顧客商談など非公開情報は掲載しない。"
+  },
+  "population": {
+    "actual2020": 1123852,
+    "censusPrelim2025": 1076875,
+    "estimatedSep2026": 1063808,
+    "projected2030": 1031000,
+    "projected2050": 841000,
+    "elderly2020": 32.9,
+    "elderly2050": 40.5,
+    "nationalElderly2020": 28,
+    "nationalElderly2050": 37.1
+  },
+  "beds2025": {
+    "year": "2025-07-01",
+    "high": 1258,
+    "acute": 7743,
+    "recovery": 3724,
+    "chronic": 2907,
+    "inactive": 1166,
+    "total": 16798
+  },
+  "needed": {
+    "year": "2025推計",
+    "high": 1295,
+    "acute": 4908,
+    "recovery": 5391,
+    "chronic": 3055,
+    "total": 14649
+  },
+  "scores": {
+    "weights": [
+      25,
+      25,
+      20,
+      15,
+      15
+    ],
+    "labels": [
+      "人口・需要",
+      "機能転換課題",
+      "アクセス・BCP",
+      "拠点施設",
+      "実行可能性"
+    ],
+    "note": "商社活動の優先度を評価した編集部独自の仮説スコア。医療品質や公的な地域格付けではない。各軸1～5点を重み付け・最大100点に換算。"
+  },
+  "areas": [
+    {
+      "id": "east",
+      "name": "東部",
+      "cities": "別府市・杵築市・国東市・姫島村・日出町",
+      "beds": [
+        342,
+        1618,
+        766,
+        1010,
+        279
+      ],
+      "needed": [
+        265,
+        996,
+        1223,
+        793
+      ],
+      "populationContext": "別府の医療集積と国東半島・離島のアクセス格差",
+      "challenge": "回復期の圏域内整備、海路・道路のBCP、専門人材の確保",
+      "opportunity": "地域中核病院の更新、院外画像共有、訪問・POCUS連携",
+      "focus": "別府医療センター／新別府病院／鶴見病院",
+      "score": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "id": "center",
+      "name": "中部",
+      "cities": "大分市・臼杵市・津久見市・由布市",
+      "beds": [
+        887,
+        3529,
+        1491,
+        1114,
+        508
+      ],
+      "needed": [
+        759,
+        2545,
+        2571,
+        1463
+      ],
+      "populationContext": "県都・大学病院・高度急性期・診療所が集積",
+      "challenge": "回復期需要と高機能病院の連携、診療所との情報共有",
+      "opportunity": "高機能CT/MRI・核医学・画像IT・急性期と在宅の連結",
+      "focus": "大分大学医学部附属病院／県立病院／大分赤十字病院",
+      "score": [
+        5,
+        5,
+        4,
+        5,
+        5
+      ]
+    },
+    {
+      "id": "south",
+      "name": "南部",
+      "cities": "佐伯市",
+      "beds": [
+        0,
+        657,
+        224,
+        113,
+        36
+      ],
+      "needed": [
+        60,
+        305,
+        447,
+        128
+      ],
+      "populationContext": "沿岸広域に小規模居住地が分散・高齢化",
+      "challenge": "地震津波リスク、救急輸送距離、回復期の量と機能",
+      "opportunity": "据置US・可搬US・一般撮影・遠隔画像診断・BCP",
+      "focus": "JCHO南海医療センター／佐伯市医師会",
+      "score": [
+        2,
+        4,
+        5,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "hohi",
+      "name": "豊肥",
+      "cities": "竹田市・豊後大野市",
+      "beds": [
+        0,
+        465,
+        206,
+        77,
+        21
+      ],
+      "needed": [
+        33,
+        177,
+        223,
+        175
+      ],
+      "populationContext": "中山間の人口減少、通院移動の負荷",
+      "challenge": "医師確保、回復期・慢性期の接続、病院外アクセス",
+      "opportunity": "オンライン診療装置、可搬超音波、診療所画像共有",
+      "focus": "竹田医師会病院／豊後大野市医師会",
+      "score": [
+        2,
+        3,
+        5,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "west",
+      "name": "西部",
+      "cities": "日田市・九重町・玖珠町",
+      "beds": [
+        8,
+        463,
+        481,
+        153,
+        71
+      ],
+      "needed": [
+        55,
+        245,
+        369,
+        141
+      ],
+      "populationContext": "日田を中心とする県西の医療拠点・県境物流",
+      "challenge": "専門人材の確保、豪雨・山間部交通と医療継続",
+      "opportunity": "地域連携画像診断、更新機器の省人化、災害時の代替機",
+      "focus": "済生会日田病院／日田市医師会",
+      "score": [
+        3,
+        4,
+        5,
+        4,
+        3
+      ]
+    },
+    {
+      "id": "north",
+      "name": "北部",
+      "cities": "中津市・豊後高田市・宇佐市",
+      "beds": [
+        21,
+        1011,
+        556,
+        440,
+        251
+      ],
+      "needed": [
+        123,
+        640,
+        558,
+        355
+      ],
+      "populationContext": "中津の拠点性・福岡県境との患者流動",
+      "challenge": "病院と診療所の役割分担、搬送先の県境調整",
+      "opportunity": "救急・循環器・透析・画像診断の地域連携",
+      "focus": "中津市立中津市民病院／宇佐高田医師会病院",
+      "score": [
+        4,
+        4,
+        3,
+        4,
+        4
+      ]
+    }
+  ],
+  "facilities": [
+    {
+      "name": "大分大学医学部附属病院",
+      "kind": "大学・特定機能",
+      "address": "由布市挾間町医大ヶ丘1丁目1番地",
+      "lat": 33.215,
+      "lon": 131.561,
+      "area": "中部",
+      "url": "https://www.med.oita-u.ac.jp/hospital/"
+    },
+    {
+      "name": "大分県立病院",
+      "kind": "県立・地域医療支援",
+      "address": "大分市豊饒2丁目8-1",
+      "lat": 33.204,
+      "lon": 131.597,
+      "area": "中部",
+      "url": "https://www.oitapref-hosp.jp/"
+    },
+    {
+      "name": "大分赤十字病院",
+      "kind": "赤十字・地域医療支援",
+      "address": "大分市千代町3丁目2-37",
+      "lat": 33.244,
+      "lon": 131.598,
+      "area": "中部",
+      "url": "https://www.oitasekijyuji.jp/"
+    },
+    {
+      "name": "アルメイダ病院",
+      "kind": "医師会立・地域医療支援",
+      "address": "大分市大字宮崎1509-2",
+      "lat": 33.187,
+      "lon": 131.603,
+      "area": "中部",
+      "url": "https://www.almeida-hospital.com/"
+    },
+    {
+      "name": "国立病院機構 大分医療センター",
+      "kind": "国立病院機構",
+      "address": "大分市横田2丁目11-45",
+      "lat": 33.241,
+      "lon": 131.732,
+      "area": "中部",
+      "url": "https://oita.hosp.go.jp/"
+    },
+    {
+      "name": "国立病院機構 別府医療センター",
+      "kind": "国立病院機構・がん拠点",
+      "address": "別府市大字内竈1473",
+      "lat": 33.339,
+      "lon": 131.475,
+      "area": "東部",
+      "url": "https://beppu.hosp.go.jp/"
+    },
+    {
+      "name": "新別府病院",
+      "kind": "共済病院・地域医療支援",
+      "address": "別府市大字鶴見3898",
+      "lat": 33.295,
+      "lon": 131.49,
+      "area": "東部",
+      "url": "https://www.shinbeppu-hosp.jp/"
+    },
+    {
+      "name": "大分県厚生連鶴見病院",
+      "kind": "厚生連・地域医療支援",
+      "address": "別府市緑丘町12-1",
+      "lat": 33.305,
+      "lon": 131.48,
+      "area": "東部",
+      "url": "https://www.ok-tsurumi.com/"
+    },
+    {
+      "name": "中津市立中津市民病院",
+      "kind": "市立・地域がん拠点",
+      "address": "中津市大字下池永173",
+      "lat": 33.582,
+      "lon": 131.197,
+      "area": "北部",
+      "url": "https://www.city-nakatsu.jp/hospital/"
+    },
+    {
+      "name": "宇佐高田医師会病院",
+      "kind": "医師会立・地域医療支援",
+      "address": "宇佐市南宇佐635",
+      "lat": 33.53,
+      "lon": 131.378,
+      "area": "北部",
+      "url": "https://www.usatakada-med.or.jp/"
+    },
+    {
+      "name": "大分県済生会日田病院",
+      "kind": "済生会・地域医療支援",
+      "address": "日田市三和643-7",
+      "lat": 33.344,
+      "lon": 130.94,
+      "area": "西部",
+      "url": "https://www.saiseikai-hita.jp/"
+    },
+    {
+      "name": "JCHO南海医療センター",
+      "kind": "JCHO・地域医療支援",
+      "address": "佐伯市常盤西町7-8",
+      "lat": 32.955,
+      "lon": 131.882,
+      "area": "南部",
+      "url": "https://nankai.jcho.go.jp/"
+    },
+    {
+      "name": "竹田医師会病院",
+      "kind": "医師会立・地域医療支援",
+      "address": "竹田市拝田原448",
+      "lat": 32.974,
+      "lon": 131.385,
+      "area": "豊肥",
+      "url": "https://www.taketa-med.or.jp/"
+    },
+    {
+      "name": "大分県庁 医療政策課",
+      "kind": "行政",
+      "address": "大分市大手町3丁目1番1号",
+      "lat": 33.238,
+      "lon": 131.609,
+      "area": "中部",
+      "url": "https://www.pref.oita.jp/soshiki/12620/"
+    },
+    {
+      "name": "大分県医師会",
+      "kind": "医師会",
+      "address": "大分市",
+      "lat": 33.238,
+      "lon": 131.61,
+      "area": "中部",
+      "url": "https://www.oita.med.or.jp/"
+    },
+    {
+      "name": "大分県東部保健所",
+      "kind": "保健所",
+      "address": "別府市大字鶴見字下田井14-1",
+      "lat": 33.307,
+      "lon": 131.481,
+      "area": "東部",
+      "url": "https://www.pref.oita.jp/site/suishin/hc-appointment.html"
+    },
+    {
+      "name": "大分県中部保健所",
+      "kind": "保健所",
+      "address": "臼杵市大字臼杵字洲崎72-34",
+      "lat": 33.121,
+      "lon": 131.805,
+      "area": "中部",
+      "url": "https://www.pref.oita.jp/site/suishin/hc-appointment.html"
+    },
+    {
+      "name": "大分県南部保健所",
+      "kind": "保健所",
+      "address": "佐伯市向島1-4-1",
+      "lat": 32.961,
+      "lon": 131.89,
+      "area": "南部",
+      "url": "https://www.pref.oita.jp/site/suishin/hc-appointment.html"
+    },
+    {
+      "name": "大分県豊肥保健所",
+      "kind": "保健所",
+      "address": "豊後大野市三重町市場934-2",
+      "lat": 32.98,
+      "lon": 131.588,
+      "area": "豊肥",
+      "url": "https://www.pref.oita.jp/site/suishin/hc-appointment.html"
+    },
+    {
+      "name": "大分県西部保健所",
+      "kind": "保健所",
+      "address": "日田市田島2-2-5",
+      "lat": 33.322,
+      "lon": 130.941,
+      "area": "西部",
+      "url": "https://www.pref.oita.jp/site/suishin/hc-appointment.html"
+    },
+    {
+      "name": "大分県北部保健所",
+      "kind": "保健所",
+      "address": "中津市中央町1-10-42",
+      "lat": 33.583,
+      "lon": 131.189,
+      "area": "北部",
+      "url": "https://www.pref.oita.jp/site/suishin/hc-appointment.html"
+    },
+    {
+      "name": "大分市保健所",
+      "kind": "保健所",
+      "address": "大分市荷揚町6番1号",
+      "lat": 33.242,
+      "lon": 131.608,
+      "area": "中部",
+      "url": "https://www.city.oita.oita.jp/"
+    }
+  ],
+  "associations": [
+    [
+      "大分県医師会",
+      "https://www.oita.med.or.jp/"
+    ],
+    [
+      "大分郡市医師会",
+      "https://oitagunshi-ishikai.jp/"
+    ],
+    [
+      "大分東医師会",
+      "https://oitahigashi-ishikai.com/"
+    ],
+    [
+      "速見郡杵築市医師会",
+      "https://hayaki-med.com/"
+    ],
+    [
+      "佐伯市医師会",
+      "https://saiki-med.jp/"
+    ],
+    [
+      "豊後大野市医師会",
+      "https://www.oono-med.jp/"
+    ],
+    [
+      "竹田市医師会",
+      "https://taketasiisikai.sakura.ne.jp/"
+    ],
+    [
+      "玖珠郡医師会",
+      "https://kusudrs.com/"
+    ],
+    [
+      "日田市医師会",
+      "https://www.hita-med.or.jp/"
+    ]
+  ],
+  "sources": [
+    [
+      "S01",
+      "大分県人口推計・2026年9月1日",
+      "2026-09",
+      "https://pref.oita.jp/site/toukei/cpe-202609.html"
+    ],
+    [
+      "S02",
+      "2025年国勢調査・人口速報",
+      "2025-10（2026年公表）",
+      "https://www.pref.oita.jp/site/toukei/census2025-soku.html"
+    ],
+    [
+      "S03",
+      "国立社会保障・人口問題研究所／地域別将来推計人口",
+      "2023年推計・2020～2050年",
+      "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/6houkoku/houkoku.asp"
+    ],
+    [
+      "S04",
+      "第8次大分県医療計画（計画ページ・本文）",
+      "2024～2029年度",
+      "https://www.pref.oita.jp/soshiki/12620/iryoukeikaku8.html"
+    ],
+    [
+      "S05",
+      "2025年度病床機能報告（2025年7月1日現状）",
+      "2025年・2026年8月公表",
+      "https://www.pref.oita.jp/soshiki/12620/byousyoukinouhoukokur7.html"
+    ],
+    [
+      "S06",
+      "大分県地域医療構想・必要病床数",
+      "2025年推計",
+      "https://www.pref.oita.jp/uploaded/life/1034995_1264893_misc.pdf"
+    ],
+    [
+      "S07",
+      "厚生労働省 医師偏在指標公表ページ",
+      "2026年4月公表",
+      "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    ],
+    [
+      "S08",
+      "大分県地域医療支援病院一覧",
+      "2026年1月時点",
+      "https://www.pref.oita.jp/soshiki/12620/chiikiiryoushiennbyoin.html"
+    ],
+    [
+      "S09",
+      "大分県 がん診療拠点病院一覧",
+      "2024年4月案内",
+      "https://www.pref.oita.jp/site/gantaisaku/gansoudan.html"
+    ],
+    [
+      "S10",
+      "大分県医師会 郡市等医師会一覧",
+      "2026年7月",
+      "https://www.oita.med.or.jp/common/%E7%9C%8C%E5%86%85%E3%81%AE%E9%83%A1%E5%B8%82%E5%8C%BB%E5%B8%AB%E4%BC%9A/"
+    ],
+    [
+      "S11",
+      "大分県 保健所・保健部窓口一覧",
+      "2026年確認",
+      "https://www.pref.oita.jp/site/suishin/hc-appointment.html"
+    ],
+    [
+      "S12",
+      "大分大学医学部附属病院 病院統計",
+      "令和7年度表示（要照合）",
+      "https://www.med.oita-u.ac.jp/hospital/tokei.html"
+    ],
+    [
+      "S13",
+      "大分大学医学部附属病院 医療情報部",
+      "2026年確認",
+      "https://www.med.oita-u.ac.jp/hic/"
+    ],
+    [
+      "S14",
+      "おおいた医療ネットワーク運営協議会",
+      "2026年9月30日",
+      "https://oita-medical.net/"
+    ],
+    [
+      "S15",
+      "大分県 遠隔医療設備補助金意向調査",
+      "2026年10月5日",
+      "https://pref.oita.jp/soshiki/12620/enkakuiryouikoutyousa.html"
+    ],
+    [
+      "S16",
+      "大分県補助金・交付金要綱",
+      "2026年6月",
+      "https://www.pref.oita.jp/soshiki/12620/hojyokin2.html"
+    ],
+    [
+      "S17",
+      "大分県医師会 災害医療マニュアル",
+      "2026年閲覧",
+      "https://www.oita.med.or.jp/medicalpersonnel/%E7%81%BD%E5%AE%B3%E5%8C%BB%E7%99%82/"
+    ],
+    [
+      "S18",
+      "大分県 医療情報ネット（ナビイ）",
+      "2026年閲覧",
+      "https://pref.oita.jp/site/bosaianzen/iryo-joho.html"
+    ],
+    [
+      "S19",
+      "株式会社アステム 会社概要・事業内容",
+      "2026年3月期",
+      "https://www.astemf.jp/company/outline.php"
+    ],
+    [
+      "S20",
+      "大分市 おおいた医療ネットの案内",
+      "2026年7月",
+      "https://www.city.oita.oita.jp/o093/iryojoho.html"
+    ],
+    [
+      "S21",
+      "大分大学医学部附属病院 新技術・医療設備",
+      "2026年閲覧",
+      "https://www.med.oita-u.ac.jp/hospital/byoin_torikumi.html"
+    ],
+    [
+      "S22",
+      "厚生労働省 医療DX",
+      "2026年10月",
+      "https://www.mhlw.go.jp/stf/iryoudx.html"
+    ],
+    [
+      "S23",
+      "大分県医師会 令和8年度診療報酬改定",
+      "2026年",
+      "https://www.oita.med.or.jp/medicalpersonnel/%E8%A8%BA%E7%99%82%E5%A0%B1%E9%85%AC%E6%94%B9%E5%AE%9A/"
+    ],
+    [
+      "S24",
+      "大分県人口・高齢化（社人研推計に基づく二次整理）",
+      "2020～2050年",
+      "https://jp.gdfreak.com/public/detail/jp010050000001044000/2"
+    ],
+    [
+      "S25",
+      "医療人材・医師偏在（厚労省データ再集計）",
+      "2024年実績・2026年公表",
+      "https://scueldata.me/insight/workforce/doctor/oita/"
+    ],
+    [
+      "S26",
+      "大分県医療政策課",
+      "2026年",
+      "https://www.pref.oita.jp/soshiki/12620/"
+    ],
+    [
+      "S27",
+      "大分県病床機能報告（2024年詳細比較表）",
+      "2024年",
+      "https://www.pref.oita.jp/uploaded/attachment/2263509.pdf"
+    ],
+    [
+      "S28",
+      "大分県医療計画概要（二次医療圏と基準病床）",
+      "2024～2029年度",
+      "https://www.pref.oita.jp/uploaded/attachment/2209268.pdf"
+    ],
+    [
+      "S29",
+      "SCUEL 公的報告に基づく大分大学保有設備集計",
+      "2025年度外来機能報告ベース",
+      "https://scueldata.me/insight/inpatients/h/bd97b75ed0/"
+    ]
+  ]
+}
