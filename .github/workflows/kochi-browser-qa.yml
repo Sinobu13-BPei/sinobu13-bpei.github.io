@@ -1,0 +1,33 @@
+name: Kochi Medical Market Visual QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'medical-intelligence/kochi/**'
+      - '.github/workflows/kochi-browser-qa.yml'
+permissions:
+  contents: read
+jobs:
+  visual-browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright browser
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify Kochi charts, maps, controls, mobile layout and sources
+        run: node medical-intelligence/kochi/qa-browser.mjs
+      - name: Save desktop/tablet/mobile screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kochi-visual-qa-screenshots
+          path: medical-intelligence/kochi/qa-screenshots/*.png
+          if-no-files-found: ignore
+          retention-days: 7
