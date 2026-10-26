@@ -1,0 +1,133 @@
+/* Medical Intelligence nationwide hub compact layout (2026-10-27).
+   Scoped to #hub main components. All links, figures and statistics retained. */
+html{scroll-padding-top:66px}
+body{line-height:1.62}
+#site-header .jm-header-inner{min-height:52px}
+#site-header .jm-primary-nav a{min-height:36px;padding:5px 8px;font-size:12px}
+#site-header .jm-meta{padding:3px 0}
+.jm-toc{position:sticky;top:0;z-index:190;max-width:1120px;margin:0 auto 8px;padding:2px 9px;min-height:40px;scrollbar-width:thin}
+.jm-toc a{min-height:34px;padding:4px 8px;font-size:11px}
+.jm-section-label{margin:8px 0 2px;font-size:11px}
+.hero{padding:26px 0 25px}
+.hero:after{pointer-events:none}
+.hero h1{margin:6px 0 8px;font-size:clamp(27px,3.7vw,41px);line-height:1.24}
+.hero .eyebrow{font-size:10px}
+.hero p{margin:5px 0;font-size:13px;line-height:1.6}
+.hero .hero-meta-line{margin:3px 0 6px}
+.hero .chips{margin:10px 0;gap:6px}
+.hero .chip{padding:3px 10px;font-size:11px}
+.hero .hero-cta-layout{margin:11px 0 8px;gap:10px}
+.hero .hero-cta-layout .links{margin:0;gap:6px}
+.hero .hero-cta-layout .links>a{min-height:34px;padding:6px 9px;font-size:11px;line-height:1.3}
+.hero .hero-cta-layout .hero-handbooks{gap:5px}
+.hero .handbook-stack.hero-handbooks a{min-height:34px;padding:5px 7px}
+body.jm-site .hero{padding:26px 0 25px!important}
+body.jm-site .hero :where(p,.lead){line-height:1.6}
+.section{padding:26px 0}
+body.jm-site main>.section{padding-block:26px}
+.section[id]{scroll-margin-top:60px}
+.section h2{font-size:clamp(22px,2.5vw,27px);margin:2px 0 7px;line-height:1.32}
+.section h3{line-height:1.45;margin:6px 0}
+.section .sub{margin:0 0 11px;font-size:13px;line-height:1.65}
+.section p{line-height:1.62}
+.section .grid,.section .split{gap:10px}
+.card{border-radius:10px;padding:13px 15px}
+.card h3{margin:4px 0 5px;font-size:15px}
+.card p{margin:5px 0;font-size:12.5px;line-height:1.62}
+.ico{width:36px;height:36px;border-radius:9px;font-size:19px}
+.node{padding:9px 6px;min-width:105px;border-radius:8px;font-size:12px}
+.diagram{gap:5px}
+.arrow{font-size:19px}
+.tablewrap{margin:0}
+table{font-size:12px}
+th,td{padding:7px 9px;line-height:1.5}
+.status{padding:8px 11px;margin:9px 0;font-size:12px}
+.section .muted,.section .small{line-height:1.55}
+.section .links{margin:9px 0;gap:6px}
+.section .links>a{padding:7px 10px;font-size:11px}
+#clinic .clinic-market-intro{padding:12px 14px!important;gap:9px!important;margin:0 0 13px!important}
+#clinic .clinic-market-intro>div>div:nth-child(2){font-size:17px!important;line-height:1.35}
+#clinic .clinic-market-intro>div>div:last-child{font-size:12px!important}
+#clinic .clinic-market-spotlight{min-height:37px;padding:7px 12px;font-size:12px}
+#modalities .grid,#physicians .grid,#hospital-groups .grid{gap:9px}
+.population-chart{margin:7px 0 12px;padding-top:26px;gap:12px}
+.population-chart__track{height:145px}
+.population-chart__group{grid-template-rows:minmax(0,145px) 27px}
+.year{padding:12px 13px}
+.year strong{font-size:24px}
+.years{gap:10px}
+#map{height:330px}
+.map-actions{margin:7px 0 9px;gap:6px}
+.controls{margin:11px 0;gap:7px}
+.controls select,.controls input{padding:7px 9px;min-height:36px}
+#regionList{max-height:355px;overflow-y:auto;overscroll-behavior-y:contain;scrollbar-width:thin;scrollbar-color:#acc8d1 #f0f5f7}
+#regionList:focus-visible{outline:3px solid #d48c2c;outline-offset:2px}
+#regionList .region{padding:5px 8px;gap:7px;min-height:40px}
+#regionList .region strong{font-size:12px}
+#regionList .region-actions{gap:4px}
+#regionList .region-actions a{min-height:30px;padding:4px 7px;margin:0;font-size:10px;line-height:1.3;border-radius:7px}
+#regionList .region .google-map-btn{padding:4px 7px;min-height:30px}
+#sources{padding-bottom:17px}
+.footer{padding:16px 0}
+.footer-link-strip{margin-top:8px;gap:6px}
+.footer-link-strip a{padding:5px 8px;font-size:11px}
+body.jm-site .jm-footer{padding:15px 0}
+body.jm-site .jm-footer p{margin:3px 0}
+.reading-top{position:fixed;z-index:199;right:14px;bottom:max(14px,env(safe-area-inset-bottom));display:inline-flex;align-items:center;gap:5px;border:1px solid #a9d4da;border-radius:999px;background:#125166;color:#fff!important;text-decoration:none;padding:8px 12px;font:700 12px/1.2 "Noto Sans JP",system-ui,sans-serif;box-shadow:0 5px 17px rgba(10,45,59,.24);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(5px);transition:opacity .16s,visibility .16s,transform .16s}
+.reading-top.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.reading-top:focus-visible{outline:3px solid #eba849;outline-offset:3px}
+@media(min-width:1250px){
+ #regionList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 1px}
+ #regionList .region{min-width:0;gap:5px}
+ #regionList .region-actions{max-width:75%;min-width:0}
+ #regionList .region-actions a{white-space:normal;text-align:center}
+}
+@media(max-width:900px){
+ .section{padding:22px 0}
+ body.jm-site main>.section{padding-block:22px}
+ .hero{padding:22px 0}
+ .hero .hero-cta-layout{grid-template-columns:minmax(0,1fr);gap:8px}
+ .hero .hero-cta-layout .hero-handbooks{width:min(398px,100%)}
+ .section .grid,.section .split{gap:9px}
+ #map{height:290px}
+}
+@media(max-width:560px){
+ html{scroll-padding-top:55px}
+ #site-header .jm-header-inner{min-height:49px}
+ .jm-toc{min-height:36px;margin-bottom:5px;padding:1px 6px}
+ .jm-toc a{min-height:32px;padding:4px 6px;font-size:10.5px}
+ .hero,body.jm-site .hero{padding:18px 0 20px!important}
+ .hero h1{font-size:clamp(25px,6vw,32px);margin:5px 0}
+ .hero p{font-size:12px;line-height:1.58}
+ .hero .chips{gap:4px;margin:7px 0}
+ .hero .chip{font-size:10px;padding:2px 7px}
+ .hero .hero-cta-layout{margin:8px 0 5px;gap:6px}
+ .hero .hero-cta-layout .links{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+ .hero .hero-cta-layout .links>a{min-height:34px;padding:6px 7px;font-size:10.5px}
+ .hero .hero-cta-layout .hero-handbooks,.handbook-stack.hero-handbooks{gap:5px}
+ .hero .handbook-stack.hero-handbooks a{min-height:34px;padding:5px 7px}
+ .section,body.jm-site main>.section{padding-block:17px}
+ .section h2{font-size:21px;line-height:1.35;margin:0 0 5px}
+ .section .sub{font-size:12px;margin-bottom:8px}
+ .section .grid,.section .split{gap:8px}
+ .card{padding:10px 12px;border-radius:8px}
+ .card h3{font-size:14px}
+ .card p{font-size:12px}
+ .ico{width:30px;height:30px;font-size:16px}
+ .diagram{gap:3px}
+ .diagram .node{min-width:0;width:100%;padding:7px}
+ .diagram .arrow{font-size:15px}
+ .population-chart__track{height:125px}
+ .population-chart__group{grid-template-rows:minmax(0,125px) 26px}
+ #map{height:265px}
+ .controls{gap:5px;margin:9px 0}
+ .controls select,.controls input{min-height:35px}
+ #regionList{max-height:315px}
+ #regionList .region{min-height:38px;padding:5px 7px;align-items:flex-start}
+ #regionList .region>strong{font-size:12px;padding-top:5px}
+ #regionList .region-actions{gap:4px}
+ #regionList .region-actions a{min-height:30px;padding:4px 6px;font-size:10px}
+ .reading-top{right:9px;bottom:max(9px,env(safe-area-inset-bottom));padding:9px 11px}
+}
+@media(prefers-reduced-motion:reduce){.reading-top{transition:none}}
+@media print{.reading-top{display:none!important}#regionList{max-height:none;overflow:visible}}
