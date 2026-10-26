@@ -50,7 +50,7 @@ assert.ok(res.charts.length>=4&&res.charts.every(x=>x.w>100&&x.overflow==='hidde
 await evalJS(`(function(){const m=document.querySelector('#map');window.scrollTo({top:m.getBoundingClientRect().top+window.scrollY-110,behavior:'instant'});return true})()`);
 await sleep(220);
 const ss=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false,fromSurface:true});
-const label=width<700?'mobile':'desktop';writeFileSync(join(artifactDir,'tochigi-'+label+'.png'),Buffer.from(ss.data,'base64'));
+const label=width<700?'mobile':width<1100?'tablet':'desktop';writeFileSync(join(artifactDir,'tochigi-'+label+'.png'),Buffer.from(ss.data,'base64'));
 results.push({label,...res});}
 try{
  let target;for(let i=0;i<120;i++){try{const r=await fetch(debuggerUrl+'/json');if(r.ok){const tabs=await r.json();target=tabs.find(t=>t.type==='page'&&t.webSocketDebuggerUrl);if(target)break}}catch(e){}await sleep(150)}
@@ -60,6 +60,6 @@ try{
  socket.addEventListener('message',event=>{const msg=JSON.parse(event.data);if(!msg.id)return;const p=waiters.get(msg.id);if(!p)return;clearTimeout(p.timer);waiters.delete(msg.id);if(msg.error)p.reject(Error(JSON.stringify(msg.error)));else p.resolve(msg.result||{})});
  await send('Page.enable');await send('Runtime.enable');
  for(const [w,h] of [[1440,900],[820,950],[390,844]])await checkViewport(w,h);
- console.log(JSON.stringify({result:'PASS',browser:binary,viewports:results,screenshots:['tochigi-desktop.png','tochigi-mobile.png']},null,2));
+ console.log(JSON.stringify({result:'PASS',browser:binary,viewports:results,screenshots:['tochigi-desktop.png','tochigi-tablet.png','tochigi-mobile.png']},null,2));
 }catch(err){console.error('Browser QA FAIL:',err);process.exitCode=1}
 finally{try{socket?.close()}catch(e){}chrome.kill('SIGTERM');await sleep(200);try{rmSync(profile,{recursive:true,force:true})}catch(e){}}
