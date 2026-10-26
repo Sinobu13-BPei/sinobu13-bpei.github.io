@@ -47,3 +47,34 @@
 .chart-legend{display:flex;align-items:center;flex-wrap:wrap;gap:8px 15px;margin:9px 2px 4px;color:#314c60;font-weight:750;font-size:12px}.chart-legend span{display:inline-flex;align-items:center;gap:5px}.chart-legend i{display:inline-block;width:13px;height:13px;border-radius:3px;flex:none}@media(max-width:520px){.chart-static svg{min-width:520px}.chart-legend{font-size:11px;gap:8px 10px}}
 
 @media(max-width:520px){.chart-static:has(svg)::after{content:"グラフは左右にスクロールして確認できます";display:block;font-size:11px;color:#356481;font-weight:700;margin-top:3px}}
+
+
+/* 2026-10-26 MAP CONTAINMENT: keep Leaflet inside its designated panel even when an external map stylesheet is blocked or stale. */
+#map.map{position:relative!important;overflow:hidden!important;isolation:isolate;contain:layout paint;max-width:100%}
+#map.leaflet-container{position:relative!important;overflow:hidden!important;background:#e2eef0}
+#map .leaflet-pane,#map .leaflet-tile,#map .leaflet-marker-icon,#map .leaflet-marker-shadow,#map .leaflet-tile-container,#map .leaflet-pane>svg,#map .leaflet-pane>canvas,#map .leaflet-zoom-box,#map .leaflet-image-layer,#map .leaflet-layer{position:absolute;left:0;top:0}
+#map .leaflet-tile{max-width:none!important;max-height:none!important;padding:0;border:0;visibility:hidden}
+#map .leaflet-tile-loaded{visibility:inherit}
+#map .leaflet-map-pane{z-index:400}
+#map .leaflet-tile-pane{z-index:200}
+#map .leaflet-overlay-pane{z-index:400}
+#map .leaflet-shadow-pane{z-index:500}
+#map .leaflet-marker-pane{z-index:600}
+#map .leaflet-tooltip-pane{z-index:650}
+#map .leaflet-popup-pane{z-index:700}
+#map .leaflet-top,#map .leaflet-bottom{position:absolute;z-index:1000;pointer-events:none}
+#map .leaflet-top{top:0}#map .leaflet-bottom{bottom:0}
+#map .leaflet-left{left:0}#map .leaflet-right{right:0}
+#map .leaflet-control{position:relative;z-index:800;pointer-events:auto;clear:both;margin:10px}
+#map .leaflet-left .leaflet-control{float:left}#map .leaflet-right .leaflet-control{float:right}
+#map .leaflet-control-attribution{background:rgba(255,255,255,.88);font-size:11px;line-height:1.5;padding:2px 7px}
+#map .leaflet-bar{border:2px solid rgba(0,0,0,.2);border-radius:5px;overflow:hidden}
+#map .leaflet-bar a{display:block;width:30px;height:30px;line-height:30px;text-align:center;background:#fff;color:#243e51;text-decoration:none;border-bottom:1px solid #cbd8e1}
+#map .leaflet-control-zoom a{font:bold 22px/30px Arial,sans-serif}
+#map .leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}
+#map .leaflet-popup-content-wrapper{background:#fff;color:#21364c;border-radius:12px;padding:5px 9px;box-shadow:0 4px 20px #0003}
+#map .leaflet-popup-content{margin:10px 13px;font-size:13px;line-height:1.5}
+#map .leaflet-popup-tip-container{position:absolute;left:50%;margin-left:-20px;width:40px;height:20px;overflow:hidden;pointer-events:none}
+#map .leaflet-popup-tip{background:white;width:17px;height:17px;margin:-10px auto 0;transform:rotate(45deg);box-shadow:0 3px 10px #0002}
+#map .leaflet-popup-close-button{position:absolute;right:6px;top:3px;color:#324c61;font-weight:bold;text-decoration:none;font-size:20px}
+@media(max-width:520px){#map.map{height:330px}#map .leaflet-control-attribution{font-size:9px}}
