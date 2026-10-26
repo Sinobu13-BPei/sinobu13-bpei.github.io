@@ -36,6 +36,8 @@ jobs:
           node-version: '22'
       - name: Validate HTML links, JS syntax and common shell
         run: node medical-intelligence/assets/qa-site.mjs
+      - name: Validate Kagawa visual atlas data, accessible SVG and JS syntax
+        run: node medical-intelligence/kagawa/qa-kagawa.mjs
       - name: Validate Miyazaki source data, JavaScript, medical areas and links
         run: node medical-intelligence/miyazaki/qa-miyazaki.mjs
       - name: Validate Ehime MKT data, accessibility and fallbacks
