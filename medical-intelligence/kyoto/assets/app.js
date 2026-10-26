@@ -62,6 +62,14 @@ function mapUnavailable(){
 function initMap(){
  if(typeof window.L==='undefined'){mapUnavailable();return}
  const map=L.map('map',{scrollWheelZoom:false}).setView([35.12,135.6],9);
+ // Prevent a broken map stylesheet from allowing tiles to overflow into the page.
+ const mapRoot=el('map'),mapPane=mapRoot?.querySelector('.leaflet-map-pane');
+ if(!mapPane||getComputedStyle(mapPane).position!=='absolute'||getComputedStyle(mapRoot).overflow==='visible'){
+  try{map.remove()}catch(_){}
+  console.warn('Leafletの配置CSSが無効です。安全な地図リンク表示に切り替えます。');
+  mapUnavailable();return;
+ }
+
  const tiles=L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{
   attribution:'<a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener noreferrer">地理院タイル（国土地理院）</a>',maxZoom:18
  }).addTo(map);
