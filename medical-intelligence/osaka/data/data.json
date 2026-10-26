@@ -1,0 +1,769 @@
+{
+  "meta": {
+    "updated": "2026-10-27",
+    "viewpoint": "公開資料に基づく中立的・独立した医療機器市場研究",
+    "disclaimer": "公開資料に基づく研究・分析です。正確性・完全性・将来成果を保証しません。制度・施設情報は必ず最新の公式発表で確認してください。区域スコアは独自の政策・市場探索指標であり販売予測ではありません。"
+  },
+  "population": {
+    "observed2026Sep": 8754511,
+    "observed2025Census": 8759312,
+    "age65Census2025": 2397340,
+    "age65Share2025": 27.4,
+    "ipss": {
+      "2020": 8837685,
+      "2025": 8676202,
+      "2030": 8437625,
+      "2035": 8167191,
+      "2040": 7874440,
+      "2045": 7570136,
+      "2050": 7263182
+    },
+    "ipss65": {
+      "2020": 2441984,
+      "2025": 2433999,
+      "2030": 2460200,
+      "2035": 2547620,
+      "2040": 2692756,
+      "2045": 2703477,
+      "2050": 2660053
+    }
+  },
+  "beds": {
+    "year": "2025年7月1日",
+    "total": 85771,
+    "functions": [
+      16218,
+      31510,
+      13699,
+      22816
+    ],
+    "inactive": [
+      1120,
+      408
+    ],
+    "neededTotalOld": 101474,
+    "neededOld": [
+      11789,
+      35047,
+      31364,
+      23274
+    ]
+  },
+  "weights": {
+    "scale": 25,
+    "acute": 20,
+    "rehab": 20,
+    "physician": 20,
+    "access": 15
+  },
+  "areas": [
+    {
+      "name": "豊能",
+      "municipalities": "豊中市・池田市・吹田市・箕面市・豊能町・能勢町",
+      "beds": 8865,
+      "functions": [
+        2141,
+        3369,
+        1259,
+        1937
+      ],
+      "need2025": [
+        1436,
+        4044,
+        3577,
+        2421
+      ],
+      "physician2026": 374.2,
+      "lat": 34.81,
+      "lng": 135.49,
+      "accessDifficulty": 3,
+      "driver": "大学・高度医療と北摂住宅都市の連携",
+      "focus": "大阪大学医学部附属病院、国立循環器病研究センター、市立豊中病院",
+      "opportunity": "US心エコー・循環器画像・救急連携"
+    },
+    {
+      "name": "三島",
+      "municipalities": "高槻市・茨木市・摂津市・島本町",
+      "beds": 6372,
+      "functions": [
+        1237,
+        2309,
+        1293,
+        1427
+      ],
+      "need2025": [
+        956,
+        2961,
+        2786,
+        2410
+      ],
+      "physician2026": 287.5,
+      "lat": 34.85,
+      "lng": 135.62,
+      "accessDifficulty": 3,
+      "driver": "大学・地域基幹病院と在宅復帰需要",
+      "focus": "大阪医科薬科大学病院、大阪府済生会茨木病院",
+      "opportunity": "脳血管・がん診断と地域共同利用"
+    },
+    {
+      "name": "北河内",
+      "municipalities": "枚方市・寝屋川市・守口市・門真市・四條畷市・交野市・大東市",
+      "beds": 10107,
+      "functions": [
+        1500,
+        4347,
+        1669,
+        2380
+      ],
+      "need2025": [
+        1197,
+        4319,
+        4511,
+        3083
+      ],
+      "physician2026": 249.6,
+      "lat": 34.77,
+      "lng": 135.65,
+      "accessDifficulty": 4,
+      "driver": "高密度人口・救急と回復期への連携",
+      "focus": "関西医科大学附属病院、関西医科大学総合医療センター、星ヶ丘医療センター",
+      "opportunity": "救急CT・MRI共同利用・回復期紹介導線"
+    },
+    {
+      "name": "中河内",
+      "municipalities": "東大阪市・八尾市・柏原市",
+      "beds": 5553,
+      "functions": [
+        788,
+        2459,
+        1267,
+        992
+      ],
+      "need2025": [
+        657,
+        2424,
+        2759,
+        1275
+      ],
+      "physician2026": 240.5,
+      "lat": 34.66,
+      "lng": 135.61,
+      "accessDifficulty": 4,
+      "driver": "都市型中核急性期・高齢化した住宅地",
+      "focus": "市立東大阪医療センター、八尾市立病院",
+      "opportunity": "救急画像診断・検査連携・設備稼働最適化"
+    },
+    {
+      "name": "南河内",
+      "municipalities": "松原市・羽曳野市・藤井寺市・富田林市・河内長野市・大阪狭山市・太子町・河南町・千早赤阪村",
+      "beds": 6240,
+      "functions": [
+        1084,
+        2449,
+        731,
+        1940
+      ],
+      "need2025": [
+        814,
+        2515,
+        1875,
+        1902
+      ],
+      "physician2026": 296.7,
+      "lat": 34.52,
+      "lng": 135.58,
+      "accessDifficulty": 5,
+      "driver": "近畿大学病院の堺市移転後の医療アクセス再編",
+      "focus": "大阪はびきの医療センター、大阪南医療センター、富田林病院",
+      "opportunity": "搬送・紹介連携、地域内検査アクセス、在宅US"
+    },
+    {
+      "name": "堺市",
+      "municipalities": "堺市7区",
+      "beds": 9223,
+      "functions": [
+        1856,
+        1863,
+        1510,
+        3703
+      ],
+      "need2025": [
+        991,
+        3128,
+        2571,
+        3202
+      ],
+      "physician2026": 230.6,
+      "lat": 34.56,
+      "lng": 135.49,
+      "accessDifficulty": 4,
+      "driver": "2025年近大移転と高度医療・療養機能の再構成",
+      "focus": "近畿大学病院（堺市南区）、堺市立総合医療センター",
+      "opportunity": "大学×地域病院の紹介・共同利用・高度画像診断"
+    },
+    {
+      "name": "泉州",
+      "municipalities": "岸和田市・泉大津市・貝塚市・泉佐野市・和泉市・高石市・泉南市・阪南市・忠岡町・熊取町・田尻町・岬町",
+      "beds": 8355,
+      "functions": [
+        2116,
+        1695,
+        1496,
+        2795
+      ],
+      "need2025": [
+        993,
+        2818,
+        2623,
+        2523
+      ],
+      "physician2026": 227,
+      "lat": 34.4,
+      "lng": 135.35,
+      "accessDifficulty": 5,
+      "driver": "広域移動・救急・関西国際空港周辺BCP",
+      "focus": "岸和田徳洲会病院、りんくう総合医療センター",
+      "opportunity": "救命画像、透析の継続計画、可搬型US"
+    },
+    {
+      "name": "大阪市",
+      "municipalities": "大阪市24区",
+      "beds": 31056,
+      "functions": [
+        5496,
+        13019,
+        4474,
+        7642
+      ],
+      "need2025": [
+        4745,
+        12838,
+        10662,
+        6458
+      ],
+      "physician2026": 347.7,
+      "lat": 34.68,
+      "lng": 135.52,
+      "accessDifficulty": 2,
+      "driver": "最大の高度急性期集積・高密度病院群",
+      "focus": "大阪公立大学医学部附属病院、大阪市立総合医療センター、大阪国際がんセンター、大阪急性期・総合医療センター",
+      "opportunity": "高稼働装置の更新、放射線治療、画像IT統合"
+    }
+  ],
+  "facilities": [
+    {
+      "name": "大阪大学医学部附属病院",
+      "type": "大学病院",
+      "area": "豊能",
+      "address": "大阪府吹田市山田丘2-15",
+      "lat": 34.821,
+      "lng": 135.53,
+      "source": "univ1"
+    },
+    {
+      "name": "国立循環器病研究センター",
+      "type": "循環器・研究",
+      "area": "豊能",
+      "address": "大阪府吹田市岸部新町6-1",
+      "lat": 34.778,
+      "lng": 135.54,
+      "source": "facility"
+    },
+    {
+      "name": "市立豊中病院",
+      "type": "地域中核",
+      "area": "豊能",
+      "address": "大阪府豊中市柴原町4-14-1",
+      "lat": 34.806,
+      "lng": 135.464,
+      "source": "facility"
+    },
+    {
+      "name": "大阪医科薬科大学病院",
+      "type": "大学病院",
+      "area": "三島",
+      "address": "大阪府高槻市大学町2-7",
+      "lat": 34.851,
+      "lng": 135.624,
+      "source": "univ3"
+    },
+    {
+      "name": "関西医科大学附属病院",
+      "type": "大学病院",
+      "area": "北河内",
+      "address": "大阪府枚方市新町2-3-1",
+      "lat": 34.818,
+      "lng": 135.649,
+      "source": "univ4"
+    },
+    {
+      "name": "関西医科大学総合医療センター",
+      "type": "地域中核",
+      "area": "北河内",
+      "address": "大阪府守口市文園町10-15",
+      "lat": 34.732,
+      "lng": 135.558,
+      "source": "facility"
+    },
+    {
+      "name": "市立東大阪医療センター",
+      "type": "地域中核",
+      "area": "中河内",
+      "address": "大阪府東大阪市西岩田3-4-5",
+      "lat": 34.667,
+      "lng": 135.604,
+      "source": "facility"
+    },
+    {
+      "name": "八尾市立病院",
+      "type": "地域中核",
+      "area": "中河内",
+      "address": "大阪府八尾市龍華町1-3-1",
+      "lat": 34.621,
+      "lng": 135.581,
+      "source": "facility"
+    },
+    {
+      "name": "大阪はびきの医療センター",
+      "type": "呼吸器・地域中核",
+      "area": "南河内",
+      "address": "大阪府羽曳野市はびきの3-7-1",
+      "lat": 34.556,
+      "lng": 135.588,
+      "source": "facility"
+    },
+    {
+      "name": "大阪南医療センター",
+      "type": "地域中核",
+      "area": "南河内",
+      "address": "大阪府河内長野市木戸東町2-1",
+      "lat": 34.472,
+      "lng": 135.569,
+      "source": "facility"
+    },
+    {
+      "name": "近畿大学病院",
+      "type": "大学病院",
+      "area": "堺市",
+      "address": "大阪府堺市南区三原台1丁14番1号",
+      "lat": 34.499,
+      "lng": 135.51,
+      "source": "kindai"
+    },
+    {
+      "name": "堺市立総合医療センター",
+      "type": "地域中核",
+      "area": "堺市",
+      "address": "大阪府堺市西区家原寺町1-1-1",
+      "lat": 34.545,
+      "lng": 135.457,
+      "source": "facility"
+    },
+    {
+      "name": "岸和田徳洲会病院",
+      "type": "救命・循環器",
+      "area": "泉州",
+      "address": "大阪府岸和田市加守町4-27-1",
+      "lat": 34.471,
+      "lng": 135.386,
+      "source": "facility"
+    },
+    {
+      "name": "りんくう総合医療センター",
+      "type": "救急・感染症",
+      "area": "泉州",
+      "address": "大阪府泉佐野市りんくう往来北2-23",
+      "lat": 34.411,
+      "lng": 135.305,
+      "source": "facility"
+    },
+    {
+      "name": "大阪公立大学医学部附属病院",
+      "type": "大学病院",
+      "area": "大阪市",
+      "address": "大阪府大阪市阿倍野区旭町1-5-7",
+      "lat": 34.646,
+      "lng": 135.512,
+      "source": "univ2"
+    },
+    {
+      "name": "大阪市立総合医療センター",
+      "type": "高度急性期",
+      "area": "大阪市",
+      "address": "大阪府大阪市都島区都島本通2-13-22",
+      "lat": 34.709,
+      "lng": 135.525,
+      "source": "facility"
+    },
+    {
+      "name": "大阪国際がんセンター",
+      "type": "がん診療",
+      "area": "大阪市",
+      "address": "大阪府大阪市中央区大手前3-1-69",
+      "lat": 34.682,
+      "lng": 135.52,
+      "source": "facility"
+    },
+    {
+      "name": "大阪急性期・総合医療センター",
+      "type": "救命・総合",
+      "area": "大阪市",
+      "address": "大阪府大阪市住吉区万代東3-1-56",
+      "lat": 34.616,
+      "lng": 135.503,
+      "source": "facility"
+    }
+  ],
+  "doctors": [
+    {
+      "name": "大阪府医師会",
+      "area": "府全域",
+      "address": "大阪市天王寺区上本町2丁目1-22",
+      "source": "assoc2"
+    },
+    {
+      "name": "北区医師会",
+      "area": "大阪市",
+      "address": "大阪市北区末広町3-14",
+      "source": "assoc"
+    },
+    {
+      "name": "都島区医師会",
+      "area": "大阪市",
+      "address": "大阪市都島区都島本通1-8-15",
+      "source": "assoc"
+    },
+    {
+      "name": "大阪市内・府内の郡市区等医師会",
+      "area": "府内全域",
+      "address": "大阪府大阪市天王寺区",
+      "source": "assoc"
+    }
+  ],
+  "hokens": [
+    {
+      "name": "大阪府庁・保健医療企画課",
+      "area": "大阪市",
+      "address": "大阪府大阪市中央区大手前2丁目",
+      "source": "plan"
+    },
+    {
+      "name": "池田保健所",
+      "area": "豊能",
+      "address": "大阪府池田市満寿美町3-19",
+      "source": "hoken"
+    },
+    {
+      "name": "茨木保健所",
+      "area": "三島",
+      "address": "大阪府茨木市大住町8-11",
+      "source": "hoken"
+    },
+    {
+      "name": "大阪市保健所",
+      "area": "大阪市",
+      "address": "大阪府大阪市中央区安土町3-1-3",
+      "source": "hoken"
+    },
+    {
+      "name": "堺市保健所",
+      "area": "堺市",
+      "address": "大阪府堺市堺区南瓦町3-1",
+      "source": "hoken"
+    },
+    {
+      "name": "吹田市保健所",
+      "area": "豊能",
+      "address": "大阪府吹田市出口町19-3",
+      "source": "hoken"
+    },
+    {
+      "name": "高槻市保健所",
+      "area": "三島",
+      "address": "大阪府高槻市城東町5-7",
+      "source": "hoken"
+    },
+    {
+      "name": "枚方市保健所",
+      "area": "北河内",
+      "address": "大阪府枚方市禁野本町2-13-13",
+      "source": "hoken"
+    },
+    {
+      "name": "東大阪市保健所",
+      "area": "中河内",
+      "address": "大阪府東大阪市岩田町4-3-22",
+      "source": "hoken"
+    },
+    {
+      "name": "和泉保健所",
+      "area": "泉州",
+      "address": "大阪府和泉市府中町6-12-3",
+      "source": "hoken"
+    },
+    {
+      "name": "岸和田保健所",
+      "area": "泉州",
+      "address": "大阪府岸和田市野田町3-13-1",
+      "source": "hoken"
+    },
+    {
+      "name": "泉佐野保健所",
+      "area": "泉州",
+      "address": "大阪府泉佐野市上瓦屋583-1",
+      "source": "hoken"
+    }
+  ],
+  "dealers": [
+    {
+      "category": "広域医薬品卸",
+      "names": "メディセオ、アルフレッサ、スズケン",
+      "role": "医薬品・医療材料供給基盤",
+      "source": "dealer"
+    },
+    {
+      "category": "医療機器商社・SPD",
+      "names": "小西医療器、グリーンホスピタルサプライ、レオクラン",
+      "role": "機器・医療材料・施設運用",
+      "source": "dealer"
+    },
+    {
+      "category": "広域医療材料商社",
+      "names": "宮野医療器、三笑堂、川本産業",
+      "role": "医療材料・診療材料・看護用品",
+      "source": "dealer"
+    },
+    {
+      "category": "医療材料供給",
+      "names": "アズワン",
+      "role": "流通ネットワークと販売店公開情報",
+      "source": "dealer"
+    }
+  ],
+  "device": [
+    {
+      "modality": "超音波（US）",
+      "target": "病院・外来・在宅・救急",
+      "drivers": "心エコー、腹部、産婦人科、POCUS。可搬機・教育・感染対策",
+      "gap": "台数の同一定義・市区別台帳を要追加集計"
+    },
+    {
+      "modality": "CT",
+      "target": "救急・脳卒中・がん・診療所",
+      "drivers": "16–63列等の階級・被ばく低減・検査量・共同利用",
+      "gap": "2023年医療施設調査及び病院プランを集計"
+    },
+    {
+      "modality": "MRI",
+      "target": "脳神経・整形・がん・大学病院",
+      "drivers": "1.5T/3T、撮像時間、保守電力・高齢患者適応",
+      "gap": "2023年医療施設調査及び病院プランを集計"
+    },
+    {
+      "modality": "PET / PET-CT",
+      "target": "がん診断・地域拠点",
+      "drivers": "検査連携、紹介圏域、核医学人材制約",
+      "gap": "現物数・検査件数は未照合"
+    },
+    {
+      "modality": "リニアック",
+      "target": "がん集約拠点",
+      "drivers": "高精度放射線治療、更新時の建屋・稼働制限",
+      "gap": "機器設置・治療件数を施設別に精査"
+    },
+    {
+      "modality": "血管撮影（Angio）",
+      "target": "循環器・脳血管",
+      "drivers": "IVR、救急24h、治療室動線、可用性",
+      "gap": "台数・更新年月を公開情報で確定できず"
+    },
+    {
+      "modality": "内視鏡",
+      "target": "消化器・健診",
+      "drivers": "処置室ワークフロー、洗浄、感染対策、AI支援",
+      "gap": "専用設置台数の全国統一定義なし"
+    },
+    {
+      "modality": "心電図・生体情報",
+      "target": "循環器・病棟・在宅",
+      "drivers": "12誘導心電図、モニタ、連携標準化",
+      "gap": "利用施設数の網羅的集計は未確認"
+    },
+    {
+      "modality": "透析機器",
+      "target": "慢性腎臓病・外来透析",
+      "drivers": "非常電源・水供給BCP・夜間診療・更新",
+      "gap": "装置稼働年と施設別台数は未確認"
+    },
+    {
+      "modality": "マンモグラフィ",
+      "target": "乳がん検診",
+      "drivers": "検診アクセス・読影・データ共有",
+      "gap": "共同利用意向の公開資料を優先照合"
+    }
+  ],
+  "sources": [
+    {
+      "id": "population",
+      "name": "大阪府 毎月推計人口",
+      "year": "2026-09",
+      "url": "https://www.pref.osaka.lg.jp/o040090/toukei/jinkou/index.html"
+    },
+    {
+      "id": "census",
+      "name": "大阪府 2025年国勢調査確定値",
+      "year": "2025",
+      "url": "https://www.pref.osaka.lg.jp/hodo/fumin/o040090/prs_51268.html"
+    },
+    {
+      "id": "ipss",
+      "name": "社人研 地域別将来推計人口・人口統計資料集2026",
+      "year": "2023年推計（2020基準）",
+      "url": "https://www.ipss.go.jp/syoushika/tohkei/Data/Popular2026/T12-06.files/sheet001.htm"
+    },
+    {
+      "id": "plan",
+      "name": "第8次大阪府医療計画",
+      "year": "2024–2029",
+      "url": "https://www.pref.osaka.lg.jp/o100020/iryo/keikaku/8th_iryokeikaku.html"
+    },
+    {
+      "id": "beds",
+      "name": "大阪府 令和7年度病床機能報告",
+      "year": "2025年7月1日・2026年公表",
+      "url": "https://www.pref.osaka.lg.jp/o100020/iryo/keikaku/7th_byoushoukinou.html"
+    },
+    {
+      "id": "needed",
+      "name": "大阪府 2025年病床必要量（2018年時点の参考資料）",
+      "year": "2018年資料／2025年必要量推計",
+      "url": "https://www.pref.osaka.lg.jp/documents/23260/420kindai.pdf"
+    },
+    {
+      "id": "phys",
+      "name": "厚生労働省 医師偏在指標公開資料",
+      "year": "2026年4月公表",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    },
+    {
+      "id": "phys2",
+      "name": "大阪府地域医療支援センター 医師確保・地域差",
+      "year": "2024計画期の参考",
+      "url": "https://chiiki-iryo-omscc.jp/about/advantage/"
+    },
+    {
+      "id": "medical",
+      "name": "大阪府 令和5年医療施設調査",
+      "year": "2023",
+      "url": "https://www.pref.osaka.lg.jp/o100010/kenisomu/syuyoufukusidate/hoken1-0.html"
+    },
+    {
+      "id": "shared",
+      "name": "大阪府 医療機器共同利用協力意向一覧",
+      "year": "2026年3月31日",
+      "url": "https://www.pref.osaka.lg.jp/o100020/iryo/iji1/kikikyoudouriyou.html"
+    },
+    {
+      "id": "outpatient",
+      "name": "大阪府 外来医療計画（医療機器共同利用）",
+      "year": "2024–2029",
+      "url": "https://www.pref.osaka.lg.jp/o100020/iryo/keikaku/gairaiiryokeiku.html"
+    },
+    {
+      "id": "facility",
+      "name": "大阪府 医療機能表・8医療圏別の指定/医療機能",
+      "year": "2026年5月31日",
+      "url": "https://www.pref.osaka.lg.jp/o100020/iryo/keikaku/iryoukinouhyou.html"
+    },
+    {
+      "id": "facplan",
+      "name": "大阪府 2025年度病院プラン・施設別実態",
+      "year": "2025年度／2026年公表",
+      "url": "https://www.pref.osaka.lg.jp/o100020/iryo/keikaku/r7shinryoujittai.html"
+    },
+    {
+      "id": "facplan26",
+      "name": "大阪府 2026年度病院プラン・保健所所管",
+      "year": "2026",
+      "url": "https://www.pref.osaka.lg.jp/o100020/iryo/keikaku/r8hpplan.html"
+    },
+    {
+      "id": "kindai",
+      "name": "近畿大学医学部・病院 新キャンパス",
+      "year": "2025年11月移転",
+      "url": "https://www.kindai.ac.jp/medicine/about/facility/relocation/"
+    },
+    {
+      "id": "assoc",
+      "name": "大阪府医師会 郡市区等医師会一覧",
+      "year": "2026年参照",
+      "url": "https://www.osaka.med.or.jp/citizen/district.html"
+    },
+    {
+      "id": "assoc2",
+      "name": "大阪府医師会",
+      "year": "2026年参照",
+      "url": "https://www.osaka.med.or.jp/"
+    },
+    {
+      "id": "hoken",
+      "name": "大阪府 保健所所在地・所管一覧",
+      "year": "2026年10月",
+      "url": "https://www.pref.osaka.lg.jp/o100010/chikikansen/hokensyo/syozaichi.html"
+    },
+    {
+      "id": "fund",
+      "name": "大阪府 医療計画・地域医療構想 医療データ一覧",
+      "year": "2026年4月",
+      "url": "https://www.pref.osaka.lg.jp/o100020/iryo/keikaku/kousou_keikaku.html"
+    },
+    {
+      "id": "disaster",
+      "name": "大阪府 災害医療・BCP",
+      "year": "2026年参照",
+      "url": "https://www.pref.osaka.lg.jp/o100030/iryo/saigaiiryo/index.html"
+    },
+    {
+      "id": "dealer",
+      "name": "アズワン 近畿地区 医療用品販売店一覧",
+      "year": "2026年参照",
+      "url": "https://www.as-1.co.jp/agent/hospital/kinki/"
+    },
+    {
+      "id": "ctclinic",
+      "name": "診療所16–63列CT台数の二次集計（厚労省2023年調査ベース）",
+      "year": "2023年・二次集計",
+      "url": "https://47graph.com/clinic-ct-ranking/"
+    },
+    {
+      "id": "univ1",
+      "name": "大阪大学医学部附属病院",
+      "year": "2026年参照",
+      "url": "https://www.hosp.med.osaka-u.ac.jp/"
+    },
+    {
+      "id": "univ2",
+      "name": "大阪公立大学医学部附属病院",
+      "year": "2026年参照",
+      "url": "https://www.hosp.med.osaka-met.ac.jp/"
+    },
+    {
+      "id": "univ3",
+      "name": "大阪医科薬科大学病院",
+      "year": "2026年参照",
+      "url": "https://www.ompuhp.jp/"
+    },
+    {
+      "id": "univ4",
+      "name": "関西医科大学附属病院",
+      "year": "2026年参照",
+      "url": "https://www.kmu.ac.jp/hirakata/"
+    },
+    {
+      "id": "univ5",
+      "name": "近畿大学病院",
+      "year": "2026年参照",
+      "url": "https://www.med.kindai.ac.jp/"
+    }
+  ]
+}
