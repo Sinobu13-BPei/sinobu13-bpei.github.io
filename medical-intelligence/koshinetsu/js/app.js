@@ -52,7 +52,7 @@ function renderDoctor(){
 if(!window.Chart){showChartFallback('doctorChart','医師偏在指標は医療圏別の資料 S08 を参照してください。');return;}
 if(doctorChart)doctorChart.destroy();
 let rows=filtered.slice().sort((a,b)=>b[5]-a[5]);
-doctorChart=new Chart($('doctorChart'),{type:'bar',data:{labels:rows.map(a=>a[0].slice(0,2)+' '+a[1]),datasets:[{label:'医師偏在指標（暫定転記値）',data:rows.map(a=>a[5]),backgroundColor:rows.map(a=>a[0]==='新潟県'?'#1c7f9a':a[0]==='長野県'?'#2ea995':'#a17eba'),borderRadius:2}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:ctx=>'人数ではなく医師偏在指標'}}},scales:{x:{min:0,title:{display:true,text:'参考：医師偏在指標'}},y:{ticks:{font:{size:10}}}}}});
+doctorChart=new Chart($('doctorChart'),{type:'bar',data:{labels:rows.map(a=>a[0].slice(0,2)+' '+a[1]),datasets:[{label:'医師偏在指標（厚労省2026年4月公表）',data:rows.map(a=>a[5]),backgroundColor:rows.map(a=>a[0]==='新潟県'?'#1c7f9a':a[0]==='長野県'?'#2ea995':'#a17eba'),borderRadius:2}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:ctx=>'人数ではなく医師偏在指標'}}},scales:{x:{min:0,title:{display:true,text:'参考：医師偏在指標'}},y:{ticks:{font:{size:10}}}}}});
 }
 function popup(a){return '<div style="min-width:180px"><b>'+esc(a[0])+'・'+esc(a[1])+'</b><p style="margin:4px 0">代表拠点：'+esc(a[2])+'<br>主要病院：'+esc(a[6])+'</p>'+maps(a[6],a[2],a[3],a[4])+'<p style="font-size:10px">概略中心であり病院座標ではありません</p></div>';}
 function showMap(){
