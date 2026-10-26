@@ -45,7 +45,16 @@
       "areaKm2": 276.94,
       "populationYear": 2020,
       "areaYear": 2023,
-      "populationDensity": 1280.5
+      "populationDensity": 1280.5,
+      "facilityCounts2021": {
+        "hospitals": 22,
+        "generalClinics": 389,
+        "dentalClinics": 188,
+        "total": 599,
+        "year": 2021,
+        "source": "S25"
+      },
+      "memberClinicCount2023": 322
     },
     {
       "name": "東和",
@@ -79,7 +88,16 @@
       "areaKm2": 657.77,
       "populationYear": 2020,
       "areaYear": 2023,
-      "populationDensity": 302
+      "populationDensity": 302,
+      "facilityCounts2021": {
+        "hospitals": 12,
+        "generalClinics": 156,
+        "dentalClinics": 92,
+        "total": 260,
+        "year": 2021,
+        "source": "S25"
+      },
+      "memberClinicCount2023": 113
     },
     {
       "name": "西和",
@@ -113,7 +131,16 @@
       "areaKm2": 168.49,
       "populationYear": 2020,
       "areaYear": 2023,
-      "populationDensity": 2010.7
+      "populationDensity": 2010.7,
+      "facilityCounts2021": {
+        "hospitals": 18,
+        "generalClinics": 285,
+        "dentalClinics": 170,
+        "total": 473,
+        "year": 2021,
+        "source": "S25"
+      },
+      "memberClinicCount2023": 204
     },
     {
       "name": "中和",
@@ -147,7 +174,16 @@
       "areaKm2": 240.79,
       "populationYear": 2020,
       "areaYear": 2023,
-      "populationDensity": 1525.9
+      "populationDensity": 1525.9,
+      "facilityCounts2021": {
+        "hospitals": 19,
+        "generalClinics": 323,
+        "dentalClinics": 199,
+        "total": 541,
+        "year": 2021,
+        "source": "S25"
+      },
+      "memberClinicCount2023": 251
     },
     {
       "name": "南和",
@@ -181,7 +217,16 @@
       "areaKm2": 2346.92,
       "populationYear": 2020,
       "areaYear": 2023,
-      "populationDensity": 27.7
+      "populationDensity": 27.7,
+      "facilityCounts2021": {
+        "hospitals": 4,
+        "generalClinics": 70,
+        "dentalClinics": 32,
+        "total": 106,
+        "year": 2021,
+        "source": "S25"
+      },
+      "memberClinicCount2023": 47
     }
   ],
   "hospitals": [
@@ -333,13 +378,15 @@
     "生駒地区医師会",
     "天理地区医師会",
     "桜井地区医師会",
+    "宇陀地区医師会",
     "橿原地区医師会",
     "大和高田市医師会",
     "北葛城地区医師会",
     "御所市医師会",
     "五條市医師会",
     "吉野郡医師会",
-    "医大医師会"
+    "医大医師会",
+    "保健所地区医師会"
   ],
   "device": [
     [
@@ -512,6 +559,26 @@
       "name": "奈良県保健医療計画 2024 二次保健医療圏区域図・基準病床数",
       "year": "2024年4月1日現在",
       "url": "https://www.pref.nara.lg.jp/documents/3733/sankousiryou3-2.pdf"
+    },
+    "S25": {
+      "name": "奈良県 第8次保健医療計画・第2章 奈良県の現状（病院・一般/歯科診療所の医療圏別施設数）",
+      "year": "令和3年（2021年）医療施設調査、計画2024年",
+      "url": "https://www.pref.nara.lg.jp/documents/11810/02_genzyou.pdf"
+    },
+    "S26": {
+      "name": "奈良県 第8次保健医療計画・第6章 外来医療にかかる医療提供体制の確保（地区医師会別会員診療所数、2023年9月）",
+      "year": "2023年9月、計画2024年",
+      "url": "https://www.pref.nara.lg.jp/documents/11810/06_gairai.pdf"
+    },
+    "S27": {
+      "name": "奈良県医師会・地区医師会一覧（14団体の所在地・連絡先）",
+      "year": "2026年10月閲覧",
+      "url": "https://nara.med.or.jp/about/"
+    },
+    "S28": {
+      "name": "e-Stat 医療施設調査 2025年・二次医療圏/市区町村編（更新確認対象）",
+      "year": "2025年調査、2026年9月29日公開",
+      "url": "https://www.e-stat.go.jp/stat-search/files?collect_area=200&layout=dataset&toukei=00450021"
     }
   },
   "scoreAxis": [
@@ -597,6 +664,16 @@
       "lat": 34.506,
       "long": 135.789,
       "address": "奈良県橿原市"
+    },
+    "宇陀地区医師会": {
+      "lat": 34.53,
+      "long": 135.96,
+      "address": "奈良県宇陀市榛原萩原815"
+    },
+    "保健所地区医師会": {
+      "lat": 34.681,
+      "long": 135.817,
+      "address": "奈良県奈良市三条本町13-1"
     }
   },
   "regionPopulationYear": 2020,
@@ -649,5 +726,217 @@
     "area": "人口：2020年国勢調査。面積：令和5年全国都道府県市区町村別面積調（奈良県第8次医療計画S24）。人口密度は両者からの独自計算。",
     "bubble": "横軸：概算人口密度／縦軸：医師偏在指標2026／円の面積：2020年人口に比例。人口と医師偏在指標は異なる年次のため因果関係は示さない。",
     "scoring": "独自評価。人口密度・医師偏在指標・優先度は別指標で単純換算しない。"
+  },
+  "associationDetails": [
+    {
+      "name": "奈良市医師会",
+      "regions": [
+        "奈良"
+      ],
+      "coverage": "奈良市",
+      "clinicMembers": 322,
+      "cooperating": 51,
+      "cooperationScope": "休日夜間応急診療",
+      "sourcePage": "p.323・324",
+      "officialUrl": "https://nara.med.or.jp/about/"
+    },
+    {
+      "name": "大和郡山市医師会",
+      "regions": [
+        "西和"
+      ],
+      "coverage": "大和郡山市",
+      "clinicMembers": 51,
+      "cooperating": 23,
+      "cooperationScope": "休日応急診療",
+      "sourcePage": "p.323・324",
+      "officialUrl": "https://nara.med.or.jp/about/"
+    },
+    {
+      "name": "生駒地区医師会",
+      "regions": [
+        "西和"
+      ],
+      "coverage": "生駒市・生駒郡（平群町、三郷町、斑鳩町、安堵町）",
+      "clinicMembers": 103,
+      "cooperating": 35,
+      "cooperationScope": "生駒市休日夜間19、三室休日応急16",
+      "parts": [
+        {
+          "name": "生駒市",
+          "region": "西和",
+          "count": 68
+        },
+        {
+          "name": "生駒郡",
+          "region": "西和",
+          "count": 35
+        }
+      ],
+      "sourcePage": "p.323・324",
+      "officialUrl": "https://nara.med.or.jp/about/"
+    },
+    {
+      "name": "天理地区医師会",
+      "regions": [
+        "東和"
+      ],
+      "coverage": "天理市（県資料の休日応急診療参加区分）",
+      "clinicMembers": 32,
+      "cooperating": 18,
+      "cooperationScope": "休日応急診療",
+      "sourcePage": "p.323・324",
+      "officialUrl": "https://nara.med.or.jp/about/"
+    },
+    {
+      "name": "桜井地区医師会",
+      "regions": [
+        "東和"
+      ],
+      "coverage": "桜井市・磯城郡（川西町、三宅町、田原本町）",
+      "clinicMembers": 65,
+      "cooperating": 41,
+      "cooperationScope": "桜井市24、磯城郡17",
+      "sourcePage": "p.323・324",
+      "officialUrl": "https://nara.med.or.jp/sakurai/clinic_list.html"
+    },
+    {
+      "name": "宇陀地区医師会",
+      "regions": [
+        "東和"
+      ],
+      "coverage": "宇陀市・宇陀郡等（詳細な会員区域は医師会要確認）",
+      "clinicMembers": 16,
+      "cooperating": null,
+      "cooperationScope": "休日診療の協力施設数は県該当表に記載なし",
+      "sourcePage": "p.324",
+      "officialUrl": "https://nara.med.or.jp/about/"
+    },
+    {
+      "name": "橿原地区医師会",
+      "regions": [
+        "中和"
+      ],
+      "coverage": "橿原市・高取町・明日香村",
+      "clinicMembers": 110,
+      "cooperating": 60,
+      "cooperationScope": "休日夜間応急診療",
+      "sourcePage": "p.323・324",
+      "officialUrl": "https://kashihara-med.com/"
+    },
+    {
+      "name": "大和高田市医師会",
+      "regions": [
+        "中和"
+      ],
+      "coverage": "大和高田市",
+      "clinicMembers": 39,
+      "cooperating": 21,
+      "cooperationScope": "葛城地域休日診療",
+      "sourcePage": "p.323・324",
+      "officialUrl": "https://nara.med.or.jp/about/"
+    },
+    {
+      "name": "北葛城地区医師会",
+      "regions": [
+        "西和",
+        "中和"
+      ],
+      "coverage": "西和：王寺町・上牧町・河合町／中和：香芝市・葛城市・広陵町",
+      "clinicMembers": 133,
+      "cooperating": 65,
+      "cooperationScope": "西和側22、中和側43",
+      "parts": [
+        {
+          "name": "王寺町・上牧町・河合町",
+          "region": "西和",
+          "count": 50
+        },
+        {
+          "name": "香芝市・葛城市・広陵町",
+          "region": "中和",
+          "count": 83
+        }
+      ],
+      "sourcePage": "p.323・324",
+      "officialUrl": "https://www.hokkatsu-med.jp/"
+    },
+    {
+      "name": "御所市医師会",
+      "regions": [
+        "中和"
+      ],
+      "coverage": "御所市",
+      "clinicMembers": 19,
+      "cooperating": 16,
+      "cooperationScope": "休日応急診療",
+      "sourcePage": "p.323・324",
+      "officialUrl": "https://nara.med.or.jp/about/"
+    },
+    {
+      "name": "五條市医師会",
+      "regions": [
+        "南和"
+      ],
+      "coverage": "五條市",
+      "clinicMembers": 23,
+      "cooperating": 7,
+      "cooperationScope": "五條市応急診療（別途、在宅当番制12施設）",
+      "sourcePage": "p.323・324",
+      "officialUrl": "https://nara.med.or.jp/about/"
+    },
+    {
+      "name": "吉野郡医師会",
+      "regions": [
+        "南和"
+      ],
+      "coverage": "吉野郡",
+      "clinicMembers": 24,
+      "cooperating": null,
+      "cooperationScope": "休日診療協力数は県該当表に記載なし",
+      "sourcePage": "p.324",
+      "officialUrl": "https://nara.med.or.jp/about/"
+    },
+    {
+      "name": "医大医師会",
+      "regions": [
+        "中和"
+      ],
+      "coverage": "奈良県立医科大学附属病院等（職域組織。地域の一般診療所数とは別）",
+      "clinicMembers": null,
+      "cooperating": null,
+      "cooperationScope": "地区別集計対象外",
+      "sourcePage": "県医師会地区一覧",
+      "officialUrl": "https://nara.med.or.jp/about/",
+      "type": "職域"
+    },
+    {
+      "name": "保健所地区医師会",
+      "regions": [
+        "奈良"
+      ],
+      "coverage": "保健所関係の組織（所在地：奈良市）。医療圏単位の会員施設数とは対応しない",
+      "clinicMembers": null,
+      "cooperating": null,
+      "cooperationScope": "地区別集計対象外",
+      "sourcePage": "県医師会地区一覧",
+      "officialUrl": "https://nara.med.or.jp/about/",
+      "type": "職域"
+    }
+  ],
+  "facilityCountTotals2021": {
+    "hospitals": 75,
+    "generalClinics": 1223,
+    "dentalClinics": 681,
+    "total": 1979,
+    "year": 2021,
+    "source": "S25"
+  },
+  "associationCounts2023": {
+    "total": 937,
+    "asOf": "2023-09",
+    "source": "S26",
+    "scope": "県公表の地域別会員診療所数（所属医師会別）の合計。医大医師会と保健所地区医師会は非該当。",
+    "note": "医療圏別施設数と重複加算・前年比比較しない。医師会会員施設と圏域内総施設は母集団が異なる。"
   }
 }
