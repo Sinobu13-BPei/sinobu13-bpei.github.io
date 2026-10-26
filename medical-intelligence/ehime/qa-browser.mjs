@@ -31,6 +31,18 @@ try{
         mapFallback:!!document.querySelector('.map-fallback'),
         navMinHeight:Math.round(document.querySelector('.toc a').getBoundingClientRect().height),
         bodySize:getComputedStyle(document.body).fontSize,
+        rootSizes:[document.documentElement,document.body,document.querySelector('main'),document.querySelector('.toc'),document.querySelector('#sources')].filter(Boolean).map(x=>({tag:x.tagName,id:x.id,scrollWidth:x.scrollWidth,clientWidth:x.clientWidth,width:Math.round(x.getBoundingClientRect().width),right:Math.round(x.getBoundingClientRect().right)})),
+        uncontained:[...document.body.querySelectorAll('*')].filter(x=>{
+          let r=x.getBoundingClientRect();
+          if(r.right<=window.innerWidth+2||r.width===0)return false;
+          let p=x.parentElement;
+          while(p&&p!==document.body){
+            const pr=p.getBoundingClientRect(),ov=getComputedStyle(p).overflowX;
+            if(/^(auto|scroll|hidden|clip)$/.test(ov)&&r.right>pr.right+1)return false;
+            p=p.parentElement;
+          }
+          return true;
+        }).slice(0,40).map(x=>({tag:x.tagName,id:x.id,cls:typeof x.className==='string'?x.className.slice(0,40):'',left:Math.round(x.getBoundingClientRect().left),right:Math.round(x.getBoundingClientRect().right),text:x.textContent.trim().slice(0,55)})),
         offenders:[...document.body.querySelectorAll('*')].map(x=>{
           const r=x.getBoundingClientRect();
           return {tag:x.tagName,id:x.id,cls:typeof x.className==='string'?x.className.slice(0,55):'',right:Math.round(r.right),left:Math.round(r.left),width:Math.round(r.width),scrollWidth:x.scrollWidth,clientWidth:x.clientWidth};
