@@ -23,3 +23,14 @@
 - 大阪府原表 https://www.pref.osaka.lg.jp/documents/4369/r05d02.pdf
 - 大阪市原表 https://www.city.osaka.lg.jp/shimin/cmsfiles/contents/0000659/659107/04-10-9iryoukankeisisetujoukyoueiyousidoukankei.pdf
 - 大阪府医師会一覧 https://www.osaka.med.or.jp/citizen/district.html
+
+## 2026-10-27追加：8圏域の将来人口・診療科・広域病院グループ
+- 追加ファイル：data/region-demography-2026.json、assets/regional-demography.js。
+- 8医療圏ごと2020、2025、2030、2035、2040、2045、2050年の総人口、75歳以上人口、15–64歳人口を掲載。2025年以降は「2023年公表将来推計」であり実績ではない。出典：国立社会保障・人口問題研究所、日本の地域別将来推計人口（令和5年推計）。
+- 2020年大阪府計8,837,685人、2050年推計7,263,182人。75歳以上2020年1,288,066人から2050年1,685,783人。15–64歳2020年5,363,326人から2050年3,898,953人。8圏域合計と大阪府計を一致検証済み。
+- 診療科別標榜診療所数：令和5年の大阪府外来医療現状掲載データに基づき内科等13カテゴリを比較。「複数標榜は施設が重複計上」という注意を明記。
+- 徳洲会グループの大阪の病院例13件を公式施設案内に基づいて掲載。特定企業の推奨ではない。施設の公式状況は個別に再確認。
+- 添付の日本経営「医療需給総覧」全8圏域の人口推計・年齢構成・医療機関指標を読み取り、公開したものは公的データに再照合可能な数値と独自グラフ。添付レポート自体や掲載図表は転載していない。
+- 添付の大阪市新規開業ダッシュボード（2024–2026）、医療機器企業別販売高・地域シェア資料、社内向け調査・メーカー別情報は非公開とし、公開サイトへ個別案件・企業売上順位等を含めない。
+- 公的出典：https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp 、 https://www.pref.osaka.lg.jp/o100010/kenisomu/syuyoufukusidate/hoken1-0.html 、 https://www.pref.osaka.lg.jp/documents/4353/0020osakafu.pdf 、 https://www.pref.osaka.lg.jp/o100020/iryo/keikaku/8th_iryokeikaku.html 。
+- QA: 計算整合／JSON構造／HTML要素存在・重複・リンクアンカー／JavaScript構文／出典URL形式／非公開情報混入をコード上で確認。GitHub Pagesの外部HTTP配信・スマホ実機表示・外部リンク全件の到達は未検証。
