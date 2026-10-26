@@ -1655,6 +1655,61 @@
       "title": "マコト医科精機 企業情報",
       "url": "https://www.makotomc.co.jp/company/",
       "year": "2026/7"
+    },
+    {
+      "title": "みずほ銀行｜金融・医療関連サービス",
+      "url": "https://www.mizuhobank.co.jp/corporate/finance/others/clinic_assist/index.html",
+      "year": "2026年10月確認（各ページの公開・改定日は原典参照）"
+    },
+    {
+      "title": "三井住友銀行｜金融・医療関連サービス",
+      "url": "https://www.smbc.co.jp/hojin/financing/sustainable/kokusai/pdf/260130_01.pdf",
+      "year": "2026年10月確認（各ページの公開・改定日は原典参照）"
+    },
+    {
+      "title": "三菱UFJ銀行｜金融・医療関連サービス",
+      "url": "https://www.bk.mufg.jp/houjin/lp/summit/index.html",
+      "year": "2026年10月確認（各ページの公開・改定日は原典参照）"
+    },
+    {
+      "title": "SBI新生銀行｜金融・医療関連サービス",
+      "url": "https://www.sbishinseibank.co.jp/institutional/products/healthcare_finance.html",
+      "year": "2026年10月確認（各ページの公開・改定日は原典参照）"
+    },
+    {
+      "title": "キヤノンメディカルファイナンス（CMF）｜金融・医療関連サービス",
+      "url": "https://finance.medical.canon/",
+      "year": "2026年10月確認（各ページの公開・改定日は原典参照）"
+    },
+    {
+      "title": "MUFGファイナンス＆リーシング｜金融・医療関連サービス",
+      "url": "https://www.fl.mufg.jp/solution/health.html",
+      "year": "2026年10月確認（各ページの公開・改定日は原典参照）"
+    },
+    {
+      "title": "三井住友ファイナンス＆リース（SMFL）｜金融・医療関連サービス",
+      "url": "https://www.smfl.co.jp/service/lease/care/",
+      "year": "2026年10月確認（各ページの公開・改定日は原典参照）"
+    },
+    {
+      "title": "みずほリース｜金融・医療関連サービス",
+      "url": "https://www.mizuho-ls.co.jp/ja/service/strategy/healthcare.html",
+      "year": "2026年10月確認（各ページの公開・改定日は原典参照）"
+    },
+    {
+      "title": "芙蓉総合リース｜金融・医療関連サービス",
+      "url": "https://www.fgl.co.jp/service/healthcare.html",
+      "year": "2026年10月確認（各ページの公開・改定日は原典参照）"
+    },
+    {
+      "title": "オリックス｜金融・医療関連サービス",
+      "url": "https://www.orix.co.jp/grp/business/lease.html",
+      "year": "2026年10月確認（各ページの公開・改定日は原典参照）"
+    },
+    {
+      "title": "オリックス・レンテック｜金融・医療関連サービス",
+      "url": "https://www.orixrentec.jp/med/about/",
+      "year": "2026年10月確認（各ページの公開・改定日は原典参照）"
     }
   ],
   "metrics": {
@@ -1671,5 +1726,161 @@
     "卸売上・コンサル収入・SPD取扱高・総取扱額を加算しない。",
     "全国の医療機器商社すべての網羅リストではない。",
     "添付の内部営業評価・取引区分・担当者・未公開数値は掲載しない。"
+  ],
+  "finance": [
+    {
+      "id": "fin01",
+      "name": "みずほ銀行",
+      "group": "みずほフィナンシャルグループ",
+      "kind": "銀行・ファイナンス",
+      "model": "診療所設備資金・運転資金融資",
+      "service": "みずほクリニックアシスト（診療所・開業予定者の設備資金、運転資金、開業資金）",
+      "products": "診療所設備・開業資金（装置専用融資とは記載なし）",
+      "area": "国内（取扱条件は銀行公式参照）",
+      "source": "https://www.mizuhobank.co.jp/corporate/finance/others/clinic_assist/index.html",
+      "scope": "銀行本体の明示的な診療所向け融資商品",
+      "note": "2026年4月現在の商品概要。融資上限1億円・最長15年は審査・条件あり。医療機器部門の設置を示す情報ではない。",
+      "scale": "2026年4月：商品概要開示"
+    },
+    {
+      "id": "fin02",
+      "name": "三井住友銀行",
+      "group": "三井住友フィナンシャルグループ",
+      "kind": "銀行・ファイナンス",
+      "model": "医療・介護施設関連のプロジェクト融資",
+      "service": "ヘルスケア＆メディカル投資法人向けソーシャルローンの組成（公表事例）",
+      "products": "医療・介護関連施設の資金調達事例。装置購入専用ローンの実証ではない。",
+      "area": "国内（個別案件の対象は公式資料参照）",
+      "source": "https://www.smbc.co.jp/hojin/financing/sustainable/kokusai/pdf/260130_01.pdf",
+      "scope": "銀行本体のヘルスケア関連融資事例",
+      "note": "2026年1月30日付公表。医療機器専門部署・汎用医療機器ローンの存在は確認していない。",
+      "scale": "2026年1月：事例公表"
+    },
+    {
+      "id": "fin03",
+      "name": "三菱UFJ銀行",
+      "group": "三菱UFJフィナンシャル・グループ",
+      "kind": "銀行・ファイナンス",
+      "model": "ライフサイエンス・ヘルスケア企業の事業支援",
+      "service": "MUFG Startup Summitのライフサイエンス・ヘルスケア領域参加企業等を公式に紹介",
+      "products": "スタートアップ・産業支援の確認例。医療機器専用融資や専門部署の存在は未確認。",
+      "area": "国内（公式イベントの紹介範囲）",
+      "source": "https://www.bk.mufg.jp/houjin/lp/summit/index.html",
+      "scope": "銀行本体のヘルスケア関連活動（融資商品とは区別）",
+      "note": "三菱UFJ銀行の医療機器専門融資部門と誤解されないよう注意。医療機器リースは系列の別法人MUFGファイナンス＆リーシングに掲載。",
+      "scale": "医療機器専用融資額：非開示・未確認"
+    },
+    {
+      "id": "fin04",
+      "name": "SBI新生銀行",
+      "group": "SBI新生銀行グループ",
+      "kind": "銀行・ファイナンス",
+      "model": "ヘルスケアファイナンス部による融資",
+      "service": "医療法人・介護事業者のコーポレートローン、ヘルスケア施設のアセットファイナンス",
+      "products": "病院、介護老人保健施設、高齢者施設等",
+      "area": "国内",
+      "source": "https://www.sbishinseibank.co.jp/institutional/products/healthcare_finance.html",
+      "scope": "銀行本体の専門部署名称まで公式確認",
+      "note": "ヘルスケアファイナンス部（2010年設立）が公式サイトに明記。",
+      "scale": "専門部署：公式掲載"
+    },
+    {
+      "id": "fin05",
+      "name": "キヤノンメディカルファイナンス（CMF）",
+      "group": "キヤノン／キヤノンメディカル系",
+      "kind": "リース",
+      "model": "メーカー系 医療機器ファイナンス・リース・割賦",
+      "service": "医療機器のリース、割賦（延払売買）、従量課金制メンテナンスリース TMOUS",
+      "products": "医療機器・装置・保守サービス一体のファイナンス",
+      "area": "国内（営業拠点・審査条件は公式参照）",
+      "source": "https://finance.medical.canon/",
+      "scope": "法人サイトで専業サービスを確認",
+      "note": "法人名はキヤノンメディカルファイナンス株式会社。公開会社概要の資本金1億2,000万円。メーカー系として他の銀行・総合リースと区別。",
+      "scale": "資本金1.2億円（会社概要）"
+    },
+    {
+      "id": "fin06",
+      "name": "MUFGファイナンス＆リーシング",
+      "group": "MUFG系リース会社（銀行本体とは別法人）",
+      "kind": "リース",
+      "model": "医療機器・設備のファイナンス／リース・割賦",
+      "service": "ヘルスケアビジネスとしてMRI、CT、超音波、内視鏡、検査・情報機器等のリース・割賦",
+      "products": "MRI、CT、超音波、内視鏡、医用画像情報システムなど",
+      "area": "全国・法人向け（実際の取扱条件は公式参照）",
+      "source": "https://www.fl.mufg.jp/solution/health.html",
+      "scope": "公式のヘルスケア専用商品紹介",
+      "note": "銀行本体の部署と誤認しないこと。旧商号資料との二重計上を避ける。",
+      "scale": "医療部門単独売上：非開示"
+    },
+    {
+      "id": "fin07",
+      "name": "三井住友ファイナンス＆リース（SMFL）",
+      "group": "SMFG系の総合リース会社（銀行本体とは別法人）",
+      "kind": "リース",
+      "model": "医療機器リース・残価付リース・割賦・開業支援",
+      "service": "MRI・CT・超音波・内視鏡等へのリース、据置型、残価付、購入選択権付、割賦、開業支援",
+      "products": "MRI、CT、XR、超音波、内視鏡、電子カルテ、PACSほか",
+      "area": "全国（公式に東京・大阪ヘルスケア営業部等を掲載）",
+      "source": "https://www.smfl.co.jp/service/lease/care/",
+      "scope": "公式医療機器リースページ／国内拠点のヘルスケア営業部公表",
+      "note": "ヘルスケア営業部の国内拠点情報：https://www.smfl.co.jp/corporate/about/network/。銀行本体と別法人。",
+      "scale": "医療機器事業売上：非開示"
+    },
+    {
+      "id": "fin08",
+      "name": "みずほリース",
+      "group": "みずほ系リース事業（みずほ銀行本体とは別法人）",
+      "kind": "リース",
+      "model": "医療・介護機器の販売金融／レンタル等",
+      "service": "メーカーと医療機関等を結ぶ販売金融、見守り関連機器のレンタル、サブスクリプション提案",
+      "products": "医療機器・介護機器・システム等",
+      "area": "国内",
+      "source": "https://www.mizuho-ls.co.jp/ja/service/strategy/healthcare.html",
+      "scope": "公式の医療ヘルスケア事業紹介",
+      "note": "みずほ銀行の『みずほクリニックアシスト』とは別のサービス。",
+      "scale": "医療部門単独売上：非開示"
+    },
+    {
+      "id": "fin09",
+      "name": "芙蓉総合リース",
+      "group": "芙蓉リースグループ",
+      "kind": "リース",
+      "model": "医療・介護向け総合ファイナンス",
+      "service": "医療機器リース、開業支援、診療・介護報酬債権ファクタリング、経営・M&A・DX支援",
+      "products": "医療機器・介護施設・医療ICT・診療報酬債権等",
+      "area": "全国（国内拠点は公式掲載）",
+      "source": "https://www.fgl.co.jp/service/healthcare.html",
+      "scope": "公式のヘルスケアワンストップサービス",
+      "note": "2026年3月末の連結従業員4,410名は芙蓉総合リース全事業の人員。ヘルスケア専任ではない。",
+      "scale": "グループ従業員4,410人（2026/3）"
+    },
+    {
+      "id": "fin10",
+      "name": "オリックス",
+      "group": "オリックスグループ",
+      "kind": "リース",
+      "model": "法人向けファイナンス・リース／割賦／支払委託",
+      "service": "設備投資向けリース・割賦・支払委託。医療機器も対象例として明示",
+      "products": "医療機器を含む機械設備",
+      "area": "全国（法人向け）",
+      "source": "https://www.orix.co.jp/grp/business/lease.html",
+      "scope": "公式リース・割賦・レンタル比較表",
+      "note": "オリックス・レンテックは別法人・別サービスとしてレンタルに整理。",
+      "scale": "医療機器部門単独売上：非開示"
+    },
+    {
+      "id": "fin11",
+      "name": "オリックス・レンテック",
+      "group": "オリックスグループ／オリックスの子会社",
+      "kind": "レンタル",
+      "model": "短期レンタル・長期オペレーティングリース・中古販売",
+      "service": "医療機器レンタル、長期Lレンタル、オペレーティングリース、中古販売、修理・品質管理",
+      "products": "超音波、心電計、生体情報モニタ、内視鏡、人工呼吸器など",
+      "area": "国内主要都市（契約条件・提供地域は公式参照）",
+      "source": "https://www.orixrentec.jp/med/about/",
+      "scope": "医療機器レンタル専用の公式サイト",
+      "note": "2026年1月の取扱医療機器メーカー140社はメーカー数でありレンタル売上・在庫点数ではない。",
+      "scale": "医療機器取扱メーカー140社（2026/1）"
+    }
   ]
 }
