@@ -60,7 +60,7 @@ th,td{padding:7px 9px;line-height:1.5}
 .map-actions{margin:7px 0 9px;gap:6px}
 .controls{margin:11px 0;gap:7px}
 .controls select,.controls input{padding:7px 9px;min-height:36px}
-#regionList{max-height:355px;overflow-y:auto;overscroll-behavior-y:contain;scrollbar-width:thin;scrollbar-color:#acc8d1 #f0f5f7}
+#regionList{max-height:355px;overflow-y:auto;overscroll-behavior-y:auto;scrollbar-width:thin;scrollbar-color:#acc8d1 #f0f5f7}
 #regionList:focus-visible{outline:3px solid #d48c2c;outline-offset:2px}
 #regionList .region{padding:5px 8px;gap:7px;min-height:40px}
 #regionList .region strong{font-size:12px}
