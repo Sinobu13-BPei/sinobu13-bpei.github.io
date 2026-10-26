@@ -1,0 +1,135 @@
+/* HYOGO compact reading mode — 2026-10-27
+   Compresses vertical whitespace without removing source data, links or charts.
+   Loaded last so it can safely override historical layout rules. */
+:root{--compact-space:10px}
+html{scroll-padding-top:70px}
+body{line-height:1.63}
+.hero{padding:29px 0 34px}
+.hero h1{font-size:clamp(29px,4vw,45px);line-height:1.24;margin:6px 0 9px}
+.hero p{font-size:13px;line-height:1.63}
+.hero .eyebrow{font-size:10px}
+.hero .pillset{margin-top:10px;gap:6px}
+.hero .pill{padding:2px 9px;font-size:10px}
+.hero .primary-actions{margin-top:10px}
+.hero .actions a{min-height:32px;padding:5px 10px;line-height:1.35}
+.hero-related{margin-top:6px}
+.hero-related summary{min-height:29px;padding:3px 10px}
+.stats{margin-top:-12px;gap:8px}
+.stats .stat{min-height:79px;padding:10px 13px;border-radius:9px}
+.stats .stat b{font-size:clamp(22px,2.6vw,27px)}
+.stats .stat .name{font-size:10px}
+.stats .stat>small{font-size:10px;margin-top:0}
+section.section{padding:27px 0 15px}
+section.alt{padding-bottom:27px}
+.section h2{margin:3px 0 7px;line-height:1.3;font-size:clamp(23px,2.4vw,27px)}
+.section .lead{margin-bottom:12px;line-height:1.63;font-size:13px}
+.section .subhead{font-size:10px}
+.section h3{margin-block:9px 7px}
+.grid,.grid.two,.chart-grid,.region-grid,.frameworks{gap:10px}
+.card,.panel,.chart-box{padding:12px 14px;border-radius:9px}
+.card h3{margin-bottom:5px;font-size:15px}
+.card p{margin:5px 0;font-size:12.5px;line-height:1.64}
+.summary-icon{width:36px;height:36px;border-radius:9px;margin:0 0 6px}
+.summary-icon svg{width:25px;height:25px}
+.callout,.notice{margin:12px 0;padding:9px 13px;line-height:1.63;font-size:12px}
+.note,.footnote,.map-note{line-height:1.5}
+.panel{margin-top:12px}
+.chart-grid .chart-box,.section .chart-grid .chart-box{min-height:0}
+.chart-box h3{font-size:14px;margin:0 0 3px}
+.chart-box .chart{height:216px}
+.chart-box .footnote{margin:5px 0 0}
+.geo-figure{padding:11px 13px;margin:13px 0 16px}
+.geo-figure-head{margin-bottom:5px}
+.geo-figure h3{font-size:15px}
+.geo-svg{width:min(100%,530px);max-height:none}
+.geo-legend{margin:5px 0 0;gap:5px 14px}
+.geo-figure figcaption{margin:4px 0 0}
+.svgflow{max-height:83px}
+.region-grid{gap:9px}
+.region{padding:11px 13px}
+.region-head{margin-bottom:5px}
+.region-head h3{font-size:18px}
+.region .score-chip{padding:3px 7px;font-size:18px;min-width:65px}
+.region-meta{gap:4px}
+.region-meta span{padding:2px 6px;font-size:10px}
+.region dl{margin:6px 0}
+.region dl>div{padding:3px 0;grid-template-columns:66px minmax(0,1fr);font-size:12px;line-height:1.52}
+.region-footer{margin-top:5px;gap:4px}
+.region-footer a{padding:3px 7px;font-size:10.5px}
+.facility-inline{padding:5px 8px;margin:5px 0!important;font-size:11px!important}
+.table th,.table td{padding:7px 9px;line-height:1.45}
+.table th{font-size:11px}
+#facilities .association-table td:first-child{min-width:145px}
+#facilities .association-table td:nth-child(3){min-width:155px}
+#facilities .association-table td:last-child{min-width:145px}
+#facilities .facility-links a{padding:2px 5px;margin:1px 2px 1px 0;font-size:10px}
+#facilities .filter{margin:6px 0;padding:7px 10px}
+#facilities .filter select,#facilities .filter input{min-height:34px}
+.scroll-associations{max-height:395px}
+.site-list{gap:7px}
+.site-item{padding:9px 11px}
+.site-item small{font-size:11px}
+.site-item .links{gap:5px;margin:5px 0 0}
+.site-item .links a{font-size:10px}
+#medical-map,.map{height:295px}
+#services .panel{margin-top:12px}
+.section .frameworks{gap:9px}
+.frameworks article{padding:10px 12px}
+.frameworks h3{margin:0 0 4px}
+.frameworks p{font-size:12px;line-height:1.6}
+.footer{margin-top:16px;padding:20px 0}
+.footer p{margin:4px 0}
+.source-list li{padding-block:7px}
+#facilities h3[style],#services h3[style]{margin-top:16px!important}
+.backtop{margin:10px 0}
+.reading-top{position:fixed;z-index:950;right:14px;bottom:max(14px,env(safe-area-inset-bottom));display:inline-flex;align-items:center;gap:6px;border:1px solid #b4d9df;background:#124c5f;color:#fff;border-radius:999px;padding:8px 13px;font:700 12px/1.2 system-ui,"Noto Sans JP",sans-serif;box-shadow:0 4px 15px #12344630;text-decoration:none;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(6px);transition:opacity .16s,transform .16s,visibility .16s}
+.reading-top.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.reading-top:focus-visible{outline:3px solid #e8a342;outline-offset:3px}
+@media(max-width:800px){
+ .region-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .chart-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .chart-box .chart{height:205px}
+ .map{height:285px}
+}
+@media(max-width:700px){
+ html{scroll-padding-top:58px}
+ .hero{padding:23px 0 29px}
+ .hero h1{font-size:clamp(25px,6.6vw,32px);line-height:1.23}
+ .hero .hero-subtitle{font-size:.73em}
+ .hero p{font-size:12px}
+ .hero .pillset{gap:5px}
+ .hero .pill{font-size:10px;padding:2px 7px}
+ .hero .primary-actions{gap:5px}
+ .hero .primary-actions a{min-height:31px;padding:5px 8px;font-size:11px}
+ .stats{gap:6px;margin-top:-10px}
+ .stats .stat{min-height:74px;padding:9px 10px}
+ .stats .stat b{font-size:22px}
+ section.section{padding:22px 0 10px}
+ section.alt{padding-bottom:22px}
+ .section h2{font-size:23px}
+ .section .lead{font-size:12.5px;margin-bottom:10px}
+ .card,.panel,.chart-box{padding:11px 12px}
+ .grid,.grid.two,.chart-grid,.region-grid,.site-list,.frameworks{gap:8px}
+ .region-grid,.chart-grid{grid-template-columns:1fr}
+ .region{padding:10px 11px}
+ .region dl>div{grid-template-columns:62px minmax(0,1fr)}
+ .chart-box .chart{height:215px}
+ #facilities .scroll-area-table .table,#facilities .association-table{font-size:11px}
+ #facilities .scroll-associations{max-height:350px}
+ #facilities .filter{gap:5px}
+ #facilities .filter label{font-size:11px}
+ #facilities .filter select,#facilities .filter input{min-height:34px}
+ .geo-figure{padding:9px 10px}
+ .geo-svg{width:100%}
+ .site-item{padding:9px 10px}
+ #medical-map,.map{height:270px}
+ .footer{padding:18px 0}
+ .reading-top{bottom:max(10px,env(safe-area-inset-bottom));right:10px;padding:9px 11px}
+}
+@media(max-width:380px){
+ .hero h1{font-size:25px}
+ .geo-figure h3{font-size:13px}
+ .stats .stat b{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){.reading-top{transition:none}}
+@media print{.reading-top{display:none!important}.chart-box .chart{height:220px}.scroll-associations{max-height:none;overflow:visible}}
