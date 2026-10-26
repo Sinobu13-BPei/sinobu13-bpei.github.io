@@ -90,3 +90,8 @@ a:focus-visible,summary:focus-visible,select:focus-visible{outline:3px solid #e4
 @media(max-width:900px){.facility-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.section{padding-block:31px 36px}.hero-layout{min-height:300px}.chartwrap.high{height:360px}#medicalMap{height:360px}}
 @media(max-width:740px){body{line-height:1.62}.section,.section.compact{padding-block:27px 31px}.section-head h2{font-size:23px}.panel{padding:13px 12px}.hero-layout{padding-block:26px 23px}.hero h1{font-size:34px}.hero-art svg{max-height:240px}.metrics{gap:8px}.metric{padding:12px}.metric b{font-size:23px}.mini-card,.brief{padding:14px}.facility-stats>div{padding:10px 11px}.facility-stats strong{font-size:22px}.panel-heading{align-items:flex-start}.source-tags{gap:5px}.fold summary{font-size:12px;padding:10px 11px}.fold-meta{font-size:10px}.fold-content{padding:9px}.chartwrap.high{height:330px}.chartwrap.big,.fold-content .chartwrap.big{height:460px}#medicalMap{height:320px}.sources{grid-template-columns:1fr}.table-scroll{overscroll-behavior-inline:contain}}
 @media(max-width:420px){.facility-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.facility-stats strong{font-size:21px}.fold-meta{display:none}.section-head p{font-size:12px}}
+
+/* Progressive enhancement: no large blank chart/map panels when CDN or network is blocked */
+.chartwrap.chart-fallback-wrap{height:auto!important;min-height:55px!important;padding:13px 16px;background:#f2f8f9;border:1px dashed #c3dee5;border-radius:7px}
+.chartwrap.chart-fallback-wrap .micro{margin:0;color:#496d78;font-size:12px}
+#medicalMap:not(.leaflet-container){height:auto!important;min-height:75px!important;padding:17px 16px;background:#f2f8f9;border:1px dashed #c3dee5;font-size:12px;color:#496d78}
