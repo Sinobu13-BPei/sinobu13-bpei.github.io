@@ -12,6 +12,8 @@ for(const href of html.matchAll(/href="#([^"]+)"/g))assert(ids.includes(href[1])
 for(const script of ['data.js','app.js','map.js'])assert(new RegExp('src="\\./'+script.replace('.','\\.')+'(?:\\?v=[^" ]+)?"').test(html),'Missing script: '+script);
 for(const needed of ['mapMode','mapPref','mapCategory','mapStatus','mapList','mapReset','mapFallback','mapCount','areaFilter','arearows'])assert(ids.includes(needed),'Missing interface control '+needed);
 assert(css.includes('@media(max-width:580px)'),'Mobile map layout missing');
+assert(html.includes('integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="'),'Leaflet 1.9.4 CSS hash differs from official version');
+assert(html.includes('integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="'),'Leaflet 1.9.4 JS hash differs from official version');
 assert(mapJs.includes('layer.clearLayers()'),'Map layer cleanup missing');
 assert(mapJs.includes('getComputedStyle(cssProbe)'),'Leaflet CSS load guard missing');
 assert(!/L\.map\s*\(/.test(appJs),'Legacy map initializer remains in app.js');
