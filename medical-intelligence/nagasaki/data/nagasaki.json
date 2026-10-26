@@ -1,0 +1,1068 @@
+{
+  "version": "2026-10-26",
+  "sources": [
+    {
+      "id": "plan",
+      "title": "長崎県・第8次医療計画",
+      "year": "2024",
+      "url": "https://www.pref.nagasaki.jp/bunrui/hukushi-hoken/hoken-iryo/riryotaisaku/keikaku-iryo/iryoukeikaku/",
+      "scope": "政策・8医療圏"
+    },
+    {
+      "id": "beds",
+      "title": "長崎県・令和7年度病床機能報告",
+      "year": "2025/07（2026/10公表）",
+      "url": "https://www.pref.nagasaki.jp/doc/52229.html",
+      "scope": "圏域別病床の現状と予定"
+    },
+    {
+      "id": "futurebeds",
+      "title": "長崎県・地域医療構想",
+      "year": "2025必要病床（計画推計）",
+      "url": "https://www.pref.nagasaki.jp/bunrui/hukushi-hoken/hoken-iryo/riryotaisaku/iryoukousou_byoushoukinou/tiikiiryoukousou/",
+      "scope": "病床機能別必要量"
+    },
+    {
+      "id": "devices",
+      "title": "長崎県・第8次医療計画 第6章 外来医療",
+      "year": "2020医療施設調査（2024計画掲載）",
+      "url": "https://www.pref.nagasaki.jp/uploads/2024/07/1722310613.pdf",
+      "scope": "CT/MRI/PET/マンモ/放射線治療機器"
+    },
+    {
+      "id": "pop",
+      "title": "長崎県・中期人口見通し",
+      "year": "2024人口実績・2023社人研推計",
+      "url": "https://www.pref.nagasaki.lg.jp/uploads/2025/09/1757055726.pdf",
+      "scope": "人口・高齢化・社会動態・2035推計"
+    },
+    {
+      "id": "popcurrent",
+      "title": "長崎県・毎月の推計人口",
+      "year": "2026/09を含む随時更新",
+      "url": "https://www.pref.nagasaki.jp/doc/page-759638.html",
+      "scope": "最新人口への接続"
+    },
+    {
+      "id": "area",
+      "title": "長崎県医療計画 第1章 医療圏",
+      "year": "2022人口（2024計画掲載）",
+      "url": "https://www.pref.nagasaki.jp/shared/uploads/2024/07/1722309792.pdf",
+      "scope": "圏域・構成市町・人口"
+    },
+    {
+      "id": "doctorsold",
+      "title": "長崎県医師確保計画概要",
+      "year": "2024計画（2020医師数）",
+      "url": "https://www.pref.nagasaki.lg.jp/uploads/2024/03/1711692866.pdf",
+      "scope": "偏在と対策"
+    },
+    {
+      "id": "doctors",
+      "title": "厚生労働省・医師確保対策",
+      "year": "2026/04公表版",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html",
+      "scope": "最新医師偏在指標の一次公開入口"
+    },
+    {
+      "id": "doctorsaggregate",
+      "title": "SCUEL公開統計再集計（厚労省指標）",
+      "year": "2026/04",
+      "url": "https://scueldata.me/insight/workforce/doctor/nagasaki/",
+      "scope": "8圏域2026年値・二次資料"
+    },
+    {
+      "id": "hospitals",
+      "title": "長崎県・地域医療支援病院一覧",
+      "year": "2026/02",
+      "url": "https://www.pref.nagasaki.jp/bunrui/hukushi-hoken/hoken-iryo/iryotetsuduki/chiikihp/chiikihp-ichiran/body.html",
+      "scope": "支援病院指定と所在地"
+    },
+    {
+      "id": "university",
+      "title": "長崎大学病院・基本情報",
+      "year": "2026/04",
+      "url": "https://www.mh.nagasaki-u.ac.jp/kouhou/about/about/",
+      "scope": "大学病院・病床・機能"
+    },
+    {
+      "id": "cancer",
+      "title": "長崎県・がん医療提供体制",
+      "year": "公開時点（施設指定要再確認）",
+      "url": "https://www.pref.nagasaki.jp/bunrui/hukushi-hoken/hoken-iryo/riryotaisaku/gan/ganshinryou-gan/",
+      "scope": "がん拠点網"
+    },
+    {
+      "id": "disaster",
+      "title": "長崎県・災害医療体制",
+      "year": "2026/08",
+      "url": "https://www.pref.nagasaki.jp/bunrui/hukushi-hoken/hoken-iryo/riryotaisaku/iryoutaisei/dmedi/body.html",
+      "scope": "災害拠点14・DMAT15"
+    },
+    {
+      "id": "hoken",
+      "title": "長崎県・保健所管轄と所在地",
+      "year": "2026/09",
+      "url": "https://www.pref.nagasaki.jp/doc/page-43099.html",
+      "scope": "8県立+2市立保健所"
+    },
+    {
+      "id": "fund",
+      "title": "長崎県・地域医療介護総合確保基金",
+      "year": "2026",
+      "url": "https://www.pref.nagasaki.jp/bunrui/hukushi-hoken/hoken-iryo/riryotaisaku/iryoukousou_byoushoukinou/shinkikin/body.html",
+      "scope": "病床機能分化・設備補助"
+    },
+    {
+      "id": "subsidy",
+      "title": "長崎県・助成制度のご案内",
+      "year": "2026/09",
+      "url": "https://www.pref.nagasaki.lg.jp/bunrui/hukushi-hoken/hoken-iryo/riryotaisaku/hojokin/",
+      "scope": "設備整備国庫補助"
+    },
+    {
+      "id": "dma",
+      "title": "厚生労働省・医療DX",
+      "year": "2026/10",
+      "url": "https://www.mhlw.go.jp/stf/iryoudx.html",
+      "scope": "全国医療情報化方針"
+    },
+    {
+      "id": "network",
+      "title": "協会けんぽ長崎・あじさいネット概要",
+      "year": "2020",
+      "url": "https://www.kyoukaikenpo.or.jp/shibu/nagasaki/public_relations/002/005/index.html",
+      "scope": "医療情報連携の説明"
+    },
+    {
+      "id": "agency",
+      "title": "長崎県病院企業団",
+      "year": "2026閲覧",
+      "url": "https://www.nagasaki-hosp-agency.or.jp/",
+      "scope": "離島病院と医師搬送"
+    },
+    {
+      "id": "assoc",
+      "title": "長崎県医師会",
+      "year": "2026閲覧",
+      "url": "https://www.nagasaki.med.or.jp/",
+      "scope": "医師会活動・郡市区連携"
+    },
+    {
+      "id": "assoc2",
+      "title": "佐世保市医師会",
+      "year": "2026閲覧",
+      "url": "https://sasebo-ishikai.com/",
+      "scope": "在宅・地域連携"
+    },
+    {
+      "id": "metropolitan",
+      "title": "長崎みなとメディカルセンター放射線部",
+      "year": "2025年度",
+      "url": "https://nmh.jp/depts-list/depts/radiation/",
+      "scope": "CT/MRI件数時系列"
+    },
+    {
+      "id": "redcross",
+      "title": "長崎原爆病院 放射線科統計",
+      "year": "2025年度",
+      "url": "https://www.nagasaki-med.jrc.or.jp/care/medical/special/medical_statistics/detail.php?id=19",
+      "scope": "CT/MRI/PET-CT件数"
+    },
+    {
+      "id": "wholesaler1",
+      "title": "アイティーアイ 会社概要",
+      "year": "2026閲覧",
+      "url": "https://www.iti-e.co.jp/company/about/",
+      "scope": "地域卸・企業活動の公開情報"
+    },
+    {
+      "id": "wholesaler2",
+      "title": "山下医科器械 県内拠点",
+      "year": "2026閲覧",
+      "url": "https://www.yamashitaika.co.jp/company/license/",
+      "scope": "拠点・許可公開情報"
+    },
+    {
+      "id": "wholesaler3",
+      "title": "キシヤ 長崎営業所",
+      "year": "2026閲覧",
+      "url": "https://www.kishiya.co.jp/location/detail/masterid/16/",
+      "scope": "県内卸・所在地"
+    },
+    {
+      "id": "regionalpop",
+      "title": "長崎県・異動人口調査 年間集計",
+      "year": "2025",
+      "url": "https://www.pref.nagasaki.jp/doc/page-712988.html",
+      "scope": "転入転出・市町別動態"
+    },
+    {
+      "id": "medical-assoc-local",
+      "title": "長崎県医師会・郡市医師会14組織一覧",
+      "year": "2026年10月閲覧",
+      "url": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "scope": "組織名称・所在地・連絡先（改訂の可能性あり）"
+    },
+    {
+      "id": "public-hospital-2025",
+      "title": "長崎県・公的医療機関等2025プラン",
+      "year": "2025プラン公開資料／2026年10月閲覧",
+      "url": "https://www.pref.nagasaki.jp/bunrui/hukushi-hoken/hoken-iryo/riryotaisaku/iryoukousou_byoushoukinou/koutekiiryoukikan2025puran/body.html",
+      "scope": "圏域ごとの公的病院の役割・計画、設備再編調査窓口"
+    },
+    {
+      "id": "stroke-heart",
+      "title": "長崎大学病院・脳卒中・心臓病等総合支援センター",
+      "year": "2026年10月閲覧",
+      "url": "https://www3.mh.nagasaki-u.ac.jp/nou-shin/medical_personnel.html",
+      "scope": "医療圏別・循環器/脳卒中の地域連携病院"
+    }
+  ],
+  "areas": [
+    {
+      "name": "長崎",
+      "municipalities": "長崎市・西海市・長与町・時津町",
+      "pop2022": 493061,
+      "beds2025": {
+        "total": 7381,
+        "high": 804,
+        "acute": 2632,
+        "recovery": 1515,
+        "chronic": 2037,
+        "reopen": 202,
+        "close": 191
+      },
+      "devices2020": {
+        "CT": 90,
+        "MRI": 42,
+        "PET": 3,
+        "マンモ": 26,
+        "放射線治療": 5
+      },
+      "doctorIndex2026": 375.9,
+      "lat": 32.75,
+      "lon": 129.89,
+      "score": 87,
+      "axes": {
+        "dem": 5,
+        "urg": 4,
+        "access": 3,
+        "exec": 5,
+        "rep": 5
+      },
+      "drivers": "大学病院・高度急性期、がん、再編、CT/MRI高稼働と共同利用",
+      "hospitals": "長崎大学病院、長崎みなとメディカルセンター、長崎原爆病院",
+      "opportunities": "高機能画像診断の更新計画と回復期転換・地域連携を同時設計"
+    },
+    {
+      "name": "佐世保県北",
+      "municipalities": "佐世保市・平戸市・松浦市・佐々町",
+      "pop2022": 299971,
+      "beds2025": {
+        "total": 4077,
+        "high": 298,
+        "acute": 1773,
+        "recovery": 703,
+        "chronic": 1119,
+        "reopen": 72,
+        "close": 112
+      },
+      "devices2020": {
+        "CT": 52,
+        "MRI": 18,
+        "PET": 1,
+        "マンモ": 11,
+        "放射線治療": 3
+      },
+      "doctorIndex2026": 245.5,
+      "lat": 33.17,
+      "lon": 129.72,
+      "score": 82,
+      "axes": {
+        "dem": 5,
+        "urg": 4,
+        "access": 3,
+        "exec": 4,
+        "rep": 4
+      },
+      "drivers": "急性期中核、循環器・脳卒中、半島部の救急搬送",
+      "hospitals": "佐世保市総合医療センター、佐世保中央病院、長崎労災病院",
+      "opportunities": "急性期群の病院横断型設備更新と半島部サービス網の構築"
+    },
+    {
+      "name": "県央",
+      "municipalities": "諫早市・大村市・東彼杵町・川棚町・波佐見町",
+      "pop2022": 263449,
+      "beds2025": {
+        "total": 4076,
+        "high": 294,
+        "acute": 1379,
+        "recovery": 526,
+        "chronic": 1673,
+        "reopen": 82,
+        "close": 122
+      },
+      "devices2020": {
+        "CT": 43,
+        "MRI": 19,
+        "PET": 3,
+        "マンモ": 11,
+        "放射線治療": 5
+      },
+      "doctorIndex2026": 288.9,
+      "lat": 32.91,
+      "lon": 129.95,
+      "score": 87,
+      "axes": {
+        "dem": 5,
+        "urg": 5,
+        "access": 3,
+        "exec": 4,
+        "rep": 4
+      },
+      "drivers": "NHO・JCHO、慢性期集積、回復期移行、空港アクセス",
+      "hospitals": "長崎医療センター、諫早総合病院、長崎川棚医療センター",
+      "opportunities": "リハビリ・在宅移行とCT/MRI共同利用を統合提案"
+    },
+    {
+      "name": "県南",
+      "municipalities": "島原市・雲仙市・南島原市",
+      "pop2022": 122776,
+      "beds2025": {
+        "total": 1640,
+        "high": 8,
+        "acute": 722,
+        "recovery": 420,
+        "chronic": 468,
+        "reopen": 0,
+        "close": 22
+      },
+      "devices2020": {
+        "CT": 22,
+        "MRI": 11,
+        "PET": 0,
+        "マンモ": 6,
+        "放射線治療": 1
+      },
+      "doctorIndex2026": 191.9,
+      "lat": 32.76,
+      "lon": 130.36,
+      "score": 76,
+      "axes": {
+        "dem": 3,
+        "urg": 5,
+        "access": 4,
+        "exec": 3,
+        "rep": 4
+      },
+      "drivers": "高齢化・医師確保、慢性期から在宅、半島部の医療完結",
+      "hospitals": "長崎県島原病院、地域診療所",
+      "opportunities": "超音波・一般撮影・訪問医療と紹介画像の連携"
+    },
+    {
+      "name": "五島",
+      "municipalities": "五島市",
+      "pop2022": 33233,
+      "beds2025": {
+        "total": 442,
+        "high": 0,
+        "acute": 244,
+        "recovery": 150,
+        "chronic": 48,
+        "reopen": 0,
+        "close": 0
+      },
+      "devices2020": {
+        "CT": 6,
+        "MRI": 1,
+        "PET": 0,
+        "マンモ": 1,
+        "放射線治療": 0
+      },
+      "doctorIndex2026": 233.7,
+      "lat": 32.7,
+      "lon": 128.84,
+      "score": 71,
+      "axes": {
+        "dem": 2,
+        "urg": 5,
+        "access": 5,
+        "exec": 2,
+        "rep": 4
+      },
+      "drivers": "離島搬送・遠隔読影・地域完結の要件",
+      "hospitals": "五島中央病院、奈留医療センター",
+      "opportunities": "ポータブル/US、予備機・消耗品・遠隔支援の可用性重視"
+    },
+    {
+      "name": "上五島",
+      "municipalities": "新上五島町・小値賀町",
+      "pop2022": 18872,
+      "beds2025": {
+        "total": 190,
+        "high": 0,
+        "acute": 104,
+        "recovery": 50,
+        "chronic": 0,
+        "reopen": 36,
+        "close": 0
+      },
+      "devices2020": {
+        "CT": 4,
+        "MRI": 1,
+        "PET": 0,
+        "マンモ": 1,
+        "放射線治療": 0
+      },
+      "doctorIndex2026": 247.8,
+      "lat": 32.98,
+      "lon": 129.08,
+      "score": 71,
+      "axes": {
+        "dem": 2,
+        "urg": 5,
+        "access": 5,
+        "exec": 2,
+        "rep": 4
+      },
+      "drivers": "多島分散・機器保守の移動時間",
+      "hospitals": "上五島病院、小値賀診療所",
+      "opportunities": "軽量装置と現地一次対応者育成、搬送前画像共有"
+    },
+    {
+      "name": "壱岐",
+      "municipalities": "壱岐市",
+      "pop2022": 23938,
+      "beds2025": {
+        "total": 343,
+        "high": 0,
+        "acute": 134,
+        "recovery": 83,
+        "chronic": 126,
+        "reopen": 0,
+        "close": 0
+      },
+      "devices2020": {
+        "CT": 5,
+        "MRI": 2,
+        "PET": 0,
+        "マンモ": 1,
+        "放射線治療": 0
+      },
+      "doctorIndex2026": 240.6,
+      "lat": 33.75,
+      "lon": 129.69,
+      "score": 64,
+      "axes": {
+        "dem": 2,
+        "urg": 4,
+        "access": 5,
+        "exec": 2,
+        "rep": 3
+      },
+      "drivers": "島内医療完結・専門医不足時の紹介先接続",
+      "hospitals": "壱岐病院",
+      "opportunities": "画像遠隔共有・一次検査・訪問保守パッケージ"
+    },
+    {
+      "name": "対馬",
+      "municipalities": "対馬市",
+      "pop2022": 27271,
+      "beds2025": {
+        "total": 242,
+        "high": 0,
+        "acute": 136,
+        "recovery": 100,
+        "chronic": 0,
+        "reopen": 6,
+        "close": 0
+      },
+      "devices2020": {
+        "CT": 3,
+        "MRI": 1,
+        "PET": 0,
+        "マンモ": 2,
+        "放射線治療": 1
+      },
+      "doctorIndex2026": 276.8,
+      "lat": 34.2,
+      "lon": 129.29,
+      "score": 71,
+      "axes": {
+        "dem": 2,
+        "urg": 5,
+        "access": 5,
+        "exec": 2,
+        "rep": 4
+      },
+      "drivers": "南北に長い離島、航路・気象影響、搬送・BCP",
+      "hospitals": "対馬病院、上対馬病院",
+      "opportunities": "可搬型機器・保守部品の現地備蓄と遠隔保守"
+    }
+  ],
+  "facilities": [
+    {
+      "name": "長崎大学病院",
+      "area": "長崎",
+      "address": "長崎市坂本1-7-1",
+      "city": "長崎市",
+      "lat": 32.769,
+      "lon": 129.869,
+      "web": "https://www.mh.nagasaki-u.ac.jp/",
+      "role": "大学病院・特定機能・高度救命",
+      "source": "university"
+    },
+    {
+      "name": "長崎みなとメディカルセンター",
+      "area": "長崎",
+      "address": "長崎市新地町6-39",
+      "city": "長崎市",
+      "lat": 32.74,
+      "lon": 129.875,
+      "web": "https://nmh.jp/",
+      "role": "公立・地域医療支援",
+      "source": "hospitals"
+    },
+    {
+      "name": "長崎原爆病院",
+      "area": "長崎",
+      "address": "長崎市茂里町3-15",
+      "city": "長崎市",
+      "lat": 32.763,
+      "lon": 129.867,
+      "web": "https://www.nagasaki-med.jrc.or.jp/",
+      "role": "日赤・地域医療支援",
+      "source": "hospitals"
+    },
+    {
+      "name": "済生会長崎病院",
+      "area": "長崎",
+      "address": "長崎市片淵2-5-1",
+      "city": "長崎市",
+      "lat": 32.76,
+      "lon": 129.888,
+      "web": "https://www.nsaisei.or.jp/",
+      "role": "公的・地域医療支援",
+      "source": "hospitals"
+    },
+    {
+      "name": "長崎医療センター",
+      "area": "県央",
+      "address": "大村市久原2-1001-1",
+      "city": "大村市",
+      "lat": 32.903,
+      "lon": 129.956,
+      "web": "https://nagasaki-mc.hosp.go.jp/",
+      "role": "国立病院機構・地域医療支援",
+      "source": "hospitals"
+    },
+    {
+      "name": "諫早総合病院",
+      "area": "県央",
+      "address": "諫早市永昌東町24-1",
+      "city": "諫早市",
+      "lat": 32.85,
+      "lon": 130.042,
+      "web": "https://isahaya.jcho.go.jp/",
+      "role": "JCHO・地域医療支援",
+      "source": "hospitals"
+    },
+    {
+      "name": "長崎川棚医療センター",
+      "area": "県央",
+      "address": "東彼杵郡川棚町下組郷2005-1",
+      "city": "川棚町",
+      "lat": 33.074,
+      "lon": 129.87,
+      "web": "https://nkmc.hosp.go.jp/",
+      "role": "国立病院機構",
+      "source": "hospitals"
+    },
+    {
+      "name": "佐世保市総合医療センター",
+      "area": "佐世保県北",
+      "address": "佐世保市平瀬町9-3",
+      "city": "佐世保市",
+      "lat": 33.177,
+      "lon": 129.713,
+      "web": "https://www.hospital.sasebo.nagasaki.jp/",
+      "role": "地域医療支援・救急",
+      "source": "hospitals"
+    },
+    {
+      "name": "佐世保中央病院",
+      "area": "佐世保県北",
+      "address": "佐世保市大和町15",
+      "city": "佐世保市",
+      "lat": 33.168,
+      "lon": 129.739,
+      "web": "https://hakujyujikai.or.jp/chuo/",
+      "role": "民間・地域医療支援",
+      "source": "hospitals"
+    },
+    {
+      "name": "長崎労災病院",
+      "area": "佐世保県北",
+      "address": "佐世保市瀬戸越2-12-5",
+      "city": "佐世保市",
+      "lat": 33.209,
+      "lon": 129.748,
+      "web": "https://nagasakih.johas.go.jp/",
+      "role": "労災・地域医療支援",
+      "source": "hospitals"
+    },
+    {
+      "name": "長崎県島原病院",
+      "area": "県南",
+      "address": "島原市下川尻町7895",
+      "city": "島原市",
+      "lat": 32.764,
+      "lon": 130.378,
+      "web": "https://shimabarabyoin.jp/",
+      "role": "病院企業団・地域医療支援",
+      "source": "hospitals"
+    },
+    {
+      "name": "五島中央病院",
+      "area": "五島",
+      "address": "五島市吉久木町205",
+      "city": "五島市",
+      "lat": 32.705,
+      "lon": 128.818,
+      "web": "https://www.nagasaki-hosp-agency.or.jp/",
+      "role": "病院企業団・へき地",
+      "source": "agency"
+    },
+    {
+      "name": "上五島病院",
+      "area": "上五島",
+      "address": "新上五島町青方郷1549-11",
+      "city": "新上五島町",
+      "lat": 32.99,
+      "lon": 129.065,
+      "web": "https://www.kamigoto-hospital.jp/",
+      "role": "病院企業団・へき地",
+      "source": "agency"
+    },
+    {
+      "name": "壱岐病院",
+      "area": "壱岐",
+      "address": "壱岐市郷ノ浦町東触1626",
+      "city": "壱岐市",
+      "lat": 33.752,
+      "lon": 129.694,
+      "web": "https://www.nagasaki-hosp-agency.or.jp/",
+      "role": "病院企業団・へき地",
+      "source": "agency"
+    },
+    {
+      "name": "対馬病院",
+      "area": "対馬",
+      "address": "対馬市美津島町鶏知乙1168-7",
+      "city": "対馬市",
+      "lat": 34.276,
+      "lon": 129.301,
+      "web": "https://www.nagasaki-hosp-agency.or.jp/",
+      "role": "病院企業団・へき地",
+      "source": "agency"
+    },
+    {
+      "name": "長崎県庁 福祉保健部",
+      "area": "行政",
+      "address": "長崎市尾上町3-1",
+      "city": "長崎市",
+      "lat": 32.753,
+      "lon": 129.869,
+      "web": "https://www.pref.nagasaki.jp/",
+      "role": "県行政・医療政策",
+      "source": "plan"
+    },
+    {
+      "name": "長崎県医師会",
+      "area": "医師会",
+      "address": "長崎市茂里町3-27",
+      "city": "長崎市",
+      "lat": 32.762,
+      "lon": 129.868,
+      "web": "https://www.nagasaki.med.or.jp/",
+      "role": "医師会・連携",
+      "source": "assoc"
+    },
+    {
+      "name": "佐世保市医師会",
+      "area": "医師会",
+      "address": "佐世保市常盤町4-7",
+      "city": "佐世保市",
+      "lat": 33.174,
+      "lon": 129.712,
+      "web": "https://sasebo-ishikai.com/",
+      "role": "医師会・在宅",
+      "source": "assoc2"
+    },
+    {
+      "name": "西彼保健所",
+      "area": "保健所",
+      "address": "長崎市滑石1-9-5",
+      "city": "長崎市",
+      "lat": 32.79,
+      "lon": 129.839,
+      "web": "https://www.pref.nagasaki.jp/doc/page-43099.html",
+      "role": "保健所",
+      "source": "hoken"
+    },
+    {
+      "name": "県央保健所",
+      "area": "保健所",
+      "address": "諫早市栄田町26-49",
+      "city": "諫早市",
+      "lat": 32.859,
+      "lon": 130.035,
+      "web": "https://www.pref.nagasaki.jp/doc/page-43099.html",
+      "role": "保健所",
+      "source": "hoken"
+    },
+    {
+      "name": "県南保健所",
+      "area": "保健所",
+      "address": "島原市新田町347-9",
+      "city": "島原市",
+      "lat": 32.791,
+      "lon": 130.367,
+      "web": "https://www.pref.nagasaki.jp/doc/page-43099.html",
+      "role": "保健所",
+      "source": "hoken"
+    },
+    {
+      "name": "県北保健所",
+      "area": "保健所",
+      "address": "平戸市田平町里免1126-1",
+      "city": "平戸市",
+      "lat": 33.347,
+      "lon": 129.578,
+      "web": "https://www.pref.nagasaki.jp/doc/page-43099.html",
+      "role": "保健所",
+      "source": "hoken"
+    },
+    {
+      "name": "五島保健所",
+      "area": "保健所",
+      "address": "五島市福江町7-2",
+      "city": "五島市",
+      "lat": 32.699,
+      "lon": 128.839,
+      "web": "https://www.pref.nagasaki.jp/doc/page-43099.html",
+      "role": "保健所",
+      "source": "hoken"
+    },
+    {
+      "name": "上五島保健所",
+      "area": "保健所",
+      "address": "新上五島町有川郷2254-17",
+      "city": "新上五島町",
+      "lat": 32.982,
+      "lon": 129.112,
+      "web": "https://www.pref.nagasaki.jp/doc/page-43099.html",
+      "role": "保健所",
+      "source": "hoken"
+    },
+    {
+      "name": "壱岐保健所",
+      "area": "保健所",
+      "address": "壱岐市郷ノ浦町本村触620-5",
+      "city": "壱岐市",
+      "lat": 33.75,
+      "lon": 129.684,
+      "web": "https://www.pref.nagasaki.jp/doc/page-43099.html",
+      "role": "保健所",
+      "source": "hoken"
+    },
+    {
+      "name": "対馬保健所",
+      "area": "保健所",
+      "address": "対馬市厳原町宮谷224",
+      "city": "対馬市",
+      "lat": 34.203,
+      "lon": 129.287,
+      "web": "https://www.pref.nagasaki.jp/doc/page-43099.html",
+      "role": "保健所",
+      "source": "hoken"
+    },
+    {
+      "name": "長崎市保健所",
+      "area": "保健所",
+      "address": "長崎市魚の町4-1",
+      "city": "長崎市",
+      "lat": 32.752,
+      "lon": 129.879,
+      "web": "https://www.pref.nagasaki.jp/doc/page-43099.html",
+      "role": "保健所",
+      "source": "hoken"
+    },
+    {
+      "name": "佐世保市保健所",
+      "area": "保健所",
+      "address": "佐世保市高砂町5-1",
+      "city": "佐世保市",
+      "lat": 33.181,
+      "lon": 129.717,
+      "web": "https://www.pref.nagasaki.jp/doc/page-43099.html",
+      "role": "保健所",
+      "source": "hoken"
+    },
+    {
+      "name": "長崎市医師会",
+      "area": "長崎",
+      "address": "長崎市栄町2番22号",
+      "city": "長崎市",
+      "lat": 32.748,
+      "lon": 129.878,
+      "web": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "role": "長崎県医師会構成 郡市医師会（公開組織一覧）",
+      "source": "assoc-directory"
+    },
+    {
+      "name": "諌早医師会",
+      "area": "県央",
+      "address": "諌早市永昌町23番23号",
+      "city": "諌早市",
+      "lat": 32.851,
+      "lon": 130.047,
+      "web": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "role": "長崎県医師会構成 郡市医師会（公開組織一覧）",
+      "source": "assoc-directory"
+    },
+    {
+      "name": "大村市医師会",
+      "area": "県央",
+      "address": "大村市本町458番地2",
+      "city": "大村市",
+      "lat": 32.911,
+      "lon": 129.96,
+      "web": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "role": "長崎県医師会構成 郡市医師会（公開組織一覧）",
+      "source": "assoc-directory"
+    },
+    {
+      "name": "島原市医師会",
+      "area": "県南",
+      "address": "島原市萩原1丁目1230番地",
+      "city": "島原市",
+      "lat": 32.78,
+      "lon": 130.366,
+      "web": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "role": "長崎県医師会構成 郡市医師会（公開組織一覧）",
+      "source": "assoc-directory"
+    },
+    {
+      "name": "平戸市医師会",
+      "area": "佐世保県北",
+      "address": "平戸市浦の町748番地1",
+      "city": "平戸市",
+      "lat": 33.367,
+      "lon": 129.552,
+      "web": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "role": "長崎県医師会構成 郡市医師会（公開組織一覧）",
+      "source": "assoc-directory"
+    },
+    {
+      "name": "五島医師会",
+      "area": "五島",
+      "address": "五島市末広町8番4号",
+      "city": "五島市",
+      "lat": 32.695,
+      "lon": 128.84,
+      "web": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "role": "長崎県医師会構成 郡市医師会（公開組織一覧）",
+      "source": "assoc-directory"
+    },
+    {
+      "name": "東彼杵郡医師会",
+      "area": "県央",
+      "address": "東彼杵郡川棚町下組郷17番地7",
+      "city": "県央",
+      "lat": 33.072,
+      "lon": 129.861,
+      "web": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "role": "長崎県医師会構成 郡市医師会（公開組織一覧）",
+      "source": "assoc-directory"
+    },
+    {
+      "name": "西彼杵医師会",
+      "area": "長崎",
+      "address": "西彼杵郡時津町浦郷396番地25",
+      "city": "長崎",
+      "lat": 32.831,
+      "lon": 129.849,
+      "web": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "role": "長崎県医師会構成 郡市医師会（公開組織一覧）",
+      "source": "assoc-directory"
+    },
+    {
+      "name": "南高医師会",
+      "area": "県南",
+      "address": "雲仙市小浜町雲仙548番地1",
+      "city": "雲仙市",
+      "lat": 32.739,
+      "lon": 130.268,
+      "web": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "role": "長崎県医師会構成 郡市医師会（公開組織一覧）",
+      "source": "assoc-directory"
+    },
+    {
+      "name": "北松浦医師会",
+      "area": "佐世保県北",
+      "address": "松浦市志佐町浦免1807番地2",
+      "city": "松浦市",
+      "lat": 33.346,
+      "lon": 129.71,
+      "web": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "role": "長崎県医師会構成 郡市医師会（公開組織一覧）",
+      "source": "assoc-directory"
+    },
+    {
+      "name": "壱岐医師会",
+      "area": "壱岐",
+      "address": "壱岐市石田町石田西触1071番地1",
+      "city": "壱岐市",
+      "lat": 33.741,
+      "lon": 129.75,
+      "web": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "role": "長崎県医師会構成 郡市医師会（公開組織一覧）",
+      "source": "assoc-directory"
+    },
+    {
+      "name": "対馬市医師会",
+      "area": "対馬",
+      "address": "対馬市美津島町鶏知乙1168番7号",
+      "city": "対馬市",
+      "lat": 34.275,
+      "lon": 129.33,
+      "web": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "role": "長崎県医師会構成 郡市医師会（公開組織一覧）",
+      "source": "assoc-directory"
+    },
+    {
+      "name": "長崎大学医師会",
+      "area": "長崎",
+      "address": "長崎市坂本1丁目12番4号",
+      "city": "長崎市",
+      "lat": 32.77,
+      "lon": 129.869,
+      "web": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "role": "長崎県医師会構成 郡市医師会（公開組織一覧）",
+      "source": "assoc-directory"
+    }
+  ],
+  "regionalScores": {
+    "weights": {
+      "dem": 30,
+      "urg": 25,
+      "access": 20,
+      "exec": 15,
+      "rep": 10
+    },
+    "descriptions": {
+      "dem": "公開データで確認可能な機器・医療需要の量",
+      "urg": "高齢化・機能転換・医師確保の課題",
+      "access": "アクセス格差とBCPの社会的必要性",
+      "exec": "支援体制を構築する実現可能性",
+      "rep": "他圏域への展開・横展開可能性"
+    }
+  },
+  "population": {
+    "history": {
+      "2015": 1377187,
+      "2016": 1366514,
+      "2017": 1353550,
+      "2018": 1339438,
+      "2019": 1325205,
+      "2020": 1312317,
+      "2021": 1296657,
+      "2022": 1282571,
+      "2023": 1266334,
+      "2024": 1250705
+    },
+    "age65_2024": 34.8,
+    "netMigration2024": -2692,
+    "proj2035": 1086000,
+    "proj2035_age65": 38.8
+  },
+  "devicesTotal2020": {
+    "CT": 225,
+    "MRI": 95,
+    "PET": 7,
+    "マンモ": 59,
+    "放射線治療": 15
+  },
+  "devicesBenchmark": {
+    "categories": [
+      "CT",
+      "MRI",
+      "PET",
+      "マンモ",
+      "放射線治療"
+    ],
+    "nagasaki": [
+      15.4,
+      6.65,
+      0.48,
+      4.34,
+      1.02
+    ],
+    "national": [
+      11.52,
+      5.72,
+      0.47,
+      3.36,
+      0.82
+    ]
+  },
+  "doctorsBenchmark": {
+    "regions": [
+      "全国",
+      "長崎県",
+      "福岡県",
+      "佐賀県",
+      "熊本県"
+    ],
+    "values": [
+      266.8,
+      298.7,
+      320.4,
+      281.8,
+      270.4
+    ],
+    "year": "2026/04"
+  },
+  "needBeds2025": {
+    "high": 1457,
+    "acute": 5400,
+    "recovery": 5660,
+    "chronic": 4345,
+    "total": 16862
+  },
+  "hospitalUtilization": {
+    "years": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+    ],
+    "ct": [
+      17665,
+      16946,
+      16989,
+      17912,
+      17963
+    ],
+    "mri": [
+      6569,
+      6295,
+      6116,
+      6310,
+      6247
+    ]
+  }
+}
