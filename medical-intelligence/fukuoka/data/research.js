@@ -30,7 +30,9 @@ window.FUKUOKA_DATA={
     "fund": "https://www.pref.fukuoka.lg.jp/contents/sougoukakuhokikinn.html",
     "fund2026": "https://www.mhlw.go.jp/stf/newpage_75985.html",
     "dx": "https://www.digital.go.jp/resources/govdashboard/healthcare-dx",
-    "medCost": "https://www.pref.fukuoka.lg.jp/contents/tekiseika4ki.html"
+    "medCost": "https://www.pref.fukuoka.lg.jp/contents/tekiseika4ki.html",
+    "facilityHospital": "https://www.e-stat.go.jp/dbview?sid=0004024929",
+    "facilityClinics": "https://www.e-stat.go.jp/dbview?sid=0004024930"
   },
   "population": {
     "census2025": 5077785,
@@ -768,6 +770,18 @@ window.FUKUOKA_DATA={
       "2024-03",
       "13圏域の境界・名称・構成市町村（画像の出典）",
       "https://www.pref.fukuoka.lg.jp/contents/hoken-iryo-keikaku-2024.html"
+    ],
+    [
+      "厚生労働省 医療施設調査 N1 二次医療圏・市区町村編",
+      "2023",
+      "13医療圏・医師会担当地域内の病院数／所在地集計",
+      "https://www.e-stat.go.jp/dbview?sid=0004024929"
+    ],
+    [
+      "厚生労働省 医療施設調査 N2 二次医療圏・市区町村編",
+      "2023",
+      "13医療圏・医師会担当地域内の一般診療所数／所在地集計",
+      "https://www.e-stat.go.jp/dbview?sid=0004024930"
     ]
   ],
   "associations": [
