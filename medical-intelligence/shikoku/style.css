@@ -103,3 +103,10 @@ a:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{o
 .map-region-bubble .map-bubble small{color:#d4f7fd;font-size:9px;font-weight:600;margin-top:4px}
 @media(max-width:920px){.map-layout{grid-template-columns:minmax(0,1fr)}#map{height:350px;min-height:350px}.map-sidebar{max-height:270px;min-height:130px}.map-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 8px;align-content:start}}
 @media(max-width:580px){.map-panel{padding:11px}.geo-header{flex-direction:column;gap:8px}.geo-header h3{font-size:16px}.map-reset{align-self:flex-start}.map-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.map-controls label,.map-controls label:first-child{min-width:0}.map-controls select{width:100%;min-width:0;max-width:none;font-size:12px}.map-controls label:last-child{grid-column:1/-1}.map-layout{gap:9px}#map{height:315px;min-height:315px}.map-list{grid-template-columns:1fr}.map-sidebar{max-height:290px}.map-status-line{align-items:flex-start}.map-legend{font-size:10px}.priority-disclosure .score-plot{height:470px}}
+
+
+.geo-section{scroll-margin-top:82px}
+.area-map-btn{font:inherit;font-size:11px;padding:5px 8px;margin-top:5px;border:1px solid #89b8c5;background:#edf7f9;color:#0c5d75;border-radius:7px;cursor:pointer;white-space:nowrap}
+.area-map-btn:hover,.area-map-btn:focus-visible{background:#d5eef2;outline-offset:2px}
+.map-item-links a{text-decoration:underline;text-underline-offset:2px}
+.map-list:focus-visible,.map-frame:focus-within{outline:2px solid #0d8393;outline-offset:1px}
