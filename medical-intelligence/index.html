@@ -150,6 +150,17 @@ function draw(){
       kagoshimaLink.setAttribute('aria-label','鹿児島県の医療マーケット分析を開く');
       actions.appendChild(kagoshimaLink);
     }
+    if(p[0]==='茨城県'){
+      const ibarakiLink=document.createElement('a');
+      ibarakiLink.href='./ibaraki/';
+      ibarakiLink.target='_blank';
+      ibarakiLink.rel='noopener noreferrer';
+      ibarakiLink.className='ibaraki-mkt-btn';
+      ibarakiLink.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:42px;background:#116c85;color:#fff;border:1px solid #0d5872;border-radius:10px;padding:7px 13px;font-weight:800;text-decoration:none;';
+      ibarakiLink.textContent='茨城MKT ↗';
+      ibarakiLink.setAttribute('aria-label','茨城県の医療市場調査を開く');
+      actions.appendChild(ibarakiLink);
+    }
     if(p[0]==='群馬県'){
       const gunmaLink=document.createElement('a');
       gunmaLink.href='https://sinobu13-bpei.github.io/medical-intelligence/gunma/';
