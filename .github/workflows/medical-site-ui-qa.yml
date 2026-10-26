@@ -36,6 +36,18 @@ jobs:
           node-version: '22'
       - name: Validate HTML links, JS syntax and common shell
         run: node medical-intelligence/assets/qa-site.mjs
+      - name: Validate Hyogo research data, SVGs, source citations, anchors and JavaScript
+        run: node medical-intelligence/hyogo/qa-hyogo.mjs
+      - name: Verify Hyogo desktop tablet and mobile layouts in headless Chrome
+        run: node medical-intelligence/hyogo/qa-hyogo.mjs --browser
+      - name: Store Hyogo atlas screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hyogo-visual-qa
+          path: medical-intelligence/hyogo/qa-artifacts/*.png
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Validate Kagawa visual atlas data, accessible SVG and JS syntax
         run: node medical-intelligence/kagawa/qa-kagawa.mjs
       - name: Verify Kagawa 17 municipal counts and nine medical associations
