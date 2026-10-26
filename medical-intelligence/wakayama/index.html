@@ -37,7 +37,7 @@
 </div>
 <div class="wide-illustration panel">
   <div class="illustration-header"><div><span class="pill">地域医療の概念図｜正確な地理境界ではありません</span><h3>県北部の高次医療と、紀南のアクセス課題</h3></div><span class="diagram-tip">▼ 北から南へ広がる医療機能</span></div>
-  <svg class="healthcare-landscape" viewBox="0 0 1040 310" role="img" aria-labelledby="landscapeTitle landscapeDesc">
+  <div class="landscape-scroll" tabindex="0" role="region" aria-label="和歌山県医療ネットワーク模式図。横方向にスクロールできます"><svg class="healthcare-landscape" viewBox="0 0 1040 310" role="img" aria-labelledby="landscapeTitle landscapeDesc">
   <title id="landscapeTitle">和歌山県の地域医療ネットワーク模式図</title><desc id="landscapeDesc">県北部の大学・高次医療から、紀北と中紀の地域中核病院・診療所、紀南の遠隔医療とBCPを結ぶ概念図。正確な地理配置ではない。</desc>
   <defs><linearGradient id="networkBg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e7f5f5"/><stop offset="1" stop-color="#eef3fb"/></linearGradient><marker id="networkArrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M1 1L8 4L1 7" stroke="#167e89" stroke-width="1.6" fill="none"/></marker></defs>
   <rect x="0" y="0" width="1040" height="310" rx="22" fill="url(#networkBg)"/>
@@ -47,14 +47,14 @@
   <g font-size="15" font-weight="800" fill="#123c52" text-anchor="middle"><rect x="367" y="75" width="265" height="170" rx="16" fill="white" stroke="#c8e1e4"/><text x="499" y="105" fill="#0e7277">紀北・中紀</text><path d="M475 122h50M488 119v24m24-24v24" fill="none" stroke="#0e7277" stroke-width="5"/><text x="499" y="164">地域中核病院・診療所</text><text x="499" y="191" font-size="12" font-weight="500">検査・紹介連携</text><text x="499" y="211" font-size="12" font-weight="500">外来・在宅・機能分担</text></g>
   <g font-size="15" font-weight="800" fill="#123c52" text-anchor="middle"><rect x="758" y="75" width="234" height="170" rx="16" fill="white" stroke="#c8e1e4"/><text x="875" y="105" fill="#0e7277">田辺・新宮</text><circle cx="875" cy="132" r="16" fill="none" stroke="#0e7277" stroke-width="3"/><path d="M863 133h24M875 120v25" stroke="#0e7277" stroke-width="3"/><text x="875" y="164">紀南の中核医療</text><text x="875" y="191" font-size="12" font-weight="500">遠隔支援・医療継続</text><text x="875" y="211" font-size="12" font-weight="500">搬送・防災・保守</text></g>
   <text x="520" y="281" fill="#536e81" font-size="12" text-anchor="middle">地域区分と関係を理解するための模式図。病院間の実際の搬送・紹介方向を確定するものではありません。</text>
-  </svg>
+  </svg></div>
 </div>
 <div class="grid-2 visual-charts">
  <article class="panel"><h3>2025年｜4機能別の報告病床構成</h3><div class="chart-area"><canvas id="bedDonutChart" aria-label="2025年の報告病床の4機能構成円グラフ"></canvas></div><p class="chart-footnote">高度急性期809床・急性期4,601床・回復期2,602床・慢性期2,225床。分類なし346床を除く4機能10,237床に占める割合。<a href="#S06">[S06]</a></p></article>
  <article class="panel"><h3>2026年｜医療圏別・医師偏在指標</h3><div class="chart-area"><canvas id="physicianIndexChart" aria-label="7医療圏別の医師偏在指標棒グラフ"></canvas></div><p class="chart-footnote">高い指標が医師確保の充足や診療科ごとの十分な配置を直接意味するわけではありません。<a href="#S08">[S08]</a><a href="#S09">[S09]</a></p></article>
 </div>
 <div class="panel medical-pathway"><h3>病診連携の実務フロー｜設備投資を機器単体ではなく診療経路で見る</h3>
-<div class="pathway-cards">
+<div class="pathway-scroll" tabindex="0" role="region" aria-label="病診連携フロー図。横方向にスクロールできます"><div class="pathway-cards">
  <div><svg viewBox="0 0 64 64" role="img" aria-label="診療所"><path d="M12 54V18h40v36M6 18l26-13 26 13M25 29h14m-7-7v14" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></svg><strong>診療所</strong><span>問診・初期診断</span></div>
  <b aria-hidden="true">→</b>
  <div><svg viewBox="0 0 64 64" role="img" aria-label="画像検査"><rect x="6" y="9" width="52" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="32" cy="29" r="14" fill="none" stroke="currentColor" stroke-width="4"/><path d="M24 56h16" stroke="currentColor" stroke-width="4"/></svg><strong>画像検査</strong><span>CT / MRI / US</span></div>
@@ -62,7 +62,7 @@
  <div><svg viewBox="0 0 64 64" role="img" aria-label="病院・専門医"><path d="M9 55V12h46v43M23 18h18m-9-9v18M16 38h10m12 0h10M27 55V44h10v11" fill="none" stroke="currentColor" stroke-width="4"/></svg><strong>中核病院</strong><span>専門診療・治療</span></div>
  <b aria-hidden="true">↔</b>
  <div><svg viewBox="0 0 64 64" role="img" aria-label="遠隔支援"><rect x="7" y="12" width="50" height="36" rx="4" fill="none" stroke="currentColor" stroke-width="4"/><path d="M22 56h20M32 48v8M16 30h8l5-8 7 17 5-9h8" fill="none" stroke="currentColor" stroke-width="4"/></svg><strong>遠隔連携</strong><span>読影・支援・情報共有</span></div>
-</div><p class="chart-footnote">※ 一般的な運用モデルを図式化した独自模式図。特定施設の実際の紹介フロー、共同利用契約を示すものではありません。</p></div>
+</div></div><p class="chart-footnote">※ 一般的な運用モデルを図式化した独自模式図。特定施設の実際の紹介フロー、共同利用契約を示すものではありません。</p></div>
 </div></section>
 <section id="population" class="section"><div class="wrap"><div class="section-head"><span class="en">02 / DEMOGRAPHY & MEDICAL AREAS</span><h2>人口動態・7二次医療圏</h2><p>2020年実績と社人研2023年推計を区別。2026年の現勢人口は県の推計人口を採用。</p></div>
 <div class="grid-2"><article class="panel"><h3>総人口 2020–2050</h3><div class="chart-area"><canvas id="populationChart" aria-label="和歌山県の人口推移を示すグラフ"></canvas></div>
