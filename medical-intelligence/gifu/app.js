@@ -24,7 +24,64 @@ function links(row,f){const td=el("td"),box=el("div",{class:"maplinks"});for(con
 function addFacility(tbody,f,association=false){const tr=el("tr");const n=el("td");n.appendChild(ext(f.url,f.name));tr.appendChild(n);if(!association){s(tr,"td",f.type+" ／ "+f.area);s(tr,"td",f.address)}else{s(tr,"td",f.area)}links(tr,f);tbody.appendChild(tr)}
 const ft=id("facilityTable");function drawFacilities(){ft.replaceChildren();d.facilities.filter(f=>(id("facilityType").value==="all"||f.type===id("facilityType").value)&&(id("facilityArea").value==="all"||f.area===id("facilityArea").value)).forEach(f=>addFacility(ft,f))}
 id("facilityType").addEventListener("change",drawFacilities);id("facilityArea").addEventListener("change",drawFacilities);drawFacilities();
-const at=id("associationTable");d.associations.forEach(a=>addFacility(at,a,true));
+const at=id("associationTable"),assocFilter=id("associationRegionFilter");
+const assocSources=Object.fromEntries(d.sources.map(s=>[s.id,s]));
+function addAssociationRow(a){
+ const tr=el("tr"),first=el("td"),nameLink=ext(a.url,a.name);
+ first.appendChild(nameLink);tr.appendChild(first);
+ s(tr,"td",a.area);
+ for(const v of [a.clinicCount,a.hospitalCount,a.clinicCount===null?null:a.clinicCount+a.hospitalCount]){
+  const td=el("td",{class:"assoc-number"});
+  td.textContent=v===null?"—":fmt(v);
+  tr.appendChild(td);
+ }
+ const member=el("td",{class:"assoc-member"});
+ if(a.memberFacilities){
+  const record=a.memberFacilities;
+  const src=assocSources[record.sourceId];
+  member.append(ext(src?.url||a.url,fmt(record.facilities)+"施設"));
+  member.appendChild(el("small",{},record.year));
+  member.title=record.note;
+ }else{
+  member.textContent="—";
+ }
+ tr.appendChild(member);
+ const scope=el("td",{class:"assoc-scope"},a.coverageMunicipalities?.length?a.coverageMunicipalities.join("・"):"地域別の割当対象外");
+ tr.appendChild(scope);links(tr,a);
+ at.appendChild(tr);
+}
+function paintAssociationTable(){
+ const region=assocFilter?.value||"all";
+ at.replaceChildren();
+ const records=d.associations.filter(a=>region==="all"||a.area===region);
+ records.forEach(addAssociationRow);
+}
+if(assocFilter)assocFilter.addEventListener("change",paintAssociationTable);
+paintAssociationTable();
+const regionalTotals=d.regions.map(r=>{
+ const cities=d.municipalityFacility2025.filter(c=>c.area===r.name);
+ return {name:r.name,clinic:cities.reduce((s,c)=>s+c.clinics,0),hospital:cities.reduce((s,c)=>s+c.hospitals,0)};
+});
+const regionBars=id("associationRegionBars");
+if(regionBars){
+ const scale=Math.max(...regionalTotals.map(x=>x.clinic));
+ const bars=el("div",{class:"assoc-bar-grid"});
+ regionalTotals.forEach(g=>{
+  const card=el("div",{class:"assoc-bar"});
+  card.append(el("b",{},g.name));
+  const tr=el("div",{class:"assoc-bar-track"});
+  const fill=el("i");
+  fill.style.width=(100*g.clinic/scale).toFixed(1)+"%";
+  tr.append(fill);
+  tr.setAttribute("role","img");
+  tr.setAttribute("aria-label",g.name+" 一般診療所 "+fmt(g.clinic)+"施設");
+  card.append(tr,el("strong",{},fmt(g.clinic)+"診療所"));
+  bars.append(card);
+ });
+ regionBars.append(bars);
+ regionBars.append(el("p",{class:"footnote"},"5医療圏の一般診療所数（岐阜県2025年10月1日、S27）。病院数・市町村内訳は下表参照。"));
+}
+
 const years=d.future.map(p=>p.year+" "+p.kind);chart(id("populationChart"),"line",{labels:years,datasets:[{label:"総人口（万人）",data:d.future.map(p=>+(p.pop/10000).toFixed(2)),borderColor:"#0b7a85",backgroundColor:"#0b7a8516",tension:.2,fill:true,pointRadius:5}]},{maintainAspectRatio:false,responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:x=>x.parsed.y+" 万人"}}},scales:{x:{ticks:{...tick,maxRotation:45,minRotation:0}},y:{ticks:tick,title:{display:true,text:"万人"}}}});
 const blabels=[];const bdatasets=bands.map((b,i)=>({label:b,data:[],backgroundColor:palette[i],stack:"beds"}));rg.forEach(r=>{blabels.push(r.name+" 報告",r.name+" 必要");bdatasets.forEach((ds,i)=>ds.data.push(r.beds[i]||0,r.need[i]||0))});chart(id("bedChart"),"bar",{labels:blabels,datasets:bdatasets},{maintainAspectRatio:false,responsive:true,plugins:{legend:{position:"bottom",labels:{boxWidth:12}},tooltip:{callbacks:{label:x=>x.dataset.label+": "+fmt(x.raw)+"床"}}},scales:{x:{stacked:true,ticks:{...tick,autoSkip:false,maxRotation:50,minRotation:30}},y:{stacked:true,ticks:tick,title:{display:true,text:"病床（床）"}}}});
 chart(id("doctorChart"),"bar",{labels:d.neighbors.map(n=>n[0]),datasets:[{label:"医師偏在指標",data:d.neighbors.map(n=>n[1]),backgroundColor:d.neighbors.map(n=>n[0]==="岐阜県"?"#c27a38":"#2c8791")}]},{indexAxis:"y",maintainAspectRatio:false,responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:tick,beginAtZero:true},y:{ticks:tick}}});
