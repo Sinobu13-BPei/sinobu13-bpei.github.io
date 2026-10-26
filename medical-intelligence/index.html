@@ -121,6 +121,15 @@ function draw(){
       link.setAttribute('aria-label','埼玉県医療機器市場インテリジェンス2026–2040を開く');
       actions.appendChild(link);
     }
+    if(p[0]==='香川県'){
+      const kagawaLink=document.createElement('a');
+      kagawaLink.href='./kagawa/';
+      kagawaLink.className='kagawa-mkt-btn';
+      kagawaLink.textContent='香川MKT ↗';
+      kagawaLink.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 14px;margin:4px 0;border-radius:9px;background:#087d77;color:#fff;border:1px solid #087d77;font-weight:800;text-decoration:none;';
+      kagawaLink.setAttribute('aria-label','香川県の医療マーケット調査を開く');
+      actions.appendChild(kagawaLink);
+    }
     if(p[0]==='愛媛県'){
       const ehimeLink=document.createElement('a');
       ehimeLink.href='https://sinobu13-bpei.github.io/medical-intelligence/ehime/';
