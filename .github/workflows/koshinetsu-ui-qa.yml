@@ -1,0 +1,33 @@
+name: Koshinetsu Medical Market UI QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'medical-intelligence/koshinetsu/**'
+      - '.github/workflows/koshinetsu-ui-qa.yml'
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Test 21 areas, 48 associations, 3 viewports, responsive overflow and JS errors
+        run: node medical-intelligence/koshinetsu/qa-browser.mjs
+      - name: Upload screenshots for visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: koshinetsu-ui-screenshots
+          path: medical-intelligence/koshinetsu/qa-screenshots/*.png
+          if-no-files-found: ignore
+          retention-days: 7
