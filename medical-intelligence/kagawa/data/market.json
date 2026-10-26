@@ -1,0 +1,535 @@
+{
+  "updated": "2026-10-26",
+  "sources": [
+    [
+      "S01",
+      "香川県「第八次香川県保健医療計画」",
+      "2024–2029",
+      "https://www.pref.kagawa.lg.jp/imu/iryoukousou/kfvn2-8.html"
+    ],
+    [
+      "S02",
+      "香川県「令和7年国勢調査香川県速報」",
+      "2025年10月・2026年5月公表",
+      "https://www.pref.kagawa.lg.jp/tokei/jinko/census/r7/kokusei.html"
+    ],
+    [
+      "S03",
+      "国立社会保障・人口問題研究所「日本の地域別将来推計人口（令和5年推計）」",
+      "2023年12月推計（2020–2050）",
+      "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/6houkoku/houkoku.asp"
+    ],
+    [
+      "S04",
+      "香川県「令和6年度病床機能報告結果の概要」",
+      "2024年7月1日・2025年7月予定",
+      "https://www.pref.kagawa.lg.jp/documents/1806/2024gaiyou.pdf"
+    ],
+    [
+      "S05",
+      "香川県「地域医療構想の概要・2025年必要病床数」",
+      "2016年策定・2025年推計",
+      "https://www.pref.kagawa.lg.jp/documents/1908/wgixh5200227165224_f06.pdf"
+    ],
+    [
+      "S06",
+      "香川県「第八次保健医療計画・外来医療計画／医療機器指標」",
+      "2024年計画掲載値",
+      "https://www.pref.kagawa.lg.jp/documents/44419/2023103115004.pdf"
+    ],
+    [
+      "S07",
+      "厚生労働省「医師偏在指標」",
+      "2026年4月公表",
+      "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    ],
+    [
+      "S08",
+      "香川県「医療政策課：地域医療構想調整会議」",
+      "2026年8月",
+      "https://www.pref.kagawa.lg.jp/imu/kenmin/chouseikaigi/20260805chouseikaigi.html"
+    ],
+    [
+      "S09",
+      "香川県「地域医療支援病院」",
+      "2024年度報告",
+      "https://www.pref.kagawa.lg.jp/imu/kenmin/sub12.html"
+    ],
+    [
+      "S10",
+      "香川県「がん医療・拠点病院一覧」",
+      "2023年公開・閲覧2026年",
+      "https://www.pref.kagawa.lg.jp/kenkouseisaku/yobou/cancer/iryou.html"
+    ],
+    [
+      "S11",
+      "厚生労働省「救命救急センター設置状況」",
+      "閲覧2026年",
+      "https://www.mhlw.go.jp/stf/newpage_32614.html"
+    ],
+    [
+      "S12",
+      "香川県「各保健所一覧」",
+      "閲覧2026年",
+      "https://www.pref.kagawa.lg.jp/imu/kenmin/hokensyo2.html"
+    ],
+    [
+      "S13",
+      "香川県医師会「郡市地区医師会ご案内」",
+      "閲覧2026年",
+      "https://www.kagawa.med.or.jp/map.aspx"
+    ],
+    [
+      "S14",
+      "香川県「地域医療介護総合確保基金」",
+      "2025年度計画・2026年5月公開",
+      "https://www.pref.kagawa.lg.jp/imu/iryoushisaku/kfvn2-5.html"
+    ],
+    [
+      "S15",
+      "香川県「令和9年度国庫補助事業等の意向調査」",
+      "2026年公表・2027年度予定",
+      "https://www.pref.kagawa.lg.jp/imu/iryoukikan/iryoukikan/iseikyokuhojyokin.html"
+    ],
+    [
+      "S16",
+      "香川県「令和7年人口移動調査結果の概要」",
+      "2025年",
+      "https://www.pref.kagawa.lg.jp/tokei/jinko/jinkoido/2025jinkogaiyou.html"
+    ],
+    [
+      "S17",
+      "香川県「令和6年人口移動調査報告」",
+      "2024年",
+      "https://www.pref.kagawa.lg.jp/tokei/jinko/jinkoido/2024jinkoido.html"
+    ],
+    [
+      "S18",
+      "香川県「2024年人口移動調査報告（転入転出）」",
+      "2024年",
+      "https://www.pref.kagawa.lg.jp/documents/54568/nenpou2024.pdf"
+    ],
+    [
+      "S19",
+      "厚生労働省「医療情報ネット」",
+      "2026年閲覧",
+      "https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2430/initialize?kikanCd=1370100060&kikanKbn=1&prefCd=37"
+    ],
+    [
+      "S20",
+      "厚生労働省「病床機能報告オープンデータ」",
+      "2025年度公表・2026年7月更新",
+      "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html"
+    ],
+    [
+      "S21",
+      "厚生労働省「令和8年版厚生労働白書（医師偏在）」",
+      "2026年",
+      "https://www.mhlw.go.jp/stf/wp/hakusyo/kousei/25/index.html"
+    ],
+    [
+      "S22",
+      "香川県「南海トラフ・防災情報」",
+      "閲覧2026年",
+      "https://www.pref.kagawa.lg.jp/kikikanri/"
+    ],
+    [
+      "S23",
+      "香川大学医学部",
+      "閲覧2026年",
+      "https://www.med.kagawa-u.ac.jp/"
+    ],
+    [
+      "S24",
+      "香川県「病床機能報告制度」",
+      "2024年度集計",
+      "https://www.pref.kagawa.lg.jp/imu/iryoukousou/houkokuseido/kfvn.html"
+    ],
+    [
+      "S25",
+      "香川県「第8次計画・二次圏人口／構成自治体」",
+      "2023年4月時点",
+      "https://www.pref.kagawa.lg.jp/documents/45432/202401120003.pdf"
+    ],
+    [
+      "S26",
+      "厚生労働省「医療施設・医師統計（e-Stat）」",
+      "2023–2024年",
+      "https://www.e-stat.go.jp/"
+    ],
+    [
+      "S27",
+      "香川県「2026年調整会議・病床適正化支援」",
+      "2026年8月",
+      "https://www.pref.kagawa.lg.jp/imu/kenmin/chouseikaigi/20260805chouseikaigi.html"
+    ],
+    [
+      "S28",
+      "香川県「指定病院の住所・機能（県立中央病院）」",
+      "2025年4月・2026年5月",
+      "https://www.chp-kagawa.jp/hospital/gaiyou/"
+    ]
+  ],
+  "population": {
+    "census2020": 950244,
+    "census2025prelim": 907725,
+    "decline2020to2025": -4.47,
+    "age65_2024": 32.8,
+    "national65_2024": 29.3,
+    "projections": [
+      {
+        "year": 2020,
+        "pop": 950244,
+        "kind": "実績"
+      },
+      {
+        "year": 2025,
+        "pop": 910504,
+        "kind": "2023年推計"
+      },
+      {
+        "year": 2030,
+        "pop": 874789,
+        "kind": "2023年推計"
+      },
+      {
+        "year": 2035,
+        "pop": 837921,
+        "kind": "2023年推計"
+      },
+      {
+        "year": 2040,
+        "pop": 800036,
+        "kind": "2023年推計"
+      },
+      {
+        "year": 2045,
+        "pop": 761540,
+        "kind": "2023年推計"
+      },
+      {
+        "year": 2050,
+        "pop": 724120,
+        "kind": "2023年推計"
+      }
+    ],
+    "migration2024": {
+      "in": 32692,
+      "out": 32570,
+      "net": 122
+    },
+    "decline2025": -8137
+  },
+  "regions": [
+    {
+      "id": "east",
+      "name": "東部",
+      "pop2023": 512310,
+      "municipalities": "高松市・さぬき市・東かがわ市・三木町・直島町",
+      "center": [
+        34.33,
+        134.09
+      ],
+      "phys2024": 1747,
+      "doctorIndex2026": 318.5,
+      "beds2024": [
+        861,
+        2728,
+        935,
+        1111
+      ],
+      "inactive": 477,
+      "needed2025": [
+        607,
+        1853,
+        1698,
+        1093
+      ],
+      "devices": [
+        16,
+        8.4,
+        0.91,
+        1.09,
+        5.2
+      ],
+      "priority": [
+        5,
+        4,
+        3,
+        4,
+        5
+      ],
+      "driver": "大学病院、県立・公的病院、専門診療所、検査・救急が集中",
+      "challenge": "高齢化に加えて病床機能分化、設備投資余力、競合施設間の共同利用調整",
+      "opportunity": "高機能画像診断／心血管・がん／画像共有・地域連携",
+      "facilities": "香川大学医学部附属病院、県立中央病院、高松赤十字病院"
+    },
+    {
+      "id": "island",
+      "name": "小豆",
+      "pop2023": 25236,
+      "municipalities": "土庄町・小豆島町",
+      "center": [
+        34.47,
+        134.23
+      ],
+      "phys2024": 47,
+      "doctorIndex2026": 153.8,
+      "beds2024": [
+        0,
+        93,
+        66,
+        78
+      ],
+      "inactive": 0,
+      "needed2025": [
+        null,
+        83,
+        102,
+        73
+      ],
+      "devices": [
+        8.2,
+        5.8,
+        0,
+        0,
+        3.6
+      ],
+      "priority": [
+        2,
+        5,
+        5,
+        5,
+        3
+      ],
+      "driver": "高齢化・島内完結が必要な基本医療、航路に依存する広域搬送",
+      "challenge": "医師確保、検査アクセス、機器故障時の部品・技師移動、透析・周産期体制",
+      "opportunity": "可搬型超音波・遠隔読影・保守BCP・稼働確保",
+      "facilities": "小豆島中央病院"
+    },
+    {
+      "id": "west",
+      "name": "西部",
+      "pop2023": 389320,
+      "municipalities": "丸亀市・坂出市・善通寺市・観音寺市・三豊市・宇多津町・綾川町・琴平町・多度津町・まんのう町",
+      "center": [
+        34.26,
+        133.79
+      ],
+      "phys2024": 956,
+      "doctorIndex2026": 224,
+      "beds2024": [
+        128,
+        2115,
+        1208,
+        1436
+      ],
+      "inactive": 339,
+      "needed2025": [
+        439,
+        1450,
+        1596,
+        1118
+      ],
+      "devices": [
+        16.2,
+        9.9,
+        0.45,
+        0.9,
+        4
+      ],
+      "priority": [
+        4,
+        5,
+        4,
+        4,
+        4
+      ],
+      "driver": "中讃・三豊の広域救急、整形・循環器、急性期〜回復期の導線",
+      "challenge": "人口減少・広域移動、回復期転換、診療所と基幹病院の連携",
+      "opportunity": "CT/MRI共同利用・診療所US・回復期/透析/検査ネットワーク",
+      "facilities": "香川労災病院、四国こどもとおとなの医療センター、三豊総合病院"
+    }
+  ],
+  "deviceNames": [
+    "CT",
+    "MRI",
+    "PET",
+    "放射線治療",
+    "マンモグラフィ"
+  ],
+  "deviceJapan": [
+    11.5,
+    5.7,
+    0.5,
+    0.8,
+    3.4
+  ],
+  "deviceUnit": "調整人口10万人当たり台数（実設置台数ではない）",
+  "doctorIndex": {
+    "Japan": 266.8,
+    "Kagawa": 273.4,
+    "Tokushima": 293.9,
+    "Ehime": 263.6,
+    "Kochi": 296,
+    "Okayama": 302.7
+  },
+  "facilities": [
+    {
+      "name": "香川県庁・医療政策課",
+      "area": "east",
+      "address": "香川県高松市番町4丁目1-10",
+      "lat": 34.342,
+      "long": 134.044,
+      "type": "行政",
+      "url": "https://www.pref.kagawa.lg.jp/imu/"
+    },
+    {
+      "name": "香川大学医学部・附属病院",
+      "area": "east",
+      "address": "香川県木田郡三木町池戸1750-1",
+      "lat": 34.28,
+      "long": 134.123,
+      "type": "医学部・特定機能病院・救命救急",
+      "url": "https://www.med.kagawa-u.ac.jp/"
+    },
+    {
+      "name": "香川県立中央病院",
+      "area": "east",
+      "address": "香川県高松市朝日町1丁目2-1",
+      "lat": 34.35,
+      "long": 134.071,
+      "type": "県立・救命救急・がん拠点",
+      "url": "https://www.chp-kagawa.jp/"
+    },
+    {
+      "name": "高松赤十字病院",
+      "area": "east",
+      "address": "香川県高松市番町4丁目1-3",
+      "lat": 34.34,
+      "long": 134.043,
+      "type": "地域医療支援・がん拠点",
+      "url": "https://www.takamatsu.jrc.or.jp/"
+    },
+    {
+      "name": "高松市立みんなの病院",
+      "area": "east",
+      "address": "香川県高松市仏生山町甲847-1",
+      "lat": 34.284,
+      "long": 134.047,
+      "type": "市立・地域医療支援",
+      "url": "https://www.takamatsu-municipal-hospital.jp/"
+    },
+    {
+      "name": "小豆島中央病院",
+      "area": "island",
+      "address": "香川県小豆郡小豆島町池田2060-1",
+      "lat": 34.481,
+      "long": 134.244,
+      "type": "島内中核・医療BCP",
+      "url": "https://scha.jp/"
+    },
+    {
+      "name": "香川労災病院",
+      "area": "west",
+      "address": "香川県丸亀市城東町3丁目3-1",
+      "lat": 34.288,
+      "long": 133.8,
+      "type": "地域医療支援・がん拠点",
+      "url": "https://www.kagawah.johas.go.jp/"
+    },
+    {
+      "name": "四国こどもとおとなの医療センター",
+      "area": "west",
+      "address": "香川県善通寺市仙遊町2丁目1-1",
+      "lat": 34.225,
+      "long": 133.773,
+      "type": "周産期・小児・地域医療支援",
+      "url": "https://shikoku-mc.hosp.go.jp/"
+    },
+    {
+      "name": "三豊総合病院",
+      "area": "west",
+      "address": "香川県観音寺市豊浜町姫浜708",
+      "lat": 34.087,
+      "long": 133.65,
+      "type": "救命救急・がん拠点",
+      "url": "https://www.mitoyo-hosp.jp/"
+    },
+    {
+      "name": "総合病院回生病院",
+      "area": "west",
+      "address": "香川県坂出市室町3丁目5-28",
+      "lat": 34.317,
+      "long": 133.86,
+      "type": "地域医療支援",
+      "url": "https://www.kaisei.or.jp/"
+    },
+    {
+      "name": "香川県医師会",
+      "area": "east",
+      "address": "香川県高松市",
+      "lat": 34.342,
+      "long": 134.046,
+      "type": "医師会（所在地は市レベル）",
+      "url": "https://www.kagawa.med.or.jp/"
+    },
+    {
+      "name": "東讃保健所",
+      "area": "east",
+      "address": "香川県さぬき市津田町津田930-2",
+      "lat": 34.287,
+      "long": 134.24,
+      "type": "保健所",
+      "url": "https://www.pref.kagawa.lg.jp/imu/kenmin/hokensyo2.html"
+    },
+    {
+      "name": "小豆保健所",
+      "area": "island",
+      "address": "香川県小豆郡土庄町渕崎甲2079-5",
+      "lat": 34.479,
+      "long": 134.188,
+      "type": "保健所",
+      "url": "https://www.pref.kagawa.lg.jp/imu/kenmin/hokensyo2.html"
+    },
+    {
+      "name": "中讃保健所",
+      "area": "west",
+      "address": "香川県丸亀市土器町東8丁目526",
+      "lat": 34.282,
+      "long": 133.818,
+      "type": "保健所",
+      "url": "https://www.pref.kagawa.lg.jp/imu/kenmin/hokensyo2.html"
+    },
+    {
+      "name": "西讃保健所",
+      "area": "west",
+      "address": "香川県観音寺市坂本町7丁目3-18",
+      "lat": 34.127,
+      "long": 133.655,
+      "type": "保健所",
+      "url": "https://www.pref.kagawa.lg.jp/imu/kenmin/hokensyo2.html"
+    },
+    {
+      "name": "高松市保健所",
+      "area": "east",
+      "address": "香川県高松市桜町1丁目10-27",
+      "lat": 34.328,
+      "long": 134.05,
+      "type": "保健所",
+      "url": "https://www.pref.kagawa.lg.jp/imu/kenmin/hokensyo2.html"
+    }
+  ],
+  "associations": [
+    "高松市医師会",
+    "坂出市医師会",
+    "丸亀市医師会",
+    "大川地区医師会",
+    "木田地区医師会",
+    "小豆郡医師会",
+    "綾歌地区医師会",
+    "仲多度郡・善通寺市医師会",
+    "三豊・観音寺市医師会",
+    "香川大学医師会"
+  ]
+}
