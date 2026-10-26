@@ -5,6 +5,8 @@ function showChartFallback(el,msg){el.style.display='none';const parent=el.paren
 function filtered(d){const pref=$id('prefFilter').value,q=$id('areaSearch').value.trim().toLowerCase();return d.areas.filter(a=>(pref==='all'||a.pref===pref)&&(!q||[a.name,id2[a.pref],a.cities,a.hospital,a.driver,a.issue,a.chance].join(' ').toLowerCase().includes(q)))}function renderAreas(d){const areas=filtered(d),tbl=$('#areaTable tbody');tbl.innerHTML=areas.map(a=>{const s=score(a,d),beds=a.beds.reduce((sum,x)=>sum+x,0),source='<a href="'+esc(a.facilities.source)+'" target="_blank" rel="noopener noreferrer" title="掲載施設数の根拠">原表</a>';return '<tr><th scope="row">'+id2[a.pref]+'<br><b>'+esc(a.name)+'</b><span class="table-muted">'+esc(a.municipalities.join('・'))+'</span></th><td>'+a.year+'</td><td class="numeric">'+fmt(beds)+'</td><td class="numeric">'+fmt(a.facilities.hospital)+'</td><td class="numeric emphasize">'+fmt(a.facilities.clinic)+'<span class="table-muted">'+source+'</span></td><td>'+barScore(s)+'</td><td>'+esc(a.driver)+'</td><td><b>課題：</b>'+esc(a.issue)+'<br><b>機会：</b>'+esc(a.chance)+'</td><td>'+esc(a.hospital)+'</td></tr>'}).join('')||'<tr><td colspan="9">検索条件に一致する医療圏はありません。</td></tr>';
 $('#needTable tbody').innerHTML=areas.map(a=>{const actual=a.beds.slice(0,4).reduce((s,n)=>s+n,0);const need=a.need.reduce((s,n)=>s+n,0);return '<tr><td>'+id2[a.pref]+' '+esc(a.name)+' ('+a.year+')</td><td class="numeric">'+fmt(actual)+'</td><td class="numeric">'+fmt(need)+'</td><td class="numeric">'+fmt(actual-need)+' <span class="table-muted">比較専用</span></td></tr>'}).join('');
 renderAreaCards(areas,d);
+const visuals=$id('areaVisualizations');if(visuals){visuals.hidden=areas.length===0;if(visuals.style?.setProperty)visuals.style.setProperty('--area-chart-height',Math.min(485,Math.max(205,70+areas.length*35))+'px');}
+if(!areas.length)return;
 const labels=areas.map(a=>id2[a.pref].replace('県','')+'・'+a.name);
 const bedcolors=['#123e65','#2d8196','#78bdab','#e6b974','#bcc4c8'];
 chart('bedsChart',{type:'bar',data:{labels,datasets:d.bedLabels.map((n,i)=>({label:n,data:areas.map(a=>a.beds[i]),backgroundColor:bedcolors[i]}))},options:option('床',true,true)});
@@ -50,9 +52,12 @@ function renderAssociationCards(rows,d){
  const host=$id('associationCards');if(!host)return;
  host.innerHTML=rows.length?rows.map(a=>{
  const n=a.referenceFacilities;
+ const ar=d.areas.find(x=>x.pref===a.pref&&x.name===a.group)||d.areas.find(x=>x.pref===a.pref);
+ const google='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(a.name+' '+(a.municipalities[0]||id2[a.pref]));
+ const gsi='https://maps.gsi.go.jp/#11/'+ar.lat+'/'+ar.lng+'/&base=std&ls=std&disp=1';
  return '<article class="association-card"><div class="compact-card-head"><div><span class="eyeline">'+esc(id2[a.pref])+' / '+esc(a.group)+'</span><h3>'+esc(a.name)+'</h3></div><div class="clinic-highlight"><small>地域診療所</small><strong>'+(n?fmt(n.clinic):'―')+'</strong></div></div>'
  +'<p class="area-names">'+esc(a.municipalities.join('・')||'施設数と結び付かない大学医師会')+'</p>'
- +'<div class="association-links">'+link(a.website,'医師会情報 ↗')+link(a.authority,'管轄の根拠 ↗')+'</div>'
+ +'<div class="association-links">'+link(a.website,'医師会情報 ↗')+link(a.authority,'管轄の根拠 ↗')+link(google,'Google地図 ↗')+link(gsi,'地理院（圏域概略） ↗')+'</div>'
  +'<p class="association-note">'+(a.verified==='prefecture-confirmed'?'県資料により管轄確認':'参考区域の施設数・会員施設数ではありません')+'</p></article>';
  }).join(''):'<p class="empty-results">該当する医師会はありません。</p>';
 }
