@@ -312,6 +312,15 @@ function draw(){
       miyagiLink.setAttribute('aria-label','宮城県の医療市場調査を開く');
       actions.appendChild(miyagiLink);
     }
+    if(p[0]==='福島県'){
+      const fukushimaLink=document.createElement('a');
+      fukushimaLink.href='./fukushima/';
+      fukushimaLink.className='fukushima-mkt-btn';
+      fukushimaLink.textContent='福島MKT ↗';
+      fukushimaLink.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:44px;background:#0f766e;color:#fff;border:1px solid #0a5c55;border-radius:10px;padding:7px 13px;font-weight:800;text-decoration:none;';
+      fukushimaLink.setAttribute('aria-label','福島県の医療機器マーケット調査を開く');
+      actions.appendChild(fukushimaLink);
+    }
     const tohokuPrefectures=['青森県','岩手県','宮城県','秋田県','山形県','福島県'];
     if(tohokuPrefectures.includes(p[0])){
       const tohokuLink=document.createElement('a');
