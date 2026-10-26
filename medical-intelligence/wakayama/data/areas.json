@@ -535,6 +535,36 @@
       "和歌山県立医科大学 2026年2月記者発表 遠隔集中治療・救急医療支援",
       "2026-02-24",
       "https://www.wakayama-med.ac.jp/intro/press/2026/files/ICU_20260224.pdf"
+    ],
+    [
+      "S28",
+      "和歌山県 第八次（前期）外来医療計画 表1 医療施設数（二次医療圏別）",
+      "2022-10-01 / 2024年3月策定",
+      "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/d00203801_d/fil/keikaku8.pdf"
+    ],
+    [
+      "S29",
+      "日本医師会JMAP 和歌山県・7医療圏・各市町村の施設種類別施設数",
+      "2026-10-27閲覧／施設基準日未確認",
+      "https://www.jmap.jp/cities/detail/pref/30?pref_id=32"
+    ],
+    [
+      "S30",
+      "和歌山県医師会 郡市医師会リンク・区域照合用",
+      "2026-10-27閲覧",
+      "https://wakayama.med.or.jp/association/links/"
+    ],
+    [
+      "S31",
+      "和歌山県外来医療計画（旧版）市町村と医師会の対応、みなべ町の区域",
+      "2020-03策定／2018-10施設数",
+      "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/d00203801_d/fil/gairai_keikaku.pdf"
+    ],
+    [
+      "S32",
+      "日高医師会 公式サイト（みなべ町を含む7市町）",
+      "2026-10-27閲覧",
+      "https://hidaka.wakayama.med.or.jp/"
     ]
   ],
   "associations": [
@@ -593,5 +623,570 @@
       "新宮",
       "http://singuu.wakayama.med.or.jp/"
     ]
-  ]
+  ],
+  "facilitySurvey": {
+    "metadata": {
+      "official": "和歌山県 第八次（前期）外来医療計画・令和4年医療施設調査（2022年10月1日時点）",
+      "officialUrl": "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/d00203801_d/fil/keikaku8.pdf",
+      "jmap": "日本医師会 JMAP 地域医療資源・施設種類別施設数／ページ表示値（閲覧2026-10-27）",
+      "jmapPopulationYear": 2020,
+      "jmapFacilityAsOf": "施設データの統一基準日を確認できないため、2026年実績とは表示しない",
+      "associationDefinition": "郡市医師会の担当市町村に所在する病院・一般診療所の合計（JMAP市町村別表示値を独自集計）。会員施設数ではない。",
+      "discrepancies": "JMAPの県単位の一般診療所表示847施設、医療圏別表示計849施設、市町村別表示計850施設は更新時点差等により一致せず、無理に補正しない。",
+      "issues": "医療圏と医師会区域は一致しない。田辺医療圏のみなべ町は日高医師会の区域。診療科別内訳は複数診療科の重複を含むため合計しない。"
+    },
+    "official2022": [
+      {
+        "name": "和歌山",
+        "hospitals": 43,
+        "clinics": 488,
+        "population": 406378,
+        "medicalInstitutions": 531,
+        "sourceYear": 2022
+      },
+      {
+        "name": "那賀",
+        "hospitals": 8,
+        "clinics": 111,
+        "population": 111994,
+        "medicalInstitutions": 119,
+        "sourceYear": 2022
+      },
+      {
+        "name": "橋本",
+        "hospitals": 5,
+        "clinics": 90,
+        "population": 81286,
+        "medicalInstitutions": 95,
+        "sourceYear": 2022
+      },
+      {
+        "name": "有田",
+        "hospitals": 6,
+        "clinics": 75,
+        "population": 67544,
+        "medicalInstitutions": 81,
+        "sourceYear": 2022
+      },
+      {
+        "name": "御坊",
+        "hospitals": 4,
+        "clinics": 66,
+        "population": 58652,
+        "medicalInstitutions": 70,
+        "sourceYear": 2022
+      },
+      {
+        "name": "田辺",
+        "hospitals": 9,
+        "clinics": 130,
+        "population": 117862,
+        "medicalInstitutions": 139,
+        "sourceYear": 2022
+      },
+      {
+        "name": "新宮",
+        "hospitals": 8,
+        "clinics": 70,
+        "population": 59456,
+        "medicalInstitutions": 78,
+        "sourceYear": 2022
+      }
+    ],
+    "jmapMedicalAreas": [
+      {
+        "name": "和歌山",
+        "clinics": 410,
+        "hospitals": 42,
+        "dentalClinics": 236,
+        "pharmacies": 209,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/medical_area/3001"
+      },
+      {
+        "name": "那賀",
+        "clinics": 96,
+        "hospitals": 8,
+        "dentalClinics": 44,
+        "pharmacies": 52,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/medical_area/3002"
+      },
+      {
+        "name": "橋本",
+        "clinics": 72,
+        "hospitals": 5,
+        "dentalClinics": 45,
+        "pharmacies": 48,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/medical_area/3003"
+      },
+      {
+        "name": "有田",
+        "clinics": 61,
+        "hospitals": 6,
+        "dentalClinics": 36,
+        "pharmacies": 29,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/medical_area/3004"
+      },
+      {
+        "name": "御坊",
+        "clinics": 55,
+        "hospitals": 4,
+        "dentalClinics": 22,
+        "pharmacies": 32,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/medical_area/3005"
+      },
+      {
+        "name": "田辺",
+        "clinics": 96,
+        "hospitals": 9,
+        "dentalClinics": 53,
+        "pharmacies": 63,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/medical_area/3006"
+      },
+      {
+        "name": "新宮",
+        "clinics": 59,
+        "hospitals": 7,
+        "dentalClinics": 38,
+        "pharmacies": 30,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/medical_area/3007"
+      }
+    ],
+    "municipalities": [
+      {
+        "code": "30201",
+        "name": "和歌山市",
+        "medicalArea": "和歌山",
+        "association": "和歌山市医師会",
+        "clinics": 362,
+        "hospitals": 36,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30201"
+      },
+      {
+        "code": "30202",
+        "name": "海南市",
+        "medicalArea": "和歌山",
+        "association": "海南医師会",
+        "clinics": 39,
+        "hospitals": 5,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30202"
+      },
+      {
+        "code": "30304",
+        "name": "紀美野町",
+        "medicalArea": "和歌山",
+        "association": "海南医師会",
+        "clinics": 9,
+        "hospitals": 1,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30304"
+      },
+      {
+        "code": "30208",
+        "name": "紀の川市",
+        "medicalArea": "那賀",
+        "association": "那賀医師会",
+        "clinics": 51,
+        "hospitals": 4,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30208"
+      },
+      {
+        "code": "30209",
+        "name": "岩出市",
+        "medicalArea": "那賀",
+        "association": "那賀医師会",
+        "clinics": 46,
+        "hospitals": 4,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30209"
+      },
+      {
+        "code": "30203",
+        "name": "橋本市",
+        "medicalArea": "橋本",
+        "association": "伊都医師会",
+        "clinics": 54,
+        "hospitals": 3,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30203"
+      },
+      {
+        "code": "30341",
+        "name": "かつらぎ町",
+        "medicalArea": "橋本",
+        "association": "伊都医師会",
+        "clinics": 12,
+        "hospitals": 1,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30341"
+      },
+      {
+        "code": "30343",
+        "name": "九度山町",
+        "medicalArea": "橋本",
+        "association": "伊都医師会",
+        "clinics": 3,
+        "hospitals": 1,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30343"
+      },
+      {
+        "code": "30344",
+        "name": "高野町",
+        "medicalArea": "橋本",
+        "association": "伊都医師会",
+        "clinics": 3,
+        "hospitals": 0,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30344"
+      },
+      {
+        "code": "30204",
+        "name": "有田市",
+        "medicalArea": "有田",
+        "association": "有田市医師会",
+        "clinics": 23,
+        "hospitals": 2,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30204"
+      },
+      {
+        "code": "30361",
+        "name": "湯浅町",
+        "medicalArea": "有田",
+        "association": "有田医師会",
+        "clinics": 9,
+        "hospitals": 1,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30361"
+      },
+      {
+        "code": "30362",
+        "name": "広川町",
+        "medicalArea": "有田",
+        "association": "有田医師会",
+        "clinics": 2,
+        "hospitals": 0,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30362"
+      },
+      {
+        "code": "30366",
+        "name": "有田川町",
+        "medicalArea": "有田",
+        "association": "有田医師会",
+        "clinics": 27,
+        "hospitals": 3,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30366"
+      },
+      {
+        "code": "30205",
+        "name": "御坊市",
+        "medicalArea": "御坊",
+        "association": "日高医師会",
+        "clinics": 30,
+        "hospitals": 3,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30205"
+      },
+      {
+        "code": "30381",
+        "name": "美浜町",
+        "medicalArea": "御坊",
+        "association": "日高医師会",
+        "clinics": 5,
+        "hospitals": 1,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30381"
+      },
+      {
+        "code": "30382",
+        "name": "日高町",
+        "medicalArea": "御坊",
+        "association": "日高医師会",
+        "clinics": 3,
+        "hospitals": 0,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30382"
+      },
+      {
+        "code": "30383",
+        "name": "由良町",
+        "medicalArea": "御坊",
+        "association": "日高医師会",
+        "clinics": 3,
+        "hospitals": 0,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30383"
+      },
+      {
+        "code": "30390",
+        "name": "印南町",
+        "medicalArea": "御坊",
+        "association": "日高医師会",
+        "clinics": 4,
+        "hospitals": 0,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30390"
+      },
+      {
+        "code": "30392",
+        "name": "日高川町",
+        "medicalArea": "御坊",
+        "association": "日高医師会",
+        "clinics": 10,
+        "hospitals": 0,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30392"
+      },
+      {
+        "code": "30391",
+        "name": "みなべ町",
+        "medicalArea": "田辺",
+        "association": "日高医師会",
+        "clinics": 6,
+        "hospitals": 0,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30391"
+      },
+      {
+        "code": "30206",
+        "name": "田辺市",
+        "medicalArea": "田辺",
+        "association": "田辺市医師会",
+        "clinics": 67,
+        "hospitals": 5,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30206"
+      },
+      {
+        "code": "30401",
+        "name": "白浜町",
+        "medicalArea": "田辺",
+        "association": "西牟婁郡医師会",
+        "clinics": 8,
+        "hospitals": 2,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30401"
+      },
+      {
+        "code": "30404",
+        "name": "上富田町",
+        "medicalArea": "田辺",
+        "association": "西牟婁郡医師会",
+        "clinics": 11,
+        "hospitals": 1,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30404"
+      },
+      {
+        "code": "30406",
+        "name": "すさみ町",
+        "medicalArea": "田辺",
+        "association": "西牟婁郡医師会",
+        "clinics": 4,
+        "hospitals": 1,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30406"
+      },
+      {
+        "code": "30207",
+        "name": "新宮市",
+        "medicalArea": "新宮",
+        "association": "新宮市医師会",
+        "clinics": 29,
+        "hospitals": 3,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30207"
+      },
+      {
+        "code": "30421",
+        "name": "那智勝浦町",
+        "medicalArea": "新宮",
+        "association": "東牟婁郡医師会",
+        "clinics": 9,
+        "hospitals": 2,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30421"
+      },
+      {
+        "code": "30422",
+        "name": "太地町",
+        "medicalArea": "新宮",
+        "association": "東牟婁郡医師会",
+        "clinics": 2,
+        "hospitals": 0,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30422"
+      },
+      {
+        "code": "30424",
+        "name": "古座川町",
+        "medicalArea": "新宮",
+        "association": "東牟婁郡医師会",
+        "clinics": 5,
+        "hospitals": 0,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30424"
+      },
+      {
+        "code": "30427",
+        "name": "北山村",
+        "medicalArea": "新宮",
+        "association": "東牟婁郡医師会",
+        "clinics": 1,
+        "hospitals": 0,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30427"
+      },
+      {
+        "code": "30428",
+        "name": "串本町",
+        "medicalArea": "新宮",
+        "association": "東牟婁郡医師会",
+        "clinics": 13,
+        "hospitals": 2,
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30428"
+      }
+    ],
+    "physicianAssociations": [
+      {
+        "name": "和歌山市医師会",
+        "officialUrl": "https://www.wakayamacity-med.com/",
+        "medicalAreas": [
+          "和歌山"
+        ],
+        "municipalities": [
+          "和歌山市"
+        ],
+        "clinics": 362,
+        "hospitals": 36,
+        "derivation": "JMAP市町村別施設数の所在地ベース合算。医師会入会施設数ではない。"
+      },
+      {
+        "name": "海南医師会",
+        "officialUrl": "http://www.kainan.wakayama.med.or.jp/",
+        "medicalAreas": [
+          "和歌山"
+        ],
+        "municipalities": [
+          "海南市",
+          "紀美野町"
+        ],
+        "clinics": 48,
+        "hospitals": 6,
+        "derivation": "JMAP市町村別施設数の所在地ベース合算。医師会入会施設数ではない。"
+      },
+      {
+        "name": "那賀医師会",
+        "officialUrl": "http://www.naga.wakayama.med.or.jp/",
+        "medicalAreas": [
+          "那賀"
+        ],
+        "municipalities": [
+          "紀の川市",
+          "岩出市"
+        ],
+        "clinics": 97,
+        "hospitals": 8,
+        "derivation": "JMAP市町村別施設数の所在地ベース合算。医師会入会施設数ではない。"
+      },
+      {
+        "name": "伊都医師会",
+        "officialUrl": "http://www.ito.wakayama.med.or.jp/",
+        "medicalAreas": [
+          "橋本"
+        ],
+        "municipalities": [
+          "橋本市",
+          "かつらぎ町",
+          "九度山町",
+          "高野町"
+        ],
+        "clinics": 72,
+        "hospitals": 5,
+        "derivation": "JMAP市町村別施設数の所在地ベース合算。医師会入会施設数ではない。"
+      },
+      {
+        "name": "有田医師会",
+        "officialUrl": "http://www.arida.wakayama.med.or.jp/gun/",
+        "medicalAreas": [
+          "有田"
+        ],
+        "municipalities": [
+          "湯浅町",
+          "広川町",
+          "有田川町"
+        ],
+        "clinics": 38,
+        "hospitals": 4,
+        "derivation": "JMAP市町村別施設数の所在地ベース合算。医師会入会施設数ではない。"
+      },
+      {
+        "name": "有田市医師会",
+        "officialUrl": "http://www.arida.wakayama.med.or.jp/city/index.html",
+        "medicalAreas": [
+          "有田"
+        ],
+        "municipalities": [
+          "有田市"
+        ],
+        "clinics": 23,
+        "hospitals": 2,
+        "derivation": "JMAP市町村別施設数の所在地ベース合算。医師会入会施設数ではない。"
+      },
+      {
+        "name": "日高医師会",
+        "officialUrl": "https://hidaka.wakayama.med.or.jp/",
+        "medicalAreas": [
+          "御坊",
+          "田辺"
+        ],
+        "municipalities": [
+          "御坊市",
+          "美浜町",
+          "日高町",
+          "由良町",
+          "印南町",
+          "日高川町",
+          "みなべ町"
+        ],
+        "clinics": 61,
+        "hospitals": 4,
+        "derivation": "JMAP市町村別施設数の所在地ベース合算。医師会入会施設数ではない。"
+      },
+      {
+        "name": "田辺市医師会",
+        "officialUrl": "http://tanabeshi-ishikai.org/",
+        "medicalAreas": [
+          "田辺"
+        ],
+        "municipalities": [
+          "田辺市"
+        ],
+        "clinics": 67,
+        "hospitals": 5,
+        "derivation": "JMAP市町村別施設数の所在地ベース合算。医師会入会施設数ではない。"
+      },
+      {
+        "name": "西牟婁郡医師会",
+        "officialUrl": "https://www.nishimuro-ishikai.or.jp",
+        "medicalAreas": [
+          "田辺"
+        ],
+        "municipalities": [
+          "白浜町",
+          "上富田町",
+          "すさみ町"
+        ],
+        "clinics": 23,
+        "hospitals": 4,
+        "derivation": "JMAP市町村別施設数の所在地ベース合算。医師会入会施設数ではない。"
+      },
+      {
+        "name": "東牟婁郡医師会",
+        "officialUrl": "http://www.higashimuro.wakayama.med.or.jp/",
+        "medicalAreas": [
+          "新宮"
+        ],
+        "municipalities": [
+          "那智勝浦町",
+          "太地町",
+          "古座川町",
+          "北山村",
+          "串本町"
+        ],
+        "clinics": 30,
+        "hospitals": 4,
+        "derivation": "JMAP市町村別施設数の所在地ベース合算。医師会入会施設数ではない。"
+      },
+      {
+        "name": "新宮市医師会",
+        "officialUrl": "http://singuu.wakayama.med.or.jp/",
+        "medicalAreas": [
+          "新宮"
+        ],
+        "municipalities": [
+          "新宮市"
+        ],
+        "clinics": 29,
+        "hospitals": 3,
+        "derivation": "JMAP市町村別施設数の所在地ベース合算。医師会入会施設数ではない。"
+      }
+    ]
+  }
 }
