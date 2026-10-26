@@ -1,10 +1,18 @@
 /* 広島県 医療MKT調査 — 公開情報と編集部分析のみ。2026-10-26 */
 window.HIROSHIMA_DATA = {
  updated:"2026-10-26",
- population:{estimate202609:2675196,census2020:2799702,ipss2025:2704000,ipss2030:2618000,ipss2040:2428000,ipss2050:2230000,city2025:1171915},
+ population:{estimate202609:2675196,census2020:2799702,census2025:2682786,elderly2025:818519,elderlyRate2025:30.5,working2025:1555648,children2025:308619,foreign2025:68043,ipss2025:2704000,ipss2030:2618000,ipss2040:2428000,ipss2050:2230000,city2025:1171915},
+ municipalities:[
+  ["広島市",1171915,-2.4],["呉市",191584,-10.7],["竹原市",21739,-9.4],["三原市",83881,-7.4],["尾道市",120215,-8.4],["福山市",440422,-4.4],
+  ["府中市",33367,-11.4],["三次市",46559,-8.1],["庄原市",29598,-12.0],["大竹市",24648,-6.3],["東広島市",198502,1.0],["廿日市市",111833,-2.0],
+  ["安芸高田市",24694,-6.6],["江田島市",19716,-10.1],["府中町",51172,0.03],["海田町",30063,1.4],["熊野町",22440,-1.7],["坂町",12015,-4.5],
+  ["安芸太田町",5039,-12.2],["北広島町",15912,-10.4],["大崎上島町",6484,-9.4],["世羅町",13721,-9.3],["神石高原町",7267,-11.9]
+ ],
  bedsNeeded:{year:2025,high:2989,acute:9118,recovery:9747,chronic:6760,total:28614},
  doctorIndex:{national:266.8,hiroshima:264.0,okayama:302.7,yamaguchi:241.1,shimane:243.6,ehime:263.6},
  source:{
+  census2025pdf:{title:"広島県 2025年国勢調査・確定（県計・市町別・年齢別）",year:"2025年10月1日／2026年9月29日公表",url:"https://www.pref.hiroshima.lg.jp/uploaded/attachment/683199.pdf"},
+  migrate:{title:"広島県の人口移動（甲調査・月次、乙調査・県外移動）",year:"2026年9月1日",url:"https://www.pref.hiroshima.lg.jp/soshiki/21/jinkougepposaisin.html"},
   pop2026:{title:"広島県「推計人口の推移」2026年9月1日",year:"2026",url:"https://www.pref.hiroshima.lg.jp/soshiki/21/jinkougeppojinkousuiisaisin.html"},
   census2025:{title:"広島県「2025年国勢調査」2026年9月公表",year:"2025",url:"https://www.pref.hiroshima.lg.jp/site/toukei/kokuseityosa.html"},
   citypop:{title:"広島市「令和7年国勢調査結果（人口等基本集計）」",year:"2025",url:"https://www.city.hiroshima.lg.jp/shisei/toukei/1027865/1027866/1050276.html"},
