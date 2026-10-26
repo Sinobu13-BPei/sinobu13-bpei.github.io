@@ -67,7 +67,7 @@ tiles.forEach((node,i)=>{const a=window.KOCHI_DATA?.areas?.[i];const row=regionD
 const p=document.createElement("p");p.className="f-area-facts";p.style.cssText="border-top:1px solid #dce8e8;padding-top:10px;font-size:12px";
 p.innerHTML='<strong>2023年｜病院 '+row.hospitals+'・一般診療所 '+row.clinics+'（有床 '+row.bedded+'）</strong><br><small>2026年6月｜診療所 '+row.year2026.clinics+'（別定義）</small>';
 node.append(p)});
-}/* Public 2023 IPSS demographic chart: aligned to verified JMAP / user-provided regional workbooks. */
+/* Public 2023 IPSS demographic chart: aligned to verified JMAP / user-provided regional workbooks. */
 const a2050=window.KOCHI_DATA?.areas||[];
 if(a2050.length===4){
  const body=f("#fAgingPopulationTable tbody");
