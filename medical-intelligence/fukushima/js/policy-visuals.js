@@ -10,6 +10,7 @@ function draw(p){
   const screening=p.screening.series, labels=screening.map(x=>x.name);
   chart("cancerRateChart",horizontalBar(labels,screening.map(x=>x.participation),60,["#216c83","#2b839b","#308e8d","#b47454","#806cb1"],"%"));
   chart("cancerFollowChart",horizontalBar(labels,screening.map(x=>x.followup),100,["#216c83","#2b839b","#308e8d","#b47454","#806cb1"],"%"));
+  if(p.prefecturalBudget&&p.prefecturalBudget.items){const budget=p.prefecturalBudget.items;chart("medicalBudgetChart",{type:"bar",data:{labels:budget.map(x=>x.name),datasets:[{label:"2026年度当初予算（百万円）",data:budget.map(x=>x.value/1000),backgroundColor:["#116b82","#288697","#6c83b6","#b58a4f","#7b9b84","#9ba8c6"],borderRadius:6,maxBarThickness:25}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>new Intl.NumberFormat("ja-JP",{maximumFractionDigits:3}).format(c.raw)+"百万円"}}},scales:{x:{beginAtZero:true,ticks:{callback:v=>numberFmt(v)+"百万円"},grid:{color:"#e5edf3"}},y:{ticks:{color:"#174059",font:{size:11,weight:"bold"}},grid:{display:false}}}}})}
   const rounds=p.thyroid.rounds;
   chart("thyroidRateChart",horizontalBar(rounds.map(x=>x.round+"（"+(x.completedPeriod?"期間終了":"途中経過")+"）"),rounds.map(x=>+(x.first/x.target*100).toFixed(1)),45,["#23708b","#bd8370"],"%"));
   const t=rounds[1];const values=[t.first,t.results,t.B,t.second,t.secondFinal,t.cytology];
