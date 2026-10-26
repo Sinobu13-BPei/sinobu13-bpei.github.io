@@ -1,0 +1,878 @@
+{
+  "year": 2023,
+  "clinicDefinition": "一般診療所。2023年医療施設調査の施設所在地による数値。医師会の会員数ではない。",
+  "hospitalDefinition": "病院施設数。2023年医療施設調査二次医療圏・市区町村編N1",
+  "dentalYear": 2022,
+  "sourceClinic": "https://www.e-stat.go.jp/dbview?sid=0004024930",
+  "sourceHospital": "https://www.e-stat.go.jp/dbview?sid=0004024929",
+  "sourceDental": "https://web.pref.hyogo.lg.jp/kf15/documents/hokeniryoukeikaku-r5_pc_honbun1219.pdf",
+  "sourceMedicalAssociation": "https://hyogo.med.or.jp/association/",
+  "areas": [
+    {
+      "name": "神戸",
+      "id": "kobe",
+      "code": "2801",
+      "clinics2023": 1643,
+      "hospitals2023": 109,
+      "dentalClinics2022": 930,
+      "municipalities": [
+        {
+          "name": "東灘区",
+          "clinics2023": 251,
+          "hospitals2023": 7
+        },
+        {
+          "name": "灘区",
+          "clinics2023": 171,
+          "hospitals2023": 8
+        },
+        {
+          "name": "兵庫区",
+          "clinics2023": 114,
+          "hospitals2023": 9
+        },
+        {
+          "name": "長田区",
+          "clinics2023": 97,
+          "hospitals2023": 9
+        },
+        {
+          "name": "須磨区",
+          "clinics2023": 133,
+          "hospitals2023": 9
+        },
+        {
+          "name": "垂水区",
+          "clinics2023": 184,
+          "hospitals2023": 6
+        },
+        {
+          "name": "北区",
+          "clinics2023": 159,
+          "hospitals2023": 20
+        },
+        {
+          "name": "中央区",
+          "clinics2023": 350,
+          "hospitals2023": 24
+        },
+        {
+          "name": "西区",
+          "clinics2023": 184,
+          "hospitals2023": 17
+        }
+      ]
+    },
+    {
+      "name": "阪神",
+      "id": "hanshin",
+      "code": "2811",
+      "clinics2023": 1833,
+      "hospitals2023": 87,
+      "dentalClinics2022": 976,
+      "municipalities": [
+        {
+          "name": "尼崎市",
+          "clinics2023": 490,
+          "hospitals2023": 23
+        },
+        {
+          "name": "西宮市",
+          "clinics2023": 553,
+          "hospitals2023": 25
+        },
+        {
+          "name": "芦屋市",
+          "clinics2023": 150,
+          "hospitals2023": 3
+        },
+        {
+          "name": "伊丹市",
+          "clinics2023": 184,
+          "hospitals2023": 10
+        },
+        {
+          "name": "宝塚市",
+          "clinics2023": 225,
+          "hospitals2023": 7
+        },
+        {
+          "name": "川西市",
+          "clinics2023": 125,
+          "hospitals2023": 8
+        },
+        {
+          "name": "三田市",
+          "clinics2023": 81,
+          "hospitals2023": 10
+        },
+        {
+          "name": "猪名川町",
+          "clinics2023": 25,
+          "hospitals2023": 1
+        }
+      ]
+    },
+    {
+      "name": "東播磨",
+      "id": "higashi",
+      "code": "2804",
+      "clinics2023": 533,
+      "hospitals2023": 39,
+      "dentalClinics2022": 344,
+      "municipalities": [
+        {
+          "name": "明石市",
+          "clinics2023": 248,
+          "hospitals2023": 21
+        },
+        {
+          "name": "加古川市",
+          "clinics2023": 179,
+          "hospitals2023": 13
+        },
+        {
+          "name": "高砂市",
+          "clinics2023": 64,
+          "hospitals2023": 2
+        },
+        {
+          "name": "稲美町",
+          "clinics2023": 20,
+          "hospitals2023": 2
+        },
+        {
+          "name": "播磨町",
+          "clinics2023": 22,
+          "hospitals2023": 1
+        }
+      ]
+    },
+    {
+      "name": "北播磨",
+      "id": "kita",
+      "code": "2805",
+      "clinics2023": 210,
+      "hospitals2023": 21,
+      "dentalClinics2022": 128,
+      "municipalities": [
+        {
+          "name": "西脇市",
+          "clinics2023": 37,
+          "hospitals2023": 2
+        },
+        {
+          "name": "三木市",
+          "clinics2023": 60,
+          "hospitals2023": 6
+        },
+        {
+          "name": "小野市",
+          "clinics2023": 39,
+          "hospitals2023": 5
+        },
+        {
+          "name": "加西市",
+          "clinics2023": 29,
+          "hospitals2023": 3
+        },
+        {
+          "name": "加東市",
+          "clinics2023": 32,
+          "hospitals2023": 3
+        },
+        {
+          "name": "多可町",
+          "clinics2023": 13,
+          "hospitals2023": 2
+        }
+      ]
+    },
+    {
+      "name": "播磨姫路",
+      "id": "harima",
+      "code": "2812",
+      "clinics2023": 630,
+      "hospitals2023": 59,
+      "dentalClinics2022": 401,
+      "municipalities": [
+        {
+          "name": "姫路市",
+          "clinics2023": 418,
+          "hospitals2023": 34
+        },
+        {
+          "name": "相生市",
+          "clinics2023": 20,
+          "hospitals2023": 4
+        },
+        {
+          "name": "赤穂市",
+          "clinics2023": 39,
+          "hospitals2023": 5
+        },
+        {
+          "name": "宍粟市",
+          "clinics2023": 28,
+          "hospitals2023": 1
+        },
+        {
+          "name": "たつの市",
+          "clinics2023": 45,
+          "hospitals2023": 9
+        },
+        {
+          "name": "市川町",
+          "clinics2023": 5,
+          "hospitals2023": 0
+        },
+        {
+          "name": "福崎町",
+          "clinics2023": 21,
+          "hospitals2023": 1
+        },
+        {
+          "name": "神河町",
+          "clinics2023": 8,
+          "hospitals2023": 1
+        },
+        {
+          "name": "太子町",
+          "clinics2023": 23,
+          "hospitals2023": 1
+        },
+        {
+          "name": "上郡町",
+          "clinics2023": 10,
+          "hospitals2023": 0
+        },
+        {
+          "name": "佐用町",
+          "clinics2023": 13,
+          "hospitals2023": 3
+        }
+      ]
+    },
+    {
+      "name": "但馬",
+      "id": "tajima",
+      "code": "2808",
+      "clinics2023": 138,
+      "hospitals2023": 11,
+      "dentalClinics2022": 65,
+      "municipalities": [
+        {
+          "name": "豊岡市",
+          "clinics2023": 70,
+          "hospitals2023": 3
+        },
+        {
+          "name": "養父市",
+          "clinics2023": 18,
+          "hospitals2023": 2
+        },
+        {
+          "name": "朝来市",
+          "clinics2023": 27,
+          "hospitals2023": 2
+        },
+        {
+          "name": "香美町",
+          "clinics2023": 10,
+          "hospitals2023": 2
+        },
+        {
+          "name": "新温泉町",
+          "clinics2023": 13,
+          "hospitals2023": 2
+        }
+      ]
+    },
+    {
+      "name": "丹波",
+      "id": "tamba",
+      "code": "2809",
+      "clinics2023": 78,
+      "hospitals2023": 7,
+      "dentalClinics2022": 44,
+      "municipalities": [
+        {
+          "name": "丹波篠山市",
+          "clinics2023": 31,
+          "hospitals2023": 4
+        },
+        {
+          "name": "丹波市",
+          "clinics2023": 47,
+          "hospitals2023": 3
+        }
+      ]
+    },
+    {
+      "name": "淡路",
+      "id": "awaji",
+      "code": "2810",
+      "clinics2023": 131,
+      "hospitals2023": 11,
+      "dentalClinics2022": 72,
+      "municipalities": [
+        {
+          "name": "洲本市",
+          "clinics2023": 51,
+          "hospitals2023": 3
+        },
+        {
+          "name": "南あわじ市",
+          "clinics2023": 39,
+          "hospitals2023": 5
+        },
+        {
+          "name": "淡路市",
+          "clinics2023": 41,
+          "hospitals2023": 3
+        }
+      ]
+    }
+  ],
+  "associations": [
+    {
+      "region": "神戸",
+      "name": "神戸市医師会",
+      "municipalities": [
+        "東灘区",
+        "灘区",
+        "兵庫区",
+        "長田区",
+        "須磨区",
+        "垂水区",
+        "北区",
+        "中央区",
+        "西区"
+      ],
+      "clinics2023": 1643,
+      "hospitals2023": 109,
+      "website": "https://www.kobe-med.or.jp/",
+      "kind": "umbrella",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "神戸",
+      "name": "東灘区医師会",
+      "municipalities": [
+        "東灘区"
+      ],
+      "clinics2023": 251,
+      "hospitals2023": 7,
+      "website": "https://higashinada-med.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "神戸",
+      "name": "灘区医師会",
+      "municipalities": [
+        "灘区"
+      ],
+      "clinics2023": 171,
+      "hospitals2023": 8,
+      "website": "https://www.nada-med.org/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "神戸",
+      "name": "中央区医師会",
+      "municipalities": [
+        "中央区"
+      ],
+      "clinics2023": 350,
+      "hospitals2023": 24,
+      "website": "https://kobechuou-ishikai.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "神戸",
+      "name": "兵庫区医師会",
+      "municipalities": [
+        "兵庫区"
+      ],
+      "clinics2023": 114,
+      "hospitals2023": 9,
+      "website": "https://hyogoku-ishikai.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "神戸",
+      "name": "北区医師会",
+      "municipalities": [
+        "北区"
+      ],
+      "clinics2023": 159,
+      "hospitals2023": 20,
+      "website": "https://www.kita-med.com/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "神戸",
+      "name": "長田区医師会",
+      "municipalities": [
+        "長田区"
+      ],
+      "clinics2023": 97,
+      "hospitals2023": 9,
+      "website": "https://nagata-med.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "神戸",
+      "name": "須磨区医師会",
+      "municipalities": [
+        "須磨区"
+      ],
+      "clinics2023": 133,
+      "hospitals2023": 9,
+      "website": "https://www.sumaku-ishikai.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "神戸",
+      "name": "垂水区医師会",
+      "municipalities": [
+        "垂水区"
+      ],
+      "clinics2023": 184,
+      "hospitals2023": 6,
+      "website": "https://tarumiku-ishikai.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "神戸",
+      "name": "西区医師会",
+      "municipalities": [
+        "西区"
+      ],
+      "clinics2023": 184,
+      "hospitals2023": 17,
+      "website": "https://www.nishiku-ishikai.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "神戸",
+      "name": "神戸大学医師会",
+      "municipalities": [],
+      "clinics2023": null,
+      "hospitals2023": null,
+      "website": "https://hyogo.med.or.jp/association/",
+      "kind": "academic",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "神戸",
+      "name": "兵庫県庁（県医師会掲載の連絡先）",
+      "municipalities": [],
+      "clinics2023": null,
+      "hospitals2023": null,
+      "website": "https://hyogo.med.or.jp/association/",
+      "kind": "related",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "阪神",
+      "name": "尼崎市医師会",
+      "municipalities": [
+        "尼崎市"
+      ],
+      "clinics2023": 490,
+      "hospitals2023": 23,
+      "website": "https://www.amagasaki.hyogo.med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "阪神",
+      "name": "伊丹市医師会",
+      "municipalities": [
+        "伊丹市"
+      ],
+      "clinics2023": 184,
+      "hospitals2023": 10,
+      "website": "https://www.itami-med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "阪神",
+      "name": "川西市医師会",
+      "municipalities": [
+        "川西市",
+        "猪名川町"
+      ],
+      "clinics2023": 150,
+      "hospitals2023": 9,
+      "website": "https://www.kawamed.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "阪神",
+      "name": "宝塚市医師会",
+      "municipalities": [
+        "宝塚市"
+      ],
+      "clinics2023": 225,
+      "hospitals2023": 7,
+      "website": "https://www.takarazuka.hyogo.med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "阪神",
+      "name": "西宮市医師会",
+      "municipalities": [
+        "西宮市"
+      ],
+      "clinics2023": 553,
+      "hospitals2023": 25,
+      "website": "https://nishinomiya-med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "阪神",
+      "name": "芦屋市医師会",
+      "municipalities": [
+        "芦屋市"
+      ],
+      "clinics2023": 150,
+      "hospitals2023": 3,
+      "website": "https://www.ashiya.hyogo.med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "阪神",
+      "name": "兵庫医科大学医師会",
+      "municipalities": [],
+      "clinics2023": null,
+      "hospitals2023": null,
+      "website": "https://hyogo.med.or.jp/association/",
+      "kind": "academic",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "阪神",
+      "name": "三田市医師会",
+      "municipalities": [
+        "三田市"
+      ],
+      "clinics2023": 81,
+      "hospitals2023": 10,
+      "website": "https://sanda-ishikai.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "東播磨",
+      "name": "明石市医師会",
+      "municipalities": [
+        "明石市"
+      ],
+      "clinics2023": 248,
+      "hospitals2023": 21,
+      "website": "https://www.akashi.hyogo.med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "東播磨",
+      "name": "加古川医師会",
+      "municipalities": [
+        "加古川市",
+        "稲美町",
+        "播磨町"
+      ],
+      "clinics2023": 221,
+      "hospitals2023": 16,
+      "website": "https://www.kakogawa.hyogo.med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "東播磨",
+      "name": "高砂市医師会",
+      "municipalities": [
+        "高砂市"
+      ],
+      "clinics2023": 64,
+      "hospitals2023": 2,
+      "website": "https://www.takasago-med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "北播磨",
+      "name": "三木市医師会",
+      "municipalities": [
+        "三木市"
+      ],
+      "clinics2023": 60,
+      "hospitals2023": 6,
+      "website": "https://www.miki-med.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "北播磨",
+      "name": "小野市・加東市医師会",
+      "municipalities": [
+        "小野市",
+        "加東市"
+      ],
+      "clinics2023": 71,
+      "hospitals2023": 8,
+      "website": "https://www.onokato-med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "北播磨",
+      "name": "加西市医師会",
+      "municipalities": [
+        "加西市"
+      ],
+      "clinics2023": 29,
+      "hospitals2023": 3,
+      "website": "https://www.kasai.hyogo.med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "北播磨",
+      "name": "西脇市多可郡医師会",
+      "municipalities": [
+        "西脇市",
+        "多可町"
+      ],
+      "clinics2023": 50,
+      "hospitals2023": 4,
+      "website": "https://www.nishitaka-med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "播磨姫路",
+      "name": "姫路市医師会",
+      "municipalities": [
+        "姫路市"
+      ],
+      "clinics2023": 418,
+      "hospitals2023": 34,
+      "website": "https://www.himeji-med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "播磨姫路",
+      "name": "神崎郡医師会",
+      "municipalities": [
+        "市川町",
+        "福崎町",
+        "神河町"
+      ],
+      "clinics2023": 34,
+      "hospitals2023": 2,
+      "website": "https://www.kanzakigun-med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "播磨姫路",
+      "name": "たつの市・揖保郡医師会",
+      "municipalities": [
+        "たつの市",
+        "太子町"
+      ],
+      "clinics2023": 68,
+      "hospitals2023": 10,
+      "website": "https://tatsuno-ibo.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "播磨姫路",
+      "name": "相生市医師会",
+      "municipalities": [
+        "相生市"
+      ],
+      "clinics2023": 20,
+      "hospitals2023": 4,
+      "website": "https://www.aioi-med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "播磨姫路",
+      "name": "赤穂市医師会",
+      "municipalities": [
+        "赤穂市"
+      ],
+      "clinics2023": 39,
+      "hospitals2023": 5,
+      "website": "https://www.ako-med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "播磨姫路",
+      "name": "赤穂郡医師会",
+      "municipalities": [
+        "上郡町"
+      ],
+      "clinics2023": 10,
+      "hospitals2023": 0,
+      "website": "https://hyogo.med.or.jp/association/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "播磨姫路",
+      "name": "佐用郡医師会",
+      "municipalities": [
+        "佐用町"
+      ],
+      "clinics2023": 13,
+      "hospitals2023": 3,
+      "website": "https://sayogun-ishikai.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "播磨姫路",
+      "name": "宍粟市医師会",
+      "municipalities": [
+        "宍粟市"
+      ],
+      "clinics2023": 28,
+      "hospitals2023": 1,
+      "website": "https://hyogo.med.or.jp/association/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "但馬",
+      "name": "朝来市医師会",
+      "municipalities": [
+        "朝来市"
+      ],
+      "clinics2023": 27,
+      "hospitals2023": 2,
+      "website": "https://hyogo.med.or.jp/association/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "但馬",
+      "name": "養父市医師会",
+      "municipalities": [
+        "養父市"
+      ],
+      "clinics2023": 18,
+      "hospitals2023": 2,
+      "website": "https://hyogo.med.or.jp/association/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "但馬",
+      "name": "豊岡市医師会",
+      "municipalities": [
+        "豊岡市"
+      ],
+      "clinics2023": 70,
+      "hospitals2023": 3,
+      "website": "https://www.toyooka-med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "但馬",
+      "name": "美方郡医師会",
+      "municipalities": [
+        "香美町",
+        "新温泉町"
+      ],
+      "clinics2023": 23,
+      "hospitals2023": 4,
+      "website": "https://hyogo.med.or.jp/association/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "丹波",
+      "name": "丹波篠山市医師会",
+      "municipalities": [
+        "丹波篠山市"
+      ],
+      "clinics2023": 31,
+      "hospitals2023": 4,
+      "website": "https://hyogo.med.or.jp/association/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "丹波",
+      "name": "丹波市医師会",
+      "municipalities": [
+        "丹波市"
+      ],
+      "clinics2023": 47,
+      "hospitals2023": 3,
+      "website": "https://www.tanba-med.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "淡路",
+      "name": "洲本市医師会",
+      "municipalities": [
+        "洲本市"
+      ],
+      "clinics2023": 51,
+      "hospitals2023": 3,
+      "website": "https://www.sumoto-med.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "淡路",
+      "name": "淡路市医師会",
+      "municipalities": [
+        "淡路市"
+      ],
+      "clinics2023": 41,
+      "hospitals2023": 3,
+      "website": "https://www.awaji-doctor.com/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    },
+    {
+      "region": "淡路",
+      "name": "南あわじ市医師会",
+      "municipalities": [
+        "南あわじ市"
+      ],
+      "clinics2023": 39,
+      "hospitals2023": 5,
+      "website": "https://minamiawaji-med.or.jp/",
+      "kind": "regional",
+      "countBasis": "2023年地域内施設の所在地合計。医師会員施設数ではない。"
+    }
+  ]
+}
