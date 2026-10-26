@@ -178,3 +178,12 @@
 .research-source-links a:hover{background:#d8ecef}
 @media(max-width:900px){.research-source-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.diagnostic-tracks{grid-template-columns:1fr}#research-2026 .chart.tall{height:310px}.research-source-links{gap:7px}}
+
+
+.research-methods{border:1px solid #bed8df;border-radius:12px;background:#fff;margin:20px 0}
+.research-methods summary{padding:16px 20px;cursor:pointer;font-weight:800;color:#14687c}
+.research-methods[open] summary{border-bottom:1px solid #d5e4eb}
+.research-methods-content{padding:17px 22px 20px;color:#395968;font-size:12px;line-height:1.8}
+.research-methods-content ul{padding-left:21px;margin:10px 0}
+.research-methods-content li{padding:5px 0}
+@media(max-width:700px){.research-methods summary{padding:13px}.research-methods-content{padding:12px}}
