@@ -86,7 +86,6 @@ td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
   contain:layout paint;box-shadow:inset 0 0 0 1px #eff5f7
 }
 #map.leaflet-container{position:relative!important;overflow:hidden!important}
-#map .leaflet-pane,#map .leaflet-control-container{z-index:auto}
 #map .leaflet-top,#map .leaflet-bottom{z-index:800}
 #map .leaflet-control-attribution{font-family:inherit;font-size:11px;line-height:1.4}
 #map .leaflet-control-attribution a{color:#145d80}
