@@ -463,7 +463,7 @@ window.FUKUOKA_DATA={
       "doctorIndex": 161.6,
       "factors": [
         "県境・工業地帯・高齢化",
-        "佐賀/大分県境とアクセス（県境は大分）",
+        "大分県境の医療連携・アクセス",
         "新行橋病院",
         "急性期連携・診療所への検査供給"
       ],
@@ -756,30 +756,171 @@ window.FUKUOKA_DATA={
       "2024-2029（2025-02一部改定）",
       "政策・医療費・必要病床数",
       "https://www.pref.fukuoka.lg.jp/contents/tekiseika4ki.html"
+    ],
+    [
+      "福岡県医師会 郡市区医師会一覧",
+      "2026参照",
+      "郡市区医師会の名称・所在地・公式サイト",
+      "https://www.fukuoka.med.or.jp/introduction/area.html"
     ]
   ],
   "associations": [
-    "福岡県医師会",
-    "福岡市医師会",
-    "北九州市医師会",
-    "久留米医師会",
-    "糸島医師会",
-    "筑紫医師会",
-    "粕屋医師会",
-    "宗像医師会",
-    "飯塚医師会",
-    "田川医師会",
-    "直方鞍手医師会",
-    "朝倉医師会",
-    "八女筑後医師会",
-    "大牟田医師会",
-    "京都医師会",
-    "豊前築上医師会",
-    "遠賀中間医師会",
-    "小郡三井医師会",
-    "大川三潴医師会",
-    "柳川山門医師会",
-    "浮羽医師会"
+    {
+      "name": "福岡県医師会",
+      "address": "福岡市博多区博多駅南2丁目9番30号",
+      "url": "https://www.fukuoka.med.or.jp/",
+      "region": "福岡・糸島"
+    },
+    {
+      "name": "北九州市医師会",
+      "address": "北九州市小倉北区馬借1丁目7-1",
+      "url": "https://www.kitakyushu-med.or.jp/",
+      "region": "北九州"
+    },
+    {
+      "name": "門司区医師会",
+      "address": "北九州市門司区小森江3丁目12-11",
+      "url": "https://www.moji-med.or.jp/",
+      "region": "北九州"
+    },
+    {
+      "name": "小倉医師会",
+      "address": "北九州市小倉北区中島1丁目19-17",
+      "url": "https://www.kokura-med.or.jp/",
+      "region": "北九州"
+    },
+    {
+      "name": "八幡医師会",
+      "address": "北九州市八幡東区平野2丁目1-1",
+      "url": "https://www.yahata-med.or.jp/",
+      "region": "北九州"
+    },
+    {
+      "name": "戸畑区医師会",
+      "address": "北九州市戸畑区正津町2-10",
+      "url": "https://www.fukuoka.med.or.jp/introduction/area.html",
+      "region": "北九州"
+    },
+    {
+      "name": "若松区医師会",
+      "address": "北九州市若松区藤ノ木2丁目1-29",
+      "url": "https://www.fukuoka.med.or.jp/introduction/area.html",
+      "region": "北九州"
+    },
+    {
+      "name": "遠賀中間医師会",
+      "address": "遠賀郡水巻町下二西2丁目1-33",
+      "url": "https://www.onnaka-med.or.jp/",
+      "region": "北九州"
+    },
+    {
+      "name": "京都医師会",
+      "address": "行橋市東大橋2丁目9-2",
+      "url": "https://www.miyako-ishikai.jp/",
+      "region": "京築"
+    },
+    {
+      "name": "豊前築上医師会",
+      "address": "豊前市八屋1522-2",
+      "url": "https://www.houchikuishikai.com/",
+      "region": "京築"
+    },
+    {
+      "name": "福岡市医師会",
+      "address": "福岡市早良区百道浜1丁目6-9",
+      "url": "https://www.city.fukuoka.med.or.jp/",
+      "region": "福岡・糸島"
+    },
+    {
+      "name": "筑紫医師会",
+      "address": "太宰府市国分3丁目13-1",
+      "url": "https://www.ishikai.org/",
+      "region": "筑紫"
+    },
+    {
+      "name": "糸島医師会",
+      "address": "糸島市浦志532-1",
+      "url": "https://www.itoshima-med.or.jp/",
+      "region": "福岡・糸島"
+    },
+    {
+      "name": "粕屋医師会",
+      "address": "糟屋郡久山町久原3168-1",
+      "url": "https://www.kasuya.fukuoka.med.or.jp/",
+      "region": "粕屋"
+    },
+    {
+      "name": "宗像医師会",
+      "address": "宗像市田熊5丁目5-5",
+      "url": "https://www.munakata-med.or.jp/",
+      "region": "宗像"
+    },
+    {
+      "name": "直方鞍手医師会",
+      "address": "直方市山部808-13",
+      "url": "https://chokuan-medical.jp/",
+      "region": "直方・鞍手"
+    },
+    {
+      "name": "田川医師会",
+      "address": "田川市伊田2735-23",
+      "url": "https://www.tagawaishikai.jp/",
+      "region": "田川"
+    },
+    {
+      "name": "飯塚医師会",
+      "address": "飯塚市吉原町1-1",
+      "url": "https://www.iizuka-med.or.jp/",
+      "region": "飯塚"
+    },
+    {
+      "name": "久留米医師会",
+      "address": "久留米市櫛原町45",
+      "url": "https://www.kurume-med.or.jp/",
+      "region": "久留米"
+    },
+    {
+      "name": "大牟田医師会",
+      "address": "大牟田市不知火町3丁目104",
+      "url": "https://www.omuta.fukuoka.med.or.jp/",
+      "region": "有明"
+    },
+    {
+      "name": "八女筑後医師会",
+      "address": "八女市本村656-1",
+      "url": "https://www.yamechikugo.fukuoka.med.or.jp/",
+      "region": "八女・筑後"
+    },
+    {
+      "name": "朝倉医師会",
+      "address": "朝倉市来春422-1",
+      "url": "https://www.asakura-med.or.jp/",
+      "region": "朝倉"
+    },
+    {
+      "name": "小郡三井医師会",
+      "address": "小郡市上岩田1246",
+      "url": "https://www.ogorimii-med.net/",
+      "region": "久留米"
+    },
+    {
+      "name": "大川三潴医師会",
+      "address": "大川市郷原482-24",
+      "url": "https://www.ozuma-med.or.jp/",
+      "region": "有明"
+    },
+    {
+      "name": "柳川山門医師会",
+      "address": "柳川市三橋町蒲船津1401-10",
+      "url": "https://www.yanagawa-med.com/",
+      "region": "有明"
+    },
+    {
+      "name": "浮羽医師会",
+      "address": "うきは市吉井町347-17",
+      "url": "https://ukiha-med.or.jp/",
+      "region": "久留米"
+    }
   ],
   "publicDealers": [
     "キシヤ",
@@ -795,19 +936,78 @@ window.FUKUOKA_DATA={
     "つくしメディカル"
   ],
   "healthCenters": [
-    "福岡市保健所",
-    "北九州市保健所",
-    "久留米市保健所",
-    "粕屋保健福祉事務所",
-    "宗像・遠賀保健福祉環境事務所",
-    "筑紫保健福祉環境事務所",
-    "糸島保健福祉事務所",
-    "朝倉保健福祉環境事務所",
-    "久留米保健福祉環境事務所",
-    "南筑後保健福祉環境事務所",
-    "嘉穂・鞍手保健福祉環境事務所",
-    "田川保健福祉事務所",
-    "京築保健福祉環境事務所"
+    {
+      "name": "北九州市保健所",
+      "address": "北九州市小倉北区馬借1丁目7番1号",
+      "region": "北九州",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/40fukuoka.html"
+    },
+    {
+      "name": "福岡市保健所",
+      "address": "福岡市中央区舞鶴2丁目5番1号",
+      "region": "福岡・糸島",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/40fukuoka.html"
+    },
+    {
+      "name": "久留米市保健所",
+      "address": "久留米市城南町15-5",
+      "region": "久留米",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/40fukuoka.html"
+    },
+    {
+      "name": "宗像・遠賀保健福祉環境事務所",
+      "address": "宗像市東郷1丁目2番1号",
+      "region": "宗像",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/40fukuoka.html"
+    },
+    {
+      "name": "粕屋保健福祉事務所",
+      "address": "糟屋郡粕屋町戸原東1丁目7番26号",
+      "region": "粕屋",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/40fukuoka.html"
+    },
+    {
+      "name": "筑紫保健福祉環境事務所",
+      "address": "大野城市白木原3丁目5番25号",
+      "region": "筑紫",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/40fukuoka.html"
+    },
+    {
+      "name": "糸島保健福祉事務所",
+      "address": "糸島市浦志2丁目3番1号",
+      "region": "福岡・糸島",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/40fukuoka.html"
+    },
+    {
+      "name": "田川保健福祉事務所",
+      "address": "田川市伊田3292番地2",
+      "region": "田川",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/40fukuoka.html"
+    },
+    {
+      "name": "北筑後保健福祉環境事務所",
+      "address": "朝倉市甘木2014番地1",
+      "region": "朝倉",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/40fukuoka.html"
+    },
+    {
+      "name": "南筑後保健福祉環境事務所",
+      "address": "柳川市三橋町今古賀8番地1",
+      "region": "有明",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/40fukuoka.html"
+    },
+    {
+      "name": "京築保健福祉環境事務所",
+      "address": "行橋市中央1丁目2番1号",
+      "region": "京築",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/40fukuoka.html"
+    },
+    {
+      "name": "嘉穂・鞍手保健福祉環境事務所",
+      "address": "飯塚市新立岩8番1号",
+      "region": "飯塚",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/40fukuoka.html"
+    }
   ],
   "deviceSegments": [
     [

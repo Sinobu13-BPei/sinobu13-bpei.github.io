@@ -13,8 +13,8 @@ qs('#areaQuery').addEventListener('input',renderRegions);qs('#areaSelect').addEv
 qs('#bedTable tbody').innerHTML=d.regions.map(r=>'<tr><th scope="row">'+esc(r.name)+'</th>'+r.beds.map(n=>'<td>'+fmt(n)+'</td>').join('')+'</tr>').join('')+'<tr><th scope="row">県合計</th>'+[62789,7745,24740,12556,17748,1722].map(n=>'<th>'+fmt(n)+'</th>').join('')+'</tr>';
 function areaFor(name){return d.regions.find(r=>r.name===name)||d.regions[0]}
 qs('#facilities').innerHTML=d.locations.map(o=>{let a=areaFor(o.region);return '<article class="loc"><div><b>'+esc(o.name)+'</b> <span>'+esc(o.type)+'</span><div class="subnote">'+esc(o.address)+'</div></div><div>'+srcLink('公式',o.web)+srcLink('Googleマップ',google(o.name+' '+o.address))+srcLink('地理院・周辺',gsi(a))+'</div></article>'}).join('');
-qs('#associations').innerHTML=d.associations.map(n=>'<span class="pill">'+esc(n)+'</span>').join('');
-qs('#healthOffices').innerHTML=d.healthCenters.map(n=>'<span class="pill">'+esc(n)+'</span>').join('');
+qs('#associations').innerHTML=d.associations.map(o=>{const a=areaFor(o.region);return '<article class="loc"><div><b>'+esc(o.name)+'</b><div class="subnote">'+esc(o.address)+'</div></div><div>'+srcLink('公式・県医師会名簿',o.url)+srcLink('Googleマップ',google(o.name+' '+o.address))+srcLink('地理院・周辺',gsi(a))+'</div></article>'}).join('');
+qs('#healthOffices').innerHTML=d.healthCenters.map(o=>{const a=areaFor(o.region);return '<article class="loc"><div><b>'+esc(o.name)+'</b><div class="subnote">'+esc(o.address)+'</div></div><div>'+srcLink('所管一覧',o.url)+srcLink('Googleマップ',google(o.name+' '+o.address))+srcLink('地理院・周辺',gsi(a))+'</div></article>'}).join('');
 qs('#dealers').innerHTML=d.publicDealers.map(n=>'<span class="pill">'+esc(n)+'</span>').join('');
 qs('#deviceTable tbody').innerHTML=d.deviceSegments.map(r=>'<tr>'+r.map(x=>'<td>'+esc(x)+'</td>').join('')+'</tr>').join('');
 const ranked=[...d.regions].sort((a,b)=>scores(b)-scores(a));
