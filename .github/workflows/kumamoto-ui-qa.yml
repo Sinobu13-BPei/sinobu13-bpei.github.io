@@ -1,0 +1,29 @@
+name: Kumamoto Market Responsive QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'medical-intelligence/kumamoto/**'
+      - '.github/workflows/kumamoto-ui-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check 10 medical areas, clinic counts, source references, layouts and interactive UI at 3 sizes
+        run: node medical-intelligence/kumamoto/qa-kumamoto.mjs
+      - name: Save screenshots of desktop, tablet and mobile
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kumamoto-responsive-screenshots
+          path: medical-intelligence/kumamoto/qa-artifacts/*
+          if-no-files-found: ignore
+          retention-days: 7
