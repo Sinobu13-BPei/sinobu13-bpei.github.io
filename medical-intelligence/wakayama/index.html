@@ -84,6 +84,19 @@
 <div class="panel"><h3>医療圏の人口・病床・医師・機器配置を切り替える</h3><p class="chart-footnote">2025年報告病床、2024年医師数、2026年偏在指標を年次を区別して表示。スコアのみ本サイト独自評価です。</p><div id="regionQuickCards" class="region-quickcards" aria-label="7医療圏のビジュアルサマリー"></div><div class="facility-tools"><label for="areaSearch">医療圏検索 <input id="areaSearch" type="search" placeholder="例：田辺／新宮／橋本"></label><label for="areaSort">表示順 <select id="areaSort"><option value="default">行政順</option><option value="score">重点度スコア順</option><option value="beds">病床数順</option></select></label></div><div class="table-wrap"><table id="regionTable"><thead><tr><th>医療圏・構成市町村</th><th>2025報告病床</th><th>2024医師数</th><th>2026偏在指標</th><th>独自スコア</th><th>2030年への機会</th></tr></thead><tbody><tr><td colspan="6">医療圏詳細データを読み込んでいます。JavaScript無効の場合は病床比較・主要論点をご利用ください。</td></tr></tbody></table></div><p class="references">病床 <a href="#S06">[S06]</a>／医師数・偏在指標 <a href="#S08">[S08]</a><a href="#S09">[S09]</a>／優先度＝本サイト独自評価。</p></div>
 <div class="panel"><h3>医療圏と主要施設（地理院地図レイヤー）</h3><div class="map-tools" aria-label="医療圏地図の表示方法"><span>地図上の円の大きさ：2025年報告病床の規模</span><span>円を押すと医療圏の詳細を表示</span><span>※圏域境界ではなく代表地点</span></div><div id="areaMap" class="map" role="region" aria-label="和歌山県の7医療圏代表地点地図"></div><p class="map-note">背景地図：国土地理院「地理院タイル」（https://maps.gsi.go.jp/development/ichiran.html）。地点は<b>圏域を代表する市街地の概略中心</b>であり、医療圏境界や病院の正確な所在地ではありません。地図サービスが利用できない場合は各施設のGoogleマップを利用してください。</p></div></div></section>
 
+<div class="panel demographic-spotlight" id="town-aging">
+ <div class="mini-section-head"><span class="en">MUNICIPAL AGING / OFFICIAL 2026 DATA</span><h3>30市町村の高齢化率｜2026年1月の県公式統計</h3></div>
+ <div class="aging-headline"><div><small>65歳以上の県内人口</small><strong>304,044<em>人</em></strong></div><div><small>75歳以上の人口</small><strong>181,772<em>人</em></strong></div><div><small>高齢化率50%以上</small><strong>2<em>町</em></strong></div></div>
+ <div class="age-mini-meter" aria-label="高齢化率の高い五つの市町村">
+   <div><span>古座川町</span><meter min="0" max="60" value="54.7">54.7%</meter><b>54.7%</b></div>
+   <div><span>九度山町</span><meter min="0" max="60" value="50.2">50.2%</meter><b>50.2%</b></div>
+   <div><span>紀美野町</span><meter min="0" max="60" value="49.2">49.2%</meter><b>49.2%</b></div>
+   <div><span>串本町</span><meter min="0" max="60" value="48.9">48.9%</meter><b>48.9%</b></div>
+   <div><span>すさみ町</span><meter min="0" max="60" value="48.7">48.7%</meter><b>48.7%</b></div>
+ </div>
+ <p class="chart-footnote">住民基本台帳による人口・高齢化率（2026年1月1日）。県推計人口や社人研将来推計とは人口系列が異なります。全30市町村の値は下の<a href="#municipalityFacilityTable">市町村一覧表</a>に集約し、重複した別表を作っていません。<a href="#S33">[S33]</a></p>
+</div>
+</div></section>
 <section id="facility-stats" class="section facility-stat-section"><div class="wrap">
  <div class="section-head"><span class="en">AREA FACILITY ATLAS / SOURCE YEARS DISCLOSED</span><h2>7二次医療圏別｜診療所・病院・歯科・薬局の施設数</h2>
  <p>県が公表する<b>2022年医療施設調査の確定値</b>と、日本医師会JMAPが表示する<b>更新基準日を特定できない施設数</b>を別々に表示します。混在した値を「2026年の実績」と表現しません。<a href="#S28">[S28]</a><a href="#S29">[S29]</a></p></div>
@@ -118,12 +131,24 @@
  <p class="chart-footnote">みなべ町は統計上「田辺医療圏」ですが、日高医師会の活動範囲に入ります。このため医療圏の診療所数と医師会別の合計を一対一に対応させることはできません。<a href="#S31">[S31]</a><a href="#S32">[S32]</a></p></div></div>
  <div class="panel"><h3>郡市医師会別・施設数の一覧</h3><div class="table-wrap"><table id="associationStatsTable"><thead><tr><th>郡市医師会／公式Web</th><th>対象市町村</th><th>対応する二次医療圏</th><th>一般診療所</th><th>病院</th><th>一般診療所＋病院</th></tr></thead><tbody><tr><td colspan="6">医師会別に集計中です。</td></tr></tbody></table></div>
  <p class="chart-footnote">2026年10月27日に確認できたJMAP市町村別掲載値を使用していますが、各元データの統一基準日は確認できません。医師会の加入状況や管理施設数とは異なります。</p></div>
- <div class="panel"><h3>30市町村別・元データ（各市町のJMAP原表へリンク）</h3>
+ <div class="panel"><h3>30市町村別・人口、高齢化率と医療施設数</h3><p class="chart-footnote">人口・高齢化率は2026年1月1日の県住民基本台帳（<a href="#S33">[S33]</a>）、施設数はJMAPの市町村別掲載値（基準日未確認、<a href="#S29">[S29]</a>）。同一時点の施設密度とは扱いません。</p>
  <div class="facility-tools"><label for="townFilter">市町村名・医師会・医療圏を検索 <input id="townFilter" type="search" placeholder="例：みなべ、那賀、日高"></label></div>
- <div class="table-wrap"><table id="municipalityFacilityTable"><thead><tr><th>市町村</th><th>医療圏</th><th>対応医師会</th><th>一般診療所</th><th>病院</th><th>合計</th><th>原表</th></tr></thead><tbody><tr><td colspan="7">市町村別の公開値を読込中です。</td></tr></tbody></table></div>
- <p class="chart-footnote">30市町村すべてを掲載。県公式2022年・医療圏別集計とJMAPの動的施設一覧には対象施設や更新時点の差があるため、年次を横断した増減率は計算しません。</p></div>
+ <div class="table-wrap"><table id="municipalityFacilityTable"><thead><tr><th>市町村</th><th>医療圏</th><th>対応医師会</th><th>住基人口<br>2026/1</th><th>高齢化率<br>2026/1</th><th>一般診療所</th><th>病院</th><th>合計</th><th>原表</th></tr></thead><tbody><tr><td colspan="9">市町村別の公開値を読込中です。</td></tr></tbody></table></div>
+ <p class="chart-footnote">30市町村すべてを掲載。2026年人口・高齢化率とJMAP施設数は年次・定義が異なるため、施設密度や過年度との増減率は表示していません。</p></div>
  </div></section>
-<section id="institutions" class="section"><div class="wrap"><div class="section-head"><span class="en">04 / UNIVERSITY, MEDICAL ASSOCIATIONS, GOVERNMENT</span><h2>大学・医師会・県庁・医療政策</h2></div>
+<section id="institutions" class="section"><div class="wrap"><div class="section-head"><span class="en">04 / UNIVERSITY, MEDICAL ASSOCIATIONS, GOVERNMENT</span><h2>大学・医師会・県庁・医療政策</h2></div><div class="panel university-network" id="university-doctors">
+ <div class="mini-section-head"><span class="en">UNIVERSITY × SEVEN REGIONAL AREAS / VERIFIED 2026</span><h3>県立医科大学｜公的医療機関への常勤医師配置 472人</h3></div>
+ <div class="uni-network-grid">
+ <div class="chart-area uni-graph"><canvas id="universityDoctorsChart" aria-label="2026年4月1日の和歌山県立医科大学から県内公的医療機関への常勤医師配置数・7医療圏別"></canvas></div>
+ <div class="uni-info"><strong>472<small>人</small></strong><p>和歌山県立医科大学から県内公的医療機関に配置した<b>常勤医師</b>の合計です。県内全医師数ではありません。外部資料と照合したうえで公式値を採用しています。</p><div id="universityDoctorsTableWrap" class="table-wrap"><table id="universityDoctorsTable"><thead><tr><th>医療圏</th><th>配置人数</th></tr></thead><tbody><tr><td colspan="2">配置状況を読込中</td></tr></tbody></table></div><p class="chart-footnote">大学公式 2026年4月1日現在。<a href="#S34">[S34]</a></p></div>
+ </div>
+</div>
+<details class="panel region-meetings" id="region-meetings"><summary>2026年の7医療圏・地域医療構想調整会議を確認する <small>県の議事録・配布資料へ</small></summary>
+ <p>病床機能、救急、地域完結、連携の実際の方針は、各医療圏の調整会議で確認する必要があります。以下は県公表ページに記載された2026年8–9月の開催状況です。</p>
+ <div class="table-wrap"><table id="regionalMeetingTable"><thead><tr><th>医療圏</th><th>会議日</th><th>会議</th><th>県の資料・議事録</th></tr></thead><tbody><tr><td colspan="4">会議一覧を読み込んでいます。</td></tr></tbody></table></div>
+ <p class="chart-footnote">開催日と議題・計画の確定を同一視しません。<a href="#S35">[S35]</a></p>
+</details>
+
 <div class="grid-2"><article class="panel"><h3>医学部・附属病院の影響力</h3><p><b>和歌山県立医科大学医学部</b>は県内唯一の医学部設置大学。紀三井寺の附属病院と紀北分院が大学医療と地域医療の接点です。研修医・専門医養成、地域枠医師、へき地の医師配置を病院の人材制約と結び付けて検討します。<a href="#S05">[S05]</a><a href="#S07">[S07]</a></p>
 <p>県内での医局人事・関連病院関係や大型建替計画は非公開の内部事情を推測せず、県立医大・病院の正式発表を都度確認。</p><div class="note" style="margin:18px 0"><b>2026年の大学病院DX実証：</b>県立医科大学の2026年2月24日記者発表では、橋本市民病院に対する遠隔救急支援を1月20日に開始したと説明。新宮市立医療センターとも遠隔ICU・ER支援を推進し、ドクターヘリが運休する夜間・悪天候の診療支援を課題として示しています。支援時間・導入範囲は順次調整されるため「県全域24時間稼働」とは表現しません。<a href="#S27">[S27]</a></div>
 <div class="route" aria-label="遠隔ICU診療支援の概念図"><span>和歌山県立医科大学</span><b>⇄ 遠隔ICU・ER支援</b><span>橋本市民病院</span><span>新宮市立医療センター</span></div>
@@ -181,7 +206,7 @@
 <div class="grid-2"><div class="panel"><h3>短期：0～90日</h3><div class="step"><span>1</span><p>7圏域の施設・装置・医療機能・所在地を原表から再照合。変更届・2025年病床機能報告の個票を点検。</p></div><div class="step"><span>2</span><p>高稼働施設の画像・救急・内視鏡の検査数・保守体制・耐用年数を公表範囲／同意取得の範囲で確認。</p></div><div class="step"><span>3</span><p>紀南地域の災害時医療機器サービス継続計画案を作成し、行政防災資料と整合。</p></div></div>
 <div class="panel"><h3>中期：3～36か月</h3><div class="step"><span>4</span><p>診療所から基幹病院への紹介検査・画像共有のPoCを選定し、検査待機日数・移動負担で評価。</p></div><div class="step"><span>5</span><p>複数メーカー・装置に共通する保守SLA・代替体制・教育パッケージを整備。</p></div><div class="step"><span>6</span><p>機能再編・病院建替・補助採択は発表・公募のたび再確認し、県内調達マップを年次更新。</p></div></div></div></div></section>
 <section id="sources" class="section"><div class="wrap"><div class="section-head"><span class="en">09 / SOURCES, METHOD & LIMITATIONS</span><h2>一次資料・検証方法・残課題</h2><p>数値の出典名・URL・時点を一覧化。公表されていないデータは推計を装って埋めません。</p></div>
-<div class="panel"><h3>未確定事項と次の調査</h3><p>①US・血管撮影・透析装置・内視鏡の2025/26年施設別台数と更新年度、②PET/リニアックの2025年現有数、③新病院建設/再編の確定日程、④医療圏の将来必要病床の最新版、⑤離島・過疎と搬送所要時間、⑥医師会独自の医療DX導入率、⑦商社県内売上シェアはいずれも別途原表・公式公表等による照合が必要です。</p><p class="note alert">機密除外：社内予算、顧客別商談、販売価格、与信、個人担当者、非公開納期・補償・卸シェアなどは掲載しません。出典として過去の社内資料の未公開値は使用していません。</p></div>
+<details class="panel data-provenance" open><summary>添付資料と公的統計の照合・公開判定 <small>2026年10月27日更新</small></summary><div class="table-wrap"><table><thead><tr><th>資料系統</th><th>時点と公開判断</th><th>このページでの扱い</th></tr></thead><tbody><tr><td>県公式医療施設調査</td><td>2022年10月・1,030診療所／83病院</td><td>確定値として医療圏別表に使用 <a href="#S28">[S28]</a></td></tr><tr><td>添付：2024年10月施設・市町村表</td><td>添付二次集計とe-Statの年度別表を照合する必要あり</td><td>2022年や2026年の値と混合しない。一次表で施設定義を確認するまで数値の断定掲載を保留 <a href="#S36">[S36]</a></td></tr><tr><td>添付：人口・高齢化資料</td><td>2026年1月・県公式原表で照合済</td><td>30市町村に人口・高齢化率を追記 <a href="#S33">[S33]</a></td></tr><tr><td>添付：大学医局・医師配置</td><td>2026年4月・大学公式原表で照合済</td><td>7医療圏の472人の内訳のみ公表 <a href="#S34">[S34]</a></td></tr><tr><td>添付：県別/近畿シェア、7医療圏の商業レポート</td><td>第三者の推計・調査資料。転載条件を未確認</td><td>個社推計シェア、売上、グラフ、PDFのページ・デザインを転載しない</td></tr></tbody></table></div><p class="chart-footnote">計画策定、人口統計、医療提供体制については各出典の発表年月日を優先。添付の社内戦略・KPI・非公開情報は一般公開しません。</p></details><div class="panel"><h3>未確定事項と次の調査</h3><p>①US・血管撮影・透析装置・内視鏡の2025/26年施設別台数と更新年度、②PET/リニアックの2025年現有数、③新病院建設/再編の確定日程、④医療圏の将来必要病床の最新版、⑤離島・過疎と搬送所要時間、⑥医師会独自の医療DX導入率、⑦商社県内売上シェアはいずれも別途原表・公式公表等による照合が必要です。</p><p class="note alert">機密除外：社内予算、顧客別商談、販売価格、与信、個人担当者、非公開納期・補償・卸シェアなどは掲載しません。出典として過去の社内資料の未公開値は使用していません。</p></div>
 <ol id="sourcesList" class="sources-list"><li>出典一覧を読み込んでいます。</li></ol></div></section>
 </main><footer class="b-footer"><div class="wrap"><strong>WAKAYAMA / MEDICAL MARKET INTELLIGENCE</strong><div class="site-actions"><a class="action" href="https://sinobu13-bpei.github.io/medical-intelligence/">関連：全国医療MKT</a><a class="action green" href="https://sinobu13-bpei.github.io/ct-market-atlas/">CT-MKT分析</a><a class="action pink" href="https://sinobu13-bpei.github.io/mri_market_atlas_2025.html">MRI-MKT分析</a></div>
 <p>公開情報と公的統計を出典付きで整理した独立調査です。内容の正確性・完全性・最新性を保証するものではありません。病院等の機能指定、病床、設備、担当窓口は変化するため各公式サイトを確認してください。機器配置の2017年データと2025年病床機能報告を混同しないでください。スコア・戦略は独自分析です。</p>
