@@ -18,7 +18,7 @@ const chrome=spawn(binary,['--headless=new','--no-sandbox','--disable-dev-shm-us
 const debuggerUrl='http://127.0.0.1:'+port;
 let socket,seq=1;const waiters=new Map();
 function send(method,params={}){return new Promise((resolve,reject)=>{const id=seq++;const timer=setTimeout(()=>{waiters.delete(id);reject(Error('CDP timeout '+method))},20000);waiters.set(id,{resolve,reject,timer});socket.send(JSON.stringify({id,method,params}))})}
-async function evalJS(expression){const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.error||r.result?.exceptionDetails)throw Error(JSON.stringify(r));return r.result.result?.value}
+async function evalJS(expression){const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.error||r.exceptionDetails)throw Error(JSON.stringify(r));return r.result?.value}
 async function untilReady(){for(let i=0;i<120;i++){try{const r=await evalJS('document.readyState');if(r==='complete'||(i>30&&r==='interactive'))return}catch(e){}await sleep(200)}throw Error('Page load timed out')}
 const url=pathToFileURL(resolve(root,'index.html')).href;
 const results=[];
