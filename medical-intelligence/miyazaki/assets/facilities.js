@@ -19,7 +19,7 @@ $('facilityKpis').innerHTML=[
 ['病院',total.hospital,'2022・県全域'],['一般診療所',total.clinic,'2022・歯科を除く'],
 ['歯科診療所',total.dental,'2022・歯科を別掲'],['有床一般診療所',total.bedded,'2022・一般診療所の内数']
 ].map(x=>'<article class="fac-stat"><small>'+x[0]+'</small><strong>'+fmt(x[1])+'</strong><span>'+x[2]+'</span></article>').join('');
-const rows=a.map(x=>'<tr><td><b>'+esc(x.name)+'</b></td><td>'+fmt(x.hospitals)+'</td><td><b>'+fmt(x.generalClinics)+'</b></td><td>'+fmt(x.beddedClinics)+'</td><td>'+fmt(x.nonBeddedClinics)+'</td><td>'+fmt(x.clinicBeds)+'</td><td>'+fmt(x.dentalClinics)+'</td><td>'+x.rate2023.toFixed(1)+'</td></tr>');
+const rows=a.map(x=>'<tr><td><b>'+esc(x.name)+'</b></td><td>'+fmt(x.hospitals)+'</td><td><b>'+fmt(x.generalClinics)+'</b></td><td>'+fmt(x.beddedClinics)+'</td><td>'+fmt(x.nonBeddedClinics)+'</td><td>'+fmt(x.clinicBeds)+'</td><td>'+fmt(x.dentalClinics)+'</td></tr>');
 rows.push('<tr><td><b>宮崎県合計</b></td><td><b>132</b></td><td><b>918</b></td><td><b>134</b></td><td><b>784</b></td><td><b>2,146</b></td><td><b>488</b></td></tr>');
 $('facilityAreaTable').innerHTML=makeTable(rows,['二次医療圏','病院数','医科診療所','有床','無床','診療所病床','歯科診療所']);
 $('facilitySourceOfficial').innerHTML=href(o.source.url,'県第8次医療計画・第3章 pp.38–39（2022年医療施設調査）');
