@@ -87,3 +87,17 @@
   .pathway-cards>div:nth-of-type(3),.pathway-cards>div:nth-of-type(4){grid-column:auto}
   .pathway-cards>b:nth-of-type(2),.pathway-cards>b:nth-of-type(3){grid-column:auto}
 }
+/* QA fix: chart canvas min-content sizing caused 299px viewport overflow at 375px */
+html,body{max-width:100%;overflow-x:clip}
+main,.section,.wrap,.panel,.grid-2,.grid-3,.strategy-grid,.visual-charts{min-width:0;max-width:100%}
+.grid-2>* ,.grid-3>*,.strategy-grid>*,.visual-charts>*{min-width:0;max-width:100%}
+.chart-area{min-width:0;max-width:100%;width:100%;overflow:hidden}
+.chart-area canvas{min-width:0;max-width:100%;display:block}
+@media(max-width:680px){
+  .grid-2,.grid-3,.strategy-grid,.visual-charts{grid-template-columns:minmax(0,1fr)}
+  .panel{width:100%;overflow-wrap:anywhere}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .visual-tiles{grid-template-columns:minmax(0,1fr)}
+  .modality-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .section>.wrap{min-width:0}
+}
