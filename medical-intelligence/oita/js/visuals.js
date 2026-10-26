@@ -39,6 +39,12 @@
       head.append(title,badge);item.append(head);
       const kpi=document.createElement("p");kpi.className="region-card-kpi";kpi.innerHTML="<strong>"+fmt(total)+"</strong> 床（2025年7月）";item.append(kpi);
       const sub=document.createElement("small");sub.textContent=a.cities;item.append(sub);
+      if(a.facilityCounts){
+       const f=document.createElement("div");f.className="region-facility";f.setAttribute("aria-label","JMAP掲載施設数、医療圏内の一般診療所、病院、歯科診療所");
+       [["診療所",a.facilityCounts.clinics],["病院",a.facilityCounts.hospitals],["歯科",a.facilityCounts.dental]].forEach(([label,value])=>{
+        const el=document.createElement("span");const caption=document.createTextNode(label);const bold=document.createElement("b");bold.textContent=fmt(value);el.append(caption,bold);f.append(el);
+       });item.append(f);
+      }
       const bar=document.createElement("div");bar.className="region-bar";bar.setAttribute("role","img");bar.setAttribute("aria-label",a.name+"医療圏の病床機能構成比。"+functions.map((f,i)=>f+" "+Math.round(a.beds[i]/total*100)+"%").join("、"));
       a.beds.forEach((n,i)=>{const seg=document.createElement("div");seg.style.background=palette[i];seg.style.width=(n/total*100)+"%";seg.title=functions[i]+" "+fmt(n)+"床";bar.appendChild(seg);});item.append(bar);
       const foot=document.createElement("div");foot.className="region-card-end";
