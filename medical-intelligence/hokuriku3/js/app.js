@@ -43,7 +43,7 @@ function renderAreaCards(areas,d){
  if(areaResult)areaResult.textContent=areas.length+' / '+d.areas.length+'医療圏';
  host.innerHTML=areas.length?areas.map(a=>{
  const bed=a.beds.reduce((s,n)=>s+n,0),s=score(a,d);
- return '<article class="area-card"><div class="compact-card-head"><div><span class="eyeline">'+esc(id2[a.pref])+' / '+esc(a.name)+'</span><h3>'+esc(a.name)+'</h3></div>'+barScore(s)+'</div>'
+ return '<article class="area-card"><div class="compact-card-head"><div><span class="eyeline">'+esc(id2[a.pref])+'</span><h3>'+esc(a.name)+'</h3></div>'+barScore(s)+'</div>'
  +'<div class="compact-stats"><div><small>診療所</small><strong>'+fmt(a.facilities.clinic)+'</strong></div><div><small>病院</small><strong>'+fmt(a.facilities.hospital)+'</strong></div><div><small>病床 '+a.year+'</small><strong>'+fmt(bed)+'</strong></div></div>'
  +'<details><summary>需要・課題・施設を見る</summary><div class="card-more"><p><b>需要：</b>'+esc(a.driver)+'</p><p><b>課題：</b>'+esc(a.issue)+'</p><p><b>機会：</b>'+esc(a.chance)+'</p><p><b>主要施設：</b>'+esc(a.hospital)+'</p><p>'+link(a.facilities.source,'施設数の出典 ↗')+'</p></div></details></article>'
  }).join(''):'<p class="empty-results">一致する医療圏はありません。検索条件を変更してください。</p>';
