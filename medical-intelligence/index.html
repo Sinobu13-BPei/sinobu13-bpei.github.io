@@ -520,6 +520,15 @@ function draw(){
       nagasakiLink.setAttribute('aria-label','長崎県 医療機器MKT・8医療圏分析2026を開く');
       actions.appendChild(nagasakiLink);
     }
+    if(p[0]==='佐賀県'){
+      const sagaLink=document.createElement('a');
+      sagaLink.href='./saga/';
+      sagaLink.target='_blank';sagaLink.rel='noopener noreferrer';
+      sagaLink.className='hokkaido-mkt-btn';
+      sagaLink.textContent='佐賀MKT ↗';
+      sagaLink.setAttribute('aria-label','佐賀県 医療機器MKT・5医療圏分析2026を開く');
+      actions.appendChild(sagaLink);
+    }
     if(p[0]==='福岡県'){
       const fukuokaLink=document.createElement('a');
       fukuokaLink.href='https://sinobu13-bpei.github.io/medical-intelligence/fukuoka/';
