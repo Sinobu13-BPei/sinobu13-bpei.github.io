@@ -1,0 +1,198 @@
+[
+  {
+    "id": "SRC01",
+    "name": "岩手県「岩手県保健医療計画（2024–2029）」",
+    "url": "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/1079911/keikaku/1002862.html",
+    "year": "2024～2029年度",
+    "role": "医療計画・指定医療機能・二次医療圏"
+  },
+  {
+    "id": "SRC02",
+    "name": "岩手県「2024年度病床機能報告」医療圏別集計",
+    "url": "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/1079911/1002827/1084869/index.html",
+    "year": "2024年7月1日時点",
+    "role": "医療圏別病床数・機能区分。病棟単位の報告値。"
+  },
+  {
+    "id": "SRC03",
+    "name": "岩手県 医療計画部会資料「2025年の必要病床数」",
+    "url": "https://www.pref.iwate.jp/_res/projects/default_project/_page_/001/097/563/hp_pdf_080325/13_080325_shiryou4.pdf",
+    "year": "2025年必要数、2026年3月資料",
+    "role": "現状とは別の地域医療構想における必要量"
+  },
+  {
+    "id": "SRC04",
+    "name": "国立社会保障・人口問題研究所「人口統計資料集2026」都道府県別人口推計",
+    "url": "https://www.ipss.go.jp/syoushika/tohkei/Data/Popular2026/T12-06.files/sheet001.htm",
+    "year": "2020～2050年推計",
+    "role": "都道府県別人口推計・全国隣県比較"
+  },
+  {
+    "id": "SRC05",
+    "name": "国立社会保障・人口問題研究所「人口統計資料集2026」高齢化率",
+    "url": "https://www.ipss.go.jp/syoushika/tohkei/Data/Popular2026/T12-19.files/sheet003.htm",
+    "year": "2025～2050年推計",
+    "role": "65歳以上人口比の比較"
+  },
+  {
+    "id": "SRC06",
+    "name": "岩手県 推計人口（月報・基礎統計）",
+    "url": "https://www.pref.iwate.jp/kensei/profile/1085693.html",
+    "year": "2025年10月1日",
+    "role": "2025年実績人口推計 1,126,813人"
+  },
+  {
+    "id": "SRC07",
+    "name": "厚生労働省「医師偏在指標（二次医療圏別・令和8年4月公表版）」",
+    "url": "https://www.mhlw.go.jp/content/001691397.pdf",
+    "year": "2026年4月",
+    "role": "医療圏ごとの比較指標。年度により算式・位置づけが異なる"
+  },
+  {
+    "id": "SRC08",
+    "name": "厚生労働省「2026年外来医師偏在指標」",
+    "url": "https://www.mhlw.go.jp/content/001705059.pdf",
+    "year": "2026年4月",
+    "role": "外来医師偏在指標、総合医師偏在指標との混同禁止"
+  },
+  {
+    "id": "SRC09",
+    "name": "岩手県「医療計画部会・2026年9月会議」",
+    "url": "https://www.pref.iwate.jp/kensei/shingikai/hofuku/iryou/1101844.html",
+    "year": "2026年9月",
+    "role": "新たな地域医療構想・中間見直し"
+  },
+  {
+    "id": "SRC10",
+    "name": "岩手県「県立病院一覧」",
+    "url": "https://kenbyo.pref.iwate.jp/hospital/",
+    "year": "2026年確認",
+    "role": "県立病院網の施設・地域配置"
+  },
+  {
+    "id": "SRC11",
+    "name": "岩手県「がん医療提供医療機関一覧」",
+    "url": "https://www.pref.iwate.jp/kurashikankyou/iryou/kenkou/gantaisaku/1003085.html",
+    "year": "2026年確認",
+    "role": "中核病院の所在地・医療提供機能の参照"
+  },
+  {
+    "id": "SRC12",
+    "name": "岩手県「県立病院診療情報共有システム」",
+    "url": "https://www.pref.iwate.jp/iryoukyoku/oshirase/1099180.html",
+    "year": "2026年5月",
+    "role": "医療DX・病院間連携"
+  },
+  {
+    "id": "SRC13",
+    "name": "岩手県「外来医療計画・医療機器共同利用」",
+    "url": "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/1079911/keikaku/1068319/1068320.html",
+    "year": "2024～2026年度",
+    "role": "CT/MRI/PET/放射線治療/マンモグラフィ等の共同利用計画"
+  },
+  {
+    "id": "SRC14",
+    "name": "岩手県「旧外来医療計画・機器配置参考資料」",
+    "url": "https://www.pref.iwate.jp/_res/projects/default_project/_page_/001/028/102/020313_0203.pdf",
+    "year": "2017～2019年ごろの旧調査（歴史値）",
+    "role": "装置台数は最新現況と見なさない"
+  },
+  {
+    "id": "SRC15",
+    "name": "岩手県医師会「郡市医師会」",
+    "url": "https://www.iwate.med.or.jp/about/gunshi/",
+    "year": "2026年10月確認",
+    "role": "地域医師会の組織とウェブリンク"
+  },
+  {
+    "id": "SRC16",
+    "name": "厚生労働省「保健所一覧（岩手県）」",
+    "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/03iwate.html",
+    "year": "2026年確認",
+    "role": "保健所配置・住所"
+  },
+  {
+    "id": "SRC17",
+    "name": "総務省統計局「令和2年国勢調査」",
+    "url": "https://www.stat.go.jp/data/kokusei/2020/",
+    "year": "2020年",
+    "role": "医療圏別人口の基準年。医療圏への組替集計は独自。"
+  },
+  {
+    "id": "SRC18",
+    "name": "共立医科器械「事業承継に関するお知らせ」",
+    "url": "https://kmic.co.jp/pages/1?b_id=9&detail=1&r_id=40",
+    "year": "2026年10月1日",
+    "role": "公開プレス情報・取扱範囲を過度に推測しない"
+  },
+  {
+    "id": "SRC19",
+    "name": "参考資料（非公開転載なし）：医療需給総覧／提供された分析資料",
+    "url": "",
+    "year": "2026年版・参照基礎統計は各年",
+    "role": "9医療圏別の資料を照合。独自著作物は掲載しない"
+  },
+  {
+    "id": "SRC20",
+    "name": "岩手県「県立病院等の経営計画」",
+    "url": "https://www.pref.iwate.jp/iryoukyoku/keiei/1078871.html",
+    "year": "2025～2030年度",
+    "role": "経営計画・機能再編と調達動向"
+  },
+  {
+    "id": "SRC21",
+    "name": "国土交通省・国土地理院「ハザードマップポータル」",
+    "url": "https://disaportal.gsi.go.jp/",
+    "year": "随時更新",
+    "role": "津波、洪水、土砂災害等の施設別BCP検討"
+  },
+  {
+    "id": "SRC22",
+    "name": "厚生労働省「令和8年度診療報酬改定」",
+    "url": "https://www.mhlw.go.jp/stf/newpage_67729.html",
+    "year": "2026年度",
+    "role": "病院経営・物価賃金・診療機能の政策環境"
+  },
+  {
+    "id": "SRC23",
+    "name": "総務省統計局「2025年住民基本台帳人口移動報告」",
+    "url": "https://www.stat.go.jp/data/idou/2025np/jissu/youyaku/index.html",
+    "year": "2025年・2026年公表",
+    "role": "都道府県間移動の転入・転出・転入超過。市区町村別表も案内"
+  },
+  {
+    "id": "SRC24",
+    "name": "岩手県「地域医療支援病院業務報告書の公開」",
+    "url": "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/1079912/1002896/1025484.html",
+    "year": "2026年10月19日更新",
+    "role": "県が承認した地域医療支援病院6施設を明示"
+  },
+  {
+    "id": "SRC25",
+    "name": "厚生労働省「令和7年救命救急センターの評価結果（実数）」",
+    "url": "https://www.mhlw.go.jp/content/10800000/001682704.pdf",
+    "year": "2025年評価",
+    "role": "救命救急センター4施設を収載"
+  },
+  {
+    "id": "SRC26",
+    "name": "厚生労働省「災害拠点病院一覧」",
+    "url": "https://www.mhlw.go.jp/content/10800000/001497158.pdf",
+    "year": "2025年4月1日",
+    "role": "基幹1・地域10（当該資料時点）の岩手県災害拠点病院"
+  },
+  {
+    "id": "SRC27",
+    "name": "岩手医科大学附属病院「医療機関指定状況」",
+    "url": "https://www.hosp.iwate-med.ac.jp/yahaba/outline/shiteijokyo/",
+    "year": "2026年10月確認",
+    "role": "特定機能病院・高度救命救急・災害・がん指定"
+  },
+  {
+    "id": "SRC28",
+    "name": "岩手県「岩手県医師確保計画 第8次」",
+    "url": "https://www.pref.iwate.jp/_res/projects/default_project/_page_/001/028/783/ishikakuhokeikakur6-.pdf",
+    "year": "2024～2026年度",
+    "role": "2024医師偏在指標と医師少数地域、確保目標"
+  }
+]
