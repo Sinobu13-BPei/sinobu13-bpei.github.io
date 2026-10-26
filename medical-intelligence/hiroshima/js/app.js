@@ -41,7 +41,7 @@ const coord=(record)=>{
 };
 const points=[...D.facilities.map(x=>({...x,category:'病院',desc:x.note})),...D.associations.map(x=>({...x,category:'医師会',desc:'地区医師会'})),...D.healthOffices.map(x=>({...x,category:'保健所',desc:'所管区域は厚労省参照',url:D.source.office.url}))];
 let m=null,markers=null,pinMap=new Map();
-if(window.L){try{m=L.map('map',{scrollWheelZoom:false,zoomControl:true}).setView([34.57,132.8],8);L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{attribution:'<a href="https://maps.gsi.go.jp/">地理院タイル</a> © 国土地理院',maxZoom:18}).addTo(m);markers=L.layerGroup().addTo(m);setTimeout(()=>m.invalidateSize(),250)}catch(err){console.warn('地図初期化に失敗しました',err)}}
+if(window.L){try{m=L.map('map',{scrollWheelZoom:false,zoomControl:true}).setView([34.57,132.8],8);L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{attribution:'<a href="https://maps.gsi.go.jp/">地理院タイル</a> © 国土地理院',maxZoom:18}).addTo(m);markers=L.layerGroup().addTo(m);window.HIROSHIMA_MAP=m;setTimeout(()=>m.invalidateSize(),250)}catch(err){console.warn('地図初期化に失敗しました',err)}}
 function showFacilities(){
  const q=($('#facilitySearch').value||'').trim().toLowerCase(),cat=$('#facilityType').value;
  const list=$('#facilityList');list.replaceChildren();if(markers)markers.clearLayers();pinMap=new Map();
