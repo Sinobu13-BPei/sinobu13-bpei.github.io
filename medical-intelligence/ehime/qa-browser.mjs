@@ -1,0 +1,57 @@
+
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {chromium} from 'playwright';
+
+const here=path.dirname(fileURLToPath(import.meta.url));
+const pageUrl=new URL('./index.html',import.meta.url).href;
+const reports=path.join(here,'qa-screenshots');
+fs.mkdirSync(reports,{recursive:true});
+const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+const results=[];
+try{
+  for(const width of [375,768,1440]){
+    const page=await browser.newPage({viewport:{width,height:850},deviceScaleFactor:1});
+    const errors=[];
+    page.on('pageerror',e=>errors.push(e.message));
+    // Test worst-case offline dependency failure. Local HTML/CSS/JS must still work.
+    await page.route(/^https?:/,route=>route.abort());
+    await page.goto(pageUrl,{waitUntil:'load'});
+    await page.waitForTimeout(250);
+    const metrics=await page.evaluate(()=>{
+      const d=document.documentElement;
+      return {
+        overflow:d.scrollWidth-window.innerWidth,
+        sources:document.querySelectorAll('#sourceList li').length,
+        regionRows:document.querySelectorAll('#regionTable tbody tr').length,
+        facilities:document.querySelectorAll('#facilityTable tbody tr').length,
+        fallbacks:[...document.querySelectorAll('.chart-fallback')].filter(x=>getComputedStyle(x).display!=='none').length,
+        mapFallback:!!document.querySelector('.map-fallback'),
+        navMinHeight:Math.round(document.querySelector('.toc a').getBoundingClientRect().height),
+        bodySize:getComputedStyle(document.body).fontSize
+      };
+    });
+    assert(metrics.overflow<=1,'Horizontal viewport overflow at '+width+': '+metrics.overflow+'px');
+    assert.equal(metrics.sources,27,'27 citation entries visible');
+    assert.equal(metrics.regionRows,6,'6 region table rows');
+    assert.equal(metrics.facilities,17,'17 facility rows');
+    assert.equal(metrics.fallbacks,4,'4 static SVG charts available');
+    assert(metrics.mapFallback,'Map fallback present');
+    assert(metrics.navMinHeight>=44,'Accessible nav tap target');
+    assert.equal(errors.length,0,'Browser JavaScript runtime errors: '+errors.join('; '));
+
+    await page.locator('#facilitySearch').fill('愛媛大学');
+    assert.equal(await page.locator('#facilityTable tbody tr:visible').count(),1,'Clinic search not working');
+    await page.locator('#facilitySearch').fill('該当しない固有文字列98765');
+    assert.equal(await page.locator('#facilityTable tbody tr:visible').count(),0,'No-hit search failed');
+    assert(await page.locator('#facilityEmpty').isVisible(),'No-hit feedback missing');
+    await page.locator('#clearFacilitySearch').click();
+    assert.equal(await page.locator('#facilityTable tbody tr:visible').count(),17,'Clear search failed');
+    await page.screenshot({path:path.join(reports,'ehime-'+width+'.png'),animations:'disabled'});
+    results.push({width,...metrics,search:'PASS',runtimeErrors:0});
+    await page.close();
+  }
+  console.log(JSON.stringify({result:'PASS',mode:'offline CDN failure',results},null,2));
+}finally{await browser.close()}
