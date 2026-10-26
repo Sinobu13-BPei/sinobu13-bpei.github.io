@@ -23,7 +23,7 @@ check(js.includes("source-controls")&&css.includes(".source-controls"),"source s
 check(css.includes("@media(max-width:760px)"),"mobile media queries");
 check(!css.includes("min-width:max-content"),"table max-content overflow bug excluded");
 check(js.includes("cyberjapandata.gsi.go.jp")&&js.includes("maps.gsi.go.jp")&&js.includes("google.com/maps"),"GSI tile and dual map links");
-check(html.includes('id="associations" hidden'),"duplicate association link list hidden");
+check(!html.includes('id="associations"'),"legacy duplicate association link list removed");
 check(!html.includes("DyRO")&&!html.includes("仕切")&&!html.includes("特約店化"),"non-public partner strategy excluded from page");
 check(d.areas.length===6,"6 secondary medical areas");
 check(d.municipalFacilities.length===18,"18 municipalities");
