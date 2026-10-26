@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#132b46">
+<meta name="description" content="埼玉県の医療機器市場を人口・病床機能・医師偏在・10医療圏・医療機器流通・政策から横断分析。2026年10月更新、一次情報出典付き。">
+<title>埼玉県 医療機器市場インテリジェンス 2026–2040｜Japan Medical Market Intelligence</title>
+<link rel="canonical" href="https://sinobu13-bpei.github.io/medical-intelligence/saitama/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23132b46'/%3E%3Cpath d='M25 50h15l10-24 10 48 10-24h10' fill='none' stroke='%23ffffff' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<link rel="stylesheet" href="./assets/site.css">
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script defer src="./assets/site.js"></script>
+</head><body>
+<a class="sr-only" href="#content">本文へ移動</a>
+<header class="site-header"><div class="inner">
+<a href="../" class="brand">JAPAN MEDICAL MARKET INTELLIGENCE<small>SAITAMA / PREFECTURAL DEEP DIVE</small></a>
+<button id="nav-toggle" class="nav-toggle" aria-controls="top-nav" aria-expanded="false">目次 ☰</button>
+<nav class="top-nav" id="top-nav" aria-label="ページ内目次">
+<a href="#summary">要約</a><a href="#population">人口・医療圏</a><a href="#care">医療提供</a><a href="#academia">大学・行政</a><a href="#device">機器市場</a><a href="#channel">流通</a><a href="#external">外部環境</a><a href="#strategy">戦略</a><a href="#sources">出典</a>
+</nav></div></header>
+<section class="hero"><div class="wrapper hero-grid">
+<div><div class="overline">Regional Market Intelligence / Saitama 2026–2040</div>
+<h1>埼玉県 医療機器<br>市場インテリジェンス</h1>
+<p class="sub">第8次地域保健医療計画 × 医療圏別病床 × 人口予測 × 供給体制 × 医療機器流通 × 戦略分析</p>
+<p>人口規模が大きく、地域ごとに異なる医療機能と人材制約を持つ埼玉県。更新・共同利用・在宅連携・医療機能分化を、公開された事実と仮説に分けて分析します。</p>
+<div class="hero-chips"><span class="chip">10二次医療圏</span><span class="chip">一次情報を優先</span><span class="chip">2030 / 2040 / 2050</span><span class="chip">中立的な医療機器商社の視点</span></div>
+<a class="btn-link" href="#strategy">Where to Play / How to Win を確認</a>
+</div><aside class="hero-aside"><h2>戦略を読む3つの視点</h2><ul>
+<li><strong>人口:</strong> 社会増を続ける地域と、自然減・高齢化が進む地域を区分。</li>
+<li><strong>機能:</strong> 2025年必要病床と2024年実績を比較。ただし<strong>差をそのまま不足床数と呼ばない。</strong></li>
+<li><strong>市場:</strong> 機器単体ではなく、検査件数・共同利用・技師人材・保守・BCPを束ねて評価。</li>
+</ul><p class="note" style="color:#d5e4ed;margin-top:15px">最終更新：2026年10月26日</p></aside>
+</div></section>
+<main id="content">
+<section id="summary" class="section"><div class="wrapper"><div class="section-head"><div><div class="eyebrow">01 / Executive overview</div><h2>調査サマリー</h2><p class="subtitle">最新の県統計と提供資料を並べて比較。集計対象・調査年次の異なる数値は別指標として扱います。</p></div></div>
+<div class="grid kpis">
+<div class="card accent"><div class="metric-label">2026年9月1日 推計人口</div><div class="metric-val">728.7<small style="font-size:.44em">万人</small></div><div class="metric-note">7,287,447人／県統計課 <a href="#source-P01">[P01]</a></div></div>
+<div class="card accent"><div class="metric-label">2023年度 医療機器末端市場</div><div class="metric-val">1,403<small style="font-size:.44em">億円</small></div><div class="metric-note">提供された市場調査による推計 <span class="badge estimate">推計</span><a href="#source-P23">[P23]</a></div></div>
+<div class="card accent"><div class="metric-label">2024年 医療施設従事医師</div><div class="metric-val">13,863<small style="font-size:.44em">人</small></div><div class="metric-note">県知事会見による公表 <a href="#source-P06">[P06]</a></div></div>
+<div class="card accent"><div class="metric-label">2040年 将来人口</div><div class="metric-val">695.3<small style="font-size:.44em">万人</small></div><div class="metric-note">社人研・令和5年推計 <span class="badge estimate">将来推計</span><a href="#source-P02">[P02]</a></div></div>
+</div>
+<div class="grid g3" style="margin-top:17px">
+<div class="card"><div class="icon-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20v-8h7v8M14 20V4h7v16M1 20h22M17 8h2M17 12h2M17 16h2"/></svg></div><h3>需要は都市部と山間部で二極化</h3><p>さいたま・東部・川越比企などは広域紹介と診療所需要を併せ持ちます。一方、秩父・北部は医師不足とアクセス維持が導入方式を左右します。</p></div>
+<div class="card"><div class="icon-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18M5 5l14 14M19 5L5 19"/></svg></div><h3>回復期・在宅との接続が鍵</h3><p>県地域医療構想の2025年回復期必要病床は16,717床、2024年報告は6,453床。定義と定量補正の違いを踏まえて医療機能を評価します。<a href="#source-P04">[P04]</a><a href="#source-P05">[P05]</a></p></div>
+<div class="card"><div class="icon-box"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-6 10 6v9l-10 6-10-6zM2 9l10 6 10-6M12 15v9"/></svg></div><h3>配送・設置・稼働支援が重要</h3><p>人材・資金・物流の制約があるため、商社には装置販売だけでなく教育、保守調整、設置工程、医療ITの接続を組み合わせる役割があります。</p></div>
+</div>
+<div class="callout" style="margin-top:18px"><p><strong>定量指標の読み方：</strong>市場規模1,403億円は2023年度の提供資料由来の第三者推計であり、行政確定値ではありません。将来の推計人口、必要病床、医療機器市場予測を混ぜて「実績」と表現しません。装置別県内台数も、未集計の箇所は空白のまま扱います。</p></div>
+<p class="note">計画：埼玉県第8次地域保健医療計画（2024～2029年度）／二次医療圏10圏域。<a href="#source-P03">[P03]</a></p>
+</div></section>
+<section id="population" class="section"><div class="wrapper"><div class="section-head"><div><div class="eyebrow">02 / Demography & geography</div><h2>人口動態と10医療圏</h2><p class="subtitle">自然減と社会移動を分け、医療圏ごとの人口・疾病・受療行動を複眼的に捉えます。</p></div></div>
+<div class="grid g2"><div class="chart-card"><h3>将来人口：埼玉・神奈川・千葉</h3><div class="chartbox"><canvas id="population-chart" role="img" aria-label="2020～2050年の推計人口推移グラフ"></canvas></div><p class="mini">出典：社人研 2023年推計。単位：万人。将来は見通しであり実績ではありません。<a href="#source-P02">[P02]</a></p></div>
+<div class="card"><h3>埼玉の人口構造の特徴</h3>
+<p><strong>2026年8月の1か月:</strong> 自然減3,186人、社会増705人、合計2,481人減少。県外転入15,842人、転出15,137人。<a href="#source-P01">[P01]</a></p>
+<p><strong>2040年65歳以上人口:</strong> 約232万人、高齢化率33.3%と県が見通す。<a href="#source-P18">[P18]</a> <span class="badge estimate">将来推計</span></p>
+<p><strong>都市・郊外差:</strong> 交通結節点と住宅地の人口移動に対し、秩父山間地域は地理的アクセス・搬送時間・人材確保を優先して分析します。</p>
+<p><strong>離島:</strong> 埼玉県に有人離島の二次医療圏はありません。へき地課題は離島ではなく山間・広域搬送の問題です。</p>
+</div></div>
+<h3 style="margin-top:26px">全国・隣接都県の将来人口比較（万人）<span class="badge estimate">社人研推計</span></h3>
+<div class="table-scroll"><table><thead><tr><th>地域</th><th class="num">2020年</th><th class="num">2040年</th><th class="num">2050年</th></tr></thead><tbody id="population-table"><tr><td colspan="4">データ読込中</td></tr></tbody></table></div>
+<p class="mini">全国平均のほか、東京・神奈川・千葉・茨城・栃木・群馬を併記。社人研の同一推計シリーズ。<a href="#source-P02">[P02]</a></p>
+<h3 style="margin-top:24px">10医療圏の病床機能：2024年7月1日実績と2025年必要量</h3>
+<div class="grid g2"><div class="chart-card"><h3>2024年機能別報告病床（10圏域）</h3><div class="chartbox"><canvas id="beds-chart" aria-label="医療圏別の病床機能内訳"></canvas></div><p class="mini">積上げは高度急性期／急性期／回復期／慢性期。休棟・未報告は図示せず、次の表に総数を掲載。<a href="#source-P04">[P04]</a></p></div>
+<div class="card"><h3>必要病床数と報告病床数は別物</h3>
+<p>2025年の必要病床は、地域医療構想策定時に推計した2025年需要に基づく数値です。2024年の病床機能報告は病棟単位での医療機関自己申告です。</p>
+<p>報告上の「急性期」に回復期相当の機能を含む施設もあるため、<strong>回復期の単純差をそのまま整備不足床数や新規機器の確約需要とは解釈しません。</strong><a href="#source-P05">[P05]</a></p>
+<div class="callout warning"><p><b>需要推計</b> 2025年：高度急性期5,528床・急性期17,954床・回復期16,717床・慢性期14,011床、計54,210床。<a href="#source-P05">[P05]</a></p></div>
+</div></div>
+<div class="table-scroll" style="margin-top:17px"><table><thead><tr><th>医療圏</th><th class="num">高度急性期</th><th class="num">急性期</th><th class="num">回復期</th><th class="num">慢性期</th><th class="num">総病床報告</th><th class="num">2025回復期推計</th><th class="num">2025必要病床合計</th><th class="num">回復期の単純差*</th><th class="num">分析スコア</th></tr></thead><tbody id="area-table"><tr><td colspan="10">データ読込中</td></tr></tbody></table></div>
+<p class="mini">出典：2024病床機能報告 <a href="#source-P04">[P04]</a>、2025年必要病床推計 <a href="#source-P05">[P05]</a>。*単純差は定義差・2025年までの整備等を調整しておらず、投資余地の量とは異なります。総病床報告は休棟・未報告を含みます。</p>
+<div class="callout" style="margin-top:16px"><p><strong>政策の動き：</strong>2025年2月公募で東部39床、川越比企50床、西部70床、合計159床が採択。病床整備の発表は調達契約や装置更新の決定を意味しません。<a href="#source-P15">[P15]</a></p></div>
+</div></section>
+<section id="care" class="section"><div class="wrapper"><div class="section-head"><div><div class="eyebrow">03 / Provider landscape</div><h2>医療提供体制と主要病院</h2><p class="subtitle">高次機能、救急、がん、災害、地域連携の機能で役割を比較。病院名の右側から地図を開けます。</p></div></div>
+<div class="grid g3"><div class="card"><h3>特定機能病院</h3><div class="metric-val">2<small style="font-size:.47em">施設</small></div><p>埼玉医科大学病院、防衛医科大学校病院。厚生労働省一覧を基準に確認。<a href="#source-P21">[P21]</a></p></div>
+<div class="card"><h3>救命救急センター</h3><div class="metric-val">11<small style="font-size:.47em">施設</small></div><p>県公表の三次救急。ほかに小児救命救急センター2施設。重複する施設を別病院として足さない。<a href="#source-P10">[P10]</a></p></div>
+<div class="card"><h3>災害拠点病院</h3><div class="metric-val">22<small style="font-size:.47em">施設</small></div><p>うち基幹3施設。2026年7月時点。輸送・電源・院内ネットワークのBCP対応が重要。<a href="#source-P11">[P11]</a></p></div></div>
+<div class="grid g2" style="margin-top:17px"><div class="card"><h3>病院グループと機能分担</h3><p>県立病院機構、国立病院機構、赤十字、済生会、大学附属、自治体病院、上尾中央医科グループ、戸田中央メディカルケアグループ、石心会など、設置主体・病院機能の多様性が大きい地域です。設備投資はグループ本部と現場の両面で意思決定を確認する必要があります。</p><p>基幹高度医療は拠点集積、在宅・回復期は地域連携重視と捉え、病院数だけで市場を判断しないことが重要です。</p></div>
+<div class="card"><h3>疾患領域別ネットワーク</h3><p>がん：県立がんセンターを都道府県がん診療連携拠点とし、国・県指定病院が各地に配置されています。<a href="#source-P12">[P12]</a></p><p>救急・災害：県内11救命救急センター、22災害拠点病院を核とする広域医療。<a href="#source-P10">[P10]</a><a href="#source-P11">[P11]</a></p><p>地域医療支援病院：紹介・逆紹介や設備共同利用、研修機能について、県公表の業務報告を施設単位に参照できます。<a href="#source-P13">[P13]</a></p></div></div>
+<div style="margin:25px 0 12px"><h3>主要病院・行政・医師会・保健所マップ</h3><p class="mini">Leaflet × 国土地理院 標準地図。地図タイル出典「地理院タイル」。ピン位置は概略中心であり建物入口位置とは限りません。</p></div>
+<div class="filters" aria-label="施設種別切替"><button class="tabbtn" data-kind="all" aria-pressed="true">すべて</button><button class="tabbtn" data-kind="hospital" aria-pressed="false">主要病院</button><button class="tabbtn" data-kind="health" aria-pressed="false">保健所</button><button class="tabbtn" data-kind="public" aria-pressed="false">県庁・医師会</button><label class="sr-only" for="place-search">施設名検索</label><input id="place-search" type="search" placeholder="施設名・市町村で検索" aria-label="施設検索"><span class="mini" id="place-count">施設</span></div>
+<div class="maprow"><div class="mapleft"><div id="map" role="region" aria-label="埼玉県 医療機関・保健所の概略地点マップ">地図を読み込み中…</div><div class="mini">© 国土地理院「地理院タイル」 / Leaflet。施設所在地は県公開名簿 <a href="#source-P09">[P09]</a><a href="#source-P11">[P11]</a>、地図の緯度・経度は概略です。</div></div><div class="mapright" id="places-list" aria-live="polite"><p class="note">施設一覧を読み込み中…</p></div></div>
+</div></section>
+<section id="academia" class="section"><div class="wrapper"><div class="section-head"><div><div class="eyebrow">04 / Education, medical societies, government</div><h2>医科大学・医師会・行政</h2><p class="subtitle">県内に所在する医学教育の主要機関と、県外大学に本拠を持つ附属病院を区別します。</p></div></div>
+<div class="grid g2">
+<div class="card"><h3>県内の医学教育機関</h3>
+<p><b>埼玉医科大学（毛呂山町）</b>：埼玉医科大学病院、総合医療センター（川越）、国際医療センター（日高）。大学と附属施設は複数医療圏にまたがり、高度急性期・周産期・がん領域等に影響します。</p>
+<p><b>防衛医科大学校（所沢市）</b>：防衛医科大学校病院。国の機関による医学教育であり、一般の学校法人大学とは設置主体が異なります。</p>
+<p><b>県外本校を持つ附属病院</b>：獨協医科大学埼玉医療センター、自治医科大学附属さいたま医療センター、北里大学メディカルセンター。県内の医学部新設校とは数えません。</p>
+<p class="mini">研修医募集・診療科・新棟計画等の最新事業は、各大学・病院の正式発表で個別に確認が必要です。未確定の改築案を確定投資として掲載しません。</p></div>
+<div class="card"><h3>県医師会・郡市医師会</h3><p>埼玉県医師会は、郡市・大学医師会との連携を行い、地域医療、健康づくり、予防接種、研修等を支えます。組織概要・会員数は年度指定で公表されています。<a href="#source-P08">[P08]</a></p><p>浦和・大宮・川口市・川越市・所沢市・熊谷市などの郡市医師会が地域の医療連携・開業支援の相談窓口になります。<a href="#source-P07">[P07]</a></p><p>医療DXは県内一律ではなく、診療所のネットワーク・電子処方箋・情報共有基盤の実装状況を施設単位で確認することが適切です。</p></div>
+<div class="card"><h3>行政と保健所</h3><p>県保健医療部の医療整備課・保健医療政策課などが医療計画・許認可・医師確保を所管。県設置の保健所は<strong>13か所</strong>、さいたま市・川越市・越谷市・川口市には市設置の<strong>4保健所</strong>があります。<a href="#source-P09">[P09]</a></p><p>全17保健所と県庁・県医師会は上の施設一覧に掲載。各機関にGoogleマップと地理院地図へのリンクを用意しています。</p></div>
+<div class="card"><h3>補助金・医療DX・病院整備</h3><p>2026年度県予算は病床機能転換促進、県北の救急医療体制確保、地域医療介護総合確保基金（医療分）などの事業区分を公開しています。<a href="#source-P24">[P24]</a></p><p>一般論として、基金対象は制度上の適格性・公募要件・交付決定・年度を確認すべきです。特定製品の購入に当然充当可能と解釈してはいけません。</p></div>
+</div>
+</div></section>
+<section id="device" class="section"><div class="wrapper"><div class="section-head"><div><div class="eyebrow">05 / Equipment market</div><h2>医療機器市場：モダリティ別の需給と更新</h2><p class="subtitle">装置保有と売上・検査回数・更新需要は異なる概念。確認可能な県統計・外来機能報告を出典に評価します。</p></div></div>
+<div class="grid g2"><div class="card"><h3>機器市場を定量化する手順</h3><ol><li><b>Installed Base：</b>2023年医療施設調査の病院・診療所別台数（T74/T75等）を取得。</li><li><b>稼働量：</b>外来・入院撮影回数、共同利用率、機器稼働日数を分離。</li><li><b>更新候補：</b>設置年・保守契約・サービス部品・改修・診療報酬を確認。</li><li><b>購入余力：</b>病院経営、助成制度、リース、保守負担を併せて評価。</li></ol><p>今回の公開資料だけでは、US・CT・MRI等すべての県内保有台数と全国比を同一定義・同一年次で確定できないため、数値は推測で補っていません。</p></div><div class="card"><h3>更新需要の参考シナリオ <span class="badge estimate">分析モデル</span></h3><p>仮に、ある圏域の保有台数を100台、更新サイクルを8〜12年と置くと、単純な年間更新候補は約8〜13台。実際には使用年数の分布・財務・稼働率・補助採択・中古/リース有無で大きく変動します。</p><p><b>注意：</b>この例は計算方法の説明用であり、埼玉県の実績台数・更新見込みではありません。</p><p class="mini">公式調査：<a href="#source-P14">[P14]</a><a href="#source-P22">[P22]</a>。人口当たり台数の全国比較は、同じ調査票の病院・診療所両方を集計した後に公表対象となります。</p></div></div>
+<div class="table-scroll" style="margin-top:17px"><table><thead><tr><th>機器領域</th><th>設置台数の確認</th><th>需要の中心</th><th>更新・商社機能</th></tr></thead><tbody id="modality-tbody"><tr><td colspan="4">データ読込中</td></tr></tbody></table></div>
+<div class="grid g3" style="margin-top:17px"><div class="card"><h3>US・XR・DEXA</h3><p>外来・健診・慢性疾患・訪問診療で利用。診療科別の検査件数、操作者教育、部屋レイアウト、保守体制が更新判断に影響。</p></div><div class="card"><h3>CT・MRI・PET・放射線治療</h3><p>基幹病院の投資計画に依存。共同利用、専門人材、電源/磁気環境、造影、安全設備、遠隔読影・病院情報システムの接続が重要。</p></div><div class="card"><h3>内視鏡・心電図・透析</h3><p>診療件数だけでなく洗浄消毒・透析液・消耗品・保守・訓練・患者移送を含む継続運用費で評価。</p></div></div>
+</div></section>
+<section id="channel" class="section"><div class="wrapper"><div class="section-head"><div><div class="eyebrow">06 / Supply chain & distribution</div><h2>流通構造と医療機器ディーラー</h2><p class="subtitle">公開された事業領域・販売網の存在と、提供市場資料によるシェア推計は明確に区別します。</p></div></div>
+<div class="grid g2"><div class="card"><h3>提供調査における県市場の構造</h3><p>2023年度の末端市場推計<strong>1,403億円</strong>に対し、専業医療機器ディーラーによる直販額を<strong>1,068億円（76.1%）</strong>と整理した提供資料があります。数値は民間調査推計であり、政府統計の確定値ではありません。<a href="#source-P23">[P23]</a></p><p>取引会社別売上・順位の転載は、資料の公開・再利用条件が確認できないため掲載しません。</p><div class="progress"><i style="width:76.1%"></i></div><p class="mini">専業ディーラー直販の推計構成比／2023年度（第三者推計）</p></div>
+<div class="card"><h3>複層的な流通ネットワーク</h3><p>医療機器専門ディーラー、医薬品卸・医療材料商社、メーカー販社、物流・保守委託業者などが同じ医療機関に関与します。</p><p>地域で活動する企業として、栗原医療器械店、平和医用商会、ムトウ、アスト、MMコーポレーション、イノメディックス、広域医薬品卸グループなどを、公表事業範囲を確認する対象にします。</p><p class="mini">企業名の列挙は推奨順位・取引関係・現時点の市場シェアを意味しません。</p></div></div>
+<div class="grid g3" style="margin-top:17px"><div class="card"><h3>急性期・大学病院</h3><p>装置稼働率、保守SLA、部門横断調整、医療情報システム、院内搬入・感染対策。調達には医療部門と事務・施設管理の協働が必要。</p></div><div class="card"><h3>診療所・承継</h3><p>開業医支援、内装、資金調達、診療科パッケージ、導入時研修、検査報告。購入以外の選択肢も含め比較する。</p></div><div class="card"><h3>山間・広域</h3><p>配送距離、設置工事、予備機、保守員移動、停電対策、アクセス道路、部品供給の継続性で差が出る。</p></div></div>
+</div></section>
+<section id="external" class="section"><div class="wrapper"><div class="section-head"><div><div class="eyebrow">07 / External factors & risks</div><h2>外部環境・地域医療リスク</h2><p class="subtitle">制度変更は「決定」「検討」「仮説」を分けて市場影響を評価します。</p></div></div>
+<div class="grid g3"><div class="card"><h3>医療政策・診療報酬</h3><p>2024–2029年の第8次計画、病床機能分化、医師の働き方改革、医療DXが経営判断に影響。診療報酬改定の細目は当該告示・通知で確認します。<a href="#source-P03">[P03]</a></p></div><div class="card"><h3>災害・地政学</h3><p>首都直下地震、荒川流域等の洪水、輸送遮断・停電・水害により設備の稼働継続が脅かされます。輸入部品、半導体、精密素材、ヘリウムの供給・価格変動も監視対象。<a href="#source-P20">[P20]</a></p></div><div class="card"><h3>医師・医療従事者不足</h3><p>2024年県内医師数13,863人。ただし都市部の増加に対し北部・秩父では人材不足が顕著。設備導入は医師・技師の教育負担、読影力、保守体制で実現可能性が変わります。<a href="#source-P06">[P06]</a></p></div></div>
+<div class="callout warning" style="margin-top:17px"><p><b>リスク評価（推計）：</b>交換部品の供給断絶、高額機器の償却負担、医師不足、浸水・停電、病院統廃合、在庫・物流制約、サイバーインシデント、政策変更の7つを設備投資の前提条件として点検します。事故発生確率や損失額を示すものではありません。</p></div>
+</div></section>
+<section id="strategy" class="section"><div class="wrapper"><div class="section-head"><div><div class="eyebrow">08 / Where to Play × How to Win</div><h2>中立的な医療機器商社の戦略</h2><p class="subtitle">PEST → 3C → STP → 4P/4C → VRIO → 5 Forces → KSF の順に検証し、医療圏別の資源配分につなげます。</p></div></div>
+<div class="grid g2"><div class="card" style="border-top:4px solid #0e7c83"><h3>Where to Play — どこを選ぶか</h3><p>① 高度急性期・診療所が集積する都市部、② 病床機能再編と在宅連携が動く周辺都市、③ 医師不足・交通制約のある山間・北部を別市場として設計。</p><p>医療圏の機能、実患者流入、保有装置の更新年、自治体公募、医療法人の意思決定体制を多面的に見る。</p></div><div class="card" style="border-top:4px solid #b3792c"><h3>How to Win — 何で選ばれるか</h3><p>選定理由は製品単価だけではなく、診療フローの設計、機器共同利用、設置・工程管理、教育、保守SLA、PACS接続、BCP支援など、<strong>医療機関の総運用負担を下げる実装力</strong>。</p><p>商社間連携・物流・サービスと、施設の調達方針に沿った透明な比較資料を提供する。</p></div></div>
+<h3 style="margin:24px 0 8px">医療圏ごとの戦略優先度 <span class="badge estimate">独自評価・更新可能</span></h3>
+<div class="grid g2"><div class="chart-card"><h3>優先度スコア（0～100）</h3><div class="chartbox" style="height:390px"><canvas id="score-chart" aria-label="分析スコアによる医療圏順位グラフ"></canvas></div><p class="mini">評価軸：需要量30%、高齢化25%、人材制約20%、拠点機能15%、地域完結・BCP10%。原データで点数を直接推計したものではなく、公表資料に基づく定性的評価（独自分析）。</p></div>
+<div class="card"><h3>評価軸の重み（合計100%）</h3><p class="mini">重みを変更すると順位・カードが即時更新されます。指標の数値は分析者の5段階判断に基づく仮置きであり、県の公式格付けではありません。</p><div id="score-weights" class="grid g2"></div><div class="callout warning" style="margin-top:15px"><p>高スコアは売上見込みの保証ではありません。地域医療における公平性や離島・へき地への対応は、経済規模と別の政策目的で評価します。</p></div></div></div>
+<div class="grid g2" id="regions-grid" style="margin-top:19px"><p>地域別評価を読み込み中…</p></div>
+<h3 style="margin:29px 0 12px">戦略フレームワークの接続</h3>
+<div class="framework-grid">
+<div class="card"><h3><span>01</span> PEST｜マクロ環境</h3><p><b>P：</b>地域医療構想・診療報酬・補助金。<b>E：</b>病院財務、物価、為替・部材調達。<b>S：</b>高齢化、都市と山間の人口差、人材不足。<b>T：</b>遠隔読影・PACS・AI、機器省人化、DX。</p></div>
+<div class="card"><h3><span>02</span> 3C｜市場と顧客・競争</h3><p><b>Customer：</b>病院・診療所・在宅連携。<b>Competitor：</b>メーカー、卸、地域商社、設備共同利用モデルの競合。<b>Company：</b>商社の物流・アフターサービス・マルチブランド提案機能（固有企業評価なし）。</p></div>
+<div class="card"><h3><span>03</span> STP｜顧客選択</h3><p><b>Segmentation：</b>医療圏×病院機能×診療科×設備更新年。<b>Targeting：</b>急性期更新、病診連携、診療所開設・承継、山間医療。<b>Positioning：</b>総所有コストと安定稼働を説明できる中立的統合支援。</p></div>
+<div class="card"><h3><span>04</span> 4P｜提供内容</h3><p><b>Product：</b>装置＋IT＋教育＋保守。<b>Price：</b>TCOと月額負担の提示。<b>Place：</b>広域倉庫・拠点配置・共同利用。<b>Promotion：</b>診療科課題別の教育・比較・実績説明。</p></div>
+<div class="card"><h3><span>05</span> 4C｜医療機関側の視点</h3><p><b>Customer Value：</b>検査能力・質・迅速性。<b>Cost：</b>償却・人件費・停止損失。<b>Convenience：</b>一括調達・搬入・相互接続。<b>Communication：</b>長期的な共同改善と透明な情報提供。</p></div>
+<div class="card"><h3><span>06</span> VRIO｜持続優位性</h3><p><b>V：</b>専門スタッフ・検査業務知識。<b>R：</b>多圏域の搬入・保守調整経験。<b>I：</b>施設との信頼・現場定着支援は模倣難。<b>O：</b>教育・品質保証・データ管理への組織投資が必要。</p></div>
+<div class="card"><h3><span>07</span> 5 Forces｜競争構造</h3><p>既存企業間の価格競争、病院グループの交渉力、メーカーの供給・保守条件、直販/共同利用への代替、医療規制・設置専門性という新規参入障壁を分解。</p></div>
+<div class="card"><h3><span>08</span> KSF｜主要成功要因</h3><ol><li>施設の更新時期・診療科需要を見極める情報力</li><li>検査・IT・保守・設置を束ねる実装力</li><li>地域医療連携と医師・技師教育</li><li>透明な費用比較と納期・サービス品質</li><li>災害・人材・調達制約に耐える継続性</li></ol></div>
+</div>
+<div class="grid g2" style="margin-top:17px"><div class="card"><h3>短期（0～12か月）</h3><p>10医療圏ごとに施設一覧・設置台数・稼働件数・更新年次・入札/公募状況・共同利用意向を公式情報で整備。病院へのヒアリングでは保守・設置工事・人員計画も同時確認。</p><p><strong>確認KPI：</strong>公開データの充足率、施設検証数、保守条件比較完了数、共同利用候補数。</p></div><div class="card"><h3>中期（1～5年）</h3><p>共同利用・読影連携・遠隔保守・更新プログラムを複数施設で検証。成功例を条件付きで横展開し、県北・山間部は配送・緊急対応・診療機能維持を別モデルで管理。</p><p><strong>確認KPI：</strong>稼働率、検査待ち日数、停止時間、1検査当たり総費用、紹介・逆紹介件数。</p></div></div>
+<h3 style="margin:23px 0 8px">SWOT：機会と制約を両方見る</h3>
+<div class="grid g2"><div class="card"><h3>S｜強み</h3><p>人口集積、大学病院・災害拠点・地域中核、首都圏の物流結節性。</p></div><div class="card"><h3>W｜弱み</h3><p>全国的に医師が少なく、県内偏在も大きい。高次機能と地域完結性の地域差。</p></div><div class="card"><h3>O｜機会</h3><p>回復期・在宅連携、病院の設備更新、診療所継承、検査共同利用、医療DX。</p></div><div class="card"><h3>T｜脅威</h3><p>病院財務悪化、医師不足、供給制約、地震・洪水、調達長期化、過度な値引き競争。</p></div></div>
+</div></section>
+<section id="sources" class="section"><div class="wrapper"><div class="section-head"><div><div class="eyebrow">09 / Research integrity</div><h2>出典一覧・調査限界</h2><p class="subtitle">公的統計の更新日、推計系列、事業資料の年次を表示。原典を直接開いて確認できます。</p></div></div>
+<p id="data-status" class="badge">データ読込中</p>
+<div id="sources-list" class="sources" style="margin-top:16px"><p>出典一覧を読み込み中…</p></div>
+<div class="grid g2" style="margin-top:22px">
+<div class="card"><h3>一次資料と提供資料の扱い</h3><p>各数値の年次・出典を付記しています。市場規模・流通推計は添付の市場調査を分析の背景として使いますが、未公開の社内数値・営業目標・商談先順位・顧客情報・契約条件は公開しません。</p><p>機器設置台数や地域医療圏別人口の最新実測について、同一定義の原表による照合が未完了の部分は集計未了と明記します。データがないことと台数ゼロは異なります。</p></div>
+<div class="card"><h3>更新・訂正ポリシー</h3><p>新しい県統計・社人研推計・病床機能報告・指定名簿が公開された場合、年度と集計定義を併記して差し替えます。図表の計算ロジックはソースファイル（data/market.json、assets/site.js）で確認できます。</p><p><strong>更新日：</strong>2026年10月26日。地図座標は概略で、病院所在地の最終確認は各施設の公式案内を優先してください。</p></div>
+</div></div></section>
+</main>
+<footer class="footer"><div class="wrapper"><h3 style="color:white;margin:0">Japan Medical Market Intelligence / 埼玉県</h3><p>本資料は公開情報および提供された研究資料を基にした独立した調査・考察です。特定メーカー・医療機器商社・医療機関の推奨や保証を意図しません。統計の正確性、将来予測、施設情報、リンク先情報の完全性は保証せず、投資・調達判断に際しては必ず原資料と最新告示をご確認ください。</p>
+<p><a class="btn-link" href="https://sinobu13-bpei.github.io/medical-intelligence/">関連リンク：医療機器市場インテリジェンス TOP</a></p>
+<small>最終更新 2026-10-26｜Sources: 埼玉県・厚生労働省・社人研・政府統計・提供市場調査。© Research compilation. 出典・引用ルールを尊重し、原典へのリンクを付記。</small></div></footer>
+</body></html>
