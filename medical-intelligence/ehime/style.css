@@ -127,3 +127,10 @@ footer .footer-button{min-height:44px}
 .chart-values{width:100%;max-width:100%;min-width:0;overflow-x:clip;box-sizing:border-box}
 .chart-values .table-scroll{display:block;width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;contain:inline-size}
 .chart-values table{width:max-content;min-width:410px;max-width:none}
+
+/* Narrow phones: numeric tables fit inside the card rather than imposing a 410px width. */
+@media(max-width:640px){
+ .chart-values table{width:100%!important;min-width:0!important;max-width:100%!important;table-layout:fixed}
+ .chart-values th,.chart-values td{padding:6px 4px;font-size:11px;overflow-wrap:anywhere;word-break:break-word}
+ .chart-values .table-scroll{width:100%!important;min-width:0!important;max-width:100%!important;overflow-x:auto}
+}
