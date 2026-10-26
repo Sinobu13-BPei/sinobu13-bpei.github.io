@@ -66,9 +66,21 @@ try{
  if(width<700){
  const toggled=await ev('(()=>{const b=document.querySelector(".nav-toggle");b.click();return {expanded:b.getAttribute("aria-expanded"),open:document.querySelector("#main-nav").classList.contains("is-open")}})()');
  assert.equal(toggled.expanded,"true");assert.ok(toggled.open);
+ const closed=await ev('(()=>{const b=document.querySelector(".nav-toggle");b.click();return {expanded:b.getAttribute("aria-expanded"),open:document.querySelector("#main-nav").classList.contains("is-open")}})()');
+ assert.equal(closed.expanded,"false");assert.ok(!closed.open);
  }
  const shot=await send("Page.captureScreenshot",{format:"png",fromSurface:true,captureBeyondViewport:false});
  writeFileSync(join(artifacts,"hyogo-"+label+".png"),Buffer.from(shot.data,"base64"));
+ if(label==="desktop"||label==="mobile"){
+   await ev('document.querySelector("#facilities")?.scrollIntoView({behavior:"instant",block:"start"})');
+   await sleep(180);
+   let capture=await send("Page.captureScreenshot",{format:"png",fromSurface:true,captureBeyondViewport:false});
+   writeFileSync(join(artifacts,"hyogo-"+label+"-facilities.png"),Buffer.from(capture.data,"base64"));
+   await ev('document.querySelector("#map-section")?.scrollIntoView({behavior:"instant",block:"start"})');
+   await sleep(180);
+   capture=await send("Page.captureScreenshot",{format:"png",fromSurface:true,captureBeyondViewport:false});
+   writeFileSync(join(artifacts,"hyogo-"+label+"-map.png"),Buffer.from(capture.data,"base64"));
+ }
  console.log("HYOGO BROWSER QA",label,JSON.stringify(state));
  }
  const filtered=await ev('(()=>{const f=document.querySelector("#association-filter");f.value="阪神";f.dispatchEvent(new Event("change",{bubbles:true}));return {rows:document.querySelectorAll("#medical-association-rows tr").length,label:document.querySelector("#association-results").textContent}})()');
