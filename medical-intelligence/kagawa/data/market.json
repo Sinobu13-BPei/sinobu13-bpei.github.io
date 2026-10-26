@@ -123,15 +123,15 @@
     ],
     [
       "S21",
-      "厚生労働省「令和8年版厚生労働白書（医師偏在）」",
-      "2026年",
+      "厚生労働省「令和7年版厚生労働白書」",
+      "2025年",
       "https://www.mhlw.go.jp/stf/wp/hakusyo/kousei/25/index.html"
     ],
     [
       "S22",
-      "香川県「南海トラフ・防災情報」",
-      "閲覧2026年",
-      "https://www.pref.kagawa.lg.jp/kikikanri/"
+      "香川県「南海トラフ地震の被害想定報告書」",
+      "2025年",
+      "https://www.pref.kagawa.lg.jp/kikikanri/jishin-tunami/higaisotei/r7houkokusho.html"
     ],
     [
       "S23",
@@ -168,6 +168,12 @@
       "香川県「指定病院の住所・機能（県立中央病院）」",
       "2025年4月・2026年5月",
       "https://www.chp-kagawa.jp/hospital/gaiyou/"
+    ],
+    [
+      "S29",
+      "香川県「かがわ医療情報ネットワーク（K-MIX R）」",
+      "2021年開始・閲覧2026年",
+      "https://www.pref.kagawa.lg.jp/imu/iryoushisaku/kfvn2-3.html"
     ]
   ],
   "population": {
@@ -454,7 +460,7 @@
       "lat": 34.087,
       "long": 133.65,
       "type": "救命救急・がん拠点",
-      "url": "https://www.mitoyo-hosp.jp/"
+      "url": "https://mitoyo-hosp.jp/"
     },
     {
       "name": "総合病院回生病院",
@@ -468,10 +474,10 @@
     {
       "name": "香川県医師会",
       "area": "east",
-      "address": "香川県高松市",
-      "lat": 34.342,
-      "long": 134.046,
-      "type": "医師会（所在地は市レベル）",
+      "address": "香川県高松市浜ノ町73番4号",
+      "lat": 34.351,
+      "long": 134.042,
+      "type": "医師会",
       "url": "https://www.kagawa.med.or.jp/"
     },
     {
