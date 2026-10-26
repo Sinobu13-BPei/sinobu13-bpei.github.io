@@ -11,7 +11,7 @@ const artifacts=join(dir,'qa-artifacts');mkdirSync(artifacts,{recursive:true});
 const mimes={'.html':'text/html; charset=utf-8','.json':'application/json','.js':'text/javascript','.css':'text/css'};
 const server=createServer((req,res)=>{try{let u=decodeURIComponent(new URL(req.url,'http://localhost').pathname);if(u.endsWith('/'))u+='index.html';const f=resolve(base,'.'+u);if(!f.startsWith(base+'/')||!existsSync(f)){res.writeHead(404);return res.end('missing')}res.writeHead(200,{'Content-Type':mimes[extname(f)]||'application/octet-stream'});res.end(readFileSync(f))}catch(e){res.writeHead(500);res.end('error')}});
 const sleep=n=>new Promise(r=>setTimeout(r,n));
-let chrome,socket,profile;let serial=0;const waiting=new Map(),report=[];
+let chrome,socket,profile,chromeStderr='';let serial=0;const waiting=new Map(),report=[];
 function send(method,params={}){return new Promise((yes,no)=>{let id=++serial,timer=setTimeout(()=>{waiting.delete(id);no(Error('CDP timeout: '+method))},22000);waiting.set(id,{yes,no,timer});socket.send(JSON.stringify({id,method,params}))})}
 async function ev(expression){const z=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(z.exceptionDetails)throw Error(JSON.stringify(z.exceptionDetails));return z.result?.value}
 const readState="(()=>({ready:document.readyState,view:innerWidth,scroll:document.documentElement.scrollWidth,body:document.body.scrollWidth,map:document.querySelector('#facilityMap')?.getBoundingClientRect().height,heat:document.querySelectorAll('#visualHeatmap .v-hm-cell').length,priority:document.querySelectorAll('#visualPriorityMatrix .v-p-cell').length,icons:document.querySelectorAll('.v-modality-grid use').length,charts:[...document.querySelectorAll('.v-chart')].map(x=>x.getBoundingClientRect().width),cards:document.querySelectorAll('#facilityList .facility').length,area:document.querySelector('#visualAreaDetail')?.innerText||''}))()";
@@ -32,11 +32,11 @@ async function runViewport(w,h,url){
 }
 try{
  await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
- const c=spawnSync('which',['chromium'],{encoding:'utf8'}),d=spawnSync('which',['google-chrome'],{encoding:'utf8'});const bin=c.status===0?c.stdout.trim():d.status===0?d.stdout.trim():'';assert.ok(bin,'browser binary');
+ const c=spawnSync('which',['chromium'],{encoding:'utf8'}),d=spawnSync('which',['google-chrome'],{encoding:'utf8'});const bin=d.status===0?d.stdout.trim():c.status===0?c.stdout.trim():'';assert.ok(bin,'browser binary');
  profile=mkdtempSync(join(tmpdir(),'kagawa-cdp-'));const port=29353;
- chrome=spawn(bin,['--headless=new','--no-sandbox','--disable-dev-shm-usage','--disable-extensions','--remote-debugging-port='+port,'--user-data-dir='+profile,'about:blank'],{stdio:'ignore'});
+ chrome=spawn(bin,['--headless=new','--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--disable-extensions','--no-first-run','--no-default-browser-check','--remote-allow-origins=*','--remote-debugging-port='+port,'--user-data-dir='+profile,'about:blank'],{stdio:['ignore','ignore','pipe']});chrome.stderr.on('data',chunk=>{chromeStderr+=String(chunk).slice(0,4000)});
  let target;for(let i=0;i<130;i++){try{const r=await fetch('http://127.0.0.1:'+port+'/json');if(r.ok){target=(await r.json()).find(x=>x.type==='page'&&x.webSocketDebuggerUrl);if(target)break}}catch(e){}await sleep(100)}
- assert.ok(target,'browser debugger');socket=new WebSocket(target.webSocketDebuggerUrl);
+ assert.ok(target,'browser debugger; binary='+bin+'; exitCode='+chrome.exitCode+'; stderr='+chromeStderr.slice(-1200));socket=new WebSocket(target.webSocketDebuggerUrl);
  await new Promise((ok,no)=>{socket.addEventListener('open',ok,{once:true});socket.addEventListener('error',no,{once:true})});
  socket.addEventListener('message',e=>{let m=JSON.parse(e.data),w=waiting.get(m.id);if(!w)return;clearTimeout(w.timer);waiting.delete(m.id);if(m.error)w.no(Error(JSON.stringify(m.error)));else w.yes(m.result||{})});
  await send('Page.enable');await send('Runtime.enable');
