@@ -62,6 +62,16 @@ try{new window.Chart($('fsAreaChart'),{type:'bar',data:{labels:regionSort.map(id
 try{const ordered=[...data.municipalities].sort((a,b)=>b.clinics-a.clinics);
 new window.Chart($('fsTownChart'),{type:'bar',data:{labels:ordered.map(x=>x.name),datasets:[{label:'一般診療所数',data:ordered.map(x=>x.clinics),backgroundColor:ordered.map(x=>colors[x.region]),borderRadius:3,maxBarThickness:19}]},options:{...base,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.parsed.x)+'施設（2024年10月）'}}},scales:{x:{beginAtZero:true,ticks:{color:'#476578',precision:0},grid:{color:'#e9eef2'}},y:{ticks:{color:'#476578',font:{size:10}},grid:{display:false}}}}})}catch(e){console.warn('Municipality chart unavailable',e)}
 }
+function associationChart(){
+ if(!window.Chart)return;
+ const c=$('fsAssocChart');if(!c)return;
+ const members=[...data.associations].sort((a,b)=>b.emergency-a.emergency);
+ try{
+ new window.Chart(c,{type:'bar',
+ data:{labels:members.map(x=>x.name.replace('医師会','')),datasets:[{label:'当番参加医療機関数（2023年）',data:members.map(x=>x.emergency),backgroundColor:members.map(x=>colors[x.area]),maxBarThickness:19,borderRadius:4}]},
+ options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>fmt(ctx.parsed.x)+'施設（2023年4月時点・在宅当番医制）'}}},scales:{x:{beginAtZero:true,ticks:{precision:0,color:'#567386'},grid:{color:'#e8f0f4'}},y:{ticks:{color:'#426174',font:{size:11}},grid:{display:false}}}}});
+ }catch(e){console.warn('Association chart fallback',e)}
+}
 function setupButtons(){
 for(const b of document.querySelectorAll('[data-fs-area]'))b.addEventListener('click',()=>{
 region=b.dataset.fsArea;
@@ -76,7 +86,7 @@ data=await response.json();
 if(data.municipalities?.length!==17||data.associations?.length!==9)throw Error('Incorrect facility supply schema');
 const sum=summarize(data.municipalities);
 if(sum.hospitals!==86||sum.clinics!==813||sum.hospitalBeds!==13911)throw Error('Source totals not reconciled');
-areaTotals();renderCityRows();associationRows();references();charts();setupButtons();
+areaTotals();renderCityRows();associationRows();references();charts();associationChart();setupButtons();
 }catch(e){console.warn('Facility supply data fallback',e);const el=$('fsMunicipalityTotals');if(el)el.textContent='2024年10月の香川県施設数：病院86・一般診療所813。詳細データ読込に失敗したため市町表は抜粋表示です。';}
 }
 document.addEventListener('DOMContentLoaded',init);
