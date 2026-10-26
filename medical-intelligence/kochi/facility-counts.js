@@ -1,0 +1,69 @@
+/* Public-source medical facility aggregates, Kochi. 2026-10-27.
+ * 2023 totals: MHLW 2023 medical facilities survey, N11/N20.
+ * 2026 municipal counts: national Navi open data 2026-06-01, as aggregated by publicly available "医療機関マップ".
+ * Regional association catchments: Kochi Medical Association public directory, not membership counts.
+ * Never interpret the 2023->2026 difference as closures: definitions differ.
+ */
+window.KOCHI_FACILITY_COUNTS={
+  census2023:[
+    {region:"安芸",hospitals:6,clinics:36,bedded:5},
+    {region:"中央",hospitals:89,clinics:382,bedded:41},
+    {region:"高幡",hospitals:8,clinics:36,bedded:2},
+    {region:"幡多",hospitals:15,clinics:60,bedded:7}
+  ],
+  municipalityBaseDate:"2026-06-01",
+  municipalities:[
+["高知市","中央","高知市医師会",59,211,182],
+["土佐市","中央","高知市医師会",3,11,8],
+["室戸市","安芸","安芸郡医師会",2,4,4],
+["安芸市","安芸","安芸郡医師会",2,11,7],
+["東洋町","安芸","安芸郡医師会",0,2,1],
+["奈半利町","安芸","安芸郡医師会",0,3,2],
+["田野町","安芸","安芸郡医師会",1,0,2],
+["安田町","安芸","安芸郡医師会",0,1,1],
+["北川村","安芸","安芸郡医師会",0,0,0],
+["馬路村","安芸","安芸郡医師会",0,2,0],
+["芸西村","安芸","安芸郡医師会",1,2,1],
+["香南市","中央","香美郡医師会",1,19,13],
+["香美市","中央","香美郡医師会",3,15,12],
+["南国市","中央","土佐長岡郡医師会",9,22,15],
+["本山町","中央","土佐長岡郡医師会",1,1,1],
+["大豊町","中央","土佐長岡郡医師会",1,2,1],
+["土佐町","中央","土佐長岡郡医師会",1,1,1],
+["大川村","中央","土佐長岡郡医師会",0,1,0],
+["いの町","中央","吾川郡医師会",4,14,7],
+["仁淀川町","中央","吾川郡医師会",1,3,1],
+["須崎市","高幡","高岡郡医師会",4,7,8],
+["中土佐町","高幡","高岡郡医師会",1,4,2],
+["梼原町","高幡","高岡郡医師会",1,2,1],
+["津野町","高幡","高岡郡医師会",0,3,2],
+["四万十町","高幡","高岡郡医師会",2,6,7],
+["佐川町","中央","高岡郡医師会",2,6,3],
+["越知町","中央","高岡郡医師会",4,1,0],
+["日高村","中央","高岡郡医師会",0,1,1],
+["宿毛市","幡多","幡多医師会",5,9,10],
+["土佐清水市","幡多","幡多医師会",3,3,5],
+["四万十市","幡多","幡多医師会",6,24,17],
+["大月町","幡多","幡多医師会",1,0,2],
+["三原村","幡多","幡多医師会",0,1,0],
+["黒潮町","幡多","幡多医師会",0,6,6]
+  ],
+  associations:[
+{name:"高知市医師会",city:"高知市",address:"高知市丸ノ内1丁目7-45",url:"https://www.kochi-med.or.jp/",lat:33.557,lng:133.529,scope:"高知市・土佐市",note:"2024年4月時点の会員751名／医療機関263（医師会自身の発表）。2026年6月の地域施設集計とは定義・年次が異なる。"},
+{name:"安芸郡医師会",city:"安芸市",address:"安芸市庄之芝町1-46",url:"https://www.kochi.med.or.jp/about/gunshi.html",lat:33.504,lng:133.905,scope:"安芸市・室戸市・安芸郡9市町村のうち北川村を含む区域集計",note:"県医師会の掲載範囲に北川村の記載がありませんが、二次医療圏内の所在地区分として集計しています。"},
+{name:"香美郡医師会",city:"香南市",address:"香南市野市町西野534-1",url:"https://www.kochi.med.or.jp/about/gunshi.html",lat:33.562,lng:133.7,scope:"香南市・香美市"},
+{name:"土佐長岡郡医師会",city:"南国市",address:"南国市大そね甲320",url:"https://tocho-med.or.jp/",lat:33.57,lng:133.638,scope:"南国市・本山町・大豊町・土佐町・大川村"},
+{name:"吾川郡医師会",city:"いの町",address:"いの町1400",url:"https://www.agawa-med.or.jp/",lat:33.55,lng:133.425,scope:"いの町・仁淀川町"},
+{name:"高岡郡医師会",city:"須崎市",address:"須崎市東糺町5-10",url:"https://www.kochi.med.or.jp/about/gunshi.html",lat:33.395,lng:133.284,scope:"須崎市・高岡郡7町村。中央医療圏と高幡医療圏にまたがる"},
+{name:"幡多医師会",city:"四万十市",address:"四万十市右山字明治383-8",url:"https://www.kochi.med.or.jp/about/gunshi.html",lat:32.984,lng:132.935,scope:"四万十市・宿毛市・土佐清水市・黒潮町・大月町・三原村"},
+{name:"高知大学医師会",city:"南国市",address:"南国市岡豊町小蓮185-1",url:"https://www.kochi.med.or.jp/about/gunshi.html",lat:33.594,lng:133.63,scope:"高知大学所属者。市町村の排他的な担当区域ではない",overlap:true}
+  ],
+  provenance:{
+    census:"https://www.e-stat.go.jp/dbview?sid=0004024948",
+    hospital:"https://ecitizen.jp/statdb/StatsData/0004024939",
+    navi:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/newpage_43373.html",
+    municipalAggregation:"https://kurashi.ufirst.jp/iryou/pref/39/",
+    associations:"https://www.kochi.med.or.jp/about/gunshi.html",
+    associationSelf:"https://www.kochi-med.or.jp/info/"
+  }
+};
