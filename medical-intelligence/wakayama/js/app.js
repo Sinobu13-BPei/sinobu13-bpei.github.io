@@ -9,7 +9,7 @@
   const dataURL = './data/areas.json';
   const populateError = error => {
     const message = '公開データを読み込めませんでした。通信状態をご確認のうえページを再読込してください。';
-    ['regionTable','deviceTable'].forEach(id => {const t = $(id); if(t && t.tBodies[0])t.tBodies[0].innerHTML='<tr><td colspan="6">'+message+'</td></tr>';});
+    [['regionTable',6],['deviceTable',6],['facilityAreaTable',9],['associationStatsTable',6],['municipalityFacilityTable',9],['universityDoctorsTable',2],['regionalMeetingTable',4]].forEach(([id,span]) => {const t=$(id);if(t?.tBodies[0])t.tBodies[0].innerHTML='<tr><td colspan="'+span+'">'+message+'</td></tr>';});
     if($('facilityList')) $('facilityList').textContent = message;
     if($('sourcesList')) $('sourcesList').textContent = message;
     console.error('Wakayama data load:', error);
@@ -168,9 +168,10 @@
       const matches=towns.filter(t=>(t.name+' '+t.medicalArea+' '+t.association).toLocaleLowerCase('ja-JP').includes(term));
       townTbody.innerHTML=matches.length?matches.map(t=>
         '<tr><td><b>'+escapeHTML(t.name)+'</b></td><td>'+escapeHTML(t.medicalArea)+'</td><td>'+escapeHTML(t.association)+'</td>'+
+        '<td class="num">'+fmt(t.residentPopulation)+'</td><td class="num"><span class="aging-tag aging-'+(t.agingRate>=50?'critical':t.agingRate>=40?'high':'normal')+'">'+t.agingRate.toFixed(1)+'%</span></td>'+
         '<td class="num">'+fmt(t.clinics)+'</td><td class="num">'+fmt(t.hospitals)+'</td><td class="num">'+fmt(t.clinics+t.hospitals)+'</td>'+
         '<td><a href="'+escapeHTML(t.sourceUrl)+'" target="_blank" rel="noopener noreferrer">JMAP ↗</a></td></tr>').join('')
-        :'<tr><td colspan="7">該当する市町村はありません。</td></tr>';
+        :'<tr><td colspan="9">該当する市町村はありません。</td></tr>';
     }
     $('townFilter')?.addEventListener('input',showTowns);showTowns();
     const regionCardHost=$('regionQuickCards');
@@ -185,6 +186,27 @@
         }
       }
     }
+  }
+
+  // Regional physician placement and policy meetings: publicly released primary sources.
+  const doctors=data.universityDoctors2026;
+  if(doctors && doctors.byArea?.length===7) {
+    const ds=doctors.byArea;
+    chart('universityDoctorsChart',{
+      type:'bar',data:{labels:ds.map(x=>x.name),datasets:[{label:'和医大からの常勤医師配置（2026年4月）',
+        data:ds.map(x=>x.count),backgroundColor:ds.map(x=>x.count>=90?'#0b7487':'#7db6bd'),borderRadius:5,maxBarThickness:32}]},
+      options:{...chartDefault,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.parsed.x)+'人（公的医療機関向け）'}}},
+        scales:{x:{beginAtZero:true,grid:{color:'#e7eff1'},ticks:{color:'#42677a'}},y:{grid:{display:false},ticks:{color:'#254c61'}}}}
+    });
+    const host=$('universityDoctorsTable')?.tBodies[0];
+    if(host)host.innerHTML=ds.map(a=>'<tr><td>'+escapeHTML(a.name)+'</td><td class="num"><b>'+fmt(a.count)+'人</b></td></tr>').join('')+
+      '<tr class="stat-total"><td>合計（和医大配置）</td><td class="num">'+fmt(ds.reduce((sum,a)=>sum+a.count,0))+'人</td></tr>';
+  }
+  if(data.regionalPlanningMeetings && $('regionalMeetingTable')){
+    const host=$('regionalMeetingTable').tBodies[0];
+    if(host)host.innerHTML=data.regionalPlanningMeetings.map(r=>'<tr><td><b>'+escapeHTML(r.name)+'</b></td>'+
+      '<td>'+escapeHTML(r.date)+'</td><td>'+escapeHTML(r.label)+'</td><td><a href="'+escapeHTML(r.source)+
+      '" target="_blank" rel="noopener noreferrer">県公表の会議・資料 ↗</a></td></tr>').join('');
   }
   const regionTbody = $('regionTable')?.tBodies[0];
   function renderRegions(){
