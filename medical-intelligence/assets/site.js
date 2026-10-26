@@ -157,7 +157,7 @@
   /* Contrast repair for legacy content. Evaluates actual foreground against the
      composited ancestor background. Never edits copy, medical data, citations or URLs. */
   function contrastRepair(){
-    const TARGET='h1,h2,h3,h4,h5,h6,p,span,small,strong,b,em,i,a,button,label,summary,li,dd,dt,th,td,caption,figcaption,blockquote,output,input,select,textarea,[role="button"],.note,.lead,.eyebrow';
+    const TARGET='h1,h2,h3,h4,h5,h6,p,span,small,strong,b,em,i,a,button,label,summary,li,dd,dt,th,td,caption,figcaption,blockquote,output,input,select,textarea,div,section,article,[role="button"],.note,.lead,.eyebrow';
     const rgb=value=>{
       if(!value)return null;
       const match=value.match(/^rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)(?:[,\s\/]+([\d.]+))?\s*\)$/i);
@@ -187,10 +187,17 @@
         const e=tree[i],cs=getComputedStyle(e);
         /* Remove CSS gradients, but never remove actual imagery (url()). */
         if(cs.backgroundImage.includes('gradient(')&&!cs.backgroundImage.includes('url(')){
+          /* A transparent gradient-only surface must retain an opaque base once
+             the gradient is removed. Otherwise white text becomes invisible. */
+          const base=rgb(cs.backgroundColor);
           e.style.setProperty('background-image','none','important');
           gradientsRemoved++;
-          if((e.matches('a,button,[role="button"]'))&&(!rgb(cs.backgroundColor)||rgb(cs.backgroundColor)[3]<.1)){
-            e.style.setProperty('background-color','#0E7C86','important');
+          if(!base||base[3]<.1){
+            const isControl=e.matches('a,button,[role="button"]');
+            const foreground=rgb(cs.color);
+            const lightText=foreground&&brightness(composite(foreground,WHITE))>.65;
+            const fallback=isControl?'#0E7C86':lightText?'#0F2A4A':'#F5F7FA';
+            e.style.setProperty('background-color',fallback,'important');
           }
         }
         const color=rgb(getComputedStyle(e).backgroundColor);
