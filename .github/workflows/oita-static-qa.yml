@@ -1,0 +1,27 @@
+name: Oita medical intelligence QA
+on:
+  push:
+    paths:
+      - "medical-intelligence/oita/**"
+      - ".github/workflows/oita-static-qa.yml"
+  workflow_dispatch:
+jobs:
+  verify-oita-page:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate dashboard, citations, and data
+        run: node medical-intelligence/oita/tests/check.cjs
+      - name: JavaScript syntax checks
+        run: |
+          node --check medical-intelligence/oita/assets/site-v2.js
+          node --check medical-intelligence/oita/js/app.js
+          node --check medical-intelligence/oita/js/visuals.js
+          node --check medical-intelligence/oita/js/facilities.js
+          node --check medical-intelligence/oita/js/evidence.js
