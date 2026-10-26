@@ -6,7 +6,7 @@ window.KOSHINETSU={
   {name:"長野県",code:"nagano",p2020:2048011,p2025:1973948,p2050:1581949,actual2025:1953866,actualSource:"https://www.pref.nagano.lg.jp/tokei/happyou/7kokucho_1002.html",doctor:232.6,plan:"https://www.pref.nagano.lg.jp/kenko-fukushi/kenko/iryo/shisaku/3rdsogokeikaku.html",beds:"https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/documents/shiryodai2.pdf",assoc:"https://www.nagano.med.or.jp/",hq:[36.6515,138.1810]},
   {name:"山梨県",code:"yamanashi",p2020:809974,p2025:782238,p2050:611586,actual2025:779276,actualSource:"https://www.pref.yamanashi.jp/release/toukei/2610/r07koku_jinkou.html",doctor:260.1,plan:"https://www.pref.yamanashi.jp/imuka/42_002.html",beds:"https://www.pref.yamanashi.jp/imuka/kikaku/r7byousyouhoukoku.html",assoc:"https://www.yamanashi-med.or.jp/",hq:[35.6642,138.5684]}
  ],
- /* 指標は厚生労働省 令和8年4月公表版（第三者の転記と照合した暫定入力）。
+ /* 指標は厚生労働省 令和8年4月公表版（二次医療圏別一次資料を照合）。
     2024年度長野=許可病床ベースと休棟、山梨=2025/7/1最大使用病床数。定義相違につき県横断合算不可。 */
  areas:[
  ["新潟県","下越","新発田",37.95,139.327,154.7,"新潟県立新発田病院","E7日本海東北道・国道7号","高齢救急・生活圏維持","山間部・県境・雪害","救急US・CT更新・保守拠点",[4,3,4,4,3]],
@@ -62,7 +62,7 @@ window.KOSHINETSU={
  ["S05","長野県 新たな地域医療構想に関する懇談会資料（病床・流出）","2025年9月（2024年度病床報告）","https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/documents/shiryodai2.pdf"],
  ["S06","山梨県 令和7年度病床機能報告","2025年7月1日・2026年8月更新","https://www.pref.yamanashi.jp/imuka/kikaku/r7byousyouhoukoku.html"],
  ["S07","新潟県 令和7年度病床機能報告","2025年7月1日・2026年6月更新","https://www.pref.niigata.lg.jp/sec/chiikiiryo/r7byousyoukinou.html"],
- ["S08","厚生労働省 医師偏在指標（令和8年4月公表版）","2026年4月","https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"],
+ ["S08","厚生労働省 医師偏在指標（二次医療圏別・令和8年4月公表）","2026年4月","https://www.mhlw.go.jp/content/001691397.pdf"],
  ["S09","厚生労働省 医療施設調査 N32（検査装置・件数）","2023年調査／2025年公開","https://www.e-stat.go.jp/index.php/stat-search/database?cycle=7&layout=datalist&page=1&statdisp_id=0004024960&tclass1=000001222880&tclass2=000001222883&tclass3val=0&toukei=00450021&toukei_kind=6&tstat=000001030908"],
  ["S10","国交省 国道・高速道路ナンバリング","公開路線一覧","https://www.mlit.go.jp/road/sign/numbering/list/index.html"],
  ["S11","国交省 中部横断自動車道 長坂～八千穂","公開整備計画（未開通）","https://www.ktr.mlit.go.jp/koufu/koufu00636.html"],
