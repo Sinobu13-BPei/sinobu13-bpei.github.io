@@ -7,6 +7,7 @@
   const PAGES=[
     ['ハブ','medical-intelligence/'],
     ['診療所','clinic-medical-device-market/'],
+    ['商社・HD','medical-intelligence/national-medical-distribution/'],
     ['CT','ct-market-atlas/'],
     ['MRI','mri_market_atlas_2025.html'],
     ['論文調査','research-atlas/index.html'],
