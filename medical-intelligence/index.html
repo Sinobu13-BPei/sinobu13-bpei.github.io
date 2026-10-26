@@ -392,6 +392,16 @@ function draw(){
       saninLink.setAttribute('aria-label',p[0]+'の山陰医療市場調査を開く');
       actions.appendChild(saninLink);
     }
+    if(p[0]==='東京都'){
+      const tokyoLink=document.createElement('a');
+      tokyoLink.href='https://sinobu13-bpei.github.io/medical-intelligence/tokyo/';
+      tokyoLink.target='_blank';
+      tokyoLink.rel='noopener noreferrer';
+      tokyoLink.className='hokkaido-mkt-btn';
+      tokyoLink.textContent='東京MKT ↗';
+      tokyoLink.setAttribute('aria-label','東京都医療機器市場・13医療圏分析を開く');
+      actions.appendChild(tokyoLink);
+    }
     if(p[0]==='北海道'){
       const hokkaidoLink=document.createElement('a');
       hokkaidoLink.href='https://sinobu13-bpei.github.io/medical-intelligence/hokkaido/';
