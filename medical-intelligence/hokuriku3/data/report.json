@@ -16,7 +16,12 @@
       "context": "富山市の高度医療集積と高岡・新川・砺波の地域連携",
       "link": "../toyama/",
       "plan": "s_toyama_plan",
-      "bedSource": "s_toyama_beds"
+      "bedSource": "s_toyama_beds",
+      "facilities": {
+        "hospital": 102,
+        "clinic": 557,
+        "dental": 395
+      }
     },
     {
       "id": "ishikawa",
@@ -31,7 +36,12 @@
       "context": "金沢集積と能登半島の医療復興・再編",
       "link": "../ishikawa/",
       "plan": "s_ishikawa_plan",
-      "bedSource": "s_ishikawa_beds"
+      "bedSource": "s_ishikawa_beds",
+      "facilities": {
+        "hospital": 86,
+        "clinic": 528,
+        "dental": 273
+      }
     },
     {
       "id": "fukui",
@@ -46,7 +56,12 @@
       "context": "福井・坂井集積と奥越・嶺南のアクセス制約",
       "link": "../fukui/",
       "plan": "s_fukui_plan",
-      "bedSource": "s_fukui_beds"
+      "bedSource": "s_fukui_beds",
+      "facilities": {
+        "hospital": 67,
+        "clinic": 429,
+        "dental": 275
+      }
     }
   ],
   "bedLabels": [
@@ -88,7 +103,21 @@
       "driver": "高齢者医療・黒部の救急と連携",
       "issue": "広域移動と技師・医師確保",
       "chance": "地域中核病院の画像診断更新、診療所US、遠隔読影",
-      "hospital": "黒部市民病院"
+      "hospital": "黒部市民病院",
+      "municipalities": [
+        "魚津市",
+        "黒部市",
+        "入善町",
+        "朝日町"
+      ],
+      "facilities": {
+        "hospital": 13,
+        "clinic": 56,
+        "dental": 48,
+        "pediatrics": 16,
+        "asOf": "2026-06-01",
+        "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+      }
     },
     {
       "id": "t2",
@@ -121,7 +150,22 @@
       "driver": "大学病院・県立中央病院・診療所高集積",
       "issue": "急性期・回復期連携と投資余力",
       "chance": "高度画像診断・PACS・共同利用・放射線部門効率化",
-      "hospital": "富山大学附属病院"
+      "hospital": "富山大学附属病院",
+      "municipalities": [
+        "富山市",
+        "滑川市",
+        "舟橋村",
+        "上市町",
+        "立山町"
+      ],
+      "facilities": {
+        "hospital": 47,
+        "clinic": 277,
+        "dental": 189,
+        "pediatrics": 48,
+        "asOf": "2026-06-01",
+        "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+      }
     },
     {
       "id": "t3",
@@ -154,7 +198,20 @@
       "driver": "高岡医療拠点と工業都市・診療所",
       "issue": "経営改善・病院機能分化",
       "chance": "CT/MRI共同利用・整形外科・健診・更新投資",
-      "hospital": "厚生連高岡病院"
+      "hospital": "厚生連高岡病院",
+      "municipalities": [
+        "高岡市",
+        "氷見市",
+        "射水市"
+      ],
+      "facilities": {
+        "hospital": 26,
+        "clinic": 158,
+        "dental": 118,
+        "pediatrics": 36,
+        "asOf": "2026-06-01",
+        "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+      }
     },
     {
       "id": "t4",
@@ -187,7 +244,20 @@
       "driver": "地域中核医療・高齢化・冬期交通",
       "issue": "分散居住と山間部救急",
       "chance": "モバイルUS・病診連携・保守応答・代替機支援",
-      "hospital": "市立砺波総合病院"
+      "hospital": "市立砺波総合病院",
+      "municipalities": [
+        "砺波市",
+        "小矢部市",
+        "南砺市"
+      ],
+      "facilities": {
+        "hospital": 16,
+        "clinic": 66,
+        "dental": 40,
+        "pediatrics": 16,
+        "asOf": "2026-06-01",
+        "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+      }
     },
     {
       "id": "i1",
@@ -220,7 +290,21 @@
       "driver": "公立・民間中核病院と生活圏",
       "issue": "高齢化・病院と診療所連携",
       "chance": "US・CT・内視鏡更新・共同利用",
-      "hospital": "小松市民病院"
+      "hospital": "小松市民病院",
+      "municipalities": [
+        "小松市",
+        "加賀市",
+        "能美市",
+        "川北町"
+      ],
+      "facilities": {
+        "hospital": 18,
+        "clinic": 100,
+        "dental": 50,
+        "pediatrics": 28,
+        "asOf": "2026-06-01",
+        "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+      }
     },
     {
       "id": "i2",
@@ -253,7 +337,23 @@
       "driver": "医学部2校・高度専門医療・患者流入",
       "issue": "医療機関集積と投資競争",
       "chance": "CT/MRI・血管撮影・PET・医療DX・高稼働保守",
-      "hospital": "金沢大学附属病院"
+      "hospital": "金沢大学附属病院",
+      "municipalities": [
+        "金沢市",
+        "白山市",
+        "野々市市",
+        "かほく市",
+        "津幡町",
+        "内灘町"
+      ],
+      "facilities": {
+        "hospital": 54,
+        "clinic": 356,
+        "dental": 179,
+        "pediatrics": 65,
+        "asOf": "2026-06-01",
+        "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+      }
     },
     {
       "id": "i3",
@@ -286,7 +386,22 @@
       "driver": "七尾中核病院・震災後再配置・高齢化",
       "issue": "道路寸断・医療人材と持続可能性",
       "chance": "画像連携、代替機、保守・SPD、広域拠点連携",
-      "hospital": "恵寿総合病院"
+      "hospital": "恵寿総合病院",
+      "municipalities": [
+        "七尾市",
+        "羽咋市",
+        "志賀町",
+        "宝達志水町",
+        "中能登町"
+      ],
+      "facilities": {
+        "hospital": 10,
+        "clinic": 46,
+        "dental": 32,
+        "pediatrics": 10,
+        "asOf": "2026-06-01",
+        "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+      }
     },
     {
       "id": "i4",
@@ -319,7 +434,21 @@
       "driver": "奥能登4公立病院機能強化・復興",
       "issue": "医師配置、医療アクセス、道路復旧と人口変化",
       "chance": "新病院・サテライト構想、可搬US、遠隔支援、BCP",
-      "hospital": "市立輪島病院"
+      "hospital": "市立輪島病院",
+      "municipalities": [
+        "輪島市",
+        "珠洲市",
+        "穴水町",
+        "能登町"
+      ],
+      "facilities": {
+        "hospital": 4,
+        "clinic": 26,
+        "dental": 12,
+        "pediatrics": 11,
+        "asOf": "2026-06-01",
+        "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+      }
     },
     {
       "id": "f1",
@@ -352,7 +481,21 @@
       "driver": "福井大学・県立・済生会・赤十字",
       "issue": "医療機能連携・スタッフ確保",
       "chance": "画像診断高効率化・保守・大学連携・診療所更新",
-      "hospital": "福井大学医学部附属病院"
+      "hospital": "福井大学医学部附属病院",
+      "municipalities": [
+        "福井市",
+        "坂井市",
+        "あわら市",
+        "永平寺町"
+      ],
+      "facilities": {
+        "hospital": 35,
+        "clinic": 252,
+        "dental": 163,
+        "pediatrics": 87,
+        "asOf": "2026-06-01",
+        "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+      }
     },
     {
       "id": "f2",
@@ -385,7 +528,19 @@
       "driver": "高齢化・地域病院・冬季医療",
       "issue": "山間・医師確保とアクセス",
       "chance": "可搬US・遠隔支援・小型機器・保守の予備機",
-      "hospital": "JCHO福井勝山総合病院"
+      "hospital": "JCHO福井勝山総合病院",
+      "municipalities": [
+        "大野市",
+        "勝山市"
+      ],
+      "facilities": {
+        "hospital": 6,
+        "clinic": 24,
+        "dental": 14,
+        "pediatrics": 12,
+        "asOf": "2026-06-01",
+        "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+      }
     },
     {
       "id": "f3",
@@ -418,7 +573,22 @@
       "driver": "一般病院・整形・消化器診療所",
       "issue": "病診連携・設備費負担",
       "chance": "CT/US・内視鏡・骨密度・消耗品と保守",
-      "hospital": "公立丹南病院"
+      "hospital": "公立丹南病院",
+      "municipalities": [
+        "越前市",
+        "鯖江市",
+        "越前町",
+        "南越前町",
+        "池田町"
+      ],
+      "facilities": {
+        "hospital": 16,
+        "clinic": 86,
+        "dental": 62,
+        "pediatrics": 39,
+        "asOf": "2026-06-01",
+        "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+      }
     },
     {
       "id": "f4",
@@ -451,7 +621,23 @@
       "driver": "敦賀・小浜の地域医療拠点と越境移動",
       "issue": "東西長距離、災害・原子力BCP、他府県との往来",
       "chance": "分散保守・救急診断・画像共有・予備資機材",
-      "hospital": "市立敦賀病院"
+      "hospital": "市立敦賀病院",
+      "municipalities": [
+        "敦賀市",
+        "小浜市",
+        "美浜町",
+        "若狭町",
+        "おおい町",
+        "高浜町"
+      ],
+      "facilities": {
+        "hospital": 10,
+        "clinic": 67,
+        "dental": 36,
+        "pediatrics": 27,
+        "asOf": "2026-06-01",
+        "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+      }
     }
   ],
   "weights": [
@@ -1011,6 +1197,62 @@
       "year": "2026年閲覧",
       "label": "厚生局の管轄：富山・石川は東海北陸、福井は近畿",
       "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    },
+    {
+      "id": "s_navii",
+      "org": "厚生労働省",
+      "year": "2026年閲覧",
+      "label": "医療情報ネット（ナビイ）：病院・診療所等の公式医療機関検索",
+      "url": "https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2300/initialize"
+    },
+    {
+      "id": "s_fac_toyama",
+      "org": "医療機関マップ（医療情報ネット公開データの二次集計）",
+      "year": "2026年6月1日現在",
+      "label": "富山県 15市町村別 病院・診療所・歯科施設数",
+      "url": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "id": "s_fac_ishikawa",
+      "org": "医療機関マップ（医療情報ネット公開データの二次集計）",
+      "year": "2026年6月1日現在",
+      "label": "石川県 19市町別 病院・診療所・歯科施設数",
+      "url": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "id": "s_fac_fukui",
+      "org": "医療機関マップ（医療情報ネット公開データの二次集計）",
+      "year": "2026年6月1日現在",
+      "label": "福井県 17市町別 病院・診療所・歯科施設数",
+      "url": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "id": "s_assoc_toyama",
+      "org": "富山産業保健総合支援センター",
+      "year": "2026年10月閲覧（各郡市医師会公開リンク）",
+      "label": "富山県内の郡市医師会連絡先一覧",
+      "url": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001"
+    },
+    {
+      "id": "s_assoc_ishikawa",
+      "org": "石川県 地域医療政策課",
+      "year": "2026年4月更新",
+      "label": "石川県9郡市医師会の管轄区域・外来医療計画",
+      "url": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html"
+    },
+    {
+      "id": "s_assoc_fukui",
+      "org": "福井県医師会",
+      "year": "2026年7月13日更新",
+      "label": "福井県11郡市区等医師会の名簿",
+      "url": "https://www.fukui.med.or.jp/fukui/about-us/page-155/"
+    },
+    {
+      "id": "s_jma_members",
+      "org": "日本医師会",
+      "year": "2025年12月1日現在",
+      "label": "県医師会 会員数（医療施設数と異なる）",
+      "url": "https://www.med.or.jp/jma/about/member.html"
     }
   ],
   "neighbors": [
@@ -1037,5 +1279,1058 @@
     "description": "2020年頃の医療施設調査由来の既存公開県別ページ参考値。原表対象施設・分母統一再検証中。2026年の稼働台数ではない。",
     "ctPer100k": 11.5,
     "mriPer100k": 5.7
+  },
+  "facilitySnapshot": {
+    "asOf": "2026-06-01",
+    "definition": "医療情報ネット（ナビイ）公開データ掲載の病院・一般診療所・歯科診療所・小児科届出施設。二次集計。厚労省医療施設調査の全施設数・医師会所属医療機関数と同じではない。",
+    "populationBasis": "人口10万人当たりは参考。JMAP2020年人口を分母とする場合は分母年を併記。",
+    "sourceType": "government_open_data_secondary_aggregation",
+    "sources": {
+      "toyama": "https://kurashi.ufirst.jp/iryou/pref/16/",
+      "ishikawa": "https://kurashi.ufirst.jp/iryou/pref/17/",
+      "fukui": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    }
+  },
+  "municipalities": [
+    {
+      "pref": "toyama",
+      "name": "富山市",
+      "hospital": 43,
+      "clinic": 245,
+      "dental": 168,
+      "pediatrics": 42,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "高岡市",
+      "hospital": 16,
+      "clinic": 101,
+      "dental": 76,
+      "pediatrics": 23,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "魚津市",
+      "hospital": 6,
+      "clinic": 23,
+      "dental": 21,
+      "pediatrics": 8,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "氷見市",
+      "hospital": 4,
+      "clinic": 20,
+      "dental": 12,
+      "pediatrics": 1,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "滑川市",
+      "hospital": 2,
+      "clinic": 13,
+      "dental": 8,
+      "pediatrics": 2,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "黒部市",
+      "hospital": 4,
+      "clinic": 21,
+      "dental": 16,
+      "pediatrics": 4,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "砺波市",
+      "hospital": 6,
+      "clinic": 33,
+      "dental": 15,
+      "pediatrics": 7,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "小矢部市",
+      "hospital": 6,
+      "clinic": 12,
+      "dental": 9,
+      "pediatrics": 5,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "南砺市",
+      "hospital": 4,
+      "clinic": 21,
+      "dental": 16,
+      "pediatrics": 4,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "射水市",
+      "hospital": 6,
+      "clinic": 37,
+      "dental": 30,
+      "pediatrics": 12,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "舟橋村",
+      "hospital": 0,
+      "clinic": 0,
+      "dental": 2,
+      "pediatrics": 0,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "上市町",
+      "hospital": 1,
+      "clinic": 7,
+      "dental": 5,
+      "pediatrics": 2,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "立山町",
+      "hospital": 1,
+      "clinic": 12,
+      "dental": 6,
+      "pediatrics": 2,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "入善町",
+      "hospital": 1,
+      "clinic": 9,
+      "dental": 7,
+      "pediatrics": 2,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "toyama",
+      "name": "朝日町",
+      "hospital": 2,
+      "clinic": 3,
+      "dental": 4,
+      "pediatrics": 2,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/16/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "金沢市",
+      "hospital": 40,
+      "clinic": 231,
+      "dental": 134,
+      "pediatrics": 41,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "七尾市",
+      "hospital": 6,
+      "clinic": 25,
+      "dental": 16,
+      "pediatrics": 5,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "小松市",
+      "hospital": 10,
+      "clinic": 49,
+      "dental": 27,
+      "pediatrics": 11,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "輪島市",
+      "hospital": 1,
+      "clinic": 14,
+      "dental": 4,
+      "pediatrics": 4,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "珠洲市",
+      "hospital": 1,
+      "clinic": 4,
+      "dental": 2,
+      "pediatrics": 3,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "加賀市",
+      "hospital": 5,
+      "clinic": 29,
+      "dental": 15,
+      "pediatrics": 9,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "羽咋市",
+      "hospital": 1,
+      "clinic": 11,
+      "dental": 8,
+      "pediatrics": 3,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "かほく市",
+      "hospital": 2,
+      "clinic": 15,
+      "dental": 4,
+      "pediatrics": 5,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "白山市",
+      "hospital": 4,
+      "clinic": 52,
+      "dental": 16,
+      "pediatrics": 9,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "能美市",
+      "hospital": 3,
+      "clinic": 21,
+      "dental": 5,
+      "pediatrics": 8,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "野々市市",
+      "hospital": 4,
+      "clinic": 33,
+      "dental": 9,
+      "pediatrics": 4,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "川北町",
+      "hospital": 0,
+      "clinic": 1,
+      "dental": 3,
+      "pediatrics": 0,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "津幡町",
+      "hospital": 2,
+      "clinic": 14,
+      "dental": 7,
+      "pediatrics": 1,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "内灘町",
+      "hospital": 2,
+      "clinic": 11,
+      "dental": 9,
+      "pediatrics": 5,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "志賀町",
+      "hospital": 2,
+      "clinic": 4,
+      "dental": 4,
+      "pediatrics": 0,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "宝達志水町",
+      "hospital": 1,
+      "clinic": 2,
+      "dental": 2,
+      "pediatrics": 1,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "中能登町",
+      "hospital": 0,
+      "clinic": 4,
+      "dental": 2,
+      "pediatrics": 1,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "穴水町",
+      "hospital": 1,
+      "clinic": 1,
+      "dental": 4,
+      "pediatrics": 2,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "ishikawa",
+      "name": "能登町",
+      "hospital": 1,
+      "clinic": 7,
+      "dental": 2,
+      "pediatrics": 2,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/17/"
+    },
+    {
+      "pref": "fukui",
+      "name": "福井市",
+      "hospital": 27,
+      "clinic": 198,
+      "dental": 129,
+      "pediatrics": 64,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "敦賀市",
+      "hospital": 5,
+      "clinic": 34,
+      "dental": 18,
+      "pediatrics": 9,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "小浜市",
+      "hospital": 2,
+      "clinic": 12,
+      "dental": 9,
+      "pediatrics": 6,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "大野市",
+      "hospital": 4,
+      "clinic": 15,
+      "dental": 8,
+      "pediatrics": 6,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "勝山市",
+      "hospital": 2,
+      "clinic": 9,
+      "dental": 6,
+      "pediatrics": 6,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "鯖江市",
+      "hospital": 7,
+      "clinic": 33,
+      "dental": 25,
+      "pediatrics": 13,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "あわら市",
+      "hospital": 3,
+      "clinic": 12,
+      "dental": 7,
+      "pediatrics": 7,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "越前市",
+      "hospital": 7,
+      "clinic": 41,
+      "dental": 30,
+      "pediatrics": 17,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "坂井市",
+      "hospital": 4,
+      "clinic": 33,
+      "dental": 21,
+      "pediatrics": 13,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "永平寺町",
+      "hospital": 1,
+      "clinic": 9,
+      "dental": 6,
+      "pediatrics": 3,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "池田町",
+      "hospital": 0,
+      "clinic": 2,
+      "dental": 1,
+      "pediatrics": 0,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "南越前町",
+      "hospital": 0,
+      "clinic": 6,
+      "dental": 2,
+      "pediatrics": 5,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "越前町",
+      "hospital": 2,
+      "clinic": 4,
+      "dental": 4,
+      "pediatrics": 4,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "美浜町",
+      "hospital": 0,
+      "clinic": 5,
+      "dental": 2,
+      "pediatrics": 0,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "高浜町",
+      "hospital": 1,
+      "clinic": 5,
+      "dental": 2,
+      "pediatrics": 3,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "おおい町",
+      "hospital": 0,
+      "clinic": 4,
+      "dental": 3,
+      "pediatrics": 3,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    },
+    {
+      "pref": "fukui",
+      "name": "若狭町",
+      "hospital": 2,
+      "clinic": 7,
+      "dental": 2,
+      "pediatrics": 6,
+      "source": "https://kurashi.ufirst.jp/iryou/pref/18/"
+    }
+  ],
+  "areaFacilitySource": "2026-06-01",
+  "medicalAssociations": [
+    {
+      "id": "med1",
+      "pref": "toyama",
+      "name": "下新川郡医師会",
+      "group": "新川",
+      "municipalities": [
+        "黒部市",
+        "入善町",
+        "朝日町"
+      ],
+      "authority": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "website": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "note": "参考範囲。黒部市等の正式加入範囲は協会へ照会が必要",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 7,
+        "clinic": 33,
+        "dental": 27
+      }
+    },
+    {
+      "id": "med2",
+      "pref": "toyama",
+      "name": "魚津市医師会",
+      "group": "新川",
+      "municipalities": [
+        "魚津市"
+      ],
+      "authority": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "website": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 6,
+        "clinic": 23,
+        "dental": 21
+      }
+    },
+    {
+      "id": "med3",
+      "pref": "toyama",
+      "name": "富山市医師会",
+      "group": "富山",
+      "municipalities": [
+        "富山市"
+      ],
+      "authority": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "website": "https://www.toyamashi-med.or.jp/",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 43,
+        "clinic": 245,
+        "dental": 168
+      }
+    },
+    {
+      "id": "med4",
+      "pref": "toyama",
+      "name": "滑川市医師会",
+      "group": "富山",
+      "municipalities": [
+        "滑川市"
+      ],
+      "authority": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "website": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 2,
+        "clinic": 13,
+        "dental": 8
+      }
+    },
+    {
+      "id": "med5",
+      "pref": "toyama",
+      "name": "中新川郡医師会",
+      "group": "富山",
+      "municipalities": [
+        "舟橋村",
+        "上市町",
+        "立山町"
+      ],
+      "authority": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "website": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 2,
+        "clinic": 19,
+        "dental": 13
+      }
+    },
+    {
+      "id": "med6",
+      "pref": "toyama",
+      "name": "高岡市医師会",
+      "group": "高岡",
+      "municipalities": [
+        "高岡市"
+      ],
+      "authority": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "website": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 16,
+        "clinic": 101,
+        "dental": 76
+      }
+    },
+    {
+      "id": "med7",
+      "pref": "toyama",
+      "name": "氷見市医師会",
+      "group": "高岡",
+      "municipalities": [
+        "氷見市"
+      ],
+      "authority": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "website": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 4,
+        "clinic": 20,
+        "dental": 12
+      }
+    },
+    {
+      "id": "med8",
+      "pref": "toyama",
+      "name": "射水市医師会",
+      "group": "高岡",
+      "municipalities": [
+        "射水市"
+      ],
+      "authority": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "website": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 6,
+        "clinic": 37,
+        "dental": 30
+      }
+    },
+    {
+      "id": "med9",
+      "pref": "toyama",
+      "name": "砺波医師会",
+      "group": "砺波",
+      "municipalities": [
+        "砺波市"
+      ],
+      "authority": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "website": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 6,
+        "clinic": 33,
+        "dental": 15
+      }
+    },
+    {
+      "id": "med10",
+      "pref": "toyama",
+      "name": "南砺市医師会",
+      "group": "砺波",
+      "municipalities": [
+        "南砺市"
+      ],
+      "authority": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "website": "https://www.nantoishikai.org/",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 4,
+        "clinic": 21,
+        "dental": 16
+      }
+    },
+    {
+      "id": "med11",
+      "pref": "toyama",
+      "name": "小矢部市医師会",
+      "group": "砺波",
+      "municipalities": [
+        "小矢部市"
+      ],
+      "authority": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "website": "https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 6,
+        "clinic": 12,
+        "dental": 9
+      }
+    },
+    {
+      "id": "med12",
+      "pref": "ishikawa",
+      "name": "加賀市医師会",
+      "group": "南加賀",
+      "municipalities": [
+        "加賀市"
+      ],
+      "authority": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "website": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "note": "県公表の医師会管内",
+      "verified": "prefecture-confirmed",
+      "referenceFacilities": {
+        "hospital": 5,
+        "clinic": 29,
+        "dental": 15
+      }
+    },
+    {
+      "id": "med13",
+      "pref": "ishikawa",
+      "name": "小松市医師会",
+      "group": "南加賀",
+      "municipalities": [
+        "小松市"
+      ],
+      "authority": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "website": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "note": "県公表の医師会管内",
+      "verified": "prefecture-confirmed",
+      "referenceFacilities": {
+        "hospital": 10,
+        "clinic": 49,
+        "dental": 27
+      }
+    },
+    {
+      "id": "med14",
+      "pref": "ishikawa",
+      "name": "能美市医師会",
+      "group": "南加賀",
+      "municipalities": [
+        "能美市",
+        "川北町"
+      ],
+      "authority": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "website": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "note": "県公表の医師会管内",
+      "verified": "prefecture-confirmed",
+      "referenceFacilities": {
+        "hospital": 3,
+        "clinic": 22,
+        "dental": 8
+      }
+    },
+    {
+      "id": "med15",
+      "pref": "ishikawa",
+      "name": "白山ののいち医師会",
+      "group": "石川中央",
+      "municipalities": [
+        "白山市",
+        "野々市市"
+      ],
+      "authority": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "website": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "note": "県公表の医師会管内",
+      "verified": "prefecture-confirmed",
+      "referenceFacilities": {
+        "hospital": 8,
+        "clinic": 85,
+        "dental": 25
+      }
+    },
+    {
+      "id": "med16",
+      "pref": "ishikawa",
+      "name": "金沢市医師会",
+      "group": "石川中央",
+      "municipalities": [
+        "金沢市"
+      ],
+      "authority": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "website": "https://www.kma.jp/",
+      "note": "県公表の医師会管内",
+      "verified": "prefecture-confirmed",
+      "referenceFacilities": {
+        "hospital": 40,
+        "clinic": 231,
+        "dental": 134
+      }
+    },
+    {
+      "id": "med17",
+      "pref": "ishikawa",
+      "name": "河北郡市医師会",
+      "group": "石川中央",
+      "municipalities": [
+        "かほく市",
+        "津幡町",
+        "内灘町"
+      ],
+      "authority": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "website": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "note": "県公表の医師会管内",
+      "verified": "prefecture-confirmed",
+      "referenceFacilities": {
+        "hospital": 6,
+        "clinic": 40,
+        "dental": 20
+      }
+    },
+    {
+      "id": "med18",
+      "pref": "ishikawa",
+      "name": "羽咋郡市医師会",
+      "group": "能登中部",
+      "municipalities": [
+        "宝達志水町",
+        "羽咋市",
+        "志賀町"
+      ],
+      "authority": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "website": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "note": "県公表の医師会管内",
+      "verified": "prefecture-confirmed",
+      "referenceFacilities": {
+        "hospital": 4,
+        "clinic": 17,
+        "dental": 14
+      }
+    },
+    {
+      "id": "med19",
+      "pref": "ishikawa",
+      "name": "七尾市医師会",
+      "group": "能登中部",
+      "municipalities": [
+        "七尾市",
+        "中能登町"
+      ],
+      "authority": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "website": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "note": "県公表の医師会管内",
+      "verified": "prefecture-confirmed",
+      "referenceFacilities": {
+        "hospital": 6,
+        "clinic": 29,
+        "dental": 18
+      }
+    },
+    {
+      "id": "med20",
+      "pref": "ishikawa",
+      "name": "能登北部医師会",
+      "group": "能登北部",
+      "municipalities": [
+        "輪島市",
+        "珠洲市",
+        "能登町",
+        "穴水町"
+      ],
+      "authority": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "website": "https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html",
+      "note": "県公表の医師会管内",
+      "verified": "prefecture-confirmed",
+      "referenceFacilities": {
+        "hospital": 4,
+        "clinic": 26,
+        "dental": 12
+      }
+    },
+    {
+      "id": "med21",
+      "pref": "fukui",
+      "name": "福井市医師会",
+      "group": "福井・坂井",
+      "municipalities": [
+        "福井市"
+      ],
+      "authority": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "website": "https://www.fukui-dr.jp/",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 27,
+        "clinic": 198,
+        "dental": 129
+      }
+    },
+    {
+      "id": "med22",
+      "pref": "fukui",
+      "name": "坂井地区医師会",
+      "group": "福井・坂井",
+      "municipalities": [
+        "坂井市",
+        "あわら市"
+      ],
+      "authority": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "website": "https://www.sakai-med.com/",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 7,
+        "clinic": 45,
+        "dental": 28
+      }
+    },
+    {
+      "id": "med23",
+      "pref": "fukui",
+      "name": "福井大学医師会",
+      "group": "福井・坂井",
+      "municipalities": [],
+      "authority": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "website": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "note": "大学の医師会。自治体全施設を会員数と混同しない",
+      "verified": "membership-only",
+      "referenceFacilities": null
+    },
+    {
+      "id": "med24",
+      "pref": "fukui",
+      "name": "大野市医師会",
+      "group": "奥越",
+      "municipalities": [
+        "大野市"
+      ],
+      "authority": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "website": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 4,
+        "clinic": 15,
+        "dental": 8
+      }
+    },
+    {
+      "id": "med25",
+      "pref": "fukui",
+      "name": "勝山市医師会",
+      "group": "奥越",
+      "municipalities": [
+        "勝山市"
+      ],
+      "authority": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "website": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 2,
+        "clinic": 9,
+        "dental": 6
+      }
+    },
+    {
+      "id": "med26",
+      "pref": "fukui",
+      "name": "丹生郡医師会",
+      "group": "丹南",
+      "municipalities": [
+        "越前町"
+      ],
+      "authority": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "website": "https://nyugun-med.jp/",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 2,
+        "clinic": 4,
+        "dental": 4
+      }
+    },
+    {
+      "id": "med27",
+      "pref": "fukui",
+      "name": "鯖江市医師会",
+      "group": "丹南",
+      "municipalities": [
+        "鯖江市"
+      ],
+      "authority": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "website": "https://sabaemed.jp/",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 7,
+        "clinic": 33,
+        "dental": 25
+      }
+    },
+    {
+      "id": "med28",
+      "pref": "fukui",
+      "name": "武生医師会",
+      "group": "丹南",
+      "municipalities": [
+        "越前市"
+      ],
+      "authority": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "website": "https://takefu-med.jp/",
+      "note": "参考範囲。池田町・南越前町の管轄は別途確認",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 7,
+        "clinic": 41,
+        "dental": 30
+      }
+    },
+    {
+      "id": "med29",
+      "pref": "fukui",
+      "name": "敦賀市医師会",
+      "group": "嶺南",
+      "municipalities": [
+        "敦賀市"
+      ],
+      "authority": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "website": "https://www.tsuruga-med.or.jp/",
+      "note": "",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 5,
+        "clinic": 34,
+        "dental": 18
+      }
+    },
+    {
+      "id": "med30",
+      "pref": "fukui",
+      "name": "三方郡医師会",
+      "group": "嶺南",
+      "municipalities": [
+        "美浜町",
+        "若狭町"
+      ],
+      "authority": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "website": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "note": "参考自治体。若狭町は行政区域・医師会範囲の照合要",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 2,
+        "clinic": 12,
+        "dental": 4
+      }
+    },
+    {
+      "id": "med31",
+      "pref": "fukui",
+      "name": "小浜医師会",
+      "group": "嶺南",
+      "municipalities": [
+        "小浜市"
+      ],
+      "authority": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "website": "https://www.fukui.med.or.jp/fukui/about-us/page-155/",
+      "note": "高浜町・おおい町の所属範囲は別途確認",
+      "verified": "geographic-reference",
+      "referenceFacilities": {
+        "hospital": 2,
+        "clinic": 12,
+        "dental": 9
+      }
+    }
+  ],
+  "associationMembership": {
+    "asOf": "2025-12-01",
+    "definition": "日本医師会加入会員・人数。県医師会独自の全会員数と一致しない場合がある。診療所数ではない。",
+    "source": "s_jma_members",
+    "pref": {
+      "toyama": 1139,
+      "ishikawa": 1317,
+      "fukui": 1012
+    }
   }
 }
