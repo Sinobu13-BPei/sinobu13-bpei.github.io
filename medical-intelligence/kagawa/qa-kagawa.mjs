@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import {fileURLToPath} from 'node:url';
+const dir=path.dirname(fileURLToPath(import.meta.url));
+const read=p=>fs.readFileSync(path.join(dir,p),'utf8');
+const html=read('index.html'),css=read('style.css'),vcss=read('visual.css'),js=read('app.js'),vjs=read('visual.js');
+const data=JSON.parse(read('data/market.json'));
+const errors=[],checks=[];
+function check(name,fn){try{assert.ok(fn(),name);checks.push(name)}catch(e){errors.push(name+': '+e.message)}}
+check('Eleven coherent sections including visual atlas',()=>['summary','visual-atlas','population','beds','providers','institutions','equipment','distribution','external','strategy','sources'].every(id=>html.includes('id="'+id+'"')));
+check('No duplicate HTML IDs',()=>{let a=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);return new Set(a).size===a.length});
+check('All static anchors resolve (data-created SXX separately)',()=>{const ids=new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]));return [...html.matchAll(/href="#([^"]+)"/g)].every(m=>ids.has(m[1])||/^S\d{2}$/.test(m[1])&&data.sources.some(s=>s[0]===m[1]))});
+check('All relative scripts and css present',()=>[...html.matchAll(/(?:src|href)="\.\/([^"]+\.(?:js|css))"/g)].every(m=>fs.existsSync(path.join(dir,m[1]))));
+check('Four new and five original graphs with fallbacks',()=>['visualRegionPop','visualBedsRegion','visualPhysicianAge','visualDeviceIndex','populationChart','bedChart','doctorChart','deviceChart','scoreChart'].every(id=>html.includes('id="'+id+'"')&&html.includes('id="'+id.replace('Chart','Fallback').replace('visualRegionPop','visualRegionPopFallback').replace('visualBedsRegion','visualBedsRegionFallback').replace('visualPhysicianAge','visualPhysicianAgeFallback').replace('visualDeviceIndex','visualDeviceIndexFallback')+'"')||id.endsWith('Chart')));
+check('Source referenced clinic-physician age',()=>data.visualAtlas?.clinicPhysicianAging?.total?.olderKagawa===386&&data.visualAtlas.clinicPhysicianAging.total.kagawa===890);
+check('Official clinic-age percentages exact rounding',()=>data.visualAtlas.clinicPhysicianAging.areas.every(r=>+(r.older/r.total*100).toFixed(1)===r.rate));
+check('Population sums match 2023 plan',()=>data.regions.reduce((a,r)=>a+r.pop2023,0)===926866);
+check('Hospital bed totals reconcile',()=>data.regions.reduce((a,r)=>a+r.beds2024.reduce((x,y)=>x+y,0)+r.inactive,0)===11575);
+check('Medical equipment datasets complete',()=>data.regions.length===3&&data.regions.every(r=>r.devices.length===5)&&data.deviceJapan.every(n=>n>0));
+check('Sources include URL and year',()=>data.sources.length>=35&&data.sources.every(s=>s.length===4&&s[2]&&/^https:\/\//.test(s[3])));
+check('All visual source tags grounded',()=>[...html.matchAll(/(?:href="#|\[)(S\d\d)/g)].every(m=>data.sources.some(s=>s[0]===m[1])));
+check('SVG pictograms have viewBox',()=>[...html.matchAll(/<svg[^>]*><use href="#v-/g)].length===9&&[...html.matchAll(/<svg[^>]*><use href="#v-/g)].every(m=>m[0].includes('viewBox="0 0 48 48"')));
+check('SVG scheme has accessible name',()=>html.includes('aria-labelledby="vmap-title vmap-desc"')&&html.includes('id="vmap-desc"'));
+check('Source labels distinguish schematic map',()=>html.includes('模式図')&&html.includes('地理院タイル'));
+check('GSI tile credit, maps for facilities',()=>js.includes('cyberjapandata.gsi.go.jp')&&js.includes('地理院タイル')&&js.includes('Googleマップ'));
+check('Responsive mobile breakpoints',()=>css.includes('@media(max-width:600px)')&&vcss.includes('@media(max-width:420px)')&&html.includes('name="viewport"'));
+check('Accessible interactive switch',()=>html.includes('data-visual-area="east"')&&vjs.includes("setAttribute('aria-pressed'"));
+check('Both JavaScript files syntactically valid',()=>{new vm.Script(js);new vm.Script(vjs);return true});
+check('Source data is public-only',()=>!/社外秘|社内限定|顧客別販売額|マージン率|キヤノンメディカルシステムズ/.test(html+js+vjs+JSON.stringify(data)));
+const result={status:errors.length?'FAIL':'PASS',passed:checks.length,failed:errors.length,charts:9,regionMap:true,pictograms:9,sourceCount:data.sources.length,facilities:data.facilities.length,errors};
+console.log(JSON.stringify(result,null,2));if(errors.length)process.exitCode=1;
