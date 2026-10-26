@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="九州7県・58二次医療圏の医療政策、病院・診療所供給、大学病院、医師会、医療機器市場、流通と地理的制約を、公的資料で統合比較する2026年独立調査。">
+<meta name="theme-color" content="#102b45">
+<title>九州7県 医療機器市場・医療政策・流通統合分析 2026 | Medical Intelligence</title>
+<link rel="stylesheet" href="./css/site.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script defer src="./js/app.js"></script>
+</head><body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="hero"><div class="wrap">
+<div class="eyebrow">MEDICAL INTELLIGENCE / REGIONAL ANALYSIS</div>
+<h1>九州7県 医療機器市場・<br>地域医療・流通構造 総合分析</h1>
+<p>九州を一枚の市場として捉え、福岡都市圏の医療集積から、長崎の多島海、東九州・南九州の交通・医療アクセスまでを比較。2024年公的統計を基準として二次医療圏の研究課題と商社の競争条件を整理します。</p>
+<div class="meta"><span>福岡・佐賀・長崎・熊本・大分・宮崎・鹿児島</span><span>58二次医療圏（添付資料の集計区分）</span><span>数値基準：2024年</span><span>最終更新：2026年10月27日</span><span>独立・中立の公開情報分析</span></div>
+</div></header>
+<nav class="nav" aria-label="ページ内ナビゲーション"><div class="wrap">
+<a href="#summary">サマリー</a><a href="#population">人口・比較</a><a href="#regions">58医療圏</a><a href="#supply">医療提供体制</a><a href="#university">大学・医師会・行政</a><a href="#devices">機器市場</a><a href="#distribution">流通</a><a href="#external">外部環境</a><a href="#strategy">戦略</a><a href="#sources">出典</a>
+</div></nav>
+<main class="wrap" id="main">
+<section id="summary"><h2>01｜エグゼクティブサマリー</h2>
+<p class="lede"><b>九州は「人口集積型の都市市場」と「病床・救急・高齢化への依存度が高い分散市場」が重なる。</b> 地理的距離が近くても、需要、通院流動、医療機器保守、医薬品・医療材料供給の経済性は同じではありません。県境よりも医療圏・通院圏・物流回廊が重要な場合があります。</p>
+<div class="kpis">
+<div class="kpi"><small>7県合計人口（2024）</small><strong id="kpi-pop">12,479,000</strong><small>全国人口の約10.1%</small></div>
+<div class="kpi"><small>病院（2024）</small><strong id="kpi-hosp">1,396</strong><small>全国8,060の約17.3%</small></div>
+<div class="kpi"><small>一般診療所（2024）</small><strong id="kpi-clinic">11,417</strong><small>全国105,207の約10.9%</small></div>
+<div class="kpi"><small>病院病床（2024）</small><strong id="kpi-beds">219,329</strong><small>全国1,469,845の約14.9%</small></div>
+</div>
+<p class="source-note">出典：厚生労働省「令和6（2024）年医療施設（動態）調査・病院報告の概況」統計表9・10および人口付表。合計・構成比は7県を再計算。<a href="https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/24/dl/11gaikyou06.pdf" target="_blank" rel="noopener">原表（2024）</a>。</p>
+<div class="cols3">
+<article class="card"><h3>都市・大学病院の集積</h3><p>福岡市・北九州市・久留米市と各県都には高度医療と専門医療が集まる。高機能機器だけでなく、医療情報連携・施設間共同利用の投資効率が焦点。</p></article>
+<article class="card"><h3>病院密度は全国以上</h3><p>2024年の九州7県は人口約10.1%に対して病院約17.3%。構造の特徴は確認できる一方、病院収益・機器購入余力を直接示すものではない。</p></article>
+<article class="card"><h3>距離と継続供給の差</h3><p>長崎離島・鹿児島離島・天草・山間地域などでは、初期価格と同様に保守訪問、代替機、災害時供給、遠隔支援の実現可能性を重視。</p></article>
+</div>
+<div class="callout"><b>分析仮説：</b> 機器販売額だけの最大化より、施設の診療機能を維持する「調達＋設置＋教育＋修理＋データ接続」を設計できる企業の付加価値が高まりやすい。以下の戦略分析は将来収益の予測ではなく、公開資料から導いた検証仮説です。</div>
+</section>
+
+<section id="population"><h2>02｜人口動態と全国・県別の医療供給比較</h2>
+<p>全国平均は人口10万人当たり病院6.5施設・一般診療所85.0施設（2024）。7県はすべて病院密度が全国平均を上回り、診療所密度は県ごとに異なります。人口変動と介護需要は <a href="https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp" target="_blank" rel="noopener">社人研の市区町村別将来推計（2020～2050年、2023年推計）</a>との照合が必要です。</p>
+<div id="pref-table" aria-live="polite"><p>県別データを読み込み中。一次資料は次の出典一覧を参照してください。</p></div>
+<p class="source-note">人口：総務省人口推計2024年10月1日値（厚労省上記統計付表に再掲）。施設：2024年10月1日。病床：2024年10月1日。沖縄県は今回の7県集計に含みません。東京等との全国比較は統計表9・10を参照。</p>
+<div class="cols2">
+<div><h3>病院数（県別）</h3><div class="chartbox"><canvas id="chart-hosp" role="img" aria-label="福岡・佐賀・長崎・熊本・大分・宮崎・鹿児島の病院数を比較"></canvas></div></div>
+<div><h3>一般診療所数（県別）</h3><div class="chartbox"><canvas id="chart-clinic" role="img" aria-label="九州7県の一般診療所数を比較"></canvas></div></div>
+<div><h3>人口10万人当たり施設数</h3><div class="chartbox"><canvas id="chart-dens" role="img" aria-label="病院と診療所の人口当たり密度を比較"></canvas></div></div>
+<div><h3>人口10万人当たり病院病床</h3><div class="chartbox"><canvas id="chart-bed" role="img" aria-label="県別人口当たり病院病床数"></canvas></div></div>
+</div>
+<div class="cols2">
+<article class="card"><h3>人口の地理的変化</h3><p>福岡都市圏・熊本都市圏などの産業集積地域と、沿岸・山間・離島の人口減少地域を分けて観測。半導体・都市開発が医療需要に与える影響は、患者流入・通院時間・年齢構成の実測で検証する必要があります。</p></article>
+<article class="card"><h3>社人研推計の使い方</h3><p>2050年人口は2020年国勢調査を基点とする条件付き推計。県内市区町村で増減が異なり、65歳以上人口のピーク時期も異なるため、装置更新の市場規模に直接変換しないことが重要です。</p></article>
+</div>
+</section>
+
+<section id="regions"><h2>03｜<span id="region-count">58</span>二次医療圏・地域別機会の探索</h2>
+<div class="caution"><strong>データ品質の区別：</strong>下表の病院数・診療所数は添付「九州7県 医療マーケット地域医療構造 統合比較」二次医療圏比較シートの参考集計です。集計年次・集計区分が県別2024年確定統計と一致しないため、<b>公式値として引用しないでください</b>。最新の医療圏境界・圏域別施設数・病床機能別の必要病床数は各県医療計画および病床機能報告原表との照合待ちです。</div>
+<div class="filter"><label for="pref-filter"><b>県で絞る</b></label><select id="pref-filter"><option value="">九州全県</option></select><label for="region-search"><b>医療圏名</b></label><input id="region-search" placeholder="例：天草、福岡、奄美"><span id="region-total" class="pill">58圏域</span></div>
+<div id="area-table"><p>医療圏データ読込中。</p></div>
+<p class="source-note">スコアは<strong>試算・事業優先順位を確定するものではありません</strong>。病院規模30点＝（参考病院数/最大122）×30、診療所規模30点＝（参考診療所数/最大1,682）×30、広域ハブ該当20点、遠隔・島しょ等の課題フラグ20点（合計100点）。地域医療の必要性と売上期待は異なるため、診療圏・稼働率・財務・物流負荷を加えた再評価が必要。フラグも分析上の仮定です。</p>
+<div class="cols2">
+<div><h3>交通・医療アクセス観測図</h3><div id="map" class="map"><div class="map-fallback">地図を読み込み中</div></div><p class="source-note">地理院タイル（国土地理院）を使用。ピンは各県庁所在地の概略であり、病院・保健所・二次医療圏境界を示しません。<a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">地理院地図を開く</a>。</p></div>
+<div class="card"><h3>地域軸で見る需要と制約</h3><p class="feature"><b>北部九州：</b>福岡・北九州・久留米・鳥栖・佐賀の広域通院と物流回廊。医療情報の相互運用性と更新整備の面的効率。</p><p class="feature"><b>西九州：</b>長崎・佐世保・諫早と離島の機能分担。フェリー・航空・気象による設置保守リードタイム。</p><p class="feature"><b>東九州：</b>大分・別府・延岡・宮崎をつなぐ国道10号・東九州自動車道。広域救急と保守拠点密度。</p><p class="feature"><b>南九州：</b>熊本・八代・鹿児島と宮崎内陸を分ける山地・交通経路。基幹病院と地域診療所の機能補完。</p><p class="feature"><b>島しょ：</b>五島・対馬・壱岐・種子島・屋久島・奄美等は船舶・航空運休のBCPが装置選定に直結。</p></div>
+</div>
+<h3>重点地域の分析仮説（3～5年）</h3>
+<div class="scroll"><table class="data-table"><thead><tr><th>エリア</th><th>需要の起点</th><th>重点検証事項</th><th>商社の機会仮説</th></tr></thead><tbody>
+<tr><td>福岡・北九州・久留米</td><td>大学・高度急性期・専門診療</td><td>大型画像診断更新、検査共同利用、病床再編</td><td>設備・IT・保守一体の複数年更新計画</td></tr>
+<tr><td>鳥栖・佐賀・武雄</td><td>県境通院、地域中核病院</td><td>福岡・長崎との患者移動と検査紹介</td><td>施設をまたぐ画像共有と診療所更新</td></tr>
+<tr><td>長崎・佐世保・島しょ</td><td>高度医療拠点と遠隔地域</td><td>搬送制約、予備機の配置、専門医配置</td><td>可搬型機器、地域連携、遠隔保守</td></tr>
+<tr><td>熊本・菊池・八代・天草</td><td>県央拠点、産業集積、地域偏在</td><td>人口流入の実測、交通と患者分布</td><td>新設・更新と地域診療所の機能分化</td></tr>
+<tr><td>大分・別府・県北</td><td>県都医療集積、広域救急</td><td>慢性期から回復期への機能転換</td><td>検査効率と保守・搬送の総コスト最適化</td></tr>
+<tr><td>宮崎・延岡・都城</td><td>長距離移動と専門医偏在</td><td>救急搬送時間、診療科別医師配置</td><td>遠隔連携、在宅・地域支援、可搬型機器</td></tr>
+<tr><td>鹿児島・姶良・大隅・奄美</td><td>高齢化、島しょ医療、拠点病院</td><td>噴火・豪雨・離島輸送BCP</td><td>省人化、代替機、診療情報共有と保守</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="supply"><h2>04｜医療提供体制・病床再編・専門病院</h2>
+<p>第8次医療計画（原則2024～2029年度）を7県横断で比較します。地域医療構想の「高度急性期・急性期・回復期・慢性期」は病床機能報告の区分であり、一般病床・療養病床という法的病床種別とは別です。両者を混同しません。</p>
+<div class="framework">
+<article><h3>高度急性期・救命救急</h3><p>大学病院、特定機能病院、救命救急センター、基幹病院のCT/MRI/血管撮影・手術・MEに関する更新/集約を把握。</p></article>
+<article><h3>地域医療支援・回復期</h3><p>紹介率・逆紹介率、画像連携、退院支援、リハビリ・在宅移行に注目。病院数が多くても役割は一様ではありません。</p></article>
+<article><h3>がん医療・放射線治療</h3><p>がん診療連携拠点・PET・リニアックは患者集約、放射線医師・医学物理士・技師の体制も合わせて検証。</p></article>
+<article><h3>災害拠点病院</h3><p>水害・台風・地震・火山・停電・輸送寸断を想定した電源、機器復旧、予備品、通信冗長化を重要条件とする。</p></article>
+<article><h3>へき地・離島</h3><p>診療所の超音波・心電計・POCT、遠隔画像診断、訪問型保守と教育による診療継続の仕組みを評価。</p></article>
+<article><h3>病床機能の必要数</h3><p>県・構想区域ごとの必要病床数は各県の医療計画・病床機能報告からの個別突合が必要。未照合値は掲載しません。</p></article>
+</div>
+<p class="caution">病院・病床の再編方針は個々の医療機関の購入決定と同義ではありません。統合・建替・補助事業は、行政決定・予算成立・契約・竣工を別々の段階として扱います。</p>
+</section>
+
+<section id="university"><h2>05｜医学部・大学病院・医師会・行政</h2>
+<p>九州7県の医学部を有する10大学と主要な大学附属病院を俯瞰。大学医局の人員配置と関連病院網は影響が大きいものの、<b>非公開の医局人事や系列施設を事実として推定しません</b>。建替・増築計画も公式資料がある案件だけで判断します。</p>
+<div id="univ-table"><p>大学病院一覧を読み込み中。</p></div>
+<p class="source-note">住所は各大学病院の代表所在地を案内。Googleマップは施設名と住所で検索、地理院地図は参考地点へのリンクであり、精密位置・出入口を保証しません。病院名自体をGoogle検索して公式Webサイトを確認してください。</p>
+<h3>都道府県医師会・郡市医師会の参照先</h3><p>医師会の管轄区域と二次医療圏は必ずしも一致しません。県全体の一般診療所数を郡市医師会単位に恣意的に配分せず、医師会別施設数は確認待ちとします。</p>
+<div id="assoc-table"><p>医師会リンクを読み込み中。</p></div>
+<h3>行政・保健所・医療DX</h3><div class="cols3">
+<article class="card"><h3>県庁医療政策部局</h3><p>各県の第8次医療計画を入口に、医療政策担当課、病床機能、保健所、医療情報、地域医療介護総合確保基金を確認。県庁所在地は上の地図で表示。</p></article>
+<article class="card"><h3>郡市医師会・地域連携</h3><p>在宅医療、救急当番、かかりつけ医機能報告、医師会立病院・検査センター、ICT共同運用を県別に追跡。医師会会員数と診療所施設数は異なります。</p></article>
+<article class="card"><h3>補助金とDX</h3><p>病床転換、へき地・離島、医療DX、オンライン資格確認、電子カルテ・画像共有を施策ごとに区別。公募時点、対象機器、交付決定を個別確認。</p></article>
+</div>
+</section>
+
+<section id="devices"><h2>06｜モダリティ別医療機器MKT・更新需要</h2>
+<p>設置台数や売上は施設数とは異なります。2023年医療施設静態調査などの原表にあるCT/MRI設置情報は、装置台数・設置施設・検査件数を区別して集計する必要があります。<b>確認できていない7県別の機器設置台数や市場シェアを推測値で埋めません。</b></p>
+<div class="scroll"><table class="data-table"><thead><tr><th>モダリティ</th><th>代表的な需要ドライバー</th><th>比較上の論点</th><th>今後の調査対象</th></tr></thead><tbody>
+<tr><td>超音波 US</td><td>内科、循環器、産婦人科、整形外科、在宅</td><td>診療科/用途/可搬性/人材育成</td><td>診療科別導入・設置更新周期・検査実施体制</td></tr>
+<tr><td>CT</td><td>救急、脳血管、がん、地域中核病院</td><td>列数・撮影効率・共同利用・被ばく</td><td>静態調査の機器区分と各県医療機関情報</td></tr>
+<tr><td>MRI</td><td>脳神経、整形、がん、専門外来</td><td>磁場強度・スループット・液体ヘリウム・電力</td><td>磁場別設置状況、検査件数、技師/読影体制</td></tr>
+<tr><td>PET/核医学</td><td>がん診断、診療機能集約</td><td>薬剤供給・運用採算・患者アクセス</td><td>実施施設、稼働、薬剤物流</td></tr>
+<tr><td>血管撮影 / IVR</td><td>脳卒中、循環器、救急</td><td>集中治療・専門医・滅菌・ME</td><td>診療科・症例・稼働体制</td></tr>
+<tr><td>リニアック</td><td>放射線治療、がん診療連携</td><td>患者集積・工事・保守・物理士配置</td><td>治療施設と治療件数、設備整備計画</td></tr>
+<tr><td>内視鏡</td><td>胃・大腸がん検診、消化器外来</td><td>感染管理、洗浄、専門医確保、保守</td><td>健診・診療所の実施体制</td></tr>
+<tr><td>心電図/生体情報</td><td>循環器、在宅、急性期</td><td>電子カルテ接続、遠隔診療、コスト</td><td>検査所要・接続性・更新頻度</td></tr>
+<tr><td>透析・ME</td><td>腎臓病、地域治療アクセス</td><td>水処理・設備・災害時継続</td><td>透析施設、治療患者、バックアップ電源</td></tr>
+<tr><td>PACS/医療IT</td><td>画像共同利用、遠隔読影、医療DX</td><td>接続標準・保守・セキュリティ</td><td>地域医療連携基盤と施設間共有</td></tr>
+</tbody></table></div>
+<div class="callout"><b>更新需要の算出式（分析方法）：</b> 設置台数 × 更新対象年齢分布 × 更新確率 × 稼働継続率 × 設備投資実行確率。機器寿命を一律に固定した架空の更新市場額は公表しません。</div>
+</section>
+
+<section id="distribution"><h2>07｜医療機器ディーラー・医薬品卸の流通構造</h2>
+<p>九州の流通を売上高だけで比較すると、医薬品売上と医療機器売上が混在し、誤ったシェア推定につながります。ここでは公開会社情報から<b>機能別の流通構造</b>を比較します。企業の強弱・優劣ではなく、主な事業活動の違いを整理したものです。</p>
+<div class="scroll"><table class="data-table"><thead><tr><th>企業・事業者</th><th>公開情報で確認できる事業特性</th><th>地域流通での着眼点</th><th>一次資料</th></tr></thead><tbody>
+<tr><td>山下医科器械</td><td>医療機器・材料の専門商社。福岡・佐世保など拠点</td><td>病院設備、専門診療、調達・保守接点</td><td><a href="https://www.yamashitaika.co.jp/company/outline/" target="_blank" rel="noopener">会社概要</a></td></tr>
+<tr><td>アイティーアイ（ITI）</td><td>医療機器・医療材料・アフターサービス、SPD・MEサービス拠点</td><td>長崎発の広域拠点、画像診断設備・物流・ME</td><td><a href="https://www.iti-e.co.jp/company/about/" target="_blank" rel="noopener">会社概要</a> / <a href="https://www.iti-e.co.jp/company/offices/" target="_blank" rel="noopener">拠点</a></td></tr>
+<tr><td>キシヤ</td><td>医療機器・医療材料を扱う地域医療関連企業</td><td>福岡県を中心とした病院・SPD接点（詳細は会社別要確認）</td><td><a href="https://www.kishiya.co.jp/" target="_blank" rel="noopener">公式サイト</a></td></tr>
+<tr><td>九州風雲堂販売</td><td>整形外科・外科手術材料に専門性を持つ九州広域の医療機器販売会社</td><td>手術室、インプラント、器械貸出、術前・術後の供給</td><td><a href="https://fuundo.jp/company/information/" target="_blank" rel="noopener">会社概要（2025年4月期売上229.27億円）</a></td></tr>
+<tr><td>アトル（メディパル系）</td><td>医薬品卸を基盤に検査薬・医療機器も取り扱う</td><td>診療所・病院・薬局、医薬品配送と情報支援網</td><td><a href="https://www.atol-com.co.jp/company/business-organization/" target="_blank" rel="noopener">事業・組織</a></td></tr>
+<tr><td>アステム</td><td>医薬品・検査・医療機器・材料・修理保守の総合卸</td><td>九州の病院・診療所・調剤薬局への供給・物流</td><td><a href="https://www.astemf.jp/company/outline.php" target="_blank" rel="noopener">会社概要</a></td></tr>
+</tbody></table></div>
+<p class="source-note">企業名は競合序列ではありません。親会社連結売上・単体売上・医薬品売上・機器売上の定義が異なるため、合算した「九州機器市場シェア」は算出していません。各社の詳細事業・拠点・業績は公式発表時点を要確認。</p>
+<div class="cols3">
+<article class="card"><h3>医療機器専門卸</h3><p>病院・診療科に密着し、設置・保守・術中支援・ME管理などの技術対応が競争条件。</p></article>
+<article class="card"><h3>医薬品卸系</h3><p>診療所・薬局を含む面的訪問と物流を持つ。画像診断・高度機器は別途専門人材や設置保守が必要。</p></article>
+<article class="card"><h3>領域特化・地場卸</h3><p>整形外科、透析、手術材料などで診療科・施設運用に深く関与する。全領域一律でなく強みの所在を検証。</p></article>
+</div>
+</section>
+
+<section id="external"><h2>08｜外部環境・地政学・医療BCP</h2>
+<div class="framework">
+<article><h3>政策・2026年度診療報酬</h3><p>改定項目は厚労省・地方厚生局の確定資料をもとに、算定要件と施設基準を確認。病院の収支悪化が更新延期・共同利用を促す可能性も考慮。</p></article>
+<article><h3>人口・産業</h3><p>高齢化と生産年齢人口減少、福岡都市圏への集積、熊本周辺の産業投資を分けて分析。工場投資をそのまま医療機器需要へ換算しない。</p></article>
+<article><h3>災害・地政学</h3><p>豪雨、台風、地震、火山、長距離陸送、離島航路と部品供給網の集中は、BCP・保守負担に影響。</p></article>
+<article><h3>医師の働き方改革</h3><p>救急・当直・検査の人的制約が、効率的な検査運用や地域機能分担の必要性を高める可能性。</p></article>
+<article><h3>機器・半導体・資材</h3><p>調達期間、設置工事、電力・水、MRIに必要な冷却関連の供給がプロジェクト工程のリスク。</p></article>
+<article><h3>DX・情報セキュリティ</h3><p>部門システム連携、医療情報ガイドライン、サイバー対策、アクセス権限、災害時バックアップを比較条件へ。</p></article>
+</div>
+<h3>交通回廊と市場境界の考え方</h3><p>九州自動車道、長崎自動車道、大分自動車道、東九州自動車道、九州新幹線・西九州新幹線、空港・港湾の配置は商談より保守履行の継続性に関わります。道路がつながっていても山越え・航路・冬季/台風時の所要時間変動を織り込み、保守圏を単純な直線距離で設定しないことが重要です。</p>
+</section>
+
+<section id="strategy"><h2>09｜事業戦略フレームワークとKSF</h2>
+<p>以下は中立的な医療機器商社の立場からの研究上の推奨仮説です。個別企業への営業指示や社内機密ではありません。</p>
+<div class="framework">
+<article><h3>PEST｜マクロ</h3><p><b>P</b> 医療計画・診療報酬・DX／<b>E</b> 病院投資余力・物流費／<b>S</b> 高齢化・医師偏在／<b>T</b> 省人化・遠隔画像共有・サイバー対策。</p></article>
+<article><h3>3C｜顧客・競争・自社</h3><p><b>Customer</b>病院・診療所の業務継続、<b>Competitor</b>専門卸/総合卸/メーカー、<b>Company</b>商社の技術・物流・連携能力。</p></article>
+<article><h3>STP｜どこで戦うか</h3><p><b>S</b>都市拠点・地域中核・島しょ、<b>T</b>更新・省人化・継続供給、<b>P</b>施設機能を維持する中立的インテグレーター。</p></article>
+<article><h3>4P｜供給側</h3><p><b>Product</b>装置+情報+保守、<b>Price</b>総保有コスト、<b>Place</b>物流/保守拠点、<b>Promotion</b>エビデンスと教育。</p></article>
+<article><h3>4C｜顧客側</h3><p><b>Value</b>検査の継続、<b>Cost</b>総負担、<b>Convenience</b>機器の稼働と対応速度、<b>Communication</b>診療現場との定期的検証。</p></article>
+<article><h3>VRIO｜競争持続性</h3><p>地域保守網・専門人材・医療機関連携・在庫可視化は価値源泉。希少性と模倣困難性だけでなく、それを活かす組織運営が条件。</p></article>
+<article><h3>5F｜産業構造</h3><p>競争：高／顧客の交渉力：機能と地域で差／供給者交渉力：専門機器で高め／新規参入：許認可・人材・保守が障壁／代替：共同利用・外注検査。</p></article>
+<article><h3>SWOT｜九州</h3><p><b>S</b>大学・専門医療と地域流通の厚み／<b>W</b>分散・保守コスト／<b>O</b>再編・DX・在宅／<b>T</b>人口減・病院経営・災害・供給遅延。</p></article>
+<article><h3>KSF｜成功要因</h3><p>①医療圏単位の情報品質 ②設置/保守の実行力 ③医師・技師の教育 ④病院/診療所の機能連携 ⑤TCO開示 ⑥災害時の代替供給。</p></article>
+</div>
+<h3>Where to Play × How to Win</h3>
+<div class="scroll"><table class="data-table"><thead><tr><th>Where to Play</th><th>How to Win</th><th>検証KPI</th><th>主なリスク</th></tr></thead><tbody>
+<tr><td>大学・地域中核病院と周辺紹介圏</td><td>機器更新・統合・PACS・保守を設備計画単位で協調</td><td>総保有費、稼働率、検査待機期間</td><td>予算凍結・人材不足</td></tr>
+<tr><td>都市近郊の専門診療所</td><td>診療科別機能を明確化し導入教育・保守を標準化</td><td>検査利用・設備稼働・回収期間</td><td>開業・承継の変化</td></tr>
+<tr><td>人口減少地・島しょ</td><td>可搬機・遠隔支援・バックアップ物流と自治体連携</td><td>故障から復旧まで、遠隔解決率</td><td>航路欠航・保守費上昇</td></tr>
+<tr><td>病院の機能転換・再編</td><td>地域全体の機器配分と共同利用で重複投資を抑制</td><td>紹介率・共同利用件数・維持費</td><td>利害調整・計画遅延</td></tr>
+</tbody></table></div>
+<h3>実装ロードマップ</h3><div class="cols3">
+<div class="card"><h3>短期：0～90日</h3><p>公的原表で二次医療圏・医師会別施設数を照合。保守拠点の実在・地域中核病院の投資計画・メーカー情報を更新し、調査空白とデータ定義を可視化。</p></div>
+<div class="card"><h3>中期：3～12か月</h3><p>各県2～3の重点圏域で更新・診療科・医療DX・保守体制を検証し、装置別収支とTCOを比較。大学・自治体・販社の公開連携施策を確認。</p></div>
+<div class="card"><h3>長期：1～3年</h3><p>施設単体の販売から、地域検査ネットワーク、在宅・訪問診療、災害復旧まで含む継続サービスへ転換し、結果を定期レビュー。</p></div>
+</div>
+</section>
+
+<section id="sources"><h2>10｜出典・データ検証・未整備項目</h2>
+<div class="callout"><b>数値の三段階表示：</b>「確定統計」＝厚労省2024年原表／「参考値」＝添付集計（原典未照合）／「独自分析」＝仮定と計算式を明示した優先度等。時点を揃えない前年比や、医薬品売上を含む売上高から算出した医療機器シェアは載せません。</div>
+<div id="sources-dynamic"><p>主要出典の一覧を読み込み中。</p></div>
+<h3>未整備のため空欄にしている一次統計</h3>
+<p>二次医療圏別の病床機能「現状と必要病床数」、最新の医師偏在指標と診療科別人員、郡市医師会管轄ごとの実施設数、全保健所所在地、CT/MRI/US等の県別・圏域別実設置台数、病院グループ別新築・更新工程、自治体補助金の採択・交付額、市町村ごとの2025～2050年人口増減率。一次資料の照合が完了したものから追補する設計です。</p>
+<p id="data-status" class="status" aria-live="polite"></p>
+</section>
+</main>
+<footer class="foot"><div class="wrap"><b>九州7県 医療機器市場統合分析 / Medical Intelligence</b>
+<p>公開情報に基づく独立研究であり、記載情報の完全性・適時性・正確性を保証しません。個別の機器調達、医療機関評価、取引判断には一次資料と関係機関への確認が必要です。企業の業績・強みは公式サイトの公開情報に限定し、未公表の商流・販売価格・取引情報等は掲載していません。</p>
+<p class="small">最終更新：2026年10月27日｜数値基準：2024年｜地理院地図の表示は参考位置｜© 公開資料に基づく独立調査（第三者団体との提携・監修を意味しません）</p>
+<div class="footlinks"><a href="https://sinobu13-bpei.github.io/medical-intelligence/">Medical Intelligence トップ</a><a href="https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/24/dl/11gaikyou06.pdf" target="_blank" rel="noopener">厚労省2024原表</a><a href="https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp" target="_blank" rel="noopener">社人研将来人口</a></div></div></footer>
+</body></html>
