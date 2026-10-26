@@ -30,9 +30,14 @@ try{
         fallbacks:[...document.querySelectorAll('.chart-fallback')].filter(x=>getComputedStyle(x).display!=='none').length,
         mapFallback:!!document.querySelector('.map-fallback'),
         navMinHeight:Math.round(document.querySelector('.toc a').getBoundingClientRect().height),
-        bodySize:getComputedStyle(document.body).fontSize
+        bodySize:getComputedStyle(document.body).fontSize,
+        offenders:[...document.body.querySelectorAll('*')].map(x=>{
+          const r=x.getBoundingClientRect();
+          return {tag:x.tagName,id:x.id,cls:typeof x.className==='string'?x.className.slice(0,55):'',right:Math.round(r.right),left:Math.round(r.left),width:Math.round(r.width),scrollWidth:x.scrollWidth,clientWidth:x.clientWidth};
+        }).filter(x=>x.right>window.innerWidth+2 && x.width>0).slice(0,18)
       };
     });
+    console.log('Viewport diagnostics:',width,JSON.stringify(metrics));
     assert(metrics.overflow<=1,'Horizontal viewport overflow at '+width+': '+metrics.overflow+'px');
     assert.equal(metrics.sources,27,'27 citation entries visible');
     assert.equal(metrics.regionRows,6,'6 region table rows');
