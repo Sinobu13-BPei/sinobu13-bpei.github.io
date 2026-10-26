@@ -120,7 +120,7 @@
           a.target='_blank';a.rel='noopener';
         }
       }
-      if(a.target==='_blank'){a.rel='noopener';if(!a.textContent.trim().endsWith('↗'))a.append(document.createTextNode(' ↗'))}
+      if(a.target==='_blank'){a.rel='noopener';if(!a.classList.contains('rizno-one-btn')&&!a.textContent.trim().endsWith('↗'))a.append(document.createTextNode(' ↗'))}
     });
     document.querySelectorAll('img[src=""],source[src=""]').forEach(x=>x.removeAttribute('src'));
   }
