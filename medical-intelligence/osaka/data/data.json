@@ -770,6 +770,1683 @@
       "name": "内閣府 令和8年版高齢社会白書・高齢化の状況",
       "year": "2025年10月1日現在の全国高齢化率（2026年版公表）",
       "url": "https://www8.cao.go.jp/kourei/whitepaper/w-2026/html/zenbun/s1_1_1.html"
+    },
+    {
+      "id": "municipality2023",
+      "name": "大阪府 令和5年医療施設調査 第2表 市町村別",
+      "year": "2023年10月1日",
+      "url": "https://www.pref.osaka.lg.jp/documents/4369/r05d02.pdf"
+    },
+    {
+      "id": "osakaWards2025",
+      "name": "大阪市 令和7年3月31日 医療関係施設状況（区別）",
+      "year": "2025年3月31日",
+      "url": "https://www.city.osaka.lg.jp/shimin/cmsfiles/contents/0000659/659107/04-10-9iryoukankeisisetujoukyoueiyousidoukankei.pdf"
+    },
+    {
+      "id": "associations2026",
+      "name": "大阪府医師会 郡市区等医師会一覧（64団体）",
+      "year": "2026年10月参照",
+      "url": "https://www.osaka.med.or.jp/citizen/district.html"
     }
-  ]
+  ],
+  "facilityMarket": {
+    "updated": "2026-10-27",
+    "municipality2023": [
+      {
+        "name": "大阪市",
+        "hospitals": 171,
+        "clinics": 3734,
+        "dental": 2183,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "堺市",
+        "hospitals": 43,
+        "clinics": 744,
+        "dental": 460,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "豊中市",
+        "hospitals": 19,
+        "clinics": 430,
+        "dental": 246,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "東大阪市",
+        "hospitals": 21,
+        "clinics": 397,
+        "dental": 281,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "吹田市",
+        "hospitals": 15,
+        "clinics": 373,
+        "dental": 208,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "高槻市",
+        "hospitals": 17,
+        "clinics": 297,
+        "dental": 185,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "枚方市",
+        "hospitals": 24,
+        "clinics": 284,
+        "dental": 208,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "茨木市",
+        "hospitals": 14,
+        "clinics": 246,
+        "dental": 154,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "八尾市",
+        "hospitals": 11,
+        "clinics": 212,
+        "dental": 133,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "寝屋川市",
+        "hospitals": 14,
+        "clinics": 182,
+        "dental": 117,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "岸和田市",
+        "hospitals": 17,
+        "clinics": 145,
+        "dental": 96,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "守口市",
+        "hospitals": 7,
+        "clinics": 139,
+        "dental": 74,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "箕面市",
+        "hospitals": 10,
+        "clinics": 135,
+        "dental": 91,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "和泉市",
+        "hospitals": 13,
+        "clinics": 128,
+        "dental": 85,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "門真市",
+        "hospitals": 5,
+        "clinics": 115,
+        "dental": 66,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "池田市",
+        "hospitals": 3,
+        "clinics": 103,
+        "dental": 69,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "松原市",
+        "hospitals": 6,
+        "clinics": 96,
+        "dental": 60,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "泉佐野市",
+        "hospitals": 11,
+        "clinics": 89,
+        "dental": 45,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "富田林市",
+        "hospitals": 7,
+        "clinics": 87,
+        "dental": 55,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "大東市",
+        "hospitals": 5,
+        "clinics": 80,
+        "dental": 52,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "河内長野市",
+        "hospitals": 8,
+        "clinics": 76,
+        "dental": 56,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "藤井寺市",
+        "hospitals": 4,
+        "clinics": 70,
+        "dental": 49,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "泉大津市",
+        "hospitals": 4,
+        "clinics": 70,
+        "dental": 44,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "羽曳野市",
+        "hospitals": 7,
+        "clinics": 69,
+        "dental": 44,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "摂津市",
+        "hospitals": 4,
+        "clinics": 58,
+        "dental": 41,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "貝塚市",
+        "hospitals": 8,
+        "clinics": 57,
+        "dental": 31,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "大阪狭山市",
+        "hospitals": 7,
+        "clinics": 56,
+        "dental": 38,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "交野市",
+        "hospitals": 2,
+        "clinics": 55,
+        "dental": 37,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "高石市",
+        "hospitals": 4,
+        "clinics": 51,
+        "dental": 40,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "柏原市",
+        "hospitals": 3,
+        "clinics": 48,
+        "dental": 33,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "阪南市",
+        "hospitals": 3,
+        "clinics": 43,
+        "dental": 26,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "泉南市",
+        "hospitals": 7,
+        "clinics": 40,
+        "dental": 19,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "四條畷市",
+        "hospitals": 3,
+        "clinics": 36,
+        "dental": 23,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "熊取町",
+        "hospitals": 2,
+        "clinics": 33,
+        "dental": 16,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "島本町",
+        "hospitals": 1,
+        "clinics": 24,
+        "dental": 10,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "豊能町",
+        "hospitals": 0,
+        "clinics": 14,
+        "dental": 7,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "忠岡町",
+        "hospitals": 1,
+        "clinics": 14,
+        "dental": 9,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "岬町",
+        "hospitals": 1,
+        "clinics": 11,
+        "dental": 4,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "河南町",
+        "hospitals": 0,
+        "clinics": 9,
+        "dental": 3,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "田尻町",
+        "hospitals": 0,
+        "clinics": 8,
+        "dental": 5,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "能勢町",
+        "hospitals": 0,
+        "clinics": 7,
+        "dental": 3,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "太子町",
+        "hospitals": 0,
+        "clinics": 7,
+        "dental": 4,
+        "year": "2023-10-01"
+      },
+      {
+        "name": "千早赤阪村",
+        "hospitals": 0,
+        "clinics": 5,
+        "dental": 1,
+        "year": "2023-10-01"
+      }
+    ],
+    "regions2023": [
+      {
+        "name": "豊能",
+        "members": [
+          "豊中市",
+          "池田市",
+          "吹田市",
+          "箕面市",
+          "豊能町",
+          "能勢町"
+        ],
+        "hospitals": 47,
+        "clinics": 1062,
+        "dental": 624,
+        "year": "2023-10-01",
+        "associationCount": 4
+      },
+      {
+        "name": "三島",
+        "members": [
+          "高槻市",
+          "茨木市",
+          "摂津市",
+          "島本町"
+        ],
+        "hospitals": 36,
+        "clinics": 625,
+        "dental": 390,
+        "year": "2023-10-01",
+        "associationCount": 3
+      },
+      {
+        "name": "北河内",
+        "members": [
+          "守口市",
+          "枚方市",
+          "寝屋川市",
+          "大東市",
+          "門真市",
+          "四條畷市",
+          "交野市"
+        ],
+        "hospitals": 60,
+        "clinics": 891,
+        "dental": 577,
+        "year": "2023-10-01",
+        "associationCount": 6
+      },
+      {
+        "name": "中河内",
+        "members": [
+          "八尾市",
+          "柏原市",
+          "東大阪市"
+        ],
+        "hospitals": 35,
+        "clinics": 657,
+        "dental": 447,
+        "year": "2023-10-01",
+        "associationCount": 5
+      },
+      {
+        "name": "南河内",
+        "members": [
+          "富田林市",
+          "河内長野市",
+          "松原市",
+          "羽曳野市",
+          "藤井寺市",
+          "大阪狭山市",
+          "太子町",
+          "河南町",
+          "千早赤阪村"
+        ],
+        "hospitals": 39,
+        "clinics": 475,
+        "dental": 310,
+        "year": "2023-10-01",
+        "associationCount": 6
+      },
+      {
+        "name": "堺市",
+        "members": [
+          "堺市"
+        ],
+        "hospitals": 43,
+        "clinics": 744,
+        "dental": 460,
+        "year": "2023-10-01",
+        "associationCount": 1
+      },
+      {
+        "name": "泉州",
+        "members": [
+          "岸和田市",
+          "泉大津市",
+          "貝塚市",
+          "泉佐野市",
+          "和泉市",
+          "高石市",
+          "泉南市",
+          "阪南市",
+          "忠岡町",
+          "熊取町",
+          "田尻町",
+          "岬町"
+        ],
+        "hospitals": 71,
+        "clinics": 689,
+        "dental": 420,
+        "year": "2023-10-01",
+        "associationCount": 6
+      },
+      {
+        "name": "大阪市",
+        "members": [
+          "大阪市"
+        ],
+        "hospitals": 171,
+        "clinics": 3734,
+        "dental": 2183,
+        "year": "2023-10-01",
+        "associationCount": 26
+      }
+    ],
+    "wards2025": [
+      {
+        "name": "北区",
+        "hospitals": 11,
+        "clinics": 568,
+        "dental": 218,
+        "physicianAssociations": [
+          "北区医師会",
+          "大淀医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "都島区",
+        "hospitals": 9,
+        "clinics": 130,
+        "dental": 71,
+        "physicianAssociations": [
+          "都島区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "福島区",
+        "hospitals": 6,
+        "clinics": 108,
+        "dental": 64,
+        "physicianAssociations": [
+          "福島区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "此花区",
+        "hospitals": 3,
+        "clinics": 60,
+        "dental": 29,
+        "physicianAssociations": [
+          "此花区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "中央区",
+        "hospitals": 8,
+        "clinics": 517,
+        "dental": 255,
+        "physicianAssociations": [
+          "中央区東医師会",
+          "中央区南医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "西区",
+        "hospitals": 8,
+        "clinics": 153,
+        "dental": 109,
+        "physicianAssociations": [
+          "西区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "港区",
+        "hospitals": 3,
+        "clinics": 73,
+        "dental": 40,
+        "physicianAssociations": [
+          "港区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "大正区",
+        "hospitals": 3,
+        "clinics": 65,
+        "dental": 37,
+        "physicianAssociations": [
+          "大正区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "天王寺区",
+        "hospitals": 7,
+        "clinics": 183,
+        "dental": 91,
+        "physicianAssociations": [
+          "天王寺区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "浪速区",
+        "hospitals": 4,
+        "clinics": 85,
+        "dental": 52,
+        "physicianAssociations": [
+          "浪速区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "西淀川区",
+        "hospitals": 5,
+        "clinics": 65,
+        "dental": 50,
+        "physicianAssociations": [
+          "西淀川区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "淀川区",
+        "hospitals": 8,
+        "clinics": 206,
+        "dental": 128,
+        "physicianAssociations": [
+          "淀川区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "東淀川区",
+        "hospitals": 4,
+        "clinics": 161,
+        "dental": 94,
+        "physicianAssociations": [
+          "東淀川区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "東成区",
+        "hospitals": 8,
+        "clinics": 99,
+        "dental": 60,
+        "physicianAssociations": [
+          "東成区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "生野区",
+        "hospitals": 17,
+        "clinics": 148,
+        "dental": 83,
+        "physicianAssociations": [
+          "生野区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "旭区",
+        "hospitals": 7,
+        "clinics": 101,
+        "dental": 64,
+        "physicianAssociations": [
+          "旭区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "城東区",
+        "hospitals": 8,
+        "clinics": 170,
+        "dental": 96,
+        "physicianAssociations": [
+          "城東区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "鶴見区",
+        "hospitals": 7,
+        "clinics": 83,
+        "dental": 66,
+        "physicianAssociations": [
+          "鶴見区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "阿倍野区",
+        "hospitals": 7,
+        "clinics": 194,
+        "dental": 102,
+        "physicianAssociations": [
+          "阿倍野区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "住之江区",
+        "hospitals": 4,
+        "clinics": 113,
+        "dental": 78,
+        "physicianAssociations": [
+          "住之江区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "住吉区",
+        "hospitals": 7,
+        "clinics": 163,
+        "dental": 110,
+        "physicianAssociations": [
+          "住吉区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "東住吉区",
+        "hospitals": 7,
+        "clinics": 137,
+        "dental": 80,
+        "physicianAssociations": [
+          "東住吉区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "平野区",
+        "hospitals": 10,
+        "clinics": 207,
+        "dental": 125,
+        "physicianAssociations": [
+          "平野区医師会"
+        ],
+        "year": "2025-03-31"
+      },
+      {
+        "name": "西成区",
+        "hospitals": 11,
+        "clinics": 122,
+        "dental": 70,
+        "physicianAssociations": [
+          "西成区医師会"
+        ],
+        "year": "2025-03-31"
+      }
+    ],
+    "associations": [
+      {
+        "name": "北区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市北区"
+        ],
+        "basis": [
+          "大阪市北区"
+        ],
+        "hospitals": 11,
+        "clinics": 568,
+        "dental": 218,
+        "year": "2025-03-31",
+        "coverage": "大阪市北区",
+        "shared": true,
+        "note": "同一区に複数医師会があるため区全体の参考値（会別配分不可）"
+      },
+      {
+        "name": "大淀医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市北区"
+        ],
+        "basis": [
+          "大阪市北区"
+        ],
+        "hospitals": 11,
+        "clinics": 568,
+        "dental": 218,
+        "year": "2025-03-31",
+        "coverage": "大阪市北区",
+        "shared": true,
+        "note": "同一区に複数医師会があるため区全体の参考値（会別配分不可）"
+      },
+      {
+        "name": "都島区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市都島区"
+        ],
+        "basis": [
+          "大阪市都島区"
+        ],
+        "hospitals": 9,
+        "clinics": 130,
+        "dental": 71,
+        "year": "2025-03-31",
+        "coverage": "大阪市都島区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "福島区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市福島区"
+        ],
+        "basis": [
+          "大阪市福島区"
+        ],
+        "hospitals": 6,
+        "clinics": 108,
+        "dental": 64,
+        "year": "2025-03-31",
+        "coverage": "大阪市福島区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "此花区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市此花区"
+        ],
+        "basis": [
+          "大阪市此花区"
+        ],
+        "hospitals": 3,
+        "clinics": 60,
+        "dental": 29,
+        "year": "2025-03-31",
+        "coverage": "大阪市此花区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "中央区東医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市中央区"
+        ],
+        "basis": [
+          "大阪市中央区"
+        ],
+        "hospitals": 8,
+        "clinics": 517,
+        "dental": 255,
+        "year": "2025-03-31",
+        "coverage": "大阪市中央区",
+        "shared": true,
+        "note": "同一区に複数医師会があるため区全体の参考値（会別配分不可）"
+      },
+      {
+        "name": "中央区南医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市中央区"
+        ],
+        "basis": [
+          "大阪市中央区"
+        ],
+        "hospitals": 8,
+        "clinics": 517,
+        "dental": 255,
+        "year": "2025-03-31",
+        "coverage": "大阪市中央区",
+        "shared": true,
+        "note": "同一区に複数医師会があるため区全体の参考値（会別配分不可）"
+      },
+      {
+        "name": "西区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市西区"
+        ],
+        "basis": [
+          "大阪市西区"
+        ],
+        "hospitals": 8,
+        "clinics": 153,
+        "dental": 109,
+        "year": "2025-03-31",
+        "coverage": "大阪市西区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "港区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市港区"
+        ],
+        "basis": [
+          "大阪市港区"
+        ],
+        "hospitals": 3,
+        "clinics": 73,
+        "dental": 40,
+        "year": "2025-03-31",
+        "coverage": "大阪市港区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "大正区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市大正区"
+        ],
+        "basis": [
+          "大阪市大正区"
+        ],
+        "hospitals": 3,
+        "clinics": 65,
+        "dental": 37,
+        "year": "2025-03-31",
+        "coverage": "大阪市大正区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "天王寺区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市天王寺区"
+        ],
+        "basis": [
+          "大阪市天王寺区"
+        ],
+        "hospitals": 7,
+        "clinics": 183,
+        "dental": 91,
+        "year": "2025-03-31",
+        "coverage": "大阪市天王寺区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "浪速区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市浪速区"
+        ],
+        "basis": [
+          "大阪市浪速区"
+        ],
+        "hospitals": 4,
+        "clinics": 85,
+        "dental": 52,
+        "year": "2025-03-31",
+        "coverage": "大阪市浪速区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "西淀川区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市西淀川区"
+        ],
+        "basis": [
+          "大阪市西淀川区"
+        ],
+        "hospitals": 5,
+        "clinics": 65,
+        "dental": 50,
+        "year": "2025-03-31",
+        "coverage": "大阪市西淀川区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "淀川区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市淀川区"
+        ],
+        "basis": [
+          "大阪市淀川区"
+        ],
+        "hospitals": 8,
+        "clinics": 206,
+        "dental": 128,
+        "year": "2025-03-31",
+        "coverage": "大阪市淀川区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "東淀川区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市東淀川区"
+        ],
+        "basis": [
+          "大阪市東淀川区"
+        ],
+        "hospitals": 4,
+        "clinics": 161,
+        "dental": 94,
+        "year": "2025-03-31",
+        "coverage": "大阪市東淀川区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "東成区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市東成区"
+        ],
+        "basis": [
+          "大阪市東成区"
+        ],
+        "hospitals": 8,
+        "clinics": 99,
+        "dental": 60,
+        "year": "2025-03-31",
+        "coverage": "大阪市東成区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "生野区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市生野区"
+        ],
+        "basis": [
+          "大阪市生野区"
+        ],
+        "hospitals": 17,
+        "clinics": 148,
+        "dental": 83,
+        "year": "2025-03-31",
+        "coverage": "大阪市生野区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "旭区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市旭区"
+        ],
+        "basis": [
+          "大阪市旭区"
+        ],
+        "hospitals": 7,
+        "clinics": 101,
+        "dental": 64,
+        "year": "2025-03-31",
+        "coverage": "大阪市旭区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "城東区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市城東区"
+        ],
+        "basis": [
+          "大阪市城東区"
+        ],
+        "hospitals": 8,
+        "clinics": 170,
+        "dental": 96,
+        "year": "2025-03-31",
+        "coverage": "大阪市城東区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "鶴見区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市鶴見区"
+        ],
+        "basis": [
+          "大阪市鶴見区"
+        ],
+        "hospitals": 7,
+        "clinics": 83,
+        "dental": 66,
+        "year": "2025-03-31",
+        "coverage": "大阪市鶴見区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "阿倍野区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市阿倍野区"
+        ],
+        "basis": [
+          "大阪市阿倍野区"
+        ],
+        "hospitals": 7,
+        "clinics": 194,
+        "dental": 102,
+        "year": "2025-03-31",
+        "coverage": "大阪市阿倍野区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "住之江区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市住之江区"
+        ],
+        "basis": [
+          "大阪市住之江区"
+        ],
+        "hospitals": 4,
+        "clinics": 113,
+        "dental": 78,
+        "year": "2025-03-31",
+        "coverage": "大阪市住之江区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "住吉区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市住吉区"
+        ],
+        "basis": [
+          "大阪市住吉区"
+        ],
+        "hospitals": 7,
+        "clinics": 163,
+        "dental": 110,
+        "year": "2025-03-31",
+        "coverage": "大阪市住吉区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "東住吉区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市東住吉区"
+        ],
+        "basis": [
+          "大阪市東住吉区"
+        ],
+        "hospitals": 7,
+        "clinics": 137,
+        "dental": 80,
+        "year": "2025-03-31",
+        "coverage": "大阪市東住吉区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "平野区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市平野区"
+        ],
+        "basis": [
+          "大阪市平野区"
+        ],
+        "hospitals": 10,
+        "clinics": 207,
+        "dental": 125,
+        "year": "2025-03-31",
+        "coverage": "大阪市平野区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "西成区医師会",
+        "region": "大阪市",
+        "geography": [
+          "大阪市西成区"
+        ],
+        "basis": [
+          "大阪市西成区"
+        ],
+        "hospitals": 11,
+        "clinics": 122,
+        "dental": 70,
+        "year": "2025-03-31",
+        "coverage": "大阪市西成区",
+        "shared": false,
+        "note": "区全体の施設数であり医師会会員施設数ではない"
+      },
+      {
+        "name": "豊中市医師会",
+        "region": "豊能",
+        "geography": [
+          "豊中市"
+        ],
+        "hospitals": 19,
+        "clinics": 430,
+        "dental": 246,
+        "year": "2023-10-01",
+        "coverage": "豊中市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "池田市医師会",
+        "region": "豊能",
+        "geography": [
+          "池田市",
+          "豊能町",
+          "能勢町"
+        ],
+        "hospitals": 3,
+        "clinics": 124,
+        "dental": 79,
+        "year": "2023-10-01",
+        "coverage": "池田市・豊能町・能勢町",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "箕面市医師会",
+        "region": "豊能",
+        "geography": [
+          "箕面市"
+        ],
+        "hospitals": 10,
+        "clinics": 135,
+        "dental": 91,
+        "year": "2023-10-01",
+        "coverage": "箕面市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "吹田市医師会",
+        "region": "豊能",
+        "geography": [
+          "吹田市"
+        ],
+        "hospitals": 15,
+        "clinics": 373,
+        "dental": 208,
+        "year": "2023-10-01",
+        "coverage": "吹田市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "茨木市医師会",
+        "region": "三島",
+        "geography": [
+          "茨木市"
+        ],
+        "hospitals": 14,
+        "clinics": 246,
+        "dental": 154,
+        "year": "2023-10-01",
+        "coverage": "茨木市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "摂津市医師会",
+        "region": "三島",
+        "geography": [
+          "摂津市"
+        ],
+        "hospitals": 4,
+        "clinics": 58,
+        "dental": 41,
+        "year": "2023-10-01",
+        "coverage": "摂津市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "高槻市医師会",
+        "region": "三島",
+        "geography": [
+          "高槻市",
+          "島本町"
+        ],
+        "hospitals": 18,
+        "clinics": 321,
+        "dental": 195,
+        "year": "2023-10-01",
+        "coverage": "高槻市・島本町",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "守口市医師会",
+        "region": "北河内",
+        "geography": [
+          "守口市"
+        ],
+        "hospitals": 7,
+        "clinics": 139,
+        "dental": 74,
+        "year": "2023-10-01",
+        "coverage": "守口市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "門真市医師会",
+        "region": "北河内",
+        "geography": [
+          "門真市"
+        ],
+        "hospitals": 5,
+        "clinics": 115,
+        "dental": 66,
+        "year": "2023-10-01",
+        "coverage": "門真市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "枚方市医師会",
+        "region": "北河内",
+        "geography": [
+          "枚方市"
+        ],
+        "hospitals": 24,
+        "clinics": 284,
+        "dental": 208,
+        "year": "2023-10-01",
+        "coverage": "枚方市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "交野市医師会",
+        "region": "北河内",
+        "geography": [
+          "交野市"
+        ],
+        "hospitals": 2,
+        "clinics": 55,
+        "dental": 37,
+        "year": "2023-10-01",
+        "coverage": "交野市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "寝屋川市医師会",
+        "region": "北河内",
+        "geography": [
+          "寝屋川市"
+        ],
+        "hospitals": 14,
+        "clinics": 182,
+        "dental": 117,
+        "year": "2023-10-01",
+        "coverage": "寝屋川市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "大東・四條畷医師会",
+        "region": "北河内",
+        "geography": [
+          "大東市",
+          "四條畷市"
+        ],
+        "hospitals": 8,
+        "clinics": 116,
+        "dental": 75,
+        "year": "2023-10-01",
+        "coverage": "大東市・四條畷市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "布施医師会",
+        "region": "中河内",
+        "geography": [
+          "東大阪市"
+        ],
+        "hospitals": 21,
+        "clinics": 397,
+        "dental": 281,
+        "year": "2023-10-01",
+        "coverage": "東大阪市",
+        "shared": true,
+        "note": "東大阪市全域の参考値。布施・枚岡・河内の医師会別内訳ではない"
+      },
+      {
+        "name": "枚岡医師会",
+        "region": "中河内",
+        "geography": [
+          "東大阪市"
+        ],
+        "hospitals": 21,
+        "clinics": 397,
+        "dental": 281,
+        "year": "2023-10-01",
+        "coverage": "東大阪市",
+        "shared": true,
+        "note": "東大阪市全域の参考値。布施・枚岡・河内の医師会別内訳ではない"
+      },
+      {
+        "name": "河内医師会",
+        "region": "中河内",
+        "geography": [
+          "東大阪市"
+        ],
+        "hospitals": 21,
+        "clinics": 397,
+        "dental": 281,
+        "year": "2023-10-01",
+        "coverage": "東大阪市",
+        "shared": true,
+        "note": "東大阪市全域の参考値。布施・枚岡・河内の医師会別内訳ではない"
+      },
+      {
+        "name": "八尾市医師会",
+        "region": "中河内",
+        "geography": [
+          "八尾市"
+        ],
+        "hospitals": 11,
+        "clinics": 212,
+        "dental": 133,
+        "year": "2023-10-01",
+        "coverage": "八尾市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "柏原市医師会",
+        "region": "中河内",
+        "geography": [
+          "柏原市"
+        ],
+        "hospitals": 3,
+        "clinics": 48,
+        "dental": 33,
+        "year": "2023-10-01",
+        "coverage": "柏原市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "松原市医師会",
+        "region": "南河内",
+        "geography": [
+          "松原市"
+        ],
+        "hospitals": 6,
+        "clinics": 96,
+        "dental": 60,
+        "year": "2023-10-01",
+        "coverage": "松原市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "羽曳野市医師会",
+        "region": "南河内",
+        "geography": [
+          "羽曳野市"
+        ],
+        "hospitals": 7,
+        "clinics": 69,
+        "dental": 44,
+        "year": "2023-10-01",
+        "coverage": "羽曳野市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "藤井寺市医師会",
+        "region": "南河内",
+        "geography": [
+          "藤井寺市"
+        ],
+        "hospitals": 4,
+        "clinics": 70,
+        "dental": 49,
+        "year": "2023-10-01",
+        "coverage": "藤井寺市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "富田林医師会",
+        "region": "南河内",
+        "geography": [
+          "富田林市",
+          "太子町",
+          "河南町",
+          "千早赤阪村"
+        ],
+        "hospitals": 7,
+        "clinics": 108,
+        "dental": 63,
+        "year": "2023-10-01",
+        "coverage": "富田林市・太子町・河南町・千早赤阪村",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "河内長野市医師会",
+        "region": "南河内",
+        "geography": [
+          "河内長野市"
+        ],
+        "hospitals": 8,
+        "clinics": 76,
+        "dental": 56,
+        "year": "2023-10-01",
+        "coverage": "河内長野市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "大阪狭山市医師会",
+        "region": "南河内",
+        "geography": [
+          "大阪狭山市"
+        ],
+        "hospitals": 7,
+        "clinics": 56,
+        "dental": 38,
+        "year": "2023-10-01",
+        "coverage": "大阪狭山市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "堺市医師会",
+        "region": "堺市",
+        "geography": [
+          "堺市"
+        ],
+        "hospitals": 43,
+        "clinics": 744,
+        "dental": 460,
+        "year": "2023-10-01",
+        "coverage": "堺市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "高石市医師会",
+        "region": "泉州",
+        "geography": [
+          "高石市"
+        ],
+        "hospitals": 4,
+        "clinics": 51,
+        "dental": 40,
+        "year": "2023-10-01",
+        "coverage": "高石市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "泉大津市医師会",
+        "region": "泉州",
+        "geography": [
+          "泉大津市",
+          "忠岡町"
+        ],
+        "hospitals": 5,
+        "clinics": 84,
+        "dental": 53,
+        "year": "2023-10-01",
+        "coverage": "泉大津市・忠岡町",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "岸和田市医師会",
+        "region": "泉州",
+        "geography": [
+          "岸和田市"
+        ],
+        "hospitals": 17,
+        "clinics": 145,
+        "dental": 96,
+        "year": "2023-10-01",
+        "coverage": "岸和田市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "和泉市医師会",
+        "region": "泉州",
+        "geography": [
+          "和泉市"
+        ],
+        "hospitals": 13,
+        "clinics": 128,
+        "dental": 85,
+        "year": "2023-10-01",
+        "coverage": "和泉市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "貝塚市医師会",
+        "region": "泉州",
+        "geography": [
+          "貝塚市"
+        ],
+        "hospitals": 8,
+        "clinics": 57,
+        "dental": 31,
+        "year": "2023-10-01",
+        "coverage": "貝塚市",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "泉佐野泉南医師会",
+        "region": "泉州",
+        "geography": [
+          "泉佐野市",
+          "泉南市",
+          "阪南市",
+          "熊取町",
+          "田尻町",
+          "岬町"
+        ],
+        "hospitals": 24,
+        "clinics": 224,
+        "dental": 115,
+        "year": "2023-10-01",
+        "coverage": "泉佐野市・泉南市・阪南市・熊取町・田尻町・岬町",
+        "shared": false,
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+      },
+      {
+        "name": "大阪大学医師会",
+        "region": "豊能",
+        "geography": [],
+        "hospitals": null,
+        "clinics": null,
+        "dental": null,
+        "year": null,
+        "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
+        "shared": false,
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+      },
+      {
+        "name": "大阪公立大学医師会",
+        "region": "大阪市",
+        "geography": [],
+        "hospitals": null,
+        "clinics": null,
+        "dental": null,
+        "year": null,
+        "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
+        "shared": false,
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+      },
+      {
+        "name": "大阪医科薬科大学医師会",
+        "region": "三島",
+        "geography": [],
+        "hospitals": null,
+        "clinics": null,
+        "dental": null,
+        "year": null,
+        "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
+        "shared": false,
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+      },
+      {
+        "name": "関西医科大学医師会",
+        "region": "北河内",
+        "geography": [],
+        "hospitals": null,
+        "clinics": null,
+        "dental": null,
+        "year": null,
+        "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
+        "shared": false,
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+      },
+      {
+        "name": "近畿大学病院医師会",
+        "region": "堺市",
+        "geography": [],
+        "hospitals": null,
+        "clinics": null,
+        "dental": null,
+        "year": null,
+        "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
+        "shared": false,
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+      },
+      {
+        "name": "大阪府庁医師会",
+        "region": null,
+        "geography": [],
+        "hospitals": null,
+        "clinics": null,
+        "dental": null,
+        "year": null,
+        "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
+        "shared": false,
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+      },
+      {
+        "name": "大阪市役所医師会",
+        "region": null,
+        "geography": [],
+        "hospitals": null,
+        "clinics": null,
+        "dental": null,
+        "year": null,
+        "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
+        "shared": false,
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+      }
+    ],
+    "notes": [
+      "一般診療所・病院・歯科診療所の施設数は医師会の会員施設数ではありません。医師会所在地でなく対象地域の行政区別の施設数を参照しています。",
+      "大阪市24区の施設は2025年3月31日、府内43市町村と8医療圏は2023年10月1日を使用し混算していません。",
+      "複数の医師会が同じ行政区を担当する北区・中央区・東大阪市では、区／市全体値を複数行で参照しています。会別施設数としての加算・順位付けは不可。",
+      "大学・職域医師会は排他的な市区町村の管轄を持たないため施設数対象外。"
+    ],
+    "source2023": "https://www.pref.osaka.lg.jp/documents/4369/r05d02.pdf",
+    "source2025": "https://www.city.osaka.lg.jp/shimin/cmsfiles/contents/0000659/659107/04-10-9iryoukankeisisetujoukyoueiyousidoukankei.pdf",
+    "associationList": "https://www.osaka.med.or.jp/citizen/district.html"
+  }
 }
