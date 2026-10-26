@@ -2,14 +2,14 @@
 const $=s=>document.querySelector(s),fmt=x=>Number(x).toLocaleString('ja-JP');
 const src=(key,label=key)=>'<a class="source-ref" href="#source-'+key+'" title="出典 '+key+'">['+label+']</a>';
 let dataset,regionChart,popChart,bedsChart,mapObj,markerLayer,weightValues={demand:30,aging:25,scarcity:20,hub:15,resilience:10};
-const sourceOrder=['P01','P02','P03','P04','P05','P06','P07','P08','P09','P10','P11','P12','P13','P14','P15','P16','P17','P18','P19','P20','P21','P22','P23','P24'];
+const sourceOrder=['P01','P02','P03','P04','P05','P06','P07','P08','P09','P10','P11','P12','P13','P14','P15','P16','P17','P18','P19','P20','P21','P22','P23','P24','P25','P26','P27'];
 const meta={demand:"需要量",aging:"高齢化",scarcity:"人材制約",hub:"高度医療拠点",resilience:"地域完結・BCP"};
 function markmap(p){const q=encodeURIComponent(p.name+' '+p.address);return 'https://www.google.com/maps/search/?api=1&query='+q}
 function gsifor(p){return 'https://maps.gsi.go.jp/#15/'+p.lat.toFixed(5)+'/'+p.lng.toFixed(5)+'/'}
 function mapLinks(p){return '<div class="links"><a target="_blank" rel="noopener noreferrer" href="'+markmap(p)+'">Googleマップ</a><a target="_blank" rel="noopener noreferrer" href="'+gsifor(p)+'">地理院地図</a></div>'}
 function score(a){return +(Object.entries(weightValues).reduce((s,[k,w],i)=>s+w*a.scoreInputs[i]/5,0)).toFixed(1)}
 function level(v){return v>=85?'優先A':v>=76?'優先B':v>=66?'優先C':'重点テーマ限定'}
-function areaCard(a){let v=score(a),d=a.needed2025.recovery-a.report2024.recovery;return '<article class="card region-card"><div style="display:flex;justify-content:space-between;align-items:center"><h3>'+a.name+'</h3><span class="badge estimate">'+level(v)+'</span></div><div class="regional-tags"><span class="mini">判断スコア</span><span class="rank">'+v+'</span><span class="mini">/100</span></div><div class="progress"><i style="width:'+v+'%"></i></div><p class="mini">医療圏の特徴：'+a.drivers+'</p><p><b>主要施設：</b>'+a.hospitals+'</p><p class="mini">回復期 2024報告 '+fmt(a.report2024.recovery)+'床 ／2025必要推計 '+fmt(a.needed2025.recovery)+'床（差 '+fmt(d)+'床、定義差に注意） '+src('P04')+src('P05')+'</p></article>'}
+function areaCard(a){let v=score(a),d=a.needed2025.recovery-a.report2024.recovery;return '<article class="card region-card"><div style="display:flex;justify-content:space-between;align-items:center"><h3>'+a.name+'</h3><span class="badge estimate">'+level(v)+'</span></div><div class="regional-tags"><span class="mini">判断スコア</span><span class="rank">'+v+'</span><span class="mini">/100</span></div><div class="progress"><i style="width:'+v+'%"></i></div><p class="mini">医療圏の特徴：'+a.drivers+'</p><p><b>主要施設：</b>'+a.hospitals+'</p><p><b>今後3〜5年の機会（独自分析）：</b>'+a.opportunity3to5+'</p><p class="mini">2024年医師数：'+fmt(a.physicians2024)+'人 ／ 2026年医師偏在指標：'+a.physicianMaldistributionIndex2026+' ／ 外来医師偏在指標（第8次前期）：'+a.outpatientPhysicianIndex2024Plan+' '+src('P25')+src('P26')+src('P27')+'</p><p class="mini">回復期 2024報告 '+fmt(a.report2024.recovery)+'床 ／2025必要推計 '+fmt(a.needed2025.recovery)+'床（差 '+fmt(d)+'床、定義差に注意） '+src('P04')+src('P05')+'</p></article>'}
 function renderRegions(){
  const areas=[...dataset.areas].sort((a,b)=>score(b)-score(a));
  $('#regions-grid').innerHTML=areas.map(areaCard).join('');
