@@ -14,7 +14,9 @@ sources:[
 {id:"s11",name:"厚生労働省・令和7年度病床機能報告公表データ",year:"2025年度報告／2026公開",url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html"},
 {id:"s12",name:"高知県・地域医療介護総合確保基金について",year:"2026年4月",url:"https://www.pref.kochi.lg.jp/doc/2021042200164/"},
 {id:"s13",name:"高知県立幡多けんみん病院",year:"確認日 2026-10-26",url:"https://www.pref.kochi.lg.jp/hata/"},
-{id:"s14",name:"高知県立あき総合病院",year:"確認日 2026-10-26",url:"https://akihp.jp/index.html"}
+{id:"s14",name:"高知県立あき総合病院",year:"確認日 2026-10-26",url:"https://akihp.jp/index.html"},
+{id:"s15",name:"高知県・地域医療構想 2025年必要病床数（2026年資料）",year:"2025年推計（2026年公開資料）",url:"https://www.pref.kochi.lg.jp/doc/2021042200164/file_contents/file_20264175112737_1.pdf"},
+{id:"s16",name:"総務省統計局 令和2年国勢調査 人口等基本集計（都道府県）",year:"2020年調査・2021年公表",url:"https://www.stat.go.jp/data/kokusei/2020/kekka/pdf/outline_01.pdf"}
 ],
 areas:[
 {id:"aki",name:"安芸",town:"安芸市・室戸市・東洋町ほか",lat:33.502,lng:133.907,ct:6,mri:5,pet:0,mammo:1,linac:0,high:0,acute:182,recovery:125,chronic:235,closed:0,score:[5,3,5,5,3],drivers:"中山間・東部の移動距離、救急アクセス、在宅と高齢化",challenge:"機器稼働率・人材・広域搬送のトレードオフ",focus:"県立あき総合病院、田野病院、室戸地域",action:"地域拠点を中心にPOCUS・遠隔読影・画像共有と保守継続性を検討"},
