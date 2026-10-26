@@ -92,6 +92,14 @@ function draw(){
     let row=document.createElement('div');row.className='region';
     let title=document.createElement('strong');title.textContent=p[0];
     let actions=document.createElement('div');actions.className='region-actions';
+    if(p[0]==='埼玉県'){
+      const link=document.createElement('a');
+      link.href='./saitama/';link.target='_blank';link.rel='noopener noreferrer';
+      link.className='saitama-medical-mkt-btn';link.textContent='埼玉MKT ↗';
+      link.style.cssText='display:inline-flex;align-items:center;background:#125b8a;color:#fff;font-weight:800;border:2px solid #0b4670;border-radius:10px;padding:7px 14px;text-decoration:none;box-shadow:0 2px 6px #0b405344';
+      link.setAttribute('aria-label','埼玉県医療機器市場インテリジェンス2026–2040を開く');
+      actions.appendChild(link);
+    }
     if(p[0]==='愛媛県'){
       const ehimeLink=document.createElement('a');
       ehimeLink.href='https://sinobu13-bpei.github.io/medical-intelligence/ehime/';
