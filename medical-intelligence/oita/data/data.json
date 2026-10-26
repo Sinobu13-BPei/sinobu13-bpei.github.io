@@ -99,6 +99,27 @@
         "elderly2020": 36.1,
         "source": "https://www.jmap.jp/cities/detail/medical_area/4401",
         "sourceBasis": "JMAPオンライン掲載値・2026-10-27閲覧（施設データ基準日は明示されない）"
+      },
+      "demographicForecast": {
+        "p2020": 199000,
+        "p2050": 138327,
+        "workingChange": -38.1503,
+        "elder75Change": -2.607,
+        "age2020": 36.0734,
+        "age2050": 43.3075,
+        "workerSupport2020": 1.474,
+        "populationChangePct": -30.5,
+        "sourceTag": "社人研2023年推計（市町村合算）／2020年国勢調査",
+        "source": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
+      },
+      "workforcePer100k": {
+        "physicians": 414.7,
+        "nurses": 1643.6,
+        "pharmacists": 65.4,
+        "rehab": 323.3,
+        "year": "医療施設調査2023年・一部職種は2020年国勢調査人口で再集計した添付分析値",
+        "source": "https://nkgr.co.jp/hsa/oita/",
+        "unit": "人口10万人あたり"
       }
     },
     {
@@ -146,6 +167,27 @@
         "elderly2020": 29.4,
         "source": "https://www.jmap.jp/cities/detail/medical_area/4403",
         "sourceBasis": "JMAPオンライン掲載値・2026-10-27閲覧（施設データ基準日は明示されない）"
+      },
+      "demographicForecast": {
+        "p2020": 560644,
+        "p2050": 468059,
+        "workingChange": -25.7765,
+        "elder75Change": 34.7437,
+        "age2020": 29.3894,
+        "age2050": 37.672,
+        "workerSupport2020": 1.9601,
+        "populationChangePct": -16.5,
+        "sourceTag": "社人研2023年推計（市町村合算）／2020年国勢調査",
+        "source": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
+      },
+      "workforcePer100k": {
+        "physicians": 371.8,
+        "nurses": 1106.5,
+        "pharmacists": 45.3,
+        "rehab": 214.8,
+        "year": "医療施設調査2023年・一部職種は2020年国勢調査人口で再集計した添付分析値",
+        "source": "https://nkgr.co.jp/hsa/oita/",
+        "unit": "人口10万人あたり"
       }
     },
     {
@@ -193,6 +235,27 @@
         "elderly2020": 41.2,
         "source": "https://www.jmap.jp/cities/detail/medical_area/4405",
         "sourceBasis": "JMAPオンライン掲載値・2026-10-27閲覧（施設データ基準日は明示されない）"
+      },
+      "demographicForecast": {
+        "p2020": 66851,
+        "p2050": 35779,
+        "workingChange": -56.5027,
+        "elder75Change": -17.6083,
+        "age2020": 41.1527,
+        "age2050": 52.7432,
+        "workerSupport2020": 1.1761,
+        "populationChangePct": -46.5,
+        "sourceTag": "社人研2023年推計（市町村合算）／2020年国勢調査",
+        "source": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
+      },
+      "workforcePer100k": {
+        "physicians": 290.3,
+        "nurses": 1287.3,
+        "pharmacists": 47.7,
+        "rehab": 218.7,
+        "year": "医療施設調査2023年・一部職種は2020年国勢調査人口で再集計した添付分析値",
+        "source": "https://nkgr.co.jp/hsa/oita/",
+        "unit": "人口10万人あたり"
       }
     },
     {
@@ -240,6 +303,27 @@
         "elderly2020": 45.8,
         "source": "https://www.jmap.jp/cities/detail/medical_area/4406",
         "sourceBasis": "JMAPオンライン掲載値・2026-10-27閲覧（施設データ基準日は明示されない）"
+      },
+      "demographicForecast": {
+        "p2020": 54027,
+        "p2050": 27792,
+        "workingChange": -54.8091,
+        "elder75Change": -32.3492,
+        "age2020": 45.8067,
+        "age2050": 53.2563,
+        "workerSupport2020": 0.9738,
+        "populationChangePct": -48.6,
+        "sourceTag": "社人研2023年推計（市町村合算）／2020年国勢調査",
+        "source": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
+      },
+      "workforcePer100k": {
+        "physicians": 297.4,
+        "nurses": 1167.5,
+        "pharmacists": 37,
+        "rehab": 293.2,
+        "year": "医療施設調査2023年・一部職種は2020年国勢調査人口で再集計した添付分析値",
+        "source": "https://nkgr.co.jp/hsa/oita/",
+        "unit": "人口10万人あたり"
       }
     },
     {
@@ -287,6 +371,27 @@
         "elderly2020": 37.2,
         "source": "https://www.jmap.jp/cities/detail/medical_area/4408",
         "sourceBasis": "JMAPオンライン掲載値・2026-10-27閲覧（施設データ基準日は明示されない）"
+      },
+      "demographicForecast": {
+        "p2020": 85584,
+        "p2050": 50513,
+        "workingChange": -49.9207,
+        "elder75Change": -11.2526,
+        "age2020": 37.1798,
+        "age2050": 47.1879,
+        "workerSupport2020": 1.3665,
+        "populationChangePct": -41,
+        "sourceTag": "社人研2023年推計（市町村合算）／2020年国勢調査",
+        "source": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
+      },
+      "workforcePer100k": {
+        "physicians": 292.2,
+        "nurses": 1228.5,
+        "pharmacists": 41.7,
+        "rehab": 250.6,
+        "year": "医療施設調査2023年・一部職種は2020年国勢調査人口で再集計した添付分析値",
+        "source": "https://nkgr.co.jp/hsa/oita/",
+        "unit": "人口10万人あたり"
       }
     },
     {
@@ -334,6 +439,27 @@
         "elderly2020": 33.8,
         "source": "https://www.jmap.jp/cities/detail/medical_area/4409",
         "sourceBasis": "JMAPオンライン掲載値・2026-10-27閲覧（施設データ基準日は明示されない）"
+      },
+      "demographicForecast": {
+        "p2020": 157746,
+        "p2050": 120873,
+        "workingChange": -28.1544,
+        "elder75Change": 2.5157,
+        "age2020": 33.7574,
+        "age2050": 38.8565,
+        "workerSupport2020": 1.5946,
+        "populationChangePct": -23.4,
+        "sourceTag": "社人研2023年推計（市町村合算）／2020年国勢調査",
+        "source": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
+      },
+      "workforcePer100k": {
+        "physicians": 286.6,
+        "nurses": 1231.5,
+        "pharmacists": 38.6,
+        "rehab": 221.1,
+        "year": "医療施設調査2023年・一部職種は2020年国勢調査人口で再集計した添付分析値",
+        "source": "https://nkgr.co.jp/hsa/oita/",
+        "unit": "人口10万人あたり"
       }
     }
   ],
@@ -815,6 +941,30 @@
       "政府統計e-Stat 令和6年医療施設動態調査二次医療圏市区町村編",
       "2024年",
       "https://www.e-stat.go.jp/dbview?sid=0004048438"
+    ],
+    [
+      "S41",
+      "国立社会保障・人口問題研究所『日本の地域別将来推計人口 令和5（2023）年推計』結果表",
+      "2020国勢調査／2050将来推計",
+      "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
+    ],
+    [
+      "S42",
+      "日本経営『医療需給総覧』大分県6二次医療圏一覧（原資料へのリンク）",
+      "2026公開／本サイトでは図表を転載せず独自再集計",
+      "https://nkgr.co.jp/hsa/oita/"
+    ],
+    [
+      "S43",
+      "日本基礎理学療法学会 学術大会一覧・第30回大分別府大会",
+      "2025年10月17日・18日",
+      "https://www.jspt.or.jp/jsptf/academic/"
+    ],
+    [
+      "S44",
+      "大分県『第8次医療計画』",
+      "2024〜2029年度",
+      "https://www.pref.oita.jp/soshiki/12620/iryoukeikaku8.html"
     ]
   ],
   "planned2026": {
@@ -1305,5 +1455,32 @@
     "referenceAlternative": "県2026年3月31日公表の令和7年版統計年鑑に市町村別施設統計表あり。JMAPは県の全許認可施設数と一致しないため2026年時点の公式認可数として扱わない。",
     "licenseCaveat": "県病床機能報告（2025年7月）の対象病院123・有床診療所186とJMAP掲載病院149は母集団・調査目的が異なるため同一視しない。",
     "jmapNationalClinicRate": 70.28
+  },
+  "demographicMethodology": {
+    "note": "添付『大分県_医療マーケット地域医療構造分析.xlsx』二次医療圏表の2020/2050人口、年齢構成の値を6圏域PDFの人口推計ページと照合して再集計した。PDFのグラフ画像は転載せず、社人研2023年推計の独自表示図を作成。",
+    "unit": "人、%、高齢者1人あたり15〜64歳人口（2020）",
+    "source": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp",
+    "kind": "公開統計を根拠とする編集再集計"
+  },
+  "rehabResearch": {
+    "title": "第30回日本基礎理学療法学会学術大会",
+    "eventDate": "2025-10-17〜2025-10-18",
+    "location": "別府国際コンベンションセンター",
+    "source": "https://www.jspt.or.jp/jsptf/academic/",
+    "interpretation": "別府は理学療法関連の教育・学術交流実績を有する。これだけで装置の購買需要が確定するわけではない。",
+    "note": "添付学会ワークブックの協賛費、講師・参加者個人情報、未公表の営業計画はWebに反映しない。"
+  },
+  "publicSourcePolicy": {
+    "included": [
+      "社人研2023年推計を6二次医療圏に再集計",
+      "2023年医療施設調査に基づく医療従事者の人口比（添付再集計・参考）",
+      "2025年日本基礎理学療法学会の開催事実（公式確認）"
+    ],
+    "excluded": [
+      "DyRO販社推薦・商談・信用評価・仕切等の内部提案",
+      "講師やファシリテーターの私用メール・携帯・学会協賛予算",
+      "未検証の販社シェア順位・顧客別商流推計",
+      "日本経営の著作権保護された図版の転載"
+    ]
   }
 }
