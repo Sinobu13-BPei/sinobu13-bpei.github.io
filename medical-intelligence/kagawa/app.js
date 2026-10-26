@@ -35,12 +35,13 @@ const root=$('associations');if(!root)return;root.innerHTML=d.associations.map(n
 }
 function facilityHTML(f){const gsi=getGSI(f),gm=getGM(f);return '<article class="facility"><div class="facility-title">'+link(f.url,f.name)+'</div><small>'+safe(areas[f.area])+'｜'+safe(f.type)+'</small><small>'+safe(f.address)+'</small><div class="facility-links">'+link(gm,'Googleマップ')+link(gsi,'地理院地図')+link(f.url,'公式情報')+'</div></article>'}
 function renderFacilities(){const q=($('facilitySearch')?.value||'').toLowerCase().trim(),a=$('facilityArea')?.value||'all',filtered=facilityData.filter(f=>(a==='all'||f.area===a)&&(f.name+' '+f.address+' '+f.type).toLowerCase().includes(q));const root=$('facilityList');if(root)root.innerHTML=filtered.length?filtered.map(facilityHTML).join(''):'<p class="placeholder" role="status">条件に合う施設がありません。検索条件を変更してください。</p>';if(leafMap){for(const m of markers)m.remove();markers=[];for(const f of filtered){const m=window.L.marker([f.lat,f.long]).addTo(leafMap).bindPopup('<b>'+safe(f.name)+'</b><br>'+safe(f.address)+'<br>'+link(getGM(f),'Google')+' / '+link(getGSI(f),'地理院'));markers.push(m)}}}
-function startMap(){
+function startMap(regionData){
 const el=$('facilityMap');if(!el)return;
 if(!window.L){el.innerHTML='<div class="map-placeholder"><strong>地図ライブラリの読込に失敗しました。</strong><br>施設一覧のGoogleマップ・地理院地図リンクをご利用ください。</div>';return}
 try{
  leafMap=window.L.map(el,{scrollWheelZoom:false}).setView([34.33,134.04],9);
  window.L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{attribution:'<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener noreferrer">地理院タイル</a>',maxZoom:18,minZoom:7}).addTo(leafMap);
+ for(const r of regionData||[]){window.L.circleMarker(r.center,{radius:10,color:'#083955',fillColor:'#15a49a',fillOpacity:.65,weight:2}).addTo(leafMap).bindPopup('<b>'+safe(r.name)+'二次医療圏・代表点</b><br>'+safe(r.municipalities)+'<br><small>範囲・医療圏境界ではありません</small>');}
  renderFacilities();setTimeout(()=>{if(leafMap)leafMap.invalidateSize()},250);
 }catch(err){console.warn('Leaflet map failed',err);leafMap=null;el.innerHTML='<div class="map-placeholder">地図の読み込みに失敗しました。施設一覧の地図リンクを利用してください。</div>'}
 }
@@ -49,7 +50,7 @@ async function load(){
 try{
  const res=await fetch('./data/market.json',{cache:'no-cache'});if(!res.ok)throw new Error('HTTP '+res.status);
  const d=await res.json();if(!d||!Array.isArray(d.regions)||!Array.isArray(d.facilities)||!Array.isArray(d.sources))throw new Error('Bad market data');
- regions(d);institutions(d);renderSources(d);facilityData=d.facilities;renderFacilities();makeCharts(d);startMap();
+ regions(d);institutions(d);renderSources(d);facilityData=d.facilities;renderFacilities();makeCharts(d);startMap(d.regions);
  $('facilitySearch')?.addEventListener('input',renderFacilities);
  $('facilityArea')?.addEventListener('change',renderFacilities);
 }catch(err){
