@@ -1,0 +1,631 @@
+{
+  "meta": {
+    "title": "福岡県 医療機器・地域医療マーケットインテリジェンス",
+    "updated": "2026-10-26",
+    "publicOnly": true,
+    "note": "病床は2024年7月1日時点の自己申告許可病床。2025年の必要病床数とは異なる。地図の施設位置は概略表示であり、地理院地図は周辺検索の起点とする。"
+  },
+  "population": {
+    "census2020": 5135214,
+    "census2025": 5077785,
+    "age2026": 28.26,
+    "elderly2026": 1431186,
+    "projection": [
+      {
+        "year": 2020,
+        "total": 5135214,
+        "kind": "実績"
+      },
+      {
+        "year": 2025,
+        "total": 5072512,
+        "kind": "推計"
+      },
+      {
+        "year": 2030,
+        "total": 4989131,
+        "kind": "推計"
+      },
+      {
+        "year": 2035,
+        "total": 4885596,
+        "kind": "推計"
+      },
+      {
+        "year": 2040,
+        "total": 4762029,
+        "kind": "推計"
+      },
+      {
+        "year": 2045,
+        "total": 4622818,
+        "kind": "推計"
+      },
+      {
+        "year": 2050,
+        "total": 4479021,
+        "kind": "推計"
+      }
+    ]
+  },
+  "areas": [
+    {
+      "id": 1,
+      "name": "福岡・糸島",
+      "municipalities": "福岡市・糸島市",
+      "beds": {
+        "high": 4021,
+        "acute": 6759,
+        "recovery": 3730,
+        "chronic": 4004,
+        "inactive": 305
+      },
+      "coords": [
+        33.605,
+        130.418
+      ],
+      "keyHospitals": "九州大学病院／九州がんセンター／福岡大学病院",
+      "drivers": "がん・高度急性期／都市型診療所／共同利用",
+      "opportunity": "高機能CT・MRI／PET・治療／画像共有",
+      "specialty": 5,
+      "access": 4
+    },
+    {
+      "id": 2,
+      "name": "粕屋",
+      "municipalities": "古賀市、糟屋郡7町",
+      "beds": {
+        "high": 78,
+        "acute": 1076,
+        "recovery": 555,
+        "chronic": 1503,
+        "inactive": 23
+      },
+      "coords": [
+        33.609,
+        130.482
+      ],
+      "keyHospitals": "福岡東医療センター",
+      "drivers": "福岡都市圏の人口動態／慢性期と紹介連携",
+      "opportunity": "診療所US・内視鏡／検査紹介・保守",
+      "specialty": 3,
+      "access": 4
+    },
+    {
+      "id": 3,
+      "name": "宗像",
+      "municipalities": "宗像市・福津市",
+      "beds": {
+        "high": 38,
+        "acute": 527,
+        "recovery": 301,
+        "chronic": 474,
+        "inactive": 57
+      },
+      "coords": [
+        33.805,
+        130.544
+      ],
+      "keyHospitals": "宗像医師会病院",
+      "drivers": "住宅地と高齢化／地域連携",
+      "opportunity": "心エコー／在宅・施設連携",
+      "specialty": 3,
+      "access": 3
+    },
+    {
+      "id": 4,
+      "name": "筑紫",
+      "municipalities": "筑紫野市・春日市・大野城市・太宰府市・那珂川市",
+      "beds": {
+        "high": 376,
+        "acute": 1527,
+        "recovery": 663,
+        "chronic": 934,
+        "inactive": 59
+      },
+      "coords": [
+        33.5,
+        130.515
+      ],
+      "keyHospitals": "福岡徳洲会病院／福岡大学筑紫病院",
+      "drivers": "都市圏南部の人口集積／救急",
+      "opportunity": "救急画像診断／外来US・内視鏡",
+      "specialty": 4,
+      "access": 3
+    },
+    {
+      "id": 5,
+      "name": "朝倉",
+      "municipalities": "朝倉市・筑前町・東峰村",
+      "beds": {
+        "high": 6,
+        "acute": 342,
+        "recovery": 180,
+        "chronic": 430,
+        "inactive": 19
+      },
+      "coords": [
+        33.418,
+        130.665
+      ],
+      "keyHospitals": "朝倉医師会病院",
+      "drivers": "中山間地のアクセス／豪雨リスク",
+      "opportunity": "可搬型US／災害BCP・遠隔連携",
+      "specialty": 4,
+      "access": 5
+    },
+    {
+      "id": 6,
+      "name": "久留米",
+      "municipalities": "久留米市・大川市・小郡市・うきは市・大刀洗町・大木町",
+      "beds": {
+        "high": 1178,
+        "acute": 2738,
+        "recovery": 1058,
+        "chronic": 2016,
+        "inactive": 348
+      },
+      "coords": [
+        33.319,
+        130.508
+      ],
+      "keyHospitals": "久留米大学病院／聖マリア病院",
+      "drivers": "筑後の高度医療ハブ／医局・病診連携",
+      "opportunity": "CT/MRI・血管撮影／治療周辺／更新",
+      "specialty": 5,
+      "access": 4
+    },
+    {
+      "id": 7,
+      "name": "八女・筑後",
+      "municipalities": "八女市・筑後市・広川町",
+      "beds": {
+        "high": 14,
+        "acute": 828,
+        "recovery": 457,
+        "chronic": 637,
+        "inactive": 9
+      },
+      "coords": [
+        33.21,
+        130.558
+      ],
+      "keyHospitals": "公立八女総合病院",
+      "drivers": "高齢化／南筑後の紹介・逆紹介",
+      "opportunity": "一般画像・US／検査効率化",
+      "specialty": 3,
+      "access": 4
+    },
+    {
+      "id": 8,
+      "name": "有明",
+      "municipalities": "大牟田市・柳川市・みやま市",
+      "beds": {
+        "high": 85,
+        "acute": 1491,
+        "recovery": 1062,
+        "chronic": 1458,
+        "inactive": 81
+      },
+      "coords": [
+        33.033,
+        130.448
+      ],
+      "keyHospitals": "大牟田市立病院",
+      "drivers": "人口減少・高齢化／回復期と慢性期",
+      "opportunity": "更新・画像共同利用／在宅・透析",
+      "specialty": 4,
+      "access": 5
+    },
+    {
+      "id": 9,
+      "name": "飯塚",
+      "municipalities": "飯塚市・嘉麻市・桂川町",
+      "beds": {
+        "high": 117,
+        "acute": 1329,
+        "recovery": 778,
+        "chronic": 420,
+        "inactive": 140
+      },
+      "coords": [
+        33.646,
+        130.691
+      ],
+      "keyHospitals": "飯塚病院",
+      "drivers": "筑豊急性期中核と周辺受療",
+      "opportunity": "救急CT/MRI／病診画像連携",
+      "specialty": 4,
+      "access": 4
+    },
+    {
+      "id": 10,
+      "name": "直方・鞍手",
+      "municipalities": "直方市・宮若市・小竹町・鞍手町",
+      "beds": {
+        "high": 0,
+        "acute": 555,
+        "recovery": 388,
+        "chronic": 186,
+        "inactive": 18
+      },
+      "coords": [
+        33.748,
+        130.73
+      ],
+      "keyHospitals": "直方市内の地域病院群",
+      "drivers": "分散・人材確保／慢性疾患",
+      "opportunity": "共同利用・在宅US／保守",
+      "specialty": 3,
+      "access": 4
+    },
+    {
+      "id": 11,
+      "name": "田川",
+      "municipalities": "田川市・香春町・添田町・糸田町・川崎町・大任町・赤村・福智町",
+      "beds": {
+        "high": 17,
+        "acute": 650,
+        "recovery": 285,
+        "chronic": 349,
+        "inactive": 212
+      },
+      "coords": [
+        33.642,
+        130.81
+      ],
+      "keyHospitals": "社会保険田川病院",
+      "drivers": "地域アクセス格差／高齢化／人材不足",
+      "opportunity": "病診連携／維持更新／遠隔",
+      "specialty": 4,
+      "access": 5
+    },
+    {
+      "id": 12,
+      "name": "北九州",
+      "municipalities": "北九州市・中間市・遠賀郡4町",
+      "beds": {
+        "high": 1801,
+        "acute": 6250,
+        "recovery": 2847,
+        "chronic": 4620,
+        "inactive": 451
+      },
+      "coords": [
+        33.883,
+        130.875
+      ],
+      "keyHospitals": "産業医科大学病院／北九州市立医療センター／JCHO九州病院",
+      "drivers": "大規模な急性期・慢性期集積／産業医療",
+      "opportunity": "循環器／血管撮影／CT・MRI更新",
+      "specialty": 5,
+      "access": 5
+    },
+    {
+      "id": 13,
+      "name": "京築",
+      "municipalities": "行橋市・豊前市・苅田町・みやこ町・吉富町・上毛町・築上町",
+      "beds": {
+        "high": 14,
+        "acute": 668,
+        "recovery": 252,
+        "chronic": 717,
+        "inactive": 0
+      },
+      "coords": [
+        33.73,
+        130.978
+      ],
+      "keyHospitals": "新行橋病院",
+      "drivers": "医療機関分散／大分県境・通院動線",
+      "opportunity": "一般画像・US／診療連携・保守",
+      "specialty": 3,
+      "access": 5
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "九州大学病院",
+      "type": "大学病院・特定機能病院",
+      "address": "福岡市東区馬出3-1-1",
+      "lat": 33.611,
+      "lon": 130.42,
+      "url": "https://www.hosp.kyushu-u.ac.jp/"
+    },
+    {
+      "id": 2,
+      "name": "福岡大学病院",
+      "type": "大学病院・特定機能病院",
+      "address": "福岡市城南区七隈7-45-1",
+      "lat": 33.553,
+      "lon": 130.361,
+      "url": "https://www.hop.fukuoka-u.ac.jp/"
+    },
+    {
+      "id": 3,
+      "name": "久留米大学病院",
+      "type": "大学病院・特定機能病院",
+      "address": "久留米市旭町67",
+      "lat": 33.326,
+      "lon": 130.511,
+      "url": "https://www.hosp.kurume-u.ac.jp/"
+    },
+    {
+      "id": 4,
+      "name": "産業医科大学病院",
+      "type": "大学病院・特定機能病院",
+      "address": "北九州市八幡西区医生ケ丘1-1",
+      "lat": 33.887,
+      "lon": 130.716,
+      "url": "https://www.uoeh-u.ac.jp/hospital/"
+    },
+    {
+      "id": 5,
+      "name": "福岡大学筑紫病院",
+      "type": "大学附属病院",
+      "address": "筑紫野市俗明院1-1-1",
+      "lat": 33.486,
+      "lon": 130.517,
+      "url": "https://www.fukuoka-u.ac.jp/"
+    },
+    {
+      "id": 6,
+      "name": "久留米大学医療センター",
+      "type": "大学附属病院",
+      "address": "久留米市国分町155-1",
+      "lat": 33.291,
+      "lon": 130.537,
+      "url": "https://www.kurume-u.ac.jp/"
+    },
+    {
+      "id": 7,
+      "name": "国立病院機構 九州がんセンター",
+      "type": "がん県拠点",
+      "address": "福岡市南区野多目3-1-1",
+      "lat": 33.526,
+      "lon": 130.407,
+      "url": "https://kyushu-cc.hosp.go.jp/"
+    },
+    {
+      "id": 8,
+      "name": "福岡東医療センター",
+      "type": "がん地域拠点",
+      "address": "古賀市千鳥1-1-1",
+      "lat": 33.737,
+      "lon": 130.476,
+      "url": "https://fukuokae.hosp.go.jp/"
+    },
+    {
+      "id": 9,
+      "name": "福岡徳洲会病院",
+      "type": "がん地域拠点",
+      "address": "春日市須玖北4-5",
+      "lat": 33.548,
+      "lon": 130.446,
+      "url": "https://www.f-toku.jp/"
+    },
+    {
+      "id": 10,
+      "name": "九州医療センター",
+      "type": "がん地域拠点",
+      "address": "福岡市中央区地行浜1-8-1",
+      "lat": 33.594,
+      "lon": 130.362,
+      "url": "https://kyushu-mc.hosp.go.jp/"
+    },
+    {
+      "id": 11,
+      "name": "聖マリア病院",
+      "type": "がん地域拠点",
+      "address": "久留米市津福本町422",
+      "lat": 33.306,
+      "lon": 130.511,
+      "url": "https://www.st-mary-med.or.jp/"
+    },
+    {
+      "id": 12,
+      "name": "公立八女総合病院",
+      "type": "がん地域病院",
+      "address": "八女市高塚540-2",
+      "lat": 33.209,
+      "lon": 130.555,
+      "url": "https://www.hosp-yame.jp/"
+    },
+    {
+      "id": 13,
+      "name": "大牟田市立病院",
+      "type": "がん地域拠点",
+      "address": "大牟田市宝坂町2-19-1",
+      "lat": 33.028,
+      "lon": 130.445,
+      "url": "https://www.ghp.omuta.fukuoka.jp/"
+    },
+    {
+      "id": 14,
+      "name": "飯塚病院",
+      "type": "がん地域拠点",
+      "address": "飯塚市芳雄町3-83",
+      "lat": 33.642,
+      "lon": 130.692,
+      "url": "https://aih-net.com/"
+    },
+    {
+      "id": 15,
+      "name": "社会保険田川病院",
+      "type": "がん地域病院",
+      "address": "田川市上本町10-18",
+      "lat": 33.63,
+      "lon": 130.801,
+      "url": "https://www.s-tagawa-hp.tagawa.fukuoka.jp/"
+    },
+    {
+      "id": 16,
+      "name": "北九州市立医療センター",
+      "type": "がん地域拠点",
+      "address": "北九州市小倉北区馬借2-1-1",
+      "lat": 33.876,
+      "lon": 130.882,
+      "url": "https://www.kitakyu-cho.jp/center/"
+    },
+    {
+      "id": 17,
+      "name": "JCHO九州病院",
+      "type": "がん地域拠点",
+      "address": "北九州市八幡西区岸の浦1-8-1",
+      "lat": 33.858,
+      "lon": 130.757,
+      "url": "https://kyusyu.jcho.go.jp/"
+    },
+    {
+      "id": 18,
+      "name": "福岡県庁",
+      "type": "行政",
+      "address": "福岡市博多区東公園7-7",
+      "lat": 33.607,
+      "lon": 130.419,
+      "url": "https://www.pref.fukuoka.lg.jp/"
+    },
+    {
+      "id": 19,
+      "name": "福岡県医師会",
+      "type": "医師会",
+      "address": "福岡市博多区博多駅南2-9-30",
+      "lat": 33.579,
+      "lon": 130.432,
+      "url": "https://www.fukuoka.med.or.jp/"
+    }
+  ],
+  "sources": {
+    "plan": {
+      "name": "福岡県保健医療計画（第8次）",
+      "year": "2024-03",
+      "url": "https://www.pref.fukuoka.lg.jp/contents/hoken-iryo-keikaku-2024.html"
+    },
+    "beds": {
+      "name": "福岡県・2024年度病床機能報告",
+      "year": "2024-07-01",
+      "url": "https://www.pref.fukuoka.lg.jp/contents/bed-function-report-r06.html"
+    },
+    "census": {
+      "name": "福岡県・2025年国勢調査人口等基本集計",
+      "year": "2025-10-01（公表2026-09-30）",
+      "url": "https://www.pref.fukuoka.lg.jp/press-release/2025census-kakuhou.html"
+    },
+    "age": {
+      "name": "福岡県65歳以上人口・高齢化率",
+      "year": "2026-04-01",
+      "url": "https://www.pref.fukuoka.lg.jp/contents/koreisyajinko.html"
+    },
+    "ipss": {
+      "name": "国立社会保障・人口問題研究所・地域別将来推計人口（令和5年推計）",
+      "year": "2023推計／2020～2050",
+      "url": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
+    },
+    "medAssoc": {
+      "name": "福岡県医師会・地域の医師会",
+      "year": "2026確認",
+      "url": "https://www.fukuoka.med.or.jp/doctors/entry/area.html"
+    },
+    "insurance": {
+      "name": "福岡県地域医療構想（2025年必要病床数の基礎資料）",
+      "year": "2017-03",
+      "url": "https://www.pref.fukuoka.lg.jp/contents/fukuoka-lmp2017.html"
+    },
+    "hospital": {
+      "name": "九州厚生局・特定機能病院業務報告",
+      "year": "2025年度／2026-01",
+      "url": "https://kouseikyoku.mhlw.go.jp/kyushu/iryo_shido/tokutei_houkoku.html"
+    },
+    "cancer": {
+      "name": "福岡県・がん拠点病院情報",
+      "year": "2026-04",
+      "url": "https://www.pref.fukuoka.lg.jp/contents/ganshinryourenkeikyotenbyouinnikansurujouhoupeji.html"
+    },
+    "healthOffice": {
+      "name": "福岡県・保健所窓口一覧",
+      "year": "2026確認",
+      "url": "https://www.pref.fukuoka.lg.jp/contents/hokennsyoichiran.html"
+    },
+    "doctor": {
+      "name": "厚生労働省・医師偏在指標",
+      "year": "2026-04公表",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    },
+    "device": {
+      "name": "厚生労働省・2025年度病床機能報告の医療機器台数ファイル",
+      "year": "2025年度公表",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html"
+    },
+    "fund": {
+      "name": "福岡県地域医療介護総合確保基金",
+      "year": "2025-10更新",
+      "url": "https://www.pref.fukuoka.lg.jp/contents/sougoukakuhokikinn.html"
+    },
+    "fund26": {
+      "name": "厚生労働省・2026年度地域医療介護総合確保基金医療分内示",
+      "year": "2026-09-04",
+      "url": "https://www.mhlw.go.jp/stf/newpage_75985.html"
+    },
+    "digital": {
+      "name": "デジタル庁・医療DXダッシュボード",
+      "year": "2026-10-16",
+      "url": "https://www.digital.go.jp/resources/govdashboard/healthcare-dx"
+    },
+    "kit": {
+      "name": "福岡県医師会・医療DX補助一覧",
+      "year": "2026-07-24",
+      "url": "https://www.fukuoka.med.or.jp/doctors/hoken/_10619.html"
+    },
+    "fee": {
+      "name": "福岡市医師会・令和8年度診療報酬改定のポイント",
+      "year": "2026-05-29",
+      "url": "https://www.city.fukuoka.med.or.jp/blog/9294/"
+    },
+    "cancerQ": {
+      "name": "九州大学病院がんセンター・県内拠点一覧",
+      "year": "2026-04",
+      "url": "https://www.gan.med.kyushu-u.ac.jp/hub/"
+    },
+    "kyushuAssoc": {
+      "name": "福岡県医師会・地区医師会検索",
+      "year": "2026確認",
+      "url": "https://www.fukuoka.med.or.jp/kenmin/medical_institutions/area_association.html"
+    },
+    "web": {
+      "name": "福岡県保健医療計画・救急体制／地域医療支援病院",
+      "year": "2026-04（救急）／2023-04（支援病院）",
+      "url": "https://www.pref.fukuoka.lg.jp/contents/hoken-iryo-keikaku-2024.html"
+    },
+    "ipssPref": {
+      "name": "福岡県・新たな人口推計掲載資料",
+      "year": "2025資料（社人研令和5年推計引用）",
+      "url": "https://www.pref.fukuoka.lg.jp/uploaded/attachment/235718.pdf"
+    },
+    "gis": {
+      "name": "国土地理院・地理院タイル",
+      "year": "2026確認",
+      "url": "https://maps.gsi.go.jp/development/ichiran.html"
+    },
+    "tile": {
+      "name": "地理院地図",
+      "year": "2026確認",
+      "url": "https://maps.gsi.go.jp/"
+    },
+    "dealerA": {
+      "name": "キシヤ・拠点紹介",
+      "year": "2026確認",
+      "url": "https://www.kishiya.co.jp/location/"
+    },
+    "dealerB": {
+      "name": "山下医科器械・会社概要",
+      "year": "2025-05／2026確認",
+      "url": "https://www.yamashitaika.co.jp/company/outline/"
+    },
+    "govStat": {
+      "name": "政府統計の総合窓口 e-Stat／医療施設調査",
+      "year": "2023静態／2024動態",
+      "url": "https://www.e-stat.go.jp/stat-search?page=1&toukei=00450021"
+    }
+  }
+}
