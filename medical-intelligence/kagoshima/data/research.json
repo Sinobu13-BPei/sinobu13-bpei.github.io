@@ -3,7 +3,9 @@
     "title": "鹿児島県 医療マーケット・地域医療戦略 2026",
     "updated": "2026-10-26",
     "view": "中立的な医療機器商社",
-    "note": "公開情報のみ。過去の添付民間調査に含まれるシェア・非公開企業販売高・顧客名簿は掲載しない。施設座標は概略であり正確な施設位置を保証しない。"
+    "note": "公開情報のみ。過去の添付民間調査に含まれるシェア・非公開企業販売高・顧客名簿は掲載しない。施設座標は概略であり正確な施設位置を保証しない。",
+    "lastLinkAudit": "2026-10-26",
+    "linkAudit": "公式病院ホームページ6件のリンクを再確認し、県行政一般ページへのリンクから更新。"
   },
   "population": {
     "asOf": "2026-09-01",
@@ -459,7 +461,7 @@
       "area": "南薩",
       "kind": "地域がん診療病院",
       "address": "南さつま市加世田村原4-11",
-      "site": "https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/seikatusyukan/cancer/gankyoten.html",
+      "site": "https://hospital.pref.kagoshima.jp/satsunan/",
       "lat": 31.42,
       "lon": 130.32
     },
@@ -477,7 +479,7 @@
       "area": "出水",
       "kind": "地域がん診療病院",
       "address": "阿久根市赤瀬川4513",
-      "site": "https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/seikatusyukan/cancer/gankyoten.html",
+      "site": "https://www.akunehp.com/",
       "lat": 32.02,
       "lon": 130.21
     },
@@ -486,7 +488,7 @@
       "area": "姶良・伊佐",
       "kind": "地域がん診療病院",
       "address": "霧島市隼人町松永3320",
-      "site": "https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/seikatusyukan/cancer/gankyoten.html",
+      "site": "https://kirishima-mc.jp/",
       "lat": 31.76,
       "lon": 130.72
     },
@@ -504,7 +506,7 @@
       "area": "肝属",
       "kind": "大隅半島・地域がん診療病院",
       "address": "鹿屋市札元1-8-8",
-      "site": "https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/seikatusyukan/cancer/gankyoten.html",
+      "site": "https://hospital.pref.kagoshima.jp/kanoya/",
       "lat": 31.39,
       "lon": 130.87
     },
@@ -513,7 +515,7 @@
       "area": "熊毛",
       "kind": "島しょ・地域がん診療病院",
       "address": "西之表市西之表7463",
-      "site": "https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/seikatusyukan/cancer/gankyoten.html",
+      "site": "https://tanegashima-mc.jp/",
       "lat": 30.73,
       "lon": 131
     },
@@ -522,7 +524,7 @@
       "area": "奄美",
       "kind": "離島救急・地域がん診療病院",
       "address": "奄美市名瀬真名津町18-1",
-      "site": "https://www.pref.kagoshima.jp/shisetsu/iryou/002.html",
+      "site": "https://hospital.pref.kagoshima.jp/oshima/",
       "lat": 28.37,
       "lon": 129.5
     }
