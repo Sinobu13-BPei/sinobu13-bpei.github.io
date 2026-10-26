@@ -19,7 +19,7 @@ const r=rows.find(x=>x.name===sl.value)||rows[0];
 const pop=(r.p50/r.p20-1)*100,worker=(r.work50/r.work20-1)*100,elder=(r.a75_50/r.a75_20-1)*100;
 let kind=r.dpcRatio>=110?'当該医療圏の医療機関所在地件数が患者住所地件数を上回る流入集積型':r.dpcRatio<70?'医療機関所在地件数が住所地件数を下回る周辺依存型':'両件数が比較的近接する混合型';
 const market=r.aging50>40?'高齢化と地域での医療継続が重要':r.a75_50>r.a75_20*1.4?'後期高齢者増加と外来・在宅サービス設計が重要':'現役世代減少に対応した省人化・検査連携が重要';
-el('deepProfile').innerHTML='<strong>'+safe(r.name)+'</strong>：2020→2050年総人口 <strong>'+f(pop)+'%</strong>／生産年齢人口 <strong>'+f(worker)+'%</strong>／75歳以上 <strong>'+(elder>0?'+':'')+f(elder)+'%</strong>。<br>2023年度DPC施設所在地／患者住所地比 <strong>'+f(r.dpcRatio)+'%</strong>（'+kind+'）。<br>医療機器の市場仮説：'+market+'。<small style="display:block">一次データ：社人研2023年将来推計・厚労省2023年度DPC退院患者調査。PDF参照：株式会社日本経営『医療需給総覧1.0』、各圏域・DPC図の'+r.pdfPage+'ページ。</small>';
+el('deepProfile').innerHTML='<strong>'+safe(r.name)+'</strong>：2020→2050年総人口 <strong>'+f(pop,Math.abs(pop)<.1?2:1)+'%</strong>／生産年齢人口 <strong>'+f(worker)+'%</strong>／75歳以上 <strong>'+(elder>0?'+':'')+f(elder)+'%</strong>。<br>2023年度DPC施設所在地／患者住所地比 <strong>'+f(r.dpcRatio)+'%</strong>（'+kind+'）。<br>医療機器の市場仮説：'+market+'。<small style="display:block">一次データ：社人研2023年将来推計・厚労省2023年度DPC退院患者調査。PDF参照：株式会社日本経営『医療需給総覧1.0』、各圏域・DPC図の'+r.pdfPage+'ページ。</small>';
 }
 sl.addEventListener('change',display);display();
 }
