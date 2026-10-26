@@ -1004,6 +1004,38 @@
       "year": "2026年閲覧",
       "label": "医療情報ネット：医療機関機能・連絡先の照合",
       "url": "https://www.iryou.teikyouseido.mhlw.go.jp/"
+    },
+    {
+      "id": "s_bureau",
+      "org": "厚生労働省",
+      "year": "2026年閲覧",
+      "label": "厚生局の管轄：富山・石川は東海北陸、福井は近畿",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
     }
-  ]
+  ],
+  "neighbors": [
+    {
+      "name": "新潟県",
+      "p2020": 2201272,
+      "p2050": 1525004,
+      "relation": "富山東部から北陸道で接続。広域搬送・仕入先の補完可能性（実績未検証）"
+    },
+    {
+      "name": "岐阜県",
+      "p2020": 1978742,
+      "p2050": 1468392,
+      "relation": "東海北陸道・中部縦貫道の東海側接続。冬季規制を考慮"
+    },
+    {
+      "name": "滋賀県",
+      "p2020": 1413610,
+      "p2050": 1222791,
+      "relation": "敦賀・福井県南部の関西側物流接続。県境を跨ぐ紹介・保守を要実測"
+    }
+  ],
+  "nationalReference": {
+    "description": "2020年頃の医療施設調査由来の既存公開県別ページ参考値。原表対象施設・分母統一再検証中。2026年の稼働台数ではない。",
+    "ctPer100k": 11.5,
+    "mriPer100k": 5.7
+  }
 }
