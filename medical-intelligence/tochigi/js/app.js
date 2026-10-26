@@ -22,7 +22,7 @@ const frameworks=[
 ['4P','Product:装置＋診療DX＋保守　Price:総保有費用　Place:共同利用・広域配送　Promotion:公表エビデンスに基づく説明'],
 ['4C','Customer Value:患者アクセスと検査質　Cost:運用総額　Convenience:紹介連携/可搬　Communication:多職種合意'],
 ['VRIO','Value:運用・診療連携　Rarity:地理/設備/制度を横断する調整力　Imitability:運用ノウハウ蓄積　Organization:品質/物流/保守の組織化'],
-['Five Forces','新規参入:保守認証等の障壁　売手:部材依存　買手:病院の調達競争　代替:共同利用/検査外注　競合:価格より総費用・運用'];
+['Five Forces','新規参入:保守認証等の障壁　売手:部材依存　買手:病院の調達競争　代替:共同利用/検査外注　競合:価格より総費用・運用']];
 byId('frameworks').innerHTML=frameworks.map(x=>'<article><h4>'+esc(x[0])+'</h4><p>'+esc(x[1])+'</p></article>').join('');
 const swot=[['Strengths / 強み','2大学病院・県央の高度医療資源、交通結節・検査集積'],['Weaknesses / 弱み','県北・県西・両毛の医師偏在、広域人口減少、病床機能アンバランス'],['Opportunities / 機会','地域医療連携、在宅US、画像共同利用、医療DX、設備更新・BCP'],['Threats / 脅威','診療報酬・人件費、調達負担、技術職不足、部品調達、洪水・積雪']];
 byId('swot').innerHTML=swot.map(x=>'<article><h4>'+esc(x[0])+'</h4><p>'+esc(x[1])+'</p></article>').join('');
