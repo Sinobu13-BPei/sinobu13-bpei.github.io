@@ -130,6 +130,17 @@ function draw(){
       ehimeLink.setAttribute('aria-label','愛媛県 医療マーケット総合分析を開く');
       actions.appendChild(ehimeLink);
     }
+    if(p[0]==='和歌山県'){
+      const wakayamaLink=document.createElement('a');
+      wakayamaLink.href='https://sinobu13-bpei.github.io/medical-intelligence/wakayama/';
+      wakayamaLink.target='_blank';
+      wakayamaLink.rel='noopener noreferrer';
+      wakayamaLink.className='wakayama-mkt-btn';
+      wakayamaLink.textContent='和歌山MKT ↗';
+      wakayamaLink.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:42px;background:#087e81;color:#fff;font-weight:800;border:2px solid #086c70;border-radius:10px;padding:7px 13px;text-decoration:none;box-shadow:0 3px 8px rgba(6,83,86,.22)';
+      wakayamaLink.setAttribute('aria-label','和歌山県 医療マーケット総合分析を開く');
+      actions.appendChild(wakayamaLink);
+    }
     if(p[0]==='滋賀県'){
       const shigaLink=document.createElement('a');
       shigaLink.href='https://sinobu13-bpei.github.io/medical-intelligence/shiga/';
