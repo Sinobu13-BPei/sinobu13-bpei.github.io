@@ -5,3 +5,88 @@
 @media(max-width:740px){html{scroll-padding-top:95px}body{font-size:14px}.container{padding-inline:15px}.mast-in{align-items:flex-start;padding-block:10px;flex-direction:column;gap:8px}.mast{position:relative}.brand{font-size:12px}.brand small{font-size:8px}.brand-emblem{height:35px;width:35px}.topnav{width:100%;justify-content:space-between}.topnav a{font-size:11px}.hero-layout{grid-template-columns:1fr;padding-block:35px 26px;min-height:auto}.hero-art{max-width:400px;margin:auto;width:100%}.hero h1{font-size:37px}.section{padding-block:50px 54px}.section.compact{padding-block:44px}.two-cols,.triad,.grid-3,.three-split,.info-grid{grid-template-columns:1fr}.grid-4,.strategies{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.metric{padding:16px}.metric b{font-size:23px}.metric span{font-size:11px}.panel{padding:17px 15px}.chartwrap{height:260px}.chartwrap.high{height:420px}.chartwrap.big{height:600px}#medicalMap{height:400px}.sources{grid-template-columns:1fr}.winning{gap:10px}.winning h3{font-size:19px}.route-svg svg{min-width:510px;overflow:visible}.route-svg{overflow-x:auto}.footer-links{gap:6px 15px}}
 @media(max-width:420px){.grid-4,.strategies,.metrics{grid-template-columns:1fr}.hero h1{font-size:33px}.mast .topnav{overflow:auto;justify-content:flex-start;flex-wrap:nowrap}.topnav a{white-space:nowrap}.filters select{max-width:100%;min-width:0;flex:1}.swot{grid-template-columns:1fr}.chartwrap.big{height:550px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Rev.2026-10-27: condensed editorial rhythm, fewer blank bands, facility dashboard */
+body{line-height:1.64}
+.section{padding-block:39px 44px}
+.section.compact{padding-block:35px 39px}
+.section-head{margin-bottom:16px}
+.section-head h2{font-size:clamp(23px,2.8vw,31px);margin:0 0 7px;line-height:1.4}
+.section-head p{margin:5px 0 0;font-size:13px;line-height:1.75}
+.kicker{margin-bottom:6px;font-size:10px}
+.panel{padding:17px 19px}
+.panel h3{font-size:16px;margin-bottom:7px}
+.panel.full{margin-block:12px}
+.triad,.grid-3,.grid-4,.info-grid{gap:11px}
+.two-cols{gap:13px}
+.mini-card,.brief{padding:17px}
+.callout{margin:14px 0;padding:14px 18px;font-size:13px}
+.warn{padding:13px 17px;margin-bottom:13px}
+.metrics{margin:16px 0;gap:10px}
+.metric{padding:16px 15px}
+.metric b{font-size:clamp(23px,2.5vw,32px)}
+.metric span{margin-top:5px}
+.hero-layout{min-height:345px;padding-block:38px 37px}
+.hero h1{font-size:clamp(32px,4.4vw,58px);margin-bottom:12px}
+.hero-comment{margin-block:13px}
+.hero .lead{font-size:clamp(15px,1.5vw,18px);line-height:1.75}
+.hero-art svg{max-height:320px}
+.chartwrap{height:240px}
+.chartwrap.high{height:380px}
+.chartwrap.big{height:560px}
+#medicalMap{height:380px}
+.filters{padding:10px 13px;margin-bottom:12px}
+.filters select{padding:8px 11px}
+.table-scroll{margin-block:8px}
+th,td{padding:8px 10px}
+.micro{margin-top:7px;font-size:11px}
+.sources{gap:8px 19px}
+.sources li{font-size:11px}
+.flowchart>div{padding:9px 12px}
+.route-svg{padding:9px;margin-bottom:13px}
+.swot>div{padding:9px}
+.winning{margin-bottom:12px}
+.winning>article{padding:21px}
+.strategies{gap:9px}
+.strategies article{padding:12px}
+.footer{padding-block:29px 34px}
+.facility-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 11px}
+.facility-stats>div{padding:12px 15px;border-radius:8px;background:#e9f4f5;border:1px solid #d1e7e8;min-width:0}
+.facility-stats small{display:block;color:#425e6b;font-size:11px;font-weight:700}
+.facility-stats strong{display:block;color:#086c78;font-size:clamp(21px,2.5vw,30px);font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.035em;line-height:1.38;margin-top:4px}
+.facility-panel{margin-top:0!important}
+.panel-heading{display:flex;justify-content:space-between;align-items:center;gap:13px;flex-wrap:wrap;margin-bottom:9px}
+.panel-heading h3{margin:0}
+.panel-heading .micro{margin:4px 0}
+.source-tags{display:flex;flex-wrap:wrap;gap:7px}
+.source-tags a{font-size:10px;text-decoration:none;white-space:nowrap;background:#e8f4f5;color:#126777;border:1px solid #c5e2e5;border-radius:5px;padding:5px 8px;font-weight:700}
+.facility-table{min-width:830px}
+.association-table{min-width:840px}
+.facility-table .num,.association-table .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.facility-table th,.association-table th{position:sticky;top:0;background:#eaf2f6;z-index:1}
+.facility-table td,.association-table td{font-size:12px}
+.facility-table td:nth-child(2){white-space:nowrap}
+.value-clinic{font-weight:900;font-size:15px!important;color:#086b83}
+.value-total{font-weight:850;color:#294d62}
+.region-tag{white-space:nowrap;font-size:10px;border-radius:4px;background:#eff5f6;color:#4a6473;padding:2px 5px}
+.cell-note{display:block;color:#667986;font-size:10px;line-height:1.5;margin-top:2px;white-space:normal}
+.association-links{min-width:250px;max-width:400px}
+.association-links a{display:inline-block;color:#087b85;text-decoration:none;margin:2px 6px 2px 0;padding:3px 7px;background:#e9f6f3;border:1px solid #cfe8e4;border-radius:4px;font-weight:700;font-size:10px}
+.association-links a:hover{background:#d2eeea;color:#005d65}
+.fold{border:1px solid #d5e5e9;border-radius:8px;background:white;margin:11px 0;overflow:hidden}
+.fold summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:15px;background:#ecf6f7;padding:11px 15px;color:#23495a;font-size:13px;font-weight:800;list-style:none}
+.fold summary::-webkit-details-marker{display:none}
+.fold summary::before{content:'＋';color:#007c7b;font-weight:900;font-size:16px;line-height:1;flex-shrink:0}
+.fold[open] summary::before{content:'－'}
+.fold summary>span:first-child{flex:1}
+.fold-meta{font-size:11px;color:#5e7987;font-weight:600}
+.fold-content{padding:11px 13px 14px}
+.fold-content .panel.full{border:none;box-shadow:none;padding:9px 2px;margin:0}
+.fold-content .micro{margin:3px 0 10px}
+.fold-content .chartwrap.big{height:530px}
+.areas-top{margin-top:13px}
+button,select,a,summary{outline-offset:3px}
+a:focus-visible,summary:focus-visible,select:focus-visible{outline:3px solid #e4b562}
+@media(max-width:900px){.facility-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.section{padding-block:31px 36px}.hero-layout{min-height:300px}.chartwrap.high{height:360px}#medicalMap{height:360px}}
+@media(max-width:740px){body{line-height:1.62}.section,.section.compact{padding-block:27px 31px}.section-head h2{font-size:23px}.panel{padding:13px 12px}.hero-layout{padding-block:26px 23px}.hero h1{font-size:34px}.hero-art svg{max-height:240px}.metrics{gap:8px}.metric{padding:12px}.metric b{font-size:23px}.mini-card,.brief{padding:14px}.facility-stats>div{padding:10px 11px}.facility-stats strong{font-size:22px}.panel-heading{align-items:flex-start}.source-tags{gap:5px}.fold summary{font-size:12px;padding:10px 11px}.fold-meta{font-size:10px}.fold-content{padding:9px}.chartwrap.high{height:330px}.chartwrap.big,.fold-content .chartwrap.big{height:460px}#medicalMap{height:320px}.sources{grid-template-columns:1fr}.table-scroll{overscroll-behavior-inline:contain}}
+@media(max-width:420px){.facility-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.facility-stats strong{font-size:21px}.fold-meta{display:none}.section-head p{font-size:12px}}
