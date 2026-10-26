@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#103351"><meta name="description" content="香川県の医療マーケット。東部・小豆・西部の3医療圏、人口、病床機能、医療機器、医師・行政・大学・流通・戦略を一次情報中心に分析。"><title>香川県 医療MKT調査・地域医療戦略 2026 | Medical Intelligence</title>
 <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyo0f0EFdE7zU8g=" crossorigin="">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script><script src="./app.js" defer></script><link rel="stylesheet" href="./visual.css"><script src="./visual.js" defer></script></head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script><script src="./app.js" defer></script><link rel="stylesheet" href="./visual.css"><script src="./visual.js" defer></script><link rel="stylesheet" href="./facility-counts.css"><script src="./facility-counts.js" defer></script></head>
 <body><header class="top"><div class="wrap"><a class="brand" href="../">MEDICAL INTELLIGENCE / SHIKOKU</a><div class="updated">公開資料分析 | 最終更新 2026.10.27</div></div></header>
-<nav aria-label="ページ内ナビゲーション"><div class="wrap"><a href="#summary">サマリー</a><a href="#visual-atlas">図解ダッシュボード</a><a href="#population">人口・医療圏</a><a href="#beds">病床</a><a href="#providers">医療提供体制</a><a href="#institutions">大学・医師会・行政</a><a href="#equipment">機器市場</a><a href="#distribution">流通</a><a href="#external">外部環境</a><a href="#strategy">戦略</a><a href="#sources">出典</a></div></nav>
+<nav aria-label="ページ内ナビゲーション"><div class="wrap"><a href="#summary">サマリー</a><a href="#visual-atlas">図解ダッシュボード</a><a href="#population">人口・医療圏</a><a href="#beds">病床</a><a href="#providers">医療提供体制</a><a href="#facility-supply">施設数・医師会別</a><a href="#institutions">大学・医師会・行政</a><a href="#equipment">機器市場</a><a href="#distribution">流通</a><a href="#external">外部環境</a><a href="#strategy">戦略</a><a href="#sources">出典</a></div></nav>
 <main><section class="hero"><div class="wrap"><div class="eyebrow">KAGAWA / REGIONAL MEDICAL MARKET 2026</div><h1>香川県<br>医療市場・地域医療戦略</h1><p>人口縮小と医療高度化が交差する瀬戸内。東部の高度医療集積、西部の広域連携、小豆の離島医療を、政策・人口・病床・画像診断機器・医療流通から読み解く。</p>
 <div><span class="pill">中立的な医療機器商社の視点</span> <span class="pill">2024–2029 第8次計画</span> <span class="pill">3二次医療圏</span> <span class="pill">公的統計 / 独自分析を区別</span></div>
 <div class="hero-links"><a href="#strategy">Where to Play / How to Win</a><a href="#providers">主要病院と地図</a><a href="#equipment">CT・MRI比較</a><a class="soft" href="../">全国Medical Intelligence</a></div>
@@ -122,6 +122,66 @@
 <div class="grid two" style="margin-top:16px"><div class="card"><h3>地理院タイルによる施設マップ</h3><div id="facilityMap" class="map" role="region" aria-label="香川県主要医療施設・保健所の概略位置"><div class="map-placeholder">地図を読み込んでいます。表示できない場合も下の施設名からGoogleマップ・地理院地図を開けます。</div></div><p class="footnote">地図背景：<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener noreferrer">地理院タイル</a>（国土地理院）。地点は概略座標であり、施設の正確な入口・敷地位置ではありません。境界線は未掲載。</p></div><div class="card"><h3>医療施設検索</h3><div class="fac-tools"><input id="facilitySearch" type="search" placeholder="病院名・市町村・保健所など" aria-label="施設名検索"><select id="facilityArea" aria-label="医療圏フィルター"><option value="all">全医療圏</option><option value="east">東部</option><option value="island">小豆</option><option value="west">西部</option></select></div><p class="footnote">主要病院、大学、行政、医師会、5保健所を掲載。各施設に地図2種と公式情報へのリンクを設置。</p><div class="callout">地域医療支援病院：回生、香川労災、高松赤十字、三豊総合、県立中央、高松市立みんな、四国こどもとおとな（令和6年度業務報告）。<a href="#S09">[S09]</a></div><p>災害拠点病院・へき地医療拠点病院の最新指定・役割、個別病院の建替・統合計画は県第8次計画・県公表一覧で案件ごとに再照合が必要。未検証施設への指定付与はしない。</p></div></div>
 <div id="facilityList" class="facility-list" style="margin-top:15px"><div class="facility">代表施設：<a href="https://www.chp-kagawa.jp/" target="_blank" rel="noopener noreferrer">香川県立中央病院</a> / <a href="https://scha.jp/" target="_blank" rel="noopener noreferrer">小豆島中央病院</a> / <a href="https://www.med.kagawa-u.ac.jp/" target="_blank" rel="noopener noreferrer">香川大学医学部附属病院</a></div></div>
 <noscript><p class="noscript">JavaScriptが無効のため施設フィルター・地図を表示できません。上記代表施設・出典一覧をご参照ください。</p></noscript></div></section>
+
+<section id="facility-supply" class="section facility-supply" aria-labelledby="facility-supply-title">
+<div class="wrap">
+<div class="kicker">REGIONAL MEDICAL SUPPLY / 2024.10</div>
+<h2 id="facility-supply-title">医療圏・市町・地区医師会別 医療施設数</h2>
+<p class="intro">2024年10月の病院・一般診療所数を<strong>東部・西部・小豆の3医療圏、17市町別</strong>に集計。9地区医師会については地区の行政区域と、<strong>医師会自体が公表する所属医療機関数／2023年の初期救急当番参加施設数</strong>を区別して掲載します。医師会会員数と市町村の全施設数は同じではありません。</p>
+<div class="fs-key">
+<span><i class="fs-dot fs-east"></i> 東部</span><span><i class="fs-dot fs-west"></i> 西部</span><span><i class="fs-dot fs-island"></i> 小豆</span>
+<span class="fs-year">施設数：2024年10月</span><span class="fs-secondary">初期救急参加数：2023年4月</span>
+</div>
+<div class="fs-stat-grid">
+<article class="fs-stat"><span>香川県・一般診療所</span><strong>813 <small>施設</small></strong><p>2024年10月</p></article>
+<article class="fs-stat"><span>香川県・病院</span><strong>86 <small>施設</small></strong><p>2024年10月</p></article>
+<article class="fs-stat"><span>病院＋一般診療所</span><strong>899 <small>施設</small></strong><p>歯科診療所・薬局は含まない</p></article>
+<article class="fs-stat"><span>市町別集計</span><strong>17 <small>市町</small></strong><p>3医療圏、9地区医師会＋大学医師会</p></article>
+</div>
+<div class="fs-region-grid" id="fs-region-cards" aria-label="医療圏別医療施設数">
+<article class="fs-region-card fs-theme-east"><h3>東部医療圏</h3><div class="fs-big">482 <small>一般診療所</small></div><p>病院 41 ／ 病院＋一般診療所 523</p></article>
+<article class="fs-region-card fs-theme-west"><h3>西部医療圏</h3><div class="fs-big">314 <small>一般診療所</small></div><p>病院 42 ／ 病院＋一般診療所 356</p></article>
+<article class="fs-region-card fs-theme-island"><h3>小豆医療圏</h3><div class="fs-big">17 <small>一般診療所</small></div><p>病院 3 ／ 病院＋一般診療所 20</p></article>
+</div>
+<div class="fs-chart-grid">
+<article class="fs-panel"><header><small>CHART / 二次医療圏</small><h3>医療圏別の施設供給</h3><p>病院と一般診療所の合計件数</p></header><div class="fs-chart-box"><canvas id="fsAreaChart" aria-label="東部・西部・小豆の病院と一般診療所数を比較するグラフ" role="img"></canvas></div><p class="fs-legend-text">東部523・西部356・小豆20（施設）。病院と一般診療所は積み上げて比較。</p></article>
+<article class="fs-panel"><header><small>CHART / 市町村別</small><h3>診療所数の地域分布</h3><p>17市町の診療所数を多い順に比較</p></header><div class="fs-chart-box fs-chart-long"><canvas id="fsTownChart" aria-label="香川県17市町の一般診療所数ランキング" role="img"></canvas></div><p class="fs-legend-text">絶対数の比較。人口当たり密度や医師会加入率ではありません。</p></article>
+</div>
+<article class="fs-panel">
+<header><small>DATA TABLE / 市町村</small><h3>17市町の病院・一般診療所・病院病床数</h3><p>医療圏を切り替えて閲覧できます。医師会関連欄は「主に関係する地域医師会」であり、所属施設数を意味しません。</p></header>
+<div class="fs-controls" role="group" aria-label="施設数の医療圏絞り込み">
+<button type="button" data-fs-area="all" aria-pressed="true">県全体</button>
+<button type="button" data-fs-area="east" aria-pressed="false">東部</button>
+<button type="button" data-fs-area="west" aria-pressed="false">西部</button>
+<button type="button" data-fs-area="island" aria-pressed="false">小豆</button>
+<label class="fs-search"><span>市町村名検索</span><input type="search" id="fsMunicipalitySearch" placeholder="例：高松市・三豊市" aria-label="市町村名を検索"></label>
+</div>
+<div class="fs-table-wrap"><table class="fs-table"><thead><tr><th>医療圏</th><th>市町村</th><th class="fs-num">病院</th><th class="fs-num">一般診療所</th><th class="fs-num">施設計</th><th class="fs-num">病院病床</th><th>地域医師会との関係</th></tr></thead>
+<tbody id="fsMunicipalityRows"><tr><td>東部</td><td>高松市</td><td>33</td><td>405</td><td>438</td><td>5,533</td><td>高松市・木田・綾歌の一部（複数医師会の区域が重複）</td></tr><tr><td>東部</td><td>さぬき市</td><td>2</td><td>38</td><td>40</td><td>407</td><td>大川地区</td></tr><tr><td>小豆</td><td>土庄町</td><td>0</td><td>9</td><td>9</td><td>0</td><td>小豆郡</td></tr><tr><td>西部</td><td>丸亀市</td><td>12</td><td>86</td><td>98</td><td>1,885</td><td>丸亀市・綾歌地区</td></tr></tbody></table></div>
+<p id="fsMunicipalityTotals" class="fs-table-total" role="status">県合計：病院86、一般診療所813、施設計899（2024年10月）。</p>
+<p class="fs-note">※病院病床数は添付市町別施設表（2024年10月）に掲載された病院病床数であり、別章の「病床機能報告・機能別許可病床」とは定義が異なります。出典：<a href="https://www.e-stat.go.jp/dbview?sid=0004048438" target="_blank" rel="noopener noreferrer">厚生労働省・令和6年医療施設（動態）調査・二次医療圏市区町村編</a>、添付「37香川.xlsx」市町別表。県合計は<a href="https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/m24/is2410.html" target="_blank" rel="noopener noreferrer">厚生労働省・令和6年10月末施設数</a>と照合。</p>
+</article>
+<article class="fs-panel" id="district-med-associations">
+<header><small>REGIONAL MEDICAL ASSOCIATIONS</small><h3>9地区医師会の施設関連指標・公式ページ</h3><p>「2024年地域内診療所数」は市町村単位の参考値で、医師会の所属施設総数とは限りません。<strong>2023年当番参加数</strong>は初期救急の参加施設数であり会員数ではありません。</p></header>
+<div class="fs-table-wrap"><table class="fs-table"><thead><tr><th>二次医療圏</th><th>地区医師会・公式サイト</th><th>対象地域・市町村との関係</th><th class="fs-num">2024年地域参考<br>一般診療所</th><th class="fs-num">2023年初期救急<br>当番参加施設</th><th>医師会公式の所属施設数</th></tr></thead>
+<tbody id="fsAssociationRows"><tr><td>東部</td><td><a href="https://www.takamatsu-med.com/" target="_blank" rel="noopener noreferrer">高松市医師会</a></td><td>高松市（一部地域は木田等と重なる）</td><td>市全体405・所属数ではない</td><td>143</td><td>未照合</td></tr><tr><td>小豆</td><td><a href="https://www.shozu-med.jp/" target="_blank" rel="noopener noreferrer">小豆郡医師会</a></td><td>土庄町・小豆島町</td><td>17</td><td>7</td><td>未照合</td></tr></tbody></table></div>
+<p class="fs-note">地区医師会の名称・公式ホームページ：<a href="https://www.kagawa.med.or.jp/map.aspx" target="_blank" rel="noopener noreferrer">香川県医師会公式一覧</a>。在宅当番医制参加医療機関数：<a href="https://www.mhlw.go.jp/content/10800000/001391871.pdf" target="_blank" rel="noopener noreferrer">厚生労働省「初期救急医療機関の現況調べ」（2023年4月1日現在、香川県は資料17ページ）</a>。木田・綾歌の医師会自身による所属施設数はそれぞれ2024年6月の公式公表。</p>
+<div class="fs-inline-qualify"><span class="fs-tag">集計上の注意</span><p>木田地区医師会は高松市の旧木田郡エリア・三木町にまたがり、綾歌地区医師会は綾川町のほか丸亀市綾歌町・飯山町や高松市国分寺町等にもまたがります。単純な「市町内診療所数＝所属医師会診療所数」という集計は行いません。直島町の施設は東部医療圏合計に含みますが、医師会への所属割付は未確認です。</p></div>
+<div class="fs-university"><a href="https://kagawa-univ-med.org/" target="_blank" rel="noopener noreferrer">香川大学医師会（公式サイト）</a><span>大学・職域型の団体として別掲。市町別診療所数や9地区の会員施設数に加算しません。</span></div>
+</article>
+<div class="fs-panel fs-method">
+<header><small>DATA QUALITY / SOURCE DISCLOSURE</small><h3>データの出典・集計方法・注意点</h3></header>
+<ul>
+<li><b>病院・診療所：2024年10月。</b>市町別施設表を集計し、病院86・一般診療所813との一致を検算。2026年の施設数として表示しません。</li>
+<li><b>救急当番参加：2023年4月1日。</b>厚生労働省公開表の在宅当番医制「参加医療機関数」であり、各医師会の会員施設総数ではありません。</li>
+<li><b>所属医療機関：</b>木田地区33施設、綾歌地区43施設（うち病院3・診療所40）はそれぞれ2024年6月の医師会公式公表。</li>
+<li><b>更新差：</b>病院・一般診療所の開設・休廃止や集計対象が変わるため、年次の異なる施設数は合算・差し引きしません。</li>
+<li><b>掲載方針：</b>医療機器・販社に関する個社販売額・シェア・未確認の会員情報は掲載せず、公表情報のみを使用します。</li>
+</ul>
+<div class="fs-sources" id="fsSourceList"></div>
+</div>
+</div>
+</section>
 <section id="institutions" class="section"><div class="wrap"><div class="kicker">05 / Stakeholders</div><h2>医学部・医師・行政・医師会</h2><div class="grid two"><div class="card"><h3>医師偏在指標（2026年4月公表）</h3><div class="stat">273.4 <span class="pill">香川県</span></div><p>全国266.8。県内は東部318.5、西部224.0、小豆153.8と大きな差がある。行政上の多数／少数区分は指標の高低と同義ではないため、県の医師確保計画の区分とセットで確認する。<a href="#S07">[S07]</a></p><div class="chartbox"><canvas id="doctorChart" role="img" aria-label="2026年医師偏在指標、全国と香川県及び隣接県"></canvas></div><div class="chart-fallback" id="doctorFallback">医師偏在指標：全国266.8、香川273.4、徳島293.9、愛媛263.6、高知296.0、岡山302.7。</div><p class="footnote">人口10万人当たり医師数とは異なる需給調整指標。<a href="#S07">[S07]</a></p></div>
 <div class="card"><h3>香川大学医学部・地域の人材供給</h3><p>香川大学医学部（三木町）と附属病院を医学教育・高度専門医療の結節点として分析。医局の派遣先数・診療科別影響力は非公開・未照合のため数値化しない。<a href="#S23">[S23]</a></p><p>医師の働き方改革は、時間外労働規制への対応、当直体制、放射線技師・臨床検査技師の配置、救急医療の地域連携に影響。機器導入は人員確保・稼働時間の制約も含む総費用で判断する。</p><p><b>医療DXの地域基盤：</b>香川県の「かがわ医療情報ネットワーク（K-MIX R）」は、参加医療機関間の診療情報共有と連携を支える仕組み。装置販売単独ではなく画像共有・医療機関間連携・セキュリティ・教育を含む提案との接点として検討する。参加施設数・実際の利用状況は別途確認する。<a href="#S29">[S29]</a></p><h3>行政窓口・基金</h3><p>香川県健康福祉部医療政策課が計画・病床・医師確保等を所管。県内は東讃・小豆・中讃・西讃および高松市保健所の計5保健所。<a href="#S12">[S12]</a></p><p>地域医療介護総合確保基金は設備整備、病床機能、在宅医療、従事者確保等が対象。2027年度向け募集は実施・対象・補助率の変更可能性が明記されており、採択は保証されない。<a href="#S14">[S14]</a><a href="#S15">[S15]</a></p></div></div>
 <div class="card" style="margin-top:16px"><h3>香川県医師会・郡市地区医師会</h3><p>地域連携・在宅医療・かかりつけ医機能・研修・医療DX等の実装主体。医師会の公式一覧から各団体にアクセスできます。活動内容の評価は団体別の公表資料で確認すること。<a href="#S13">[S13]</a></p><div id="associations"><a href="https://www.kagawa.med.or.jp/map.aspx" target="_blank" rel="noopener noreferrer">香川県医師会・郡市地区医師会公式一覧</a></div></div></div></section>
