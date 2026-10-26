@@ -128,3 +128,49 @@ main,.section,.wrap,.panel,.grid-2,.grid-3,.strategy-grid,.visual-charts{min-wid
 .quick-clinic-count{font-size:9px!important;line-height:1.5;margin-top:2px;color:#247282!important}
 @media(max-width:750px){.facility-kpi-row,.association-highlight{grid-template-columns:repeat(2,minmax(0,1fr))}.association-highlight>div:last-child{grid-column:1/-1}.association-flow{display:flex;flex-direction:column;align-items:stretch;gap:4px}.association-flow>span{transform:rotate(65deg);align-self:center}.association-flow>div{width:100%}}
 @media(max-width:450px){.facility-kpi-row,.association-highlight{gap:8px}.facility-kpi,.association-highlight>div{padding:13px}.facility-kpi strong,.association-highlight b{font-size:1.45rem}.facility-kpi span,.association-highlight span{font-size:11px}}
+
+/* v2026-10-27: attachment-derived values cross-checked with prefectural and university sources */
+#town-aging{margin-top:22px}
+.demographic-spotlight{border-top:4px solid #13858c}
+.mini-section-head .en{color:#13707b;font-size:11px;font-weight:900;letter-spacing:.09em}
+.mini-section-head h3{margin-top:6px}
+.aging-headline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:17px 0}
+.aging-headline>div{background:#edf7f6;border:1px solid #cee8e5;border-radius:12px;padding:13px;display:flex;flex-direction:column;gap:5px}
+.aging-headline small{font-size:11px;font-weight:800;color:#3b6a77}.aging-headline strong{font-size:clamp(1.35rem,3vw,1.85rem);color:#08737b;line-height:1.25;font-weight:900}
+.aging-headline strong em{font-size:12px;font-style:normal;padding-left:4px}
+.age-mini-meter{display:grid;gap:8px;margin:0 0 15px}
+.age-mini-meter>div{display:grid;grid-template-columns:86px minmax(0,1fr) 55px;gap:12px;align-items:center;font-size:12px}
+.age-mini-meter>div>span{font-weight:800;color:#245368}.age-mini-meter b{text-align:right;font-variant-numeric:tabular-nums;color:#08727b}
+.age-mini-meter meter{display:block;width:100%;height:20px;min-width:0}
+.aging-tag{display:inline-flex;align-items:center;justify-content:center;min-width:56px;border-radius:6px;padding:2px 5px;font-size:11px;font-weight:900}
+.aging-normal{background:#e9f3f4;color:#126475}.aging-high{background:#fff0d7;color:#92530d}.aging-critical{background:#fae4df;color:#a53a27}
+#municipalityFacilityTable{min-width:930px}
+#municipalityFacilityTable th,#municipalityFacilityTable td{font-variant-numeric:tabular-nums}
+.uni-network-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:20px;align-items:start}
+.university-network .chart-area{height:370px}
+.uni-info{min-width:0}.uni-info>strong{font-size:clamp(1.8rem,4vw,2.6rem);color:#0c7881;font-variant-numeric:tabular-nums}
+.uni-info>strong small{font-size:14px;color:#4e7985;padding-left:5px}.uni-info p{font-size:12px;color:#4e697a}
+#universityDoctorsTable{min-width:0;font-size:12px}
+#universityDoctorsTable th,#universityDoctorsTable td{padding:7px 11px}
+.region-meetings{margin-top:16px}
+.region-meetings summary,.data-provenance summary{cursor:pointer;font-weight:900;font-size:15px;color:#164758;line-height:1.65;list-style-position:inside}
+.region-meetings summary small,.data-provenance summary small{font-weight:500;font-size:11px;color:#648092;margin-left:9px}
+.region-meetings summary:hover,.data-provenance summary:hover{color:#07828c}
+#region-meetings .table-wrap{margin-top:14px}
+#region-meetings table{min-width:650px}
+.data-provenance{margin-bottom:20px;border-left:4px solid #0f7c83}
+.data-provenance .table-wrap{margin-top:12px}.data-provenance table{min-width:790px}
+.data-provenance td:first-child{min-width:145px;font-weight:800}
+.data-provenance td{font-size:12px}
+table th{position:static}
+.table-wrap table th{position:sticky;top:0;z-index:1}
+@media(max-width:800px){.uni-network-grid{grid-template-columns:minmax(0,1fr)}.university-network .chart-area{height:310px}}
+@media(max-width:500px){
+ .aging-headline{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .aging-headline>div:last-child{grid-column:1/-1}
+ .aging-headline>div{padding:10px 12px}
+ .age-mini-meter>div{grid-template-columns:66px minmax(0,1fr) 45px;gap:6px;font-size:10px}
+ .age-mini-meter b{font-size:11px}
+ .university-network .chart-area{height:295px}
+ .region-meetings summary small,.data-provenance summary small{display:block;margin:2px 0 0 20px}
+}
