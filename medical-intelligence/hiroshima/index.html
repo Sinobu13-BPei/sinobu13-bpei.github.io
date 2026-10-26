@@ -11,12 +11,14 @@
 <script src="js/app.js" defer></script>
 <script src="data/medical-resources.js" defer></script>
 <script src="js/visuals.js" defer></script>
+<script src="data/attachment-research.js" defer></script>
 <script src="js/resources-ui.js" defer></script>
+<script src="js/deep-research-ui.js" defer></script>
 </head><body>
 <a class="skip" href="#main">本文へ移動</a>
 <header class="top"><div class="shell top-inner">
 <a class="brand" href="../" aria-label="医療マーケット全国トップに戻る"><span class="brand-icon" aria-hidden="true">✦</span><span>MEDICAL MARKET<br><small>INTELLIGENCE / HIROSHIMA</small></span></a>
-<nav class="top-nav" aria-label="主な項目"><a href="#facility-census">施設数</a><a href="#institutions">医師会</a><a href="#demography">人口・医療圏</a><a href="#services">医療体制</a><a href="#devices">機器市場</a><a href="#strategy">戦略</a><a href="#sources">出典</a></nav>
+<nav class="top-nav" aria-label="主な項目"><a href="#research-2026">追加研究</a><a href="#facility-census">施設数</a><a href="#institutions">医師会</a><a href="#demography">人口・医療圏</a><a href="#services">医療体制</a><a href="#devices">機器市場</a><a href="#strategy">戦略</a><a href="#sources">出典</a></nav>
 <a class="back" href="../">47都道府県一覧へ</a></div></header>
 <svg class="svg-sprites" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" width="0" height="0">
 <defs>
@@ -156,6 +158,24 @@
 </div>
 <div class="panel"><h3>医師会・保健所の公開窓口</h3><div class="split"><div><h4>地域医師会</h4><div id="associationList" class="compact-list"></div></div><div><h4>保健所・支所</h4><div id="healthOfficeList" class="compact-list"></div></div></div></div>
 </section>
+<section id="research-2026" class="section shell" aria-label="添付13資料からの追加研究">
+<div class="section-h"><div><span class="eyebrow dark">DEEP RESEARCH / 13 SOURCE FILES / 7 MEDICAL AREAS</span><h2>地域医療の需給を、患者・人材・地理から読み直す</h2></div><p>2020年人口・地理、2023年度DPC、2024年版医師偏在指標の比較。統計の年次・定義を混合しません。</p></div>
+<div class="research-note"><strong>再構成について：</strong>2026年の「医療需給総覧」（日本経営公開）7医療圏版と添付資料の記載値を、出典を明示して独自集計しました。日本経営の図版や文章は転載せず、原典へのリンクを設置しています。会社別取引額・シェア・特定メーカーの営業計画は公開していません。</div>
+<div class="split">
+<article class="panel"><h3>医師偏在指標：県内格差 <span class="chip accent">2024年1月公表版</span></h3><div class="chart tall"><canvas id="historicalPhysicians" role="img" aria-label="2024年1月公表の広島県二次医療圏医師偏在指標"></canvas></div><p class="small">厚生労働省の過去版を使用。現在の医師偏在指標とは別調査であり、指標の連続推移と扱わない。<a href="https://www.mhlw.go.jp/content/10800000/001364029.pdf" target="_blank" rel="noopener noreferrer">厚労省資料（2024版）↗</a></p></article>
+<article class="panel"><h3>DPC患者流動：医療圏の受入構造 <span class="chip accent">2023年度</span></h3><div class="chart tall"><canvas id="dpcFlowChart" role="img" aria-label="医療圏別の患者住所地症例数と医療機関所在地症例数を比較するグラフ"></canvas></div><p class="small">2023年度の参考集計（千件）。青＝医療機関所在地、灰＝患者住所地。100%を超えるのは流入超過であり、自医療圏内完結率の値ではありません。<a href="https://www.mhlw.go.jp/stf/shingi2/newpage_00137.html" target="_blank" rel="noopener noreferrer">厚労省退院患者調査↗</a></p></article></div>
+<div class="split">
+<article class="panel"><h3>二次医療圏の人口密度 <span class="chip accent">2020年国勢調査</span></h3><div class="chart"><canvas id="regionalDensityChart" role="img" aria-label="2020年広島県の医療圏別人口密度比較"></canvas></div><p class="small">高密度の広島・呉と低密度の備北では、医療機器の配置・搬送・保守の経済性が異なります。</p></article>
+<article class="panel"><h3>可住地面積の割合 <span class="chip accent">2020年度</span></h3><div class="chart"><canvas id="habitableChart" role="img" aria-label="7つの二次医療圏の可住地面積割合"></canvas></div><p class="small">可住地割合は林野面積・主要湖沼を除いた参考割合。病院までの到達時間を示す指標ではありません。</p></article></div>
+<div class="panel"><h3>広島県 7医療圏の基礎指標と患者流動（比較表）</h3>
+<div class="table-scroll"><table id="deepResearchAreaTable"><caption>2020人口・地理、2023 DPC、2024医師偏在は年次の異なる統計。患者受療量比は所在地件数／住所地件数。※完結率ではない</caption><thead><tr><th>医療圏</th><th>2020人口</th><th>密度/㎢</th><th>可住地割合</th><th>医師偏在（旧）</th><th>DPC住所地（千件）</th><th>DPC所在地（千件）</th><th>受療量比</th></tr></thead><tbody></tbody></table></div>
+<div class="diagnostic-tracks" id="deepResearchRegions" aria-label="二次医療圏ごとの解釈"></div></div>
+<div class="split"><article class="panel"><h3>県内医療機器市場：民間推計の推移</h3><div class="chart"><canvas id="marketTrendChart" role="img" aria-label="医療機器末端市場 民間推計 2022から2024年度"></canvas></div><p class="small">2022年度858億円、2023年度907億円、2024年度925億円。**民間市場調査推計・非公的統計**。2024年値は前年比約+2.0%。医療材料・SPD等を含み、画像診断機器だけの市場規模ではありません。出典：提供された2024年度広島県市場調査資料（一般公開URLなし）。推計方法の独立検証は未了。</p></article>
+<article class="panel"><h3>施設数の調査時点による違い</h3><div class="table-scroll"><table id="marketFacilitySnapshots"><caption>2022は公的施設調査。2024–26は添付の民間調査資料の施設数。異なる基準時点・調査系列のため単純な純増減の解釈はできません</caption><thead><tr><th>集計時点</th><th>病院</th><th>一般診療所</th><th>出典区分</th></tr></thead><tbody></tbody></table></div><p class="small">公的な県保健医療計画の2022年2,537診療所と、民間集計の2026年1月2,494診療所は定義・時点の一致を確認できていません。比較は参考に限定します。</p></article></div>
+<div class="panel"><h3>7圏域の原資料・追加調査への入口</h3><p>日本経営が無償公開する「医療需給総覧」2026年版のページにリンクします。資料中の病院機能、疾患・救急・在宅・患者流入出の詳細は、引用条件と最新公表日を確認のうえ参照してください。</p><div class="research-source-links" id="researchSourceLinks"></div>
+<p class="small">一次情報：<a href="https://www.pref.hiroshima.lg.jp/soshiki/54/hokeniryoukeikaku-8.html" target="_blank" rel="noopener noreferrer">広島県第8次保健医療計画</a>／<a href="https://www.mhlw.go.jp/stf/shingi2/newpage_00137.html" target="_blank" rel="noopener noreferrer">厚労省2023 DPC調査</a>／<a href="https://www.mhlw.go.jp/content/10800000/001364029.pdf" target="_blank" rel="noopener noreferrer">厚労省2024医師偏在指標</a>／<a href="https://nkgr.co.jp/hsa/hiroshima/" target="_blank" rel="noopener noreferrer">日本経営 医療需給総覧（2026年版）</a>。掲載データは閲覧時点のものであり新しい統計に随時置き換える必要があります。</p></div>
+</section>
+
 <section id="devices" class="section tint"><div class="shell"><div class="section-h"><div><span class="eyebrow dark">06 / MEDICAL DEVICE INSTALLED BASE</span><h2>医療機器市場と更新需要</h2></div><p>施設別公表台数と県全数・メーカー別シェアは別物。未検証の推計を事実扱いしません。</p></div>
 <div class="panel"><h3>一次情報で確認できる病院別の公表保有設備</h3><div class="table-scroll"><table id="deviceTable"><caption>福山市民病院 公式掲載の主要設備（2026年閲覧）</caption><thead><tr><th>施設</th><th>機器・機能</th><th>公表数</th><th>注記</th></tr></thead><tbody></tbody></table></div><p class="small">出典：<a href="https://www.fc-hosp.jp/soshiki/5/7641.html" target="_blank" rel="noopener">福山市民病院 公式「病院概要・主な設備」</a>。人工透析「30床」は台数ではありません。IVR-CTはMSCTの区分との重複の可能性があるため単純合計しません。</p></div>
 <div class="panel"><h3>モダリティ別評価軸（更新需要は独自分析）</h3><div class="modality-grid">
