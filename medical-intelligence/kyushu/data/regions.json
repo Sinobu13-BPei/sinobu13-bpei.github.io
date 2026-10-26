@@ -1,0 +1,602 @@
+{
+  "updated": "2026-10-27",
+  "scope": "九州7県（沖縄県は含まない）",
+  "data_policy": "県別施設数・人口・病床は厚生労働省2024年確定統計。二次医療圏内訳は添付集計の参考値で公式原表未照合。販社シェアは非公表のため掲載しない。",
+  "prefectures": [
+    {
+      "name": "福岡",
+      "population_thousand": 5092,
+      "hospitals": 449,
+      "clinics": 4802,
+      "beds": 80486,
+      "area_count": 13,
+      "lat": 33.5902,
+      "lon": 130.4017,
+      "plan": "https://www.pref.fukuoka.lg.jp/contents/hoken-iryo-keikaku-2024.html",
+      "association": "https://www.fukuoka.med.or.jp/",
+      "slug": "fukuoka"
+    },
+    {
+      "name": "佐賀",
+      "population_thousand": 788,
+      "hospitals": 95,
+      "clinics": 688,
+      "beds": 14004,
+      "area_count": 5,
+      "lat": 33.2635,
+      "lon": 130.3009,
+      "plan": "https://www.pref.saga.lg.jp/kiji003105828/index.html",
+      "association": "https://www.saga.med.or.jp/",
+      "slug": "saga"
+    },
+    {
+      "name": "長崎",
+      "population_thousand": 1252,
+      "hospitals": 144,
+      "clinics": 1290,
+      "beds": 24804,
+      "area_count": 8,
+      "lat": 32.7503,
+      "lon": 129.8777,
+      "plan": "https://www.pref.nagasaki.jp/bunrui/hukushi-hoken/hoken-iryo/riryotaisaku/keikaku-iryo/iryoukeikaku/",
+      "association": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "slug": "nagasaki"
+    },
+    {
+      "name": "熊本",
+      "population_thousand": 1697,
+      "hospitals": 200,
+      "clinics": 1454,
+      "beds": 31697,
+      "area_count": 10,
+      "lat": 32.7898,
+      "lon": 130.7417,
+      "plan": "https://www.pref.kumamoto.jp/soshiki/27/202905.html",
+      "association": "https://www.kumamoto.med.or.jp/",
+      "slug": "kumamoto"
+    },
+    {
+      "name": "大分",
+      "population_thousand": 1085,
+      "hospitals": 150,
+      "clinics": 931,
+      "beds": 19400,
+      "area_count": 6,
+      "lat": 33.2382,
+      "lon": 131.6126,
+      "plan": "https://www.pref.oita.jp/soshiki/12620/iryoukeikaku8.html",
+      "association": "https://www.oita.med.or.jp/",
+      "slug": "oita"
+    },
+    {
+      "name": "宮崎",
+      "population_thousand": 1033,
+      "hospitals": 129,
+      "clinics": 896,
+      "beds": 17719,
+      "area_count": 7,
+      "lat": 31.9111,
+      "lon": 131.4239,
+      "plan": "https://www.pref.miyazaki.lg.jp/iryoseisaku/kense/kekaku/20240325142144.html",
+      "association": "https://www.miyazaki.med.or.jp/",
+      "slug": "miyazaki"
+    },
+    {
+      "name": "鹿児島",
+      "population_thousand": 1532,
+      "hospitals": 229,
+      "clinics": 1356,
+      "beds": 31219,
+      "area_count": 9,
+      "lat": 31.5602,
+      "lon": 130.5581,
+      "plan": "https://www.pref.kagoshima.jp/ae01/kenko-fukushi/kenko-iryo/iryokeikaku/hokenniryoukeikaku8.html",
+      "association": "https://www.kagoshima.med.or.jp/",
+      "slug": "kagoshima"
+    }
+  ],
+  "regions": [
+    {
+      "prefecture": "福岡",
+      "name": "福岡・糸島",
+      "hospitals_reference": 122,
+      "clinics_reference": 1682,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "福岡",
+      "name": "北九州",
+      "hospitals_reference": 103,
+      "clinics_reference": 1043,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "福岡",
+      "name": "久留米",
+      "hospitals_reference": 47,
+      "clinics_reference": 447,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "福岡",
+      "name": "筑紫",
+      "hospitals_reference": 27,
+      "clinics_reference": 300,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "福岡",
+      "name": "有明",
+      "hospitals_reference": 32,
+      "clinics_reference": 209,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "福岡",
+      "name": "粕屋",
+      "hospitals_reference": 26,
+      "clinics_reference": 182,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "福岡",
+      "name": "飯塚",
+      "hospitals_reference": 21,
+      "clinics_reference": 166,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "福岡",
+      "name": "京築",
+      "hospitals_reference": 14,
+      "clinics_reference": 154,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "福岡",
+      "name": "田川",
+      "hospitals_reference": 16,
+      "clinics_reference": 107,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "福岡",
+      "name": "宗像",
+      "hospitals_reference": 14,
+      "clinics_reference": 124,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "福岡",
+      "name": "八女・筑後",
+      "hospitals_reference": 14,
+      "clinics_reference": 122,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "福岡",
+      "name": "直方・鞍手",
+      "hospitals_reference": 12,
+      "clinics_reference": 100,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "福岡",
+      "name": "朝倉",
+      "hospitals_reference": 8,
+      "clinics_reference": 75,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "佐賀",
+      "name": "中部",
+      "hospitals_reference": 37,
+      "clinics_reference": 309,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "佐賀",
+      "name": "東部",
+      "hospitals_reference": 13,
+      "clinics_reference": 110,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "佐賀",
+      "name": "北部",
+      "hospitals_reference": 18,
+      "clinics_reference": 101,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "佐賀",
+      "name": "西部",
+      "hospitals_reference": 10,
+      "clinics_reference": 55,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "佐賀",
+      "name": "南部",
+      "hospitals_reference": 22,
+      "clinics_reference": 116,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "長崎",
+      "name": "長崎",
+      "hospitals_reference": 51,
+      "clinics_reference": 589,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "長崎",
+      "name": "佐世保県北",
+      "hospitals_reference": 35,
+      "clinics_reference": 260,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "長崎",
+      "name": "県央",
+      "hospitals_reference": 32,
+      "clinics_reference": 246,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "長崎",
+      "name": "県南",
+      "hospitals_reference": 16,
+      "clinics_reference": 113,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": true
+    },
+    {
+      "prefecture": "長崎",
+      "name": "五島",
+      "hospitals_reference": 4,
+      "clinics_reference": 38,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": true
+    },
+    {
+      "prefecture": "長崎",
+      "name": "上五島",
+      "hospitals_reference": 1,
+      "clinics_reference": 22,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": true
+    },
+    {
+      "prefecture": "長崎",
+      "name": "壱岐",
+      "hospitals_reference": 5,
+      "clinics_reference": 15,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": true
+    },
+    {
+      "prefecture": "長崎",
+      "name": "対馬",
+      "hospitals_reference": 2,
+      "clinics_reference": 34,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": true
+    },
+    {
+      "prefecture": "熊本",
+      "name": "宇城",
+      "hospitals_reference": 11,
+      "clinics_reference": 68,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "熊本",
+      "name": "有明",
+      "hospitals_reference": 12,
+      "clinics_reference": 130,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "熊本",
+      "name": "鹿本",
+      "hospitals_reference": 6,
+      "clinics_reference": 42,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "熊本",
+      "name": "菊池",
+      "hospitals_reference": 16,
+      "clinics_reference": 139,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "熊本",
+      "name": "阿蘇",
+      "hospitals_reference": 6,
+      "clinics_reference": 43,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": true
+    },
+    {
+      "prefecture": "熊本",
+      "name": "八代",
+      "hospitals_reference": 11,
+      "clinics_reference": 130,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "熊本",
+      "name": "芦北",
+      "hospitals_reference": 10,
+      "clinics_reference": 43,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "熊本",
+      "name": "球磨",
+      "hospitals_reference": 11,
+      "clinics_reference": 76,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": true
+    },
+    {
+      "prefecture": "熊本",
+      "name": "天草",
+      "hospitals_reference": 18,
+      "clinics_reference": 101,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": true
+    },
+    {
+      "prefecture": "熊本",
+      "name": "熊本・上益城",
+      "hospitals_reference": 107,
+      "clinics_reference": 701,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "大分",
+      "name": "東部",
+      "hospitals_reference": 33,
+      "clinics_reference": 176,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "大分",
+      "name": "中部",
+      "hospitals_reference": 62,
+      "clinics_reference": 465,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "大分",
+      "name": "南部",
+      "hospitals_reference": 8,
+      "clinics_reference": 55,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "大分",
+      "name": "豊肥",
+      "hospitals_reference": 6,
+      "clinics_reference": 55,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": true
+    },
+    {
+      "prefecture": "大分",
+      "name": "西部",
+      "hospitals_reference": 20,
+      "clinics_reference": 70,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "大分",
+      "name": "北部",
+      "hospitals_reference": 22,
+      "clinics_reference": 126,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "宮崎",
+      "name": "宮崎東諸県",
+      "hospitals_reference": 41,
+      "clinics_reference": 397,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "宮崎",
+      "name": "都城北諸県",
+      "hospitals_reference": 28,
+      "clinics_reference": 142,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "宮崎",
+      "name": "延岡西臼杵",
+      "hospitals_reference": 20,
+      "clinics_reference": 92,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "宮崎",
+      "name": "日南串間",
+      "hospitals_reference": 11,
+      "clinics_reference": 65,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": true
+    },
+    {
+      "prefecture": "宮崎",
+      "name": "西諸",
+      "hospitals_reference": 15,
+      "clinics_reference": 56,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "宮崎",
+      "name": "西都児湯",
+      "hospitals_reference": 10,
+      "clinics_reference": 81,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "宮崎",
+      "name": "日向入郷",
+      "hospitals_reference": 12,
+      "clinics_reference": 61,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": true
+    },
+    {
+      "prefecture": "鹿児島",
+      "name": "鹿児島",
+      "hospitals_reference": 100,
+      "clinics_reference": 616,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "鹿児島",
+      "name": "南薩",
+      "hospitals_reference": 30,
+      "clinics_reference": 110,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "鹿児島",
+      "name": "川薩",
+      "hospitals_reference": 15,
+      "clinics_reference": 115,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "鹿児島",
+      "name": "出水",
+      "hospitals_reference": 8,
+      "clinics_reference": 65,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "鹿児島",
+      "name": "姶良・伊佐",
+      "hospitals_reference": 34,
+      "clinics_reference": 190,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "鹿児島",
+      "name": "曽於",
+      "hospitals_reference": 7,
+      "clinics_reference": 54,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "鹿児島",
+      "name": "肝属",
+      "hospitals_reference": 17,
+      "clinics_reference": 114,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": false
+    },
+    {
+      "prefecture": "鹿児島",
+      "name": "熊毛",
+      "hospitals_reference": 4,
+      "clinics_reference": 24,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": true
+    },
+    {
+      "prefecture": "鹿児島",
+      "name": "奄美",
+      "hospitals_reference": 15,
+      "clinics_reference": 81,
+      "data_status": "添付集計値・医療圏別原表未照合",
+      "is_remote": true
+    }
+  ],
+  "sources": [
+    {
+      "id": "MHLW2024",
+      "title": "厚生労働省 令和6年医療施設調査・病院報告（統計表9・10）",
+      "year": "2024",
+      "url": "https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/24/dl/11gaikyou06.pdf"
+    },
+    {
+      "id": "IPSS2023",
+      "title": "社人研 日本の地域別将来推計人口（令和5年推計）",
+      "year": "2023",
+      "url": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"
+    },
+    {
+      "id": "MHLW_STATIC",
+      "title": "医療施設静態調査（機器設置状況・2023年）",
+      "year": "2023",
+      "url": "https://www.e-stat.go.jp/"
+    },
+    {
+      "id": "SAGA_ASSOC",
+      "title": "佐賀県医師会 郡市医師会一覧",
+      "year": "閲覧時",
+      "url": "https://www.saga.med.or.jp/residents/gunshi/gunshi_list.html"
+    },
+    {
+      "id": "OITA_ASSOC",
+      "title": "大分県医師会 郡市医師会一覧",
+      "year": "2026",
+      "url": "https://www.oita.med.or.jp/common/%E7%9C%8C%E5%86%85%E3%81%AE%E9%83%A1%E5%B8%82%E5%8C%BB%E5%B8%AB%E4%BC%9A/"
+    },
+    {
+      "id": "KAG_ASSOC",
+      "title": "鹿児島県医師会 郡市医師会・組織",
+      "year": "2026",
+      "url": "https://www.kagoshima.med.or.jp/gaiyou/"
+    }
+  ]
+}
