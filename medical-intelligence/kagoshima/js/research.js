@@ -19,7 +19,7 @@ function drawChart(canvas,kind,labels,datasets,other){
  var options=Object.assign({responsive:true,maintainAspectRatio:false,animation:{duration:250},plugins:{legend:{display:datasets.length>1,position:'bottom'},tooltip:{enabled:true}},scales:{y:{beginAtZero:true,grid:{color:'#e6edf4'},ticks:{color:'#51677b'}},x:{grid:{display:false},ticks:{color:'#415c75',autoSkip:false,maxRotation:45}}}},other||{});
  if(kind==='doughnut' && (!other || !other.scales)){delete options.scales;}
  return new Chart(target,{type:kind,data:{labels:labels,datasets:datasets},options:options});
- }catch(error){target.parentNode.innerHTML='<p class="warning">図表を描画できませんでした。下記の表と出典データから数値をご確認ください。</p>';if(window.console)console.warn('Chart render:',canvas,error);return null;}
+ }catch(error){target.parentNode.innerHTML='<p class="warning">図表を描画できませんでした。下記の表と出典データから数値をご確認ください。</p>';if(window.console&&typeof window.console.warn==='function')window.console.warn('Chart render:',canvas,error);return null;}
 }
 function render(d){
  var weights=d.scoring.axes.map(function(x){return x[1];});
@@ -121,6 +121,6 @@ fetch('./data/research.json',{cache:'no-store'}).then(function(response){
 }).then(render).catch(function(e){
  el('status').textContent='データを読み込めませんでした。公開元の data/research.json を確認してください。';
  var n=el('fallback');if(n)n.hidden=false;
- if(window.console)console.error('Kagoshima data error',e);
+ if(window.console&&typeof window.console.error==='function')window.console.error('Kagoshima data error',e);
 });
 })();
