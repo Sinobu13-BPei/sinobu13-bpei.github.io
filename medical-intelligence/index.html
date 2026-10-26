@@ -281,6 +281,14 @@ function draw(){
       tohokuLink.textContent='東北MKT ↗';
       actions.appendChild(tohokuLink);
     }
+    if(p[0]==='青森県'){
+      const aomoriLink=document.createElement('a');
+      aomoriLink.href='./aomori/';
+      aomoriLink.className='aomori-mkt-btn';
+      aomoriLink.textContent='青森MKT ↗';
+      aomoriLink.setAttribute('aria-label','青森県の医療市場調査を開く');
+      actions.appendChild(aomoriLink);
+    }
     if(p[0]==='愛知県'){
       const aichiLink=document.createElement('a');
       aichiLink.href='https://sinobu13-bpei.github.io/aichi-medical-mkt/';
