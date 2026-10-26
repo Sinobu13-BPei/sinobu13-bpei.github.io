@@ -131,3 +131,30 @@ svg:focus-visible{outline:3px solid #db9f4a}
 @media(max-width:380px){.brand-sign{display:none}.top strong{font-size:10px}.hero h1{font-size:27px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat b{font-size:23px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 @media print{.top,.nav-toggle,.actions{display:none!important}section.section{padding:15px 0!important;break-inside:avoid}.wrap{width:100%}.scroll-associations{max-height:none;overflow:visible}.region-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card,.region{box-shadow:none}}
+
+
+/* Final visual verification adjustments — 2026-10-27 */
+.hero-subtitle{display:inline-block;white-space:nowrap}
+.hero-related{display:inline-block;margin-top:9px;max-width:100%}
+.hero-related summary{display:inline-flex;align-items:center;min-height:33px;cursor:pointer;color:#e8f7fa;font-size:12px;font-weight:750;letter-spacing:.01em;padding:5px 13px;border:1px solid #86b6c1;border-radius:8px;background:#ffffff0e}
+.hero-related[open] summary{background:#ffffff24;color:#fff}
+.hero-related .actions{margin-top:9px}
+#facilities .stat{min-height:105px}
+#facilities .stat>small{font-size:10px}
+.facility-inline{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin:9px 0!important;padding:8px 11px;background:#eef7f9;border:1px solid #d0e7ed;border-radius:7px;font-size:12px!important;color:#195c71}
+.facility-inline strong{color:#123c4e}
+@media(max-width:700px){
+.hero h1{font-size:clamp(26px,7vw,34px);line-height:1.27}
+.hero .hero-subtitle{font-size:.74em;letter-spacing:-.03em}
+.hero-related{width:100%}
+.hero-related summary{font-size:11px;min-height:30px}
+.hero-related .actions{gap:5px}
+#facilities>.wrap>.grid:first-of-type{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px}
+#facilities>.wrap>.grid:first-of-type .stat{min-height:99px;padding:11px 12px}
+#facilities>.wrap>.grid:first-of-type .stat:last-child{grid-column:1 / -1;min-height:80px;display:grid;grid-template-columns:1fr auto;column-gap:12px;align-items:center}
+#facilities>.wrap>.grid:first-of-type .stat:last-child .name{grid-column:1;grid-row:1}
+#facilities>.wrap>.grid:first-of-type .stat:last-child b{grid-column:2;grid-row:1 / span 2}
+#facilities>.wrap>.grid:first-of-type .stat:last-child>small{grid-column:1;grid-row:2;margin:0}
+#facilities>.wrap>.grid:first-of-type .stat b{font-size:23px}
+#facilities>.wrap>.grid:first-of-type .stat b small{font-size:11px}
+}
