@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="北海道21二次医療圏の人口動態、医療政策、大学病院、医師偏在、画像診断機器、流通構造と2030～2040の医療機器市場を一次情報と中立的視点で分析">
+<title>北海道 医療機器市場インテリジェンス 2026｜21二次医療圏・政策・戦略</title>
+<link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<script src="./data.js" defer></script><script src="./app.js" defer></script>
+</head><body>
+<header class="mast"><div class="wrap">
+<div class="eyebrow">JAPAN MEDICAL MARKET INTELLIGENCE ／ HOKKAIDO EDITION</div>
+<h1>北海道 医療機器市場<br>インテリジェンス 2026</h1>
+<p class="lead">人口減少・医師偏在・病院再編・高度画像診断・流通を統合し、21二次医療圏から「Where to Play」「How to Win」を導く地域医療市場研究。</p>
+<div class="tagline"><span>21二次医療圏</span><span>2024–2029 医療計画</span><span>2030 / 2040 / 2050</span><span>診療所・病院・在宅</span><span>一次情報優先</span></div>
+<p class="meta">最終更新：2026年10月26日 ／ 公開情報と明示的な分析仮説のみ掲載 ／ 非メーカー系列の中立的視点</p>
+</div></header>
+<nav class="toc" aria-label="ページ内ナビゲーション"><div class="wrap">
+<a href="#summary">要約</a><a href="#population">人口・医療圏</a><a href="#providers">医療提供体制</a><a href="#university">大学・医師会・行政</a><a href="#devices">医療機器</a><a href="#distribution">流通</a><a href="#external">外部環境</a><a href="#strategy">戦略</a><a href="#sources">出典・免責</a></div></nav>
+<main class="wrap">
+<section id="summary" class="section"><h2>01｜エグゼクティブ・サマリー</h2>
+<p class="lede">北海道の課題は「医療機器の台数確保」だけでなく、人口減少地域でも検査の質・アクセス・保守を持続させることである。札幌・旭川の高度医療拠点と、道南・道東・道北の地域中核病院を異なる市場として捉える。</p>
+<div class="cards">
+<div class="card"><strong>二次医療圏</strong><span class="num">21</span><small>北海道医療計画2024～2029</small></div>
+<div class="card"><strong>2030年推計人口</strong><span class="num">479.2<small>万人</small></span><small>社人研2023年推計</small></div>
+<div class="card"><strong>2050年推計人口</strong><span class="num">382.0<small>万人</small></span><small>社人研2023年推計</small></div>
+<div class="card"><strong>医師少数区域</strong><span class="num">11<span style="font-size:15px">/21</span></span><small>2024～2026年北海道医師確保計画</small></div></div>
+<div class="grid3">
+<div class="soft blue"><h3>Where to Play：量と機能</h3><p>札幌・上川中部・南渡島・十勝・釧路・北網。高度急性期、地域基幹、共同利用の役割を区別する。</p></div>
+<div class="soft green"><h3>Where to Play：医療空白リスク</h3><p>宗谷・根室・遠紋・南檜山・北渡島檜山など。可搬型機器と遠隔連携、医療BCPが重要。</p></div>
+<div class="soft orange"><h3>How to Win：運用の質</h3><p>単体装置ではなく、保守・教育・遠隔支援・画像共有・ファイナンス・供給継続を組み合わせる。</p></div></div>
+<p class="notice"><b>公開版の線引き：</b>提出資料にある企業別売上・販路シェア、顧客別販売情報、メーカー別施策、社内計画などは掲載しません。公式統計で裏付けられない圏域別市場規模や装置台数も数字として転載しません。「推計」「仮説」は実績と明示的に区別しています。</p>
+</section>
+<section id="population" class="section"><h2>02｜人口動態と21二次医療圏</h2>
+<p>国立社会保障・人口問題研究所の令和5年地域別将来人口推計では、北海道人口は2020年522.5万人から2030年479.2万人、2040年431.9万人、2050年382.0万人となる。2025年以降の数値は推計であり、住民基本台帳人口や国勢調査速報とは直接混在させない。</p>
+<div class="grid2"><div><h3>2020–2050年　人口推移</h3><div class="chartframe"><canvas id="populationChart" role="img" aria-label="北海道の人口推計、2020年522.5万人、2030年479.2万人、2040年431.9万人、2050年382万人"><p>北海道人口：2020年522.5万人、2030年479.2万人、2040年431.9万人、2050年382万人。</p></canvas></div><p class="caption">実績基準：2020年国勢調査、2025年以降推計。出典：<a href="https://www.ipss.go.jp/syoushika/tohkei/Data/Popular2026/T12-06.files/sheet001.htm">社人研・人口統計資料集2026</a>。</p></div>
+<div><h3>2020年→2050年　減少率の比較</h3><div class="tablewrap"><table><thead><tr><th>地域</th><th>2020年</th><th>2050年推計</th><th>増減率</th></tr></thead><tbody><tr><td>全国</td><td>12,614.6万人</td><td>10,468.6万人</td><td>−17.0%</td></tr><tr><td>北海道</td><td>522.5万人</td><td>382.0万人</td><td>−26.9%</td></tr><tr><td>青森県（海峡越しの近接県）</td><td>123.8万人</td><td>75.5万人</td><td>−39.0%</td></tr><tr><td>岩手県（北東北比較）</td><td>121.1万人</td><td>78.3万人</td><td>−35.3%</td></tr></tbody></table></div>
+<p class="caption">北海道に陸上で隣接する都道府県はないため青森・岩手を比較。数値は社人研2023年推計（万人、四捨五入）。減少率は当サイト算出。</p>
+<div class="soft orange"><b>人口減少と需要増加は矛盾しない</b><p>高齢者の割合が上昇しても、全年齢の検査件数が伸びるとは限らない。疾患構造・医療従事者・患者移動・病院再編・診療報酬・財務余力を併せて判断する。</p></div></div></div>
+<h3>21二次医療圏：医師偏在と優先度を比較</h3><p>圏域別医師偏在指標は北海道医師確保計画（2024–2026）による2020年基礎データの調整指標。全国255.6、北海道233.8。医師多数区域は札幌・上川中部、少数区域11、中間区域8。人口10万人当たり医師数とは異なる。</p>
+<div class="controlbar"><label for="areaSearch">医療圏・施設を検索</label><input id="areaSearch" type="search" placeholder="札幌、道東、救急、遠隔など"><label for="areaClass">医師偏在</label><select id="areaClass"><option value="">すべて</option><option value="多数">医師多数</option><option value="中間">医師中間</option><option value="少数">医師少数</option></select><button class="primary" id="exportCsv">21圏域CSV</button></div><p id="areaCount" class="caption" aria-live="polite">21医療圏</p>
+<div class="tablewrap"><table><thead><tr><th>医療圏・代表地点</th><th>医師偏在指標</th><th>分析スコア</th><th>需要ドライバー・課題</th><th>今後3～5年の機会（仮説）</th><th>注目施設例</th><th>地図</th></tr></thead><tbody id="areaRows"><tr><td colspan="7">医療圏データを読み込み中</td></tr></tbody></table></div><p class="caption" id="scoreMethod">独自スコア：需要集積35%、中核性25%、医師不足課題20%、地理・保守負荷20%。</p>
+<div class="vizgrid"><div><h3>21医療圏の医師偏在指標</h3><div class="chartframe tall"><canvas id="doctorChart" role="img" aria-label="北海道21医療圏の医師偏在指標棒グラフ"></canvas></div></div><div><h3>独自優先度スコア：上位10圏</h3><div class="chartframe tall"><canvas id="scoreChart" role="img" aria-label="北海道の優先度上位10医療圏の独自評価"></canvas></div></div></div>
+<h3>医療圏マップ（地理院タイル）</h3><div id="medicalMap" class="mapbox" role="region" aria-label="北海道医療圏と主要大学病院の地図"><div class="map-fallback">地理院タイルの地図を読み込んでいます。表示できない場合も下表の地図リンクから確認できます。</div></div><p class="mapnote">地図背景：国土地理院「地理院タイル」。丸印は二次医療圏の代表市町中心を示す模式的な点であり、医療圏境界・病院敷地の正確な位置を表さない。地理院地図施設リンクにも周辺参考座標を含む。</p>
+</section>
+<section id="providers" class="section"><h2>03｜医療提供体制・病床機能・主要病院</h2>
+<div class="grid2"><div class="soft blue"><h3>病床の4機能</h3><p><b>高度急性期：</b>高度な診療密度・集中治療。<br><b>急性期：</b>急性疾患の早期安定化。<br><b>回復期：</b>リハビリ・在宅復帰。<br><b>慢性期：</b>長期療養。</p><p>2024年度病床機能報告（R6確定版）と地域医療構想の2025年必要病床数は定義・時点が異なり、直接の超過不足判定は禁物。</p><a href="https://www.pref.hokkaido.lg.jp/hf/iyk/iry/imu/byousyoukinou.html">4機能現状の21圏域公式Excel</a></div>
+<div class="soft green"><h3>21圏域の患者移動を優先</h3><p>北海道大学医療データ分析センターが公開する令和6年度診療分の21圏域別患者受療動向を参照し、圏域内完結率と流出先を検証する。都市側の装置保有台数だけを足し上げると周辺圏域の実需を二重計上しやすい。</p><a href="https://www.pref.hokkaido.lg.jp/hf/cis/iryoudetabunseki.html">21医療圏別・受療動向資料</a></div></div>
+<p class="notice"><b>未集計：</b>2024年度の圏域別「高度急性期・急性期・回復期・慢性期」現在病床数と、2025年必要病床数の4機能×21圏域を同一定義で結合した確定表は、原表の照合が終わっていません。本版では架空の病床値や過不足を作成していません。一次資料へのリンクを提供します。</p>
+<h3>病院機能の層構造</h3>
+<div class="grid3">
+<div class="soft"><b>三大学・高度医療</b><p>北海道大学病院、札幌医科大学附属病院、旭川医科大学病院。医学教育・高度急性期・医局派遣・高度専門診療を担う。</p></div>
+<div class="soft"><b>地域がん・救命救急</b><p>北海道がんセンター、手稲渓仁会、函館市立、旭川赤十字、帯広厚生、市立釧路、北見赤十字など、国・道の指定名簿に基づき機能を確認する。</p></div>
+<div class="soft"><b>公立・公的・民間病院群</b><p>市立・道立、JA北海道厚生連、日赤、国立病院機構、医療法人・社会福祉法人が連携。個々の施設の建替・統合予定は各自治体の公表資料と議決状況を確認する。</p></div></div>
+<h3>主要病院・大学・行政・保健所：Google／地理院地図</h3><div class="controlbar"><label for="placeKind">施設区分</label><select id="placeKind"><option value="">全施設</option></select><span id="facilityCount" class="caption"></span></div><div id="placeList"><p>施設一覧を読み込み中です。</p></div>
+</section>
+<section id="university" class="section"><h2>04｜大学・医師会・行政・医師確保</h2>
+<h3>医学部を持つ3大学と附属病院</h3><div class="grid3">
+<div class="card"><strong>北海道大学 医学部／北海道大学病院</strong><p>札幌。医学研究・高度急性期・地域連携の拠点。医局派遣の個別人数・地域別影響力は未集計。</p><a href="https://www.huhp.hokudai.ac.jp/">大学病院公式</a></div>
+<div class="card"><strong>札幌医科大学 医学部／附属病院</strong><p>札幌。道立医育機関・救急・専門診療・道内地域医療への連携。建替計画の確定可否は別途確認。</p><a href="https://web.sapmed.ac.jp/hospital/">大学病院公式</a></div>
+<div class="card"><strong>旭川医科大学 医学部／附属病院</strong><p>旭川。道北の医育機関・高度医療・地域連携拠点。救急・遠隔地域支援が重要。</p><a href="https://www.asahikawa-med.ac.jp/hospital/">大学病院公式</a></div></div>
+<div class="grid2"><div class="soft blue"><h3>北海道医師会・郡市医師会</h3><p>北海道医師会は44の郡市医師会と三大学の医育機関医師会で構成される。地域医療構想、医師偏在、救急、在宅・医療DXに関連する地域調整の窓口となる。郡市医師会ごとの公式連絡先は道医師会で確認する。</p><a href="https://www.hokkaido.med.or.jp/about/message.html">北海道医師会公式</a></div><div class="soft green"><h3>行政と医療DX</h3><p>北海道保健福祉部の地域医療課、医務薬務課、健康安全部局と、道立保健所26か所・市立保健所4か所が公衆衛生・医療行政を担う。遠隔医療支援、かかりつけ医機能報告、医療介護基金の動向を確認する。</p><a href="https://www.pref.hokkaido.lg.jp/hf/iyk/hokensyo.html">保健所公式</a></div></div>
+<h3>医師偏在に関する重要な政策変更</h3><p>道が2026年10月19日に公表した「重点医師偏在対策支援区域」の予定は17医療圏。医師少数区域11圏とは制度目的・判定基準が異なる。重点区域は予定段階であり、確定済みと扱わない。補助金の対象や要件は申請年度の正式要綱を確認する。</p>
+<div class="grid2"><div class="soft orange"><b>2026年度・2027年度の基金</b><p>遠隔医療促進、在宅医療提供体制強化、病床機能分化・連携など。募集・採択・補助率を区別し、機器購入が一律補助対象になるとは解釈しない。</p><a href="https://www.pref.hokkaido.lg.jp/hf/cis/newkikin/194602.html">道の基金事業希望調査</a></div>
+<div class="soft orange"><b>医師の働き方改革</b><p>当直・宿日直・地域救急、専門医不足により、設備稼働時間と夜間検査体制が制約される可能性。時短効果は検査件数・人的配置・前後工程で評価すべき。</p><a href="https://www.pref.hokkaido.lg.jp/hf/cis/ishikakuho/ishikakuhokeikaku.html">医師確保計画</a></div></div>
+</section>
+<section id="devices" class="section"><h2>05｜医療機器市場・更新需要・全国比較</h2>
+<p>機器の市場性を「人口当たり台数」だけで判断しない。CT/MRIの普及度、患者移動、診療科、人員、保守距離、設置スペース、資金調達、診療報酬を組み合わせる。装置台数は医療施設調査の設備原表で確認できるが、US/PET/リニアック/血管撮影・内視鏡・心電図・透析機器は定義と母集団が異なる。</p>
+<div class="tablewrap"><table><thead><tr><th>モダリティ</th><th>需要・更新要因</th><th>検証すべきKPI</th><th>データ状況</th></tr></thead><tbody>
+<tr><td>US／POCUS</td><td>生活習慣病・心不全・在宅・健診・産婦人科・救急</td><td>診療科別検査件数、装置耐用年数、検査者育成</td><td>道内機種別実数未確認</td></tr>
+<tr><td>CT</td><td>救急・肺がん/脳卒中・産業健診・再編による共同利用</td><td>16/64/128列以上の設備原表、検査数、老朽更新</td><td>e-Stat原表へのリンク掲載</td></tr>
+<tr><td>MRI</td><td>脳・運動器・がん、地域中核への集約</td><td>1.5T/3T設備数、件数、ヘリウム・保守TCO</td><td>e-Stat原表へのリンク掲載</td></tr>
+<tr><td>PET／リニアック</td><td>がん診療拠点への集約・紹介ネットワーク</td><td>設置病院・治療件数・患者流出入</td><td>道内確定台数未検証</td></tr>
+<tr><td>血管撮影・内視鏡</td><td>循環器・脳血管・消化器・人材確保</td><td>稼働率・緊急対応・洗浄設備・医療従事者数</td><td>道内確定台数未検証</td></tr>
+<tr><td>ECG・透析・DR/FPD</td><td>慢性疾患・地域診療所・救急・訪問診療</td><td>診療所数、更新周期、配送・代替機網</td><td>道内確定台数未検証</td></tr></tbody></table></div>
+<div class="soft blue"><b>全国比較の統計設計</b><p>同一調査年のCT/MRI保有台数を同一定義の人口で除し「人口100万人当たり台数」を算出。全国・北海道・青森・岩手を並べる。現時点では都道府県原表の抽出照合が完了していないため、比較数値を表示しない。</p><a href="https://www.e-stat.go.jp/dbview?sid=0004024960">e-Stat（二次医療圏別CT/MRI原表）</a></div>
+<h3>設備導入を病院経営に接続する評価式</h3><div class="grid3"><div class="soft"><b>新規・更新</b><p>撮影需要 × 標準検査単価 − 人的/保守/電力/消耗品コスト。補助金を恒常収益として織り込まない。</p></div><div class="soft"><b>共同利用</b><p>地域内完結率 × 紹介・逆紹介 × 稼働枠 × 搬送時間。紹介先への単純な患者移転を「需要増」とみなさない。</p></div><div class="soft"><b>保守・BCP</b><p>冬季障害時の復旧時間・遠隔監視・代替機確保、スタッフ教育を10年間TCOに含める。</p></div></div>
+</section>
+<section id="distribution" class="section"><h2>06｜医療機器・医薬品卸の流通構造</h2>
+<p>北海道は広域交通・医療機関分散のため、装置選定と同程度に地域配送・据付・保守・消耗品補充の機能が重要となる。企業間の未公開契約や売上シェアは掲載せず、企業公式サイトに記載された事業領域を紹介する。</p>
+<div class="tablewrap"><table><thead><tr><th>機能</th><th>公表上の主要プレイヤー例（順不同）</th><th>中立的な見方</th></tr></thead><tbody>
+<tr><td>医療機器専門卸・材料・SPD</td><td><a href="https://www.takeyama.co.jp/">竹山</a>、<a href="https://www.mutoh-hd.co.jp/">ムトウ</a>、<a href="https://www.jokoh.com/">常光</a>、医療機器専門の地域商社等</td><td>取扱品目、技術支援、倉庫・物流、代替機、病院購買、共同購買・SPD対応を個別比較</td></tr>
+<tr><td>医薬品卸・クリニック接点</td><td><a href="https://www.hokuyaku.co.jp/">ほくやく</a>、<a href="https://www.moroo.co.jp/">モロオ</a>、<a href="https://www.suzuken.co.jp/">スズケン</a>、<a href="https://www.mediceo.co.jp/">メディセオ</a>等</td><td>保険薬局・病院・診療所への供給網や開業支援の公開サービスを比較</td></tr>
+<tr><td>自治体・病院・大学調達</td><td>公立病院、厚生連、赤十字、大学病院、公募・入札事業者</td><td>価格に加え設置工事、医療安全、仕様適合、医療DX、保守と透明性を重視</td></tr></tbody></table></div>
+<p class="caption">特定企業の推奨や取引関係、非公開売上の順位を意味しない。2026年10月時点の法人・事業体制は各社公式サイトで更新確認が必要。</p>
+<div class="grid2"><div class="soft green"><b>卸・商社が提供し得る価値</b><p>①需要予測／②調達・物流／③導入工事・安全／④運用教育／⑤保守・代替／⑥更新・回収・適正処理。単純な売切モデルから継続価値へ転換する。</p></div><div class="soft orange"><b>競争上の留意点</b><p>広域物流とサービス網の固定費が高い。メーカー指定・GPO・直販・オンライン商流との競争や、利益率低下・償還価格変動を織り込む。</p></div></div>
+</section>
+<section id="external" class="section"><h2>07｜外部環境・医療経営・自然災害・地政学</h2>
+<div class="grid3">
+<div class="soft orange"><h3>報酬・病院経営</h3><p>2026年診療報酬改定、物価・人件費、更新投資の優先順位、医療法人の資金繰りが導入の実行性を左右。報酬上の評価と投資判断は区別する。</p></div>
+<div class="soft red"><h3>自然災害・BCP</h3><p>千島海溝・日本海溝沿いの巨大地震、太平洋側津波、火山、豪雪・停電、長距離搬送・港湾停止を想定。医療情報のバックアップと代替設備が重要。</p></div>
+<div class="soft blue"><h3>地政学・経済</h3><p>道東の物流、北方海域、燃料・半導体・希ガス等の国際供給網、観光・農水産業・半導体投資による人口流動に注目。因果関係は施設別に検証する。</p></div></div>
+<h3>補助金・建替・再編のウォッチポイント</h3><div class="tablewrap"><table><thead><tr><th>地域</th><th>公開上の観測テーマ</th><th>着眼点</th><th>状態</th></tr></thead><tbody>
+<tr><td>南空知・中空知</td><td>自治体病院再編、地域間ネットワーク</td><td>設備重複、共同調達、回復期・在宅移行</td><td>計画主体・議決・開院時期を公式に再確認</td></tr>
+<tr><td>室蘭／函館／旭川</td><td>地域病院の再編・機能分担に関する協議</td><td>急性期集約と周辺診療所・検査・救急の連動</td><td>検討と決定を区別</td></tr>
+<tr><td>宗谷・根室・日高・遠紋</td><td>医師偏在・遠隔医療・医療BCP</td><td>分散配置と集約配置の費用便益比較</td><td>制度・基金の要件を確認</td></tr></tbody></table></div>
+</section>
+<section id="strategy" class="section"><h2>08｜戦略提言：PEST → 3C → STP → 4P → 4C → VRIO → 5F → KSF</h2>
+<p class="lede">Where to Playは「どの医療圏・施設機能・診療経路を重点とするか」、How to Winは「装置導入後もサービス継続を実現できるか」で設定する。</p>
+<div class="framework"><h3>PEST｜外部環境</h3><div class="grid2"><div class="fbox"><b>P 政策</b><p>第8次医療計画・地域医療構想・医師確保・基金・医療DX</p></div><div class="fbox"><b>E 経済</b><p>人件費・病院収支・物流・機器更新の資本コスト</p></div><div class="fbox"><b>S 社会</b><p>人口減少・高齢化・地域差・離島/へき地・患者移動</p></div><div class="fbox"><b>T 技術</b><p>遠隔画像・省力化・AI・予防保全・可搬画像診断</p></div></div></div>
+<div class="framework"><h3>3C｜市場・競合・商社能力</h3><div class="grid3"><div class="fbox"><b>Customer</b><p>患者・病院・診療所・自治体。TCO・稼働率・診療継続が目的。</p></div><div class="fbox"><b>Competitor</b><p>専業卸・総合卸・メーカー直販・共同購買。固有企業の善悪ではなく機能を比較。</p></div><div class="fbox"><b>Company</b><p>商社一般の物流・技術・調達・保守・院内連携・現場情報を資源評価。</p></div></div></div>
+<div class="framework"><h3>STP｜セグメンテーション／ターゲティング／ポジショニング</h3><div class="tablewrap"><table><thead><tr><th>セグメント</th><th>対象</th><th>Where to Play</th><th>How to Win</th></tr></thead><tbody>
+<tr><td>A 都市高度医療</td><td>札幌・上川中部</td><td>大学・救命・専門病院・紹介診療所</td><td>高機能・専門教育・検査効率・共同利用</td></tr>
+<tr><td>B 地域中核</td><td>南渡島・十勝・釧路・北網等</td><td>地域医療支援・がん・救急・健診</td><td>省人化・保守・紹介連携・機能分化</td></tr>
+<tr><td>C 分散・脆弱</td><td>宗谷・根室・日高・遠紋・檜山等</td><td>中小病院・診療所・在宅</td><td>可搬・代替機・遠隔教育・冬季BCP</td></tr></tbody></table></div></div>
+<div class="framework"><h3>4P｜商社サービスの提供設計</h3><div class="grid2"><div class="fbox"><b>Product</b><p>装置＋画像管理＋教育＋保守＋院内運用。</p></div><div class="fbox"><b>Price</b><p>購入総額から運用10年のTCO比較へ。</p></div><div class="fbox"><b>Place</b><p>基幹都市の在庫・サービス拠点と地域配送。</p></div><div class="fbox"><b>Promotion</b><p>診療科教育・臨床アウトカム・地域多職種連携。</p></div></div></div>
+<div class="framework"><h3>4C｜顧客価値への翻訳</h3><div class="grid2"><div class="fbox"><b>Customer value</b><p>検査アクセス、安全性、継続性、医療の質。</p></div><div class="fbox"><b>Cost</b><p>運用負担、故障停止、人的配置、現金支出。</p></div><div class="fbox"><b>Convenience</b><p>導入・搬送・在庫・保守の利便性。</p></div><div class="fbox"><b>Communication</b><p>利用者教育、仕様・品質の透明な情報共有。</p></div></div></div>
+<div class="framework"><h3>VRIO｜模倣困難性の評価</h3><div class="tablewrap"><table><thead><tr><th>経営資源</th><th>V価値</th><th>R希少性</th><th>I模倣困難</th><th>O組織化</th></tr></thead><tbody><tr><td>長距離保守・代替機・物流一体運用</td><td>高</td><td>中</td><td>中～高</td><td>拠点・責任分担必要</td></tr><tr><td>医師会・大学・地域病院との連携知識</td><td>高</td><td>中</td><td>高</td><td>属人化解消が条件</td></tr><tr><td>価格競争のみの仕入機能</td><td>中</td><td>低</td><td>低</td><td>優位持続は困難</td></tr></tbody></table></div></div>
+<div class="framework"><h3>5F｜業界構造（定性評価・独自分析）</h3><div class="grid3"><div class="fbox"><b>既存競合：高</b><p>専業卸、病院向け専門販社、直販。</p></div><div class="fbox"><b>買手交渉力：高</b><p>入札・共同購買・財政制約・標準化。</p></div><div class="fbox"><b>売手交渉力：中～高</b><p>機器・保守部材の供給制約・輸入依存。</p></div><div class="fbox"><b>代替手段：中</b><p>共同利用、巡回検診、遠隔読影。</p></div><div class="fbox"><b>新規参入：中</b><p>オンライン商流は可能だが臨床・保守は障壁。</p></div></div></div>
+<div class="framework"><h3>SWOT／クロスSWOT</h3><div class="grid2"><div class="fbox"><b>S 強み</b><p>物流・医療機関接点・サービス現場・地域知識。</p></div><div class="fbox"><b>W 弱み</b><p>広域サービス固定費・技術者不足・属人化。</p></div><div class="fbox"><b>O 機会</b><p>医療DX・在宅・統合再編・予防保全。</p></div><div class="fbox"><b>T 脅威</b><p>人口減・病院財務・入札価格下落・冬季物流。</p></div></div><p><b>SO：</b>中核病院との共同利用・画像連携を水平展開。<b>WO：</b>遠隔支援と拠点共通化で人員制約を補完。<b>ST：</b>保守・安全・データで価格以外の価値を示す。<b>WT：</b>低収益単品の無理な広域展開を抑制。</p></div>
+<h3>KSF｜成功要因を5つに集約</h3>
+<div class="step"><span class="idx">1</span><div><b>地域機能の見極め</b><p>21圏域の患者流出入・医師偏在・病床再編を、施設機能単位の設備投資判断に接続する。</p></div></div>
+<div class="step"><span class="idx">2</span><div><b>継続稼働の担保</b><p>冬季輸送・予防保全・遠隔支援・代替機配置を契約・原価・KPIに変える。</p></div></div>
+<div class="step"><span class="idx">3</span><div><b>設備と人材の同時設計</b><p>専門教育・検査技師・診療時間・紹介フローと一緒に機器を設計する。</p></div></div>
+<div class="step"><span class="idx">4</span><div><b>医療経営の可視化</b><p>単純な割引ではなく、10年TCO、検査件数、利益貢献、保守費の総額で比較する。</p></div></div>
+<div class="step"><span class="idx">5</span><div><b>公開データを継続更新</b><p>国勢調査、社人研、医師偏在、病床機能報告、医療施設調査、基金・入札を年次管理する。</p></div></div>
+<h3>実行ロードマップ（商社一般の提案）</h3><div class="grid3"><div class="soft green"><b>短期：0～6か月</b><p>医療圏台帳と病床・CT/MRI原表照合。医師会・病院・行政の公開事業をリスト化。公開したスコアで地域別検証を開始。</p></div><div class="soft blue"><b>中期：6～18か月</b><p>主要6拠点で遠隔支援・予備機・地域共同利用のPoC。トラブル復旧時間と画像検査稼働率を計測。</p></div><div class="soft orange"><b>3～5年</b><p>病院再編や在宅・地域包括ケアとの連動、保守契約とTCO一体の供給モデルを確立。</p></div></div>
+</section>
+<section id="sources" class="section"><h2>09｜出典・データ年次・未検証項目</h2><p>公式出典に直接移動できます。引用・二次利用は各機関の規約に従ってください。</p><ol class="sources" id="sourcesList">
+<li><a href="https://www.pref.hokkaido.lg.jp/hf/cis/iryokeikaku/184045.html">北海道医療計画（2024～2029）</a></li>
+<li><a href="https://www.pref.hokkaido.lg.jp/hf/cis/ishikakuho/ishikakuhokeikaku.html">北海道医師確保計画（2024～2026）</a></li>
+<li><a href="https://www.ipss.go.jp/syoushika/tohkei/Data/Popular2026/T12-06.files/sheet001.htm">社人研・将来人口推計</a></li></ol>
+<div class="soft orange"><b>本版の未完了データ</b><p>①21圏域×病床4機能の現在数・2025必要数との確定比較、②CT/MRI/US/PET/LINAC/血管撮影/ECG/透析装置の同一年次全国比較、③郡市医師会44組織の所在地と役割の全件台帳、④大学病院・公立病院の建替の議決/予算/日程確定資料、⑤保健所全30拠点の正確な敷地座標。未検証数値で補完しません。</p></div>
+<h3>方法と免責事項</h3><p>本ページは公開情報による独立調査・定性分析です。各資料の公開時点や集計定義は異なり、正確性・最新性・完全性を保証しません。独自優先度スコアは当サイトの分析仮説であり、公式格付け・推奨・施設の優劣・契約可能性を表すものではありません。登場する企業・公的機関の公式見解でもありません。</p>
+</section>
+</main>
+<footer class="foot"><div class="wrap"><p><b>北海道 医療機器市場インテリジェンス 2026</b> ／ 最終更新：2026年10月26日 ／ 公開情報に基づく独立研究</p>
+<p>関連リンク：<a href="https://sinobu13-bpei.github.io/medical-intelligence/">日本医療政策・医療機器市場インテリジェンス（全国版）</a> ／ <a href="https://sinobu13-bpei.github.io/clinic-medical-device-market/">診療所MKT</a></p>
+<p>出典：「地理院タイル」（国土地理院）／ Chart.js ／ Leaflet。Google マップおよび地理院地図へのリンクは外部サイトを開きます。</p></div></footer>
+</body></html>
