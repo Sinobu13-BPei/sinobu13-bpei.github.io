@@ -40,7 +40,8 @@
         4
       ],
       "focus": "高度専門・がん・救急、病診共同利用、読影とPACS",
-      "facility": "宮崎大学医学部附属病院／県立宮崎病院"
+      "facility": "宮崎大学医学部附属病院／県立宮崎病院",
+      "physicianIndex2026": 327.1
     },
     {
       "name": "都城北諸県",
@@ -69,7 +70,8 @@
         4
       ],
       "focus": "鹿児島県境の患者移動、検診・診療所更新、二次救急",
-      "facility": "都城医療センター"
+      "facility": "都城医療センター",
+      "physicianIndex2026": 181.4
     },
     {
       "name": "延岡西臼杵",
@@ -98,7 +100,8 @@
         5
       ],
       "focus": "救急診断、広域搬送、へき地医療支援・遠隔連携",
-      "facility": "県立延岡病院"
+      "facility": "県立延岡病院",
+      "physicianIndex2026": 188.8
     },
     {
       "name": "日向入郷",
@@ -127,7 +130,8 @@
         5
       ],
       "focus": "中山間の在宅・巡回・POCUS、画像共有",
-      "facility": "日向市内の中核医療機関"
+      "facility": "日向市内の中核医療機関",
+      "physicianIndex2026": 152
     },
     {
       "name": "西都児湯",
@@ -156,7 +160,8 @@
         4
       ],
       "focus": "回復期・在宅連携、地域検診、移動負担低減",
-      "facility": "西都市・高鍋町の地域医療機関"
+      "facility": "西都市・高鍋町の地域医療機関",
+      "physicianIndex2026": 158.5
     },
     {
       "name": "日南串間",
@@ -185,7 +190,8 @@
         5
       ],
       "focus": "南部沿岸の災害BCP、透析・慢性期、検診",
-      "facility": "県立日南病院"
+      "facility": "県立日南病院",
+      "physicianIndex2026": 211.9
     },
     {
       "name": "西諸",
@@ -214,7 +220,8 @@
         4
       ],
       "focus": "宮崎・熊本・鹿児島県境、訪問診療と紹介画像連携",
-      "facility": "小林市・えびの市の地域医療機関"
+      "facility": "小林市・えびの市の地域医療機関",
+      "physicianIndex2026": 163.9
     }
   ],
   "sources": [
@@ -337,6 +344,30 @@
       "name": "国土地理院 地理院タイル",
       "year": "継続公開",
       "url": "https://maps.gsi.go.jp/"
+    },
+    {
+      "id": "physician2026",
+      "name": "厚生労働省 医師偏在指標（二次医療圏別）",
+      "year": "2026年4月",
+      "url": "https://www.mhlw.go.jp/content/001691397.pdf"
+    },
+    {
+      "id": "physician-pref2026",
+      "name": "厚生労働省 令和8年版厚生労働白書（都道府県別医師偏在）",
+      "year": "2026年4月",
+      "url": "https://www.mhlw.go.jp/stf/wp/hakusyo/kousei/26/backdata/01-01-02-02.html"
+    },
+    {
+      "id": "doctorbank",
+      "name": "宮崎県地域医療支援機構 医師の現状",
+      "year": "2024年12月統計",
+      "url": "https://www.med.pref.miyazaki.lg.jp/data/"
+    },
+    {
+      "id": "future",
+      "name": "第8次宮崎県医療計画の概要（2025・2030・2040年病床）",
+      "year": "2024年",
+      "url": "https://www.pref.miyazaki.lg.jp/documents/91388/91388_20240822215150-1.pdf"
     }
   ],
   "facilities": [
@@ -534,6 +565,28 @@
       "device": "医療IT／DX",
       "setting": "病診連携・地域包括ケア",
       "action": "PACS・遠隔画像・サイバー対策・導線設計"
+    }
+  ],
+  "physicianComparison2026": [
+    {
+      "name": "全国",
+      "index": 266.8
+    },
+    {
+      "name": "宮崎県",
+      "index": 243
+    },
+    {
+      "name": "熊本県",
+      "index": 270.4
+    },
+    {
+      "name": "大分県",
+      "index": 270.9
+    },
+    {
+      "name": "鹿児島県",
+      "index": 276.7
     }
   ]
 }
