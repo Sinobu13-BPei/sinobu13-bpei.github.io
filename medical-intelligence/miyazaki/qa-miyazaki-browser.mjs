@@ -43,6 +43,42 @@ try{
   assert.ok(x.map?.w>200&&x.map.h>=300&&x.map.h<=500,'map dimensions');
   assert.ok(x.bubble?.w>200&&x.hero?.w>200,'bubble/hero dimensions');
   assert.ok(x.sources>=20,'source references');
+
+  const interaction=await evalCode(`(()=>{
+    const dispatch=(id,value)=>{const node=document.getElementById(id);node.value=value;node.dispatchEvent(new Event('change',{bubbles:true}));};
+    dispatch('areaFilter','宮崎東諸県');
+    const medicalFilter={cards:document.querySelectorAll('#strategyArea .area').length,name:document.querySelector('#strategyArea .area h3')?.textContent};
+    dispatch('areaFilter','all');
+    const reset= document.querySelectorAll('#strategyArea .area').length;
+    dispatch('facilityAreaSelect','西諸');
+    const narrowed= document.querySelectorAll('#facilityMunicipalTable tbody tr').length;
+    dispatch('facilityAreaSelect','all');
+    dispatch('facilityAssocSelect','日向市東臼杵郡医師会');
+    const associationFiltered=document.querySelectorAll('#facilityMunicipalTable tbody tr').length;
+    dispatch('facilityAssocSelect','all');
+    const allCities=document.querySelectorAll('#facilityMunicipalTable tbody tr').length;
+    document.querySelector('#visual-heatmap .v-cell')?.click();
+    const heatUpdated=document.getElementById('heatmap-detail')?.textContent.includes('/5点')??false;
+    document.querySelector('#visual-access-map [data-category="zones"]')?.click();
+    const layer= document.querySelector('#visual-access-map [data-category="zones"]')?.getAttribute('aria-pressed');
+    document.querySelector('#visual-access-map [data-category="all"]')?.click();
+    const mapReset=document.querySelector('#visual-access-map [data-category="all"]')?.getAttribute('aria-pressed');
+    const table=document.querySelector('#facilityAreaTable table');
+    const headers=table.querySelectorAll('thead th').length,cols=[...table.querySelectorAll('tbody tr')].map(tr=>tr.querySelectorAll('td').length);
+    return {medicalFilter,reset,narrowed,associationFiltered,allCities,heatUpdated,layer,mapReset,headers,cols};
+  })()`);
+  assert.equal(interaction.medicalFilter.cards,1,'medical-area selector filters actual cards');
+  assert.equal(interaction.medicalFilter.name,'宮崎東諸県','selected medical area');
+  assert.equal(interaction.reset,7,'medical-area reset');
+  assert.equal(interaction.narrowed,4,'West Moro three municipalities and total');
+  assert.equal(interaction.associationFiltered,6,'Hyuga 5 localities plus total');
+  assert.equal(interaction.allCities,27,'municipality reset');
+  assert.ok(interaction.heatUpdated,'heatmap interactive explanation');
+  assert.equal(interaction.layer,'true','map layer selector');
+  assert.equal(interaction.mapReset,'true','map layer reset');
+  assert.equal(interaction.headers,7,'official 2022 facility table has 7 columns');
+  assert.ok(interaction.cols.every(n=>n===7),'every official table row matches headers');
+
   await evalCode("window.scrollTo({top:document.getElementById('visual-heatmap').offsetTop-90,behavior:'instant'})");await sleep(300);
   const image=await send('Page.captureScreenshot',{format:'png',fromSurface:true});
   writeFileSync(join(shotDir,'miyazaki-'+label+'.png'),Buffer.from(image.data,'base64'));
