@@ -628,6 +628,18 @@
       "厚生労働省 医療情報ネット・医療機関オープンデータ",
       "2026年公開資料",
       "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/newpage_43373.html"
+    ],
+    [
+      "S26",
+      "愛媛大学等プレスリリース：愛媛RWD構想・19施設／一般病床シェア45%超",
+      "2025-07-01（当時の公表）",
+      "https://www.ehime-u.ac.jp/wp-content/uploads/2025/07/pr_20250701_med.pdf"
+    ],
+    [
+      "S27",
+      "愛媛県鬼北町：愛媛RWD構想への医療情報提供契約",
+      "2026-04-10公表",
+      "https://www.town.kihoku.ehime.jp/soshiki/choumin/34043.html"
     ]
   ],
   "additionalEvidence": {
@@ -681,6 +693,14 @@
       "ehimeCoverage": "追加資料の部分リストに未収録。設置0台ではなく未検証",
       "status": "県別全数未確定",
       "source": "S24,S25"
+    },
+    "ehimeRwd": {
+      "asOf": "2025-07",
+      "participatingFacilities": 19,
+      "generalBedShare": "約45%相当",
+      "kihoTownJoined": "2026-04契約公表",
+      "source": "S26,S27",
+      "caveat": "カバー率は一般病床数基準であり全県患者データの取得割合ではない"
     }
   }
 }
