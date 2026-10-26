@@ -1,0 +1,724 @@
+{
+  "version": "2026-10-26",
+  "publicNote": "中立的な公開情報分析。第三者からの提供資料および社内資料の原本、個別契約、非公開数値は公開しない。施設座標は概略で地図上の点は公式座標ではない。",
+  "regions": [
+    {
+      "id": "kenpoku",
+      "name": "県北",
+      "city": "福島市",
+      "lat": 37.757,
+      "lon": 140.466,
+      "doctor": 315.1,
+      "refPopulation2024": 445531,
+      "beds": [
+        434,
+        2528,
+        782,
+        499,
+        156
+      ],
+      "scores": [
+        5,
+        4,
+        3,
+        4,
+        4
+      ],
+      "description": "大学病院と県都の病診連携。高度急性期・US/CT/MRIの更新と医師会経由の診療所連携",
+      "play": "高度急性期・診療所集積",
+      "win": "連携検査の共同利用、医療ITと保守をパッケージ"
+    },
+    {
+      "id": "kenchu",
+      "name": "県中",
+      "city": "郡山市",
+      "lat": 37.399,
+      "lon": 140.36,
+      "doctor": 199.2,
+      "refPopulation2024": 501806,
+      "beds": [
+        109,
+        2912,
+        602,
+        987,
+        676
+      ],
+      "scores": [
+        5,
+        4,
+        3,
+        4,
+        5
+      ],
+      "description": "郡山の広域急性期・がん・救急・健診と診療所ネットワーク",
+      "play": "広域集客・病院集積",
+      "win": "共同利用検査と稼働率・TCO分析"
+    },
+    {
+      "id": "kennan",
+      "name": "県南",
+      "city": "白河市",
+      "lat": 37.125,
+      "lon": 140.211,
+      "doctor": 194.1,
+      "refPopulation2024": 135475,
+      "beds": [
+        0,
+        719,
+        52,
+        253,
+        85
+      ],
+      "scores": [
+        2,
+        3,
+        4,
+        4,
+        3
+      ],
+      "description": "白河の公的病院・県境患者動線・へき地診療",
+      "play": "県境移動・高齢化",
+      "win": "診療所のUS・内視鏡と中核病院への紹介設計"
+    },
+    {
+      "id": "aizu",
+      "name": "会津・南会津",
+      "city": "会津若松市",
+      "lat": 37.494,
+      "lon": 139.93,
+      "doctor": 179.9,
+      "refPopulation2024": 247239,
+      "beds": [
+        104,
+        1622,
+        226,
+        447,
+        281
+      ],
+      "scores": [
+        3,
+        4,
+        5,
+        5,
+        3
+      ],
+      "description": "豪雪・過疎・高齢化と遠距離搬送。高度医療の地域完結と在宅・携帯US",
+      "play": "豪雪BCP・遠隔医療",
+      "win": "保守代替機・遠隔読影・広域搬送のバックアップ"
+    },
+    {
+      "id": "soso",
+      "name": "相双",
+      "city": "南相馬市",
+      "lat": 37.642,
+      "lon": 140.956,
+      "doctor": 210.6,
+      "refPopulation2024": 158454,
+      "beds": [
+        0,
+        750,
+        84,
+        168,
+        198
+      ],
+      "scores": [
+        3,
+        5,
+        4,
+        5,
+        2
+      ],
+      "description": "避難・帰還・復興医療と双葉新病院整備。患者実数・医師採用の不確実性",
+      "play": "復興と人口変動",
+      "win": "段階設備投資・医師/技師確保とBCP同時設計"
+    },
+    {
+      "id": "iwaki",
+      "name": "いわき",
+      "city": "いわき市",
+      "lat": 37.049,
+      "lon": 140.888,
+      "doctor": 173.6,
+      "refPopulation2024": 306714,
+      "beds": [
+        244,
+        1262,
+        616,
+        1281,
+        134
+      ],
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "description": "沿岸部救急・画像診断、透析、慢性期・診療所との接続",
+      "play": "人口集積・慢性期",
+      "win": "救急から在宅・透析まで継続性・保守・停電対策"
+    }
+  ],
+  "hospitals": [
+    {
+      "name": "福島県立医科大学附属病院",
+      "address": "福島市光が丘1",
+      "area": "県北",
+      "lat": 37.699,
+      "lon": 140.475,
+      "role": "大学・特定機能・がん拠点"
+    },
+    {
+      "name": "大原綜合病院",
+      "address": "福島市上町6-1",
+      "area": "県北",
+      "lat": 37.755,
+      "lon": 140.472,
+      "role": "急性期・地域中核"
+    },
+    {
+      "name": "福島赤十字病院",
+      "address": "福島市八島町7-7",
+      "area": "県北",
+      "lat": 37.764,
+      "lon": 140.488,
+      "role": "公的・急性期"
+    },
+    {
+      "name": "済生会福島総合病院",
+      "address": "福島市大森下原田25",
+      "area": "県北",
+      "lat": 37.72,
+      "lon": 140.447,
+      "role": "公的・地域"
+    },
+    {
+      "name": "公立藤田総合病院",
+      "address": "伊達郡国見町塚野目三本木14",
+      "area": "県北",
+      "lat": 37.866,
+      "lon": 140.548,
+      "role": "公立・広域連携"
+    },
+    {
+      "name": "太田西ノ内病院",
+      "address": "郡山市西ノ内2-5-20",
+      "area": "県中",
+      "lat": 37.405,
+      "lon": 140.365,
+      "role": "がん拠点・救急"
+    },
+    {
+      "name": "総合南東北病院",
+      "address": "郡山市八山田7-115",
+      "area": "県中",
+      "lat": 37.424,
+      "lon": 140.369,
+      "role": "がん・PET・脳神経"
+    },
+    {
+      "name": "寿泉堂綜合病院",
+      "address": "郡山市駅前1-1-17",
+      "area": "県中",
+      "lat": 37.399,
+      "lon": 140.384,
+      "role": "急性期"
+    },
+    {
+      "name": "星総合病院",
+      "address": "郡山市向河原町159-1",
+      "area": "県中",
+      "lat": 37.397,
+      "lon": 140.389,
+      "role": "急性期"
+    },
+    {
+      "name": "公立岩瀬病院",
+      "address": "須賀川市北町20",
+      "area": "県中",
+      "lat": 37.296,
+      "lon": 140.379,
+      "role": "公立・中核"
+    },
+    {
+      "name": "白河厚生総合病院",
+      "address": "白河市豊地上弥次郎2-1",
+      "area": "県南",
+      "lat": 37.136,
+      "lon": 140.206,
+      "role": "厚生連・がん拠点"
+    },
+    {
+      "name": "塙厚生病院",
+      "address": "東白川郡塙町塙大町1-5",
+      "area": "県南",
+      "lat": 36.958,
+      "lon": 140.408,
+      "role": "厚生連・地域"
+    },
+    {
+      "name": "竹田綜合病院",
+      "address": "会津若松市山鹿町3-27",
+      "area": "会津・南会津",
+      "lat": 37.489,
+      "lon": 139.927,
+      "role": "地域がん拠点"
+    },
+    {
+      "name": "会津中央病院",
+      "address": "会津若松市鶴賀町1-1",
+      "area": "会津・南会津",
+      "lat": 37.519,
+      "lon": 139.954,
+      "role": "地域がん拠点・救急"
+    },
+    {
+      "name": "福島県立医科大学会津医療センター",
+      "address": "会津若松市河東町谷沢前田21-2",
+      "area": "会津・南会津",
+      "lat": 37.548,
+      "lon": 139.952,
+      "role": "大学附属・地域"
+    },
+    {
+      "name": "福島県立南会津病院",
+      "address": "南会津郡南会津町永田風下14-1",
+      "area": "会津・南会津",
+      "lat": 37.194,
+      "lon": 139.772,
+      "role": "地域・広域医療"
+    },
+    {
+      "name": "南相馬市立総合病院",
+      "address": "南相馬市原町区高見町2-54-6",
+      "area": "相双",
+      "lat": 37.639,
+      "lon": 140.968,
+      "role": "公立・救急"
+    },
+    {
+      "name": "公立相馬総合病院",
+      "address": "相馬市新沼坪ヶ迫142",
+      "area": "相双",
+      "lat": 37.798,
+      "lon": 140.916,
+      "role": "公立・救急"
+    },
+    {
+      "name": "ふたば医療センター附属病院",
+      "address": "双葉郡富岡町本岡王塚817-1",
+      "area": "相双",
+      "lat": 37.347,
+      "lon": 141.015,
+      "role": "復興・救急"
+    },
+    {
+      "name": "双葉地域中核的病院（整備計画）",
+      "address": "大熊町（計画地、施設未開院）",
+      "area": "相双",
+      "lat": 37.407,
+      "lon": 140.983,
+      "role": "計画・開院前"
+    },
+    {
+      "name": "いわき市医療センター",
+      "address": "いわき市内郷御厩町久世原16",
+      "area": "いわき",
+      "lat": 37.047,
+      "lon": 140.869,
+      "role": "地域がん拠点・救急"
+    },
+    {
+      "name": "福島労災病院",
+      "address": "いわき市内郷綴町沼尻3",
+      "area": "いわき",
+      "lat": 37.037,
+      "lon": 140.849,
+      "role": "公的・がん診療推進"
+    },
+    {
+      "name": "常磐病院",
+      "address": "いわき市常磐上湯長谷町上ノ台57",
+      "area": "いわき",
+      "lat": 37.018,
+      "lon": 140.84,
+      "role": "透析・地域"
+    }
+  ],
+  "associations": [
+    {
+      "name": "福島県医師会",
+      "address": "福島市新町4-22",
+      "lat": 37.75,
+      "lon": 140.47,
+      "url": "https://www.fukushima.med.or.jp/"
+    },
+    {
+      "name": "福島市医師会",
+      "address": "福島市",
+      "lat": 37.75,
+      "lon": 140.47,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "伊達医師会",
+      "address": "伊達市",
+      "lat": 37.82,
+      "lon": 140.562,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "安達医師会",
+      "address": "二本松市",
+      "lat": 37.58,
+      "lon": 140.44,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "郡山医師会",
+      "address": "郡山市",
+      "lat": 37.4,
+      "lon": 140.37,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "田村医師会",
+      "address": "田村市",
+      "lat": 37.44,
+      "lon": 140.57,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "須賀川医師会",
+      "address": "須賀川市",
+      "lat": 37.29,
+      "lon": 140.37,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "石川郡医師会",
+      "address": "石川町",
+      "lat": 37.145,
+      "lon": 140.453,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "白河医師会",
+      "address": "白河市",
+      "lat": 37.125,
+      "lon": 140.211,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "東白川郡医師会",
+      "address": "塙町",
+      "lat": 36.958,
+      "lon": 140.408,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "会津若松医師会",
+      "address": "会津若松市",
+      "lat": 37.494,
+      "lon": 139.93,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "喜多方医師会",
+      "address": "喜多方市",
+      "lat": 37.65,
+      "lon": 139.87,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "両沼郡医師会",
+      "address": "会津坂下町",
+      "lat": 37.56,
+      "lon": 139.82,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "南会津郡医師会",
+      "address": "南会津町",
+      "lat": 37.2,
+      "lon": 139.772,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "相馬郡医師会",
+      "address": "相馬市",
+      "lat": 37.798,
+      "lon": 140.916,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "双葉郡医師会",
+      "address": "富岡町",
+      "lat": 37.348,
+      "lon": 141.011,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "いわき市医師会",
+      "address": "いわき市",
+      "lat": 37.049,
+      "lon": 140.888,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "name": "福島県立医科大学医師会",
+      "address": "福島市光が丘1",
+      "lat": 37.699,
+      "lon": 140.475,
+      "url": "https://www.fukushima.med.or.jp/link/"
+    }
+  ],
+  "offices": [
+    {
+      "name": "福島県庁",
+      "address": "福島市杉妻町2-16",
+      "lat": 37.75,
+      "lon": 140.468
+    },
+    {
+      "name": "福島市保健所",
+      "address": "福島市森合町10-1",
+      "lat": 37.771,
+      "lon": 140.457
+    },
+    {
+      "name": "郡山市保健所",
+      "address": "郡山市朝日2-15-1",
+      "lat": 37.405,
+      "lon": 140.359
+    },
+    {
+      "name": "いわき市保健所",
+      "address": "いわき市内郷高坂町四方木田191",
+      "lat": 37.044,
+      "lon": 140.868
+    },
+    {
+      "name": "県北保健所",
+      "address": "福島市御山町8-30",
+      "lat": 37.768,
+      "lon": 140.474
+    },
+    {
+      "name": "県中保健所",
+      "address": "須賀川市旭町153-1",
+      "lat": 37.292,
+      "lon": 140.373
+    },
+    {
+      "name": "県南保健所",
+      "address": "白河市郭内127",
+      "lat": 37.126,
+      "lon": 140.214
+    },
+    {
+      "name": "会津保健所",
+      "address": "会津若松市城東町5-12",
+      "lat": 37.491,
+      "lon": 139.939
+    },
+    {
+      "name": "南会津保健所",
+      "address": "南会津町田島字天道沢甲2542-2",
+      "lat": 37.201,
+      "lon": 139.774
+    },
+    {
+      "name": "相双保健所",
+      "address": "南相馬市原町区錦町1-30",
+      "lat": 37.646,
+      "lon": 140.958
+    }
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "title": "福島県推計人口（県統計課）",
+      "year": "2026年9月1日",
+      "url": "https://www.pref.fukushima.lg.jp/sec/11045b/15846.html"
+    },
+    {
+      "id": "S02",
+      "title": "2025国勢調査結果 福島県",
+      "year": "2025年／2026公表",
+      "url": "https://www.pref.fukushima.lg.jp/sec/11045b/15860.html"
+    },
+    {
+      "id": "S03",
+      "title": "第8次福島県医療計画",
+      "year": "2024–2029／2026更新",
+      "url": "https://www.pref.fukushima.lg.jp/sec/21045c/medical-care-plan8.html"
+    },
+    {
+      "id": "S04",
+      "title": "2025年度 病床機能報告",
+      "year": "2025年7月／2026公表",
+      "url": "https://www.pref.fukushima.lg.jp/sec/21045c/byoushou.html"
+    },
+    {
+      "id": "S05",
+      "title": "医師偏在指標 厚生労働省",
+      "year": "2026年4月公表",
+      "url": "https://www.mhlw.go.jp/content/001691397.pdf"
+    },
+    {
+      "id": "S06",
+      "title": "地域医療構想 必要病床数",
+      "year": "2025年目標／旧計画推計",
+      "url": "https://www.pref.fukushima.lg.jp/uploaded/library/281226_shiryou4.pdf"
+    },
+    {
+      "id": "S07",
+      "title": "社人研 市区町村別将来推計人口",
+      "year": "2023年推計／2050年",
+      "url": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/6houkoku/houkoku_3.pdf"
+    },
+    {
+      "id": "S08",
+      "title": "がん診療連携・福島県",
+      "year": "2026年",
+      "url": "https://www.pref.fukushima.lg.jp/sec/21045c/gan-shinryou-kyougikai.html"
+    },
+    {
+      "id": "S09",
+      "title": "双葉地域中核病院 整備状況",
+      "year": "2026年",
+      "url": "https://www.pref.fukushima.lg.jp/sec/25010a/futabachukakusougou.html"
+    },
+    {
+      "id": "S10",
+      "title": "福島県医師会 郡市医師会リンク",
+      "year": "2026年確認",
+      "url": "https://www.fukushima.med.or.jp/link/"
+    },
+    {
+      "id": "S11",
+      "title": "厚生労働省 福島保健所一覧",
+      "year": "2026年確認",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/07fukushima.html"
+    },
+    {
+      "id": "S12",
+      "title": "福島県外来医療計画",
+      "year": "2024年度からの計画",
+      "url": "https://www.pref.fukushima.lg.jp/sec/21045c/medical-care-plan8.html"
+    },
+    {
+      "id": "S13",
+      "title": "医療施設調査（政府統計e-Stat）",
+      "year": "2023–2024年度",
+      "url": "https://www.e-stat.go.jp/stat-search?page=1&toukei=00450021"
+    },
+    {
+      "id": "S14",
+      "title": "福島県立医科大学",
+      "year": "2026年確認",
+      "url": "https://www.fmu.ac.jp/"
+    },
+    {
+      "id": "S15",
+      "title": "国立病院機構",
+      "year": "2026年確認",
+      "url": "https://nho.hosp.go.jp/"
+    },
+    {
+      "id": "S16",
+      "title": "JCHO",
+      "year": "2026年確認",
+      "url": "https://www.jcho.go.jp/"
+    },
+    {
+      "id": "S17",
+      "title": "JA福島厚生連",
+      "year": "2026年確認",
+      "url": "https://www.ja-fkosei.or.jp/"
+    },
+    {
+      "id": "S18",
+      "title": "医療介護総合確保基金 福島県",
+      "year": "2026年確認",
+      "url": "https://www.pref.fukushima.lg.jp/sec/21045c/"
+    },
+    {
+      "id": "S19",
+      "title": "福島県公式",
+      "year": "2026年確認",
+      "url": "https://www.pref.fukushima.lg.jp/"
+    },
+    {
+      "id": "S20",
+      "title": "地理院タイル・国土地理院",
+      "year": "2026年確認",
+      "url": "https://maps.gsi.go.jp/"
+    },
+    {
+      "id": "S21",
+      "title": "医療施設調査・病床機能報告（厚生労働省）",
+      "year": "2025年度",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html"
+    },
+    {
+      "id": "S22",
+      "title": "診療報酬情報 厚生労働省",
+      "year": "2026年度",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411.html"
+    }
+  ],
+  "scoringWeights": [
+    25,
+    20,
+    20,
+    15,
+    20
+  ],
+  "bedFuture2025": [
+    [
+      "県北",
+      404,
+      1462,
+      1667,
+      452
+    ],
+    [
+      "県中",
+      469,
+      1640,
+      1404,
+      1130
+    ],
+    [
+      "県南",
+      100,
+      387,
+      247,
+      155
+    ],
+    [
+      "会津・南会津",
+      256,
+      849,
+      846,
+      508
+    ],
+    [
+      "相双",
+      45,
+      233,
+      243,
+      204
+    ],
+    [
+      "いわき",
+      264,
+      809,
+      750,
+      873
+    ]
+  ],
+  "futureBedsNote": "旧地域医療構想による2025年必要病床。2025年の病床機能報告実績と定義差があり単純不足算出しない"
+}
