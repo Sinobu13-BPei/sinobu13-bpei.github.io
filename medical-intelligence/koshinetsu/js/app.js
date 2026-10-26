@@ -14,12 +14,12 @@ const score=a=>Math.round(a[11].reduce((acc,v,i)=>acc+v*weights[i]/5,0));
 const yearly=(n)=>nf(n);
 const large=(n)=>(n/10000).toFixed(1)+'万人';
 function showPopulation(){
-const p2025=d.population.reduce((sum,p)=>sum+p.p2025,0),p2050=d.population.reduce((sum,p)=>sum+p.p2050,0);
+const p2025=d.population.reduce((sum,p)=>sum+p.actual2025,0),p2050=d.population.reduce((sum,p)=>sum+p.p2050,0);
 $('stat-pop').textContent=(p2025/10000).toFixed(1)+'万人';
 $('stat-future').textContent=pct(p2050,p2025);
-$('populationRows').innerHTML=d.population.map(p=>'<tr><td><b>'+esc(p.name)+'</b></td><td>'+large(p.p2025)+'</td><td>'+large(p.p2050)+'</td><td>'+pct(p.p2050,p.p2025)+'</td><td>'+link(p.plan,'医療計画')+' / '+link(p.assoc,'医師会')+'</td></tr>').join('');
+$('populationRows').innerHTML=d.population.map(p=>'<tr><td><b>'+esc(p.name)+'</b></td><td>'+large(p.actual2025)+'</td><td>'+large(p.p2050)+'</td><td>'+pct(p.p2050,p.p2025)+'</td><td>'+link(p.actualSource,'国勢調査')+' / '+link(p.plan,'医療計画')+' / '+link(p.assoc,'医師会')+'</td></tr>').join('');
 if(!window.Chart){showChartFallback('populationChart','人口グラフは外部ライブラリを読み込めないため数表を参照してください。');return;}
-const el=$('populationChart');populationChart=new Chart(el,{type:'bar',data:{labels:d.population.map(x=>x.name),datasets:[{label:'2025年（推計）',data:d.population.map(x=>+(x.p2025/10000).toFixed(1)),backgroundColor:'#117d94',borderRadius:4},{label:'2050年（推計）',data:d.population.map(x=>+(x.p2050/10000).toFixed(1)),backgroundColor:'#67bbad',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.y+'万人'}}},scales:{y:{beginAtZero:true,title:{display:true,text:'万人'}}}}});
+const el=$('populationChart');populationChart=new Chart(el,{type:'bar',data:{labels:d.population.map(x=>x.name),datasets:[{label:'2025年（国勢調査確定）',data:d.population.map(x=>+(x.actual2025/10000).toFixed(1)),backgroundColor:'#117d94',borderRadius:4},{label:'2025年（社人研推計）',data:d.population.map(x=>+(x.p2025/10000).toFixed(1)),backgroundColor:'#a8bdd0',borderRadius:4},{label:'2050年（社人研推計）',data:d.population.map(x=>+(x.p2050/10000).toFixed(1)),backgroundColor:'#67bbad',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.y+'万人'}}},scales:{y:{beginAtZero:true,title:{display:true,text:'万人'}}}}});
 }
 function showChartFallback(canvasId,message){const e=$(canvasId);if(!e)return;e.style.display='none';e.parentNode.insertAdjacentHTML('beforeend','<p class="micro" role="status">'+esc(message)+'</p>');}
 function showInstitutions(){
