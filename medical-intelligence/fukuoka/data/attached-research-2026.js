@@ -4,7 +4,7 @@ window.FUKUOKA_ATTACHMENT_INSIGHTS={
     "source": "添付：日本経営『医療需給総覧1.0 地域分析』2026 福岡県13医療圏を照合。人口：社人研2023年将来推計（2020年実績・2050年推計）。DPC：厚労省2023年度DPC退院患者調査を原資料とする二次医療圏集計。",
     "copyright": "添付PDFのページ画像・表の意匠は転載せず、少数の地域集計値を出典とともに独自の図表へ再構成。",
     "populationSource": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp",
-    "dpcSource": "https://www.mhlw.go.jp/stf/shingi2/0000196043_00006.html",
+    "dpcSource": "https://www.mhlw.go.jp/stf/shingi2/newpage_00137.html",
     "note": "2025年国勢調査の確定値ではなく2020年基準の2023年版推計。DPC比率は居住地別件数に対する施設所在地別件数であり、個別患者の地域内完結率ではない。件数はPDFの図表読み取り千件単位小数1桁の概数。"
   },
   "regions": [
