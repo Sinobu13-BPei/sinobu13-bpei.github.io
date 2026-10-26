@@ -1,0 +1,522 @@
+{
+  "updated": "2026-10-26",
+  "areas": [
+    {
+      "name": "和歌山",
+      "municipalities": "和歌山市・海南市・紀美野町",
+      "beds": [
+        747,
+        2300,
+        1344,
+        888,
+        86
+      ],
+      "physicians": 1743,
+      "physIndex": 363.8,
+      "ct": 74,
+      "mri": 34,
+      "pet": 3,
+      "rt": 6,
+      "lat": 34.226,
+      "lng": 135.167,
+      "score": [
+        5,
+        4,
+        3,
+        5,
+        4
+      ],
+      "drivers": "県都・大学病院・高度救命救急・がん診療",
+      "risk": "三次救急への集中、病床機能分化、人材と資金制約",
+      "opportunity": "高度画像診断・放射線治療の更新、遠隔読影・共同利用"
+    },
+    {
+      "name": "那賀",
+      "municipalities": "紀の川市・岩出市",
+      "beds": [
+        3,
+        305,
+        322,
+        269,
+        52
+      ],
+      "physicians": 223,
+      "physIndex": 213.1,
+      "ct": 16,
+      "mri": 2,
+      "pet": 0,
+      "rt": 1,
+      "lat": 34.27,
+      "lng": 135.36,
+      "score": [
+        3,
+        4,
+        4,
+        3,
+        4
+      ],
+      "drivers": "和歌山市のベッドタウン・公立那賀病院・外来需要",
+      "risk": "通勤圏での患者流出、救急・医師配置",
+      "opportunity": "病診連携・外来画像検査、US、内視鏡・在宅連携"
+    },
+    {
+      "name": "橋本",
+      "municipalities": "橋本市・かつらぎ町・九度山町・高野町",
+      "beds": [
+        6,
+        403,
+        236,
+        127,
+        49
+      ],
+      "physicians": 214,
+      "physIndex": 274.8,
+      "ct": 14,
+      "mri": 4,
+      "pet": 0,
+      "rt": 1,
+      "lat": 34.314,
+      "lng": 135.605,
+      "score": [
+        3,
+        3,
+        4,
+        3,
+        4
+      ],
+      "drivers": "大阪・奈良県境の患者動線、橋本市民病院",
+      "risk": "県境越えの受療、山間部搬送、災害時の交通制約",
+      "opportunity": "広域検査連携、画像診断更新、健診と地域内完結"
+    },
+    {
+      "name": "有田",
+      "municipalities": "有田市・湯浅町・広川町・有田川町",
+      "beds": [
+        0,
+        167,
+        188,
+        223,
+        45
+      ],
+      "physicians": 119,
+      "physIndex": 188.5,
+      "ct": 15,
+      "mri": 5,
+      "pet": 0,
+      "rt": 0,
+      "lat": 34.04,
+      "lng": 135.18,
+      "score": [
+        2,
+        5,
+        4,
+        3,
+        5
+      ],
+      "drivers": "高齢化・在宅医療・公立/済生会病院",
+      "risk": "医師偏在、外来・入院需要減、医療機関間の機能重複",
+      "opportunity": "慢性期から在宅への移行、US・ポータブル機器・画像共有"
+    },
+    {
+      "name": "御坊",
+      "municipalities": "御坊市・美浜町・日高町・由良町・印南町・日高川町",
+      "beds": [
+        8,
+        370,
+        171,
+        259,
+        0
+      ],
+      "physicians": 153,
+      "physIndex": 237.8,
+      "ct": 8,
+      "mri": 4,
+      "pet": 0,
+      "rt": 1,
+      "lat": 33.892,
+      "lng": 135.153,
+      "score": [
+        3,
+        4,
+        4,
+        4,
+        4
+      ],
+      "drivers": "ひだか病院・日高地域の中核医療・高齢化",
+      "risk": "薄い診療科、移動距離、救急当直負担",
+      "opportunity": "省人化、検査共有、保守と診療連携機器"
+    },
+    {
+      "name": "田辺",
+      "municipalities": "田辺市・みなべ町・白浜町・上富田町・すさみ町",
+      "beds": [
+        40,
+        707,
+        281,
+        243,
+        0
+      ],
+      "physicians": 295,
+      "physIndex": 239.9,
+      "ct": 20,
+      "mri": 6,
+      "pet": 0,
+      "rt": 2,
+      "lat": 33.729,
+      "lng": 135.378,
+      "score": [
+        4,
+        5,
+        5,
+        4,
+        5
+      ],
+      "drivers": "紀南病院・南和歌山医療センター、紀南の広域救急",
+      "risk": "遠距離搬送・沿岸災害・設備更新負担",
+      "opportunity": "紀南の画像診断拠点維持、救急CT・US、BCP関連設備"
+    },
+    {
+      "name": "新宮",
+      "municipalities": "新宮市・那智勝浦町・太地町・古座川町・北山村・串本町",
+      "beds": [
+        5,
+        349,
+        60,
+        216,
+        114
+      ],
+      "physicians": 137,
+      "physIndex": 188.6,
+      "ct": 15,
+      "mri": 3,
+      "pet": 0,
+      "rt": 0,
+      "lat": 33.724,
+      "lng": 135.993,
+      "score": [
+        2,
+        5,
+        5,
+        4,
+        5
+      ],
+      "drivers": "紀伊半島東部の広域医療・新宮市立医療センター",
+      "risk": "高齢化・南海トラフ・道路寸断・医師不足",
+      "opportunity": "故障時代替手段、遠隔画像・POCUS、非常電源・BCP"
+    }
+  ],
+  "facilities": [
+    [
+      "和歌山県立医科大学附属病院",
+      "和歌山",
+      "和歌山市紀三井寺811-1",
+      "大学・特定機能・高度救急",
+      "https://www.wakayama-med.ac.jp/hospital/"
+    ],
+    [
+      "日本赤十字社和歌山医療センター",
+      "和歌山",
+      "和歌山市小松原通4丁目20",
+      "高度救命救急・災害・がん",
+      "https://www.wakayama-med.jrc.or.jp/"
+    ],
+    [
+      "和歌山労災病院",
+      "和歌山",
+      "和歌山市木ノ本93-1",
+      "急性期・がん診療連携推進",
+      "https://www.wakayamah.johas.go.jp/"
+    ],
+    [
+      "済生会和歌山病院",
+      "和歌山",
+      "和歌山市十二番丁45",
+      "地域連携・急性期",
+      "https://www.saiseikai-wakayama.jp/"
+    ],
+    [
+      "公立那賀病院",
+      "那賀",
+      "紀の川市打田1282",
+      "地域中核・救急",
+      "https://www.naga-hp.jp/"
+    ],
+    [
+      "橋本市民病院",
+      "橋本",
+      "橋本市小峰台2-8-1",
+      "地域中核・がん診療連携",
+      "https://www.hashimoto-hp.jp/"
+    ],
+    [
+      "和歌山県立医科大学附属病院紀北分院",
+      "橋本",
+      "伊都郡かつらぎ町妙寺219",
+      "大学附属・地域医療",
+      "https://www.wakayama-med.ac.jp/"
+    ],
+    [
+      "有田市立病院",
+      "有田",
+      "有田市宮崎町6",
+      "有田地域医療",
+      "https://www.aridahp.jp/"
+    ],
+    [
+      "済生会有田病院",
+      "有田",
+      "有田郡湯浅町吉川52-6",
+      "地域医療・外来",
+      "https://www.saiseikai-arida.jp/"
+    ],
+    [
+      "ひだか病院",
+      "御坊",
+      "御坊市薗116-2",
+      "地域中核・がん診療連携推進",
+      "https://www.hidaka-hp.jp/"
+    ],
+    [
+      "紀南病院",
+      "田辺",
+      "田辺市新庄町46-70",
+      "地域中核・がん診療連携",
+      "https://www.kinan-hp.tanabe.wakayama.jp/"
+    ],
+    [
+      "南和歌山医療センター",
+      "田辺",
+      "田辺市たきない町27-1",
+      "三次救急・がん診療連携",
+      "https://minamiwakayama.hosp.go.jp/"
+    ],
+    [
+      "新宮市立医療センター",
+      "新宮",
+      "新宮市蜂伏18-7",
+      "紀南東部中核・がん診療連携推進",
+      "https://www.hospital.city.shingu.wakayama.jp/"
+    ],
+    [
+      "くしもと町立病院",
+      "新宮",
+      "東牟婁郡串本町サンゴ台691-7",
+      "本州最南端地域の医療",
+      "https://www.kushimoto-hp.jp/"
+    ],
+    [
+      "和歌山県庁 医務課",
+      "和歌山",
+      "和歌山市小松原通1-1",
+      "行政・医療計画",
+      "https://www.pref.wakayama.lg.jp/"
+    ],
+    [
+      "和歌山県医師会",
+      "和歌山",
+      "和歌山市小松原通1-1 県民文化会館5階",
+      "県医師会",
+      "https://wakayama.med.or.jp/"
+    ],
+    [
+      "和歌山市医師会",
+      "和歌山",
+      "和歌山市手平2-1-2 和歌山ビッグ愛",
+      "郡市医師会・予防接種・健診",
+      "https://www.wakayamacity-med.com/"
+    ]
+  ],
+  "hoken": [
+    [
+      "和歌山市保健所",
+      "和歌山",
+      "和歌山市吹上5-2-15"
+    ],
+    [
+      "海南保健所",
+      "和歌山",
+      "海南市大野中939"
+    ],
+    [
+      "岩出保健所",
+      "那賀",
+      "岩出市高塚209"
+    ],
+    [
+      "橋本保健所",
+      "橋本",
+      "橋本市高野口町名古曽927"
+    ],
+    [
+      "湯浅保健所",
+      "有田",
+      "有田郡湯浅町湯浅2355-1"
+    ],
+    [
+      "御坊保健所",
+      "御坊",
+      "御坊市湯川町財部859-2"
+    ],
+    [
+      "田辺保健所",
+      "田辺",
+      "田辺市朝日ヶ丘23-1"
+    ],
+    [
+      "新宮保健所",
+      "新宮",
+      "新宮市緑ヶ丘2-4-8"
+    ],
+    [
+      "新宮保健所串本支所",
+      "新宮",
+      "東牟婁郡串本町西向193"
+    ]
+  ],
+  "sources": [
+    [
+      "S01",
+      "和歌山県「県民の友」2026年10月号（8月推計人口）",
+      "2026-08",
+      "https://www.pref.wakayama.lg.jp/bcms/prefg/000200/kenmin/web/202610/index.html"
+    ],
+    [
+      "S02",
+      "和歌山県 高齢化の状況（住基）",
+      "2026-01",
+      "https://www.pref.wakayama.lg.jp/prefg/040300/siryo/index.html"
+    ],
+    [
+      "S03",
+      "和歌山県推計人口・人口動態（2025年度）",
+      "2025-04",
+      "https://www.pref.wakayama.lg.jp/prefg/020300/suikei/d00220075.html"
+    ],
+    [
+      "S04",
+      "国立社会保障・人口問題研究所 地域別将来推計人口",
+      "2023推計 / 2020–2050",
+      "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/6houkoku/houkoku.asp"
+    ],
+    [
+      "S05",
+      "第八次和歌山県保健医療計画",
+      "2024–2029",
+      "https://www.pref.wakayama.lg.jp/prefg/050100/iryokeikaku/keikaku.html"
+    ],
+    [
+      "S06",
+      "令和7年度病床機能報告・県集計",
+      "2025-07",
+      "https://www.pref.wakayama.lg.jp/prefg/050100/byosyokinou/R5_houkoku/d00222919.html"
+    ],
+    [
+      "S07",
+      "第八次（前期）医師確保計画概要",
+      "2024–2026",
+      "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/public_comment_d/fil/8_ishikakuho_gaiyo.pdf"
+    ],
+    [
+      "S08",
+      "医師偏在指標（二次医療圏別・2026年4月版） 厚生労働省",
+      "2026-04",
+      "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    ],
+    [
+      "S09",
+      "医療人材インサイト（国公表医師統計再集計・補助照合）",
+      "2024人数 / 2026指標",
+      "https://scueldata.me/insight/workforce/doctor/wakayama/"
+    ],
+    [
+      "S10",
+      "和歌山県外来医療計画・医療機器配置（歴史的比較用）",
+      "2017設置実績 / 2020–2023計画",
+      "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/d00203801_d/fil/gairai_gaiyou.pdf"
+    ],
+    [
+      "S11",
+      "和歌山県医療費適正化計画（施設密度比較）",
+      "2022統計 / 2024計画",
+      "https://www.pref.wakayama.lg.jp/prefg/050600/tekiseika/plan_d/fil/4keikakuhonbun.pdf"
+    ],
+    [
+      "S12",
+      "厚生労働省 救命救急センター設置状況",
+      "公表資料",
+      "https://www.mhlw.go.jp/stf/newpage_32614.html"
+    ],
+    [
+      "S13",
+      "県内がん診療連携拠点病院等",
+      "県公開ページ",
+      "https://www.pref.wakayama.lg.jp/prefg/041200/h_sippei/gannet/01/03.html"
+    ],
+    [
+      "S14",
+      "和歌山県保健所一覧",
+      "県公開ページ",
+      "https://www.pref.wakayama.lg.jp/prefg/041200/h_sippei/hokenjoitiran.html"
+    ],
+    [
+      "S15",
+      "医療機関向け補助金・意向調査",
+      "2027年度向け",
+      "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/hojokin.html"
+    ],
+    [
+      "S16",
+      "和歌山県医師会",
+      "公式サイト",
+      "https://wakayama.med.or.jp/"
+    ],
+    [
+      "S17",
+      "厚生労働省 医療施設BCP策定支援",
+      "随時更新",
+      "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/infulenza/kenkyu_00001.html"
+    ],
+    [
+      "S18",
+      "日本消化器内視鏡学会 認定施設一覧",
+      "2026参照",
+      "https://www.jges.net/institutions/branch/30-wakayama"
+    ],
+    [
+      "S19",
+      "株式会社大黒 事業所・高度医療機器販売貸与許可",
+      "公式公開情報",
+      "https://daikoku-medical.co.jp/license/"
+    ],
+    [
+      "S20",
+      "セイコーメディカル株式会社 会社概要",
+      "公式公開情報",
+      "https://skmnet.co.jp/company"
+    ],
+    [
+      "S21",
+      "日本医師会地域医療情報システム 将来人口原表再掲",
+      "2023推計",
+      "https://www.jmap.jp/cities/detail/pref/30?pref_id=32"
+    ],
+    [
+      "S22",
+      "日本赤十字社和歌山医療センター 病院概要",
+      "公式公開情報",
+      "https://www.wakayama-med.jrc.or.jp/about/gaiyo_info/gaiyo.html"
+    ],
+    [
+      "S23",
+      "厚生労働省 2025年病床機能報告 公表データ",
+      "2025年度",
+      "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html"
+    ],
+    [
+      "S24",
+      "全国医療施設調査 令和6年都道府県編",
+      "2024年度",
+      "https://www.e-stat.go.jp/stat-search/database?cycle=7&layout=datalist&month=0&tclass1=000001232326&tclass2=000001232328&toukei=00450021&tstat=000001030908&year=20240"
+    ]
+  ]
+}
