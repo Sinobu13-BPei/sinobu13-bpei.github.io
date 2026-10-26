@@ -30,7 +30,13 @@ try{
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<700});
   await send('Page.navigate',{url:'http://127.0.0.1:'+port+'/medical-intelligence/miyazaki/'});
   for(let i=0;i<100;i++){const ok=await evalCode("document.querySelectorAll('.v-tile').length===9&&document.querySelectorAll('.v-cell').length===35").catch(()=>false);if(ok)break;await sleep(240)}
+  for(let k=0;k<65;k++){const ok=await evalCode("document.querySelectorAll('#facilityAssociationList .fac-assoc').length===9&&document.querySelectorAll('#facilityAreaTable tbody tr').length===8").catch(()=>false);if(ok)break;await sleep(160)}
   const x=await evalCode("(()=>{const rect=id=>{const r=document.getElementById(id)?.getBoundingClientRect();return r?{w:r.width,h:r.height,left:r.left,right:r.right}:null};return{window:innerWidth,page:document.documentElement.scrollWidth,tiles:document.querySelectorAll('.v-tile').length,cells:document.querySelectorAll('.v-cell').length,pictos:document.querySelectorAll('.v-humanfield span').length,sources:document.querySelectorAll('#sourcesList li').length,map:rect('visual-layer-map'),bubble:rect('v-bubble'),hero:rect('visual-hero'),visualCSS:[...document.styleSheets].some(s=>s.href?.includes('visuals.css'))}})()");
+  const fstats=await evalCode("({associations:document.querySelectorAll('#facilityAssociationList .fac-assoc').length,areas:document.querySelectorAll('#facilityAreaTable tbody tr').length,municipalities:document.querySelectorAll('#facilityMunicipalTable tbody tr').length,facilityKpis:document.querySelectorAll('#facilityKpis .fac-stat').length})");
+  assert.equal(fstats.associations,9,'nine doctor-association region cards');
+  assert.equal(fstats.areas,8,'seven official area rows and total');
+  assert.equal(fstats.municipalities,27,'26 municipalities and total');
+  assert.equal(fstats.facilityKpis,4,'verified 2022 facility KPIs');
   assert.equal(x.tiles,9,'nine modality icons');assert.equal(x.cells,35,'seven by five score heatmap');
   assert.equal(x.pictos,200,'two 100-person pictogram series');assert.ok(x.visualCSS,'visual styles');
   assert.ok(x.page<=width+3,'horizontal overflow '+JSON.stringify(x));
