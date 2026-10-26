@@ -67,4 +67,25 @@ tiles.forEach((node,i)=>{const a=window.KOCHI_DATA?.areas?.[i];const row=regionD
 const p=document.createElement("p");p.className="f-area-facts";p.style.cssText="border-top:1px solid #dce8e8;padding-top:10px;font-size:12px";
 p.innerHTML='<strong>2023年｜病院 '+row.hospitals+'・一般診療所 '+row.clinics+'（有床 '+row.bedded+'）</strong><br><small>2026年6月｜診療所 '+row.year2026.clinics+'（別定義）</small>';
 node.append(p)});
+}/* Public 2023 IPSS demographic chart: aligned to verified JMAP / user-provided regional workbooks. */
+const a2050=window.KOCHI_DATA?.areas||[];
+if(a2050.length===4){
+ const body=f("#fAgingPopulationTable tbody");
+ if(body)body.innerHTML=a2050.map(a=>{
+  const p=((a.population2050/a.population2020-1)*100).toFixed(1);
+  const areaNum=({aki:"3901",chuo:"3902",koban:"3903",hata:"3904"})[a.id];
+  return '<tr><th>'+esc(a.name)+'</th><td>'+n(a.population2020)+'</td><td>'+n(a.population2050)+'</td><td>'+p+'%</td><td>'+a.age2020.toFixed(1)+'%</td><td>'+a.age2050.toFixed(1)+'%</td><td><a href="https://jmap.jp/cities/detail/medical_area/'+areaNum+'" target="_blank" rel="noopener noreferrer">JMAP</a></td></tr>';
+ }).join("")+'<tr><th>合計</th><td>691,527</td><td>450,980</td><td>−34.8%</td><td>—</td><td>—</td><td><a href="https://jmap.jp/cities/detail/pref/39" target="_blank" rel="noopener noreferrer">県計</a></td></tr>';
+ if(window.Chart){
+  const chartOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:10}}},scales:{y:{beginAtZero:true},x:{ticks:{font:{size:11}}}}};
+  new Chart(f("#vAreaProjectionChart"),{type:"bar",data:{labels:a2050.map(a=>a.name),datasets:[
+  {label:"2020年人口（人）",data:a2050.map(a=>a.population2020),backgroundColor:"#0c827b",borderRadius:3},
+  {label:"2050年推計（人）",data:a2050.map(a=>a.population2050),backgroundColor:"#dba05f",borderRadius:3}
+  ]},options:chartOpts});
+  new Chart(f("#vAgingProjectionChart"),{type:"bar",data:{labels:a2050.map(a=>a.name),datasets:[
+  {label:"2020年（％）",data:a2050.map(a=>a.age2020),backgroundColor:"#0c827b",borderRadius:3},
+  {label:"2050年推計（％）",data:a2050.map(a=>a.age2050),backgroundColor:"#dba05f",borderRadius:3}
+  ]},options:{...chartOpts,scales:{y:{beginAtZero:true,max:70},x:{}}}});
+ }
+}
 })();
