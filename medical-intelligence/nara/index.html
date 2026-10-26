@@ -2,12 +2,12 @@
 <html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#102f41"><meta name="description" content="奈良県5二次医療圏の人口・2025病床機能・医療政策・中核病院・医師会・医療機器市場・商流・地域戦略を公的資料に基づいて分析。">
 <title>奈良県 医療MKT・医療機器市場分析 2026｜Japan Medical Market Intelligence</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="css/style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script><script src="js/app.js" defer></script></head>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/deep-dive.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script><script src="js/app.js" defer></script><script src="js/deep-dive.js" defer></script></head>
 <body><a class="skip" href="#main">本文へ</a>
 <header class="hero" id="top"><div class="container"><p class="kicker">JAPAN MEDICAL MARKET INTELLIGENCE / NARA · 2026</p><div class="heroLayout"><div><h1>奈良県の医療市場を、<br><em>5つの医療圏</em>から読む。</h1><p class="heroLead">第8次医療計画・令和7年度病床機能報告・人口移動と2040年代の医療構造。大学病院から南部の地域医療まで、一次資料と独自分析を分けて可視化する。</p><div class="heroActions"><a class="action primary" href="#summary">分析を読む</a><a class="action pale" href="#geography">地図を見る</a><a class="action outline" href="#sources">出典を確認</a></div></div><div class="keyStats" aria-label="県の主要指標"><div><strong>127.4<small>万人</small></strong><span>総人口・2025/10</span></div><div><strong>33.21<small>％</small></strong><span>高齢化率・2025/10</span></div><div><strong>13,235<small>床</small></strong><span>病床機能報告・2025/7</span></div><div><strong>5<small>医療圏</small></strong><span>地域医療計画</span></div></div></div><p class="heroFoot">2026年10月27日更新 / 出典：奈良県推計人口年報（2025）、令和7年度病床機能報告、奈良県保健医療計画（2024–2029）</p></div></header>
 <nav class="sticky" aria-label="ページ内ナビゲーション"><div class="container navlist">
-<a href="#summary">概況</a><a href="#population">人口</a><a href="#beds">病床</a><a href="#facilities">施設数</a><a href="#providers">医療機関</a><a href="#academic">大学・行政</a><a href="#medical-associations">医師会</a><a href="#equipment">機器市場</a><a href="#distribution">商流</a><a href="#external">外部環境</a><a href="#strategy">戦略</a><a href="#geography">地図</a><a href="#sources">出典</a></div></nav>
+<a href="#summary">概況</a><a href="#population">人口</a><a href="#beds">病床</a><a href="#facilities">施設数</a><a href="#providers">医療機関</a><a href="#academic">大学・行政</a><a href="#medical-associations">医師会</a><a href="#equipment">機器市場</a><a href="#regional-deep-dive">医療圏深掘り</a><a href="#distribution">商流</a><a href="#external">外部環境</a><a href="#strategy">戦略</a><a href="#geography">地図</a><a href="#sources">出典</a></div></nav>
 <main class="container" id="main">
 <section class="section" id="summary"><div class="sectionTitle"><p>01 / EXECUTIVE BRIEF</p><h2>奈良県市場を捉える3つの軸</h2></div><div class="grid3">
 <article class="feature"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="8" width="32" height="33" rx="4"/><path d="M24 14v17M15.5 22.5h17M17 41v-7h14v7"/></svg><h3>中和・奈良：高度医療の集積</h3><p>大学病院・救急・がん診療と都市型診療所の併存。設備単体ではなく、検査・紹介・地域連携の価値を検討する。</p></article>
@@ -112,6 +112,66 @@
 
 <div class="panel equipmentVisual"><div class="vizHead"><div><span class="eyebrowTiny">DEVICE PORTFOLIO / 9 CATEGORIES</span><h3>９種類の医療機器市場をピクトグラムで俯瞰</h3></div><span class="estimate">実機設置台数は調査中</span></div><div class="deviceGrid" id="deviceVisualGrid"></div><p class="vizFoot">対象機器の分類図。台数、病院別採用、メーカーシェア、優先順位を意味しません。装置実数は厚労省・病床機能報告等の同一定義データを要検証。</p></div><div class="tableScroll"><table><thead><tr><th>装置群</th><th>主な需要領域</th><th>公表数値の状態</th><th>検証・提案上の論点</th></tr></thead><tbody id="deviceRows"></tbody></table></div>
 <div class="grid2"><div class="panel"><h3>更新年次モデル（独自分析・推計）</h3><p>稼働年数、検査件数、故障・保守契約、画像連携、診療報酬、建物更新、停電時継続性を重ねる。導入年が不明な施設に架空の更新年次を付けない。</p></div><div class="panel"><h3>病院再編イベント</h3><p><strong>西和医療センター：</strong>2026年2月の県議会資料では再整備基本計画案の見直しと、開院時期の約1年遅延が示される。<strong>奈良県立医科大学：</strong>県病院マネジメント課の新外来棟整備情報を継続確認する。</p><p class="small">出典 S11・S12。</p></div></div></section>
+
+<section class="section deepSection" id="regional-deep-dive">
+  <div class="sectionTitle"><p>10 / NARA REGIONAL MARKET RESEARCH · REV 2026.10</p><h2>5医療圏を横断する将来需要・設備実績・患者移動・物流の統合分析</h2></div>
+  <p class="deepLead">奈良県の医療マーケットは「人口が多い地域に機器が多い」だけでは説明できない。2050年までの年齢構造、DPC患者住所地と病院所在地、2024年に公開されたCT/MRI保有例、国道168・169号の到達性を別々の尺度で見て、更新・保守・病診連携の課題を可視化する。</p>
+  <div class="deepStats" aria-label="深掘り分析の主要数値">
+    <div><span>2020→2050年の県人口推計</span><strong>−28.2%</strong><small>1,324,473 → 950,365人</small></div>
+    <div><span>南和の人口減少率</span><strong>−56.8%</strong><small>同期間・社人研2023年推計</small></div>
+    <div><span>南和の2050年高齢化率</span><strong>60.3%</strong><small>65歳以上／将来推計人口</small></div>
+    <div><span>検証対象の主要病院</span><strong>17施設</strong><small>2024年報告 CT/MRI・掲載例のみ</small></div>
+  </div>
+  <div class="deepMethod"><b>出典と転載の扱い</b><p>添付の「医療需給総覧」5医療圏版（2026年、日本経営）の数値・論点を精査し、元となる社人研・厚生労働省・奈良県などの公的資料へのリンクとともに、<strong>オリジナルの図表として再構成</strong>した。第三者レポートの図・画像そのものや、社内の顧客別営業計画、販社シェア、顧客名簿は掲載しない。各図の年次・分母・対象範囲を確認できる。</p></div>
+  <div class="subsectionHeader"><span>01 / LONG-TERM DEMOGRAPHICS</span><h3>2040・2050年に向けた地域別人口と75歳以上人口</h3></div>
+  <div class="deepChartGrid">
+    <article class="deepPanel"><h4>医療圏別の総人口推計（2020–2050年）</h4><canvas id="deepPopulationChart" role="img" aria-label="2020年から2050年まで5医療圏ごとの総人口推計の折れ線グラフ"></canvas><p class="deepCaption">図1｜国立社会保障・人口問題研究所、令和5年推計。2025年値は推計値であり実人口ではない。 <a href="https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/6houkoku/houkoku.asp" target="_blank" rel="noopener noreferrer">公的出典 R01</a></p></article>
+    <article class="deepPanel"><h4>75歳以上人口の将来推計（2020–2050年）</h4><canvas id="deepAge75Chart" role="img" aria-label="奈良県各二次医療圏の75歳以上人口推計の折れ線グラフ"></canvas><p class="deepCaption">図2｜2023年地域別将来人口推計の75歳以上。医療機器購入数や検査件数への直接換算値ではない。 <a href="https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/6houkoku/houkoku.asp" target="_blank" rel="noopener noreferrer">R01</a></p></article>
+  </div>
+  <div class="deepChartGrid">
+    <article class="deepPanel"><h4>2020→2050年の人口減少率</h4><canvas id="deepChangeChart" role="img" aria-label="奈良・東和・西和・中和・南和の人口増減率"></canvas><p class="deepCaption">図3｜人口が減る程度は地域ごとに異なる。比率は社人研の2020年／2050年推計値から独自計算（R01）。</p></article>
+    <article class="deepPanel"><h4>2050年の65歳以上人口割合</h4><canvas id="deepElderChart" role="img" aria-label="2050年の医療圏別高齢化率"></canvas><p class="deepCaption">図4｜2050年の65～74歳と75歳以上の合計を、同年人口で除した。全県2025年の実績高齢化率とは年次が異なる（R01）。</p></article>
+  </div>
+  <div class="tableScroll"><table class="deepTable"><thead><tr><th>医療圏</th><th>2020年人口</th><th>2030年推計</th><th>2040年推計</th><th>2050年推計</th><th>2020→2050</th><th>75歳以上・2050</th><th>65歳以上割合・2050</th></tr></thead><tbody id="deepForecastRows"></tbody></table></div>
+  <p class="note">**注意：** 人口将来推計は地域の患者数・検査数・機器の稼働台数をそのまま予測するものではありません。疾患構造、患者流動、医療機能再編、病院間連携を別に検証する必要があります。</p>
+  <div class="subsectionHeader"><span>02 / MEDICAL RESOURCES &amp; PATIENT FLOWS</span><h3>医療施設の供給密度とDPC患者流動の違い</h3></div>
+  <div class="deepChartGrid">
+    <article class="deepPanel"><h4>一般診療所の人口10万人当たり施設数</h4><canvas id="deepClinicDensityChart" role="img" aria-label="2023年医療施設調査と2020年国勢調査を使った医療圏別施設密度"></canvas><p class="deepCaption">図5｜令和5年医療施設調査の医療圏別施設数を、2020年国勢調査人口で割った指標。上段にある2021年の施設実数との増減比較は不可（R04）。</p></article>
+    <article class="deepPanel"><h4>DPC：患者住所地と医療機関所在地の比較</h4><canvas id="deepDpcFlowChart" role="img" aria-label="2023年DPC退院患者の住所地側件数と医療機関所在地側件数の医療圏別比較"></canvas><p class="deepCaption">図6｜2023年度DPC退院患者調査に基づく千件単位の集計。病院所在側と患者住所側の差は、地域間で受療する可能性を示すが、個別の県境移動経路や真の域内完結率は確定できない（R02）。</p></article>
+  </div>
+  <div class="tableScroll"><table class="deepTable"><thead><tr><th>医療圏</th><th>一般診療所 / 10万人<br>令和5年調査</th><th>可住地面積割合<br>2020年度</th><th>DPC所在側<br>2023年・千件</th><th>DPC患者住所側<br>2023年・千件</th><th>所在側÷住所側<br>参考比率</th></tr></thead><tbody id="deepCapacityRows"></tbody></table></div>
+  <div class="deepFlowNotes"><div><b>北部都市圏</b><span>西和のDPC所在側件数は患者住所地側より少ない。大阪等への越境受療の可能性はあるが、この数値だけで移動先を特定しない。</span></div><div><b>東部・中和</b><span>東和・中和は所在側の件数が住所側を上回る。県内外からの広域紹介を含む可能性があり、実際の患者移動は個票・流動表が必要。</span></div><div><b>南和</b><span>所在側が住所側を下回り、交通・搬送と地域外受療の体制が特に重要。人口密度の低さだけで医療需要を過小評価しない。</span></div></div>
+  <div class="subsectionHeader"><span>03 / CT &amp; MRI INSTALLED EXAMPLES</span><h3>主要救急受入病院のCT・MRI保有例（2024年7月）</h3></div>
+  <p>添付資料の病院機能比較から、2024年7月時点の公表値が読み取れる17施設を抜粋しました。機器の配置のイメージをつかむための<strong>施設別サンプル</strong>で、県内の全病院・全診療所の装置台数を集計したものではありません。</p>
+  <div class="deepChartGrid">
+    <article class="deepPanel"><h4>主要病院のCT保有例</h4><canvas id="deepCTChart" role="img" aria-label="奈良県主要病院の2024年報告CT保有例"></canvas><p class="deepCaption">図7｜掲載する代表施設のCT台数、2024年病床機能報告（R03）。未掲載施設をゼロ台とみなさない。</p></article>
+    <article class="deepPanel"><h4>主要病院のMRI保有例</h4><canvas id="deepMRIChart" role="img" aria-label="奈良県主要病院の2024年報告MRI保有例"></canvas><p class="deepCaption">図8｜掲載する代表施設のMRI台数、2024年病床機能報告（R03）。磁場強度別の比較ではない。</p></article>
+  </div>
+  <div class="controls"><label for="deepDeviceArea">医療圏を選択</label><select id="deepDeviceArea"><option value="">全5医療圏・抜粋17施設</option></select><label for="deepDeviceSearch">施設名検索</label><input id="deepDeviceSearch" type="search" placeholder="病院名を入力"></div>
+  <div class="tableScroll"><table class="deepTable"><thead><tr><th>医療圏</th><th>医療機関</th><th>CT台数</th><th>MRI台数</th><th>出典年次</th><th>地図</th></tr></thead><tbody id="deepDeviceRows"></tbody></table></div>
+  <p class="note"><b>機器市場の重要な区別：</b>CT・MRIの<strong>台数＝金額市場・メーカーシェア・更新時期ではありません</strong>。本表の17施設を合計して「奈良県の設置台数」と呼ばない。病床機能報告は2024年7月の時点であり、2025年の保有状況や最新の稼働・保守契約状況は別途確認が必要です。<a href="https://www.pref.nara.lg.jp/n081/68913.html" target="_blank" rel="noopener noreferrer">奈良県令和6年度病床機能報告</a></p>
+  <div class="subsectionHeader"><span>04 / ROAD NETWORK, BCP &amp; MEDICAL SERVICE LOGISTICS</span><h3>奈良県の医療圏をつなぐ道路と搬送・保守のリスク</h3></div>
+  <div class="deepChartGrid">
+    <article class="deepPanel"><h4>医療・保守・部品供給のルート構造</h4>
+      <svg class="roadConcept" viewBox="0 0 600 385" role="img" aria-label="大阪府・奈良北部・中和・南和を接続する道路網の概念図。実際の縮尺・道路形状ではない">
+        <rect x="8" y="8" width="584" height="369" rx="18" fill="#f1f7f9"/>
+        <g stroke-linecap="round" fill="none" stroke-width="8"><path d="M105 94L267 94L416 94" stroke="#5e9eaf"/><path d="M266 94L298 208L298 305" stroke="#327d9d"/><path d="M416 94L298 208" stroke="#91acc0"/><path d="M298 208L411 306" stroke="#d79863" stroke-dasharray="14 13"/></g>
+        <g font-family="system-ui,sans-serif" text-anchor="middle" font-weight="700">
+          <rect x="23" y="47" width="162" height="83" rx="13" fill="#e6f3e5" stroke="#b5d6c0"/><text x="104" y="78" fill="#234e56" font-size="18">大阪・京阪神</text><text x="104" y="102" fill="#658086" font-size="12">域外受療・部品供給</text>
+          <rect x="196" y="47" width="155" height="83" rx="13" fill="#d9edf1" stroke="#afd5df"/><text x="273" y="78" fill="#16495c" font-size="19">奈良・西和</text><text x="273" y="101" fill="#537284" font-size="12">都市型外来・基幹病院</text>
+          <rect x="364" y="47" width="204" height="83" rx="13" fill="#f0e8d1" stroke="#e5cda7"/><text x="466" y="79" fill="#73552c" font-size="18">東和・天理方面</text><text x="466" y="101" fill="#746b59" font-size="12">名阪国道・国道25号</text>
+          <rect x="194" y="166" width="206" height="81" rx="13" fill="#d9e7f3" stroke="#b8cfe0"/><text x="297" y="196" fill="#163e60" font-size="19">中和・橿原</text><text x="297" y="220" fill="#59738a" font-size="12">京奈和道・国道24号</text>
+          <rect x="147" y="275" width="303" height="84" rx="13" fill="#f7e5e9" stroke="#e7b3bf"/><text x="298" y="305" fill="#79374d" font-size="19">南和・吉野・十津川</text><text x="298" y="327" fill="#85586e" font-size="12">国道168号・169号 / 迂回・保守</text>
+        </g><text x="21" y="24" font-size="12" fill="#567688">NORTH / WEST</text><text x="472" y="366" font-size="12" fill="#567688">SOUTH</text>
+      </svg>
+      <p class="deepCaption">図9｜道路と医療機関を結ぶ<span class="highContrast">概念図</span>。道路線形、位置、距離、所要時間は表さない。公的な整備事業情報（R06–R08）を基に独自作図。<a href="#geography">実際の国土地理院ベースの施設マップ</a>と併用してください。</p>
+    </article>
+    <article class="deepPanel"><h4>保守・搬送の継続性を考える4つの領域</h4><div id="deepRoadCards" class="deepRoadCards"></div><p class="deepCaption">図10｜地域のアクセスと保守設計に関する定性的な分析。道路の現在の通行可否は含みません。最新状況は道路管理者の規制情報で要確認。</p></article>
+  </div>
+  <div class="tableScroll"><table class="deepTable"><thead><tr><th>物流軸</th><th>主要道路</th><th>関連医療圏</th><th>医療機器流通・保守への示唆</th><th>留意点</th></tr></thead><tbody id="deepRouteRows"></tbody></table></div>
+  <div class="deepMethod"><b>各医療圏の論点（独自分析）</b><div id="deepRegionInsights" class="deepRegionInsights"></div></div>
+  <div class="deepSourceBlock"><div class="vizHead"><div><span class="eyebrowTiny">PUBLIC SOURCE INDEX</span><h3>引用・追跡できる一次情報</h3></div><a class="miniLink" href="data/deep-dive-2026.json" target="_blank" rel="noopener noreferrer">本ページの比較データ（JSON）を見る</a></div><ol id="deepSourceRows"></ol><p class="deepCaption">図表は本ページ用に新規描画。引用時は原資料名、統計年次、図の計算条件を併記してください。添付された民間レポートの図版・デザインは複製していません。</p></div>
+</section>
 <section class="section" id="distribution"><div class="sectionTitle"><p>07 / CHANNEL STRUCTURE</p><h2>医療機器商社・医薬品卸・地場ネットワーク</h2></div><div class="grid3"><div class="panel"><h3>医療機器ディーラー</h3><p>宮野医療器、大黒、日光医科器械、いわしや、セイコーメディカル、石黒メディカル等の地域対応を調査対象にする。県内営業拠点・取扱領域・サービス体制は各社公表情報で個別確認が必要。</p></div><div class="panel"><h3>広域医薬品卸</h3><p>メディパルグループ、アルフレッサグループ、スズケングループ、東邦薬品などについて、県内拠点の実在と病院/診療所の流通網を調べる。薬品取扱高＝画像機器シェアではない。</p></div><div class="panel"><h3>SPD・材料・サービス</h3><p>消耗品、医療材料、SPD、保守、電子カルテ連携は市場構造上の関連領域。ただし機器売上・資材売上を混算しない。</p></div></div>
 <p class="note">過去資料の商社別売上・市場シェア・販社優先順位等の非公開データは転載していない。「県内シェア」「県内最有力」等の序列を公的事実として断定しない。</p></section>
 <section class="section" id="external"><div class="sectionTitle"><p>08 / PEST · RISKS</p><h2>政策・経営・人口・災害を同時に読む</h2></div><div class="grid2"><div class="panel"><h3>診療報酬・経営環境</h3><p>人件費・建設費・エネルギー費、診療報酬改定、医師の時間外労働規制を合わせて評価。高額機器は「検査数×収益」だけでなく、保守・消費電力・人員・BCPを含む総保有コストで比較する。</p></div><div class="panel"><h3>災害・地政学・供給網</h3><p>南和を中心とする山間交通・豪雨/土砂災害に注意。南海トラフ等の広域災害では県外の輸送や部品供給にも影響があり得る。消耗部品、電子部品、医療用冷媒、修理対応の代替ルートを定義する。</p></div></div>
