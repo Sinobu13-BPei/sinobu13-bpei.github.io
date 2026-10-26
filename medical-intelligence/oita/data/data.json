@@ -12,7 +12,7 @@
     "projected2050": 841000,
     "elderly2020": 32.9,
     "elderly2050": 40.5,
-    "nationalElderly2020": 28,
+    "nationalElderly2020": 28.6,
     "nationalElderly2050": 37.1
   },
   "beds2025": {
@@ -628,15 +628,21 @@
     ],
     [
       "S28",
-      "大分県医療計画概要（二次医療圏と基準病床）",
+      "第8次大分県医療計画・二次医療圏と基準病床（県公表ページ）",
       "2024～2029年度",
-      "https://www.pref.oita.jp/uploaded/attachment/2209268.pdf"
+      "https://www.pref.oita.jp/soshiki/12620/iryoukeikaku8.html"
     ],
     [
       "S29",
       "SCUEL 公的報告に基づく大分大学保有設備集計",
       "2025年度外来機能報告ベース",
       "https://scueldata.me/insight/inpatients/h/bd97b75ed0/"
+    ],
+    [
+      "S30",
+      "内閣府 令和8年版高齢社会白書／都道府県別高齢化率比較・社人研将来推計",
+      "2024年実績・2050年推計（2026年公表）",
+      "https://www8.cao.go.jp/kourei/whitepaper/w-2026/html/zenbun/s1_1_4.html"
     ]
   ]
 }
