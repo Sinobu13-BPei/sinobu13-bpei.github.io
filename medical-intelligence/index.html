@@ -189,6 +189,17 @@ function draw(){
       niigataLink.textContent='新潟MKT ↗';
       actions.appendChild(niigataLink);
     }
+    if(p[0]==='石川県'){
+      const ishikawaLink=document.createElement('a');
+      ishikawaLink.href='https://sinobu13-bpei.github.io/medical-intelligence/ishikawa/';
+      ishikawaLink.target='_blank';
+      ishikawaLink.rel='noopener noreferrer';
+      ishikawaLink.className='fukui-mkt-btn';
+      ishikawaLink.style.cssText='background:linear-gradient(110deg,#086b74,#0e9292);color:#fff;border:1px solid #007f85;border-radius:8px;padding:7px 13px;font-weight:800;box-shadow:0 4px 12px rgba(0,90,105,.2)';
+      ishikawaLink.textContent='石川MKT ↗';
+      ishikawaLink.setAttribute('aria-label','石川県の医療マーケット調査を開く');
+      actions.appendChild(ishikawaLink);
+    }
     if(p[0]==='福井県'){
       const fukuiLink=document.createElement('a');
       fukuiLink.href='https://sinobu13-bpei.github.io/medical-intelligence/fukui/';
