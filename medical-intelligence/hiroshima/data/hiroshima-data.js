@@ -1,0 +1,98 @@
+/* 広島県 医療MKT調査 — 公開情報と編集部分析のみ。2026-10-26 */
+window.HIROSHIMA_DATA = {
+ updated:"2026-10-26",
+ population:{estimate202609:2675196,census2020:2799702,ipss2025:2704000,ipss2030:2618000,ipss2040:2428000,ipss2050:2230000,city2025:1171915},
+ bedsNeeded:{year:2025,high:2989,acute:9118,recovery:9747,chronic:6760,total:28614},
+ doctorIndex:{national:266.8,hiroshima:264.0,okayama:302.7,yamaguchi:241.1,shimane:243.6,ehime:263.6},
+ source:{
+  pop2026:{title:"広島県「推計人口の推移」2026年9月1日",year:"2026",url:"https://www.pref.hiroshima.lg.jp/soshiki/21/jinkougeppojinkousuiisaisin.html"},
+  census2025:{title:"広島県「2025年国勢調査」2026年9月公表",year:"2025",url:"https://www.pref.hiroshima.lg.jp/site/toukei/kokuseityosa.html"},
+  citypop:{title:"広島市「令和7年国勢調査結果（人口等基本集計）」",year:"2025",url:"https://www.city.hiroshima.lg.jp/shisei/toukei/1027865/1027866/1050276.html"},
+  ipss:{title:"国立社会保障・人口問題研究所「地域別将来推計人口」令和5年推計",year:"2023推計/2025–2050",url:"https://www.ipss.go.jp/syoushika/tohkei/Data/Popular2026/T12-06.files/sheet001.htm"},
+  plan:{title:"広島県「第8次広島県保健医療計画」",year:"2024–2029",url:"https://www.pref.hiroshima.lg.jp/soshiki/54/hokeniryoukeikaku-8.html"},
+  beds:{title:"広島県「令和7年度病床機能報告集計結果」",year:"2025年7月/公表2026年7月",url:"https://www.pref.hiroshima.lg.jp/soshiki/54/reiwa07.html"},
+  need:{title:"広島県「地域医療構想」2025年必要病床数",year:"2016構想/2025推計",url:"https://www.pref.hiroshima.lg.jp/soshiki/54/hiroshimairyoukousou.html"},
+  doctors:{title:"厚生労働省「医師偏在指標」",year:"2026年4月公表",url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"},
+  newhosp:{title:"広島県「高度医療・人材育成拠点 新病院概要」",year:"2026年5月更新",url:"https://www.pref.hiroshima.lg.jp/site/koudoiryou-jinzai/shinbyouin-gaiyou.html"},
+  fukuyama:{title:"福山市民病院「病院概要・指定・認定状況」",year:"2026",url:"https://www.fc-hosp.jp/soshiki/5/7641.html"},
+  build:{title:"福山市「市民病院 新本館1期完成」",year:"2026年9月",url:"https://www.city.fukuyama.hiroshima.jp/site/koho-202609/408956.html"},
+  medico:{title:"広島県医師会「地区医師会一覧」",year:"参照2026-10",url:"https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/"},
+  medsh:{title:"広島県「地域医療支援病院業務報告」",year:"2025年12月",url:"https://www.pref.hiroshima.lg.jp/soshiki/54/1196573014080.html"},
+  remote:{title:"広島県「へき地医療連携体制」",year:"2024年12月",url:"https://www.pref.hiroshima.lg.jp/uploaded/attachment/602043.pdf"},
+  kan:{title:"広島がんネット「がん診療連携拠点病院」",year:"2026年4月",url:"https://www.pref.hiroshima.lg.jp/site/gan-net/iryou-kyotenbyouin.html"},
+  hnet:{title:"ひろしま医療情報ネットワーク HMネット",year:"参照2026-10",url:"https://www.hm-net.or.jp/about/index.html"},
+  fund:{title:"広島県「地域医療構想に係る補助金・給付金」",year:"2026年7月",url:"https://www.pref.hiroshima.lg.jp/soshiki/54/shinkikin-hojo.html"},
+  dx:{title:"厚生労働省「医療DXについて」",year:"2026年10月",url:"https://www.mhlw.go.jp/stf/iryoudx.html"},
+  office:{title:"厚生労働省「広島県保健所所管区域」",year:"参照2026-10",url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/34hiroshima.html"},
+  univ:{title:"広島大学「部局等所在地一覧」",year:"参照2026-10",url:"https://www.hiroshima-u.ac.jp/about/about/list_addresses"},
+  cities:{title:"広島市立病院機構「機構概要・組織」",year:"2026年2月掲載",url:"https://www.hcho.jp/organize/organization/"},
+  sales:{title:"小西医療器「事業拠点」",year:"参照2026-10",url:"https://www.kns-md.co.jp/company/location/"}
+ },
+ areas:[
+  {name:"広島",cities:"広島市・安芸高田市・府中町・海田町・熊野町・坂町・安芸太田町・北広島町",beds:[2695,4351,2661,2321,535],total:12563,center:[34.41,132.46],score:[5,5,4,5,3],driver:"大学・高度急性期集積／新病院整備",issue:"集約化に伴う既存施設の役割転換・調達統合",future:"新病院調達、病診連携、手術・画像・情報統合",hosp:"広島大学病院・広島市民病院"},
+  {name:"広島西",cities:"大竹市・廿日市市",beds:[270,523,235,847,28],total:1903,center:[34.35,132.29],score:[3,4,3,4,4],driver:"西部生活圏／広島都市圏との受診連動",issue:"慢性期依存・医療圏越境、療養から在宅へ",future:"慢性期・回復期機能再編、画像連携",hosp:"JA廣島総合病院"},
+  {name:"呉",cities:"呉市・江田島市",beds:[312,1318,694,657,191],total:3172,center:[34.25,132.57],score:[3,5,4,5,3],driver:"造船産業・高齢化、急性期中核・島しょ医療",issue:"沿岸交通・島しょ搬送／人口減少",future:"高度画像の効率更新、遠隔診断・BCP",hosp:"呉医療センター・中国労災病院"},
+  {name:"広島中央",cities:"竹原市・東広島市・大崎上島町",beds:[238,609,639,904,11],total:2401,center:[34.43,132.76],score:[4,4,4,4,4],driver:"東広島の大学・研究集積と沿岸・離島の二極化",issue:"急性期・高齢者慢性期・島しょ医療の分担",future:"東広島中心の診療所更新・地域画像連携",hosp:"東広島医療センター"},
+  {name:"尾三",cities:"三原市・尾道市・世羅町",beds:[345,1144,809,675,153],total:3126,center:[34.40,133.11],score:[4,4,4,4,4],driver:"尾道・三原の急性期としまなみ医療",issue:"島しょ搬送・外来縮小・病床再編",future:"画像共同利用、在宅移行・拠点集約",hosp:"JA尾道総合病院"},
+  {name:"福山・府中",cities:"福山市・府中市・神石高原町",beds:[640,2145,1331,741,120],total:4977,center:[34.48,133.36],score:[5,5,4,5,4],driver:"備後の人口集積、救急・高度医療センター更新",issue:"市街・山間で医師配置の格差",future:"福山市民病院増改築と周辺機器更新、検査連携",hosp:"福山市民病院"},
+  {name:"備北",cities:"三次市・庄原市",beds:[34,475,195,660,100],total:1464,center:[34.80,132.85],score:[2,5,5,4,3],driver:"広大な中山間地域／高齢者救急・在宅",issue:"人材不足、移動・保守負担、医療機器稼働率",future:"可搬型・遠隔支援・保守の共同化",hosp:"市立三次中央病院・庄原赤十字病院"}
+ ],
+ facilities:[
+  {name:"広島大学病院",type:"大学・特定機能",area:"広島",address:"広島市南区霞1-2-3",lat:34.3788,lng:132.4797,url:"https://www.hiroshima-u.ac.jp/hosp",note:"医学部・大学病院。先進医療、研修と地域医師派遣"},
+  {name:"広島大学 医学部（霞キャンパス）",type:"医学部",area:"広島",address:"広島市南区霞1-2-3",lat:34.3785,lng:132.4793,url:"https://www.hiroshima-u.ac.jp/med",note:"県内の医学部設置大学。地域教育・研究と医局ネットワーク"},
+  {name:"広島市立広島市民病院",type:"公立・高度急性期",area:"広島",address:"広島市中区基町7-33",lat:34.3972,lng:132.4575,url:"https://www.city-hosp.naka.hiroshima.jp/",note:"市立病院機構・救急中核"},
+  {name:"県立広島病院",type:"県立・高度急性期",area:"広島",address:"広島市南区宇品神田1-5-54",lat:34.3683,lng:132.465,url:"https://hpho.jp/hiroshima/",note:"2030年度予定の再編対象"},
+  {name:"県立二葉の里病院",type:"県立病院機構",area:"広島",address:"広島市東区二葉の里3-1-36",lat:34.3998,lng:132.468,url:"https://hpho.jp/",note:"旧JR広島病院、再編対象"},
+  {name:"広島県 新病院計画地",type:"再編予定地",area:"広島",address:"広島市東区二葉の里3丁目",lat:34.400,lng:132.468,url:"https://www.pref.hiroshima.lg.jp/site/koudoiryou-jinzai/shinbyouin-gaiyou.html",note:"2030年度開院予定／計画は変更可能"},
+  {name:"北部医療センター安佐市民病院",type:"公立・救急",area:"広島",address:"広島市安佐北区亀山南1-2-1",lat:34.5209,lng:132.505,url:"https://www.asa-hosp.city.hiroshima.jp/",note:"北部・山間の地域中核"},
+  {name:"広島赤十字・原爆病院",type:"日赤・急性期",area:"広島",address:"広島市中区千田町1-9-6",lat:34.3793,lng:132.459,url:"https://www.hiroshima-med.jrc.or.jp/",note:"がん・急性期、被爆者医療"},
+  {name:"JA廣島総合病院",type:"厚生連・地域支援",area:"広島西",address:"廿日市市地御前1-3-3",lat:34.346,lng:132.307,url:"https://hirobyo.jp/",note:"広島西の紹介連携中核"},
+  {name:"呉医療センター",type:"国立病院機構",area:"呉",address:"呉市青山町3-1",lat:34.240,lng:132.566,url:"https://kure.hosp.go.jp/",note:"呉地域・救急・がん中核"},
+  {name:"中国労災病院",type:"労災病院",area:"呉",address:"呉市広多賀谷1-5-1",lat:34.236,lng:132.626,url:"https://www.chugokuh.johas.go.jp/",note:"労災、整形・急性期"},
+  {name:"東広島医療センター",type:"国立病院機構",area:"広島中央",address:"東広島市西条町寺家513",lat:34.433,lng:132.726,url:"https://higashihiroshima.hosp.go.jp/",note:"広島中央の急性期・地域医療連携"},
+  {name:"JA尾道総合病院",type:"厚生連・急性期",area:"尾三",address:"尾道市平原1-10-23",lat:34.414,lng:133.18,url:"https://onomichi-gh.jp/",note:"尾三の急性期・がん診療"},
+  {name:"福山市民病院",type:"公立・救命救急",area:"福山・府中",address:"福山市蔵王町5-23-1",lat:34.504,lng:133.394,url:"https://www.fc-hosp.jp/",note:"2026年新本館1期完成、公開機器仕様あり"},
+  {name:"市立三次中央病院",type:"公立・へき地拠点",area:"備北",address:"三次市東酒屋町10531",lat:34.786,lng:132.849,url:"https://www.miyoshi-central-hospital.jp/",note:"備北・救急中核"},
+  {name:"庄原赤十字病院",type:"日赤・へき地拠点",area:"備北",address:"庄原市西本町2-7-10",lat:34.857,lng:133.014,url:"https://shobara.jrc.or.jp/",note:"山間医療・巡回と地域支援"},
+  {name:"広島県庁 医療政策課",type:"行政",area:"広島",address:"広島市中区基町10-52",lat:34.396,lng:132.459,url:"https://www.pref.hiroshima.lg.jp/soshiki/54/",note:"医療計画・地域医療構想・基金"},
+  {name:"広島県医師会",type:"医師会",area:"広島",address:"広島市東区二葉の里3-2-3",lat:34.400,lng:132.470,url:"https://www.hiroshima.med.or.jp/",note:"県域医療連携・HMネット"}
+ ],
+ associations:[
+  {name:"広島県医師会",address:"広島市東区二葉の里3-2-3",url:"https://www.hiroshima.med.or.jp/"},
+  {name:"広島市医師会",address:"広島市西区観音本町1-1-1",url:"https://www.city.hiroshima.med.or.jp/"},
+  {name:"呉市医師会",address:"呉市朝日町15-24",url:"https://www.kure.hiroshima.med.or.jp/"},
+  {name:"福山市医師会",address:"福山市三吉町南2-11-25",url:"https://www.fukuyama.hiroshima.med.or.jp/"},
+  {name:"尾道市医師会",address:"尾道市栗原東2-4-33",url:"https://www.onomichi-med.or.jp/"},
+  {name:"三原市医師会",address:"三原市宮浦1丁目",url:"https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/"}
+ ],
+ healthOffices:[
+  {name:"広島市保健所",address:"広島市中区国泰寺町1-6-34"},
+  {name:"呉市保健所",address:"呉市和庄1-2-13"},
+  {name:"福山市保健所",address:"福山市三吉町南2-11-22"},
+  {name:"西部保健所",address:"廿日市市桜尾2-2-68"},
+  {name:"西部保健所広島支所",address:"広島市中区基町10-52"},
+  {name:"西部保健所呉支所",address:"呉市西中央1-3-25"},
+  {name:"西部東保健所",address:"東広島市西条昭和町13-10"},
+  {name:"東部保健所",address:"尾道市古浜町26-12"},
+  {name:"東部保健所福山支所",address:"福山市三吉町1-1-1"},
+  {name:"北部保健所",address:"三次市十日市東4-6-1"}
+ ],
+ trade:[
+  {name:"カワニシ",type:"医療機器・SPD",url:"https://www.kawanishi-md.co.jp/",scope:"中四国の医療機器流通"},
+  {name:"小西医療器",type:"医療機器・修理",url:"https://www.kns-md.co.jp/company/location/",scope:"広島営業所を公表"},
+  {name:"ティーエスアルフレッサ",type:"医薬品・医療関連",url:"https://www.ts-alfresa.net/",scope:"県内に営業基盤"},
+  {name:"メディセオ",type:"医薬品卸",url:"https://www.mediceo.co.jp/",scope:"広域医薬品物流"},
+  {name:"スズケン",type:"医薬品卸",url:"https://www.suzuken.co.jp/",scope:"広域医薬品物流"},
+  {name:"東邦薬品",type:"医薬品卸",url:"https://www.tohoyk.co.jp/",scope:"広域医薬品物流"},
+  {name:"五洋医療器",type:"医療機器",url:"https://www.google.com/search?q=%E4%BA%94%E6%B4%8B%E5%8C%BB%E7%99%82%E5%99%A8+%E5%BA%83%E5%B3%B6",scope:"地場流通（所在地等要追加検証）"}
+ ],
+ verifiedDevices:[
+  {facility:"福山市民病院",type:"320列MSCT",count:"2台",note:"機種仕様・設置更新年は非公表"},
+  {facility:"福山市民病院",type:"IVR-CT",count:"1台",note:"CTとの重複定義に注意"},
+  {facility:"福山市民病院",type:"MRI",count:"2台",note:"磁場強度・導入年は非公表"},
+  {facility:"福山市民病院",type:"PET-CT",count:"1台",note:"病院の公開設備一覧"},
+  {facility:"福山市民病院",type:"血管連続撮影",count:"3台",note:"病院の公開設備一覧"},
+  {facility:"福山市民病院",type:"高精度放射線治療",count:"1台",note:"病院の公開設備一覧"},
+  {facility:"福山市民病院",type:"人工透析",count:"30床",note:"装置台数ではなく透析床数"}
+ ]
+};
