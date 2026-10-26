@@ -44,4 +44,6 @@
 
 .map{position:relative}.map-offline{display:flex;flex-direction:column;justify-content:center;height:100%;padding:24px;color:#213d50;background:#e9f1f3;border-radius:14px}.map-offline strong{font-size:18px}.map-offline p{font-size:13px;line-height:1.8}.map-offline a{font-weight:800}.map-tile-warning{position:absolute;z-index:1000;bottom:22px;left:12px;right:12px;background:#fff6d9;color:#523d1b;border:1px solid #b48a30;border-radius:8px;padding:8px 12px;font-size:12px;box-shadow:0 4px 10px #0002}
 
-.chart-legend{display:flex;align-items:center;flex-wrap:wrap;gap:8px 15px;margin:9px 2px 4px;color:#314c60;font-weight:750;font-size:12px}.chart-legend span{display:inline-flex;align-items:center;gap:5px}.chart-legend i{display:inline-block;width:13px;height:13px;border-radius:3px;flex:none}@media(max-width:520px){.chart-static svg{min-width:0}.chart-legend{font-size:11px;gap:8px 10px}}
+.chart-legend{display:flex;align-items:center;flex-wrap:wrap;gap:8px 15px;margin:9px 2px 4px;color:#314c60;font-weight:750;font-size:12px}.chart-legend span{display:inline-flex;align-items:center;gap:5px}.chart-legend i{display:inline-block;width:13px;height:13px;border-radius:3px;flex:none}@media(max-width:520px){.chart-static svg{min-width:520px}.chart-legend{font-size:11px;gap:8px 10px}}
+
+@media(max-width:520px){.chart-static:has(svg)::after{content:"グラフは左右にスクロールして確認できます";display:block;font-size:11px;color:#356481;font-weight:700;margin-top:3px}}
