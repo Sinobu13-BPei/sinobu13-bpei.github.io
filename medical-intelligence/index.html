@@ -92,6 +92,14 @@ function draw(){
     let row=document.createElement('div');row.className='region';
     let title=document.createElement('strong');title.textContent=p[0];
     let actions=document.createElement('div');actions.className='region-actions';
+    if(p[0]==='高知県'){
+      const kochiLink=document.createElement('a');
+      kochiLink.href='./kochi/';kochiLink.target='_blank';kochiLink.rel='noopener noreferrer';
+      kochiLink.className='kochi-mkt-btn';kochiLink.textContent='高知MKT ↗';
+      kochiLink.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:7px 13px;background:#08786c;color:#fff;font-weight:800;border:2px solid #046258;border-radius:10px;text-decoration:none';
+      kochiLink.setAttribute('aria-label','高知県医療機器マーケット分析を開く');actions.appendChild(kochiLink);
+    }
+
     if(p[0]==='宮崎県'){
       const miyazakiLink=document.createElement('a');
       miyazakiLink.href='./miyazaki/';
