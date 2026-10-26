@@ -1,0 +1,833 @@
+{
+  "updated": "2026-10-26",
+  "note": "座標は地図表示用の概略値です。建物入口位置を保証しません。病床機能報告と必要病床数は定義・年次が違い、過不足を単純断定できません。",
+  "sources": {
+    "P01": {
+      "title": "埼玉県 2026年9月推計人口",
+      "year": "2026-09",
+      "url": "https://www.pref.saitama.lg.jp/a0206/news/page/news2026093001.html"
+    },
+    "P02": {
+      "title": "社人研 地域別将来推計人口（令和5年推計）",
+      "year": "2023推計・2020〜2050",
+      "url": "https://www.ipss.go.jp/syoushika/tohkei/Data/Popular2026/T12-06.files/sheet001.htm"
+    },
+    "P03": {
+      "title": "埼玉県 第8次地域保健医療計画",
+      "year": "2024〜2029",
+      "url": "https://www.pref.saitama.lg.jp/a0701/iryou-keikaku/8keikakunaiyou.html"
+    },
+    "P04": {
+      "title": "埼玉県 病床機能報告 令和6年度",
+      "year": "2024-07-01",
+      "url": "https://www.pref.saitama.lg.jp/a0701/byosyokinou/byosyokinou_r6.html"
+    },
+    "P05": {
+      "title": "地域医療構想・2025年必要病床数",
+      "year": "2025需要・2016年策定時推計を第8次計画に継承",
+      "url": "https://www.pref.saitama.lg.jp/documents/249628/keikaku_all.pdf"
+    },
+    "P06": {
+      "title": "埼玉県 医師数（県知事会見）",
+      "year": "2024医師・2026公表",
+      "url": "https://www.pref.saitama.lg.jp/a0001/room-kaiken/kaiken20260421.html"
+    },
+    "P07": {
+      "title": "県医師会 郡市医師会",
+      "year": "2022-07掲載一覧",
+      "url": "https://www.saitama.med.or.jp/iryou_5.html"
+    },
+    "P08": {
+      "title": "県医師会 組織概要",
+      "year": "2026",
+      "url": "https://www.saitama.med.or.jp/about_5.html"
+    },
+    "P09": {
+      "title": "埼玉県 保健所一覧",
+      "year": "2026-08",
+      "url": "https://www.pref.saitama.lg.jp/a0701/hokenjo/index.html"
+    },
+    "P10": {
+      "title": "埼玉県 救命救急センター",
+      "year": "2026-06",
+      "url": "https://www.pref.saitama.lg.jp/a0703/kyukyuiryou.html"
+    },
+    "P11": {
+      "title": "埼玉県 災害拠点病院",
+      "year": "2026-07",
+      "url": "https://www.pref.saitama.lg.jp/a0703/saigaijiiryo/saigaikyotenbyoin.html"
+    },
+    "P12": {
+      "title": "埼玉県 がん診療連携拠点",
+      "year": "2026-04",
+      "url": "https://www.pref.saitama.lg.jp/a0705/gantaisaku/ganiryou.html"
+    },
+    "P13": {
+      "title": "埼玉県 地域医療支援病院",
+      "year": "2026-03",
+      "url": "https://www.pref.saitama.lg.jp/a0703/chiiki-shien-houkoku.html"
+    },
+    "P14": {
+      "title": "医療施設調査 2023 都道府県編 医療機器",
+      "year": "2023",
+      "url": "https://www.e-stat.go.jp/stat-search/files?cycle=7&layout=datalist&month=0&tclass1=000001222880&tclass2=000001222882&toukei=00450021&tstat=000001030908&year=20230"
+    },
+    "P15": {
+      "title": "2025年度 病院整備計画公募結果",
+      "year": "2025-02",
+      "url": "https://www.pref.saitama.lg.jp/a0703/news/page/news2025021401.html"
+    },
+    "P16": {
+      "title": "地域医療介護総合確保基金・県予算",
+      "year": "2026",
+      "url": "https://www.pref.saitama.lg.jp/a0103/yosan-public.html"
+    },
+    "P17": {
+      "title": "令和6年 埼玉県保健統計年報",
+      "year": "2024統計・2026刊行",
+      "url": "https://www.pref.saitama.lg.jp/a0701/hokentoukei/r6hoken/iryotoukei.html"
+    },
+    "P18": {
+      "title": "県統計 高齢化の状況",
+      "year": "2020実績・2040推計",
+      "url": "https://www.pref.saitama.lg.jp/a0603/keikaku/koreikanozyokyo.html"
+    },
+    "P19": {
+      "title": "地域別医師数・偏在指標 原統計解説（二次資料）",
+      "year": "2024実績・2026偏在",
+      "url": "https://scueldata.me/insight/workforce/doctor/saitama/"
+    },
+    "P20": {
+      "title": "内閣府 防災情報",
+      "year": "随時更新",
+      "url": "https://www.bousai.go.jp/"
+    },
+    "P21": {
+      "title": "厚生労働省 特定機能病院",
+      "year": "2025-04時点",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000137801.html"
+    },
+    "P22": {
+      "title": "外来機能報告・高額医療機器保有",
+      "year": "2023,2024",
+      "url": "https://www.pref.saitama.lg.jp/a0701/r5gairaihoukokukekka.html"
+    },
+    "P23": {
+      "title": "提供された医療機器・用品市場調査（県別調査）",
+      "year": "2023年度・外部調査による推計",
+      "url": ""
+    },
+    "P24": {
+      "title": "令和8年度 県予算事業別公開",
+      "year": "2026",
+      "url": "https://www.pref.saitama.lg.jp/yosan-info/ST2026-10/main.html"
+    }
+  },
+  "areas": [
+    {
+      "name": "南部",
+      "report2024": {
+        "total": 4623,
+        "high": 205,
+        "acute": 2812,
+        "recovery": 602,
+        "chronic": 777,
+        "closed": 31,
+        "unreported": 196
+      },
+      "needed2025": {
+        "total": 5025,
+        "high": 609,
+        "acute": 1922,
+        "recovery": 1623,
+        "chronic": 871
+      },
+      "lat": 35.79,
+      "lng": 139.72,
+      "municipalities": "川口市、蕨市、戸田市",
+      "hospitals": "川口市立医療センター／戸田中央総合病院",
+      "drivers": "都市型急性期・在宅後方・人口流動",
+      "scoreInputs": [
+        4.8,
+        4.5,
+        3.7,
+        4.8,
+        4.4
+      ]
+    },
+    {
+      "name": "南西部",
+      "report2024": {
+        "total": 4709,
+        "high": 211,
+        "acute": 2765,
+        "recovery": 518,
+        "chronic": 1202,
+        "closed": 0,
+        "unreported": 13
+      },
+      "needed2025": {
+        "total": 4777,
+        "high": 425,
+        "acute": 1685,
+        "recovery": 1356,
+        "chronic": 1311
+      },
+      "lat": 35.81,
+      "lng": 139.59,
+      "municipalities": "朝霞市、志木市、和光市、新座市、富士見市、ふじみ野市、三芳町",
+      "hospitals": "NHO埼玉病院／TMGあさか医療センター",
+      "drivers": "東京近接・通院越境・中堅病院更新",
+      "scoreInputs": [
+        4.3,
+        4.1,
+        4,
+        3.9,
+        4.3
+      ]
+    },
+    {
+      "name": "東部",
+      "report2024": {
+        "total": 7882,
+        "high": 275,
+        "acute": 4508,
+        "recovery": 1015,
+        "chronic": 1668,
+        "closed": 145,
+        "unreported": 271
+      },
+      "needed2025": {
+        "total": 8935,
+        "high": 831,
+        "acute": 2783,
+        "recovery": 2734,
+        "chronic": 2587
+      },
+      "lat": 35.93,
+      "lng": 139.8,
+      "municipalities": "春日部市、草加市、越谷市、八潮市、三郷市、吉川市、松伏町",
+      "hospitals": "獨協医科大学埼玉医療センター／草加市立病院",
+      "drivers": "人口大・回復期連携・東部公募採択",
+      "scoreInputs": [
+        4.9,
+        4.6,
+        4.4,
+        4.5,
+        4.2
+      ]
+    },
+    {
+      "name": "さいたま",
+      "report2024": {
+        "total": 7048,
+        "high": 1616,
+        "acute": 3027,
+        "recovery": 736,
+        "chronic": 1324,
+        "closed": 46,
+        "unreported": 299
+      },
+      "needed2025": {
+        "total": 7664,
+        "high": 1039,
+        "acute": 2770,
+        "recovery": 2301,
+        "chronic": 1554
+      },
+      "lat": 35.87,
+      "lng": 139.65,
+      "municipalities": "さいたま市",
+      "hospitals": "さいたま赤十字病院／自治医大さいたま／さいたま市立病院",
+      "drivers": "高度急性期集積・紹介・診療所面",
+      "scoreInputs": [
+        5,
+        4.6,
+        4.1,
+        5,
+        4.1
+      ]
+    },
+    {
+      "name": "県央",
+      "report2024": {
+        "total": 3464,
+        "high": 181,
+        "acute": 1871,
+        "recovery": 284,
+        "chronic": 853,
+        "closed": 136,
+        "unreported": 139
+      },
+      "needed2025": {
+        "total": 3534,
+        "high": 344,
+        "acute": 1273,
+        "recovery": 1120,
+        "chronic": 797
+      },
+      "lat": 35.98,
+      "lng": 139.59,
+      "municipalities": "上尾市、鴻巣市、桶川市、北本市、伊奈町",
+      "hospitals": "上尾中央総合病院／埼玉県立がんセンター",
+      "drivers": "がん診療・広域紹介・検査共同利用",
+      "scoreInputs": [
+        3.8,
+        4.2,
+        3.8,
+        4.2,
+        4.1
+      ]
+    },
+    {
+      "name": "川越比企",
+      "report2024": {
+        "total": 7162,
+        "high": 1774,
+        "acute": 2028,
+        "recovery": 1124,
+        "chronic": 1918,
+        "closed": 172,
+        "unreported": 146
+      },
+      "needed2025": {
+        "total": 7652,
+        "high": 802,
+        "acute": 2260,
+        "recovery": 2518,
+        "chronic": 2072
+      },
+      "lat": 35.92,
+      "lng": 139.49,
+      "municipalities": "川越市、東松山市、坂戸市、鶴ヶ島市、毛呂山町ほか",
+      "hospitals": "埼玉医科大学総合医療センター／埼玉医科大学病院",
+      "drivers": "大学医療・急性期拠点・公募採択",
+      "scoreInputs": [
+        4.6,
+        4.3,
+        4.6,
+        4.7,
+        4
+      ]
+    },
+    {
+      "name": "西部",
+      "report2024": {
+        "total": 7567,
+        "high": 872,
+        "acute": 3117,
+        "recovery": 900,
+        "chronic": 1953,
+        "closed": 148,
+        "unreported": 577
+      },
+      "needed2025": {
+        "total": 7951,
+        "high": 694,
+        "acute": 2249,
+        "recovery": 2370,
+        "chronic": 2638
+      },
+      "lat": 35.84,
+      "lng": 139.42,
+      "municipalities": "所沢市、飯能市、狭山市、入間市、日高市",
+      "hospitals": "防衛医科大学校病院／埼玉医科大学国際医療センター",
+      "drivers": "専門高度医療・災害・慢性期",
+      "scoreInputs": [
+        4.5,
+        4.4,
+        4.1,
+        4.8,
+        4.1
+      ]
+    },
+    {
+      "name": "利根",
+      "report2024": {
+        "total": 4562,
+        "high": 384,
+        "acute": 2260,
+        "recovery": 704,
+        "chronic": 1055,
+        "closed": 106,
+        "unreported": 53
+      },
+      "needed2025": {
+        "total": 4630,
+        "high": 426,
+        "acute": 1580,
+        "recovery": 1448,
+        "chronic": 1176
+      },
+      "lat": 36.1,
+      "lng": 139.69,
+      "municipalities": "加須市、久喜市、行田市、羽生市、蓮田市ほか",
+      "hospitals": "済生会加須病院／新久喜総合病院",
+      "drivers": "東北道沿線・在宅・急性期ネットワーク",
+      "scoreInputs": [
+        3.6,
+        4.4,
+        4.3,
+        3.6,
+        4.3
+      ]
+    },
+    {
+      "name": "北部",
+      "report2024": {
+        "total": 3891,
+        "high": 420,
+        "acute": 1898,
+        "recovery": 444,
+        "chronic": 1011,
+        "closed": 108,
+        "unreported": 10
+      },
+      "needed2025": {
+        "total": 3442,
+        "high": 327,
+        "acute": 1258,
+        "recovery": 1066,
+        "chronic": 791
+      },
+      "lat": 36.19,
+      "lng": 139.27,
+      "municipalities": "熊谷市、深谷市、本庄市、寄居町ほか",
+      "hospitals": "深谷赤十字病院／熊谷総合病院",
+      "drivers": "医師不足・面積広域・救急維持",
+      "scoreInputs": [
+        3.2,
+        4.7,
+        5,
+        3.4,
+        4.4
+      ]
+    },
+    {
+      "name": "秩父",
+      "report2024": {
+        "total": 757,
+        "high": 0,
+        "acute": 283,
+        "recovery": 126,
+        "chronic": 255,
+        "closed": 59,
+        "unreported": 34
+      },
+      "needed2025": {
+        "total": 600,
+        "high": 31,
+        "acute": 174,
+        "recovery": 181,
+        "chronic": 214
+      },
+      "lat": 35.99,
+      "lng": 139.07,
+      "municipalities": "秩父市、横瀬町、皆野町、長瀞町、小鹿野町",
+      "hospitals": "秩父市立病院／秩父病院",
+      "drivers": "山間地・アクセス制約・在宅と遠隔連携",
+      "scoreInputs": [
+        2.4,
+        5,
+        5,
+        2.5,
+        5
+      ]
+    }
+  ],
+  "places": [
+    {
+      "name": "さいたま赤十字病院",
+      "address": "さいたま市中央区新都心1-5",
+      "lat": 35.892,
+      "lng": 139.633,
+      "type": "救命救急・基幹災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "自治医科大学附属さいたま医療センター",
+      "address": "さいたま市大宮区天沼町1-847",
+      "lat": 35.899,
+      "lng": 139.633,
+      "type": "救命救急・災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "さいたま市立病院",
+      "address": "さいたま市緑区三室2460",
+      "lat": 35.88,
+      "lng": 139.7,
+      "type": "救命救急・災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "埼玉県立小児医療センター",
+      "address": "さいたま市中央区新都心1-2",
+      "lat": 35.895,
+      "lng": 139.636,
+      "type": "小児救命救急・災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "獨協医科大学埼玉医療センター",
+      "address": "越谷市南越谷2-1-50",
+      "lat": 35.875,
+      "lng": 139.789,
+      "type": "救命救急・災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "埼玉医科大学総合医療センター",
+      "address": "川越市鴨田1981",
+      "lat": 35.936,
+      "lng": 139.531,
+      "type": "救命救急・基幹災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "埼玉医科大学病院",
+      "address": "入間郡毛呂山町毛呂本郷38",
+      "lat": 35.945,
+      "lng": 139.303,
+      "type": "特定機能・災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "埼玉医科大学国際医療センター",
+      "address": "日高市山根1397-1",
+      "lat": 35.922,
+      "lng": 139.311,
+      "type": "救命救急・災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "防衛医科大学校病院",
+      "address": "所沢市並木3-2",
+      "lat": 35.799,
+      "lng": 139.467,
+      "type": "特定機能・救命救急",
+      "kind": "hospital"
+    },
+    {
+      "name": "川口市立医療センター",
+      "address": "川口市西新井宿180",
+      "lat": 35.841,
+      "lng": 139.736,
+      "type": "救命救急・基幹災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "上尾中央総合病院",
+      "address": "上尾市柏座1-10-10",
+      "lat": 35.975,
+      "lng": 139.587,
+      "type": "災害・地域中核",
+      "kind": "hospital"
+    },
+    {
+      "name": "埼玉県立がんセンター",
+      "address": "北足立郡伊奈町小室780",
+      "lat": 35.994,
+      "lng": 139.609,
+      "type": "都道府県がん拠点",
+      "kind": "hospital"
+    },
+    {
+      "name": "独立行政法人国立病院機構埼玉病院",
+      "address": "和光市諏訪2-1",
+      "lat": 35.772,
+      "lng": 139.62,
+      "type": "救命救急・災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "深谷赤十字病院",
+      "address": "深谷市上柴町西5-8-1",
+      "lat": 36.185,
+      "lng": 139.281,
+      "type": "救命救急・災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "済生会加須病院",
+      "address": "加須市上高柳1680",
+      "lat": 36.126,
+      "lng": 139.598,
+      "type": "救命救急・災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "新久喜総合病院",
+      "address": "久喜市上早見418-1",
+      "lat": 36.07,
+      "lng": 139.654,
+      "type": "災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "草加市立病院",
+      "address": "草加市草加2-21-1",
+      "lat": 35.838,
+      "lng": 139.806,
+      "type": "災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "北里大学メディカルセンター",
+      "address": "北本市荒井6-100",
+      "lat": 36.02,
+      "lng": 139.516,
+      "type": "地域医療支援・災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "埼玉石心会病院",
+      "address": "狭山市入間川2-37-20",
+      "lat": 35.858,
+      "lng": 139.403,
+      "type": "地域医療支援・災害時連携",
+      "kind": "hospital"
+    },
+    {
+      "name": "戸田中央総合病院",
+      "address": "戸田市本町1-19-3",
+      "lat": 35.814,
+      "lng": 139.675,
+      "type": "災害",
+      "kind": "hospital"
+    },
+    {
+      "name": "埼玉県庁（保健医療部）",
+      "address": "さいたま市浦和区高砂3-15-1",
+      "lat": 35.858,
+      "lng": 139.651,
+      "kind": "pref",
+      "type": "県庁・行政"
+    },
+    {
+      "name": "埼玉県医師会",
+      "address": "さいたま市浦和区仲町3-5-1",
+      "lat": 35.861,
+      "lng": 139.65,
+      "kind": "association",
+      "type": "医師会"
+    },
+    {
+      "name": "南部保健所",
+      "address": "川口市前川1-11-1",
+      "lat": 35.836,
+      "lng": 139.71,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "朝霞保健所",
+      "address": "朝霞市青葉台1-10-5",
+      "lat": 35.802,
+      "lng": 139.602,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "春日部保健所",
+      "address": "春日部市大沼1-76",
+      "lat": 35.966,
+      "lng": 139.743,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "草加保健所",
+      "address": "草加市西町425-2",
+      "lat": 35.833,
+      "lng": 139.794,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "鴻巣保健所",
+      "address": "鴻巣市東4-5-10",
+      "lat": 36.063,
+      "lng": 139.523,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "東松山保健所",
+      "address": "東松山市若松町2-6-45",
+      "lat": 36.03,
+      "lng": 139.407,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "坂戸保健所",
+      "address": "坂戸市石井2327-1",
+      "lat": 35.962,
+      "lng": 139.402,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "狭山保健所",
+      "address": "狭山市稲荷山2-16-1",
+      "lat": 35.857,
+      "lng": 139.402,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "加須保健所",
+      "address": "加須市南町5-15",
+      "lat": 36.129,
+      "lng": 139.601,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "幸手保健所",
+      "address": "幸手市中1-16-4",
+      "lat": 36.074,
+      "lng": 139.727,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "熊谷保健所",
+      "address": "熊谷市末広3-9-1",
+      "lat": 36.149,
+      "lng": 139.394,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "本庄保健所",
+      "address": "本庄市前原1-8-12",
+      "lat": 36.235,
+      "lng": 139.185,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "秩父保健所",
+      "address": "秩父市桜木町8-18",
+      "lat": 35.999,
+      "lng": 139.085,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "さいたま市保健所",
+      "address": "さいたま市中央区鈴谷7-5-12",
+      "lat": 35.878,
+      "lng": 139.618,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "川越市保健所",
+      "address": "川越市小ヶ谷817-1",
+      "lat": 35.92,
+      "lng": 139.459,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "越谷市保健所",
+      "address": "越谷市東越谷10-31",
+      "lat": 35.893,
+      "lng": 139.806,
+      "kind": "health",
+      "type": "保健所"
+    },
+    {
+      "name": "川口市保健所",
+      "address": "川口市前川1-11-1",
+      "lat": 35.836,
+      "lng": 139.71,
+      "kind": "health",
+      "type": "保健所"
+    }
+  ],
+  "populations": {
+    "years": [
+      2020,
+      2025,
+      2030,
+      2035,
+      2040,
+      2045,
+      2050
+    ],
+    "saitama": [
+      7345000,
+      7316000,
+      7224000,
+      7101000,
+      6953000,
+      6794000,
+      6634000
+    ],
+    "tokyo": [
+      14048000,
+      14199000,
+      14349000,
+      14459000,
+      14507000,
+      14483000,
+      14399000
+    ],
+    "kanagawa": [
+      9237000,
+      9201000,
+      9122000,
+      9012000,
+      8869000,
+      8703000,
+      8524000
+    ],
+    "chiba": [
+      6284000,
+      6258000,
+      6179000,
+      6076000,
+      5956000,
+      5824000,
+      5690000
+    ],
+    "ibaraki": [
+      2867000,
+      2783000,
+      2688000,
+      2584000,
+      2473000,
+      2359000,
+      2245000
+    ],
+    "tochigi": [
+      1933000,
+      1867000,
+      1802000,
+      1732000,
+      1658000,
+      1581000,
+      1502000
+    ],
+    "gunma": [
+      1939000,
+      1878000,
+      1815000,
+      1746000,
+      1673000,
+      1597000,
+      1521000
+    ]
+  },
+  "weights": {
+    "demand": 30,
+    "aging": 25,
+    "scarcity": 20,
+    "hub": 15,
+    "resilience": 10
+  }
+}
