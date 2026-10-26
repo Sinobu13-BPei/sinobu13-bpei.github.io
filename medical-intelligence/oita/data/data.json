@@ -10,10 +10,14 @@
     "estimatedSep2026": 1063808,
     "projected2030": 1031000,
     "projected2050": 841000,
-    "elderly2020": 32.9,
+    "elderly2020": 33.3,
     "elderly2050": 40.5,
     "nationalElderly2020": 28.6,
-    "nationalElderly2050": 37.1
+    "nationalElderly2050": 37.1,
+    "monthlyNaturalChangeSep2026": -727,
+    "monthlySocialChangeSep2026": -9,
+    "monthlyTotalChangeSep2026": -736,
+    "popSourceNote": "2026年9月1日推計の対前月増減。県公式2026年9月30日公表 [S01]。高齢化率2020年は国勢調査ベース [S31]"
   },
   "beds2025": {
     "year": "2025-07-01",
@@ -77,6 +81,13 @@
         4,
         4,
         4
+      ],
+      "bedsPlanned2026": [
+        334,
+        1620,
+        730,
+        1084,
+        33
       ]
     },
     {
@@ -106,6 +117,13 @@
         4,
         5,
         5
+      ],
+      "bedsPlanned2026": [
+        813,
+        3660,
+        1500,
+        1208,
+        102
       ]
     },
     {
@@ -135,6 +153,13 @@
         5,
         3,
         3
+      ],
+      "bedsPlanned2026": [
+        0,
+        645,
+        224,
+        113,
+        0
       ]
     },
     {
@@ -164,6 +189,13 @@
         5,
         3,
         3
+      ],
+      "bedsPlanned2026": [
+        0,
+        387,
+        248,
+        58,
+        2
       ]
     },
     {
@@ -193,6 +225,13 @@
         5,
         4,
         3
+      ],
+      "bedsPlanned2026": [
+        8,
+        499,
+        412,
+        169,
+        0
       ]
     },
     {
@@ -222,6 +261,13 @@
         3,
         4,
         4
+      ],
+      "bedsPlanned2026": [
+        21,
+        1025,
+        482,
+        566,
+        19
       ]
     }
   ],
@@ -643,6 +689,54 @@
       "内閣府 令和8年版高齢社会白書／都道府県別高齢化率比較・社人研将来推計",
       "2024年実績・2050年推計（2026年公表）",
       "https://www8.cao.go.jp/kourei/whitepaper/w-2026/html/zenbun/s1_1_4.html"
+    ],
+    [
+      "S31",
+      "日本医師会 地域医療情報システム：大分県・2020年国勢調査（65歳以上33.30%）",
+      "2020年",
+      "https://jmap.jp/cities/detail/pref/44?pref_id=2"
     ]
+  ],
+  "planned2026": {
+    "year": "2026-07-01 計画",
+    "high": 1176,
+    "acute": 7836,
+    "recovery": 3596,
+    "chronic": 3198,
+    "inactive": 156,
+    "total": 15962,
+    "excludedClosures": 266,
+    "excludedCareConversion": 19,
+    "note": "病床機能報告に記載された2026年予定値。2026年実績ではない。病床機能報告の自主選択区分。"
+  },
+  "neighbors": [
+    {
+      "name": "福岡県",
+      "population2024": 5092,
+      "elderly2024": 28.6,
+      "elderly2050": 35.1,
+      "oldest2050": 21.3
+    },
+    {
+      "name": "熊本県",
+      "population2024": 1697,
+      "elderly2024": 32.6,
+      "elderly2050": 38.8,
+      "oldest2050": 24.3
+    },
+    {
+      "name": "大分県",
+      "population2024": 1085,
+      "elderly2024": 34.4,
+      "elderly2050": 40.5,
+      "oldest2050": 25.5
+    },
+    {
+      "name": "宮崎県",
+      "population2024": 1033,
+      "elderly2024": 33.9,
+      "elderly2050": 40.8,
+      "oldest2050": 25.6
+    }
   ]
 }
