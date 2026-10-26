@@ -219,6 +219,18 @@
       const large=parseFloat(cs.fontSize)>=24||(parseFloat(cs.fontSize)>=18.66&&Number(cs.fontWeight)>=700);
       const threshold=large?3:4.5;checked++;
       if(ratio(actual,bg)>=threshold)return;
+      /* Filled links must keep light text: teal text on teal is invisible on iOS. */
+      const filled=el.closest('a,button,[role="button"]');
+      if(filled){
+        const surface=rgb(getComputedStyle(filled).backgroundColor);
+        if(surface&&surface[3]>.9&&brightness(surface)<.27&&ratio(WHITE,bg)>=threshold){
+          el.style.setProperty('color','#FFFFFF','important');
+          el.style.setProperty('-webkit-text-fill-color','#FFFFFF','important');
+          el.dataset.jmContrastFixed='true';
+          repaired++;
+          return;
+        }
+      }
       const isLink=el.matches('a')||el.closest('a,button,[role="button"]')!==null;
       const candidates=isLink?[TEAL,WHITE,NAVY,DARK]:[DARK,NAVY,WHITE];
       const best=candidates.map(c=>({c,r:ratio(c,bg)})).sort((a,b)=>b.r-a.r)[0];
