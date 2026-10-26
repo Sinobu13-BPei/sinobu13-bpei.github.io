@@ -93,6 +93,65 @@
     }
   } else if (mapElement) { mapElement.classList.add('map-not-available'); }
 
+
+  // Nagasaki open public register. Only official institution-level fields are served.
+  async function initPublicFacilityRegister(){
+    const target=$('ndbRecords'),status=$('ndbResults'),pageInfo=$('ndbPageInfo');
+    if(!target||!status)return;
+    const query=$('ndbQuery'),area=$('ndbArea'),type=$('ndbType'),st=$('ndbStatus'),city=$('ndbCity');
+    const prev=$('ndbPrev'),next=$('ndbNext'),reset=$('ndbClear');
+    const PAGE_SIZE=50;
+    let rows=[],visible=[],page=0,sourceUrls={};
+    const kind=r=>r.category==='薬局'?'薬局':r.category==='歯科'?'歯科診療所':r.type==='病院'?'病院':'医科診療所';
+    const norm=v=>String(v||'').normalize('NFKC').toLowerCase().replace(/\s+/g,'').trim();
+    const safeMap=r=>google(r.name,r.address);
+    const fmt=n=>nf.format(n);
+    const updateCities=()=>{
+      const old=city.value;
+      const cities=[...new Set(rows.filter(r=>!area.value||r.area===area.value).map(r=>r.city))].sort((a,b)=>a.localeCompare(b,'ja'));
+      city.innerHTML='<option value="">すべての市町</option>'+cities.map(c=>`<option value="${clean(c)}">${clean(c)}</option>`).join('');
+      if(cities.includes(old))city.value=old;
+    };
+    const draw=()=>{
+      const q=norm(query.value),a=area.value,t=type.value,s=st.value,c=city.value;
+      visible=rows.filter(r=>(!a||r.area===a)&&(!c||r.city===c)&&(!t||kind(r)===t)&&(!s||r.status===s)&&(!q||norm([r.name,r.address,r.city,r.area,r.departments].join(' ')).includes(q)));
+      page=Math.min(page,Math.max(0,Math.ceil(visible.length/PAGE_SIZE)-1));
+      const start=page*PAGE_SIZE,chunk=visible.slice(start,start+PAGE_SIZE);
+      status.textContent=`該当 ${fmt(visible.length)} 件／公表名簿 ${fmt(rows.length)} 件（現存・休止含む）`;
+      pageInfo.textContent=visible.length?`${fmt(start+1)}～${fmt(start+chunk.length)}件 / ${fmt(visible.length)}件`:'該当なし';
+      prev.disabled=page===0;next.disabled=start+PAGE_SIZE>=visible.length;
+      target.innerHTML=chunk.length?chunk.map(r=>{
+        const src=sourceUrls[r.category]||sourceUrls['医科']||'#';
+        const dept=r.departments||'—';
+        return `<tr><td><strong>${clean(r.name)}</strong><small>${clean(kind(r))}／${clean(r.status)}</small></td><td>${clean(r.area)}<small>${clean(r.city)}</small></td><td>${clean(r.address)}</td><td>${r.beds>0?fmt(r.beds)+'床':'—'}</td><td>${clean(dept)}</td><td>${out(safeMap(r),'Googleマップ')}<small>${out(src,'原資料PDF')}</small></td></tr>`;
+      }).join(''):'<tr><td colspan="6">該当する施設がありません。検索条件を変更してください。</td></tr>';
+    };
+    try{
+      const response=await fetch('./data/facilities-public.json',{cache:'no-cache'});
+      if(!response.ok)throw Error('HTTP '+response.status);
+      const payload=await response.json();
+      if(!Array.isArray(payload.records)||payload.records.length!==2523)throw Error('Unexpected data format');
+      rows=payload.records;sourceUrls=payload.sourceURLs||{};
+      updateCities();draw();
+      for(const el of [query,type,st,city])el?.addEventListener(el===query?'input':'change',()=>{page=0;draw()});
+      area?.addEventListener('change',()=>{page=0;updateCities();draw()});
+      prev?.addEventListener('click',()=>{if(page>0){page--;draw()}});
+      next?.addEventListener('click',()=>{if((page+1)*PAGE_SIZE<visible.length){page++;draw()}});
+      reset?.addEventListener('click',()=>{query.value='';area.value='';type.value='';st.value='';city.value='';updateCities();page=0;draw()});
+      const canvas=$('registryChart');
+      if(canvas&&typeof window.Chart!=='undefined'){
+        const areaOrder=db.areas.map(a=>a.name);
+        const kinds=[['病院','hospitals','#146a88'],['医科診療所','medicalClinics','#239c9c'],['歯科診療所','dentalClinics','#d59a65'],['薬局','pharmacies','#858fc0']];
+        try{new window.Chart(canvas,{type:'bar',data:{labels:areaOrder,datasets:kinds.map(([label,key,color])=>({label,data:areaOrder.map(n=>(db.areas.find(a=>a.name===n)?.register2026?.[key]||0)),backgroundColor:color,borderRadius:2}))},options:{responsive:true,maintainAspectRatio:false,animation:false,indexAxis:'y',plugins:{legend:{position:'bottom',labels:{boxWidth:12,font:{size:11}}},tooltip:{mode:'index',intersect:false}},scales:{x:{stacked:true,beginAtZero:true,grid:{color:'#edf1f2'},ticks:{precision:0}},y:{stacked:true,grid:{display:false}}}}});canvas.classList.add('chart-ok');}catch(err){console.error('Register chart unavailable',err)}
+      }
+    }catch(error){
+      console.error('Public facility register cannot load',error);
+      status.textContent='施設名簿の取得に失敗しました。下記の原資料リンクをご利用ください。';
+      target.innerHTML='<tr><td colspan="6">公開施設名簿の読み込みに失敗しました。ページを再読み込みしてください。</td></tr>';
+    }
+  }
+  initPublicFacilityRegister();
+
   // Chart.js draws charts only when its CDN loads. Fallback text remains available offline.
   if (typeof window.Chart === 'undefined') return;
   const Chart = window.Chart;
