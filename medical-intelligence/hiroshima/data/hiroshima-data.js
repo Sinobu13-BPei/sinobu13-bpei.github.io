@@ -8,6 +8,7 @@ window.HIROSHIMA_DATA = {
   ["安芸高田市",24694,-6.6],["江田島市",19716,-10.1],["府中町",51172,0.03],["海田町",30063,1.4],["熊野町",22440,-1.7],["坂町",12015,-4.5],
   ["安芸太田町",5039,-12.2],["北広島町",15912,-10.4],["大崎上島町",6484,-9.4],["世羅町",13721,-9.3],["神石高原町",7267,-11.9]
  ],
+ beds2024:{year:2024,total:29739,areas:[12568,1954,3149,2401,3180,4971,1516],functions:[4578,10409,6764,7040,948]},
  bedsNeeded:{year:2025,high:2989,acute:9118,recovery:9747,chronic:6760,total:28614},
  doctorIndex:{national:266.8,hiroshima:264.0,okayama:302.7,yamaguchi:241.1,shimane:243.6,ehime:263.6},
  source:{
@@ -18,6 +19,7 @@ window.HIROSHIMA_DATA = {
   citypop:{title:"広島市「令和7年国勢調査結果（人口等基本集計）」",year:"2025",url:"https://www.city.hiroshima.lg.jp/shisei/toukei/1027865/1027866/1050276.html"},
   ipss:{title:"国立社会保障・人口問題研究所「地域別将来推計人口」令和5年推計",year:"2023推計/2025–2050",url:"https://www.ipss.go.jp/syoushika/tohkei/Data/Popular2026/T12-06.files/sheet001.htm"},
   plan:{title:"広島県「第8次広島県保健医療計画」",year:"2024–2029",url:"https://www.pref.hiroshima.lg.jp/soshiki/54/hokeniryoukeikaku-8.html"},
+  beds2024:{title:"広島県「令和6年度病床機能報告集計結果」",year:"2024年7月/公表2025年8月",url:"https://www.pref.hiroshima.lg.jp/soshiki/54/reiwa06.html"},
   beds:{title:"広島県「令和7年度病床機能報告集計結果」",year:"2025年7月/公表2026年7月",url:"https://www.pref.hiroshima.lg.jp/soshiki/54/reiwa07.html"},
   need:{title:"広島県「地域医療構想」2025年必要病床数",year:"2016構想/2025推計",url:"https://www.pref.hiroshima.lg.jp/soshiki/54/hiroshimairyoukousou.html"},
   doctors:{title:"厚生労働省「医師偏在指標」",year:"2026年4月公表",url:"https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"},
