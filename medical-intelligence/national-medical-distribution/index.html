@@ -98,6 +98,23 @@ html{scroll-padding-top:76px}body{overflow-x:clip}
 .mapLayout #map{overflow:hidden;min-height:350px;height:auto}
 #regionStrategies{display:none}
 @media(max-width:780px){.map-static-header{padding:9px}.map-static svg{max-height:400px}.mapLayout #map{min-height:0}}
+</style><style id="chart-static-fix">
+.static-chart{height:100%;min-height:180px;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:12px;background:#fff}
+.static-chart-body{display:grid;gap:10px}
+.static-bar-row{display:grid;grid-template-columns:minmax(104px,36%) minmax(70px,1fr) minmax(52px,auto);align-items:center;gap:8px;min-height:23px}
+.static-bar-row>span{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#3a5663}
+.static-bar-row>strong{font-size:12px;text-align:right;color:#173e54;font-variant-numeric:tabular-nums}
+.static-bar-track{height:14px;border-radius:3px;background:#e6f1f3;overflow:hidden}
+.static-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#16848e,#52b8b2)}
+.static-chart small{font-size:11px;color:#597280;display:block}
+.static-sharebar{width:100%;display:flex;height:26px;border-radius:5px;overflow:hidden}
+.static-sharebar span{display:block;min-width:0}
+.static-legend{list-style:none;margin:6px 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.static-legend li{display:flex;align-items:center;gap:7px;font-size:12px}
+.static-legend i{display:block;width:12px;height:12px;border-radius:2px;flex:none}
+.static-legend li span{flex:1}
+.static-legend li b{font-variant-numeric:tabular-nums}
+@media(max-width:500px){.static-chart{padding:6px}.static-bar-row{grid-template-columns:minmax(86px,35%) minmax(45px,1fr) minmax(45px,auto);gap:5px}.static-bar-row>span,.static-bar-row>strong,.static-legend li{font-size:11px}}
 </style></head><body>
 <a class="skip" href="#main">本文へスキップ</a>
 <header class="nav"><div class="navinner"><a class="wordmark" href="#top"><svg aria-hidden="true" height="29" viewbox="0 0 32 32" width="29"><path d="M4 11h7V4h10v7h7v10h-7v7H11v-7H4z" fill="#65c9c0"></path><path d="M7 16h18" stroke="#073044" stroke-width="2"></path></svg><span>MEDICAL <b>INTELLIGENCE</b><small>JAPAN DISTRIBUTION ATLAS</small></span></a><button aria-controls="siteNav" aria-expanded="false" class="menu" id="menu">メニュー ☰</button><nav aria-label="ページ内ナビゲーション" id="siteNav"><a href="#overview">全体像</a><a href="#groups">企業DB</a><a href="#mapSection">地域</a><a href="#consult">コンサル</a><a href="#finance">その他：金融・リース</a><a href="#strategy">戦略</a><a href="#sources">出典</a></nav></div></header>
@@ -176,10 +193,28 @@ function drawStaticGeo(){
  pick.addEventListener('change',sync);
 }
 if(window.L){const map=L.map('map',{zoomControl:true,scrollWheelZoom:false}).setView([37.1,137.6],5);L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{attribution:'地理院タイル © 国土地理院',maxZoom:17}).addTo(map);d.regions.forEach((r,i)=>{const m=L.marker([r.lat,r.lng]).addTo(map);m.bindPopup(`<b>${esc(r.name)} / ${esc(r.hub)}</b><div>${esc(r.description)}</div><p>${a(`https://maps.gsi.go.jp/#12/${r.lat}/${r.lng}/`,'地理院地図')}</p>`);m.on('click',()=>{pick.value=String(i);regionInfo(String(i))})});pick.addEventListener('change',()=>{if(pick.value==='all')map.setView([37.1,137.6],5);else{let r=d.regions[Number(pick.value)];map.setView([r.lat,r.lng],8)}})}else{drawStaticGeo()}
-if(window.Chart){const make=(el,list,label,color)=>{const labels=list.map(x=>x.name.replace('ホールディングス','HD').replace('ホールディング','HD').replace('HOLDINGS','HD'));return new Chart($(el),{type:'bar',data:{labels,datasets:[{label,data:list.map(x=>x.sales),backgroundColor:color,borderRadius:3}]},options:{maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:i=>`${num(i.parsed.x,2)}億円（全社売上・期別）`}}},scales:{x:{beginAtZero:true,title:{display:true,text:'全社売上（億円）'}}}}})};const pharma=d.groups.filter(g=>(g.category==='医薬品卸HD'||g.category==='混合型HD')&&Number(g.sales)>0).sort((a,b)=>b.sales-a.sales);const device=d.groups.filter(g=>['狭義HD','混合型HD','非HD大手'].includes(g.category)&&Number(g.sales)>0).sort((a,b)=>b.sales-a.sales).slice(0,10);make('pharmaChart',pharma,'連結全社売上','#1b6b7c');make('deviceChart',device,'連結全社売上','#0a8a87');const typeCounts=Object.entries(d.groups.reduce((o,g)=>(o[category(g.category)]=(o[category(g.category)]||0)+1,o),{}));new Chart($('categoryChart'),{type:'doughnut',data:{labels:typeCounts.map(x=>x[0]),datasets:[{data:typeCounts.map(x=>x[1]),backgroundColor:['#167a8b','#547caa','#d5a14f','#a98fc6','#8fadb8']}]},options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:x=>`${x.label}：${x.parsed}グループ（選定19内）`}}}}})}else{for(const el of ['pharmaChart','deviceChart','categoryChart','regionScoreChart'])$(el).parentElement.innerHTML='<p>グラフライブラリを読み込めませんでした。上の会社別一覧で数値を確認できます。</p>'}
+
+function staticBars(target,rows,caption){
+const usable=rows.filter(x=>Number.isFinite(Number(x.value))).slice(0,10),max=Math.max(1,...usable.map(x=>Number(x.value)));
+const content=usable.map(x=>{const ratio=Math.max(0,Number(x.value)/max*100);return '<div class="static-bar-row"><span title="'+esc(x.name)+'">'+esc(x.name)+'</span><div class="static-bar-track"><div class="static-bar-fill" style="width:'+ratio.toFixed(1)+'%"></div></div><strong>'+esc(num(x.value,2))+'</strong></div>'}).join('');
+$(target).parentElement.innerHTML='<div class="static-chart" role="img" aria-label="'+esc(caption)+'"><div class="static-chart-body">'+content+'</div><small>'+esc(caption)+'。グラフライブラリに依存しない表示です。</small></div>';
+}
+function staticShare(target,parts){
+const total=parts.reduce((a,x)=>a+x[1],0)||1;
+const palette=['#117688','#6498a4','#c2975e','#8178a8','#6a9c76','#c28088','#8aa8b7'];
+const segments=parts.map((x,i)=>'<span style="width:'+(x[1]/total*100).toFixed(2)+'%;background:'+palette[i%palette.length]+'"></span>').join('');
+const legend=parts.map((x,i)=>'<li><i style="background:'+palette[i%palette.length]+'"></i><span>'+esc(x[0])+'</span><b>'+esc(x[1])+'件</b></li>').join('');
+$(target).parentElement.innerHTML='<div class="static-chart"><div class="static-sharebar" role="img" aria-label="企業の区分別構成比">'+segments+'</div><ul class="static-legend">'+legend+'</ul><small>調査対象内の構成比。国内市場シェアではありません。</small></div>';
+}
+if(window.Chart){const make=(el,list,label,color)=>{const labels=list.map(x=>x.name.replace('ホールディングス','HD').replace('ホールディング','HD').replace('HOLDINGS','HD'));return new Chart($(el),{type:'bar',data:{labels,datasets:[{label,data:list.map(x=>x.sales),backgroundColor:color,borderRadius:3}]},options:{maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:i=>`${num(i.parsed.x,2)}億円（全社売上・期別）`}}},scales:{x:{beginAtZero:true,title:{display:true,text:'全社売上（億円）'}}}}})};const pharma=d.groups.filter(g=>(g.category==='医薬品卸HD'||g.category==='混合型HD')&&Number(g.sales)>0).sort((a,b)=>b.sales-a.sales);const device=d.groups.filter(g=>['狭義HD','混合型HD','非HD大手'].includes(g.category)&&Number(g.sales)>0).sort((a,b)=>b.sales-a.sales).slice(0,10);make('pharmaChart',pharma,'連結全社売上','#1b6b7c');make('deviceChart',device,'連結全社売上','#0a8a87');const typeCounts=Object.entries(d.groups.reduce((o,g)=>(o[category(g.category)]=(o[category(g.category)]||0)+1,o),{}));new Chart($('categoryChart'),{type:'doughnut',data:{labels:typeCounts.map(x=>x[0]),datasets:[{data:typeCounts.map(x=>x[1]),backgroundColor:['#167a8b','#547caa','#d5a14f','#a98fc6','#8fadb8']}]},options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:x=>`${x.label}：${x.parsed}グループ（選定19内）`}}}}})}else{
+const pharma=d.groups.filter(g=>(g.category==='医薬品卸HD'||g.category==='混合型HD')&&Number(g.sales)>0).sort((a,b)=>b.sales-a.sales).map(g=>({name:g.name.replace('ホールディングス','HD'),value:g.sales}));
+const devices=d.groups.filter(g=>['狭義HD','混合型HD','非HD大手'].includes(g.category)&&Number(g.sales)>0).sort((a,b)=>b.sales-a.sales).slice(0,10).map(g=>({name:g.name.replace('ホールディングス','HD'),value:g.sales}));
+const typeCounts=Object.entries(d.groups.reduce((o,g)=>(o[category(g.category)]=(o[category(g.category)]||0)+1,o),{}));
+staticBars('pharmaChart',pharma,'連結等全社売上（億円）');staticBars('deviceChart',devices,'連結等全社売上（億円）');staticShare('categoryChart',typeCounts);
+}
 // Hypothesis-only qualitative scoring to demonstrate explicit weights. Never imply observed market ranking.
 const score=[['北海道',3,2,3,5,3],['東北',3,3,3,4,3],['関東',5,5,2,3,5],['東海・北陸',4,4,3,3,4],['関西',5,5,2,3,5],['中国・四国',3,3,3,5,3],['九州・沖縄',4,4,3,5,3]],weights=[30,25,20,15,10];
-if(window.Chart){const s1=score.map(x=>({name:x[0],value:Math.round(x.slice(1).reduce((acc,v,i)=>acc+v*weights[i]/5,0))}));new Chart($('regionScoreChart'),{type:'line',data:{labels:s1.map(v=>v.name),datasets:[{label:'地域仮説スコア（0–100）',data:s1.map(v=>v.value),borderColor:'#0e8292',backgroundColor:'#b7e5e8',fill:true,tension:0.18}]},options:{maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{min:0,max:100,title:{display:true,text:'仮スコア（実測値ではない）'}}}}})}
+if(window.Chart){const s1=score.map(x=>({name:x[0],value:Math.round(x.slice(1).reduce((acc,v,i)=>acc+v*weights[i]/5,0))}));new Chart($('regionScoreChart'),{type:'line',data:{labels:s1.map(v=>v.name),datasets:[{label:'地域仮説スコア（0–100）',data:s1.map(v=>v.value),borderColor:'#0e8292',backgroundColor:'#b7e5e8',fill:true,tension:0.18}]},options:{maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{min:0,max:100,title:{display:true,text:'仮スコア（実測値ではない）'}}}}})}else{const values=score.map(x=>({name:x[0],value:Math.round(x.slice(1).reduce((a,v,i)=>a+v*weights[i]/5,0))}));staticBars('regionScoreChart',values,'地域の仮説評価（0–100、実測市場規模ではありません）');}
 $('scoreBody').innerHTML=score.map(row=>{const total=row.slice(1).reduce((acc,v,i)=>acc+v*weights[i]/5,0);return `<tr><td>${esc(row[0])} <span class="minor">独自仮説</span></td>${row.slice(1).map(v=>`<td class="num">${v}/5</td>`).join('')}<td class="num"><b>${Math.round(total)}</b></td></tr>`}).join('');
 const menu=$('menu');menu.addEventListener('click',()=>{const n=$('siteNav'),state=!n.classList.contains('open');n.classList.toggle('open',state);menu.setAttribute('aria-expanded',String(state))});$('siteNav').querySelectorAll('a').forEach(n=>n.addEventListener('click',()=>{$('siteNav').classList.remove('open');menu.setAttribute('aria-expanded','false')}));
 });
