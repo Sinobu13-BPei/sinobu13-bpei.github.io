@@ -212,3 +212,23 @@ body.jm-site .status.area-note--pink :is(a,strong,span) {
 @media(max-width:560px) {
   body.jm-site .status.area-note--pink {padding:12px 14px}
 }
+
+/* iPhone Safari: preserve white text on filled hero CTA buttons.
+   The generic automatic contrast repair must not turn white into teal. */
+body.jm-site .hero .hero-cta-layout :is(.links,.handbook-stack) a,
+body.jm-site .hero .hero-cta-layout :is(.links,.handbook-stack) a :is(span,strong,b,small),
+body.jm-site .hero .links a,
+body.jm-site .hero .links a :is(span,strong,b,small){
+  background-image:none!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  text-shadow:none!important;
+}
+body.jm-site .hero .hero-cta-layout :is(.links,.handbook-stack) a{
+  background-color:#0B7782!important;
+  border-color:#0B7782!important;
+}
+body.jm-site .hero .hero-cta-layout :is(.links,.handbook-stack) a:focus-visible{
+  background-color:#0F2A4A!important;
+  border-color:#0F2A4A!important;
+}
