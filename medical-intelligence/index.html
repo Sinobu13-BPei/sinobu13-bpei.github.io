@@ -199,6 +199,26 @@ function draw(){
       kyotoLink.setAttribute('aria-label','京都府 医療機器市場・地域医療MKT研究2026を開く');
       actions.appendChild(kyotoLink);
     }
+    if(p[0]==='大阪府'){
+      const osakaMktLink=document.createElement('a');
+      osakaMktLink.href='./osaka/';
+      osakaMktLink.target='_blank';
+      osakaMktLink.rel='noopener noreferrer';
+      osakaMktLink.className='prefecture-mkt-btn';
+      osakaMktLink.textContent='大阪MKT ↗';
+      osakaMktLink.setAttribute('aria-label','大阪府の医療市場調査を開く');
+      actions.appendChild(osakaMktLink);
+    }
+    if(p[0]==='兵庫県'){
+      const hyogoMktLink=document.createElement('a');
+      hyogoMktLink.href='./hyogo/';
+      hyogoMktLink.target='_blank';
+      hyogoMktLink.rel='noopener noreferrer';
+      hyogoMktLink.className='prefecture-mkt-btn';
+      hyogoMktLink.textContent='兵庫MKT ↗';
+      hyogoMktLink.setAttribute('aria-label','兵庫県の医療市場調査を開く');
+      actions.appendChild(hyogoMktLink);
+    }
     const riznoPrefectures=['滋賀県','京都府','大阪府','兵庫県'];
     if(riznoPrefectures.includes(p[0])){
       let riznoLink=document.createElement('a');
@@ -547,26 +567,6 @@ function draw(){
       koshinetsuLink.textContent='甲信越MKT ↗';
       koshinetsuLink.setAttribute('aria-label',p[0]+'から甲信越3県の医療市場分析を開く');
       actions.appendChild(koshinetsuLink);
-    }
-    if(p[0]==='大阪府'){
-      const osakaMktLink=document.createElement('a');
-      osakaMktLink.href='./osaka/';
-      osakaMktLink.target='_blank';
-      osakaMktLink.rel='noopener noreferrer';
-      osakaMktLink.className='prefecture-mkt-btn';
-      osakaMktLink.textContent='大阪MKT ↗';
-      osakaMktLink.setAttribute('aria-label','大阪府の医療市場調査を開く');
-      actions.appendChild(osakaMktLink);
-    }
-    if(p[0]==='兵庫県'){
-      const hyogoMktLink=document.createElement('a');
-      hyogoMktLink.href='./hyogo/';
-      hyogoMktLink.target='_blank';
-      hyogoMktLink.rel='noopener noreferrer';
-      hyogoMktLink.className='prefecture-mkt-btn';
-      hyogoMktLink.textContent='兵庫MKT ↗';
-      hyogoMktLink.setAttribute('aria-label','兵庫県の医療市場調査を開く');
-      actions.appendChild(hyogoMktLink);
     }
     let a=document.createElement('a');a.href=googleMapsUrl(p[0]);a.target='_blank';a.rel='noopener noreferrer';a.className='google-map-btn';a.textContent='Map';a.setAttribute('aria-label',p[0]+'のGoogle Mapsを開く');
     actions.appendChild(a);
