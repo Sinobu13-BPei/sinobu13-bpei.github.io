@@ -1,0 +1,41 @@
+/* 2026-10-27 Oita open-statistics demographics and workforce dashboard */
+.evidence-section{--evid-navy:#155a70;--evid-teal:#139b99}
+.evidence-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:22px 0}
+.evidence-kpis article{display:flex;flex-direction:column;background:#fff;border-radius:14px;border:1px solid #d7e7ed;padding:17px;box-shadow:0 5px 22px rgba(24,75,96,.06)}
+.evidence-kpis small{font-size:.75rem;font-weight:700;color:#547082}
+.evidence-kpis strong{color:#0c6882;font-size:clamp(1.4rem,2.45vw,2.15rem);letter-spacing:-.04em;line-height:1.6;font-variant-numeric:tabular-nums;white-space:nowrap}
+.evidence-kpis strong em{font-size:.82rem;font-style:normal;letter-spacing:0}
+.evidence-kpis span{font-size:.7rem;color:#5b7583;margin-top:auto}
+.evidence-plots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:25px 0 22px}
+.evidence-plot{margin:0;min-width:0}
+.evidence-plot figcaption{display:flex;flex-direction:column;gap:2px;min-height:52px;margin-bottom:6px}
+.evidence-plot figcaption strong{font-size:1rem;color:#173c52}
+.evidence-plot figcaption small{font-size:.78rem;color:#536a79}
+.evidence-canvas{height:300px;position:relative;min-width:0}
+.evidence-canvas canvas{width:100%!important;height:100%!important;max-width:100%}
+.evidence-source{font-size:.73rem!important;color:#566e7c!important;margin-top:7px!important;line-height:1.7}
+.evidence-band{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;background:linear-gradient(123deg,#103b50,#10677c);border-radius:14px;padding:14px;margin:22px 0;color:#fff}
+.evidence-band>div{padding:13px;border-radius:9px;background:#ffffff13;border:1px solid #ffffff2e}
+.evidence-band b{font-size:.9rem;color:#e2fdff}
+.evidence-band p{font-size:.82rem;color:#d5eff4;margin:8px 0 0;line-height:1.7}
+#regionEvidenceTable{min-width:1050px}
+#regionEvidenceTable td,#regionEvidenceTable th{white-space:nowrap;font-variant-numeric:tabular-nums}
+#regionEvidenceTable td{text-align:right}
+#regionEvidenceTable td:first-child{text-align:left;font-weight:750}
+#regionEvidenceTable tr:nth-child(even){background:#f6fafb}
+#regionEvidenceTable .negative{color:#9c4e35}
+#regionEvidenceTable .positive{color:#0c726f}
+.evidence-research{display:grid;grid-template-columns:86px 1fr;gap:14px;align-items:start;margin:27px 0 20px;padding:18px 20px;border-radius:14px;background:#fff;border:1px solid #d9e9ed}
+.evidence-research-symbol{display:grid;place-items:center;width:75px;height:75px;border-radius:14px;background:#e1f5f5;color:#0b778b}
+.evidence-research-symbol svg{width:51px;height:51px}
+.evidence-research h3{margin:0 0 7px!important}
+.evidence-research p{margin:0 0 7px;font-size:.88rem}
+.evidence-research a{font-weight:800;text-decoration:none}
+.evidence-research .evidence-source{display:block}
+.evidence-caution{border-radius:10px;border:1px solid #ead9b9;background:#fffbf2;padding:14px 18px}
+.evidence-caution strong{color:#78542e}
+.evidence-caution p{margin:6px 0 0;font-size:.82rem}
+@media(max-width:1060px){.evidence-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.evidence-plots{gap:13px}}
+@media(max-width:760px){.evidence-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.evidence-kpis article{padding:13px}.evidence-kpis strong{font-size:1.65rem}.evidence-plots,.evidence-band{grid-template-columns:1fr}.evidence-canvas{height:270px}.evidence-research{grid-template-columns:1fr}.evidence-research-symbol{width:56px;height:56px}.evidence-research-symbol svg{width:39px;height:39px}}
+@media(max-width:390px){.evidence-kpis{grid-template-columns:1fr}.evidence-kpis strong{font-size:1.9rem}.evidence-canvas{height:290px}}
+@media(prefers-reduced-motion:reduce){.evidence-section *{scroll-behavior:auto}}
