@@ -1480,7 +1480,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市北区",
         "shared": true,
-        "note": "同一区に複数医師会があるため区全体の参考値（会別配分不可）"
+        "note": "同一区に複数医師会があるため区全体の参考値（会別配分不可）",
+        "officialSite": "https://www.kita-med.or.jp/"
       },
       {
         "name": "大淀医師会",
@@ -1497,7 +1498,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市北区",
         "shared": true,
-        "note": "同一区に複数医師会があるため区全体の参考値（会別配分不可）"
+        "note": "同一区に複数医師会があるため区全体の参考値（会別配分不可）",
+        "officialSite": "https://www.oyodo-med.or.jp/"
       },
       {
         "name": "都島区医師会",
@@ -1514,7 +1516,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市都島区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://miyakojimakuishikai.jp/"
       },
       {
         "name": "福島区医師会",
@@ -1531,7 +1534,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市福島区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://fukushimaku-med.or.jp/"
       },
       {
         "name": "此花区医師会",
@@ -1548,7 +1552,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市此花区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.konohana-med.or.jp/"
       },
       {
         "name": "中央区東医師会",
@@ -1565,7 +1570,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市中央区",
         "shared": true,
-        "note": "同一区に複数医師会があるため区全体の参考値（会別配分不可）"
+        "note": "同一区に複数医師会があるため区全体の参考値（会別配分不可）",
+        "officialSite": "https://www.chuoku-higashi.osaka.med.or.jp/"
       },
       {
         "name": "中央区南医師会",
@@ -1582,7 +1588,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市中央区",
         "shared": true,
-        "note": "同一区に複数医師会があるため区全体の参考値（会別配分不可）"
+        "note": "同一区に複数医師会があるため区全体の参考値（会別配分不可）",
+        "officialSite": "https://www.osaka-minami-med.or.jp/"
       },
       {
         "name": "西区医師会",
@@ -1599,7 +1606,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市西区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.nishiku.osaka.med.or.jp/"
       },
       {
         "name": "港区医師会",
@@ -1616,7 +1624,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市港区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.minato-med.or.jp/"
       },
       {
         "name": "大正区医師会",
@@ -1633,7 +1642,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市大正区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.taisyo.osaka.med.or.jp/"
       },
       {
         "name": "天王寺区医師会",
@@ -1650,7 +1660,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市天王寺区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.tennoji-med.or.jp/"
       },
       {
         "name": "浪速区医師会",
@@ -1667,7 +1678,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市浪速区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.naniwaku-ishikai.or.jp/"
       },
       {
         "name": "西淀川区医師会",
@@ -1684,7 +1696,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市西淀川区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://nishiyodo-med.or.jp/"
       },
       {
         "name": "淀川区医師会",
@@ -1701,7 +1714,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市淀川区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://yodomed.jp/"
       },
       {
         "name": "東淀川区医師会",
@@ -1718,7 +1732,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市東淀川区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.higashiyodo-med.org/"
       },
       {
         "name": "東成区医師会",
@@ -1735,7 +1750,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市東成区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.higashinari-med.or.jp/"
       },
       {
         "name": "生野区医師会",
@@ -1752,7 +1768,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市生野区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.ikuno.osaka.med.or.jp/"
       },
       {
         "name": "旭区医師会",
@@ -1769,7 +1786,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市旭区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.asahi.osaka.med.or.jp/"
       },
       {
         "name": "城東区医師会",
@@ -1786,7 +1804,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市城東区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.jotoishikai.or.jp/"
       },
       {
         "name": "鶴見区医師会",
@@ -1803,7 +1822,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市鶴見区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.tsurumi.osaka.med.or.jp/"
       },
       {
         "name": "阿倍野区医師会",
@@ -1820,7 +1840,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市阿倍野区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.abeno-med.or.jp/"
       },
       {
         "name": "住之江区医師会",
@@ -1837,7 +1858,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市住之江区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.suminoe-med.or.jp/"
       },
       {
         "name": "住吉区医師会",
@@ -1854,7 +1876,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市住吉区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.sumiyoshi.osaka.med.or.jp/"
       },
       {
         "name": "東住吉区医師会",
@@ -1871,7 +1894,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市東住吉区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://higashisumiyoshiku-med.or.jp/"
       },
       {
         "name": "平野区医師会",
@@ -1888,7 +1912,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市平野区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.hirano-med.net/"
       },
       {
         "name": "西成区医師会",
@@ -1905,7 +1930,8 @@
         "year": "2025-03-31",
         "coverage": "大阪市西成区",
         "shared": false,
-        "note": "区全体の施設数であり医師会会員施設数ではない"
+        "note": "区全体の施設数であり医師会会員施設数ではない",
+        "officialSite": "https://www.nishinari-med.or.jp/"
       },
       {
         "name": "豊中市医師会",
@@ -1919,7 +1945,8 @@
         "year": "2023-10-01",
         "coverage": "豊中市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.toyonaka.osaka.med.or.jp/"
       },
       {
         "name": "池田市医師会",
@@ -1935,7 +1962,8 @@
         "year": "2023-10-01",
         "coverage": "池田市・豊能町・能勢町",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://ikeda-osaka-med.jp/"
       },
       {
         "name": "箕面市医師会",
@@ -1949,7 +1977,8 @@
         "year": "2023-10-01",
         "coverage": "箕面市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.minoh.osaka.med.or.jp/"
       },
       {
         "name": "吹田市医師会",
@@ -1963,7 +1992,8 @@
         "year": "2023-10-01",
         "coverage": "吹田市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.suita-med.or.jp/"
       },
       {
         "name": "茨木市医師会",
@@ -1977,7 +2007,8 @@
         "year": "2023-10-01",
         "coverage": "茨木市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.ibaraki.osaka.med.or.jp/"
       },
       {
         "name": "摂津市医師会",
@@ -1991,7 +2022,8 @@
         "year": "2023-10-01",
         "coverage": "摂津市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.settsu-med.or.jp/"
       },
       {
         "name": "高槻市医師会",
@@ -2006,7 +2038,8 @@
         "year": "2023-10-01",
         "coverage": "高槻市・島本町",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://takatsuki.osaka.med.or.jp/"
       },
       {
         "name": "守口市医師会",
@@ -2020,7 +2053,8 @@
         "year": "2023-10-01",
         "coverage": "守口市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.moriguchi-med.or.jp/"
       },
       {
         "name": "門真市医師会",
@@ -2034,7 +2068,8 @@
         "year": "2023-10-01",
         "coverage": "門真市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://kadoma-osaka-med.or.jp/"
       },
       {
         "name": "枚方市医師会",
@@ -2048,7 +2083,8 @@
         "year": "2023-10-01",
         "coverage": "枚方市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.hirakata.osaka.med.or.jp/"
       },
       {
         "name": "交野市医師会",
@@ -2062,7 +2098,8 @@
         "year": "2023-10-01",
         "coverage": "交野市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.katano-med.or.jp/"
       },
       {
         "name": "寝屋川市医師会",
@@ -2076,7 +2113,8 @@
         "year": "2023-10-01",
         "coverage": "寝屋川市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://ishikai.neyagawa.org/"
       },
       {
         "name": "大東・四條畷医師会",
@@ -2091,7 +2129,8 @@
         "year": "2023-10-01",
         "coverage": "大東市・四條畷市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.daito-shijyonawate.osaka.med.or.jp/"
       },
       {
         "name": "布施医師会",
@@ -2105,7 +2144,8 @@
         "year": "2023-10-01",
         "coverage": "東大阪市",
         "shared": true,
-        "note": "東大阪市全域の参考値。布施・枚岡・河内の医師会別内訳ではない"
+        "note": "東大阪市全域の参考値。布施・枚岡・河内の医師会別内訳ではない",
+        "officialSite": "https://www.fuse-med.or.jp/"
       },
       {
         "name": "枚岡医師会",
@@ -2119,7 +2159,8 @@
         "year": "2023-10-01",
         "coverage": "東大阪市",
         "shared": true,
-        "note": "東大阪市全域の参考値。布施・枚岡・河内の医師会別内訳ではない"
+        "note": "東大阪市全域の参考値。布施・枚岡・河内の医師会別内訳ではない",
+        "officialSite": "https://www.hiraoka-med.or.jp/"
       },
       {
         "name": "河内医師会",
@@ -2133,7 +2174,8 @@
         "year": "2023-10-01",
         "coverage": "東大阪市",
         "shared": true,
-        "note": "東大阪市全域の参考値。布施・枚岡・河内の医師会別内訳ではない"
+        "note": "東大阪市全域の参考値。布施・枚岡・河内の医師会別内訳ではない",
+        "officialSite": "https://www.kawachi-med.or.jp/"
       },
       {
         "name": "八尾市医師会",
@@ -2147,7 +2189,8 @@
         "year": "2023-10-01",
         "coverage": "八尾市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.yao.osaka.med.or.jp/"
       },
       {
         "name": "柏原市医師会",
@@ -2161,7 +2204,8 @@
         "year": "2023-10-01",
         "coverage": "柏原市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://kasiwarasiisikai.sakura.ne.jp/"
       },
       {
         "name": "松原市医師会",
@@ -2175,7 +2219,8 @@
         "year": "2023-10-01",
         "coverage": "松原市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.matsubarashi-ishikai.com/"
       },
       {
         "name": "羽曳野市医師会",
@@ -2189,7 +2234,8 @@
         "year": "2023-10-01",
         "coverage": "羽曳野市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.habikino-med.or.jp/"
       },
       {
         "name": "藤井寺市医師会",
@@ -2203,7 +2249,8 @@
         "year": "2023-10-01",
         "coverage": "藤井寺市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.fujiidera-med.or.jp/"
       },
       {
         "name": "富田林医師会",
@@ -2220,7 +2267,8 @@
         "year": "2023-10-01",
         "coverage": "富田林市・太子町・河南町・千早赤阪村",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.tondabayashiishikai.jp/"
       },
       {
         "name": "河内長野市医師会",
@@ -2234,7 +2282,8 @@
         "year": "2023-10-01",
         "coverage": "河内長野市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.kawachinagano-med.or.jp/"
       },
       {
         "name": "大阪狭山市医師会",
@@ -2248,7 +2297,8 @@
         "year": "2023-10-01",
         "coverage": "大阪狭山市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://osakasayama-med.jp/"
       },
       {
         "name": "堺市医師会",
@@ -2262,7 +2312,8 @@
         "year": "2023-10-01",
         "coverage": "堺市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.sakai-med.jp/"
       },
       {
         "name": "高石市医師会",
@@ -2276,7 +2327,8 @@
         "year": "2023-10-01",
         "coverage": "高石市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.takaishi-med.com/"
       },
       {
         "name": "泉大津市医師会",
@@ -2291,7 +2343,8 @@
         "year": "2023-10-01",
         "coverage": "泉大津市・忠岡町",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.izumiotsu.osaka.med.or.jp/"
       },
       {
         "name": "岸和田市医師会",
@@ -2305,7 +2358,8 @@
         "year": "2023-10-01",
         "coverage": "岸和田市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.kishiwada-med.jp/"
       },
       {
         "name": "和泉市医師会",
@@ -2319,7 +2373,8 @@
         "year": "2023-10-01",
         "coverage": "和泉市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.izumi.osaka.med.or.jp/"
       },
       {
         "name": "貝塚市医師会",
@@ -2333,7 +2388,8 @@
         "year": "2023-10-01",
         "coverage": "貝塚市",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.kaizuka-med.or.jp/"
       },
       {
         "name": "泉佐野泉南医師会",
@@ -2352,7 +2408,8 @@
         "year": "2023-10-01",
         "coverage": "泉佐野市・泉南市・阪南市・熊取町・田尻町・岬町",
         "shared": false,
-        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない"
+        "note": "対象市町村の公的施設数を合算。医師会の会員施設数ではない",
+        "officialSite": "https://www.sano.osaka.med.or.jp/"
       },
       {
         "name": "大阪大学医師会",
@@ -2364,7 +2421,8 @@
         "year": null,
         "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
         "shared": false,
-        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。",
+        "officialSite": "https://www.hosp.med.osaka-u.ac.jp/"
       },
       {
         "name": "大阪公立大学医師会",
@@ -2376,7 +2434,8 @@
         "year": null,
         "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
         "shared": false,
-        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。",
+        "officialSite": "https://www.hosp.omu.ac.jp/"
       },
       {
         "name": "大阪医科薬科大学医師会",
@@ -2388,7 +2447,8 @@
         "year": null,
         "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
         "shared": false,
-        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。",
+        "officialSite": "https://www.ompu.ac.jp/"
       },
       {
         "name": "関西医科大学医師会",
@@ -2400,7 +2460,8 @@
         "year": null,
         "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
         "shared": false,
-        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。",
+        "officialSite": "https://www.kmu.ac.jp/"
       },
       {
         "name": "近畿大学病院医師会",
@@ -2412,7 +2473,8 @@
         "year": null,
         "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
         "shared": false,
-        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。",
+        "officialSite": "https://www.med.kindai.ac.jp/"
       },
       {
         "name": "大阪府庁医師会",
@@ -2424,7 +2486,8 @@
         "year": null,
         "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
         "shared": false,
-        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。",
+        "officialSite": "https://www.pref.osaka.lg.jp/"
       },
       {
         "name": "大阪市役所医師会",
@@ -2436,14 +2499,16 @@
         "year": null,
         "coverage": "大学・職域組織（独立した行政地理の対象区域なし）",
         "shared": false,
-        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。"
+        "note": "当該医師会が管轄する地理的な診療所施設数は定義できない。医師会会員数を示していない。",
+        "officialSite": "https://ocma.jp/"
       }
     ],
     "notes": [
       "一般診療所・病院・歯科診療所の施設数は医師会の会員施設数ではありません。医師会所在地でなく対象地域の行政区別の施設数を参照しています。",
       "大阪市24区の施設は2025年3月31日、府内43市町村と8医療圏は2023年10月1日を使用し混算していません。",
       "複数の医師会が同じ行政区を担当する北区・中央区・東大阪市では、区／市全体値を複数行で参照しています。会別施設数としての加算・順位付けは不可。",
-      "大学・職域医師会は排他的な市区町村の管轄を持たないため施設数対象外。"
+      "大学・職域医師会は排他的な市区町村の管轄を持たないため施設数対象外。",
+      "各医師会の「公式掲載サイト」リンクは、大阪府医師会公式一覧に記載されたドメインを参照しています。閲覧不可の場合は公式一覧をご利用ください。"
     ],
     "source2023": "https://www.pref.osaka.lg.jp/documents/4369/r05d02.pdf",
     "source2025": "https://www.city.osaka.lg.jp/shimin/cmsfiles/contents/0000659/659107/04-10-9iryoukankeisisetujoukyoueiyousidoukankei.pdf",
