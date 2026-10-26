@@ -477,6 +477,21 @@
       "name": "国立国会図書館・行政公開情報に基づく独自分析",
       "year": "2026年10月",
       "url": "https://www.pref.nara.lg.jp/n081/2740.html"
+    },
+    "S21": {
+      "name": "厚生労働省 医師偏在指標（二次医療圏別）",
+      "year": "2026年4月",
+      "url": "https://www.mhlw.go.jp/content/001691397.pdf"
+    },
+    "S22": {
+      "name": "厚生労働省 医師偏在指標（都道府県別）",
+      "year": "2026年4月",
+      "url": "https://www.mhlw.go.jp/content/001691091.pdf"
+    },
+    "S23": {
+      "name": "奈良県令和6年度病床機能報告（現状）",
+      "year": "2024年7月",
+      "url": "https://www.pref.nara.lg.jp/n081/68913.html"
     }
   },
   "scoreAxis": [
@@ -564,5 +579,50 @@
       "address": "奈良県橿原市"
     }
   },
-  "regionPopulationYear": 2020
+  "regionPopulationYear": 2020,
+  "doctorIndexRegions": {
+    "奈良": 271.2,
+    "東和": 295.3,
+    "西和": 224.4,
+    "中和": 321.5,
+    "南和": 264.8
+  },
+  "doctorIndexPref": [
+    [
+      "全国",
+      266.8
+    ],
+    [
+      "奈良県",
+      277.1
+    ],
+    [
+      "大阪府",
+      294.7
+    ],
+    [
+      "京都府",
+      326.6
+    ],
+    [
+      "三重県",
+      244.4
+    ],
+    [
+      "和歌山県",
+      292.4
+    ]
+  ],
+  "doctorIndexThresholds": {
+    "top": 236,
+    "bottom": 193.7,
+    "referenceYear": 2026
+  },
+  "beds2024": {
+    "奈良": 3681,
+    "東和": 2486,
+    "西和": 3131,
+    "中和": 3418,
+    "南和": 574
+  }
 }
