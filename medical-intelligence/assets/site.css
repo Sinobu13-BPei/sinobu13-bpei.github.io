@@ -150,3 +150,45 @@ body.jm-site #site-header .jm-menu-toggle{background:transparent!important;color
   body.jm-site #regionList .region-actions{gap:5px}
   body.jm-site #regionList .region-actions a{padding:7px 8px}
 }
+
+/* 2026-10-26 contrast hardening: readable even if site.js fails to load. */
+body.jm-site :is(.card,.panel,.stat,.kpi,.jm-site-card,.jm-kpi,.box){
+  color:#1F2933!important
+}
+body.jm-site :is(.card,.panel,.stat,.kpi,.jm-site-card,.jm-kpi)
+  :is(h1,h2,h3,h4,h5,h6,p,.sub,.muted,.note,figcaption,small):not(a):not(button){
+  color:#0F2A4A!important
+}
+/* Pale backgrounds must never inherit the former hero's white lettering. */
+body.jm-site :is(.hero,.cover,.page-hero,.banner) :is(.chip,.pill,.tag),
+body.jm-site :is(.status,.jm-callout,.jm-note){
+  color:#1F2933!important
+}
+body.jm-site :is(.hero,.cover,.page-hero,.banner) :is(.chip,.pill,.tag){
+  background-color:#FFFFFF!important;border-color:#DDE3EA!important
+}
+body.jm-site :is(.jm-toc,.tablewrap,.table-wrap,.table-scroll,.data-table-wrap) a:not([class]){
+  color:#0E7C86!important
+}
+/* Filled controls always have a visible solid background behind white text. */
+body.jm-site :is(.links a,.handbook-stack a,.footer-link-strip a,.jira-mkt-links a,.clinic-market-spotlight,.region-actions a,.map-actions .google-map-btn),
+body.jm-site :is(.btn-primary,.button-primary){
+  background-color:#0E7C86!important;background-image:none!important;
+  color:#FFFFFF!important;border-color:#0E7C86!important;
+  text-shadow:none!important;box-shadow:none!important
+}
+body.jm-site :is(.links a,.handbook-stack a,.footer-link-strip a,.jira-mkt-links a,.clinic-market-spotlight,.region-actions a,.map-actions .google-map-btn):hover,
+body.jm-site :is(.links a,.handbook-stack a,.footer-link-strip a,.jira-mkt-links a,.clinic-market-spotlight,.region-actions a,.map-actions .google-map-btn):focus-visible{
+  background-color:#0F2A4A!important;border-color:#0F2A4A!important;color:#FFFFFF!important
+}
+/* Keep secondary buttons legible on white, even under inherited white text. */
+body.jm-site :is(.btn-secondary,.button-secondary,.gsi-map-link){
+  background-color:#FFFFFF!important;background-image:none!important;
+  color:#0F2A4A!important;border:1px solid #DDE3EA!important
+}
+body.jm-site :where(input,select,textarea){
+  background-color:#FFFFFF;color:#1F2933
+}
+body.jm-site :where(input,textarea)::placeholder{
+  color:#5B6770!important;opacity:1
+}
