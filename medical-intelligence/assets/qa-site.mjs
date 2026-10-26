@@ -84,6 +84,25 @@ for(const file of files){
       issue(errors,'medical-intelligence/jm-legacy-1.css','Population chart solid color missing');
   }
 }
+/* Regression guards for the Koshinetsu 3-prefecture links and contrast. */
+{
+  const hubFile=path.join(root,'medical-intelligence/index.html');
+  const commonJS=path.join(root,'medical-intelligence/assets/site.js');
+  if(fs.existsSync(hubFile)){
+    const html=fs.readFileSync(hubFile,'utf8');
+    if(!html.includes("['新潟県','長野県','山梨県'].includes(p[0])"))
+      issue(errors,'medical-intelligence/index.html','Koshinetsu MKT must appear for Niigata, Nagano and Yamanashi');
+    if(!html.includes("koshinetsuLink.href='./koshinetsu/'"))
+      issue(errors,'medical-intelligence/index.html','Koshinetsu MKT destination missing');
+  }
+  if(fs.existsSync(commonJS)){
+    const js=fs.readFileSync(commonJS,'utf8');
+    if(!js.includes('textarea,div,section,article'))
+      issue(errors,'medical-intelligence/assets/site.js','Contrast scan must inspect text-bearing containers');
+    if(!js.includes("const fallback=isControl?'#0E7C86':lightText?'#0F2A4A':'#F5F7FA'"))
+      issue(errors,'medical-intelligence/assets/site.js','Solid contrast-safe gradient fallback missing');
+  }
+}
 for(const file of unavailable)issue(warnings,file,'Large original: connector could not retrieve complete text; no source file was overwritten');
 console.log(JSON.stringify({
   name:'Japan Medical Market Intelligence',
