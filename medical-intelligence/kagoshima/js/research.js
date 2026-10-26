@@ -12,14 +12,20 @@ function maplinks(n,a,lat,lon){
  return '<span class="links"><a href="'+google+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(n)+'のGoogleマップ">Google マップ ↗</a><a href="'+gsi+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(n)+'の地理院地図">地理院地図 ↗</a></span>';
 }
 function refLink(d,id){var s=d.sources.find(function(x){return x.id===id;});return s?'<a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.title)+'（'+esc(s.year)+'）</a>':'出典未取得';}
+function showChartFallback(target,labels,datasets,message){
+ var columns=datasets.map(function(d,i){return esc(d.label||('数値'+(datasets.length>1?' '+(i+1):'')));});
+ var head='<thead><tr><th>項目</th>'+columns.map(function(x){return '<th>'+x+'</th>';}).join('')+'</tr></thead>';
+ var rows=labels.map(function(label,i){return '<tr><td>'+esc(label)+'</td>'+datasets.map(function(d){var val=d.data&&d.data[i]!=null?d.data[i]:'—';return '<td class="num">'+esc(val)+'</td>';}).join('')+'</tr>';}).join('');
+ target.parentNode.innerHTML='<p class="warning" role="status">'+esc(message)+' 数値表を表示しています。</p><div class="table-scroll chart-data-table"><table>'+head+'<tbody>'+rows+'</tbody></table></div>';
+}
 function drawChart(canvas,kind,labels,datasets,other){
  var target=el(canvas);if(!target)return;
- if(typeof Chart==='undefined'){target.parentNode.innerHTML='<p class="warning">グラフライブラリを読み込めません。図の元データは同ページの比較表・医療圏別詳細表で確認できます。</p>';return;}
+ if(typeof Chart==='undefined'){showChartFallback(target,labels,datasets,'図表ライブラリが利用できません。');return;}
  try{
  var options=Object.assign({responsive:true,maintainAspectRatio:false,animation:{duration:250},plugins:{legend:{display:datasets.length>1,position:'bottom'},tooltip:{enabled:true}},scales:{y:{beginAtZero:true,grid:{color:'#e6edf4'},ticks:{color:'#51677b'}},x:{grid:{display:false},ticks:{color:'#415c75',autoSkip:false,maxRotation:45}}}},other||{});
  if(kind==='doughnut' && (!other || !other.scales)){delete options.scales;}
  return new Chart(target,{type:kind,data:{labels:labels,datasets:datasets},options:options});
- }catch(error){target.parentNode.innerHTML='<p class="warning">図表を描画できませんでした。下記の表と出典データから数値をご確認ください。</p>';if(window.console&&typeof window.console.warn==='function')window.console.warn('Chart render:',canvas,error);return null;}
+ }catch(error){showChartFallback(target,labels,datasets,'図表の描画に失敗しました。');if(window.console&&typeof window.console.warn==='function')window.console.warn('Chart render:',canvas,error);return null;}
 }
 function render(d){
  var weights=d.scoring.axes.map(function(x){return x[1];});
