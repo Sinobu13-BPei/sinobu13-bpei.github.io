@@ -21,7 +21,7 @@
     data = await response.json();
     if (!Array.isArray(data.areas) || data.areas.length !== 7 || !Array.isArray(data.sources)) throw new Error('Invalid research dataset');
   } catch(error) { populateError(error); return; }
-  const {areas,facilities,hoken,sources} = data;
+  const {areas,facilities,hoken,sources,associations=[]} = data;
   const regions = Object.fromEntries(areas.map(a=>[a.name,a]));
   const chartDefault = {
     responsive:true, maintainAspectRatio:false,
@@ -76,7 +76,7 @@
     const a=regions[region]||regions['和歌山'];
     return 'https://maps.gsi.go.jp/#15/'+a.lat+'/'+a.lng+'/';
   };
-  const merged=[...facilities.map(f=>({name:f[0],area:f[1],address:f[2],category:f[3],url:f[4],kind:'hospital'})),...hoken.map(f=>({name:f[0],area:f[1],address:f[2],category:'保健所・地域保健',url:'',kind:'hoken'}))];
+  const merged=[...facilities.map(f=>({name:f[0],area:f[1],address:f[2],category:f[3],url:f[4],kind:'hospital'})),...hoken.map(f=>({name:f[0],area:f[1],address:f[2],category:'保健所・地域保健',url:'',kind:'hoken'})),...associations.map(f=>({name:f[0],area:f[1],address:'和歌山県内（所在位置は各公式ページで確認）',category:'郡市医師会',url:f[2],kind:'association'}))];
   function renderFacilities(){
     const term=($('facilitySearch')?.value||'').trim().toLocaleLowerCase('ja-JP');
     const type=$('facilityType')?.value||'all';
