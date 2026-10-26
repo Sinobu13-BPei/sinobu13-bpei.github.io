@@ -57,6 +57,7 @@ const shown=await page.locator('#associationRows tr').first().textContent();
 assert(shown.includes('医師会'),'association rows visible');
 await details.locator('summary').click();assert(!(await details.evaluate(e=>e.open)),'association accordion closes');
 assert.equal(errors.length,0,'Javascript runtime errors: '+errors.join(' / '));
+await page.evaluate(()=>window.scrollTo({top:0,left:0,behavior:'instant'}));
 await page.screenshot({path:path.join(screenshots,'koshinetsu-'+width+'.png'),fullPage:true,animations:'disabled'});
 await page.close();
 }
