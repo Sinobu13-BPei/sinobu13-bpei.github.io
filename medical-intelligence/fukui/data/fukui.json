@@ -23,7 +23,6 @@
     "rad2020": 11,
     "mammo2020": 33,
     "hospitalsJMAP": 67,
-    "clinicsLegacy": 567,
     "doctorIndex": "医師偏在指標は2026年公表値（二次資料再集計）"
   },
   "areas": [
@@ -657,8 +656,8 @@
     {
       "id": "S06",
       "org": "厚生労働省",
-      "desc": "2025年度病床機能報告公表データ",
-      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html"
+      "desc": "令和6年度病床機能報告結果へのリンク（2024年度）",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000055891.html"
     },
     {
       "id": "S07",
