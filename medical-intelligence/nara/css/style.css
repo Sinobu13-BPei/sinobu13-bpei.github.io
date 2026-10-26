@@ -103,3 +103,5 @@
 @media(max-width:850px){.facilityTotals{grid-template-columns:repeat(2,minmax(0,1fr))}.associationSummary{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.regionFacilityCards{grid-template-columns:1fr}.regionFacilityItem{padding:13px}.facilityTotals>div,.associationSummary>div{padding:12px}.facilityTotals strong,.associationSummary strong{font-size:1.65rem}.facilityTotals span,.associationSummary span{font-size:.73rem}.regionFacNumbers strong{font-size:1.35rem}.regionFacNumbers span{font-size:.68rem}.associationSummary{grid-template-columns:1fr 1fr}}
 @media(max-width:390px){.associationSummary{grid-template-columns:1fr}.regionMemberTag{flex-direction:column;align-items:flex-start}}
+
+.mapDot.associationDot{background:#8065b7}
