@@ -1,0 +1,170 @@
+/* Osaka Market Intelligence Rev.5 · editorial density and responsive QA
+   This layer overrides only presentation and preserves statistical content. */
+:root{--ui-ink:#173047;--ui-navy:#122f43;--ui-blue:#165778;--ui-teal:#167d85;--ui-green:#267f73;--ui-gold:#dba058;--ui-bg:#f2f6f8;--ui-faint:#f9fbfc;--ui-line:#d4e0e7;--ui-muted:#587083;--ui-shadow:0 7px 30px rgba(21,61,82,.065);color-scheme:light}
+html{scroll-padding-top:120px;scrollbar-gutter:stable}
+body{color:var(--ui-ink);background:var(--ui-bg);line-height:1.73;letter-spacing:.003em;-webkit-text-size-adjust:100%}
+.wrap{max-width:1240px;padding-inline:clamp(16px,2.6vw,30px)}
+button,input,select,summary{touch-action:manipulation}
+button,select,input{min-height:42px}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #d48927!important;outline-offset:3px}
+.skip:focus{left:12px;top:12px;position:fixed;z-index:2000}
+.top{background:rgba(12,38,58,.975);backdrop-filter:saturate(140%) blur(14px);border-bottom:1px solid #ffffff2b}
+.navrow{min-height:74px;gap:18px}
+.logo{letter-spacing:.04em;font-size:13px;min-width:155px}
+.logo small{font-size:10px}
+.top nav a{font-size:12px;padding:10px 8px;white-space:nowrap}
+.hero{padding:52px 0 46px;overflow:hidden;background:radial-gradient(circle at 79% 10%,rgba(47,146,158,.34),transparent 48%),linear-gradient(135deg,#0b273d,#153b54)}
+.hero-in{grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:18px}
+.hero h1{margin:11px 0 16px;font-size:clamp(29px,3.85vw,50px);line-height:1.27;letter-spacing:-.045em}
+.kicker{letter-spacing:.12em;font-size:11px}
+.lead{font-size:15px;line-height:1.95;color:#d8e8ed}
+.hero-art{max-width:318px;opacity:.94}
+.hero .muted{line-height:1.6;max-width:700px}
+.buttons{margin:18px 0 12px;gap:8px}
+.btn{padding:8px 13px;border-radius:8px;font-size:13px;line-height:1.5}
+.hero .btn{border-color:#94b3c4}
+.hero .btn.primary{background:#bceadb;color:#073a48;border-color:#bceadb}
+.section{padding:clamp(30px,3.7vw,50px) 0}
+.section.alt{background:var(--ui-bg)}
+.section:not(.alt){background:#fff}
+.section .wrap>*:last-child{margin-bottom:0}
+.section h2{margin:0 0 9px;font-size:clamp(23px,2.55vw,31px);line-height:1.42}
+.section h3{font-size:clamp(16px,1.65vw,19px);margin:22px 0 10px;line-height:1.55;letter-spacing:-.015em}
+.eyebrow{font-size:11px;letter-spacing:.14em;color:var(--ui-teal);margin-bottom:5px}
+.intro{margin:0 0 19px;color:#486478;line-height:1.9}
+.muted,.source,.caption{font-size:12px;line-height:1.7}
+.source{margin:7px 0 13px}
+.metrics{gap:10px;margin:15px 0 20px}
+.metrics article{padding:16px 17px;box-shadow:none;border-color:#d3e1e8;border-top:3px solid #27798b;min-height:130px}
+.metrics article:nth-child(2){border-top-color:#57a69a}
+.metrics article:nth-child(3){border-top-color:#d7a160}
+.metrics article:nth-child(4){border-top-color:#7c91b0}
+.metrics small{font-size:11px;line-height:1.5;font-weight:700}
+.metrics strong{font-size:clamp(22px,2.7vw,34px);margin:6px 0 3px;letter-spacing:-.045em}
+.metrics strong em{font-size:12px;letter-spacing:0}
+.metrics p{margin:4px 0;font-size:11.5px}
+.featuregrid,.facgrid,.devicegrid,.cardgrid,.twocol,.frameworks,.swot,.sources,.roadmap{gap:12px}
+.featuregrid{margin:14px 0}
+.featuregrid article{padding:17px 18px}
+.featuregrid h3{font-size:16px!important}
+.featuregrid p{font-size:13px}
+.featuregrid span{font-size:12px}
+.panel,.device,.fac,.regioncard,.frameworks article,.sources article,.swot article,.roadmap article{border-color:var(--ui-line);box-shadow:var(--ui-shadow);border-radius:12px}
+.panel{padding:16px 17px}
+.panel h3{font-size:16px;margin:0 0 8px}
+.chartwrap{height:290px}
+.chartwrap.slim{height:250px}
+.chartwrap canvas{touch-action:pan-y}
+.chart-labels{display:flex;gap:8px;flex-wrap:wrap;margin:7px 0 0}
+.chart-labels span{font-size:11px;color:#557080}
+.source a,.panel a{overflow-wrap:anywhere}
+.notice{padding:12px 16px;margin:15px 0;border-radius:8px;font-size:13px;line-height:1.78;background:#f0f7f9;color:#285369;border-color:#c3dbe5;border-left:4px solid #248198}
+.notice p{margin:2px 0 0}
+.sources article{padding:11px 13px;background:#fff}
+.sources article>b{font-size:13px;display:block}
+.sources article small{font-size:11px}
+.sources a{font-size:12px}
+.scroll{background:white;border-radius:9px;box-shadow:none;border:1px solid var(--ui-line);margin:13px 0;scrollbar-width:thin;overscroll-behavior-inline:contain}
+table{font-size:12.5px}
+table caption{font-size:12px;padding:9px 12px}
+table th,table td{padding:9px 11px}
+table th{position:sticky;top:0;background:#eaf3f6;font-size:12px;z-index:1;box-shadow:0 1px 0 #d4e0e7}
+tbody tr:hover{background:#eff6f8}
+tbody tr:nth-child(even):hover{background:#e7f1f5}
+.regioncard{padding:16px}
+.regioncard .head{gap:9px}
+.regioncard .head h3{font-size:18px;margin:0}
+.regioncard .score{font-size:24px}
+.regioncard .chip{font-size:10.5px;padding:2px 7px}
+.regioncard p{font-size:13px;line-height:1.8}
+.regioncard dl{gap:7px}
+.regioncard dt{font-size:11px}
+.regioncard dd{font-size:14px}
+.region-facility-strip{margin:9px 0;padding:9px;gap:6px}
+.region-facility-strip span{padding:4px 7px}
+.toolbar{margin:12px 0}
+.toolbar select,.toolbar input{font-size:14px}
+#areas .panel .chartwrap{height:315px}
+#map{min-height:350px;height:350px;background:#ebf3f4;border-radius:10px}
+.leaflet-container{font:12px/1.5 system-ui,sans-serif!important}
+.leaflet-popup-content{min-width:170px;line-height:1.65}
+.leaflet-control-attribution{font-size:10px!important}
+.fac{padding:13px}
+.fac h4{font-size:13px;line-height:1.6;margin:0 0 5px}
+.fac address{font-size:11.5px;min-height:unset}
+.fac .links{margin-top:8px;font-size:11.5px}
+.device{padding:15px}
+.device h3{font-size:16px;margin:0 0 4px}
+.device small{font-size:11px}
+.device p{font-size:12.5px;line-height:1.78}
+.strategyKey{padding:19px 21px}
+.strategyKey h3{font-size:18px;margin:7px 0}
+.strategyKey p{font-size:13.5px}
+.frameworks{margin:14px 0 22px}
+.frameworks article{padding:14px}
+.frameworks article h4{font-size:14px;margin:0 0 5px}
+.frameworks article p{font-size:12.5px}
+.swot article{padding:15px}
+.swot article p{font-size:13px}
+.roadmap article{padding:16px}
+.roadmap strong{font-size:16px}
+.ksf{font-size:13px}
+#regional2050 .chartwrap{height:325px}
+#regional2050 .network-card{box-shadow:none;padding:12px}
+#clinic-facilities .wrapcell{max-width:310px;min-width:175px}
+#clinic-facilities .toolbar{gap:8px}
+#clinic-facilities .metrics strong{font-size:clamp(22px,2.5vw,30px)}
+#clinic-facilities .scroll{margin:12px 0}
+#clinic-facilities table th,#clinic-facilities table td{padding:9px}
+#clinic-facilities .facility-details{background:#f8fbfc}
+#clinic-facilities .facility-details summary{font-size:14px}
+footer{padding:26px 0;font-size:12px;line-height:1.75}
+footer p{margin:5px 0}
+.figure-tag{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:#477180;font-weight:800}
+.micro-note{font-size:11.5px;line-height:1.7;color:#587284}
+.source-legend{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 5px}
+.source-legend span{display:inline-flex;gap:5px;align-items:center;padding:5px 9px;border:1px solid #c9dce4;border-radius:999px;background:#fff;color:#36556a;font-size:11px;font-weight:650}
+.source-legend b{display:block;width:7px;height:7px;border-radius:50%;background:#138f84}
+.source-legend .estimate b{background:#b9894f}
+.source-legend .analysis b{background:#6673ad}
+.ui-rail{display:flex;gap:8px;overflow:auto;scrollbar-width:thin;padding:11px max(16px,calc((100vw - 1180px)/2));border-bottom:1px solid #d5e2e7;background:#fff;position:sticky;top:74px;z-index:500;white-space:nowrap}
+.ui-rail a{flex:none;display:inline-flex;align-items:center;gap:7px;border-radius:99px;background:#f0f5f8;border:1px solid #dfebf0;padding:6px 11px;color:#28576d;font-weight:700;font-size:12px;text-decoration:none}
+.ui-rail a:hover,.ui-rail a[aria-current="location"]{background:#d8eef0;color:#074b61;border-color:#7eb9bc}
+.ui-rail .number{color:#347789;font-size:10px;font-variant-numeric:tabular-nums}
+.atlas-infographic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:10px;margin:16px 0}
+.atlas-step{border:1px solid #cddfe7;border-radius:11px;background:#fff;padding:15px 12px;min-width:0;position:relative}
+.atlas-step:not(:last-child):after{content:"›";position:absolute;right:-11px;top:36%;font-size:20px;line-height:20px;color:#0d7885;background:#fff;border-radius:99px;z-index:2}
+.atlas-step svg{display:block;width:36px;height:36px;color:#116e80;margin-bottom:8px;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:2}
+.atlas-step b{display:block;font-size:13px;color:#174c62;margin-bottom:4px}
+.atlas-step p{margin:0;font-size:11px;line-height:1.7;color:#557386}
+.atlas-step small{font-size:10px;color:#598596}
+.ui-dashboard{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:15px 0}
+.ui-metric{border:1px solid #cbdfe4;border-radius:12px;padding:14px;background:linear-gradient(125deg,#fff,#f7fcfc)}
+.ui-metric b{display:block;font-size:24px;font-variant-numeric:tabular-nums;letter-spacing:-.035em;color:#0c5d75}
+.ui-metric small{font-size:11px;color:#527184}
+.ui-metric svg{width:30px;height:30px;color:#117c85;stroke:currentColor;fill:none;stroke-width:1.8}
+.inline-mini-graph{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.inline-mini-graph progress{height:10px;width:min(260px,100%);accent-color:#0d858b}
+.visual-note{background:#ecf6f5;border-left:4px solid #25877f;border-radius:8px;padding:10px 14px;font-size:12px;color:#31645e}
+.compact-details{background:#f7fbfc;border:1px solid #d3e2e7;border-radius:11px;margin:14px 0;padding:0 15px}
+.compact-details summary{cursor:pointer;min-height:46px;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;font-size:14px;font-weight:800;color:#164e68}
+.compact-details summary::after{content:"＋";font-size:18px;color:#167886}
+.compact-details[open] summary::after{content:"−"}
+.compact-details[open] summary{border-bottom:1px solid #d7e5e9}
+.compact-details>.scroll{margin:13px 0}
+.compact-details>.source{margin:10px 0 14px}
+.mini-figure{border:1px solid #d7e4ea;border-radius:12px;background:#fff;padding:15px}
+.mini-figure h3{margin:0 0 8px}
+.ui-mini-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ui-mini-cols>.panel{padding:14px}
+.ui-mini-cols .chartwrap{height:260px}
+#areaBubbleChart,#bedsDonutChart,#facilityMixChart{max-width:100%}
+#clinic-facilities .scroll table{width:100%}
+.data-status{font-size:12px;color:#1b6176;margin:3px 0}
+.data-status[role="alert"]{color:#a0443f}
+.chartwrap,.panel,.strategyKey{min-width:0}
+@media(max-width:1220px){.top nav{display:none!important}.menubtn{display:block!important;margin-left:auto}.top nav.open{display:flex!important}.top nav{position:absolute;top:100%;left:0;right:0;background:#12324d;flex-direction:column;align-items:stretch;padding:12px 18px;max-height:70vh;overflow:auto;box-shadow:0 14px 25px #061e3070}.top nav a{font-size:14px;padding:11px}.top{z-index:1000}}
+@media(max-width:900px){.hero-in{grid-template-columns:minmax(0,1fr) 220px}.hero-art{max-width:220px}.ui-mini-cols{grid-template-columns:repeat(2,minmax(0,1fr))}.atlas-infographic{grid-template-columns:repeat(2,minmax(0,1fr))}.atlas-step:nth-child(2):after{display:none}.facgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.ui-rail{top:74px}}
+@media(max-width:700px){html{scroll-padding-top:116px}.hero{padding:30px 0 32px}.hero-in{display:flex;flex-direction:column;align-items:stretch;gap:12px}.hero-art{display:none}.section{padding:30px 0 36px}.metrics,.ui-dashboard{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.metrics article{min-height:108px;padding:12px}.metrics strong{font-size:23px}.featuregrid,.facgrid,.devicegrid,.cardgrid,.twocol,.frameworks,.swot,.sources{grid-template-columns:1fr}.ui-mini-cols{grid-template-columns:1fr}.atlas-infographic{gap:8px}.atlas-step{padding:11px}.atlas-step svg{width:28px;height:28px}.atlas-step p{font-size:10.5px}.chartwrap,.ui-mini-cols .chartwrap{height:280px}.panel{padding:13px}.ui-rail{padding:9px 14px;top:74px}.ui-rail a{font-size:11px;padding:6px 10px}#map{height:320px;min-height:320px}#regional2050 .network-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#regional2050 .chartwrap{height:315px}.regioncard{padding:13px}.toolbar{gap:7px}footer{padding:24px 0}}
+@media(max-width:370px){.metrics,.ui-dashboard{grid-template-columns:1fr}.atlas-infographic{grid-template-columns:1fr}.atlas-step::after{display:none}#regional2050 .network-grid{grid-template-columns:1fr}.top .logo{font-size:11px;min-width:0}table th,table td{padding:8px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
