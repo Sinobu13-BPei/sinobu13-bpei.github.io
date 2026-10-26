@@ -192,3 +192,23 @@ body.jm-site :where(input,select,textarea){
 body.jm-site :where(input,textarea)::placeholder{
   color:#5B6770!important;opacity:1
 }
+
+/* Region-source monthly-update notice: pale pink with high-contrast text. */
+body.jm-site .status.area-note--pink {
+  background-color:#FFF0F5!important;
+  background-image:none!important;
+  color:#702A45!important;
+  border:1px solid #E7B4C8!important;
+  border-radius:8px;
+  padding:16px 20px;
+  margin:16px 0;
+  font-size:16px!important;
+  line-height:1.7;
+  box-shadow:none!important;
+}
+body.jm-site .status.area-note--pink :is(a,strong,span) {
+  color:#702A45!important;
+}
+@media(max-width:560px) {
+  body.jm-site .status.area-note--pink {padding:12px 14px}
+}
