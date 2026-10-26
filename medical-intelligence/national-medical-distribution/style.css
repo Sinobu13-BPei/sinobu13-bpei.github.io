@@ -107,3 +107,14 @@ html{scroll-padding-top:76px}body{overflow-x:clip}
 .static-legend li span{flex:1}
 .static-legend li b{font-variant-numeric:tabular-nums}
 @media(max-width:500px){.static-chart{padding:6px}.static-bar-row{grid-template-columns:minmax(86px,35%) minmax(45px,1fr) minmax(45px,auto);gap:5px}.static-bar-row>span,.static-bar-row>strong,.static-legend li{font-size:11px}}
+
+
+.mapLayout{align-items:start}
+.mapLayout .regionPanel{align-self:start;padding:clamp(14px,2vw,20px);border-radius:12px}
+.mapLayout .regionPanel h3{margin-top:14px;font-size:21px}
+.mapLayout .regionPanel p{margin-bottom:12px}
+.mapLayout .regionPanel .chips{gap:6px}
+.mapLayout .regionPanel .chips span{font-size:11px;padding:5px 9px}
+.mapLayout .regionPanel .sourceTiny{margin:11px 0 0}
+.mapLayout #map{border-radius:12px}
+@media(max-width:780px){.mapLayout .regionPanel{padding:14px}.mapLayout #map{border-radius:9px}}
