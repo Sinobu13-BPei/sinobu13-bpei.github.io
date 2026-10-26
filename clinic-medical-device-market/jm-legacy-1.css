@@ -23,3 +23,23 @@ nav{position:sticky;top:0;z-index:40;background:#fffffff2;backdrop-filter:blur(8
 .treemap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:9px;align-content:flex-start}.tile{grid-column:span var(--span,3);border-radius:13px;color:#fff;padding:12px;min-height:86px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}.tile b{font-size:13px}.tile strong{font-size:19px}.tile small{font-size:11px;color:#ffffffd9}.footer{padding:28px 0 45px;color:#6b7a8a;font-size:12px}.to-top{position:fixed;right:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;justify-content:center;padding:9px 12px;border-radius:999px;background:#173b61;color:#fff!important;font-size:11px;font-weight:900;box-shadow:0 5px 18px rgba(23,59,97,.22);text-decoration:none!important}.nojs{margin:12px auto;max-width:1480px;padding:10px 18px;border-radius:10px;background:#fff3cd;color:#6b5200;border:1px solid #f1d98a}.flow-hint{display:none;font-size:11px;color:#65768a;margin:6px 0 0}
 @media(max-width:1000px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.grid2,.grid3,.pict-grid,.source-matrix{grid-template-columns:1fr}.controls{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:1fr}.chartbox{height:330px}.treemap{grid-template-columns:repeat(6,minmax(0,1fr))}.tile{grid-column:span 3}}
 @media(max-width:560px){.wrap{padding:0 14px}.kpi-grid{grid-template-columns:1fr}.controls{grid-template-columns:1fr}.hero{padding-top:32px}.section{padding:34px 0}.treemap{grid-template-columns:1fr}.tile{grid-column:1!important}.detail-toolbar{align-items:stretch}.pager{width:100%;justify-content:space-between}.flow-hint{display:block}.to-top{right:10px;bottom:10px}}
+
+/* Clinic market mobile accessibility / contrast repair 2026-10-27 */
+html{scroll-padding-top:68px}body{overflow-x:clip}
+body[data-site-type="atlas"] .hero{background:#123C60!important;color:#fff!important}
+body[data-site-type="atlas"] .hero :is(h1,.clinic-rest,.scope-note,.editor,.lead,.chip){color:#fff!important;-webkit-text-fill-color:#fff!important}
+body[data-site-type="atlas"] .hero .clinic-focus{background:#A65E13!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+body[data-site-type="atlas"] .hero .market-scope,body[data-site-type="atlas"] .hero .clinic-subtitle{color:#E5F8FF!important;-webkit-text-fill-color:#E5F8FF!important}
+body[data-site-type="atlas"] .hero .hero-actions a:not(.alt){background:#fff!important;color:#123C60!important;-webkit-text-fill-color:#123C60!important}
+body[data-site-type="atlas"] .hero .hero-actions a.alt{background:#0D7180!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+body[data-site-type="atlas"] :is(.tile,.ortho-card-link,.okinawa-card-link,.to-top){color:#fff!important;-webkit-text-fill-color:#fff!important}
+body[data-site-type="atlas"] .tile :is(b,strong,small,span){color:#fff!important;-webkit-text-fill-color:#fff!important}
+body[data-site-type="atlas"] :is(.card,.kpi,.pict-card,.src,.note){color:#243548}
+body[data-site-type="atlas"] :is(input,select,button){font:inherit;max-width:100%}
+body[data-site-type="atlas"] :is(input,select){background:#fff;color:#172B40;-webkit-text-fill-color:#172B40}
+body[data-site-type="atlas"] :is(a,button,input,select):focus-visible{outline:3px solid #E1A342;outline-offset:3px}
+body[data-site-type="atlas"] :is(.grid2,.grid3,.card,.kpi,.chartbox,.controls){min-width:0}
+body[data-site-type="atlas"] :is(.table-wrap,.tablewrap,.table-scroll){max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+body[data-site-type="atlas"] canvas{max-width:100%}
+@media(max-width:600px){body[data-site-type="atlas"] .wrap{padding-inline:14px}body[data-site-type="atlas"] .hero h1{font-size:clamp(25px,7vw,35px);line-height:1.24;overflow-wrap:anywhere}body[data-site-type="atlas"] .hero .clinic-focus{line-height:1.2}body[data-site-type="atlas"] .hero .clinic-rest{font-size:.82em}body[data-site-type="atlas"] .hero-actions{display:grid;grid-template-columns:1fr}body[data-site-type="atlas"] .hero-actions a{text-align:center}body[data-site-type="atlas"] .section h2{font-size:clamp(22px,6vw,29px)}body[data-site-type="atlas"] .chartbox{height:290px}body[data-site-type="atlas"] .kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-site-type="atlas"] .kpi{padding:12px}body[data-site-type="atlas"] .kpi strong{font-size:clamp(18px,5vw,26px)}body[data-site-type="atlas"] .section{padding-block:28px}}
+@media(max-width:360px){body[data-site-type="atlas"] .kpi-grid{grid-template-columns:1fr}}
