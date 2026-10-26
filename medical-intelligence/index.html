@@ -332,6 +332,16 @@ function draw(){
       saninLink.setAttribute('aria-label',p[0]+'の山陰医療市場調査を開く');
       actions.appendChild(saninLink);
     }
+    if(p[0]==='北海道'){
+      const hokkaidoLink=document.createElement('a');
+      hokkaidoLink.href='https://sinobu13-bpei.github.io/medical-intelligence/hokkaido/';
+      hokkaidoLink.target='_blank';
+      hokkaidoLink.rel='noopener noreferrer';
+      hokkaidoLink.className='hokkaido-mkt-btn';
+      hokkaidoLink.textContent='北海道MKT ↗';
+      hokkaidoLink.setAttribute('aria-label','北海道の医療市場調査を開く');
+      actions.appendChild(hokkaidoLink);
+    }
     let a=document.createElement('a');a.href=googleMapsUrl(p[0]);a.target='_blank';a.rel='noopener noreferrer';a.className='google-map-btn';a.textContent='Map';a.setAttribute('aria-label',p[0]+'のGoogle Mapsを開く');
     actions.appendChild(a);
     row.append(title,actions);
