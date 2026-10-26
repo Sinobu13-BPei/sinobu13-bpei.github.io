@@ -91,8 +91,7 @@ window.HIROSHIMA_DATA = {
   {name:"ティーエスアルフレッサ",type:"医薬品・医療関連",url:"https://www.ts-alfresa.net/",scope:"県内に営業基盤"},
   {name:"メディセオ",type:"医薬品卸",url:"https://www.mediceo.co.jp/",scope:"広域医薬品物流"},
   {name:"スズケン",type:"医薬品卸",url:"https://www.suzuken.co.jp/",scope:"広域医薬品物流"},
-  {name:"東邦薬品",type:"医薬品卸",url:"https://www.tohoyk.co.jp/",scope:"広域医薬品物流"},
-  {name:"五洋医療器",type:"医療機器",url:"https://www.google.com/search?q=%E4%BA%94%E6%B4%8B%E5%8C%BB%E7%99%82%E5%99%A8+%E5%BA%83%E5%B3%B6",scope:"地場流通（所在地等要追加検証）"}
+  {name:"東邦薬品",type:"医薬品卸",url:"https://www.tohoyk.co.jp/",scope:"広域医薬品物流"}
  ],
  verifiedDevices:[
   {facility:"福山市民病院",type:"320列MSCT",count:"2台",note:"機種仕様・設置更新年は非公表"},
