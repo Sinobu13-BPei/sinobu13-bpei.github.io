@@ -92,6 +92,13 @@ function draw(){
     let row=document.createElement('div');row.className='region';
     let title=document.createElement('strong');title.textContent=p[0];
     let actions=document.createElement('div');actions.className='region-actions';
+    if(p[0]==='高知県'){
+      const link=document.createElement('a');link.href='./kochi/';link.target='_blank';link.rel='noopener noreferrer';
+      link.textContent='高知MKT ↗';link.className='kochi-mkt-btn';
+      link.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:7px 13px;background:#08786c;color:#fff;font-weight:800;border:2px solid #046258;border-radius:10px;text-decoration:none';
+      link.setAttribute('aria-label','高知県 医療機器市場・地域医療戦略を開く');actions.appendChild(link);
+    }
+
     if(p[0]==='栃木県'){
       const tochigiLink=document.createElement('a');
       tochigiLink.href='./tochigi/';
