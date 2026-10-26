@@ -667,6 +667,126 @@
       "title": "診療報酬情報 厚生労働省",
       "year": "2026年度",
       "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411.html"
+    },
+    {
+      "id": "P01",
+      "title": "福島県 第8次医療計画（2026年8月更新）",
+      "year": "2024–2029",
+      "url": "https://www.pref.fukushima.lg.jp/sec/21045c/medical-care-plan8.html"
+    },
+    {
+      "id": "P02",
+      "title": "福島県 第三次健康ふくしま21計画・基準値改定",
+      "year": "2024–2035／2026年3月更新",
+      "url": "https://www.pref.fukushima.lg.jp/sec/21045a/daisanji21keikaku.html"
+    },
+    {
+      "id": "P03",
+      "title": "福島県 がん対策推進計画 第4期",
+      "year": "2024–2029",
+      "url": "https://www.pref.fukushima.lg.jp/sec/21045a/gankeikaku.html"
+    },
+    {
+      "id": "P04",
+      "title": "福島県 がん検診受診率・精度管理",
+      "year": "2024年度実績／2026年5月更新",
+      "url": "https://www.pref.fukushima.lg.jp/sec/21045a/gankenshinsuishinjigyou.html"
+    },
+    {
+      "id": "P05",
+      "title": "福島県 胃がん検診2024年度総括表",
+      "year": "2024年度（R5精検含む）",
+      "url": "https://www.pref.fukushima.lg.jp/uploaded/attachment/721810.pdf"
+    },
+    {
+      "id": "P06",
+      "title": "福島県 肺がん検診2024年度総括表",
+      "year": "2024年度（R5精検含む）",
+      "url": "https://www.pref.fukushima.lg.jp/uploaded/attachment/721811.pdf"
+    },
+    {
+      "id": "P07",
+      "title": "福島県 大腸がん検診2024年度総括表",
+      "year": "2024年度（R5精検含む）",
+      "url": "https://www.pref.fukushima.lg.jp/uploaded/attachment/721812.pdf"
+    },
+    {
+      "id": "P08",
+      "title": "福島県 乳がん検診2024年度総括表",
+      "year": "2024年度（R5精検含む）",
+      "url": "https://www.pref.fukushima.lg.jp/uploaded/attachment/721975.pdf"
+    },
+    {
+      "id": "P09",
+      "title": "福島県 子宮頸がん検診2024年度総括表",
+      "year": "2024年度（R5精検含む）",
+      "url": "https://www.pref.fukushima.lg.jp/uploaded/attachment/721976.pdf"
+    },
+    {
+      "id": "P10",
+      "title": "福島県立医科大学 甲状腺検査実施状況（第6・7回）",
+      "year": "2026年3月31日現在",
+      "url": "https://www.fhms.jp/fhms/thyroid/"
+    },
+    {
+      "id": "P11",
+      "title": "福島県 甲状腺検査2026年度の受診方法",
+      "year": "2026年度",
+      "url": "https://fukushima-mimamori.jp/thyroid-examination/primaryexam/system.html"
+    },
+    {
+      "id": "P12",
+      "title": "甲状腺検査結果に対する評価（環境省）",
+      "year": "2025年7月評価／2026年3月掲載",
+      "url": "https://www.env.go.jp/chemi/rhm/current/10-03-25.html"
+    },
+    {
+      "id": "P13",
+      "title": "甲状腺検査のメリット・デメリット",
+      "year": "2026年確認",
+      "url": "https://fukushima-mimamori.jp/thyroid-examination/merit-demerit.html"
+    },
+    {
+      "id": "P14",
+      "title": "福島県民健康調査の全体構成",
+      "year": "2026年確認",
+      "url": "https://www.fhms.jp/fhms/outline/"
+    },
+    {
+      "id": "P15",
+      "title": "県民健康調査：避難地域等の健康診査",
+      "year": "2026年8月更新",
+      "url": "https://www.pref.fukushima.lg.jp/site/portal/kenkocyosa-kenkoshinsa.html"
+    },
+    {
+      "id": "P16",
+      "title": "福島県民健康調査 第60回検討委員会",
+      "year": "2026年7月30日開催／10月26日議事録更新",
+      "url": "https://www.pref.fukushima.lg.jp/sec/21045b/kenkocyosa-kentoiinkai-60.html"
+    },
+    {
+      "id": "P17",
+      "title": "福島県 令和8年度当初予算の概要",
+      "year": "2026年3月",
+      "url": "https://www.pref.fukushima.lg.jp/sec/01115b/08tousyoyosangaiyou.html"
+    },
+    {
+      "id": "P18",
+      "title": "福島県における医師偏在と診療所承継（厚労省資料）",
+      "year": "2025年11月14日",
+      "url": "https://www.mhlw.go.jp/content/10800000/001595413.pdf"
+    },
+    {
+      "id": "P19",
+      "title": "甲状腺検査評価部会 第26回",
+      "year": "2026年5月22日",
+      "url": "https://www.pref.fukushima.lg.jp/sec/21045b/kenkocyosa-kentoiinkai-b26.html"
+    },
+    {
+      "id": "P20",
+      "title": "福島県国保連 特定健診・保健指導データ",
+      "year": "2024年度／2026年4月公開",
+      "url": "https://www.fukushima-kokuho.jp/shiryou/data.html"
     }
   ],
   "scoringWeights": [
@@ -720,5 +840,150 @@
       873
     ]
   ],
-  "futureBedsNote": "旧地域医療構想による2025年必要病床。2025年の病床機能報告実績と定義差があり単純不足算出しない"
+  "futureBedsNote": "旧地域医療構想による2025年必要病床。2025年の病床機能報告実績と定義差があり単純不足算出しない",
+  "policyDashboard": {
+    "asOf": "2026-10-26",
+    "screening": {
+      "description": "福島県2024年度の市町村がん検診（集団＋個別）等の地域保健・健康増進事業報告。事業所等による職域検診を含む県民全体の総受診率ではない。各検診の対象年齢は一致しない。比率は県独自推定対象者を分母とし、乳がん・子宮頸がんは2年度の重複を除いた実施人数。",
+      "unit": "percent",
+      "series": [
+        {
+          "name": "胃がん",
+          "age": "50–69歳",
+          "participation": 30.6,
+          "followup": 76.97,
+          "exam": "X線・内視鏡",
+          "source": "P05",
+          "screened": 22725
+        },
+        {
+          "name": "肺がん",
+          "age": "40–69歳",
+          "participation": 28.92,
+          "followup": 74.9,
+          "exam": "胸部X線",
+          "source": "P06",
+          "screened": 27429
+        },
+        {
+          "name": "大腸がん",
+          "age": "40–69歳",
+          "participation": 30.04,
+          "followup": 68.3,
+          "exam": "便潜血等",
+          "source": "P07",
+          "screened": 69685
+        },
+        {
+          "name": "乳がん",
+          "age": "40–69歳・女性",
+          "participation": 47.85,
+          "followup": 93.41,
+          "exam": "マンモグラフィ",
+          "source": "P08",
+          "screened": 65830
+        },
+        {
+          "name": "子宮頸がん",
+          "age": "20–69歳・女性",
+          "participation": 46.38,
+          "followup": 81.31,
+          "exam": "細胞診等",
+          "source": "P09",
+          "screened": 85707
+        }
+      ],
+      "followupNote": "精検受診率は前年度（2023年度）のがん検診から2024年度に精検を受けた者を含む。受診率と精検受診率は同一年度コホートの連続確率を意味しない。"
+    },
+    "thyroid": {
+      "source": "P10",
+      "snapshot": "2026-03-31",
+      "rounds": [
+        {
+          "round": "本格6回目",
+          "period": "2023–2025年3月",
+          "target": 211928,
+          "first": 69032,
+          "results": 69025,
+          "normal": 68035,
+          "B": 990,
+          "second": 819,
+          "secondFinal": 799,
+          "cytology": 56,
+          "completedPeriod": true
+        },
+        {
+          "round": "本格7回目",
+          "period": "2025–2027年3月",
+          "target": 171964,
+          "first": 24935,
+          "results": 24597,
+          "normal": 24151,
+          "B": 446,
+          "second": 225,
+          "secondFinal": 164,
+          "cytology": 7,
+          "completedPeriod": false
+        }
+      ],
+      "milestone": [
+        {
+          "label": "25歳時",
+          "target": 189995,
+          "first": 14195,
+          "period": "2017年5月～2026年3月累計"
+        },
+        {
+          "label": "30歳時",
+          "target": 87552,
+          "first": 4642,
+          "period": "2022年4月～2026年3月累計"
+        }
+      ],
+      "classification": {
+        "A1": "結節・のう胞なし",
+        "A2": "5.0mm以下の結節／20.0mm以下ののう胞等",
+        "B": "5.1mm以上の結節／20.1mm以上ののう胞等",
+        "C": "直ちに精査が必要と判断"
+      },
+      "caution": "B判定はがん確定を意味しない。受診は任意。検査の利益・不利益、過剰診断可能性・本人の選択を必ず説明。観察研究の関連評価を個人の因果関係やリスクゼロと混同しない。"
+    },
+    "healthPlans": [
+      {
+        "name": "第8次医療計画",
+        "period": "2024–2029",
+        "lead": "地域医療課",
+        "theme": "復興・医療機能分担・人材・5疾病6事業・在宅・医療DX",
+        "source": "P01"
+      },
+      {
+        "name": "第三次健康ふくしま21",
+        "period": "2024–2035",
+        "lead": "健康づくり推進課",
+        "theme": "健康寿命・健康格差／肥満・食塩・喫煙",
+        "source": "P02"
+      },
+      {
+        "name": "第4期がん対策",
+        "period": "2024–2029",
+        "lead": "健康づくり推進課",
+        "theme": "一次予防・検診二次予防・がん医療・がんとの共生",
+        "source": "P03"
+      },
+      {
+        "name": "県民健康調査",
+        "period": "2011～継続",
+        "lead": "県民健康調査課／福島県立医科大学",
+        "theme": "基本調査・甲状腺・健康診査・こころと生活習慣・妊産婦",
+        "source": "P14"
+      },
+      {
+        "name": "双葉地域中核病院",
+        "period": "2029年度以降の開院目標",
+        "lead": "福島県",
+        "theme": "復興・地域医療拠点・段階整備",
+        "source": "S09"
+      }
+    ]
+  }
 }
