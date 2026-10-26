@@ -32,6 +32,27 @@ $('distributorRows').innerHTML=d.distributor.map(s=>'<tr><td>'+esc(s[0])+'</td><
 function showSources(){
 $('sourceList').innerHTML=d.sources.map(s=>'<li><b>'+esc(s[0])+'</b> '+link(s[3],s[1])+'<small>データ・公開時点：'+esc(s[2])+'</small></li>').join('');
 }
+
+function showFacilityCounts(){
+const records=filtered.map(a=>d.getFacility(a[0],a[1])).filter(Boolean);
+const clinics=records.reduce((sum,r)=>sum+r[2],0),hospitals=records.reduce((sum,r)=>sum+r[3],0);
+const associations=d.associationRows.filter(r=>filtered.some(a=>a[0]===r[0]&&a[1]===r[1]));
+$('facilityClinicTotal').textContent=nf(clinics);
+$('facilityHospitalTotal').textContent=nf(hospitals);
+$('facilityAllTotal').textContent=nf(clinics+hospitals);
+$('associationTotal').textContent=nf(associations.length)+'団体';
+$('facilityRows').innerHTML=filtered.map(a=>{
+const fac=d.getFacility(a[0],a[1]),as=d.associationRows.filter(s=>s[0]===a[0]&&s[1]===a[1]);
+const region=esc(a[0])+' / '+esc(a[1]);
+return '<tr><td><span class="region-tag">'+esc(a[0])+'</span></td><td><strong>'+esc(a[1])+'</strong><small class="cell-note">'+esc(a[2])+' 周辺</small></td><td class="num value-clinic">'+(fac?nf(fac[2]):'—')+'</td><td class="num">'+(fac?nf(fac[3]):'—')+'</td><td class="num value-total">'+(fac?nf(fac[2]+fac[3]):'—')+'</td><td class="association-links">'+as.map(x=>link(x[3],x[2])).join('')+'</td></tr>';
+}).join('');
+$('associationRows').innerHTML=associations.map(a=>{
+const city=a[4],fig=city?d.cityFacilities[city]:null,master=d.facilitySource.associations[a[0]];
+const ref=a[3]===master?link(master,'県・地域医師会一覧'):link(a[3],'医師会・公式案内');
+return '<tr><td><b>'+esc(a[0])+'</b><small class="cell-note">'+esc(a[1])+'医療圏</small></td><td><b>'+esc(a[2])+'</b><small class="cell-note">'+ref+'</small></td><td>'+esc(city||'複数自治体・特定不能')+'</td><td class="num">'+(fig?nf(fig[0]):'—')+'</td><td class="num">'+(fig?nf(fig[1]):'—')+'</td><td><small>'+(fig?'2023年・自治体内実施設数（会員施設数ではない）':'団体ごとの加盟施設数は未取得')+'</small></td></tr>';
+}).join('');
+}
+
 function areaRows(){
 $('areaRows').innerHTML=filtered.map(a=>'<tr><td>'+esc(a[0])+'<br><b>'+esc(a[1])+'</b></td><td>'+esc(a[2])+'<br><b>'+esc(a[6])+'</b><br>'+maps(a[6],a[2],a[3],a[4])+'</td><td>'+esc(a[7])+'</td><td>'+esc(a[8])+'</td><td>'+esc(a[9])+'</td><td>'+esc(a[10])+'</td><td class="score">'+score(a)+'/100<small style="display:block;font-size:10px;font-weight:500">独自仮説</small></td></tr>').join('');
 $('filterCount').textContent=filtered.length+'医療圏を表示';
@@ -69,7 +90,17 @@ filtered.forEach(a=>{let c=a[0]==='新潟県'?'#1289a8':a[0]==='長野県'?'#098
 if(pts.length){map.fitBounds(L.latLngBounds(pts).pad(.18),{maxZoom:8});}
 }
 function onFilter(){
-let f=$('prefFilter').value;filtered=d.areas.filter(a=>f==='all'||a[0]===f);areaRows();showBeds();renderScore();renderDoctor();updateMarkers();
+let f=$('prefFilter').value;filtered=d.areas.filter(a=>f==='all'||a[0]===f);areaRows();showFacilityCounts();showBeds();renderScore();renderDoctor();updateMarkers();
 }
-showPopulation();showInstitutions();showDistributors();showSources();showMap();$('prefFilter').addEventListener('change',onFilter);onFilter();
+showPopulation();showInstitutions();showDistributors();showSources();showMap();
+$('prefFilter').addEventListener('change',onFilter);
+for(const id of ['doctors','risks','associations']){
+const fold=$(id);if(!fold)continue;
+fold.addEventListener('toggle',()=>{
+if(!fold.open)return;
+if(id==='doctors'&&doctorChart&&doctorChart.resize)doctorChart.resize();
+if(id==='risks'&&map&&map.invalidateSize)map.invalidateSize();
+});
+}
+onFilter();
 })();
