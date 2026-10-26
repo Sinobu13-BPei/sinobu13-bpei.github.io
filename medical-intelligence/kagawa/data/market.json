@@ -174,6 +174,42 @@
       "香川県「かがわ医療情報ネットワーク（K-MIX R）」",
       "2021年開始・閲覧2026年",
       "https://www.pref.kagawa.lg.jp/imu/iryoushisaku/kfvn2-3.html"
+    ],
+    [
+      "S30",
+      "四国医療器「会社概要・事業内容」",
+      "2024年度売上・2025年4月人員／閲覧2026年",
+      "https://shikokuiryoki.com/about/"
+    ],
+    [
+      "S31",
+      "尾路医科器械「公式事業案内・会社概要」",
+      "2026年閲覧",
+      "https://onomichi-ika.com/"
+    ],
+    [
+      "S32",
+      "四国アルフレッサ「会社概要」",
+      "2025年3月期／閲覧2026年",
+      "https://www.s-alfresa.com/company/overview"
+    ],
+    [
+      "S33",
+      "幸燿「会社案内・事業所一覧」",
+      "2026年閲覧",
+      "https://web-koyo.co.jp/company/"
+    ],
+    [
+      "S34",
+      "アスティス「拠点・薬事許可一覧」",
+      "2026年1月23日",
+      "https://astis.co.jp/wp-content/uploads/2024/03/eef878667fa5396ba4182741d06e95ac.pdf"
+    ],
+    [
+      "S35",
+      "サナス「営業拠点・高松支店」",
+      "2026年閲覧",
+      "https://www.sanas.co.jp/corporate/base/"
     ]
   ],
   "population": {
@@ -537,5 +573,49 @@
     "仲多度郡・善通寺市医師会",
     "三豊・観音寺市医師会",
     "香川大学医師会"
+  ],
+  "distributors": [
+    {
+      "layer": "医療機器・理化学",
+      "name": "四国医療器",
+      "location": "高松市に本社",
+      "activity": "診断・治療・検査・医療情報システム等",
+      "source": "S30"
+    },
+    {
+      "layer": "医療機器・ICT",
+      "name": "尾路医科器械",
+      "location": "高松市中野町",
+      "activity": "医療機器販売・修理、医療情報システム・開発",
+      "source": "S31"
+    },
+    {
+      "layer": "医薬品・試薬・医療機器",
+      "name": "四国アルフレッサ",
+      "location": "高松市国分寺町",
+      "activity": "医療用医薬品・検査試薬・医療機器の卸販売",
+      "source": "S32"
+    },
+    {
+      "layer": "医薬品卸",
+      "name": "幸燿（東邦薬品グループ）",
+      "location": "高松市田村町・善通寺市",
+      "activity": "医療用医薬品の卸・物流",
+      "source": "S33"
+    },
+    {
+      "layer": "医薬品卸",
+      "name": "アスティス（スズケングループ）",
+      "location": "高松市勅使町・善通寺市",
+      "activity": "医薬品卸事業、薬事許可の公開拠点",
+      "source": "S34"
+    },
+    {
+      "layer": "医療機器・修理",
+      "name": "サナス",
+      "location": "高松市林町（高松支店）",
+      "activity": "高度管理医療機器販売・修理",
+      "source": "S35"
+    }
   ]
 }
