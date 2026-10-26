@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-26",
+  "version": "2026-10-27",
   "sources": [
     {
       "id": "plan",
@@ -217,6 +217,27 @@
       "year": "2026年10月閲覧",
       "url": "https://www3.mh.nagasaki-u.ac.jp/nou-shin/medical_personnel.html",
       "scope": "医療圏別・循環器/脳卒中の地域連携病院"
+    },
+    {
+      "id": "facilities2026",
+      "title": "厚生労働省『医療情報ネット（ナビイ）』オープンデータ：市町村別二次集計（医療機関マップ/ufirst）",
+      "year": "2026年6月1日",
+      "url": "https://kurashi.ufirst.jp/iryou/pref/42/",
+      "scope": "21市町・8医療圏の病院・一般診療所・歯科診療所（掲載件数）"
+    },
+    {
+      "id": "facilityplan2022",
+      "title": "長崎県『第8次医療計画 第1章』施設数表／令和4年医療施設調査（薬局は県薬務行政調査）",
+      "year": "2022年10月1日（薬局は2023年3月末）",
+      "url": "https://www.pref.nagasaki.jp/shared/uploads/2024/07/1722309792.pdf",
+      "scope": "医療圏別の公式施設数・有床/無床診療所・歯科・薬局"
+    },
+    {
+      "id": "associations2026",
+      "title": "長崎県医師会『郡市医師会所在地』（14組織）",
+      "year": "2026年8月10日時点",
+      "url": "https://po.nagasaki.med.or.jp/citizen/about/",
+      "scope": "医師会の所在地・名称（医師会の会員施設数ではない）"
     }
   ],
   "areas": [
@@ -253,7 +274,13 @@
       },
       "drivers": "大学病院・高度急性期、がん、再編、CT/MRI高稼働と共同利用",
       "hospitals": "長崎大学病院、長崎みなとメディカルセンター、長崎原爆病院",
-      "opportunities": "高機能画像診断の更新計画と回復期転換・地域連携を同時設計"
+      "opportunities": "高機能画像診断の更新計画と回復期転換・地域連携を同時設計",
+      "facilities2026": {
+        "hospitals": 49,
+        "clinics": 466,
+        "dental": 260,
+        "total": 775
+      }
     },
     {
       "name": "佐世保県北",
@@ -288,7 +315,13 @@
       },
       "drivers": "急性期中核、循環器・脳卒中、半島部の救急搬送",
       "hospitals": "佐世保市総合医療センター、佐世保中央病院、長崎労災病院",
-      "opportunities": "急性期群の病院横断型設備更新と半島部サービス網の構築"
+      "opportunities": "急性期群の病院横断型設備更新と半島部サービス網の構築",
+      "facilities2026": {
+        "hospitals": 34,
+        "clinics": 197,
+        "dental": 119,
+        "total": 350
+      }
     },
     {
       "name": "県央",
@@ -323,7 +356,13 @@
       },
       "drivers": "NHO・JCHO、慢性期集積、回復期移行、空港アクセス",
       "hospitals": "長崎医療センター、諫早総合病院、長崎川棚医療センター",
-      "opportunities": "リハビリ・在宅移行とCT/MRI共同利用を統合提案"
+      "opportunities": "リハビリ・在宅移行とCT/MRI共同利用を統合提案",
+      "facilities2026": {
+        "hospitals": 32,
+        "clinics": 190,
+        "dental": 119,
+        "total": 341
+      }
     },
     {
       "name": "県南",
@@ -358,7 +397,13 @@
       },
       "drivers": "高齢化・医師確保、慢性期から在宅、半島部の医療完結",
       "hospitals": "長崎県島原病院、地域診療所",
-      "opportunities": "超音波・一般撮影・訪問医療と紹介画像の連携"
+      "opportunities": "超音波・一般撮影・訪問医療と紹介画像の連携",
+      "facilities2026": {
+        "hospitals": 15,
+        "clinics": 73,
+        "dental": 60,
+        "total": 148
+      }
     },
     {
       "name": "五島",
@@ -393,7 +438,13 @@
       },
       "drivers": "離島搬送・遠隔読影・地域完結の要件",
       "hospitals": "五島中央病院、奈留医療センター",
-      "opportunities": "ポータブル/US、予備機・消耗品・遠隔支援の可用性重視"
+      "opportunities": "ポータブル/US、予備機・消耗品・遠隔支援の可用性重視",
+      "facilities2026": {
+        "hospitals": 4,
+        "clinics": 26,
+        "dental": 12,
+        "total": 42
+      }
     },
     {
       "name": "上五島",
@@ -428,7 +479,13 @@
       },
       "drivers": "多島分散・機器保守の移動時間",
       "hospitals": "上五島病院、小値賀診療所",
-      "opportunities": "軽量装置と現地一次対応者育成、搬送前画像共有"
+      "opportunities": "軽量装置と現地一次対応者育成、搬送前画像共有",
+      "facilities2026": {
+        "hospitals": 1,
+        "clinics": 14,
+        "dental": 10,
+        "total": 25
+      }
     },
     {
       "name": "壱岐",
@@ -463,7 +520,13 @@
       },
       "drivers": "島内医療完結・専門医不足時の紹介先接続",
       "hospitals": "壱岐病院",
-      "opportunities": "画像遠隔共有・一次検査・訪問保守パッケージ"
+      "opportunities": "画像遠隔共有・一次検査・訪問保守パッケージ",
+      "facilities2026": {
+        "hospitals": 5,
+        "clinics": 12,
+        "dental": 8,
+        "total": 25
+      }
     },
     {
       "name": "対馬",
@@ -498,7 +561,13 @@
       },
       "drivers": "南北に長い離島、航路・気象影響、搬送・BCP",
       "hospitals": "対馬病院、上対馬病院",
-      "opportunities": "可搬型機器・保守部品の現地備蓄と遠隔保守"
+      "opportunities": "可搬型機器・保守部品の現地備蓄と遠隔保守",
+      "facilities2026": {
+        "hospitals": 2,
+        "clinics": 25,
+        "dental": 12,
+        "total": 39
+      }
     }
   ],
   "facilities": [
@@ -1063,6 +1132,449 @@
       6116,
       6310,
       6247
+    ]
+  },
+  "facilityStats2026": {
+    "asOf": "2026-06-01",
+    "basis": "医療情報ネット（ナビイ）の施設掲載件数を第三者が市町別に集計。公的医療施設調査と集計対象・基準が異なるため時系列比較不可",
+    "municipalities": [
+      {
+        "name": "長崎市",
+        "area": "長崎",
+        "hospitals": 41,
+        "clinics": 395,
+        "dental": 226
+      },
+      {
+        "name": "西海市",
+        "area": "長崎",
+        "hospitals": 2,
+        "clinics": 12,
+        "dental": 8
+      },
+      {
+        "name": "長与町",
+        "area": "長崎",
+        "hospitals": 3,
+        "clinics": 32,
+        "dental": 15
+      },
+      {
+        "name": "時津町",
+        "area": "長崎",
+        "hospitals": 3,
+        "clinics": 27,
+        "dental": 11
+      },
+      {
+        "name": "佐世保市",
+        "area": "佐世保県北",
+        "hospitals": 23,
+        "clinics": 165,
+        "dental": 100
+      },
+      {
+        "name": "平戸市",
+        "area": "佐世保県北",
+        "hospitals": 7,
+        "clinics": 11,
+        "dental": 6
+      },
+      {
+        "name": "松浦市",
+        "area": "佐世保県北",
+        "hospitals": 3,
+        "clinics": 10,
+        "dental": 5
+      },
+      {
+        "name": "佐々町",
+        "area": "佐世保県北",
+        "hospitals": 1,
+        "clinics": 11,
+        "dental": 8
+      },
+      {
+        "name": "諫早市",
+        "area": "県央",
+        "hospitals": 20,
+        "clinics": 98,
+        "dental": 55
+      },
+      {
+        "name": "大村市",
+        "area": "県央",
+        "hospitals": 8,
+        "clinics": 70,
+        "dental": 49
+      },
+      {
+        "name": "東彼杵町",
+        "area": "県央",
+        "hospitals": 1,
+        "clinics": 5,
+        "dental": 3
+      },
+      {
+        "name": "川棚町",
+        "area": "県央",
+        "hospitals": 1,
+        "clinics": 8,
+        "dental": 5
+      },
+      {
+        "name": "波佐見町",
+        "area": "県央",
+        "hospitals": 2,
+        "clinics": 9,
+        "dental": 7
+      },
+      {
+        "name": "島原市",
+        "area": "県南",
+        "hospitals": 8,
+        "clinics": 29,
+        "dental": 26
+      },
+      {
+        "name": "雲仙市",
+        "area": "県南",
+        "hospitals": 3,
+        "clinics": 27,
+        "dental": 15
+      },
+      {
+        "name": "南島原市",
+        "area": "県南",
+        "hospitals": 4,
+        "clinics": 17,
+        "dental": 19
+      },
+      {
+        "name": "五島市",
+        "area": "五島",
+        "hospitals": 4,
+        "clinics": 26,
+        "dental": 12
+      },
+      {
+        "name": "新上五島町",
+        "area": "上五島",
+        "hospitals": 1,
+        "clinics": 13,
+        "dental": 10
+      },
+      {
+        "name": "小値賀町",
+        "area": "上五島",
+        "hospitals": 0,
+        "clinics": 1,
+        "dental": 0
+      },
+      {
+        "name": "壱岐市",
+        "area": "壱岐",
+        "hospitals": 5,
+        "clinics": 12,
+        "dental": 8
+      },
+      {
+        "name": "対馬市",
+        "area": "対馬",
+        "hospitals": 2,
+        "clinics": 25,
+        "dental": 12
+      }
+    ],
+    "areaTotals": {
+      "長崎": {
+        "hospitals": 49,
+        "clinics": 466,
+        "dental": 260,
+        "total": 775
+      },
+      "佐世保県北": {
+        "hospitals": 34,
+        "clinics": 197,
+        "dental": 119,
+        "total": 350
+      },
+      "県央": {
+        "hospitals": 32,
+        "clinics": 190,
+        "dental": 119,
+        "total": 341
+      },
+      "県南": {
+        "hospitals": 15,
+        "clinics": 73,
+        "dental": 60,
+        "total": 148
+      },
+      "五島": {
+        "hospitals": 4,
+        "clinics": 26,
+        "dental": 12,
+        "total": 42
+      },
+      "上五島": {
+        "hospitals": 1,
+        "clinics": 14,
+        "dental": 10,
+        "total": 25
+      },
+      "壱岐": {
+        "hospitals": 5,
+        "clinics": 12,
+        "dental": 8,
+        "total": 25
+      },
+      "対馬": {
+        "hospitals": 2,
+        "clinics": 25,
+        "dental": 12,
+        "total": 39
+      }
+    },
+    "totals": {
+      "hospitals": 142,
+      "clinics": 1003,
+      "dental": 600,
+      "total": 1745
+    },
+    "associations": [
+      {
+        "name": "長崎市医師会",
+        "municipalities": [
+          "長崎市"
+        ],
+        "note": "市内の関連自治体全体（所属施設数ではない）",
+        "hospitals": 41,
+        "clinics": 395,
+        "dental": 226,
+        "total": 662
+      },
+      {
+        "name": "佐世保市医師会",
+        "municipalities": [
+          "佐世保市"
+        ],
+        "note": "市内の関連自治体全体（所属施設数ではない）",
+        "hospitals": 23,
+        "clinics": 165,
+        "dental": 100,
+        "total": 288
+      },
+      {
+        "name": "諌早医師会",
+        "municipalities": [
+          "諫早市"
+        ],
+        "note": "",
+        "hospitals": 20,
+        "clinics": 98,
+        "dental": 55,
+        "total": 173
+      },
+      {
+        "name": "大村市医師会",
+        "municipalities": [
+          "大村市"
+        ],
+        "note": "",
+        "hospitals": 8,
+        "clinics": 70,
+        "dental": 49,
+        "total": 127
+      },
+      {
+        "name": "島原市医師会",
+        "municipalities": [
+          "島原市"
+        ],
+        "note": "",
+        "hospitals": 8,
+        "clinics": 29,
+        "dental": 26,
+        "total": 63
+      },
+      {
+        "name": "平戸市医師会",
+        "municipalities": [
+          "平戸市"
+        ],
+        "note": "",
+        "hospitals": 7,
+        "clinics": 11,
+        "dental": 6,
+        "total": 24
+      },
+      {
+        "name": "五島医師会",
+        "municipalities": [
+          "五島市"
+        ],
+        "note": "上五島地域は含めず別掲",
+        "hospitals": 4,
+        "clinics": 26,
+        "dental": 12,
+        "total": 42
+      },
+      {
+        "name": "東彼杵郡医師会",
+        "municipalities": [
+          "東彼杵町",
+          "川棚町",
+          "波佐見町"
+        ],
+        "note": "",
+        "hospitals": 4,
+        "clinics": 22,
+        "dental": 15,
+        "total": 41
+      },
+      {
+        "name": "西彼杵医師会",
+        "municipalities": [
+          "長与町",
+          "時津町",
+          "西海市"
+        ],
+        "note": "医師会公式サイトでは長崎市内の所属施設も掲載。ここでは重複防止のため長崎市全域を算入しない",
+        "hospitals": 8,
+        "clinics": 71,
+        "dental": 34,
+        "total": 113
+      },
+      {
+        "name": "南高医師会",
+        "municipalities": [
+          "雲仙市",
+          "南島原市"
+        ],
+        "note": "",
+        "hospitals": 7,
+        "clinics": 44,
+        "dental": 34,
+        "total": 85
+      },
+      {
+        "name": "北松浦医師会",
+        "municipalities": [
+          "松浦市",
+          "佐々町"
+        ],
+        "note": "名称・地理に基づく参考範囲。会員所在地との厳密な一致は未確認",
+        "hospitals": 4,
+        "clinics": 21,
+        "dental": 13,
+        "total": 38
+      },
+      {
+        "name": "壱岐医師会",
+        "municipalities": [
+          "壱岐市"
+        ],
+        "note": "",
+        "hospitals": 5,
+        "clinics": 12,
+        "dental": 8,
+        "total": 25
+      },
+      {
+        "name": "対馬市医師会",
+        "municipalities": [
+          "対馬市"
+        ],
+        "note": "",
+        "hospitals": 2,
+        "clinics": 25,
+        "dental": 12,
+        "total": 39
+      },
+      {
+        "name": "長崎大学医師会",
+        "municipalities": [],
+        "note": "大学を基盤とする組織で、行政区単位の施設数は対応させない",
+        "hospitals": 0,
+        "clinics": 0,
+        "dental": 0,
+        "total": 0
+      }
+    ],
+    "unallocatedForAssociation": [
+      "新上五島町",
+      "小値賀町"
+    ]
+  },
+  "officialFacility2022": {
+    "asOf": "2022-10-01",
+    "pharmacyAsOf": "2023-03-31",
+    "basis": "長崎県第8次医療計画掲載／厚生労働省2022年医療施設調査（薬局は長崎県薬務行政調査）",
+    "areaValues": {
+      "長崎": [
+        51,
+        537,
+        63,
+        303,
+        318
+      ],
+      "佐世保県北": [
+        35,
+        211,
+        52,
+        149,
+        165
+      ],
+      "県央": [
+        32,
+        198,
+        50,
+        132,
+        134
+      ],
+      "県南": [
+        17,
+        87,
+        28,
+        72,
+        63
+      ],
+      "五島": [
+        4,
+        31,
+        7,
+        14,
+        19
+      ],
+      "上五島": [
+        1,
+        21,
+        1,
+        12,
+        12
+      ],
+      "壱岐": [
+        5,
+        16,
+        0,
+        8,
+        13
+      ],
+      "対馬": [
+        2,
+        33,
+        1,
+        13,
+        10
+      ]
+    },
+    "totals": [
+      147,
+      1134,
+      202,
+      703,
+      734
     ]
   }
 }
