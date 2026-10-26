@@ -1,4 +1,4 @@
-/* Research visuals for 13 provided Hiroshima sources. No proprietary charts/images replicated. */
+/* Research visuals for 14 provided Hiroshima sources. No proprietary charts/images replicated. */
 (()=>{"use strict";
 const S=window.HIROSHIMA_DEEP_RESEARCH;
 if(!S)return;
