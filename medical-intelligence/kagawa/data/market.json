@@ -617,5 +617,43 @@
       "activity": "高度管理医療機器販売・修理",
       "source": "S35"
     }
-  ]
+  ],
+  "visualAtlas": {
+    "version": "2026-10-27",
+    "regionPopulationYear": 2023,
+    "clinicPhysicianAging": {
+      "dataYear": 2020,
+      "source": "S06",
+      "label": "診療所医師の65歳以上割合",
+      "total": {
+        "kagawa": 890,
+        "olderKagawa": 386,
+        "japan": 107226,
+        "olderJapan": 38297
+      },
+      "areas": [
+        {
+          "id": "east",
+          "total": 554,
+          "older": 244,
+          "rate": 44
+        },
+        {
+          "id": "island",
+          "total": 8,
+          "older": 6,
+          "rate": 75
+        },
+        {
+          "id": "west",
+          "total": 328,
+          "older": 136,
+          "rate": 41.5
+        }
+      ]
+    },
+    "regionalBedDataYear": 2024,
+    "nationalDeviceComparisonYear": "第8次計画掲載時点",
+    "diagramDisclosure": "医療圏概念図は地理的境界を示さない模式図。表示位置は概略。"
+  }
 }
