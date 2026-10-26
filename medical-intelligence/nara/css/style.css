@@ -74,3 +74,32 @@
 
 /* Flow-stage readability: flex chain across desktop, card grid on mobile */
 .careStages{display:flex;flex-wrap:wrap;align-items:stretch;gap:9px}.careStages .stage,.careStages .stage:nth-of-type(4){grid-column:auto;flex:1 1 130px;min-height:105px;display:flex;flex-direction:column;justify-content:center}.careStages>span,.careStages>span:nth-of-type(3){grid-column:auto;align-self:center}@media(max-width:650px){.careStages{display:grid;grid-template-columns:1fr 1fr}.careStages>span{display:none}.careStages .stage{min-height:90px}}
+
+
+/* Official facility inventory and association membership / rev 2026-10-27 */
+.facilityTotals,.associationSummary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:15px 0 24px}
+.facilityTotals>div,.associationSummary>div{min-width:0;padding:20px 16px;background:#fff;border:1px solid #d9e7ec;border-radius:14px;box-shadow:0 7px 20px #0e314408}
+.facilityTotals>div:nth-child(2){background:linear-gradient(120deg,#e7f7f5,#fff);border-color:#aed9d8}
+.facilityTotals span,.associationSummary span{display:block;color:#577487;font-size:.78rem;font-weight:700}
+.facilityTotals strong,.associationSummary strong{font-size:clamp(1.6rem,2.7vw,2.45rem);font-variant-numeric:tabular-nums;color:#174b64;line-height:1.4;white-space:nowrap}
+.facilityTotals small,.associationSummary small{color:#6a8291;font-size:.71rem;margin-left:3px}
+.associationSummary{grid-template-columns:repeat(3,minmax(0,1fr))}
+.regionFacilityCards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0}
+.regionFacilityItem{min-width:0;background:#fff;border:1px solid #cfdee8;border-top:4px solid #218b8c;border-radius:13px;padding:17px}
+.regionFacilityItem h3{margin:0 0 14px;font-size:1.12rem;color:#15485d}
+.regionFacNumbers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.regionFacNumbers>div{min-width:0;padding:12px 6px;background:#f0f7f8;text-align:center;border-radius:9px;display:grid;gap:1px}
+.regionFacNumbers strong{font-size:clamp(1.3rem,2.5vw,1.7rem);color:#167d85;font-variant-numeric:tabular-nums;white-space:nowrap}
+.regionFacNumbers span{font-size:.72rem;color:#577085;font-weight:700}
+.regionMemberTag{display:flex;justify-content:space-between;gap:8px;align-items:center;background:#fff5ea;padding:9px 11px;margin-top:12px;border-radius:8px;font-size:.78rem;color:#76512d}
+.regionMemberTag b{white-space:nowrap;font-size:.91rem;color:#9b5d29}
+.regionFacilityItem p.small{margin:9px 0 0}
+.associationTable{min-width:940px}
+.associationTable td:nth-child(4){font-weight:800;color:#14596c;font-variant-numeric:tabular-nums;white-space:nowrap}
+.associationTable td:nth-child(5){font-variant-numeric:tabular-nums}
+.associationTable .splitPart{display:block;background:#eaf5f5;color:#245c68;padding:4px 6px;margin-top:5px;border-radius:6px;font-size:.77rem}
+#associationCountChart{height:430px!important}
+#associationAreaChart{height:300px!important}
+@media(max-width:850px){.facilityTotals{grid-template-columns:repeat(2,minmax(0,1fr))}.associationSummary{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.regionFacilityCards{grid-template-columns:1fr}.regionFacilityItem{padding:13px}.facilityTotals>div,.associationSummary>div{padding:12px}.facilityTotals strong,.associationSummary strong{font-size:1.65rem}.facilityTotals span,.associationSummary span{font-size:.73rem}.regionFacNumbers strong{font-size:1.35rem}.regionFacNumbers span{font-size:.68rem}.associationSummary{grid-template-columns:1fr 1fr}}
+@media(max-width:390px){.associationSummary{grid-template-columns:1fr}.regionMemberTag{flex-direction:column;align-items:flex-start}}
