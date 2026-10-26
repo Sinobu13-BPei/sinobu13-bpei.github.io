@@ -3,7 +3,7 @@ No dealer sales, shares, individual transactions, specific account plans, or thi
 This dataset intentionally separates official-source metrics from privately estimated market values. */
 window.HIROSHIMA_DEEP_RESEARCH={
   reviewedFiles:14,
-  originDescription:"添付資料：広島県医療需給総覧（7圏域、2026）、医療施設・市場規模に関するExcel・Word・PowerPoint（計13資料）",
+  originDescription:"添付資料：広島県医療需給総覧（7圏域、2026）、医療施設・市場規模に関するExcel・Word・PowerPoint（計14資料）",
   geo:{year:2020,sourceName:"総務省「令和2年国勢調査」・社会人口統計体系",sourceUrl:"https://www.e-stat.go.jp/stat-search/files?page=1&toukei=00200521"},
   dpc:{year:2023,sourceName:"厚生労働省 令和5年度DPC退院患者調査に基づく医療圏別参考集計（千件、原資料集計）",sourceUrl:"https://www.mhlw.go.jp/stf/shingi2/newpage_00137.html",
        caveat:"所在地症例数÷住所地症例数×100。添付資料では「完結率」と表記されているが、100%超があり、自医療圏内完結率ではなく患者受療量の流入・流出を示す需給比として扱う。施設所在地と患者住所地の件数は丸め値。"},
