@@ -1,1 +1,146 @@
-'use strict';const $=s=>document.querySelector(s),esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const fmt=n=>Number(n).toLocaleString('ja-JP');const maps=(name,addr)=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(name+' '+addr);const geo={};const regionMap={'松山':[33.84,132.77],'新居浜・西条':[33.94,133.29],'今治':[34.07,133.00],'宇摩':[33.97,133.54],'八幡浜・大洲':[33.46,132.43],'宇和島':[33.22,132.56]};function links(n,a,r){let p=regionMap[r]||[33.84,132.77],gsi='https://maps.gsi.go.jp/#15/'+p[0]+'/'+p[1]+'/&base=std&ls=std&disp=1';return '<span class="maps"><a href="'+esc(maps(n,a))+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(n)+'をGoogleマップで探す">Googleマップ</a><a href="'+gsi+'" target="_blank" rel="noopener noreferrer" title="医療圏中心の概略表示：施設の正確な位置ではありません">地理院地図（概略）</a></span>'};function chart(id,type,labels,datasets,options){const c=$(id);if(c&&window.Chart)new Chart(c,{type,data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12}},tooltip:{}},scales:{x:{ticks:{maxRotation:0,autoSkip:false}},y:{beginAtZero:true}},...options}})};async function boot(){let d;try{const r=await fetch('./data/ehime.json',{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);d=await r.json()}catch(e){console.error('data unavailable',e);return};const reg=d.regions,w=[.30,.25,.20,.15,.10];const score=r=>r.score.reduce((a,x,i)=>a+x*w[i],0);$('#regionTable tbody').innerHTML=reg.map(r=>'<tr><td><b>'+esc(r.name)+'</b></td><td>'+esc(r.towns)+'</td><td>'+fmt(r.total)+'床</td><td>'+r.doctorIndex+'</td><td><b>'+score(r).toFixed(2)+'/5</b><small>独自評価</small></td><td><b>'+esc(r.focus)+'</b><small>機会：'+esc(r.op)+'</small></td></tr>').join('');$('#legalBeds tbody').innerHTML=reg.map(r=>'<tr><td>'+esc(r.name)+'</td><td>'+fmt(r.baseline)+'</td><td>'+fmt(r.existing2023)+'</td><td>'+fmt(r.total)+'</td></tr>').join('');const drawFacilities=q=>{$('#facilityTable tbody').innerHTML=d.facilities.filter(x=>x.join(' ').toLowerCase().includes((q||'').toLowerCase())).map(f=>'<tr><td><a href="'+esc(f[4])+'" target="_blank" rel="noopener noreferrer">'+esc(f[0])+' ↗</a><small>'+esc(f[3])+'</small></td><td>'+esc(f[1])+'</td><td>'+esc(f[2])+'</td><td>'+links(f[0],f[3],f[2])+'</td></tr>').join('')};drawFacilities('');$('#facilitySearch').addEventListener('input',e=>drawFacilities(e.target.value));$('#officeTable tbody').innerHTML=d.offices.map(o=>'<tr><td><a href="'+esc(o[3])+'" target="_blank" rel="noopener">'+esc(o[0])+' ↗</a></td><td>'+esc(o[2])+'</td><td>'+links(o[0],o[2],o[1])+'</td></tr>').join('');$('#associationTable tbody').innerHTML=d.associations.map(a=>'<tr><td>'+esc(a[0])+'</td><td>'+esc(a[1])+'</td><td>'+links(a[0],a[2],a[1])+' <a href="https://www.ehime.med.or.jp/about/office.html" target="_blank" rel="noopener">公式一覧</a></td></tr>').join('');$('#sourceList').innerHTML=d.sources.map(s=>'<li id="'+esc(s[0])+'"><b>['+esc(s[0])+'] '+esc(s[1])+'</b><small>対象・年次：'+esc(s[2])+'</small><a href="'+esc(s[3])+'" target="_blank" rel="noopener noreferrer">'+esc(s[3])+'</a></li>').join('');if(window.Chart){chart('#populationChart','line',d.population.map(x=>x.year),[{label:'人口（万人）',data:d.population.map(x=>Math.round(x.n/10000*100)/100),borderColor:'#087b79',backgroundColor:'#087b7933',fill:true,tension:.25,pointRadius:4}],{scales:{y:{min:85,max:140,title:{display:true,text:'万人'}}}});chart('#bedsChart','bar',reg.map(x=>x.name),['高度急性期','急性期','回復期','慢性期'].map((label,j)=>({label,data:reg.map(r=>r.beds[j]),backgroundColor:['#0a6394','#23a7bf','#e3a13e','#7e6bb9'][j]})),{indexAxis:'y',scales:{x:{stacked:true},y:{stacked:true}}});chart('#clinicDistributionChart','bar',['松山市','今治市','新居浜市','西条市','宇和島市'],[{label:'2023年 一般診療所数',data:[475,109,81,81,72],backgroundColor:['#0c5885','#0f9ab0','#6db3c9','#6db3c9','#6db3c9']}],{indexAxis:'y',scales:{x:{min:0},y:{}}});chart('#scoresChart','bar',reg.map(x=>x.name),[{label:'独自優先度 / 5',data:reg.map(score),backgroundColor:'#0b8390'}],{indexAxis:'y',scales:{x:{min:0,max:5},y:{}}})}if(window.L){const map=L.map('map',{scrollWheelZoom:false}).setView([33.69,132.94],8);L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{attribution:'地理院タイル（国土地理院）',maxZoom:18}).addTo(map);reg.forEach(r=>L.circleMarker(r.city,{radius:8,color:'#09476c',fillColor:'#10aac1',fillOpacity:.9,weight:2}).addTo(map).bindPopup('<b>'+esc(r.name)+'</b><p>'+esc(r.towns)+'</p><p>圏域代表点（境界・施設位置ではありません）</p><a target="_blank" rel="noopener" href="'+esc(maps(r.name+' 愛媛県',''))+'">Googleマップ</a>'));setTimeout(()=>map.invalidateSize(),0)}else $('#map').textContent='地図ライブラリを読み込めませんでした。出典：国土地理院「地理院タイル」。';}document.addEventListener('DOMContentLoaded',boot);
+
+'use strict';
+/* The page is complete without JS. This adds search, interactive charts and map. */
+(()=>{
+  const one=s=>document.querySelector(s);
+  const all=s=>Array.from(document.querySelectorAll(s));
+  const score=r=>r.score.reduce((sum,n,i)=>sum+n*[.30,.25,.20,.15,.10][i],0);
+  const mapLink=(name,place)=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(name+' '+place);
+
+  function search(){
+    const input=one('#facilitySearch'),button=one('#clearFacilitySearch'),count=one('#facilityCount');
+    if(!input)return;
+    const rows=all('#facilityTable tbody tr');
+    const normalize=s=>String(s).normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim();
+    function update(){
+      const q=normalize(input.value);let n=0;
+      for(const row of rows){
+        const keep=!q||normalize(row.textContent).includes(q);
+        row.hidden=!keep;if(keep)n++;
+      }
+      if(count)count.textContent=q?n+'件 / 全'+rows.length+'件':'全'+rows.length+'件';
+      if(button)button.disabled=!q;
+      const empty=one('#facilityEmpty');
+      if(empty)empty.hidden=n!==0;
+    }
+    input.addEventListener('input',update);
+    if(button)button.addEventListener('click',()=>{input.value='';update();input.focus()});
+    update();
+  }
+  function plot(id,type,labels,datasets,opts={}){
+    const canvas=one('#'+id);
+    if(!canvas||!window.Chart)return;
+    const fallback=canvas.parentElement.querySelector('.chart-fallback');
+    const axis=opts.indexAxis||'x';
+    const scaleX={beginAtZero:axis==='y',stacked:!!opts.stacked,grid:{color:'#e8eef4'},ticks:{maxRotation:0,autoSkip:false,font:{size:11}}};
+    const scaleY={beginAtZero:axis==='x',stacked:!!opts.stacked,grid:{color:'#e8eef4'},ticks:{autoSkip:false,font:{size:11}}};
+    if(opts.max!==undefined)scaleX.max=opts.max;
+    if(opts.min!==undefined)scaleY.min=opts.min;
+    if(opts.ymax!==undefined)scaleY.max=opts.ymax;
+    try{
+      canvas.hidden=false;
+      new window.Chart(canvas.getContext('2d'),{
+        type,data:{labels,datasets},
+        options:{
+          responsive:true,maintainAspectRatio:false,animation:false,indexAxis:axis,
+          plugins:{legend:{display:datasets.length>1,position:'bottom',labels:{boxWidth:12}},tooltip:{mode:'index',intersect:false}},
+          scales:{x:scaleX,y:scaleY},
+          layout:{padding:{top:8,right:12,bottom:2,left:0}}
+        }
+      });
+      if(fallback)fallback.hidden=true;
+    }catch(err){
+      canvas.hidden=true;
+      if(fallback)fallback.hidden=false;
+      console.warn('Using accessible SVG instead of canvas chart',id,err);
+    }
+  }
+  function charts(d){
+    if(!window.Chart)return;
+    plot('populationChart','line',d.population.map(x=>x.year.slice(0,4)),[
+      {label:'人口（万人）',data:d.population.map(x=>+(x.n/1e4).toFixed(2)),
+       borderColor:'#0d6a8d',backgroundColor:'#0d6a8d24',fill:true,tension:.2,pointRadius:4,borderWidth:3}
+    ],{min:85,ymax:140});
+    plot('bedsChart','bar',d.regions.map(x=>x.name),
+      ['高度急性期','急性期','回復期','慢性期'].map((name,i)=>({
+        label:name,data:d.regions.map(r=>r.beds[i]),backgroundColor:['#13759a','#19a4b2','#e6a43f','#766fbd'][i]
+      })),{indexAxis:'y',stacked:true});
+    const cs=d.additionalEvidence?.clinic2023?.cities||{};
+    plot('clinicDistributionChart','bar',Object.keys(cs),[
+      {label:'一般診療所（2023年）',data:Object.values(cs),backgroundColor:'#0e7896'}
+    ],{indexAxis:'y'});
+    plot('scoresChart','bar',d.regions.map(x=>x.name),[
+      {label:'独自優先度 / 5',data:d.regions.map(score),backgroundColor:'#0b8189'}
+    ],{indexAxis:'y',max:5});
+  }
+  function map(d){
+    const el=one('#map');
+    if(!el||!window.L||!d.regions?.length)return;
+    const backup=el.innerHTML;
+    let instance=null,failures=0,restored=false;
+    function restore(){
+      if(restored)return;restored=true;
+      try{instance?.remove()}catch(_e){}
+      el.innerHTML=backup;
+      el.classList.add('map-in-fallback');
+    }
+    try{
+      el.replaceChildren();
+      instance=window.L.map(el,{scrollWheelZoom:false}).setView([33.69,132.94],8);
+      window.L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{
+        maxZoom:18,attribution:'国土地理院「地理院タイル」'
+      }).on('tileerror',()=>{if(++failures>=8)restore()}).addTo(instance);
+      for(const r of d.regions){
+        const popup=document.createElement('div'),strong=document.createElement('strong');
+        strong.textContent=r.name;
+        const p=document.createElement('p');p.textContent=r.towns+'｜圏域代表地点（施設の位置ではありません）';
+        const a=document.createElement('a');a.href=mapLink(r.name+' 愛媛県',r.towns);
+        a.target='_blank';a.rel='noopener noreferrer';a.textContent='Googleマップで確認 ↗';
+        popup.append(strong,p,a);
+        window.L.circleMarker(r.city,{radius:9,weight:2,color:'#104666',fillColor:'#14a4b5',fillOpacity:.94})
+          .addTo(instance).bindPopup(popup);
+      }
+      requestAnimationFrame(()=>instance.invalidateSize());
+    }catch(err){console.warn('Showing map links instead of Leaflet',err);restore()}
+  }
+  function navigation(){
+    const nav=all('.toc a[href^="#"]'),section=nav.map(a=>one(a.getAttribute('href'))).filter(Boolean);
+    if('IntersectionObserver' in window){
+      const io=new IntersectionObserver(entries=>{
+        const found=entries.filter(x=>x.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];
+        if(!found)return;
+        nav.forEach(a=>{
+          if(a.hash==='#'+found.target.id)a.setAttribute('aria-current','location');
+          else a.removeAttribute('aria-current');
+        });
+      },{rootMargin:'-100px 0px -60% 0px'});
+      section.forEach(el=>io.observe(el));
+    }
+    const progress=one('#readingProgress'),up=one('#backToTop');
+    let scheduled=false;
+    function update(){
+      const root=document.documentElement,max=Math.max(1,root.scrollHeight-root.clientHeight);
+      if(progress)progress.style.width=Math.min(100,Math.max(0,window.scrollY/max*100))+'%';
+      if(up)up.hidden=window.scrollY<650;
+      scheduled=false;
+    }
+    window.addEventListener('scroll',()=>{
+      if(!scheduled){scheduled=true;requestAnimationFrame(update)}
+    },{passive:true});
+    window.addEventListener('resize',update,{passive:true});
+    up?.addEventListener('click',()=>window.scrollTo({
+      top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'
+    }));
+    update();
+  }
+  function boot(){
+    search();navigation();
+    try{
+      const d=JSON.parse(one('#ehime-embedded-data').textContent);
+      if(!Array.isArray(d.regions)||!Array.isArray(d.sources))return;
+      charts(d);map(d);
+    }catch(err){console.warn('Using static content; interactive data not available',err)}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});
+  else boot();
+})();
