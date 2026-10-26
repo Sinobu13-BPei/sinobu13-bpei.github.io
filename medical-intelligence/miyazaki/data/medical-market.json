@@ -1,0 +1,539 @@
+{
+  "updated": "2026-10-26",
+  "title": "宮崎県の医療MKT 2026",
+  "units": "人・床。2025年必要病床は将来推計、2024年病床機能は許可病床。両者は直接の過不足判定ではない。",
+  "population": {
+    "p2020": 1069576,
+    "p2026": 1008190,
+    "aging2025": 34.4,
+    "agingNational2025": 29.4,
+    "projected2040": 889000,
+    "projected2040Label": "社人研2023推計に基づく概数（県資料2024掲載）",
+    "transferInAug2026": 1468,
+    "transferOutAug2026": 1362
+  },
+  "areas": [
+    {
+      "name": "宮崎東諸県",
+      "city": "宮崎市",
+      "towns": "宮崎市・国富町・綾町",
+      "lat": 31.91,
+      "lng": 131.42,
+      "beds": [
+        679,
+        2467,
+        789,
+        1047,
+        213
+      ],
+      "need": [
+        558,
+        1602,
+        1324,
+        962
+      ],
+      "score": [
+        5,
+        4,
+        4,
+        5,
+        4
+      ],
+      "focus": "高度専門・がん・救急、病診共同利用、読影とPACS",
+      "facility": "宮崎大学医学部附属病院／県立宮崎病院"
+    },
+    {
+      "name": "都城北諸県",
+      "city": "都城市",
+      "towns": "都城市・三股町",
+      "lat": 31.72,
+      "lng": 131.06,
+      "beds": [
+        33,
+        1679,
+        344,
+        322,
+        147
+      ],
+      "need": [
+        218,
+        676,
+        740,
+        279
+      ],
+      "score": [
+        5,
+        3,
+        4,
+        4,
+        4
+      ],
+      "focus": "鹿児島県境の患者移動、検診・診療所更新、二次救急",
+      "facility": "都城医療センター"
+    },
+    {
+      "name": "延岡西臼杵",
+      "city": "延岡市",
+      "towns": "延岡市・高千穂町・日之影町・五ヶ瀬町",
+      "lat": 32.58,
+      "lng": 131.66,
+      "beds": [
+        117,
+        976,
+        305,
+        335,
+        53
+      ],
+      "need": [
+        108,
+        418,
+        522,
+        309
+      ],
+      "score": [
+        4,
+        5,
+        5,
+        4,
+        5
+      ],
+      "focus": "救急診断、広域搬送、へき地医療支援・遠隔連携",
+      "facility": "県立延岡病院"
+    },
+    {
+      "name": "日向入郷",
+      "city": "日向市",
+      "towns": "日向市・門川町・諸塚村・椎葉村・美郷町",
+      "lat": 32.43,
+      "lng": 131.63,
+      "beds": [
+        0,
+        441,
+        190,
+        156,
+        59
+      ],
+      "need": [
+        36,
+        181,
+        349,
+        181
+      ],
+      "score": [
+        3,
+        5,
+        5,
+        3,
+        5
+      ],
+      "focus": "中山間の在宅・巡回・POCUS、画像共有",
+      "facility": "日向市内の中核医療機関"
+    },
+    {
+      "name": "西都児湯",
+      "city": "西都市",
+      "towns": "西都市・高鍋町・新富町・西米良村・木城町・川南町・都農町",
+      "lat": 32.11,
+      "lng": 131.4,
+      "beds": [
+        0,
+        448,
+        115,
+        433,
+        76
+      ],
+      "need": [
+        18,
+        152,
+        416,
+        324
+      ],
+      "score": [
+        3,
+        5,
+        4,
+        3,
+        4
+      ],
+      "focus": "回復期・在宅連携、地域検診、移動負担低減",
+      "facility": "西都市・高鍋町の地域医療機関"
+    },
+    {
+      "name": "日南串間",
+      "city": "日南市",
+      "towns": "日南市・串間市",
+      "lat": 31.6,
+      "lng": 131.38,
+      "beds": [
+        4,
+        451,
+        157,
+        422,
+        18
+      ],
+      "need": [
+        37,
+        165,
+        270,
+        407
+      ],
+      "score": [
+        3,
+        5,
+        4,
+        4,
+        5
+      ],
+      "focus": "南部沿岸の災害BCP、透析・慢性期、検診",
+      "facility": "県立日南病院"
+    },
+    {
+      "name": "西諸",
+      "city": "小林市",
+      "towns": "小林市・えびの市・高原町",
+      "lat": 31.99,
+      "lng": 130.98,
+      "beds": [
+        0,
+        399,
+        219,
+        266,
+        50
+      ],
+      "need": [
+        27,
+        164,
+        399,
+        206
+      ],
+      "score": [
+        3,
+        4,
+        5,
+        3,
+        4
+      ],
+      "focus": "宮崎・熊本・鹿児島県境、訪問診療と紹介画像連携",
+      "facility": "小林市・えびの市の地域医療機関"
+    }
+  ],
+  "sources": [
+    {
+      "id": "pop",
+      "name": "宮崎県 推計人口（2026年9月1日）",
+      "year": "2026",
+      "url": "https://www.pref.miyazaki.lg.jp/tokeichosa/kense/toke/kenjinko/202604suikeijinko.html"
+    },
+    {
+      "id": "age",
+      "name": "宮崎県 高齢化の状況",
+      "year": "2025／2026年更新",
+      "url": "https://www.pref.miyazaki.lg.jp/choju/kurashi/koresha/20251127koreikanogenjou.html"
+    },
+    {
+      "id": "nat",
+      "name": "内閣府 令和8年版高齢社会白書",
+      "year": "2025",
+      "url": "https://www8.cao.go.jp/kourei/whitepaper/w-2026/html/gaiyou/s1_1.html"
+    },
+    {
+      "id": "plan",
+      "name": "宮崎県 第8次医療計画",
+      "year": "2024-2029",
+      "url": "https://www.pref.miyazaki.lg.jp/iryoseisaku/kense/kekaku/20240325142144.html"
+    },
+    {
+      "id": "needs",
+      "name": "宮崎県 地域医療構想 第5章（2025年必要病床数）",
+      "year": "2024策定／2025推計",
+      "url": "https://www.pref.miyazaki.lg.jp/documents/87380/87380_20240327143316-1.pdf"
+    },
+    {
+      "id": "beds",
+      "name": "宮崎県 令和6年度病床機能報告（許可病床）",
+      "year": "2024",
+      "url": "https://www.pref.miyazaki.lg.jp/iryoseisaku/kurashi/iryo/20251023083845.html"
+    },
+    {
+      "id": "zone",
+      "name": "宮崎県 地域医療構想調整会議",
+      "year": "2026-10更新",
+      "url": "https://www.pref.miyazaki.lg.jp/iryoseisaku/kense/kekaku/20251010102901.html"
+    },
+    {
+      "id": "devices",
+      "name": "宮崎県 外来医療計画・医療機器共同利用計画",
+      "year": "2024",
+      "url": "https://www.pref.miyazaki.lg.jp/iryoseisaku/kense/kekaku/20241111164543.html"
+    },
+    {
+      "id": "doctors",
+      "name": "厚生労働省 医師偏在指標資料（2026年4月版）",
+      "year": "2026",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    },
+    {
+      "id": "hoken",
+      "name": "宮崎県 県内の保健所",
+      "year": "2026-08更新",
+      "url": "https://www.pref.miyazaki.lg.jp/fukushihoken/kurashi/hoken/healthcenter.html"
+    },
+    {
+      "id": "doctorgroup",
+      "name": "宮崎県医師会",
+      "year": "2026",
+      "url": "https://www.miyazaki.med.or.jp/"
+    },
+    {
+      "id": "med",
+      "name": "宮崎大学医学部附属病院",
+      "year": "2026確認",
+      "url": "https://www.med.miyazaki-u.ac.jp/home/hospital/"
+    },
+    {
+      "id": "emergency",
+      "name": "厚生労働省 救命救急センター設置状況",
+      "year": "2026確認",
+      "url": "https://www.mhlw.go.jp/stf/newpage_32614.html"
+    },
+    {
+      "id": "cancer",
+      "name": "厚生労働省 がん診療連携拠点病院等",
+      "year": "2026-10",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/gan/gan_byoin.html"
+    },
+    {
+      "id": "referral",
+      "name": "県立宮崎病院 医療機器共同利用案内",
+      "year": "2026確認",
+      "url": "https://www.kenritsu-miyazakibyouin.jp/medical/doctor/"
+    },
+    {
+      "id": "disaster",
+      "name": "宮崎県 令和8年 南海トラフ巨大地震被害想定",
+      "year": "2026",
+      "url": "https://www.pref.miyazaki.lg.jp/kiki-kikikanri/bosai/keikaku/20260219163728.html"
+    },
+    {
+      "id": "fund",
+      "name": "令和8年度宮崎県医療審議会 基金事業計画",
+      "year": "2026",
+      "url": "https://www.pref.miyazaki.lg.jp/iryoseisaku/kense/shingikai/iryosingikai/20260711081927.html"
+    },
+    {
+      "id": "e-stat",
+      "name": "政府統計 e-Stat 医療施設調査",
+      "year": "2023静態調査／2024動態調査",
+      "url": "https://www.e-stat.go.jp/"
+    },
+    {
+      "id": "remote",
+      "name": "宮崎県 へき地医療・拠点支援ネットワーク",
+      "year": "2024-2025",
+      "url": "https://www.pref.miyazaki.lg.jp/iryoseisaku/kurashi/iryo/20241120145036.html"
+    },
+    {
+      "id": "map",
+      "name": "国土地理院 地理院タイル",
+      "year": "継続公開",
+      "url": "https://maps.gsi.go.jp/"
+    }
+  ],
+  "facilities": [
+    {
+      "name": "宮崎大学医学部附属病院",
+      "where": "宮崎市清武町木原5200",
+      "area": "宮崎東諸県",
+      "kind": "大学附属・特定機能／三次救急",
+      "url": "https://www.med.miyazaki-u.ac.jp/home/hospital/",
+      "lat": 31.84,
+      "lng": 131.41
+    },
+    {
+      "name": "宮崎県立宮崎病院",
+      "where": "宮崎市北高松町5-30",
+      "area": "宮崎東諸県",
+      "kind": "県立・救命救急・共同利用",
+      "url": "https://www.kenritsu-miyazakibyouin.jp/",
+      "lat": 31.91,
+      "lng": 131.41
+    },
+    {
+      "name": "宮崎県立延岡病院",
+      "where": "延岡市新小路2-1-10",
+      "area": "延岡西臼杵",
+      "kind": "県立・救命救急",
+      "url": "https://www.pref.miyazaki.lg.jp/",
+      "lat": 32.58,
+      "lng": 131.66
+    },
+    {
+      "name": "NHO 都城医療センター",
+      "where": "都城市祝吉町5033-1",
+      "area": "都城北諸県",
+      "kind": "国立病院機構・がん診療",
+      "url": "https://miyakonojo.hosp.go.jp/",
+      "lat": 31.72,
+      "lng": 131.06
+    },
+    {
+      "name": "宮崎県立日南病院",
+      "where": "日南市木山1-9-5",
+      "area": "日南串間",
+      "kind": "県立・県南医療",
+      "url": "https://www.pref.miyazaki.lg.jp/",
+      "lat": 31.6,
+      "lng": 131.38
+    },
+    {
+      "name": "宮崎市郡医師会病院",
+      "where": "宮崎市有田1173",
+      "area": "宮崎東諸県",
+      "kind": "医師会病院・地域連携",
+      "url": "https://www.cure.or.jp/",
+      "lat": 31.92,
+      "lng": 131.35
+    }
+  ],
+  "publicOffices": [
+    {
+      "name": "宮崎県庁（医療政策課）",
+      "where": "宮崎市橘通東2-10-1",
+      "url": "https://www.pref.miyazaki.lg.jp/iryoseisaku/",
+      "lat": 31.91,
+      "lng": 131.42
+    },
+    {
+      "name": "宮崎県医師会",
+      "where": "宮崎市和知川原1-101",
+      "url": "https://www.miyazaki.med.or.jp/",
+      "lat": 31.93,
+      "lng": 131.41
+    },
+    {
+      "name": "宮崎市郡医師会",
+      "where": "宮崎市有田1173",
+      "url": "https://www.cure.or.jp/jimukyoku/",
+      "lat": 31.92,
+      "lng": 131.35
+    },
+    {
+      "name": "中央保健所",
+      "where": "宮崎市霧島1-1-2",
+      "lat": 31.93,
+      "lng": 131.41
+    },
+    {
+      "name": "宮崎市保健所",
+      "where": "宮崎市宮崎駅東1-6-2",
+      "lat": 31.92,
+      "lng": 131.43
+    },
+    {
+      "name": "日南保健所",
+      "where": "日南市吾田西1-5-10",
+      "lat": 31.6,
+      "lng": 131.38
+    },
+    {
+      "name": "都城保健所",
+      "where": "都城市上川東3-14-3",
+      "lat": 31.72,
+      "lng": 131.06
+    },
+    {
+      "name": "小林保健所",
+      "where": "小林市堤3020-13",
+      "lat": 31.99,
+      "lng": 130.98
+    },
+    {
+      "name": "高鍋保健所",
+      "where": "高鍋町蚊口浦5120-1",
+      "lat": 32.13,
+      "lng": 131.5
+    },
+    {
+      "name": "日向保健所",
+      "where": "日向市北町2-16",
+      "lat": 32.43,
+      "lng": 131.63
+    },
+    {
+      "name": "延岡保健所",
+      "where": "延岡市大貫町1-2840",
+      "lat": 32.58,
+      "lng": 131.66
+    },
+    {
+      "name": "高千穂保健所",
+      "where": "高千穂町三田井1086-1",
+      "lat": 32.71,
+      "lng": 131.31
+    }
+  ],
+  "scoring": {
+    "weights": [
+      30,
+      25,
+      20,
+      15,
+      10
+    ],
+    "labels": [
+      "医療需要・拠点規模",
+      "医療アクセス課題",
+      "医師・人材課題",
+      "広域連携・拠点性",
+      "災害BCP緊急性"
+    ],
+    "rule": "各軸1～5点の公開資料に基づく分析者仮説。合計 = Σ(軸点÷5×重み)。市場売上や実測シェアではない。"
+  },
+  "market": [
+    {
+      "device": "超音波（US）",
+      "setting": "内科・循環器・産婦人科・在宅・救急",
+      "action": "可搬型／心・腹部エコー、教育支援、消耗品・保守"
+    },
+    {
+      "device": "CT",
+      "setting": "救急・がん・地域共同利用",
+      "action": "患者流入・撮影件数・共同利用計画・更新設備"
+    },
+    {
+      "device": "MRI",
+      "setting": "脳神経・整形外科・専門外来",
+      "action": "検査枠・電源・磁場・共同利用/紹介体制"
+    },
+    {
+      "device": "PET・RI",
+      "setting": "高次がん診療",
+      "action": "高度機能の集約と共同利用を優先"
+    },
+    {
+      "device": "放射線治療",
+      "setting": "がん拠点・広域集約",
+      "action": "保守・放射線治療計画・設備更新投資"
+    },
+    {
+      "device": "血管撮影",
+      "setting": "救急・脳卒中・循環器",
+      "action": "稼働、カテ室、人員配置の一体分析"
+    },
+    {
+      "device": "内視鏡",
+      "setting": "消化器・健診",
+      "action": "洗浄・感染対策・画像保管・更新"
+    },
+    {
+      "device": "透析・生体情報",
+      "setting": "CKD・高齢慢性疾患",
+      "action": "透析BCP、心電・モニタ・保守"
+    },
+    {
+      "device": "医療IT／DX",
+      "setting": "病診連携・地域包括ケア",
+      "action": "PACS・遠隔画像・サイバー対策・導線設計"
+    }
+  ]
+}
