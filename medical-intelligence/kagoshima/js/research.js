@@ -48,7 +48,7 @@ function render(d){
   return '<details class="card region-detail"'+(index===0?' open':'')+'><summary class="region-summary"><span class="region-heading"><strong>'+esc(a.name)+'医療圏</strong><small>'+esc(a.municipal)+'</small></span><span class="badge estimate">'+score(a).toFixed(1)+' / 100（独自評価）</span></summary><div class="region-body"><p><strong>需要の背景：</strong>'+esc(a.drivers)+'</p><p><strong>主な課題：</strong>'+esc(a.risks)+'</p><p><strong>注目施設・地域：</strong>'+esc(a.focus)+'</p><p><strong>今後3〜5年の論点：</strong>'+esc(a.opportunity)+'</p></div></details>';
  }).join('');
  var fHtml=d.facilities.map(function(h){
- return '<article class="location"><h3>'+esc(h.name)+'</h3><div class="minor">'+esc(h.area)+'｜'+esc(h.kind)+'</div><div class="minor">'+esc(h.address)+'</div><div class="links"><a href="'+esc(h.site)+'" rel="noopener noreferrer" target="_blank">施設・行政関連Web ↗</a></div>'+maplinks(h.name,h.address,h.lat,h.lon)+'</article>';
+ return '<article class="location"><h3><a class="location-name-link" href="'+esc(h.site)+'" rel="noopener noreferrer" target="_blank">'+esc(h.name)+' ↗</a></h3><div class="minor">'+esc(h.area)+'｜'+esc(h.kind)+'</div><div class="minor">'+esc(h.address)+'</div>'+maplinks(h.name,h.address,h.lat,h.lon)+'</article>';
  }).join('');
  el('hospital-list').innerHTML=fHtml;
  var centers=d.healthCenters.map(function(h){
@@ -81,7 +81,22 @@ function render(d){
   });
   map.invalidateSize();
  }catch(e){
+  map=null;
   el('medical-map').innerHTML='<p class="warning">地図ライブラリまたは地理院タイルを利用できません。下記施設名からGoogleマップと地理院地図へ移動できます。</p>';
+ }
+ var focusOptions={'鹿児島':{center:[31.59,130.55],zoom:10},'肝属':{center:[31.35,130.90],zoom:9},'熊毛':{center:[30.50,130.87],zoom:8},'奄美':{center:[28.20,129.15],zoom:7}};
+ if(doc.querySelectorAll)Array.prototype.forEach.call(doc.querySelectorAll('.map-focus'),function(button){
+  var area=button.getAttribute('data-area');
+  if(!map || !focusOptions[area]){button.disabled=true;button.title='地図が利用できません';return;}
+  button.addEventListener('click',function(){map.setView(focusOptions[area].center,focusOptions[area].zoom);map.invalidateSize();});
+ });
+ if(window.IntersectionObserver && doc.querySelectorAll){
+  var links=Array.prototype.slice.call(doc.querySelectorAll('.nav a[href^="#"]'));
+  var currentSections=Array.prototype.slice.call(doc.querySelectorAll('main section[id]'));
+  var navObserver=new window.IntersectionObserver(function(entries){
+   entries.forEach(function(e){if(!e.isIntersecting)return;links.forEach(function(a){if(a.getAttribute('href')==='#'+e.target.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});});
+  },{rootMargin:'-95px 0px -70% 0px',threshold:0});
+  currentSections.forEach(function(node){navObserver.observe(node);});
  }
  el('status').textContent='2026年10月26日版｜県・厚生労働省・社人研の公表資料と編集部の独自評価を区別して掲載しています。';
  var search=el('filter-areas'),counter=el('filter-count'),clear=el('clear-filter');
