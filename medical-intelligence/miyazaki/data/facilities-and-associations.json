@@ -1,0 +1,482 @@
+{
+  "title": "宮崎県・7二次医療圏の病院・診療所と9郡市医師会",
+  "published": "2026-10-27",
+  "metricDefinitions": {
+    "hospital": "病院は20床以上の医療施設。施設調査2022年",
+    "generalClinic": "一般診療所は医科診療所であり歯科診療所を含まない。施設調査2022年",
+    "memberFacility": "医師会加入医療機関数ではない。郡市医師会の所在地域内の病院・医科診療所の参考数"
+  },
+  "official2022": {
+    "areas": [
+      {
+        "code": "4501",
+        "name": "宮崎東諸県",
+        "hospitals": 38,
+        "generalClinics": 417,
+        "beddedClinics": 51,
+        "nonBeddedClinics": 366,
+        "dentalClinics": 232,
+        "clinicBeds": 757,
+        "rate2023": 96.3,
+        "hospitalRate2023": 9,
+        "associations": [
+          "宮崎市郡医師会"
+        ]
+      },
+      {
+        "code": "4502",
+        "name": "都城北諸県",
+        "hospitals": 28,
+        "generalClinics": 143,
+        "beddedClinics": 37,
+        "nonBeddedClinics": 106,
+        "dentalClinics": 70,
+        "clinicBeds": 616,
+        "rate2023": 73.1,
+        "hospitalRate2023": 14.4,
+        "associations": [
+          "都城市北諸県郡医師会"
+        ]
+      },
+      {
+        "code": "4503",
+        "name": "延岡西臼杵",
+        "hospitals": 20,
+        "generalClinics": 94,
+        "beddedClinics": 12,
+        "nonBeddedClinics": 82,
+        "dentalClinics": 60,
+        "clinicBeds": 203,
+        "rate2023": 73.3,
+        "hospitalRate2023": 15,
+        "associations": [
+          "延岡市医師会",
+          "西臼杵郡医師会"
+        ]
+      },
+      {
+        "code": "4504",
+        "name": "日南串間",
+        "hospitals": 10,
+        "generalClinics": 63,
+        "beddedClinics": 6,
+        "nonBeddedClinics": 57,
+        "dentalClinics": 23,
+        "clinicBeds": 102,
+        "rate2023": 91.5,
+        "hospitalRate2023": 13.7,
+        "associations": [
+          "南那珂医師会"
+        ]
+      },
+      {
+        "code": "4505",
+        "name": "西諸",
+        "hospitals": 15,
+        "generalClinics": 55,
+        "beddedClinics": 11,
+        "nonBeddedClinics": 44,
+        "dentalClinics": 28,
+        "clinicBeds": 185,
+        "rate2023": 79.6,
+        "hospitalRate2023": 20.3,
+        "associations": [
+          "西諸医師会"
+        ]
+      },
+      {
+        "code": "4506",
+        "name": "西都児湯",
+        "hospitals": 10,
+        "generalClinics": 84,
+        "beddedClinics": 7,
+        "nonBeddedClinics": 77,
+        "dentalClinics": 40,
+        "clinicBeds": 105,
+        "rate2023": 81.6,
+        "hospitalRate2023": 10.5,
+        "associations": [
+          "西都市西児湯医師会",
+          "児湯医師会"
+        ]
+      },
+      {
+        "code": "4507",
+        "name": "日向入郷",
+        "hospitals": 11,
+        "generalClinics": 62,
+        "beddedClinics": 10,
+        "nonBeddedClinics": 52,
+        "dentalClinics": 35,
+        "clinicBeds": 178,
+        "rate2023": 72.1,
+        "hospitalRate2023": 13,
+        "associations": [
+          "日向市東臼杵郡医師会"
+        ]
+      }
+    ],
+    "totals": {
+      "hospital": 132,
+      "clinic": 918,
+      "dental": 488,
+      "bedded": 134,
+      "nonBedded": 784,
+      "beds": 2146
+    },
+    "source": {
+      "title": "宮崎県第8次医療計画 第3章（令和4年医療施設調査、医療圏別病院数・診療所施設数及び病床数）、pp.38–39",
+      "year": "2022（宮崎県計画2024公表）",
+      "url": "https://www.pref.miyazaki.lg.jp/documents/87380/87380_20240327143229-1.pdf"
+    }
+  },
+  "density2023": {
+    "source": {
+      "title": "医療需給総覧1.0・地域分析／人口10万人当たり医療機関数",
+      "year": "令和5年医療施設調査（2023）・2020年国勢調査人口",
+      "note": "添付の日本経営2026年版各医療圏レポート。各医療圏の人口10万人当たりの病院・診療所数"
+    },
+    "national": {
+      "hospitalRate": 6.5,
+      "clinicRate": 84.2
+    },
+    "prefecture": {
+      "hospitalRate": 12.2,
+      "clinicRate": 84.6
+    }
+  },
+  "referenceUnverified": {
+    "source": {
+      "title": "添付『宮崎県_医療マーケット分析_20260523(1).xlsx』「市町村_市場」シート",
+      "year": "基準年不明（ファイル作成・集計資料2026年5月）",
+      "note": "この市町村別施設数の統計基準年は添付内で確認できていない。2022年公式表とは合算しない。医師会会員施設数でもない。"
+    },
+    "municipalities": [
+      {
+        "name": "宮崎市",
+        "area": "宮崎東諸県",
+        "hospitals": 39,
+        "generalClinics": 380
+      },
+      {
+        "name": "国富町",
+        "area": "宮崎東諸県",
+        "hospitals": 2,
+        "generalClinics": 13
+      },
+      {
+        "name": "綾町",
+        "area": "宮崎東諸県",
+        "hospitals": 0,
+        "generalClinics": 4
+      },
+      {
+        "name": "都城市",
+        "area": "都城北諸県",
+        "hospitals": 27,
+        "generalClinics": 128
+      },
+      {
+        "name": "三股町",
+        "area": "都城北諸県",
+        "hospitals": 1,
+        "generalClinics": 14
+      },
+      {
+        "name": "延岡市",
+        "area": "延岡西臼杵",
+        "hospitals": 16,
+        "generalClinics": 84
+      },
+      {
+        "name": "高千穂町",
+        "area": "延岡西臼杵",
+        "hospitals": 2,
+        "generalClinics": 5
+      },
+      {
+        "name": "日之影町",
+        "area": "延岡西臼杵",
+        "hospitals": 1,
+        "generalClinics": 2
+      },
+      {
+        "name": "五ヶ瀬町",
+        "area": "延岡西臼杵",
+        "hospitals": 1,
+        "generalClinics": 1
+      },
+      {
+        "name": "日南市",
+        "area": "日南串間",
+        "hospitals": 9,
+        "generalClinics": 47
+      },
+      {
+        "name": "串間市",
+        "area": "日南串間",
+        "hospitals": 2,
+        "generalClinics": 18
+      },
+      {
+        "name": "小林市",
+        "area": "西諸",
+        "hospitals": 11,
+        "generalClinics": 31
+      },
+      {
+        "name": "えびの市",
+        "area": "西諸",
+        "hospitals": 3,
+        "generalClinics": 18
+      },
+      {
+        "name": "高原町",
+        "area": "西諸",
+        "hospitals": 1,
+        "generalClinics": 7
+      },
+      {
+        "name": "西都市",
+        "area": "西都児湯",
+        "hospitals": 5,
+        "generalClinics": 25
+      },
+      {
+        "name": "高鍋町",
+        "area": "西都児湯",
+        "hospitals": 2,
+        "generalClinics": 20
+      },
+      {
+        "name": "新富町",
+        "area": "西都児湯",
+        "hospitals": 0,
+        "generalClinics": 12
+      },
+      {
+        "name": "西米良村",
+        "area": "西都児湯",
+        "hospitals": 0,
+        "generalClinics": 3
+      },
+      {
+        "name": "木城町",
+        "area": "西都児湯",
+        "hospitals": 0,
+        "generalClinics": 5
+      },
+      {
+        "name": "川南町",
+        "area": "西都児湯",
+        "hospitals": 2,
+        "generalClinics": 11
+      },
+      {
+        "name": "都農町",
+        "area": "西都児湯",
+        "hospitals": 1,
+        "generalClinics": 5
+      },
+      {
+        "name": "日向市",
+        "area": "日向入郷",
+        "hospitals": 7,
+        "generalClinics": 46
+      },
+      {
+        "name": "門川町",
+        "area": "日向入郷",
+        "hospitals": 3,
+        "generalClinics": 5
+      },
+      {
+        "name": "諸塚村",
+        "area": "日向入郷",
+        "hospitals": 0,
+        "generalClinics": 2
+      },
+      {
+        "name": "椎葉村",
+        "area": "日向入郷",
+        "hospitals": 1,
+        "generalClinics": 2
+      },
+      {
+        "name": "美郷町",
+        "area": "日向入郷",
+        "hospitals": 1,
+        "generalClinics": 6
+      }
+    ],
+    "associations": [
+      {
+        "name": "宮崎市郡医師会",
+        "code": "4501",
+        "area": "宮崎東諸県",
+        "municipalities": [
+          "宮崎市",
+          "国富町",
+          "綾町"
+        ],
+        "url": "https://www.cure.or.jp/jimukyoku/",
+        "address": "宮崎市有田1173",
+        "work": "医師会病院・救急・地域医療連携",
+        "regionalFacilityCountsReference": {
+          "hospitals": 41,
+          "generalClinics": 397
+        }
+      },
+      {
+        "name": "都城市北諸県郡医師会",
+        "code": "4502",
+        "area": "都城北諸県",
+        "municipalities": [
+          "都城市",
+          "三股町"
+        ],
+        "url": "https://miyakonojo-ishikai.jp/",
+        "address": "宮崎県都城市姫城町8街区23号",
+        "work": "検診・休日当番・予防接種",
+        "regionalFacilityCountsReference": {
+          "hospitals": 28,
+          "generalClinics": 142
+        }
+      },
+      {
+        "name": "延岡市医師会",
+        "code": "4503",
+        "area": "延岡西臼杵",
+        "municipalities": [
+          "延岡市"
+        ],
+        "url": "https://nobeokashiishikai.or.jp/",
+        "address": "延岡市",
+        "work": "医師会病院・看護師研修・在宅緩和ケア",
+        "regionalFacilityCountsReference": {
+          "hospitals": 16,
+          "generalClinics": 84
+        }
+      },
+      {
+        "name": "西臼杵郡医師会",
+        "code": "4503",
+        "area": "延岡西臼杵",
+        "municipalities": [
+          "高千穂町",
+          "日之影町",
+          "五ヶ瀬町"
+        ],
+        "url": "https://nishiusukigun-med.or.jp/",
+        "address": "西臼杵郡",
+        "work": "山間へき地の診療・紹介連携",
+        "regionalFacilityCountsReference": {
+          "hospitals": 4,
+          "generalClinics": 8
+        }
+      },
+      {
+        "name": "南那珂医師会",
+        "code": "4504",
+        "area": "日南串間",
+        "municipalities": [
+          "日南市",
+          "串間市"
+        ],
+        "url": "https://www.miyazaki.med.or.jp/minaminaka/",
+        "address": "宮崎県日南市上平野町1丁目1-17",
+        "work": "日南串間地域の連携",
+        "regionalFacilityCountsReference": {
+          "hospitals": 11,
+          "generalClinics": 65
+        }
+      },
+      {
+        "name": "西諸医師会",
+        "code": "4505",
+        "area": "西諸",
+        "municipalities": [
+          "小林市",
+          "えびの市",
+          "高原町"
+        ],
+        "url": "https://nishimoroishikai.jp/",
+        "address": "西諸地域",
+        "work": "西諸地域の医療・在宅連携",
+        "regionalFacilityCountsReference": {
+          "hospitals": 15,
+          "generalClinics": 56
+        }
+      },
+      {
+        "name": "西都市西児湯医師会",
+        "code": "4506",
+        "area": "西都児湯",
+        "municipalities": [
+          "西都市",
+          "西米良村"
+        ],
+        "url": "https://www.miyazaki.med.or.jp/saito/",
+        "address": "宮崎県西都市大字妻1536",
+        "work": "包括ケア推進・医療介護マップ",
+        "regionalFacilityCountsReference": {
+          "hospitals": 5,
+          "generalClinics": 28
+        }
+      },
+      {
+        "name": "児湯医師会",
+        "code": "4506",
+        "area": "西都児湯",
+        "municipalities": [
+          "高鍋町",
+          "新富町",
+          "木城町",
+          "川南町",
+          "都農町"
+        ],
+        "url": "https://www.miyazaki.med.or.jp/koyu/",
+        "address": "宮崎県児湯郡高鍋町大字北高鍋160-1",
+        "work": "児湯医療介護連携室・学校心臓腎臓検診",
+        "regionalFacilityCountsReference": {
+          "hospitals": 5,
+          "generalClinics": 53
+        }
+      },
+      {
+        "name": "日向市東臼杵郡医師会",
+        "code": "4507",
+        "area": "日向入郷",
+        "municipalities": [
+          "日向市",
+          "門川町",
+          "諸塚村",
+          "椎葉村",
+          "美郷町"
+        ],
+        "url": "https://hyuga-ishikai.jp/",
+        "address": "宮崎県日向市鶴町1丁目6番2号",
+        "work": "在宅サービス・医療機関一覧・休日当番",
+        "regionalFacilityCountsReference": {
+          "hospitals": 12,
+          "generalClinics": 61
+        }
+      }
+    ],
+    "totals": {
+      "hospital": 137,
+      "clinic": 894
+    }
+  },
+  "prefecture2025reference": {
+    "hospital": 128,
+    "generalClinics": 897,
+    "year": "2025年1月",
+    "source": "添付『45宮崎県(20261026-203329).docx』の県内集計表。地域別数ではない。"
+  },
+  "physicianAssocOfficial": {
+    "name": "宮崎県医師会 公式・各郡市医師会リンク集",
+    "url": "https://www.miyazaki.med.or.jp/outline/member/link",
+    "year": "2026-10確認"
+  }
+}
