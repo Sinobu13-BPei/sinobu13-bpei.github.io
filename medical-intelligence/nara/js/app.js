@@ -137,11 +137,13 @@
       const hospitalLayer=L.layerGroup().addTo(map);
       const publicLayer=L.layerGroup().addTo(map);
       const regionLayer=L.layerGroup().addTo(map);
+      const associationLayer=L.layerGroup().addTo(map);
       const popup=p=>'<strong>'+esc(p.name)+'</strong><div>'+esc(p.address||"医療圏の参考中心点")+'</div>'+links(p);
       for(const p of d.hospitals){L.circleMarker([p.lat,p.long],{radius:7,color:"#fff",weight:2,fillColor:"#217c9b",fillOpacity:.93}).bindPopup(popup(p)).addTo(hospitalLayer)}
       for(const p of d.officials){L.circleMarker([p.lat,p.long],{radius:6,color:"#fff",weight:2,fillColor:"#e08a5b",fillOpacity:.94}).bindPopup(popup(p)).addTo(publicLayer)}
+      for(const a of d.associationDetails){const loc=d.associationMap[a.name];if(!loc)continue;const p={name:a.name,...loc};const detail='<p>会員診療所数（2023年9月）：<strong>'+(Number.isFinite(a.clinicMembers)?n(a.clinicMembers)+'施設':'未公表')+'</strong></p><p>'+esc(a.coverage)+'</p><a href="'+esc(a.officialUrl)+'" target="_blank" rel="noopener noreferrer">医師会公式</a> / <a href="'+d.sources.S26.url+'" target="_blank" rel="noopener noreferrer">集計出典</a><p>※ピン座標は概略。所在地はGoogleマップで確認</p>';L.circleMarker([loc.lat,loc.long],{radius:6,color:"#fff",weight:2,fillColor:"#8065b7",fillOpacity:.95}).bindPopup(popup(p)+detail).addTo(associationLayer)}
       for(const r of d.regions){const p={name:r.name+"医療圏・参考点",address:"正確な行政界を示すものではありません",lat:r.center[0],long:r.center[1]};L.circleMarker(r.center,{radius:11,weight:2,color:regionColors[r.name],fillColor:regionColors[r.name],fillOpacity:.26,dashArray:"4 3"}).bindPopup(popup(p)+'<p><a href="'+d.sources.S24.url+'" target="_blank" rel="noopener noreferrer">県公式の医療圏図</a></p>').addTo(regionLayer)}
-      for(const [id,layer] of [["layerHospitals",hospitalLayer],["layerOfficials",publicLayer],["layerRegions",regionLayer]])$(id)?.addEventListener("change",e=>{if(e.target.checked)layer.addTo(map);else map.removeLayer(layer)});
+      for(const [id,layer] of [["layerHospitals",hospitalLayer],["layerOfficials",publicLayer],["layerAssociations",associationLayer],["layerRegions",regionLayer]])$(id)?.addEventListener("change",e=>{if(e.target.checked)layer.addTo(map);else map.removeLayer(layer)});
       const bounds=L.latLngBounds([[33.76,135.51],[34.81,136.20]]);
       $("fitNaraMap")?.addEventListener("click",()=>map.fitBounds(bounds,{padding:[18,18]}));
       setTimeout(()=>map.invalidateSize(),140);
