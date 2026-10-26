@@ -565,6 +565,30 @@
       "日高医師会 公式サイト（みなべ町を含む7市町）",
       "2026-10-27閲覧",
       "https://hidaka.wakayama.med.or.jp/"
+    ],
+    [
+      "S33",
+      "和歌山県 令和8年度『和歌山県における高齢化の状況』令和8年1月1日・市町村別表2",
+      "2026-01-01",
+      "https://www.pref.wakayama.lg.jp/prefg/040300/siryo/index_d/fil/R8.pdf"
+    ],
+    [
+      "S34",
+      "和歌山県立医科大学 地域医療機関への医師配置（公的医療機関472人の医療圏別内訳）",
+      "2026-04-01",
+      "https://www.wakayama-med.ac.jp/intro/torikumi/ishikakuho/"
+    ],
+    [
+      "S35",
+      "和歌山県 地域医療構想調整会議・7医療圏の2026年開催状況",
+      "2026-08～09",
+      "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/kyouginoba.html"
+    ],
+    [
+      "S36",
+      "政府統計 e-Stat 令和6年医療施設（動態）調査・2024年県別統計",
+      "2024年",
+      "https://www.e-stat.go.jp/index.php/stat-search/files?cycle=7&layout=datalist&month=0&tclass1=000001232326&tclass2=000001232328&toukei=00450021&tstat=000001030908&year=20240"
     ]
   ],
   "associations": [
@@ -759,7 +783,9 @@
         "association": "和歌山市医師会",
         "clinics": 362,
         "hospitals": 36,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30201"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30201",
+        "residentPopulation": 349646,
+        "agingRate": 31.4
       },
       {
         "code": "30202",
@@ -768,7 +794,9 @@
         "association": "海南医師会",
         "clinics": 39,
         "hospitals": 5,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30202"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30202",
+        "residentPopulation": 45653,
+        "agingRate": 38.2
       },
       {
         "code": "30304",
@@ -777,7 +805,9 @@
         "association": "海南医師会",
         "clinics": 9,
         "hospitals": 1,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30304"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30304",
+        "residentPopulation": 7506,
+        "agingRate": 49.2
       },
       {
         "code": "30208",
@@ -786,7 +816,9 @@
         "association": "那賀医師会",
         "clinics": 51,
         "hospitals": 4,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30208"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30208",
+        "residentPopulation": 58287,
+        "agingRate": 34.5
       },
       {
         "code": "30209",
@@ -795,7 +827,9 @@
         "association": "那賀医師会",
         "clinics": 46,
         "hospitals": 4,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30209"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30209",
+        "residentPopulation": 53648,
+        "agingRate": 25.7
       },
       {
         "code": "30203",
@@ -804,7 +838,9 @@
         "association": "伊都医師会",
         "clinics": 54,
         "hospitals": 3,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30203"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30203",
+        "residentPopulation": 58038,
+        "agingRate": 35.6
       },
       {
         "code": "30341",
@@ -813,7 +849,9 @@
         "association": "伊都医師会",
         "clinics": 12,
         "hospitals": 1,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30341"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30341",
+        "residentPopulation": 15063,
+        "agingRate": 40.6
       },
       {
         "code": "30343",
@@ -822,7 +860,9 @@
         "association": "伊都医師会",
         "clinics": 3,
         "hospitals": 1,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30343"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30343",
+        "residentPopulation": 3628,
+        "agingRate": 50.2
       },
       {
         "code": "30344",
@@ -831,7 +871,9 @@
         "association": "伊都医師会",
         "clinics": 3,
         "hospitals": 0,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30344"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30344",
+        "residentPopulation": 2578,
+        "agingRate": 44.9
       },
       {
         "code": "30204",
@@ -840,7 +882,9 @@
         "association": "有田市医師会",
         "clinics": 23,
         "hospitals": 2,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30204"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30204",
+        "residentPopulation": 24731,
+        "agingRate": 36.9
       },
       {
         "code": "30361",
@@ -849,7 +893,9 @@
         "association": "有田医師会",
         "clinics": 9,
         "hospitals": 1,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30361"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30361",
+        "residentPopulation": 10527,
+        "agingRate": 38.1
       },
       {
         "code": "30362",
@@ -858,7 +904,9 @@
         "association": "有田医師会",
         "clinics": 2,
         "hospitals": 0,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30362"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30362",
+        "residentPopulation": 6302,
+        "agingRate": 36.3
       },
       {
         "code": "30366",
@@ -867,7 +915,9 @@
         "association": "有田医師会",
         "clinics": 27,
         "hospitals": 3,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30366"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30366",
+        "residentPopulation": 24656,
+        "agingRate": 32.9
       },
       {
         "code": "30205",
@@ -876,7 +926,9 @@
         "association": "日高医師会",
         "clinics": 30,
         "hospitals": 3,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30205"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30205",
+        "residentPopulation": 20669,
+        "agingRate": 33.6
       },
       {
         "code": "30381",
@@ -885,7 +937,9 @@
         "association": "日高医師会",
         "clinics": 5,
         "hospitals": 1,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30381"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30381",
+        "residentPopulation": 6138,
+        "agingRate": 40.4
       },
       {
         "code": "30382",
@@ -894,7 +948,9 @@
         "association": "日高医師会",
         "clinics": 3,
         "hospitals": 0,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30382"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30382",
+        "residentPopulation": 7916,
+        "agingRate": 28.9
       },
       {
         "code": "30383",
@@ -903,7 +959,9 @@
         "association": "日高医師会",
         "clinics": 3,
         "hospitals": 0,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30383"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30383",
+        "residentPopulation": 4861,
+        "agingRate": 41.8
       },
       {
         "code": "30390",
@@ -912,7 +970,9 @@
         "association": "日高医師会",
         "clinics": 4,
         "hospitals": 0,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30390"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30390",
+        "residentPopulation": 7493,
+        "agingRate": 38.1
       },
       {
         "code": "30392",
@@ -921,7 +981,9 @@
         "association": "日高医師会",
         "clinics": 10,
         "hospitals": 0,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30392"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30392",
+        "residentPopulation": 8763,
+        "agingRate": 38
       },
       {
         "code": "30391",
@@ -930,7 +992,9 @@
         "association": "日高医師会",
         "clinics": 6,
         "hospitals": 0,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30391"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30391",
+        "residentPopulation": 11326,
+        "agingRate": 35
       },
       {
         "code": "30206",
@@ -939,7 +1003,9 @@
         "association": "田辺市医師会",
         "clinics": 67,
         "hospitals": 5,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30206"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30206",
+        "residentPopulation": 66157,
+        "agingRate": 35.1
       },
       {
         "code": "30401",
@@ -948,7 +1014,9 @@
         "association": "西牟婁郡医師会",
         "clinics": 8,
         "hospitals": 2,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30401"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30401",
+        "residentPopulation": 19432,
+        "agingRate": 39.2
       },
       {
         "code": "30404",
@@ -957,7 +1025,9 @@
         "association": "西牟婁郡医師会",
         "clinics": 11,
         "hospitals": 1,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30404"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30404",
+        "residentPopulation": 15670,
+        "agingRate": 27.9
       },
       {
         "code": "30406",
@@ -966,7 +1036,9 @@
         "association": "西牟婁郡医師会",
         "clinics": 4,
         "hospitals": 1,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30406"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30406",
+        "residentPopulation": 3374,
+        "agingRate": 48.7
       },
       {
         "code": "30207",
@@ -975,7 +1047,9 @@
         "association": "新宮市医師会",
         "clinics": 29,
         "hospitals": 3,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30207"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30207",
+        "residentPopulation": 25291,
+        "agingRate": 39.3
       },
       {
         "code": "30421",
@@ -984,7 +1058,9 @@
         "association": "東牟婁郡医師会",
         "clinics": 9,
         "hospitals": 2,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30421"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30421",
+        "residentPopulation": 13222,
+        "agingRate": 44.4
       },
       {
         "code": "30422",
@@ -993,7 +1069,9 @@
         "association": "東牟婁郡医師会",
         "clinics": 2,
         "hospitals": 0,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30422"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30422",
+        "residentPopulation": 2800,
+        "agingRate": 45.3
       },
       {
         "code": "30424",
@@ -1002,7 +1080,9 @@
         "association": "東牟婁郡医師会",
         "clinics": 5,
         "hospitals": 0,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30424"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30424",
+        "residentPopulation": 2223,
+        "agingRate": 54.7
       },
       {
         "code": "30427",
@@ -1011,7 +1091,9 @@
         "association": "東牟婁郡医師会",
         "clinics": 1,
         "hospitals": 0,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30427"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30427",
+        "residentPopulation": 380,
+        "agingRate": 41.3
       },
       {
         "code": "30428",
@@ -1020,7 +1102,9 @@
         "association": "東牟婁郡医師会",
         "clinics": 13,
         "hospitals": 2,
-        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30428"
+        "sourceUrl": "https://www.jmap.jp/cities/detail/city/30428",
+        "residentPopulation": 13477,
+        "agingRate": 48.9
       }
     ],
     "physicianAssociations": [
@@ -1188,5 +1272,100 @@
         "derivation": "JMAP市町村別施設数の所在地ベース合算。医師会入会施設数ではない。"
       }
     ]
-  }
+  },
+  "demography2026": {
+    "date": "2026-01-01",
+    "measure": "住民基本台帳人口・65歳以上割合",
+    "residentPopulation": 889455,
+    "olderPopulation": 304044,
+    "over75": 181772,
+    "agingRate": 34.2,
+    "source": "https://www.pref.wakayama.lg.jp/prefg/040300/siryo/index_d/fil/R8.pdf",
+    "note": "県内30市町村の住民基本台帳2026年1月1日時点。月次推計人口（現勢人口）と人口系列が異なる。",
+    "ageGroups": {
+      "over50": 2,
+      "over40": 12
+    }
+  },
+  "universityDoctors2026": {
+    "date": "2026-04-01",
+    "measure": "和歌山県立医科大学から県内公的医療機関への常勤医師配置数",
+    "total": 472,
+    "byArea": [
+      {
+        "name": "和歌山",
+        "count": 152
+      },
+      {
+        "name": "那賀",
+        "count": 47
+      },
+      {
+        "name": "橋本",
+        "count": 63
+      },
+      {
+        "name": "有田",
+        "count": 34
+      },
+      {
+        "name": "御坊",
+        "count": 47
+      },
+      {
+        "name": "田辺",
+        "count": 92
+      },
+      {
+        "name": "新宮",
+        "count": 37
+      }
+    ],
+    "scope": "県内全医師数ではなく和歌山県立医科大学から配置した常勤医師数。2024年医師数や医師偏在指標と足し算しない。",
+    "source": "https://www.wakayama-med.ac.jp/intro/torikumi/ishikakuho/"
+  },
+  "regionalPlanningMeetings": [
+    {
+      "name": "和歌山",
+      "date": "2026-09-01",
+      "label": "第21回調整会議",
+      "source": "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/kyouginoba.html"
+    },
+    {
+      "name": "那賀",
+      "date": "2026-08-27",
+      "label": "第20回調整会議",
+      "source": "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/kyouginoba.html"
+    },
+    {
+      "name": "橋本",
+      "date": "2026-08-20",
+      "label": "2026年度第1回調整会議",
+      "source": "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/kyouginoba.html"
+    },
+    {
+      "name": "有田",
+      "date": "2026-09-17",
+      "label": "第24回調整会議",
+      "source": "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/kyouginoba.html"
+    },
+    {
+      "name": "御坊",
+      "date": "2026-09-03",
+      "label": "第24回調整会議",
+      "source": "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/kyouginoba.html"
+    },
+    {
+      "name": "田辺",
+      "date": "2026-09-17",
+      "label": "2026年度第1回調整会議",
+      "source": "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/kyouginoba.html"
+    },
+    {
+      "name": "新宮",
+      "date": "2026-08-20",
+      "label": "第20回調整会議",
+      "source": "https://www.pref.wakayama.lg.jp/prefg/050100/imuka/kyouginoba.html"
+    }
+  ]
 }
