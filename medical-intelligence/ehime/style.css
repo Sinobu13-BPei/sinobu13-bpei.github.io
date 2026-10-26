@@ -134,3 +134,7 @@ footer .footer-button{min-height:44px}
  .chart-values th,.chart-values td{padding:6px 4px;font-size:11px;overflow-wrap:anywhere;word-break:break-word}
  .chart-values .table-scroll{width:100%!important;min-width:0!important;max-width:100%!important;overflow-x:auto}
 }
+
+/* Keep wide chart/table descendants inside the research content boundary. Individual .table-scroll regions remain horizontally scrollable. */
+#content{min-width:0;overflow-x:clip}
+#content>section{min-width:0;overflow-x:clip}
