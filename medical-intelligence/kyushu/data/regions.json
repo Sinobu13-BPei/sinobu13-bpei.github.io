@@ -576,9 +576,9 @@
     },
     {
       "id": "MHLW_STATIC",
-      "title": "医療施設静態調査（機器設置状況・2023年）",
+      "title": "e-Stat 令和5年医療施設（静態）調査・二次医療圏別機器統計",
       "year": "2023",
-      "url": "https://www.e-stat.go.jp/"
+      "url": "https://www.e-stat.go.jp/dbview?sid=0004024960"
     },
     {
       "id": "SAGA_ASSOC",
