@@ -430,6 +430,78 @@
       "area": "0809",
       "lat": 36.191,
       "lon": 139.725
+    },
+    {
+      "name": "水戸赤十字病院",
+      "kind": "日赤・地域救急",
+      "address": "茨城県水戸市三の丸3-12-48",
+      "url": "https://mito.jrc.or.jp/",
+      "area": "0801",
+      "lat": 36.374,
+      "lon": 140.484
+    },
+    {
+      "name": "総合病院 水戸協同病院",
+      "kind": "厚生連・地域基幹",
+      "address": "茨城県水戸市宮町3-2-7",
+      "url": "https://www.mitokyodo-hp.jp/",
+      "area": "0801",
+      "lat": 36.372,
+      "lon": 140.474
+    },
+    {
+      "name": "茨城県立こども病院",
+      "kind": "県立・小児専門／済生会運営",
+      "address": "茨城県水戸市双葉台3-3-1",
+      "url": "https://www.ibaraki-kodomo.com/",
+      "area": "0801",
+      "lat": 36.39,
+      "lon": 140.409
+    },
+    {
+      "name": "常陸大宮済生会病院",
+      "kind": "済生会・県北地域病院",
+      "address": "茨城県常陸大宮市田子内町3033-3",
+      "url": "https://ho-saisei.jp/",
+      "area": "0803",
+      "lat": 36.552,
+      "lon": 140.412
+    },
+    {
+      "name": "国立病院機構 茨城東病院",
+      "kind": "国立・胸部疾患・療育",
+      "address": "茨城県那珂郡東海村照沼825",
+      "url": "https://ibarakihigashi.hosp.go.jp/",
+      "area": "0803",
+      "lat": 36.45,
+      "lon": 140.592
+    },
+    {
+      "name": "国立病院機構 霞ヶ浦医療センター",
+      "kind": "国立・地域医療支援",
+      "address": "茨城県土浦市下高津2-7-14",
+      "url": "https://kasumigaura.hosp.go.jp/index.html",
+      "area": "0805",
+      "lat": 36.07,
+      "lon": 140.198
+    },
+    {
+      "name": "龍ケ崎済生会病院",
+      "kind": "済生会・県南",
+      "address": "茨城県龍ケ崎市中里1-1",
+      "url": "https://www.saiseikai.or.jp/facilities/0801-0003/",
+      "area": "0807",
+      "lat": 35.926,
+      "lon": 140.211
+    },
+    {
+      "name": "茨城西南医療センター病院",
+      "kind": "厚生連・県境医療",
+      "address": "茨城県猿島郡境町2190",
+      "url": "https://seinan-mch.or.jp/",
+      "area": "0809",
+      "lat": 36.11,
+      "lon": 139.799
     }
   ],
   "associations": [
