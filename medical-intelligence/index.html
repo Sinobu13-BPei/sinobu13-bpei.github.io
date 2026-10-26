@@ -352,6 +352,16 @@ function draw(){
       tohokuLink.textContent='東北MKT ↗';
       actions.appendChild(tohokuLink);
     }
+    if(p[0]==='岐阜県'){
+      const gifuLink=document.createElement('a');
+      gifuLink.href='https://sinobu13-bpei.github.io/medical-intelligence/gifu/';
+      gifuLink.target='_blank';gifuLink.rel='noopener noreferrer';
+      gifuLink.className='gifu-mkt-btn';
+      gifuLink.textContent='岐阜MKT ↗';
+      gifuLink.setAttribute('aria-label','岐阜県の医療マーケット調査・戦略分析を開く');
+      gifuLink.style.cssText='display:inline-flex;align-items:center;justify-content:center;padding:7px 12px;border-radius:9px;background:#116a72;color:#fff;font-weight:800;text-decoration:none;white-space:nowrap';
+      actions.appendChild(gifuLink);
+    }
     if(p[0]==='愛知県'){
       const aichiLink=document.createElement('a');
       aichiLink.href='https://sinobu13-bpei.github.io/aichi-medical-mkt/';
