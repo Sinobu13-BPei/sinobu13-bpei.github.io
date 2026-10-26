@@ -44,7 +44,7 @@
       "play": "診療所US/XR/内視鏡と紹介先のCT/MRI・PACSをつなぐ。",
       "areaKm2": 276.94,
       "populationYear": 2020,
-      "areaYear": 2020,
+      "areaYear": 2023,
       "populationDensity": 1280.5
     },
     {
@@ -78,7 +78,7 @@
       "play": "救急・心血管検査の更新と訪問診療向け携帯US、保守巡回。",
       "areaKm2": 657.77,
       "populationYear": 2020,
-      "areaYear": 2020,
+      "areaYear": 2023,
       "populationDensity": 302
     },
     {
@@ -112,7 +112,7 @@
       "play": "再整備の工程を定期点検し、US/CT/内視鏡・ネットワークの更新余地を確認。",
       "areaKm2": 168.49,
       "populationYear": 2020,
-      "areaYear": 2020,
+      "areaYear": 2023,
       "populationDensity": 2010.7
     },
     {
@@ -146,7 +146,7 @@
       "play": "大学医療・がん/救急・地域診療所の連携を画像診断と情報共有で支援。",
       "areaKm2": 240.79,
       "populationYear": 2020,
-      "areaYear": 2020,
+      "areaYear": 2023,
       "populationDensity": 1525.9
     },
     {
@@ -180,7 +180,7 @@
       "play": "携帯US・遠隔画像共有・可搬代替機・BCP/巡回保守を一体設計。",
       "areaKm2": 2346.92,
       "populationYear": 2020,
-      "areaYear": 2020,
+      "areaYear": 2023,
       "populationDensity": 27.7
     }
   ],
@@ -646,7 +646,7 @@
     "南和": 574
   },
   "visualizationNotes": {
-    "area": "2020国勢調査人口・面積に基づく医療圏別比較。面積合計は公表圏域面積の加算。",
+    "area": "人口：2020年国勢調査。面積：令和5年全国都道府県市区町村別面積調（奈良県第8次医療計画S24）。人口密度は両者からの独自計算。",
     "bubble": "横軸：概算人口密度／縦軸：医師偏在指標2026／円の面積：2020年人口に比例。人口と医師偏在指標は異なる年次のため因果関係は示さない。",
     "scoring": "独自評価。人口密度・医師偏在指標・優先度は別指標で単純換算しない。"
   }
