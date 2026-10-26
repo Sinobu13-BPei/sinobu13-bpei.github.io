@@ -29,7 +29,29 @@ const years=d.future.map(p=>p.year+" "+p.kind);chart(id("populationChart"),"line
 const blabels=[];const bdatasets=bands.map((b,i)=>({label:b,data:[],backgroundColor:palette[i],stack:"beds"}));rg.forEach(r=>{blabels.push(r.name+" 報告",r.name+" 必要");bdatasets.forEach((ds,i)=>ds.data.push(r.beds[i]||0,r.need[i]||0))});chart(id("bedChart"),"bar",{labels:blabels,datasets:bdatasets},{maintainAspectRatio:false,responsive:true,plugins:{legend:{position:"bottom",labels:{boxWidth:12}},tooltip:{callbacks:{label:x=>x.dataset.label+": "+fmt(x.raw)+"床"}}},scales:{x:{stacked:true,ticks:{...tick,autoSkip:false,maxRotation:50,minRotation:30}},y:{stacked:true,ticks:tick,title:{display:true,text:"病床（床）"}}}});
 chart(id("doctorChart"),"bar",{labels:d.neighbors.map(n=>n[0]),datasets:[{label:"医師偏在指標",data:d.neighbors.map(n=>n[1]),backgroundColor:d.neighbors.map(n=>n[0]==="岐阜県"?"#c27a38":"#2c8791")}]},{indexAxis:"y",maintainAspectRatio:false,responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:tick,beginAtZero:true},y:{ticks:tick}}});
 chart(id("scoreChart"),"bar",{labels:rg.map(r=>r.name),datasets:[{label:"独自分析点 /100",data:rg.map(score),backgroundColor:rg.map((r,i)=>["#326b86","#59959b","#136e7a","#d39a64","#6f9b7b"][i])}]},{maintainAspectRatio:false,responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:x=>x.raw+" 点（独自仮説）"}}},scales:{y:{beginAtZero:true,max:100,ticks:tick},x:{ticks:tick}}});
-if(typeof L!=="undefined"){const map=L.map("map",{scrollWheelZoom:false}).setView([35.63,137.1],8);L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",{attribution:"地理院タイル（国土地理院）",maxZoom:17}).addTo(map);const dots=rg.map(r=>{const m=L.circleMarker([r.lat,r.lon],{radius:10,fillColor:"#096f7d",fillOpacity:.83,color:"#fff",weight:2}).addTo(map).bindPopup("<strong>"+r.name+"医療圏</strong><br>代表地点："+r.hub+"付近<br>2020人口："+fmt(r.pop2020)+"人<br>※市中心の概略点");return {region:r,marker:m}});id("areaSelect").addEventListener("change",()=>{const selected=id("areaSelect").value;dots.forEach(x=>x.marker.setStyle({opacity:selected==="all"||selected===x.region.name?1:.35,fillOpacity:selected==="all"||selected===x.region.name?.83:.18}));if(selected==="all")map.setView([35.63,137.1],8);else{const r=rg.find(z=>z.name===selected);map.setView([r.lat,r.lon],10)}});setTimeout(()=>map.invalidateSize(),150);}
+if(typeof L!=="undefined"){const map=L.map("map",{scrollWheelZoom:false}).setView([35.63,137.1],8);L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",{attribution:"地理院タイル（国土地理院）",maxZoom:17}).addTo(map);const dots=rg.map(r=>{const m=L.circleMarker([r.lat,r.lon],{radius:10,fillColor:"#096f7d",fillOpacity:.83,color:"#fff",weight:2}).addTo(map).bindPopup("<strong>"+r.name+"医療圏</strong><br>代表地点："+r.hub+"付近<br>2020人口："+fmt(r.pop2020)+"人<br>※市中心の概略点");return {region:r,marker:m}});id("areaSelect").addEventListener("change",()=>{const selected=id("areaSelect").value;dots.forEach(x=>x.marker.setStyle({opacity:selected==="all"||selected===x.region.name?1:.35,fillOpacity:selected==="all"||selected===x.region.name?.83:.18}));if(selected==="all")map.setView([35.63,137.1],8);else{const r=rg.find(z=>z.name===selected);map.setView([r.lat,r.lon],10)}});
+// Optional map overlays: markers are city-centre aggregation points, NOT hospital coordinates.
+const encode=s=>String(s).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+const groupedLayer=(types,color)=>{
+  const groups=new Map();
+  d.facilities.filter(f=>types.includes(f.type)).forEach(f=>{
+    if(!groups.has(f.city))groups.set(f.city,[]);
+    groups.get(f.city).push(f);
+  });
+  const layer=L.layerGroup();
+  for(const [city,places]of groups){
+    const lat=places[0].lat,lon=places[0].lon;
+    const m=L.circleMarker([lat,lon],{radius:Math.min(15,7+places.length*1.2),color:"#fff",weight:2,fillColor:color,fillOpacity:.94});
+    const rows=places.map(p=>'<li><a target="_blank" rel="noopener noreferrer" href="'+encode(p.url)+'">'+encode(p.name)+'</a> ／ <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query='+encode(encodeURIComponent(p.name+" "+p.address))+'">Googleマップ</a></li>').join("");
+    m.bindPopup('<div style="min-width:190px"><strong>'+encode(city)+'周辺（'+places.length+'施設）</strong><br><small>市区町村中心付近の代表点・正確な施設位置ではありません</small><ul style="padding-left:18px">'+rows+'</ul></div>');
+    m.addTo(layer);
+  }
+  return layer;
+};
+const hospitals=groupedLayer(["中核病院","大学・特定機能","地域支援","統合新病院"],"#ca8040");
+const offices=groupedLayer(["保健所","行政"],"#755ca3");
+L.control.layers(null,{"主要病院・大学（自治体代表点）":hospitals,"保健所・行政（自治体代表点）":offices},{collapsed:true,position:"topright"}).addTo(map);
+setTimeout(()=>map.invalidateSize(),150);}
 else{id("map").textContent="地図サービスを読み込めません。下の医療圏一覧、施設のGoogleマップ・地理院地図リンクをご利用ください。";}
 }).catch(e=>{console.error(e);for(const name of ["regionTable","bedTable","scoreTable","sourceGrid","facilityTable","associationTable","regionCards"])id(name).textContent="データ取得に失敗しました。再読み込みしてください。";});
 })();
