@@ -281,6 +281,15 @@ function draw(){
       aomoriLink.setAttribute('aria-label','青森県の医療市場調査を開く');
       actions.appendChild(aomoriLink);
     }
+    if(p[0]==='岩手県'){
+      const iwateLink=document.createElement('a');
+      iwateLink.href='./iwate/';
+      iwateLink.className='iwate-mkt-btn';
+      iwateLink.textContent='岩手MKT ↗';
+      iwateLink.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:42px;background:#087a79;color:#fff;border:1px solid #086361;border-radius:10px;padding:7px 13px;font-weight:800;text-decoration:none;box-shadow:0 2px 6px #063c3b33;';
+      iwateLink.setAttribute('aria-label','岩手県の医療市場調査を開く');
+      actions.appendChild(iwateLink);
+    }
     const tohokuPrefectures=['青森県','岩手県','宮城県','秋田県','山形県','福島県'];
     if(tohokuPrefectures.includes(p[0])){
       const tohokuLink=document.createElement('a');
@@ -290,15 +299,6 @@ function draw(){
       tohokuLink.className='tohoku-mkt-btn';
       tohokuLink.textContent='東北MKT ↗';
       actions.appendChild(tohokuLink);
-    }
-    if(p[0]==='岩手県'){
-      const iwateLink=document.createElement('a');
-      iwateLink.href='./iwate/';
-      iwateLink.className='iwate-mkt-btn';
-      iwateLink.textContent='岩手MKT ↗';
-      iwateLink.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:42px;background:#087a79;color:#fff;border:1px solid #086361;border-radius:10px;padding:7px 13px;font-weight:800;text-decoration:none;box-shadow:0 2px 6px #063c3b33;';
-      iwateLink.setAttribute('aria-label','岩手県の医療市場調査を開く');
-      actions.appendChild(iwateLink);
     }
     if(p[0]==='愛知県'){
       const aichiLink=document.createElement('a');
