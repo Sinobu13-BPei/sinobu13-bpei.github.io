@@ -72,3 +72,15 @@ hokuriku3/
 - 出典：厚労省医療情報ネット https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2300/initialize と、同ネット公開データの自治体別二次集計 https://kurashi.ufirst.jp/iryou/pref/16/ （富山）/17/（石川）/18/（福井）。市区町村別の値はこの二次集計時点の「掲載施設数」であり医療施設調査の全施設数ではない。
 - 医師会出典：富山県内各医師会一覧 https://www.toyamas.johas.go.jp/link/index_list.php?eid=00001 、石川県外来医療提供体制（9医師会管内） https://www.pref.ishikawa.lg.jp/iryou/support/ishigairai/ishigairai2.html 、福井県医師会（11団体） https://www.fukui.med.or.jp/fukui/about-us/page-155/ 。
 - GitHubの `main` 反映確認は可能だが、GitHub Pages実際のHTTP配信、全ての外部リンク・実ブラウザでの崩れはこの環境から保証できない。レンダリングとリンクの実機検査が必要。
+
+## UI R4 改修（2026年10月27日）
+
+- 対象は北陸3県横断Webサイトのレイアウト・コンポーネント・UX。県別詳細サイトと出典データは変更しない。
+- ヘッダーと章間余白を縮小。10章の構成・40出典・医療圏12・市町51・医師会31・施設地図28・チャート8は維持。
+- 増分CSSの継ぎ足し方式を廃止し、単一の整理済みCSSへ更新。680px/1020px/380pxのブレークポイントとreduced-motionを適用。
+- スマホでは医療圏・医師会の幅広い表をカード化（開閉式の詳細情報付き）。JavaScriptエラー時は元の静的表を表示する。
+- 表の先頭列とヘッダーを固定。読み込み済データの絞り込み時に0件なら空の大きなチャート領域を非表示、少数件ならチャートを縮小する。
+- 二重に見える集計帯を整理。補助的な病床の比較表と28地点リストを開閉式にし、出典40件は固定高さスクロールで確認可能。
+- 地図のLeafletが読み込めない場合は、公式サイト・Google・地理院地図のリンクを含む施設一覧を自動展開する。
+- 県フィルター・検索、Chart.js生成・破棄、地理院のマーカー生成・施設種別変更をJavaScriptの模擬DOM・模擬Leafletで動作検査。HTML入れ子とアンカー・CSS括弧・JS構文を検査。
+- 外部GitHub PagesサイトへのHTTP 200確認、実機Chrome/Safari/Edgeでのスクリーンショット目視、全外部URLの疎通確認は本環境で実行できていない。これらは「検証完了」としない。
