@@ -354,7 +354,7 @@
       "name": "日立総合病院",
       "kind": "県北高度・急性期",
       "address": "茨城県日立市城南町2-1-1",
-      "url": "https://www.hitachi.com/hospital/",
+      "url": "https://www.hitachi.co.jp/hospital/",
       "area": "0802",
       "lat": 36.588,
       "lon": 140.651
@@ -363,7 +363,7 @@
       "name": "ひたちなか総合病院",
       "kind": "地域中核",
       "address": "茨城県ひたちなか市石川町20-1",
-      "url": "https://www.hitachi.com/hospital/hitachinaka/",
+      "url": "https://www.hitachi.co.jp/hospital/hitachinaka/",
       "area": "0803",
       "lat": 36.396,
       "lon": 140.529
@@ -473,62 +473,62 @@
     {
       "name": "中央保健所",
       "address": "茨城県水戸市笠原町993-2",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/"
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
     },
     {
       "name": "ひたちなか保健所",
       "address": "茨城県ひたちなか市新光町95",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/"
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
     },
     {
       "name": "常陸大宮支所",
       "address": "茨城県常陸大宮市姥賀町2978-1",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/"
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
     },
     {
       "name": "日立保健所",
       "address": "茨城県日立市助川町2-6-15",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/"
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
     },
     {
       "name": "潮来保健所",
       "address": "茨城県潮来市大洲1446-1",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/"
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
     },
     {
       "name": "鉾田支所",
       "address": "茨城県鉾田市鉾田1367-3",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/"
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
     },
     {
       "name": "竜ケ崎保健所",
       "address": "茨城県龍ケ崎市2983-1",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/"
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
     },
     {
       "name": "土浦保健所",
       "address": "茨城県土浦市下高津2-7-46",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/"
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
     },
     {
       "name": "つくば保健所",
       "address": "茨城県つくば市松代4-27",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/"
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
     },
     {
       "name": "筑西保健所",
       "address": "茨城県筑西市二木成615",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/"
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
     },
     {
       "name": "古河保健所",
       "address": "茨城県古河市北町6-22",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/"
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
     },
     {
       "name": "水戸市保健所",
       "address": "茨城県水戸市笠原町993-13",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/"
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html"
     }
   ],
   "sources": [
@@ -585,7 +585,7 @@
       "id": "P8",
       "title": "茨城県・保健所一覧",
       "year": "2025年12月",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/",
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/iji/koso/healthcenter/index.html",
       "kind": "一次"
     },
     {
@@ -671,6 +671,20 @@
       "year": "2026",
       "url": "https://www.pref.ibaraki.jp/hokenfukushi/iryo/keikaku/koso/health-med-plan/r3-minaoshi-3.html",
       "kind": "一次"
+    },
+    {
+      "id": "P21",
+      "title": "茨城県立病院医療情報システム構築・調達情報",
+      "year": "2026年6月4日",
+      "url": "https://www.jetro.go.jp/en/database/procurement/local/articles/95561773a7d15c51.html",
+      "kind": "公共調達"
+    },
+    {
+      "id": "P22",
+      "title": "茨城県立病院診療情報システム構築・調達情報",
+      "year": "2026年4月30日",
+      "url": "https://www.jetro.go.jp/en/database/procurement/local/articles/d1739b9ce6edace5.html",
+      "kind": "公共調達"
     }
   ],
   "policy": {
