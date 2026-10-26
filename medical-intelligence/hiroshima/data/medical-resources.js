@@ -1,0 +1,47 @@
+/* 公開データ。第8次広島県保健医療計画・資料編353頁、2022年医療施設調査等。医師会施設数とは別集計。 */
+window.HIROSHIMA_RESOURCES={
+  dataYear:2022,
+  dateNote:"令和4（2022）年 厚生労働省「医療施設調査」、薬局は衛生行政報告例。広島県第8次保健医療計画 資料編p353（2024年刊行）",
+  officialUrl:"https://www.pref.hiroshima.lg.jp/uploaded/attachment/572533.pdf#page=7",
+  officialEntry:"https://www.pref.hiroshima.lg.jp/soshiki/54/hokeniryoukeikaku-8.html",
+  area:[
+    {name:"広島",hospital:92,generalHospital:81,psychiatricHospital:11,clinics:1358,bedded:80,nonBedded:1278,dental:777,pharmacy:762,per100k:100.1},
+    {name:"広島西",hospital:13,generalHospital:12,psychiatricHospital:1,clinics:121,bedded:4,nonBedded:117,dental:72,pharmacy:78,per100k:86.9},
+    {name:"呉",hospital:30,generalHospital:24,psychiatricHospital:6,clinics:233,bedded:17,nonBedded:216,dental:140,pharmacy:150,per100k:102.7},
+    {name:"広島中央",hospital:20,generalHospital:17,psychiatricHospital:3,clinics:166,bedded:10,nonBedded:156,dental:100,pharmacy:114,per100k:72.9},
+    {name:"尾三",hospital:22,generalHospital:19,psychiatricHospital:3,clinics:194,bedded:16,nonBedded:178,dental:120,pharmacy:159,per100k:84.7},
+    {name:"福山・府中",hospital:45,generalHospital:39,psychiatricHospital:6,clinics:378,bedded:32,nonBedded:346,dental:253,pharmacy:271,per100k:75.7},
+    {name:"備北",hospital:10,generalHospital:9,psychiatricHospital:1,clinics:87,bedded:9,nonBedded:78,dental:40,pharmacy:52,per100k:107.1}
+  ],
+  associationSource:"https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/",
+  associations:[
+    {name:"広島市医師会",area:"広島",coverage:"広島市（区医師会と地域組織を含む）",url:"https://www.city.hiroshima.med.or.jp/",address:"広島市西区観音本町1-1-1"},
+    {name:"安佐医師会",area:"広島",coverage:"広島市安佐南区・安佐北区",url:"https://www.asaishikai.jp/",address:"広島市安佐南区八木5-35-2"},
+    {name:"安芸地区医師会",area:"広島",coverage:"安芸地区（海田町を含む）",url:"https://www.aki.hiroshima.med.or.jp/",address:"安芸郡海田町栄町5-13"},
+    {name:"安芸高田市医師会",area:"広島",coverage:"安芸高田市",url:"https://www.akitakatamed.or.jp/",address:"安芸高田市吉田町吉田1010-2"},
+    {name:"山県郡医師会",area:"広島",coverage:"安芸太田町・北広島町を含む山県郡",url:"https://www.yamagata-hiroshima.jp/",address:"北広島町有田1192"},
+    {name:"広島大学医師会",area:"広島",coverage:"広島大学医学部・大学病院関係（地域医療圏の施設所有ではない）",url:"https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/",address:"広島市南区霞1-2-3"},
+    {name:"大竹市医師会",area:"広島西",coverage:"大竹市",url:"https://otake-med.org/",address:"大竹市油見3-6-8"},
+    {name:"佐伯地区医師会",area:"広島西",coverage:"廿日市市など",url:"https://saikima.jp/",address:"廿日市市本町5-1"},
+    {name:"呉市医師会",area:"呉",coverage:"呉市",url:"https://www.kure.hiroshima.med.or.jp/",address:"呉市朝日町15-24"},
+    {name:"東広島地区医師会",area:"広島中央",coverage:"東広島市中心部",url:"https://www.east-hiroshima-med.or.jp/",address:"東広島市西条町土与丸1113"},
+    {name:"賀茂東部医師会",area:"広島中央",coverage:"東広島市の一部",url:"https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/",address:"東広島市福富町久芳1539-27"},
+    {name:"竹原地区医師会",area:"広島中央",coverage:"竹原市",url:"https://www.takehara-ishikai.com/",address:"竹原市中央3-14-1"},
+    {name:"豊田郡医師会",area:"広島中央",coverage:"大崎上島町を含む豊田郡",url:"https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/",address:"大崎上島町中野4322-3"},
+    {name:"三原市医師会",area:"尾三",coverage:"三原市",url:"https://www.mihara-hiroshima-med.jp/",address:"三原市宮浦1-15-1"},
+    {name:"尾道市医師会",area:"尾三",coverage:"尾道市の一部（因島医師会とは組織が異なる）",url:"https://www.onomichi-med.or.jp/outline/summary.php",address:"尾道市栗原東2-4-33",memberFacilities:87,memberCount:300,countYear:"2025年4月",countUrl:"https://www.onomichi-med.or.jp/outline/summary.php",countLabel:"医療機関数"},
+    {name:"因島医師会",area:"尾三",coverage:"尾道市因島など",url:"https://ishikai.innoshima-med.jp/",address:"尾道市因島中庄町1962"},
+    {name:"世羅郡医師会",area:"尾三",coverage:"世羅町",url:"https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/",address:"世羅町本郷614-1"},
+    {name:"福山市医師会",area:"福山・府中",coverage:"福山市の一部（松永沼隈・深安地区は別組織）",url:"https://www.fmed.jp/cnt/info/index.html",address:"福山市三吉町南2-11-25",memberFacilities:230,memberCount:630,countYear:"2026年6月30日",countUrl:"https://www.fmed.jp/cnt/info/index.html",countLabel:"会員施設数"},
+    {name:"松永沼隈地区医師会",area:"福山・府中",coverage:"福山市西部",url:"https://www.matsunuma-med.jp/",address:"福山市南松永町2-8-12"},
+    {name:"深安地区医師会",area:"福山・府中",coverage:"福山市北部など",url:"https://www.fukayasu.hiroshima.med.or.jp/",address:"福山市加茂町下加茂993"},
+    {name:"府中地区医師会",area:"福山・府中",coverage:"府中市・神石高原町など",url:"https://www.fuchu-ishikai.net/",address:"府中市鵜飼町496-1"},
+    {name:"三次地区医師会",area:"備北",coverage:"三次市",url:"https://miyoshi-med.or.jp/",address:"三次市十日市東3-16-1"},
+    {name:"庄原市医師会",area:"備北",coverage:"庄原市",url:"https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/",address:"庄原市三日市町272"}
+  ],
+  subAssociations:[
+    {name:"広島市西区医師会",parent:"広島市医師会",area:"広島",coverage:"広島市西区",clinics:120,hospitals:20,memberCount:334,countYear:"2024年6月",countLabel:"区内施設数（医師会公開の地区説明）",countUrl:"https://nishiku.city.hiroshima.med.or.jp/aisatsu.html"},
+    {name:"広島市佐伯区医師会",parent:"広島市医師会",area:"広島",coverage:"広島市佐伯区",memberCount:235,countYear:"2026年7月1日",countLabel:"会員数（施設数は未掲載）",countUrl:"https://www.saekiku.city.hiroshima.med.or.jp/about.html"}
+  ],
+  membership2025:{name:"広島県医師会",memberCount:5650,year:"2025年12月1日",url:"https://www.med.or.jp/jma/about/member.html",annotation:"日本医師会の都道府県別会員数。県内全施設数・地区医師会別施設数ではない。"}
+};
