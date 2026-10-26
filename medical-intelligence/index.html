@@ -92,6 +92,17 @@ function draw(){
     let row=document.createElement('div');row.className='region';
     let title=document.createElement('strong');title.textContent=p[0];
     let actions=document.createElement('div');actions.className='region-actions';
+
+    // 四国4県それぞれの行に統合四国MKTへのリンクを設置（既存の県別MKTボタンは保持）
+    if(['徳島県','香川県','愛媛県','高知県'].includes(p[0])){
+      const shikokuMkt=document.createElement('a');
+      shikokuMkt.href='./shikoku/';shikokuMkt.target='_blank';shikokuMkt.rel='noopener noreferrer';
+      shikokuMkt.className='shikoku-mkt-btn';shikokuMkt.textContent='四国MKT ↗';
+      shikokuMkt.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:7px 13px;border-radius:9px;background:#005b75;color:#fff;border:2px solid #00425c;font-weight:800;text-decoration:none;';
+      shikokuMkt.setAttribute('aria-label','四国4県医療機器MKT・16医療圏分析を開く');
+      actions.appendChild(shikokuMkt);
+    }
+
     if(p[0]==='高知県'){
       const kochiLink=document.createElement('a');
       kochiLink.href='./kochi/';kochiLink.target='_blank';kochiLink.rel='noopener noreferrer';
