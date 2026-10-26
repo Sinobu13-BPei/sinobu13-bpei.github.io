@@ -37,6 +37,22 @@ if(sources){
  const link=el("a",area.name+"｜需給総覧 ↗");link.href=urls[area.name];link.target="_blank";link.rel="noopener noreferrer";sources.append(link);
  }
 }
+// 社人研2023年推計（予測）/ 7二次医療圏の人口・生産年齢・75歳以上人口
+const proj=S.populationProjections,projTable=get("regionProjectionTable");
+const rate=(current,base)=>((current/base-1)*100);
+if(projTable){
+ const body=projTable.querySelector("tbody"),foot=projTable.querySelector("tfoot");
+ const rowData=(name,total,working,age75)=>{
+  const tr=el("tr");
+  [name,number(total[0]),number(total[2]),number(total[4]),number(total[6]),rate(total[6],total[0]).toFixed(1)+"%",number(working[6]),number(age75[6]),(rate(age75[6],age75[0])>0?"+":"")+rate(age75[6],age75[0]).toFixed(1)+"%"].forEach((v,i)=>{
+   const td=el(i===0?"th":"td",v);if(i===0)td.scope="row";tr.append(td);
+  });return tr;
+ };
+ proj.areas.forEach(a=>body.append(rowData(a.name,a.total,a.working,a.age75)));
+ const summed={name:"県計（圏域合算）",total:proj.years.map((_,i)=>proj.areas.reduce((n,a)=>n+a.total[i],0)),working:proj.years.map((_,i)=>proj.areas.reduce((n,a)=>n+a.working[i],0)),age75:proj.years.map((_,i)=>proj.areas.reduce((n,a)=>n+a.age75[i],0))};
+ const tr=rowData(summed.name,summed.total,summed.working,summed.age75);tr.className="total-row";foot.append(tr);
+}
+
 if(!window.Chart)return;
 const Chart=window.Chart;
 const cols=["#17788a","#9dbcca","#e3ac58","#718da9","#698a9b","#80aeb2","#3c7b9b"];
@@ -66,4 +82,11 @@ chart("habitableChart","bar",{labels,datasets:[{label:"可住地面積割合（2
 chart("marketTrendChart","line",{labels:S.privateMarket.years.map(x=>x+"年度"),datasets:[{label:"民間推計・県内末端市場（億円）",data:S.privateMarket.valuesOku,borderColor:"#167984",backgroundColor:"rgba(17,132,150,.10)",pointRadius:6,pointHoverRadius:8,fill:true,tension:.16}]},{
  plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+"億円（民間推計、装置以外含む）"}}},scales:{y:{min:750,max:1000,title:{display:true,text:"億円・民間推計"}},x:{grid:{display:false}}}
 });
+
+chart("regionProjectionChart","line",{
+ labels:proj.years.map(x=>x+"年"),datasets:proj.areas.map((a,i)=>({label:a.name,data:a.total.map(n=>+(n/10000).toFixed(2)),borderColor:["#165a79","#65a0bb","#a25d69","#43a1a7","#b5a05f","#6c7eac","#60755d"][i],borderWidth:2.4,pointRadius:2,tension:.22}))
+},{plugins:{legend:{position:"bottom",labels:{boxWidth:10,usePointStyle:true,font:{size:10}}},tooltip:{callbacks:{label:c=>c.dataset.label+"： "+c.parsed.y.toFixed(2)+"万人（社人研推計）"}}},scales:{y:{beginAtZero:true,title:{display:true,text:"人口（万人）"}},x:{ticks:{font:{size:10}}}}});
+chart("age75DeltaChart","bar",{
+ labels:proj.areas.map(a=>a.name),datasets:[{label:"75歳以上人口 2020→2050年変化率（社人研推計）",data:proj.areas.map(a=>+rate(a.age75[6],a.age75[0]).toFixed(1)),backgroundColor:proj.areas.map(a=>rate(a.age75[6],a.age75[0])>0?"#1b8f95":"#bc8454"),borderRadius:4}]
+},{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const a=proj.areas[c.dataIndex];return [((c.parsed.x>0)?"+":"")+c.parsed.x.toFixed(1)+"%",number(a.age75[0])+"人 → "+number(a.age75[6])+"人（推計）"]}}}},scales:{x:{min:-25,max:50,ticks:{callback:v=>v+"%"}},y:{ticks:{autoSkip:false}}}});
 })();
