@@ -1,3 +1,8 @@
+/* Prevent Leaflet transformed map tiles (sometimes >70,000px off-screen) from expanding mobile document width. */
+#map{position:relative;overflow:hidden!important;contain:layout paint;isolation:isolate}
+#map.leaflet-container{overflow:hidden!important;max-width:100%}
+#map .leaflet-map-pane,#map .leaflet-tile-pane,#map .leaflet-overlay-pane{will-change:transform}
+
 /* Kochi visual narrative layer / 2026-10-27 – accessible, responsive, data-driven */
 :root{--v1:#087b78;--v2:#1f86ac;--v3:#d99654;--v4:#6a7e9d;--vbg:#f0f7f7;--vtext:#19364c}
 .v-section{margin:26px 0 30px}
