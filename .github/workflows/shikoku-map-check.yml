@@ -1,0 +1,31 @@
+name: Shikoku map and UI smoke checks
+on:
+  push:
+    paths:
+      - 'medical-intelligence/shikoku/**'
+      - 'tests/shikoku-map-smoke.cjs'
+      - '.github/workflows/shikoku-map-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  map-ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout published site
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          node --check medical-intelligence/shikoku/data.js
+          node --check medical-intelligence/shikoku/app.js
+          node --check medical-intelligence/shikoku/map.js
+          node --check tests/shikoku-map-smoke.cjs
+      - name: Check UI structure and interactive map regressions
+        run: node tests/shikoku-map-smoke.cjs
