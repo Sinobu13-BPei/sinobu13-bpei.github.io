@@ -133,7 +133,7 @@
     <article class="deepPanel"><h4>2050年の65歳以上人口割合</h4><canvas id="deepElderChart" role="img" aria-label="2050年の医療圏別高齢化率"></canvas><p class="deepCaption">図4｜2050年の65～74歳と75歳以上の合計を、同年人口で除した。全県2025年の実績高齢化率とは年次が異なる（R01）。</p></article>
   </div>
   <div class="tableScroll"><table class="deepTable"><thead><tr><th>医療圏</th><th>2020年人口</th><th>2030年推計</th><th>2040年推計</th><th>2050年推計</th><th>2020→2050</th><th>75歳以上・2050</th><th>65歳以上割合・2050</th></tr></thead><tbody id="deepForecastRows"></tbody></table></div>
-  <p class="note">**注意：** 人口将来推計は地域の患者数・検査数・機器の稼働台数をそのまま予測するものではありません。疾患構造、患者流動、医療機能再編、病院間連携を別に検証する必要があります。</p>
+  <p class="note"><strong>注意：</strong>人口将来推計は地域の患者数・検査数・機器の稼働台数をそのまま予測するものではありません。疾患構造、患者流動、医療機能再編、病院間連携を別に検証する必要があります。</p>
   <div class="subsectionHeader"><span>02 / MEDICAL RESOURCES &amp; PATIENT FLOWS</span><h3>医療施設の供給密度とDPC患者流動の違い</h3></div>
   <div class="deepChartGrid">
     <article class="deepPanel"><h4>一般診療所の人口10万人当たり施設数</h4><canvas id="deepClinicDensityChart" role="img" aria-label="2023年医療施設調査と2020年国勢調査を使った医療圏別施設密度"></canvas><p class="deepCaption">図5｜令和5年医療施設調査の医療圏別施設数を、2020年国勢調査人口で割った指標。上段にある2021年の施設実数との増減比較は不可（R04）。</p></article>
@@ -170,7 +170,8 @@
   </div>
   <div class="tableScroll"><table class="deepTable"><thead><tr><th>物流軸</th><th>主要道路</th><th>関連医療圏</th><th>医療機器流通・保守への示唆</th><th>留意点</th></tr></thead><tbody id="deepRouteRows"></tbody></table></div>
   <div class="deepMethod"><b>各医療圏の論点（独自分析）</b><div id="deepRegionInsights" class="deepRegionInsights"></div></div>
-  <div class="deepSourceBlock"><div class="vizHead"><div><span class="eyebrowTiny">PUBLIC SOURCE INDEX</span><h3>引用・追跡できる一次情報</h3></div><a class="miniLink" href="data/deep-dive-2026.json" target="_blank" rel="noopener noreferrer">本ページの比較データ（JSON）を見る</a></div><ol id="deepSourceRows"></ol><p class="deepCaption">図表は本ページ用に新規描画。引用時は原資料名、統計年次、図の計算条件を併記してください。添付された民間レポートの図版・デザインは複製していません。</p></div>
+  <div class="deepLineage"><div class="vizHead"><div><span class="eyebrowTiny">DATA LINEAGE / REFERENCE PERIODS</span><h3>混在する統計年次を正しく読み分ける</h3></div></div><div class="lineageSteps"><div><b>2020–2050</b><strong>人口将来推計</strong><span>社人研2023年推計／5医療圏</span></div><div><b>2021</b><strong>全施設実数</strong><span>病院・診療所・歯科（県計画）</span></div><div><b>2023</b><strong>DPC・診療所密度</strong><span>退院患者調査・医療施設調査</span></div><div><b>2024</b><strong>主要病院の装置保有例</strong><span>CT・MRI／病床機能報告</span></div><div><b>2025</b><strong>人口実績・病床現状</strong><span>県推計人口・令和7年度報告</span></div></div><p class="deepCaption">資料間で対象年度と分母が異なるため、数値の足し算・前年比較・相関分析は統計条件を揃えた項目に限定してください。診療所ターゲットリストの件数は全施設数ではありません。</p></div>
+<div class="deepSourceBlock"><div class="vizHead"><div><span class="eyebrowTiny">PUBLIC SOURCE INDEX</span><h3>引用・追跡できる一次情報</h3></div><a class="miniLink" href="data/deep-dive-2026.json" target="_blank" rel="noopener noreferrer">本ページの比較データ（JSON）を見る</a></div><ol id="deepSourceRows"></ol><p class="deepCaption">図表は本ページ用に新規描画。引用時は原資料名、統計年次、図の計算条件を併記してください。添付された民間レポートの図版・デザインは複製していません。</p></div>
 </section>
 <section class="section" id="distribution"><div class="sectionTitle"><p>07 / CHANNEL STRUCTURE</p><h2>医療機器商社・医薬品卸・地場ネットワーク</h2></div><div class="grid3"><div class="panel"><h3>医療機器ディーラー</h3><p>宮野医療器、大黒、日光医科器械、いわしや、セイコーメディカル、石黒メディカル等の地域対応を調査対象にする。県内営業拠点・取扱領域・サービス体制は各社公表情報で個別確認が必要。</p></div><div class="panel"><h3>広域医薬品卸</h3><p>メディパルグループ、アルフレッサグループ、スズケングループ、東邦薬品などについて、県内拠点の実在と病院/診療所の流通網を調べる。薬品取扱高＝画像機器シェアではない。</p></div><div class="panel"><h3>SPD・材料・サービス</h3><p>消耗品、医療材料、SPD、保守、電子カルテ連携は市場構造上の関連領域。ただし機器売上・資材売上を混算しない。</p></div></div>
 <p class="note">過去資料の商社別売上・市場シェア・販社優先順位等の非公開データは転載していない。「県内シェア」「県内最有力」等の序列を公的事実として断定しない。</p></section>
