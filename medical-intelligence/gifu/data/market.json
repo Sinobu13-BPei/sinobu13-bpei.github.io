@@ -1,0 +1,930 @@
+{
+  "lastUpdated": "2026-10-26",
+  "regions": [
+    {
+      "id": "gifu",
+      "name": "岐阜",
+      "hub": "岐阜市",
+      "lat": 35.423,
+      "lon": 136.757,
+      "pop2020": 793551,
+      "municipalities": "岐阜市・羽島市・各務原市・山県市・瑞穂市・本巣市・岐南町・笠松町・北方町",
+      "beds": [
+        1497,
+        2799,
+        1276,
+        1369,
+        419
+      ],
+      "need": [
+        869,
+        2757,
+        2201,
+        1247
+      ],
+      "baseBeds": 6908,
+      "doctors": 2320,
+      "doctorIndex": 276.5,
+      "scores": [
+        5,
+        2,
+        3,
+        4,
+        5
+      ],
+      "key": "大学・県総・岐阜市民・松波の専門医療集積",
+      "issue": "高度医療集中と病診連携、画像データ相互運用、外来新規開業の需給",
+      "chance": "救急CT/MRIの可用性、画像IT、循環器・がん・周産期、診療所共同利用",
+      "kpi": "画像連携の接続拠点数／装置停止時間"
+    },
+    {
+      "id": "seino",
+      "name": "西濃",
+      "hub": "大垣市",
+      "lat": 35.359,
+      "lon": 136.612,
+      "pop2020": 358439,
+      "municipalities": "大垣市・海津市・養老町・垂井町・関ケ原町・神戸町・輪之内町・安八町・揖斐川町・大野町・池田町",
+      "beds": [
+        298,
+        1136,
+        589,
+        419,
+        176
+      ],
+      "need": [
+        253,
+        917,
+        744,
+        516
+      ],
+      "baseBeds": 2568,
+      "doctors": 676,
+      "doctorIndex": 195,
+      "scores": [
+        4,
+        4,
+        3,
+        3,
+        3
+      ],
+      "key": "大垣市民病院と西濃厚生病院の地域基幹機能",
+      "issue": "医師の相対的不足と山間・県境部のアクセス、回復期機能",
+      "chance": "救急画像、外来・在宅POCUS、回復期・在宅連携と保守",
+      "kpi": "連携診療所数／緊急保守リードタイム"
+    },
+    {
+      "id": "chuno",
+      "name": "中濃",
+      "hub": "美濃加茂市",
+      "lat": 35.44,
+      "lon": 137.018,
+      "pop2020": 364282,
+      "municipalities": "関市・美濃市・美濃加茂市・可児市・郡上市・坂祝町・富加町・川辺町・七宗町・八百津町・白川町・東白川村・御嵩町",
+      "beds": [
+        395,
+        1234,
+        343,
+        576,
+        210
+      ],
+      "need": [
+        226,
+        902,
+        841,
+        442
+      ],
+      "baseBeds": 2725,
+      "doctors": 678,
+      "doctorIndex": 204.6,
+      "scores": [
+        4,
+        4,
+        5,
+        3,
+        3
+      ],
+      "key": "中部国際医療センター・中濃厚生病院／郡上の広域連携",
+      "issue": "重点支援区域。回復期の機能分化と広域医療人材の不足",
+      "chance": "回復期支援、手術・がん・循環器、超音波・遠隔読影、連携IT",
+      "kpi": "共同利用・紹介連携件数／再配置後の稼働率"
+    },
+    {
+      "id": "tono",
+      "name": "東濃",
+      "hub": "多治見市",
+      "lat": 35.332,
+      "lon": 137.132,
+      "pop2020": 323574,
+      "municipalities": "多治見市・中津川市・瑞浪市・恵那市・土岐市",
+      "beds": [
+        335,
+        1125,
+        416,
+        295,
+        233
+      ],
+      "need": [
+        236,
+        836,
+        653,
+        332
+      ],
+      "baseBeds": 2666,
+      "doctors": 636,
+      "doctorIndex": 220.5,
+      "scores": [
+        4,
+        3,
+        5,
+        3,
+        4
+      ],
+      "key": "県立多治見病院／2026年2月開院の公立東濃中部医療センター",
+      "issue": "推進区域・重点支援区域。再編後の役割分担と県境を越えた受療",
+      "chance": "統合後の医療機器・IT運用最適化、画像共同利用、回復期連携",
+      "kpi": "統合拠点の検査稼働率／紹介画像共有率"
+    },
+    {
+      "id": "hida",
+      "name": "飛騨",
+      "hub": "高山市",
+      "lat": 36.146,
+      "lon": 137.252,
+      "pop2020": 138896,
+      "municipalities": "高山市・飛騨市・下呂市・白川村",
+      "beds": [
+        76,
+        466,
+        368,
+        117,
+        68
+      ],
+      "need": [
+        108,
+        380,
+        326,
+        192
+      ],
+      "baseBeds": 1199,
+      "doctors": 268,
+      "doctorIndex": 189,
+      "scores": [
+        3,
+        5,
+        4,
+        5,
+        2
+      ],
+      "key": "高山赤十字病院・県立下呂温泉病院／広域救急",
+      "issue": "推進区域。積雪・土砂災害、長距離搬送、医師確保、保守アクセス",
+      "chance": "救急超音波とCTの冗長化、遠隔画像診断、予防保全、モバイル支援",
+      "kpi": "機器停止時間／代替機到着可能時間"
+    }
+  ],
+  "facilities": [
+    {
+      "name": "岐阜大学医学部附属病院",
+      "city": "岐阜市",
+      "address": "岐阜市柳戸1-1",
+      "area": "岐阜",
+      "url": "https://hosp.gifu-u.ac.jp/",
+      "type": "大学・特定機能",
+      "lat": 35.423,
+      "lon": 136.757,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "岐阜大学 医学部",
+      "city": "岐阜市",
+      "address": "岐阜市柳戸1-1",
+      "area": "岐阜",
+      "url": "https://www.med.gifu-u.ac.jp/",
+      "type": "医学部",
+      "lat": 35.423,
+      "lon": 136.757,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "岐阜県総合医療センター",
+      "city": "岐阜市",
+      "address": "岐阜市野一色4-6-1",
+      "area": "岐阜",
+      "url": "https://www.gifu-hp.jp/",
+      "type": "中核病院",
+      "lat": 35.423,
+      "lon": 136.757,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "岐阜市民病院",
+      "city": "岐阜市",
+      "address": "岐阜市鹿島町7-1",
+      "area": "岐阜",
+      "url": "https://gmhosp.jp/",
+      "type": "中核病院",
+      "lat": 35.423,
+      "lon": 136.757,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "松波総合病院",
+      "city": "笠松町",
+      "address": "羽島郡笠松町田代185-1",
+      "area": "岐阜",
+      "url": "https://www.matsunami-hsp.or.jp/",
+      "type": "地域支援",
+      "lat": 35.367,
+      "lon": 136.764,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "東海中央病院",
+      "city": "各務原市",
+      "address": "各務原市蘇原東島町4-6-2",
+      "area": "岐阜",
+      "url": "https://www.tokaihp.jp/",
+      "type": "地域支援",
+      "lat": 35.399,
+      "lon": 136.848,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "大垣市民病院",
+      "city": "大垣市",
+      "address": "大垣市南頬町4-86",
+      "area": "西濃",
+      "url": "https://www.ogaki-mh.jp/",
+      "type": "中核病院",
+      "lat": 35.359,
+      "lon": 136.612,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "中部国際医療センター",
+      "city": "美濃加茂市",
+      "address": "美濃加茂市健康のまち1-1",
+      "area": "中濃",
+      "url": "https://cjimc-hp.jp/",
+      "type": "中核病院",
+      "lat": 35.44,
+      "lon": 137.018,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "中濃厚生病院",
+      "city": "関市",
+      "address": "関市若草通5-1",
+      "area": "中濃",
+      "url": "https://www.chuno.gfkosei.or.jp/",
+      "type": "中核病院",
+      "lat": 35.496,
+      "lon": 136.918,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "岐阜県立多治見病院",
+      "city": "多治見市",
+      "address": "多治見市前畑町5-161",
+      "area": "東濃",
+      "url": "https://www.tajimi-hospital.jp/",
+      "type": "中核病院",
+      "lat": 35.332,
+      "lon": 137.132,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "公立東濃中部医療センター",
+      "city": "土岐市",
+      "address": "土岐市（所在地は公式サイトで要再確認）",
+      "area": "東濃",
+      "url": "https://www.union-tono.jp/",
+      "type": "統合新病院",
+      "lat": 35.351,
+      "lon": 137.184,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "高山赤十字病院",
+      "city": "高山市",
+      "address": "高山市天満町3-11",
+      "area": "飛騨",
+      "url": "https://www.takayama.jrc.or.jp/",
+      "type": "中核病院",
+      "lat": 36.146,
+      "lon": 137.252,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "岐阜県立下呂温泉病院",
+      "city": "下呂市",
+      "address": "下呂市森2211",
+      "area": "飛騨",
+      "url": "https://www.gero-hp.jp/",
+      "type": "中核病院",
+      "lat": 35.808,
+      "lon": 137.244,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "岐阜県庁 医療整備課",
+      "city": "岐阜市",
+      "address": "岐阜市薮田南2-1-1",
+      "area": "岐阜",
+      "url": "https://www.pref.gifu.lg.jp/page/124969.html",
+      "type": "行政",
+      "lat": 35.423,
+      "lon": 136.757,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "岐阜県医師会",
+      "city": "岐阜市",
+      "address": "岐阜市（正確な所在は公式サイト参照）",
+      "area": "岐阜",
+      "url": "https://www.gifu.med.or.jp/",
+      "type": "医師会",
+      "lat": 35.423,
+      "lon": 136.757,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "岐阜保健所",
+      "city": "各務原市",
+      "address": "各務原市那加不動丘1-1",
+      "area": "岐阜",
+      "url": "https://www.pref.gifu.lg.jp/page/9184.html",
+      "type": "保健所",
+      "lat": 35.399,
+      "lon": 136.848,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "西濃保健所",
+      "city": "大垣市",
+      "address": "大垣市江崎町422-3",
+      "area": "西濃",
+      "url": "https://www.pref.gifu.lg.jp/page/9184.html",
+      "type": "保健所",
+      "lat": 35.359,
+      "lon": 136.612,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "関保健所",
+      "city": "美濃市",
+      "address": "美濃市生櫛1612-2",
+      "area": "中濃",
+      "url": "https://www.pref.gifu.lg.jp/page/9184.html",
+      "type": "保健所",
+      "lat": 35.545,
+      "lon": 136.908,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "可茂保健所",
+      "city": "美濃加茂市",
+      "address": "美濃加茂市古井町下古井大脇2610-1",
+      "area": "中濃",
+      "url": "https://www.pref.gifu.lg.jp/page/9184.html",
+      "type": "保健所",
+      "lat": 35.44,
+      "lon": 137.018,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "東濃保健所",
+      "city": "多治見市",
+      "address": "多治見市上野町5-68-1",
+      "area": "東濃",
+      "url": "https://www.pref.gifu.lg.jp/page/9184.html",
+      "type": "保健所",
+      "lat": 35.332,
+      "lon": 137.132,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "恵那保健所",
+      "city": "恵那市",
+      "address": "恵那市長島町正家後田1067-71",
+      "area": "東濃",
+      "url": "https://www.pref.gifu.lg.jp/page/9184.html",
+      "type": "保健所",
+      "lat": 35.45,
+      "lon": 137.414,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "飛騨保健所",
+      "city": "高山市",
+      "address": "高山市上岡本町7-468",
+      "area": "飛騨",
+      "url": "https://www.pref.gifu.lg.jp/page/9184.html",
+      "type": "保健所",
+      "lat": 36.146,
+      "lon": 137.252,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "岐阜市保健所",
+      "city": "岐阜市",
+      "address": "岐阜市都通2-19",
+      "area": "岐阜",
+      "url": "https://www.pref.gifu.lg.jp/page/9184.html",
+      "type": "保健所",
+      "lat": 35.423,
+      "lon": 136.757,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    }
+  ],
+  "associations": [
+    {
+      "name": "岐阜市医師会",
+      "city": "岐阜市",
+      "address": "岐阜市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "岐阜",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.423,
+      "lon": 136.757,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "岐阜大学医師会",
+      "city": "岐阜市",
+      "address": "岐阜市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "岐阜",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.423,
+      "lon": 136.757,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "各務原市医師会",
+      "city": "各務原市",
+      "address": "各務原市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "岐阜",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.399,
+      "lon": 136.848,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "羽島郡医師会",
+      "city": "笠松町",
+      "address": "笠松町（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "岐阜",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.367,
+      "lon": 136.764,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "羽島市医師会",
+      "city": "岐阜市",
+      "address": "岐阜市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "岐阜",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.423,
+      "lon": 136.757,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "もとす医師会",
+      "city": "岐阜市",
+      "address": "岐阜市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "岐阜",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.423,
+      "lon": 136.757,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "山県医師会",
+      "city": "岐阜市",
+      "address": "岐阜市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "岐阜",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.423,
+      "lon": 136.757,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "大垣市医師会",
+      "city": "大垣市",
+      "address": "大垣市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "西濃",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.359,
+      "lon": 136.612,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "海津市医師会",
+      "city": "大垣市",
+      "address": "大垣市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "西濃",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.359,
+      "lon": 136.612,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "養老郡医師会",
+      "city": "大垣市",
+      "address": "大垣市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "西濃",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.359,
+      "lon": 136.612,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "不破郡医師会",
+      "city": "大垣市",
+      "address": "大垣市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "西濃",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.359,
+      "lon": 136.612,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "安八郡医師会",
+      "city": "大垣市",
+      "address": "大垣市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "西濃",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.359,
+      "lon": 136.612,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "揖斐郡医師会",
+      "city": "揖斐川町",
+      "address": "揖斐川町（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "西濃",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.487,
+      "lon": 136.57,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "武儀医師会",
+      "city": "関市",
+      "address": "関市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "中濃",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.496,
+      "lon": 136.918,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "郡上市医師会",
+      "city": "郡上市",
+      "address": "郡上市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "中濃",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.748,
+      "lon": 136.964,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "加茂医師会",
+      "city": "美濃加茂市",
+      "address": "美濃加茂市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "中濃",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.44,
+      "lon": 137.018,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "可児医師会",
+      "city": "可児市",
+      "address": "可児市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "中濃",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.425,
+      "lon": 137.062,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "多治見市医師会",
+      "city": "多治見市",
+      "address": "多治見市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "東濃",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.332,
+      "lon": 137.132,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "土岐医師会",
+      "city": "土岐市",
+      "address": "土岐市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "東濃",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.351,
+      "lon": 137.184,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "恵那医師会",
+      "city": "恵那市",
+      "address": "恵那市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "東濃",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.45,
+      "lon": 137.414,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "高山市医師会",
+      "city": "高山市",
+      "address": "高山市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "飛騨",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 36.146,
+      "lon": 137.252,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "下呂市医師会",
+      "city": "下呂市",
+      "address": "下呂市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "飛騨",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 35.808,
+      "lon": 137.244,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    },
+    {
+      "name": "飛騨市医師会",
+      "city": "高山市",
+      "address": "高山市（詳細所在地は岐阜県医師会掲載先参照）",
+      "area": "飛騨",
+      "url": "https://www.gifu.med.or.jp/association/districts/",
+      "type": "地区医師会",
+      "lat": 36.146,
+      "lon": 137.252,
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "title": "岐阜県「人口・世帯数年報2025」",
+      "year": "2025年10月／2026年10月更新",
+      "url": "https://www.pref.gifu.lg.jp/page/488219.html"
+    },
+    {
+      "id": "S02",
+      "title": "岐阜県「第8期保健医療計画」",
+      "year": "2024–2029年度／2026年4月更新",
+      "url": "https://www.pref.gifu.lg.jp/page/124969.html"
+    },
+    {
+      "id": "S03",
+      "title": "岐阜県「令和7年度病床機能報告」",
+      "year": "2025年7月／2026年公表",
+      "url": "https://www.pref.gifu.lg.jp/page/492373.html"
+    },
+    {
+      "id": "S04",
+      "title": "岐阜県「保健医療計画 概要版・基準病床数」",
+      "year": "2024年度計画／2023年病床基準",
+      "url": "https://www.pref.gifu.lg.jp/uploaded/attachment/392758.pdf"
+    },
+    {
+      "id": "S05",
+      "title": "岐阜県「地域医療構想」",
+      "year": "2025年方針／2026年確認",
+      "url": "https://www.pref.gifu.lg.jp/page/13850.html"
+    },
+    {
+      "id": "S06",
+      "title": "厚生労働省「医師確保対策・医師偏在指標」",
+      "year": "2026年4月公表",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
+    },
+    {
+      "id": "S07",
+      "title": "SCUEL 医師統計集計（厚労省公表データを加工）",
+      "year": "2024年医師数／2026年偏在指標",
+      "url": "https://scueldata.me/insight/workforce/doctor/gifu/"
+    },
+    {
+      "id": "S08",
+      "title": "社人研令和5年地域別将来推計人口（中津川市転載数表）",
+      "year": "2023年推計／2020～2050年",
+      "url": "https://www.city.nakatsugawa.lg.jp/material/files/group/4/R6_3jinkoubijon.pdf"
+    },
+    {
+      "id": "S09",
+      "title": "岐阜県医師会「地区医師会一覧」",
+      "year": "2026年閲覧",
+      "url": "https://www.gifu.med.or.jp/association/districts/"
+    },
+    {
+      "id": "S10",
+      "title": "岐阜県「地域医療支援病院承認一覧」",
+      "year": "2026年2月更新",
+      "url": "https://www.pref.gifu.lg.jp/page/3368.html"
+    },
+    {
+      "id": "S11",
+      "title": "岐阜県「がん診療連携拠点病院」",
+      "year": "2026年閲覧",
+      "url": "https://www.pref.gifu.lg.jp/page/2196.html"
+    },
+    {
+      "id": "S12",
+      "title": "岐阜県「保健所相談窓口」",
+      "year": "2026年4月更新",
+      "url": "https://www.pref.gifu.lg.jp/page/9184.html"
+    },
+    {
+      "id": "S13",
+      "title": "岐阜県「外来医療計画・医療機器共同利用」",
+      "year": "2024–2029年度",
+      "url": "https://www.pref.gifu.lg.jp/page/26371.html"
+    },
+    {
+      "id": "S14",
+      "title": "東濃中部病院事務組合「病院統合・開院」",
+      "year": "2026年2月開院",
+      "url": "https://www.union-tono.jp/about_us/overview/"
+    },
+    {
+      "id": "S15",
+      "title": "瑞浪市「公立東濃中部医療センター開院」",
+      "year": "2026年3月更新",
+      "url": "https://www.city.mizunami.lg.jp/shisei/kouchou_kouhou/1001316/1011650/1011640.html"
+    },
+    {
+      "id": "S16",
+      "title": "厚生労働省「医療DX」",
+      "year": "2026年10月更新",
+      "url": "https://www.mhlw.go.jp/stf/iryoudx.html"
+    },
+    {
+      "id": "S17",
+      "title": "岐阜県「圏域地域医療構想等調整会議」",
+      "year": "2026年度",
+      "url": "https://www.pref.gifu.lg.jp/page/504301.html"
+    },
+    {
+      "id": "S18",
+      "title": "厚生労働省 医療施設（静態）調査（二次医療圏別CT・MRI）",
+      "year": "2023年",
+      "url": "https://www.e-stat.go.jp/dbview?sid=0004024960"
+    },
+    {
+      "id": "S19",
+      "title": "岐阜大学医学部附属病院「アクセス」",
+      "year": "2026年閲覧",
+      "url": "https://hosp.gifu-u.ac.jp/access/"
+    },
+    {
+      "id": "S20",
+      "title": "土岐市「公立東濃中部医療センターの規模」",
+      "year": "2026年1月",
+      "url": "https://www.city.toki.lg.jp/shisei/koho/1005004/1009727/1010902.html"
+    },
+    {
+      "id": "S21",
+      "title": "井上精機株式会社「事業所一覧」",
+      "year": "2026年閲覧",
+      "url": "https://inoueseiki.co.jp/office/"
+    },
+    {
+      "id": "S22",
+      "title": "岐阜県「地域医療介護総合確保基金・関連政策の入口」",
+      "year": "2026年",
+      "url": "https://www.pref.gifu.lg.jp/page/124969.html"
+    },
+    {
+      "id": "S23",
+      "title": "厚生労働省「令和8年度地域医療介護総合確保基金」",
+      "year": "2026年9月",
+      "url": "https://www.mhlw.go.jp/stf/newpage_75985.html"
+    },
+    {
+      "id": "S24",
+      "title": "岐阜県「将来人口推計（県独自2022年版）」",
+      "year": "2022年／比較参考",
+      "url": "https://www.pref.gifu.lg.jp/page/8860.html"
+    },
+    {
+      "id": "S25",
+      "title": "岐阜県医療提供体制・主要病院住所（岐阜県国際交流センター）",
+      "year": "2026年閲覧",
+      "url": "https://www.gic.or.jp/international/medical-institutions/"
+    }
+  ],
+  "care": {
+    "population2025": 1889576,
+    "beds2025": 16235,
+    "beds2026planned": 14882,
+    "need2025": 14978,
+    "doctors2024": 4578,
+    "doctorIndex2026": 234.2
+  },
+  "future": [
+    {
+      "year": "2020",
+      "pop": 1978742,
+      "kind": "実績"
+    },
+    {
+      "year": "2025",
+      "pop": 1889576,
+      "kind": "実績・国勢調査"
+    },
+    {
+      "year": "2030",
+      "pop": 1819881,
+      "kind": "社人研推計"
+    },
+    {
+      "year": "2040",
+      "pop": 1645767,
+      "kind": "社人研推計"
+    },
+    {
+      "year": "2050",
+      "pop": 1468392,
+      "kind": "社人研推計"
+    }
+  ],
+  "neighbors": [
+    [
+      "全国平均",
+      266.8
+    ],
+    [
+      "岐阜県",
+      234.2
+    ],
+    [
+      "愛知県",
+      258.3
+    ],
+    [
+      "長野県",
+      232.6
+    ],
+    [
+      "三重県",
+      244.4
+    ],
+    [
+      "滋賀県",
+      272.1
+    ],
+    [
+      "富山県",
+      284.8
+    ],
+    [
+      "福井県",
+      265.5
+    ]
+  ],
+  "scoreWeights": [
+    30,
+    25,
+    20,
+    15,
+    10
+  ],
+  "scoreLabels": [
+    "潜在需要",
+    "医師不足・人材制約",
+    "医療再編・政策",
+    "地理アクセス/BCP",
+    "連携の実行可能性"
+  ]
+}
