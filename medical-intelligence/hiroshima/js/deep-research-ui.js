@@ -8,7 +8,7 @@ const number=n=>Number(n).toLocaleString("ja-JP");
 const rows=get("deepResearchAreaTable")?.querySelector("tbody");
 for(const x of S.area){
  const tr=el("tr");
- const vals=[x.name,number(x.population2020),x.density.toFixed(1),x.habitableShare+"%",x.physicianIndex2024.toFixed(1),x.dpcResidentK.toFixed(1),x.dpcFacilityK.toFixed(1),(x.dpcFacilityK/x.dpcResidentK*100).toFixed(1)+"%"];
+ const vals=[x.name,number(x.population2020),x.density.toFixed(1),x.habitableShare+"%",x.physicianIndex2024.toFixed(1),x.dpcResidentK.toFixed(1),x.dpcFacilityK.toFixed(1),x.dpcPublishedRatio.toFixed(1)+"%"];
  vals.forEach((value,i)=>{const cell=el(i===0?"th":"td",value);if(i===0)cell.scope="row";if(i===7)cell.className="dpc-ratio-cell";tr.append(cell)});
  rows?.append(tr);
 }
@@ -70,7 +70,7 @@ chart("dpcFlowChart","bar",{labels,datasets:[
 ]},{
  indexAxis:"y",plugins:{legend:{position:"bottom"},tooltip:{callbacks:{label:c=>c.dataset.label+"： "+c.parsed.x.toFixed(1)+"千件",footer:all=>{
  const i=all?.[0]?.dataIndex;const a=S.area[i];
- return a?"所在地/住所地="+(a.dpcFacilityK/a.dpcResidentK*100).toFixed(1)+"% （圏内完結率ではない）":"";
+ return a?"所在地/住所地="+a.dpcPublishedRatio.toFixed(1)+"% （原典掲載値・圏内完結率ではない）":"";
  }}}},scales:{x:{min:0,title:{display:true,text:"2023年度症例数（千件）"}},y:{ticks:{autoSkip:false}}}
 });
 chart("regionalDensityChart","bar",{labels,datasets:[{label:"人口密度（人/㎢）",data:S.area.map(x=>x.density),backgroundColor:cols,borderRadius:3}]},{
