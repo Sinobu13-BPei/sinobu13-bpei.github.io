@@ -86,3 +86,12 @@
  .modality-grid>div{min-height:0}
 }
 @media(max-width:380px){.pic-card>b{font-size:1.2rem}.flow-track b{font-size:14px}.flow-track small{font-size:10px}}
+
+/* Scrollable but legible vector diagrams on narrow screens */
+.illustration-viewport,.schema-viewport{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-color:#82b8c3 #eaf4f5;scrollbar-width:thin}
+.illustration-viewport:focus-visible,.schema-viewport:focus-visible{outline:3px solid #e3a345;outline-offset:2px}
+@media(max-width:700px){
+ .illustration-viewport .network-illustration{width:760px;max-width:none;min-height:0}
+ .schema-viewport .region-schematic{width:560px;max-width:none}
+ .illustration-viewport:after,.schema-viewport:after{content:"← 横にスクロールして全体を見る →";display:block;text-align:center;font-size:11px;color:#516f7a;padding:6px}
+}
