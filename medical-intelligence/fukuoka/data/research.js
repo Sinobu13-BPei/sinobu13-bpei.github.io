@@ -12,12 +12,12 @@ window.FUKUOKA_DATA={
     "bed": "https://www.pref.fukuoka.lg.jp/contents/bed-function-report-r06.html",
     "outpatient": "https://www.pref.fukuoka.lg.jp/contents/fukuokakenngairaiiryoukeikaku-fukuokakennishikakuhokeikaku.html",
     "doctors": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html",
-    "doctorIndex": "https://scueldata.me/insight/workforce/doctor/fukuoka/",
+    "doctorIndex": "https://www.mhlw.go.jp/content/001691397.pdf",
     "future": "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/3kekka/Municipalities.asp",
     "doctorAssoc": "https://www.fukuoka.med.or.jp/link.html",
     "physicianDirectory": "https://www.fukuoka.med.or.jp/kenmin/medical_institutions/area_association.html",
     "publicBeds": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html",
-    "bedNeed": "https://scueldata.me/ph/plan/p/40/",
+    "bedNeed": "https://www.pref.fukuoka.lg.jp/contents/tekiseika4ki.html",
     "islands": "https://www.pref.fukuoka.lg.jp/contents/fukuoka-ritou.html",
     "publicHealth": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/40fukuoka.html",
     "distributors": "https://fukuokamea.com/%E4%BC%9A%E5%93%A1%E7%B4%B9%E4%BB%8B-2/",
@@ -26,7 +26,11 @@ window.FUKUOKA_DATA={
     "universityNew": "https://www.hop.fukuoka-u.ac.jp/introduction/plan/",
     "cancer": "https://www.pref.fukuoka.lg.jp/contents/ganshinryourenkeikyotenbyouinnikansurujouhoupeji.html",
     "medicalDevices": "https://www.e-stat.go.jp/",
-    "nationwide": "https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/23/"
+    "nationwide": "https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/23/",
+    "fund": "https://www.pref.fukuoka.lg.jp/contents/sougoukakuhokikinn.html",
+    "fund2026": "https://www.mhlw.go.jp/stf/newpage_75985.html",
+    "dx": "https://www.digital.go.jp/resources/govdashboard/healthcare-dx",
+    "medCost": "https://www.pref.fukuoka.lg.jp/contents/tekiseika4ki.html"
   },
   "population": {
     "census2025": 5077785,
@@ -652,10 +656,10 @@ window.FUKUOKA_DATA={
       "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html"
     ],
     [
-      "二次医療圏別偏在指標の再掲",
-      "2026-08",
-      "表示用偏在指標数値（原典は厚労省2026年4月版）",
-      "https://scueldata.me/insight/workforce/doctor/fukuoka/"
+      "医師偏在指標（二次医療圏別）・厚生労働省令和8年4月",
+      "2026-04",
+      "13圏域別の偏在指標（一次情報）",
+      "https://www.mhlw.go.jp/content/001691397.pdf"
     ],
     [
       "社人研 日本の地域別将来推計人口",
@@ -664,10 +668,10 @@ window.FUKUOKA_DATA={
       "https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/3kekka/Municipalities.asp"
     ],
     [
-      "地域医療構想 必要病床数",
-      "2025",
-      "必要病床数は2013年受療率ベースの需要推計",
-      "https://scueldata.me/ph/plan/p/40/"
+      "福岡県医療費適正化計画（第4期）・第2章図表45",
+      "2024-03",
+      "2025必要病床65,383床と4機能値（推計、一次情報）",
+      "https://www.pref.fukuoka.lg.jp/contents/tekiseika4ki.html"
     ],
     [
       "厚生労働省2025年度病床機能報告",
@@ -728,6 +732,30 @@ window.FUKUOKA_DATA={
       "2023/2024",
       "CT/MRI等機器数の全国比較データ（本版で未集計）",
       "https://www.e-stat.go.jp/"
+    ],
+    [
+      "福岡県地域医療介護総合確保基金",
+      "2025-10更新",
+      "在宅医療・病床機能分化・人材確保等",
+      "https://www.pref.fukuoka.lg.jp/contents/sougoukakuhokikinn.html"
+    ],
+    [
+      "厚生労働省・2026年度地域医療介護総合確保基金第1回内示",
+      "2026-09",
+      "補助制度の国の内示、個別施設交付とは異なる",
+      "https://www.mhlw.go.jp/stf/newpage_75985.html"
+    ],
+    [
+      "デジタル庁・医療DXダッシュボード",
+      "2026-10",
+      "電子処方箋・医療DX指標",
+      "https://www.digital.go.jp/resources/govdashboard/healthcare-dx"
+    ],
+    [
+      "福岡県医療費適正化計画（第4期）",
+      "2024-2029（2025-02一部改定）",
+      "政策・医療費・必要病床数",
+      "https://www.pref.fukuoka.lg.jp/contents/tekiseika4ki.html"
     ]
   ],
   "associations": [
