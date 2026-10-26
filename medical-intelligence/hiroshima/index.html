@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="広島県の医療MKT・第8次保健医療計画・二次医療圏・2025病床機能・人口推計・医療機器・卸流通・2030病院再編を一次資料から分析。">
+<title>広島県 医療マーケット総合研究 2026｜Medical Market Intelligence</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<script src="data/hiroshima-data.js" defer></script>
+<script src="js/app.js" defer></script>
+</head><body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="top"><div class="shell top-inner">
+<a class="brand" href="../" aria-label="医療マーケット全国トップに戻る"><span class="brand-icon" aria-hidden="true">✦</span><span>MEDICAL MARKET<br><small>INTELLIGENCE / HIROSHIMA</small></span></a>
+<nav class="top-nav" aria-label="主な項目"><a href="#demography">人口・医療圏</a><a href="#services">医療体制</a><a href="#devices">機器市場</a><a href="#strategy">戦略</a><a href="#sources">出典</a></nav>
+<a class="back" href="../">47都道府県一覧へ</a></div></header>
+<main id="main">
+<section class="hero"><div class="shell hero-grid">
+<div><div class="eyebrow">PUBLIC RESEARCH / 2026.10.26 · REV.1</div>
+<h1>広島県の<br><span>医療市場を読み解く。</span></h1>
+<p class="lead">地域医療政策 × 人口構造 × 診療機能 × 医療機器 × 流通構造。<br>7つの二次保健医療圏を、一次資料と明示した独自分析で可視化。</p>
+<div class="pills"><span>中立的医療機器商社の視座</span><span>2025年病床機能報告</span><span>2030年度新病院計画</span></div>
+<div class="hero-actions"><a href="#summary" class="primary">分析を読む ↓</a><a href="#map-section">医療施設マップ ↗</a><a href="#sources">出典・統計年次 ↗</a></div></div>
+<div class="hero-aside"><div class="eyebrow">REGIONAL MEDICAL TRANSFORMATION</div>
+<svg aria-hidden="true" class="hero-art" viewBox="0 0 560 240"><defs><linearGradient id="hg"><stop stop-color="#8de0d2"/><stop offset="1" stop-color="#729ff9"/></linearGradient></defs><path d="M10 145 H95 L130 84 L176 190 L214 127 L256 127 L285 62 L330 168 L370 120 H550" fill="none" stroke="url(#hg)" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="285" cy="62" r="11" fill="#a9ecda"/><circle cx="460" cy="120" r="7" fill="#a9ecda"/><g stroke="#4c6683" opacity=".4"><path d="M0 50H560M0 110H560M0 170H560M0 230H560" stroke-dasharray="5 10"/></g></svg>
+<h2>WHERE TO PLAY</h2><p>都市部の高度医療再編と、山間・島しょ部の持続可能な医療アクセスを分けて設計する。</p><h2>HOW TO WIN</h2><p>機器単体の販売ではなく、稼働率・人材・紹介検査・保守・データ連携まで一体最適化する。</p></div>
+</div></section>
+<section id="summary" class="section shell"><div class="section-h"><div><span class="eyebrow dark">01 / EXECUTIVE SUMMARY</span><h2>広島県医療MKT 概況</h2></div><p>値の母集団と調査年が異なる統計は混算しません。</p></div>
+<div class="metric-grid">
+<article class="metric"><span>推計人口 2026年9月</span><strong>267.5<small>万人</small></strong><a href="https://www.pref.hiroshima.lg.jp/soshiki/21/jinkougeppojinkousuiisaisin.html" target="_blank" rel="noopener">広島県・2026年9月1日 ↗</a></article>
+<article class="metric"><span>二次保健医療圏</span><strong>7<small>圏域</small></strong><a href="https://www.pref.hiroshima.lg.jp/soshiki/54/hokeniryoukeikaku-8.html" target="_blank" rel="noopener">広島県・第8次保健医療計画 ↗</a></article>
+<article class="metric"><span>病床機能報告（休棟等含む）</span><strong>29,606<small>床</small></strong><a href="https://www.pref.hiroshima.lg.jp/soshiki/54/reiwa07.html" target="_blank" rel="noopener">広島県・2025年7月時点 ↗</a></article>
+<article class="metric"><span>2025年必要病床数（構想推計）</span><strong>28,614<small>床</small></strong><a href="https://www.pref.hiroshima.lg.jp/soshiki/54/hiroshimairyoukousou.html" target="_blank" rel="noopener">地域医療構想・2025年推計 ↗</a></article>
+</div>
+<div class="insight-grid"><div class="insight"><span class="marker">01</span><h3>医療集積は「広島・備後」の二極</h3><p>広島市の大学・高度急性期機能と、福山市民病院を中心とした備後の医療機能が主要な需要核。都市単位で同じ提案を繰り返さず、診療機能で分ける。</p></div>
+<div class="insight"><span class="marker">02</span><h3>必要なのは病床の“数”より“機能”</h3><p>2025年の報告上の回復期6,564床に対し、構想上の必要病床数は9,747床。ただし推計方法・時点が異なるため、差の3,183床をそのまま増床需要と解釈しない。</p></div>
+<div class="insight"><span class="marker">03</span><h3>2030年は設備市場の転換点</h3><p>広島駅北口新病院は1,000床規模（開院時約860床）、2030年度開院予定。稼働移行、集約配置、周辺連携の全体最適を検討する局面。</p></div></div>
+<div class="notice"><strong>データ取扱上の注意</strong>：過去の非公開資料に記載された「県内医療機器市場907億円」「販社別シェア」「抽出診療所2,117件」は、一次情報で検証できず非公開のため掲載しません。公開サイトは公表情報と分析仮説を分離します。</div>
+</section>
+<section id="demography" class="section tint"><div class="shell"><div class="section-h"><div><span class="eyebrow dark">02 / DEMOGRAPHY & REGIONS</span><h2>人口構造と7医療圏</h2></div><p>人口は2020年国勢調査・2026年推計・社人研将来推計。異なる統計系列を明示します。</p></div>
+<div class="split"><article class="panel"><h3>広島県の人口推移と将来推計</h3><div class="chart"><canvas id="populationChart" aria-label="広島県の実績・推計人口チャート" role="img"></canvas></div><p class="small">2020年は国勢調査、2026年は県推計、2030年以降は社人研2023年推計。推計起点が異なり、系列を連結した予測ではありません。</p></article>
+<article class="panel"><h3>地域による課題の分断</h3><div class="compare"><b>広島市</b><span>2025国勢調査：1,171,915人。2020年から2.4%減。安佐北・安芸で減少率が高い。</span><b>備北</b><span>広い山間地を少数拠点で支える。救急搬送、代診、遠隔診療と保守の移動負荷。</span><b>瀬戸内島しょ</b><span>江田島・大崎上島・佐木島・百島など海上交通の制約。災害時の迂回と代替医療を重要視。</span></div><p class="small"><a href="https://www.city.hiroshima.lg.jp/shisei/toukei/1027865/1027866/1050276.html" target="_blank" rel="noopener">出典：広島市2025年国勢調査（確定） ↗</a></p></article></div>
+<div class="panel"><div class="panel-head"><h3>二次医療圏ごとの病床構造（2025年7月時点）</h3><span class="chip accent">単位：床</span></div><div class="chart tall"><canvas id="bedsChart" aria-label="医療圏別の病床機能別積み上げ棒グラフ" role="img"></canvas></div><div class="table-scroll"><table id="areaTable"><caption>広島県 2025年度病床機能報告：高度急性期／急性期／回復期／慢性期／休棟等</caption><thead><tr><th>医療圏</th><th>総数</th><th>高度急性期</th><th>急性期</th><th>回復期</th><th>慢性期</th><th>休棟等</th></tr></thead><tbody></tbody></table></div><p class="small">出典：<a href="https://www.pref.hiroshima.lg.jp/soshiki/54/reiwa07.html" target="_blank" rel="noopener">広島県「令和7年度病床機能報告集計結果」 ↗</a>。自己申告された病棟の機能であり、実病床稼働や2025年必要病床数と直接対比はできません。</p></div>
+<div class="panel"><h3>医療圏ごとの需要ドライバー・課題・3〜5年の機会</h3><div id="regionCards" class="region-grid"></div></div>
+</div></section>
+<section id="services" class="section shell"><div class="section-h"><div><span class="eyebrow dark">03 / MEDICAL DELIVERY</span><h2>医療提供体制と再編</h2></div><p>公立、公的、民間機能を役割ごとに確認。指定類型は行政の最新一覧で確認してください。</p></div>
+<div class="split"><article class="panel"><h3>広島駅北口：新病院整備</h3><div class="hospital-timeline"><div><span>2023</span><b>基本計画策定</b></div><div><span>2025</span><b>基本計画改定</b></div><div><span>2027</span><b>工事着手予定</b></div><div><span>2030</span><b>年度内開院予定</b></div></div><p>県立広島病院・県立二葉の里病院・中電病院・HIPRACを集約する計画。2026年5月時点の公表概要は、1,000床規模、開院時860床程度の運用を想定。救急、小児、がん、病院DXと高度人材育成の機能が計画されています。</p><p class="small"><a href="https://www.pref.hiroshima.lg.jp/site/koudoiryou-jinzai/shinbyouin-gaiyou.html" target="_blank" rel="noopener">出典：県新病院概要（2026年） ↗</a></p></article>
+<article class="panel"><h3>福山市民病院：増改築</h3><div class="large">506<span>床</span></div><p>福山市民病院の2026年公開設備：320列MSCT 2台、IVR-CT 1台、MRI 2台、PET-CT 1台、血管連続撮影 3台、高精度放射線治療 1台。2026年9月に新本館1期完成が公表されました。</p><p class="small"><a href="https://www.fc-hosp.jp/soshiki/5/7641.html" target="_blank" rel="noopener">病院概要・2026年 ↗</a>　<a href="https://www.city.fukuyama.hiroshima.jp/site/koho-202609/408956.html" target="_blank" rel="noopener">市広報・2026年9月 ↗</a></p></article></div>
+<div class="panel"><h3>医療機能別の調査入口</h3><div class="quad"><div><h4>大学・特定機能</h4><p>広島大学医学部・広島大学病院。研究、専門研修と医局関連ネットワークの質的評価が必要。</p><a href="https://www.hiroshima-u.ac.jp/about/about/list_addresses" target="_blank" rel="noopener">大学所在地の一次情報 ↗</a></div><div><h4>地域医療支援</h4><p>呉市医師会病院・三原市医師会病院・JA廣島総合病院など。承認状況と業務は県公開の報告を参照。</p><a href="https://www.pref.hiroshima.lg.jp/soshiki/54/1196573014080.html" target="_blank" rel="noopener">広島県の病院一覧 ↗</a></div><div><h4>がん・救急・災害</h4><p>がん診療連携拠点、救命救急、災害拠点は指定更新があるため一覧で確認。高度画像診断とBCPが横断テーマ。</p><a href="https://www.pref.hiroshima.lg.jp/site/gan-net/iryou-kyotenbyouin.html" target="_blank" rel="noopener">県がんネット ↗</a></div><div><h4>へき地</h4><p>2024年12月時点、へき地医療拠点13・支援1。備北・島しょ地域の機器保守、代診・遠隔読影との連携が課題。</p><a href="https://www.pref.hiroshima.lg.jp/uploaded/attachment/602043.pdf" target="_blank" rel="noopener">県へき地医療一覧・2024年 ↗</a></div></div></div>
+</section>
+<section id="map-section" class="section tint"><div class="shell"><div class="section-h"><div><span class="eyebrow dark">04 / SPATIAL ACCESS</span><h2>主要施設・医療圏マップ</h2></div><p>埋め込み：地理院タイル（国土地理院） / Leaflet。ピンは所在地の参考座標で厳密な測量値ではありません。</p></div>
+<div class="map-layout"><div class="panel map-panel"><div id="map" role="region" aria-label="広島県の医療機関・行政・大学・医師会地図"><p>地図が読み込めない場合は右側の施設一覧からGoogleマップ・地理院地図を開けます。</p></div><div class="map-credit">背景地図：<a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">地理院タイル（国土地理院）</a> © 国土地理院</div></div>
+<div class="panel list-panel"><label for="facilitySearch">施設名・医療圏で検索</label><input id="facilitySearch" type="search" placeholder="例：福山、医師会、大学"><label for="facilityType">施設カテゴリー</label><select id="facilityType"><option value="">すべて</option><option value="病院">病院・医学部・行政など</option><option value="医師会">医師会</option><option value="保健所">保健所</option></select><div id="facilityList" class="facility-list" aria-live="polite"></div></div></div>
+<p class="small">施設に公式サイト／Googleマップ／地理院地図を併記。医師会・保健所の地理院地図は所在地周辺の概略座標を表示する場合があります（正確な入口位置はGoogleマップ等で確認）。</p></div></section>
+<section id="institutions" class="section shell"><div class="section-h"><div><span class="eyebrow dark">05 / GOVERNANCE & NETWORK</span><h2>大学・医師会・行政・人材</h2></div><p>医学部は広島大学医学部。大学附属病院を中核に、専門研修・救急・地域派遣が結節します。</p></div>
+<div class="split"><article class="panel"><h3>医師偏在指標（2026年4月公表）</h3><div class="chart"><canvas id="doctorChart" role="img" aria-label="全国と中国地方周辺県の医師偏在指標比較"></canvas></div><p class="small">出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html" target="_blank" rel="noopener">厚労省「医師偏在指標」2026年4月版</a>。指標は患者流出入・性年齢別受療率等で補正されるため、人口10万人対医師数と同義ではありません。医師多数/少数区域の法的区分は、最新医師確保計画で個別確認が必要です。</p></article>
+<article class="panel"><h3>大学・医師会・医療DX</h3><p>広島大学病院：医学教育・高度医療・臨床研究の中心。広島県医師会と県が構築・運営するHMネットは県域の医療情報共有基盤で、診療所・病院・薬局の接続に関わります。</p><p><a href="https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/" target="_blank" rel="noopener">市区郡地区医師会一覧 ↗</a>　<a href="https://www.hm-net.or.jp/about/index.html" target="_blank" rel="noopener">HMネット概要 ↗</a></p><p>保健所の所管は政令市・中核市・県で異なります。行政窓口の所在と管轄は厚労省の一覧で確認できます。</p><p><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/34hiroshima.html" target="_blank" rel="noopener">厚労省 保健所所管区域 ↗</a></p></article></div>
+<div class="panel"><h3>医師会・保健所の公開窓口</h3><div class="split"><div><h4>地域医師会</h4><div id="associationList" class="compact-list"></div></div><div><h4>保健所・支所</h4><div id="healthOfficeList" class="compact-list"></div></div></div></div>
+</section>
+<section id="devices" class="section tint"><div class="shell"><div class="section-h"><div><span class="eyebrow dark">06 / MEDICAL DEVICE INSTALLED BASE</span><h2>医療機器市場と更新需要</h2></div><p>施設別公表台数と県全数・メーカー別シェアは別物。未検証の推計を事実扱いしません。</p></div>
+<div class="panel"><h3>一次情報で確認できる病院別の公表保有設備</h3><div class="table-scroll"><table id="deviceTable"><caption>福山市民病院 公式掲載の主要設備（2026年閲覧）</caption><thead><tr><th>施設</th><th>機器・機能</th><th>公表数</th><th>注記</th></tr></thead><tbody></tbody></table></div><p class="small">出典：<a href="https://www.fc-hosp.jp/soshiki/5/7641.html" target="_blank" rel="noopener">福山市民病院 公式「病院概要・主な設備」</a>。人工透析「30床」は台数ではありません。IVR-CTはMSCTの区分との重複の可能性があるため単純合計しません。</p></div>
+<div class="panel"><h3>モダリティ別評価軸（更新需要は独自分析）</h3><div class="modality-grid">
+<div><strong>US / 超音波</strong><p>診療所・ベッドサイド・地域連携。検査手技研修と保守まで含めた運用支援を重視。</p></div>
+<div><strong>CT / MRI</strong><p>救急・がん・脳心血管と外来紹介検査。建替時の設置環境、画像共有、更新時の停止期間を評価。</p></div>
+<div><strong>PET / RI・リニアック</strong><p>がん診療連携・紹介数・放射線治療の集約。症例数、放射線防護・人員要件が制約。</p></div>
+<div><strong>Angio / IVR</strong><p>救命救急・脳心血管。病棟・手術室・救急動線と同時に投資判断。</p></div>
+<div><strong>内視鏡・検診</strong><p>消化器診療と健診、医師会経由の機能分担。洗浄・感染管理・消耗品を含む総保有コスト。</p></div>
+<div><strong>心電図・透析・病棟</strong><p>高齢慢性疾患、在宅・病院DX。サイバー対策と継続稼働を優先。</p></div></div>
+<div class="notice">県全体のCT・MRI・US・PET・リニアック・血管造影・内視鏡・心電図・透析の設置台数および人口当たり全国比較は、同一母集団・年次での公開統計照合が完了していないため非掲載。比較の基礎となる「医療施設調査」「医療機能情報提供制度」を継続照合対象とします。</div></div>
+</div></section>
+<section id="trade" class="section shell"><div class="section-h"><div><span class="eyebrow dark">07 / DISTRIBUTION & SUPPLY</span><h2>医療機器・医薬品流通の構造</h2></div><p>企業ごとの営業拠点・サービス領域の公開情報を整理。売上・地域シェア順位は記載しません。</p></div><div id="tradeCards" class="trade-grid"></div><div class="panel"><h3>商流の捉え方：3つのレイヤー</h3><div class="pipeline"><div><span>1</span><b>医療施設</b><small>病院本部 / 診療所 / 共同購入</small></div><div><span>2</span><b>調達・流通</b><small>卸・SPD / 保守・消耗品 / 入札</small></div><div><span>3</span><b>機器・IT・運用</b><small>導入 / 教育 / 稼働 / セキュリティ</small></div></div><p class="small">独自分析：医薬品卸と医療機器商社は品目・許認可・物流体制が異なるため、「医薬品取引実績＝大型画像診断装置の販売力」とはみなしません。</p></div></section>
+<section id="environment" class="section tint"><div class="shell"><div class="section-h"><div><span class="eyebrow dark">08 / EXTERNAL FORCES</span><h2>制度・財務・BCP・地政学</h2></div></div>
+<div class="shell four-grid"><article class="panel"><h3>診療報酬・財務</h3><p>病院の人件費、電力・材料費上昇と診療報酬の制約。単年度価格だけでなく検査1件当たり総コストと装置停止損失を評価。</p></article><article class="panel"><h3>地域医療介護総合確保基金</h3><p>病床機能分化・連携や再編設備への支援。2026年度までの対象期間延長を県が案内。ただし案件ごとに要件・意向調査時期を確認。</p><a href="https://www.pref.hiroshima.lg.jp/soshiki/54/shinkikin-hojo.html" target="_blank" rel="noopener">補助金詳細 ↗</a></article><article class="panel"><h3>災害BCP</h3><p>豪雨・土砂災害、瀬戸内の高潮・津波、地震と交通寸断を想定。電源、ネットワーク、消耗品、遠隔支援と代替検査先を設計。</p></article><article class="panel"><h3>国際調達・医療DX</h3><p>電子部品・希少ガス・輸送経路の変動に備え、納期を確約せず多重調達・段階導入を評価。全国医療情報プラットフォーム等の制度変更にも適応。</p><a href="https://www.mhlw.go.jp/stf/iryoudx.html" target="_blank" rel="noopener">医療DX方針 ↗</a></article></div></section>
+<section id="strategy" class="section shell"><div class="section-h"><div><span class="eyebrow dark">09 / STRATEGY ARCHITECTURE</span><h2>PEST → 3C → STP → 4P → 4C → VRIO → 5 Forces → KSF</h2></div><p>以下は公表統計に基づく編集部の戦略仮説。個社に関する推奨・批判・機密情報を含みません。</p></div>
+<div class="panel"><h3>医療圏の優先度スコア</h3><p class="small">独自分析・暫定評価（各軸1〜5点）：市場需要30%、再編・更新の変化25%、地域アクセス課題20%、基幹施設・連携余地15%、導入実行容易性10%。得点は地域施策の議論の起点であり、実際の投資額や市場シェアを示しません。</p><div class="split"><div class="chart"><canvas id="scoreChart" role="img" aria-label="7医療圏の独自優先度スコア"></canvas></div><div id="scoreNotes" class="compact-list"></div></div></div>
+<div class="strategy-grid">
+<article class="strategy-card"><span>PEST</span><h3>外部環境</h3><p>P：地域医療構想・DX / E：病院コスト上昇 / S：高齢化・人口縮小 / T：遠隔読影・AI・保守可視化。</p></article>
+<article class="strategy-card"><span>3C</span><h3>顧客・競合・商社</h3><p>Customer：地域別機能課題。Competitor：機器・IT・保守をめぐる多様な提案。Company：商社の中立的な複数調達・運用統合能力。</p></article>
+<article class="strategy-card"><span>STP</span><h3>セグメントと重点</h3><p>高急性期都市型／備後救急拠点／回復期・慢性期／中山間・離島／都市診療所の5区分。ポジションは総保有コストと稼働支援。</p></article>
+<article class="strategy-card"><span>4P</span><h3>提供方法</h3><p>Product：適合機器とIT。Price：LCC。Place：拠点＋遠隔。Promotion：症例・導入効果の実証。</p></article>
+<article class="strategy-card"><span>4C</span><h3>施設視点</h3><p>Customer Value：診療継続。Cost：教育・停止含む総費用。Convenience：保守と共同運用。Communication：臨床現場と共同設計。</p></article>
+<article class="strategy-card"><span>VRIO</span><h3>持続的強みの条件</h3><p>Value：現場課題解決。Rarity：地域横断の技術と保守。Imitability：病院間連携ノウハウ。Organization：組織的実行・利益相反管理。</p></article>
+<article class="strategy-card"><span>5 Forces</span><h3>競争圧力</h3><p>病院共同購買、供給メーカー集中、代替/遠隔ソリューション、新規IT参入、卸間競争。装置単価だけでの差別化は持続しにくい。</p></article>
+<article class="strategy-card featured"><span>KSF</span><h3>勝ち筋の共通項</h3><p>①病院再編を見据えた早期案件形成 ②省人化と稼働率改善の定量提示 ③地域包括・画像共有 ④遠隔保守・BCP ⑤透明な調達・実装力。</p></article></div>
+<div class="panel"><h3>Where to Play × How to Win</h3><div class="table-scroll"><table><thead><tr><th>重点市場</th><th>Where to Play</th><th>How to Win</th><th>優先時間軸</th></tr></thead><tbody><tr><td>広島都市部</td><td>新病院・高度画像・教育/研究</td><td>病院再編に伴う装置・IT・動線・契約の統合設計</td><td>2026–2030</td></tr><tr><td>福山・府中</td><td>救急・高度画像・紹介検査</td><td>設備の高稼働維持と診療機能別更新計画</td><td>2026–2029</td></tr><tr><td>呉・尾三・広島中央</td><td>画像共同利用・地域連携・島しょ</td><td>患者移動の削減、遠隔読影、BCP・保守網</td><td>2027–2030</td></tr><tr><td>備北・広島西</td><td>高齢慢性・回復期・在宅</td><td>可搬機器、稼働管理、代替診療と共同保守</td><td>2026–2029</td></tr></tbody></table></div></div>
+<div class="split"><article class="panel"><h3>SWOT（独自分析）</h3><div class="swot"><div><b>S / 強み</b><p>大学・高度急性期の厚い集積、広域病院網。</p></div><div><b>W / 弱み</b><p>広い山間・島しょ医療、地域別の人材偏在。</p></div><div><b>O / 機会</b><p>2030新病院、福山再編、回復期機能転換、医療DX。</p></div><div><b>T / 脅威</b><p>人口減、コスト高、災害、供給網の不安定化。</p></div></div></article><article class="panel"><h3>実行ロードマップ</h3><div class="steps"><p><b>0–90日</b> 公表設備台帳の年次照合／圏域別の病院再編ニュース・公募の監視／病院の臨床課題面談。</p><p><b>3–12か月</b> 部門別ユースケースで試験運用、TCO・患者動線・装置停止時間のKPIを検証。</p><p><b>1–3年</b> 共同利用・医療DX・BCP実装を支援し、事業者間の透明な調達・保守連携を構築。</p><p><b>3–5年</b> 新病院と圏域ハブを接続する地域医療ネットワークの継続改善。</p></div></article></div>
+</section>
+<section id="sources" class="section tint"><div class="shell"><div class="section-h"><div><span class="eyebrow dark">10 / DATA LINEAGE</span><h2>出典一覧・検証上の制約</h2></div><p>一次資料の公開元・URL・参照年次。公的統計と戦略仮説を明確に区別。</p></div><ol id="sourceList" class="source-list"></ol><div class="notice"><strong>免責・情報管理</strong>　本ページは2026年10月26日時点で確認できた公表情報に基づく独立の調査・分析です。記載内容の正確性・完全性・最新性を保証しません。施設の指定・装置仕様・工期・補助要件は変更され得ます。個別の契約・調達判断には公式情報の再確認が必要です。非公開の個人情報・個社商談・取引条件・推定シェアは掲載していません。</div></div></section>
+</main>
+<footer><div class="shell footer-in"><div><strong>HIROSHIMA MEDICAL MARKET INTELLIGENCE</strong><p>最終更新：2026年10月26日 ｜ 公表情報調査・独自分析</p></div><div class="footer-links"><a href="https://sinobu13-bpei.github.io/medical-intelligence/">全国 医療マーケット総合研究 ↗</a><a href="https://sinobu13-bpei.github.io/clinic-medical-device-market/">診療所MKT分析 ↗</a><a href="https://sinobu13-bpei.github.io/ct-market-atlas/">CT-MKT分析 ↗</a><a href="https://sinobu13-bpei.github.io/mri_market_atlas_2025.html">MRI-MKT分析 ↗</a></div></div></footer>
+</body></html>
