@@ -10,7 +10,7 @@ const srcLink=(name,url)=>'<a class="btn" href="'+url+'" target="_blank" rel="no
 function renderRegions(){let q=qs('#areaQuery').value.trim();let chosen=qs('#areaSelect').value;let rs=d.regions.filter(r=>(!q||r.name.includes(q))&&(!chosen||r.name===chosen));qs('#areaDetails').innerHTML=rs.length?rs.map(r=>'<article class="area-panel"><h3>'+esc(r.name)+'　<span class="badge">独自推計 '+scores(r)+' /100</span></h3><div class="chiprow"><span class="pill">病床4機能 '+fmt(r.beds[0])+'床</span><span class="pill">医師偏在指標 '+r.doctorIndex+'</span><span class="pill">回復期 '+fmt(r.beds[3])+'床</span></div><p><b>需要：</b>'+esc(r.factors[0])+'　<b>課題：</b>'+esc(r.factors[1])+'</p><p><b>注目施設：</b>'+esc(r.factors[2])+'　<b>今後3～5年の機会：</b>'+esc(r.factors[3])+'</p>'+srcLink('Googleマップ',google(r.name+' 福岡県 医療機関'))+srcLink('地理院地図（圏域代表地点）',gsi(r))+'</article>').join(''):'<p class="note">該当する医療圏がありません。</p>'}
 d.regions.forEach(r=>qs('#areaSelect').insertAdjacentHTML('beforeend','<option>'+esc(r.name)+'</option>'));
 qs('#areaQuery').addEventListener('input',renderRegions);qs('#areaSelect').addEventListener('change',renderRegions);renderRegions();
-qs('#bedTable tbody').innerHTML=d.regions.map(r=>'<tr><th scope="row">'+esc(r.name)+'</th>'+r.beds.map(n=>'<td>'+fmt(n)+'</td>').join('')+'</tr>').join('')+'<tr><th scope="row">県合計</th>'+[62789,7745,24740,12556,17748,1722].map(n=>'<th>'+fmt(n)+'</th>').join('')+'</tr>';
+qs('#bedTable tbody').innerHTML=d.regions.map(r=>'<tr><th scope="row">'+esc(r.name)+'</th>'+r.beds.map(n=>'<td>'+fmt(n)+'</td>').join('')+'</tr>').join('')+'<tr><th scope="row">県合計</th>'+Array.from({length:6},(_,j)=>d.regions.reduce((s,r)=>s+r.beds[j],0)).map(n=>'<th>'+fmt(n)+'</th>').join('')+'</tr>';
 function areaFor(name){return d.regions.find(r=>r.name===name)||d.regions[0]}
 qs('#facilities').innerHTML=d.locations.map(o=>{let a=areaFor(o.region);return '<article class="loc"><div><b>'+esc(o.name)+'</b> <span>'+esc(o.type)+'</span><div class="subnote">'+esc(o.address)+'</div></div><div>'+srcLink('公式',o.web)+srcLink('Googleマップ',google(o.name+' '+o.address))+srcLink('地理院・周辺',gsi(a))+'</div></article>'}).join('');
 qs('#associations').innerHTML=d.associations.map(o=>{const a=areaFor(o.region);return '<article class="loc"><div><b>'+esc(o.name)+'</b><div class="subnote">'+esc(o.address)+'</div></div><div>'+srcLink('公式・県医師会名簿',o.url)+srcLink('Googleマップ',google(o.name+' '+o.address))+srcLink('地理院・周辺',gsi(a))+'</div></article>'}).join('');
@@ -25,13 +25,50 @@ qs('#sourceList').innerHTML=d.evidence.map(r=>'<li><a href="'+r[3]+'" target="_b
 const chartOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{mode:'index',intersect:false}},scales:{y:{beginAtZero:true}}};
 function charts(){if(!window.Chart){document.querySelectorAll('.chart-fallback').forEach(p=>p.style.display='block');return}
 try{new Chart(qs('#populationChart'),{type:'line',data:{labels:d.population.projection.map(x=>x[0]),datasets:[{label:'人口（万人）',data:d.population.projection.map(x=>+(x[1]/10000).toFixed(1)),borderColor:'#137a82',backgroundColor:'rgba(19,122,130,.14)',fill:true,tension:.25}]},options:{...chartOpts,scales:{y:{min:400,max:550}}}});
-new Chart(qs('#bedChart'),{type:'doughnut',data:{labels:['高度急性期','急性期','回復期','慢性期'],datasets:[{data:[7745,24740,12556,17748],backgroundColor:['#287db7','#36a39c','#e8a54b','#748ba4']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}});
+new Chart(qs('#bedChart'),{type:'doughnut',data:{labels:['高度急性期','急性期','回復期','慢性期'],datasets:[{data:[1,2,3,4].map(j=>d.regions.reduce((s,r)=>s+r.beds[j],0)),backgroundColor:['#287db7','#36a39c','#e8a54b','#748ba4']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}});
 new Chart(qs('#bedNeedChart'),{type:'bar',data:{labels:['高度急性期','急性期','回復期','慢性期'],datasets:[{label:'2024年報告（床）',data:[7745,24740,12556,17748],backgroundColor:'#13659f'},{label:'2025年必要量（床・推計）',data:d.bedNeed.values,backgroundColor:'#e49e55'}]},options:chartOpts});
 new Chart(qs('#priorityChart'),{type:'bar',data:{labels:ranked.slice(0,8).map(r=>r.name),datasets:[{label:'独自推計スコア /100',data:ranked.slice(0,8).map(scores),backgroundColor:'#14918c'}]},options:{...chartOpts,indexAxis:'y',scales:{x:{min:0,max:100}}}})}
 catch(e){document.querySelectorAll('.chart-fallback').forEach(p=>p.style.display='block');console.warn('chart fallback',e)}}
-function map(){const el=qs('#regionMap');if(!window.L){el.innerHTML='<div class="note caution">地図ライブラリが利用できません。下記の各医療圏から地理院地図を開いてください。</div>';return}try{
-const m=L.map(el,{scrollWheelZoom:false}).setView([33.5,130.67],9);L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{attribution:'出典：<a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">地理院タイル</a>',maxZoom:18}).addTo(m);
-d.regions.forEach(r=>L.circleMarker(r.center,{radius:6,color:'#fff',weight:2,fillColor:'#027a88',fillOpacity:.92}).addTo(m).bindPopup('<strong>'+esc(r.name)+'</strong><div>代表地点／概略座標</div><div>報告病床：'+fmt(r.beds[0])+'床</div><a href="'+gsi(r)+'" target="_blank" rel="noopener">地理院で周辺表示</a>'));
-setTimeout(()=>m.invalidateSize(),200)}catch(e){el.textContent='地図を読み込めません。医療圏一覧・地図リンクをご利用ください。'}}
+function map(){
+const container=qs('#regionMap');
+if(!container)return;
+if(!window.L){container.innerHTML='<p class="note caution">地図ライブラリを読み込めません。左の県公式区分図と各圏域の地理院地図リンクをご利用ください。</p>';return}
+try{
+const m=L.map(container,{scrollWheelZoom:false}).setView([33.57,130.64],9);
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{attribution:'地図出典：<a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener noreferrer">地理院タイル</a>',maxZoom:18,minZoom:7}).addTo(m);
+const points=L.layerGroup().addTo(m);
+const safeName=x=>esc(x.name);
+const gp=r=>'<a target="_blank" rel="noopener noreferrer" href="'+google(r.name+' 福岡県 医療機関')+'">Google検索</a> ｜ <a target="_blank" rel="noopener noreferrer" href="'+gsi(r)+'">地理院・周辺地図</a>';
+function render(type){
+points.clearLayers();
+d.regions.forEach(r=>{
+let num=0,title='',body='',color='#087f88',radius=7;
+if(type==='areas'){
+num=r.beds[0];title=esc(r.name)+' 医療圏';
+radius=Math.max(5,Math.min(16,4+Math.sqrt(num)/16));
+body='<b>4機能計：'+fmt(num)+'床</b><br>医師偏在指標：'+r.doctorIndex+'<br>2024年病床機能報告<br>2026年医師偏在指標';
+}else if(type==='hospitals'){
+const items=d.locations.filter(o=>o.region===r.name&&o.type!=='行政'&&o.type!=='医師会');
+if(!items.length)return;
+num=items.length;color='#b53c69';radius=6+Math.sqrt(num)*2;
+title=esc(r.name)+' 医療圏／主要施設 '+num+'件（抜粋）';
+body=items.map(o=>'<div style="margin:3px 0"><a target="_blank" rel="noopener noreferrer" href="'+o.web+'">'+safeName(o)+'</a></div>').join('');
+}else{
+const x=d.associations.filter(o=>o.region===r.name);
+const y=d.healthCenters.filter(o=>o.region===r.name);
+if(!x.length&&!y.length)return;
+num=x.length+y.length;color='#ad7528';radius=5+Math.sqrt(num)*2;
+title=esc(r.name)+' 医療圏／医師会・保健所 '+num+'件';
+body=x.map(o=>'<div>医師会：'+safeName(o)+'</div>').concat(y.map(o=>'<div>保健所等：'+safeName(o)+'</div>')).join('');
+}
+L.circleMarker(r.center,{radius,color:'#fff',weight:2,fillColor:color,fillOpacity:.85}).addTo(points).bindPopup('<strong>'+title+'</strong><div style="max-height:155px;overflow:auto;margin:5px 0">'+body+'</div><small>代表地点（概略）：施設の正確な位置を表しません</small><br>'+gp(r),{maxWidth:290});
+});
+}
+const buttons=[...document.querySelectorAll('#vizMapLayers button[data-layer]')];
+buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(t=>t.setAttribute('aria-pressed',String(t===b)));render(b.dataset.layer)}));
+render('areas');
+setTimeout(()=>m.invalidateSize(),300);
+}catch(e){console.warn('Fukuoka map fallback',e);container.textContent='地図を読み込めません。県公式区分図と医療圏一覧をご利用ください。'}
+}
 charts();map();
 })();
