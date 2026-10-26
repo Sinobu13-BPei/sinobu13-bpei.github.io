@@ -43,6 +43,10 @@ try {
     regions:document.querySelectorAll('#regionTable tbody tr').length,
     facilityCards:document.querySelectorAll('#facilityList article.facility').length,
     refs:document.querySelectorAll('#sourcesList li').length,
+    areaFacilityRows:document.querySelectorAll('#facilityAreaTable tbody tr').length,
+    associationRows:document.querySelectorAll('#associationStatsTable tbody tr').length,
+    municipalityRows:document.querySelectorAll('#municipalityFacilityTable tbody tr').length,
+    associationCountText:document.querySelector('#assocClinicTotal')?.textContent?.trim(),
     heatRows:document.querySelectorAll('#priorityMatrix tbody tr').length,
     graphicCount:document.querySelectorAll('svg').length,
     canvases:document.querySelectorAll('canvas').length,
@@ -50,7 +54,7 @@ try {
     pathwayOverflow:getComputedStyle(document.querySelector('.pathway-scroll')).overflowX,
     duplicateIds:ids.filter((x,i)=>ids.indexOf(x)!==i),
     missingLocalAnchors:[...document.querySelectorAll('a[href^="#"]')].map(a=>a.hash.slice(1)).filter(id=>id&&!document.getElementById(id)),
-    chartsReady:typeof window.Chart==='function'?['bedDonutChart','physicianIndexChart','populationChart','bedChart','deviceChart','deviceDistributionChart','scoreChart'].filter(id=>window.Chart.getChart(id)).length:null,
+    chartsReady:typeof window.Chart==='function'?['bedDonutChart','physicianIndexChart','populationChart','bedChart','deviceChart','deviceDistributionChart','scoreChart','clinics2022Chart','areaFacilityTypesChart','associationClinicChart'].filter(id=>window.Chart.getChart(id)).length:null,
     mapReady:typeof window.L==='object'&&!!document.querySelector('.leaflet-container'),
     leafletMarkers:document.querySelectorAll('#areaMap .leaflet-interactive').length,
     offenders:[...document.querySelectorAll('main *')].filter(e=>{
@@ -69,21 +73,29 @@ try {
   assert.equal(measures.regions,7,'All seven medical areas render');
   assert.equal(measures.cards,7,'Quick area buttons present');
   assert.equal(measures.facilityCards,37,'17 hospitals/admin + 9 health centers + 11 medical associations');
-  assert.equal(measures.refs,27,'All public sources');
+  assert.equal(measures.refs,32,'All 32 public source entries');
+  assert.equal(measures.areaFacilityRows,8,'Seven areas plus one total facility row');
+  assert.equal(measures.associationRows,12,'Eleven medical associations plus one total row');
+  assert.equal(measures.municipalityRows,30,'All 30 town/city facility rows');
+  assert.equal(measures.associationCountText,'850','Association territorial clinic count 850');
   assert.equal(measures.heatRows,7,'Seven score matrix rows');
   assert(measures.graphicCount>=15,'Inline diagrams and pictograms');
-  assert.equal(measures.canvases,7,'Seven charts declared');
+  assert.equal(measures.canvases,10,'Ten charts declared');
   assert.deepEqual(measures.duplicateIds,[],'Unique element IDs');
   assert.deepEqual(measures.missingLocalAnchors,[],'All internal links valid');
   assert.deepEqual(pageErrors,[],'No browser script exceptions');
   assert.equal(measures.offenders.length,0,'No uncontained overflow');
-  assert.equal(measures.chartsReady,7,'Chart.js renders every interactive chart');
+  assert.equal(measures.chartsReady,10,'Chart.js renders all ten interactive charts');
   assert(measures.mapReady,'Interactive GSI map initializes');
   assert(measures.leafletMarkers>=7,'Seven medical-area map points');
   await page.locator('#areaSearch').fill('新宮');
   assert.equal(await page.locator('#regionTable tbody tr').count(),1,'Area filtering works');
   await page.locator('#areaSearch').fill('');
   assert.equal(await page.locator('#regionTable tbody tr').count(),7,'Area filter reset works');
+  await page.locator('#townFilter').fill('みなべ');
+  assert.equal(await page.locator('#municipalityFacilityTable tbody tr').count(),1,'Medical association town search works');
+  assert((await page.locator('#municipalityFacilityTable tbody').innerText()).includes('日高医師会'),'Minabe town assigned to Hidaka association');
+  await page.locator('#townFilter').fill('');
   await page.locator('#facilitySearch').fill('和歌山市医師会');
   assert.equal(await page.locator('#facilityList article.facility').count(),1,'Facility search works');
   await page.locator('#facilitySearch').fill('');
