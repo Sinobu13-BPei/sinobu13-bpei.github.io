@@ -167,6 +167,13 @@
 <div class="split">
 <article class="panel"><h3>二次医療圏の人口密度 <span class="chip accent">2020年国勢調査</span></h3><div class="chart"><canvas id="regionalDensityChart" role="img" aria-label="2020年広島県の医療圏別人口密度比較"></canvas></div><p class="small">高密度の広島・呉と低密度の備北では、医療機器の配置・搬送・保守の経済性が異なります。</p></article>
 <article class="panel"><h3>可住地面積の割合 <span class="chip accent">2020年度</span></h3><div class="chart"><canvas id="habitableChart" role="img" aria-label="7つの二次医療圏の可住地面積割合"></canvas></div><p class="small">可住地割合は林野面積・主要湖沼を除いた参考割合。病院までの到達時間を示す指標ではありません。</p></article></div>
+<div class="split">
+<article class="panel"><h3>7医療圏：2050年までの将来人口</h3><div class="chart tall"><canvas id="regionProjectionChart" role="img" aria-label="2020から2050年までの広島県7医療圏人口推計の推移"></canvas></div><p class="small">社人研2023年地域別将来推計（2020年国勢調査起点）。2025年国勢調査の確定実績とは別系列の予測です。</p></article>
+<article class="panel"><h3>75歳以上人口：2020年比の2050年変化</h3><div class="chart tall"><canvas id="age75DeltaChart" role="img" aria-label="二次医療圏別 2020から2050年の75歳以上人口の予測変化率"></canvas></div><p class="small">75歳以上人口の変化率は高齢化率や受療者数とは異なります。圏域により増減の方向が異なる点に注目。</p></article></div>
+<div class="panel"><h3>7医療圏の人口・生産年齢・75歳以上人口の将来推計</h3>
+<div class="table-scroll"><table id="regionProjectionTable"><caption>社人研2023年推計。各7医療圏の合算。2025年以降は予測であり確定実績ではない</caption>
+<thead><tr><th>医療圏</th><th>2020年人口</th><th>2030年人口</th><th>2040年人口</th><th>2050年人口</th><th>2020→2050年</th><th>2050年生産年齢人口</th><th>2050年75歳以上</th><th>75歳以上変化率</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
+<p class="small">出典：<a href="https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/2gaiyo_hyo/gaiyo.asp" target="_blank" rel="noopener noreferrer">国立社会保障・人口問題研究所「日本の地域別将来推計人口」令和5年推計</a>。圏域集計は<a href="https://nkgr.co.jp/hsa/hiroshima/" target="_blank" rel="noopener noreferrer">日本経営 医療需給総覧・7圏域（2026年）</a>で照合。地域の出生率・純移動率等の前提が変われば推計も変動します。</p></div>
 <div class="panel"><h3>広島県 7医療圏の基礎指標と患者流動（比較表）</h3>
 <div class="table-scroll"><table id="deepResearchAreaTable"><caption>2020人口・地理、2023 DPC、2024医師偏在は年次の異なる統計。患者受療量比は所在地件数／住所地件数。※完結率ではない</caption><thead><tr><th>医療圏</th><th>2020人口</th><th>密度/㎢</th><th>可住地割合</th><th>医師偏在（旧）</th><th>DPC住所地（千件）</th><th>DPC所在地（千件）</th><th>受療量比</th></tr></thead><tbody></tbody></table></div>
 <div class="diagnostic-tracks" id="deepResearchRegions" aria-label="二次医療圏ごとの解釈"></div></div>
