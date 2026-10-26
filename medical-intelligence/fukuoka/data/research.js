@@ -1,7 +1,7 @@
 window.FUKUOKA_DATA={
   "meta": {
     "title": "福岡県医療機器市場分析 2026",
-    "updated": "2026-10-26",
+    "updated": "2026-10-27",
     "editor": "高橋裕子",
     "scope": "公開一次資料中心・医療機器商社の中立的視座"
   },
@@ -762,6 +762,12 @@ window.FUKUOKA_DATA={
       "2026参照",
       "郡市区医師会の名称・所在地・公式サイト",
       "https://www.fukuoka.med.or.jp/introduction/area.html"
+    ],
+    [
+      "福岡県・公式二次保健医療圏区分図",
+      "2024-03",
+      "13圏域の境界・名称・構成市町村（画像の出典）",
+      "https://www.pref.fukuoka.lg.jp/contents/hoken-iryo-keikaku-2024.html"
     ]
   ],
   "associations": [
