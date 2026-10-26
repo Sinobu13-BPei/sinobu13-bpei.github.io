@@ -36,3 +36,5 @@ jobs:
           node-version: '22'
       - name: Validate HTML links, JS syntax and common shell
         run: node medical-intelligence/assets/qa-site.mjs
+      - name: Validate Ehime MKT data, accessibility and fallbacks
+        run: node medical-intelligence/ehime/qa-ehime.mjs
