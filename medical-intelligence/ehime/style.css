@@ -138,3 +138,6 @@ footer .footer-button{min-height:44px}
 /* Keep wide chart/table descendants inside the research content boundary. Individual .table-scroll regions remain horizontally scrollable. */
 #content{min-width:0;overflow-x:clip}
 #content>section{min-width:0;overflow-x:clip}
+
+/* Hero ring extends 8% beyond the edge at phone widths: clip only the decoration. */
+.hero{overflow:hidden}
