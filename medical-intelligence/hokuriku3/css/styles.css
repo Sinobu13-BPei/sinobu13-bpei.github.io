@@ -2,6 +2,7 @@
 :root{color-scheme:light;--ink:#163440;--muted:#536875;--teal:#08746c;--blue:#205f81;--orange:#ba7244;--bg:#f5f8f8;--surface:#fff;--border:#d9e4e7;--shadow:0 2px 12px rgba(12,49,65,.035)}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:65px}
+[hidden]{display:none!important}
 body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.68 -apple-system,BlinkMacSystemFont,"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:#075f7b;text-underline-offset:3px;text-decoration-thickness:1px}a:hover{color:#a95d30}a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,[tabindex="0"]:focus-visible{outline:3px solid #e79b37;outline-offset:2px}
 p{margin:.45em 0 .75em}h1,h2,h3{overflow-wrap:anywhere}button,input,select{font:inherit}
@@ -48,7 +49,7 @@ p{margin:.45em 0 .75em}h1,h2,h3{overflow-wrap:anywhere}button,input,select{font:
 .thesis h3,.ksf h3{font-size:16px;margin:4px 0 5px;line-height:1.4}
 .thesis p{margin:0;font-size:13px}
 .chart-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin:12px 0}
-.chartbox{height:245px;position:relative;min-width:0}.chartbox.tall{height:460px}
+.chartbox{height:245px;position:relative;min-width:0}.chartbox.tall{height:460px}#areaVisualizations .chartbox.tall{height:var(--area-chart-height,460px)}
 canvas{display:block;width:100%;max-width:100%}
 .tablewrap{background:white;border:1px solid var(--border);border-radius:9px;overflow:auto;overscroll-behavior-x:contain;margin:11px 0;scrollbar-width:thin}
 table{border-collapse:collapse;width:100%;min-width:680px;font-size:12px;line-height:1.48}
@@ -141,8 +142,9 @@ footer{background:#1a3948;margin-top:36px;color:#e3f2f2;padding:24px 0}
 .location-directory{margin-top:9px}
 .location-directory summary{background:#f1f7f8}
 .association-cards,.area-cards{display:none}
+.mobile-only-hint{display:none}
 @media(max-width:1020px){
- .cards.three{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .cards.three{grid-template-columns:repeat(3,minmax(0,1fr))}
  .chart-grid{grid-template-columns:1fr}.chartbox.tall{height:435px}
  .weights{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
@@ -163,7 +165,7 @@ footer{background:#1a3948;margin-top:36px;color:#e3f2f2;padding:24px 0}
  .card h3,.panel h3,.framework h3{font-size:14px}
  .card p,.panel p,.framework p{font-size:12px}
  .card strong{font-size:26px}
- .chartbox{height:225px}.chartbox.tall{height:485px}
+ .chartbox{height:225px}.chartbox.tall{height:485px}#areaVisualizations .chartbox.tall{height:var(--area-chart-height,485px)}
  .filterline{align-items:stretch;gap:6px 8px}
  .filterline label{align-self:center}.filterline input{min-width:0;flex:1 1 100%;width:100%}
  .facility-kpis{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:8px 0}
@@ -180,6 +182,7 @@ footer{background:#1a3948;margin-top:36px;color:#e3f2f2;padding:24px 0}
  .footer-layout{flex-direction:column}.footer-layout>div:last-child{max-width:none}
  .association-wrap{max-height:360px}.area-table-wrap{max-height:400px}
  .has-enhanced-layout .area-table-wrap,.has-enhanced-layout .association-wrap,.has-enhanced-layout .desktop-note{display:none}
+ .has-enhanced-layout .mobile-only-hint{display:block;font-size:11px;color:#54717a;margin:6px 0}
  .has-enhanced-layout .area-cards,.has-enhanced-layout .association-cards{display:grid;gap:8px}
  .area-cards,.association-cards{max-height:610px;overflow:auto;overscroll-behavior:contain;padding:2px 2px 6px}
  .area-card,.association-card{background:#fff;border:1px solid #dae6e7;border-radius:10px;padding:11px;min-width:0}
