@@ -447,7 +447,13 @@
       "type": "地区医師会",
       "lat": 35.423,
       "lon": 136.757,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "岐阜市"
+      ],
+      "clinicCount": 404,
+      "hospitalCount": 30,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "岐阜大学医師会",
@@ -458,7 +464,11 @@
       "type": "地区医師会",
       "lat": 35.423,
       "lon": 136.757,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [],
+      "clinicCount": null,
+      "hospitalCount": null,
+      "areaStatisticsNote": "大学医師会は自治体ごとの担当区域を設定できず未算定"
     },
     {
       "name": "各務原市医師会",
@@ -469,7 +479,13 @@
       "type": "地区医師会",
       "lat": 35.399,
       "lon": 136.848,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "各務原市"
+      ],
+      "clinicCount": 117,
+      "hospitalCount": 4,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "羽島郡医師会",
@@ -480,7 +496,14 @@
       "type": "地区医師会",
       "lat": 35.367,
       "lon": 136.764,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "岐南町",
+        "笠松町"
+      ],
+      "clinicCount": 45,
+      "hospitalCount": 2,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "羽島市医師会",
@@ -491,7 +514,13 @@
       "type": "地区医師会",
       "lat": 35.423,
       "lon": 136.757,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "羽島市"
+      ],
+      "clinicCount": 44,
+      "hospitalCount": 1,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "もとす医師会",
@@ -502,7 +531,21 @@
       "type": "地区医師会",
       "lat": 35.423,
       "lon": 136.757,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "瑞穂市",
+        "本巣市",
+        "北方町"
+      ],
+      "clinicCount": 81,
+      "hospitalCount": 0,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない",
+      "memberFacilities": {
+        "facilities": 63,
+        "year": "2024年5月",
+        "sourceId": "S29",
+        "note": "医師会公式会長挨拶。2026年現在の会員施設数ではない"
+      }
     },
     {
       "name": "山県医師会",
@@ -513,7 +556,13 @@
       "type": "地区医師会",
       "lat": 35.423,
       "lon": 136.757,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "山県市"
+      ],
+      "clinicCount": 21,
+      "hospitalCount": 1,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "大垣市医師会",
@@ -524,7 +573,13 @@
       "type": "地区医師会",
       "lat": 35.359,
       "lon": 136.612,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "大垣市"
+      ],
+      "clinicCount": 130,
+      "hospitalCount": 7,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "海津市医師会",
@@ -535,7 +590,13 @@
       "type": "地区医師会",
       "lat": 35.359,
       "lon": 136.612,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "海津市"
+      ],
+      "clinicCount": 22,
+      "hospitalCount": 2,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "養老郡医師会",
@@ -546,7 +607,13 @@
       "type": "地区医師会",
       "lat": 35.359,
       "lon": 136.612,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "養老町"
+      ],
+      "clinicCount": 17,
+      "hospitalCount": 1,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "不破郡医師会",
@@ -557,7 +624,14 @@
       "type": "地区医師会",
       "lat": 35.359,
       "lon": 136.612,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "垂井町",
+        "関ケ原町"
+      ],
+      "clinicCount": 21,
+      "hospitalCount": 2,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "安八郡医師会",
@@ -568,7 +642,15 @@
       "type": "地区医師会",
       "lat": 35.359,
       "lon": 136.612,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "神戸町",
+        "輪之内町",
+        "安八町"
+      ],
+      "clinicCount": 28,
+      "hospitalCount": 0,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "揖斐郡医師会",
@@ -579,7 +661,15 @@
       "type": "地区医師会",
       "lat": 35.487,
       "lon": 136.57,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "揖斐川町",
+        "大野町",
+        "池田町"
+      ],
+      "clinicCount": 42,
+      "hospitalCount": 2,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "武儀医師会",
@@ -590,7 +680,22 @@
       "type": "地区医師会",
       "lat": 35.496,
       "lon": 136.918,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "関市",
+        "美濃市"
+      ],
+      "clinicCount": 86,
+      "hospitalCount": 3,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない",
+      "memberFacilities": {
+        "facilities": 61,
+        "clinics": 58,
+        "hospitals": 3,
+        "year": "2026年6月8日",
+        "sourceId": "S28",
+        "note": "武儀医師会公式会長挨拶に明記された構成施設"
+      }
     },
     {
       "name": "郡上市医師会",
@@ -601,7 +706,13 @@
       "type": "地区医師会",
       "lat": 35.748,
       "lon": 136.964,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "郡上市"
+      ],
+      "clinicCount": 28,
+      "hospitalCount": 5,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "加茂医師会",
@@ -612,7 +723,20 @@
       "type": "地区医師会",
       "lat": 35.44,
       "lon": 137.018,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "美濃加茂市",
+        "坂祝町",
+        "富加町",
+        "川辺町",
+        "七宗町",
+        "八百津町",
+        "白川町",
+        "東白川村"
+      ],
+      "clinicCount": 75,
+      "hospitalCount": 6,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "可児医師会",
@@ -623,7 +747,14 @@
       "type": "地区医師会",
       "lat": 35.425,
       "lon": 137.062,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "可児市",
+        "御嵩町"
+      ],
+      "clinicCount": 75,
+      "hospitalCount": 5,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "多治見市医師会",
@@ -634,7 +765,13 @@
       "type": "地区医師会",
       "lat": 35.332,
       "lon": 137.132,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "多治見市"
+      ],
+      "clinicCount": 86,
+      "hospitalCount": 4,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "土岐医師会",
@@ -645,7 +782,20 @@
       "type": "地区医師会",
       "lat": 35.351,
       "lon": 137.184,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "土岐市",
+        "瑞浪市"
+      ],
+      "clinicCount": 70,
+      "hospitalCount": 6,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない",
+      "memberFacilities": {
+        "facilities": 56,
+        "year": "公表ページの日付未記載",
+        "sourceId": "S30",
+        "note": "土岐市31施設、瑞浪市25施設。掲載に旧病院名称あり、参考値として扱う"
+      }
     },
     {
       "name": "恵那医師会",
@@ -656,7 +806,14 @@
       "type": "地区医師会",
       "lat": 35.45,
       "lon": 137.414,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "中津川市",
+        "恵那市"
+      ],
+      "clinicCount": 96,
+      "hospitalCount": 4,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "高山市医師会",
@@ -667,7 +824,13 @@
       "type": "地区医師会",
       "lat": 36.146,
       "lon": 137.252,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "高山市"
+      ],
+      "clinicCount": 78,
+      "hospitalCount": 3,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "下呂市医師会",
@@ -678,7 +841,13 @@
       "type": "地区医師会",
       "lat": 35.808,
       "lon": 137.244,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "下呂市"
+      ],
+      "clinicCount": 29,
+      "hospitalCount": 3,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     },
     {
       "name": "飛騨市医師会",
@@ -689,7 +858,13 @@
       "type": "地区医師会",
       "lat": 36.146,
       "lon": 137.252,
-      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）"
+      "coord_note": "地理院地図リンクの初期位置は市区町村中心付近（施設の正確な座標ではありません）",
+      "coverageMunicipalities": [
+        "飛騨市"
+      ],
+      "clinicCount": 22,
+      "hospitalCount": 2,
+      "areaStatisticsNote": "2025年10月1日現在・地域内全施設、会員施設数ではない"
     }
   ],
   "sources": [
@@ -848,6 +1023,30 @@
       "title": "岐阜県 第8期保健医療計画（2025年必要病床数 掲載）",
       "year": "2024–2029年度計画／2025年必要量は推計",
       "url": "https://www.pref.gifu.lg.jp/page/124969.html"
+    },
+    {
+      "id": "S27",
+      "title": "岐阜県「市町村別医療施設状況」（令和7年10月1日現在）",
+      "year": "2025-10-01",
+      "url": "https://www.pref.gifu.lg.jp/uploaded/attachment/475576.pdf"
+    },
+    {
+      "id": "S28",
+      "title": "武儀医師会「医師会について」3病院・58診療所（会員等構成）",
+      "year": "2026-06-08",
+      "url": "https://mugiishikai.jp/about.html"
+    },
+    {
+      "id": "S29",
+      "title": "もとす医師会「もとす医師会とは」63医療機関（会員施設）",
+      "year": "2024-05",
+      "url": "https://motosu.gifu.med.or.jp/about/"
+    },
+    {
+      "id": "S30",
+      "title": "土岐医師会「会長挨拶」土岐31・瑞浪25医療機関（参考値）",
+      "year": "公表年月不明・旧情報含む",
+      "url": "https://toki.gifu.med.or.jp/kaityo/aisatsu.php"
     }
   ],
   "care": {
@@ -932,5 +1131,269 @@
     "医療再編・政策",
     "地理アクセス/BCP",
     "連携の実行可能性"
-  ]
+  ],
+  "municipalityFacility2025": [
+    {
+      "name": "岐阜市",
+      "area": "岐阜",
+      "clinics": 404,
+      "hospitals": 30
+    },
+    {
+      "name": "羽島市",
+      "area": "岐阜",
+      "clinics": 44,
+      "hospitals": 1
+    },
+    {
+      "name": "各務原市",
+      "area": "岐阜",
+      "clinics": 117,
+      "hospitals": 4
+    },
+    {
+      "name": "山県市",
+      "area": "岐阜",
+      "clinics": 21,
+      "hospitals": 1
+    },
+    {
+      "name": "瑞穂市",
+      "area": "岐阜",
+      "clinics": 37,
+      "hospitals": 0
+    },
+    {
+      "name": "本巣市",
+      "area": "岐阜",
+      "clinics": 21,
+      "hospitals": 0
+    },
+    {
+      "name": "岐南町",
+      "area": "岐阜",
+      "clinics": 26,
+      "hospitals": 0
+    },
+    {
+      "name": "笠松町",
+      "area": "岐阜",
+      "clinics": 19,
+      "hospitals": 2
+    },
+    {
+      "name": "北方町",
+      "area": "岐阜",
+      "clinics": 23,
+      "hospitals": 0
+    },
+    {
+      "name": "大垣市",
+      "area": "西濃",
+      "clinics": 130,
+      "hospitals": 7
+    },
+    {
+      "name": "海津市",
+      "area": "西濃",
+      "clinics": 22,
+      "hospitals": 2
+    },
+    {
+      "name": "養老町",
+      "area": "西濃",
+      "clinics": 17,
+      "hospitals": 1
+    },
+    {
+      "name": "垂井町",
+      "area": "西濃",
+      "clinics": 16,
+      "hospitals": 2
+    },
+    {
+      "name": "関ケ原町",
+      "area": "西濃",
+      "clinics": 5,
+      "hospitals": 0
+    },
+    {
+      "name": "神戸町",
+      "area": "西濃",
+      "clinics": 12,
+      "hospitals": 0
+    },
+    {
+      "name": "輪之内町",
+      "area": "西濃",
+      "clinics": 5,
+      "hospitals": 0
+    },
+    {
+      "name": "安八町",
+      "area": "西濃",
+      "clinics": 11,
+      "hospitals": 0
+    },
+    {
+      "name": "揖斐川町",
+      "area": "西濃",
+      "clinics": 20,
+      "hospitals": 0
+    },
+    {
+      "name": "大野町",
+      "area": "西濃",
+      "clinics": 13,
+      "hospitals": 1
+    },
+    {
+      "name": "池田町",
+      "area": "西濃",
+      "clinics": 9,
+      "hospitals": 1
+    },
+    {
+      "name": "関市",
+      "area": "中濃",
+      "clinics": 70,
+      "hospitals": 2
+    },
+    {
+      "name": "美濃市",
+      "area": "中濃",
+      "clinics": 16,
+      "hospitals": 1
+    },
+    {
+      "name": "郡上市",
+      "area": "中濃",
+      "clinics": 28,
+      "hospitals": 5
+    },
+    {
+      "name": "美濃加茂市",
+      "area": "中濃",
+      "clinics": 38,
+      "hospitals": 4
+    },
+    {
+      "name": "可児市",
+      "area": "中濃",
+      "clinics": 66,
+      "hospitals": 4
+    },
+    {
+      "name": "坂祝町",
+      "area": "中濃",
+      "clinics": 5,
+      "hospitals": 0
+    },
+    {
+      "name": "富加町",
+      "area": "中濃",
+      "clinics": 4,
+      "hospitals": 0
+    },
+    {
+      "name": "川辺町",
+      "area": "中濃",
+      "clinics": 7,
+      "hospitals": 0
+    },
+    {
+      "name": "七宗町",
+      "area": "中濃",
+      "clinics": 4,
+      "hospitals": 0
+    },
+    {
+      "name": "八百津町",
+      "area": "中濃",
+      "clinics": 11,
+      "hospitals": 1
+    },
+    {
+      "name": "白川町",
+      "area": "中濃",
+      "clinics": 4,
+      "hospitals": 1
+    },
+    {
+      "name": "東白川村",
+      "area": "中濃",
+      "clinics": 2,
+      "hospitals": 0
+    },
+    {
+      "name": "御嵩町",
+      "area": "中濃",
+      "clinics": 9,
+      "hospitals": 1
+    },
+    {
+      "name": "多治見市",
+      "area": "東濃",
+      "clinics": 86,
+      "hospitals": 4
+    },
+    {
+      "name": "瑞浪市",
+      "area": "東濃",
+      "clinics": 34,
+      "hospitals": 3
+    },
+    {
+      "name": "土岐市",
+      "area": "東濃",
+      "clinics": 36,
+      "hospitals": 3
+    },
+    {
+      "name": "中津川市",
+      "area": "東濃",
+      "clinics": 55,
+      "hospitals": 2
+    },
+    {
+      "name": "恵那市",
+      "area": "東濃",
+      "clinics": 41,
+      "hospitals": 2
+    },
+    {
+      "name": "高山市",
+      "area": "飛騨",
+      "clinics": 78,
+      "hospitals": 3
+    },
+    {
+      "name": "飛騨市",
+      "area": "飛騨",
+      "clinics": 22,
+      "hospitals": 2
+    },
+    {
+      "name": "下呂市",
+      "area": "飛騨",
+      "clinics": 29,
+      "hospitals": 3
+    },
+    {
+      "name": "白川村",
+      "area": "飛騨",
+      "clinics": 3,
+      "hospitals": 0
+    }
+  ],
+  "districtMedicalFacilities": {
+    "date": "2025-10-01",
+    "generalClinics": 1620,
+    "hospitals": 93,
+    "sourceId": "S27",
+    "unallocatedMunicipalities": [
+      "白川村"
+    ],
+    "notes": "2025年10月1日の全市町村施設集計。高山市医師会に白川村の3一般診療所を帰属させる根拠を確認できず、医師会別の配分から除外。大学医師会は自治体集計の対象外。"
+  }
 }
