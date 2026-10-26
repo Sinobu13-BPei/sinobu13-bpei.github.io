@@ -2,9 +2,9 @@
 window.KOSHINETSU={
  updated:"2026-10-27",
  population:[
-  {name:"新潟県",code:"niigata",p2020:2201272,p2025:2084429,p2050:1525004,doctor:0,plan:"https://www.pref.niigata.lg.jp/sec/chiikiiryo/1356890019056.html",beds:"https://www.pref.niigata.lg.jp/sec/chiikiiryo/r7byousyoukinou.html",assoc:"https://www.niigata.med.or.jp/",hq:[37.9022,139.0236]},
-  {name:"長野県",code:"nagano",p2020:2048011,p2025:1973948,p2050:1581949,doctor:232.6,plan:"https://www.pref.nagano.lg.jp/kenko-fukushi/kenko/iryo/shisaku/3rdsogokeikaku.html",beds:"https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/documents/shiryodai2.pdf",assoc:"https://www.nagano.med.or.jp/",hq:[36.6515,138.1810]},
-  {name:"山梨県",code:"yamanashi",p2020:809974,p2025:782238,p2050:611586,doctor:260.1,plan:"https://www.pref.yamanashi.jp/imuka/42_002.html",beds:"https://www.pref.yamanashi.jp/imuka/kikaku/r7byousyouhoukoku.html",assoc:"https://www.yamanashi-med.or.jp/",hq:[35.6642,138.5684]}
+  {name:"新潟県",code:"niigata",p2020:2201272,p2025:2084429,p2050:1525004,actual2025:2067144,actualSource:"https://www.pref.niigata.lg.jp/site/tokei/2025kokucho-kakuhou.html",doctor:201.7,plan:"https://www.pref.niigata.lg.jp/sec/chiikiiryo/1356890019056.html",beds:"https://www.pref.niigata.lg.jp/sec/chiikiiryo/r7byousyoukinou.html",assoc:"https://www.niigata.med.or.jp/",hq:[37.9022,139.0236]},
+  {name:"長野県",code:"nagano",p2020:2048011,p2025:1973948,p2050:1581949,actual2025:1953866,actualSource:"https://www.pref.nagano.lg.jp/tokei/happyou/7kokucho_1002.html",doctor:232.6,plan:"https://www.pref.nagano.lg.jp/kenko-fukushi/kenko/iryo/shisaku/3rdsogokeikaku.html",beds:"https://www.pref.nagano.lg.jp/iryo/kenko/iryo/shisaku/hokeniryo/documents/shiryodai2.pdf",assoc:"https://www.nagano.med.or.jp/",hq:[36.6515,138.1810]},
+  {name:"山梨県",code:"yamanashi",p2020:809974,p2025:782238,p2050:611586,actual2025:779276,actualSource:"https://www.pref.yamanashi.jp/release/toukei/2610/r07koku_jinkou.html",doctor:260.1,plan:"https://www.pref.yamanashi.jp/imuka/42_002.html",beds:"https://www.pref.yamanashi.jp/imuka/kikaku/r7byousyouhoukoku.html",assoc:"https://www.yamanashi-med.or.jp/",hq:[35.6642,138.5684]}
  ],
  /* 指標は厚生労働省 令和8年4月公表版（第三者の転記と照合した暫定入力）。
     2024年度長野=許可病床ベースと休棟、山梨=2025/7/1最大使用病床数。定義相違につき県横断合算不可。 */
@@ -52,6 +52,9 @@ window.KOSHINETSU={
  ],
  bedNotes:{nagano:"長野: 2024年度の病床機能報告・許可病床区分（休棟別掲）",yamanashi:"山梨: 2025年7月1日時点の最大使用病床数（未選択除外）",niigata:"新潟: 2025年7月1日時点の自主選択による病床機能報告。数値は原表・画像照合後反映"},
  sources:[
+ ["C01","新潟県 2025年国勢調査人口等基本集計（確定値）","2025年10月1日現在・2026年10月16日公表","https://www.pref.niigata.lg.jp/site/tokei/2025kokucho-kakuhou.html"],
+ ["C02","長野県 2025年国勢調査人口等基本集計（確定値）","2025年10月1日現在・2026年10月2日公表","https://www.pref.nagano.lg.jp/tokei/happyou/7kokucho_1002.html"],
+ ["C03","山梨県 2025年国勢調査人口等基本集計（確定値）","2025年10月1日現在・2026年10月16日公表","https://www.pref.yamanashi.jp/release/toukei/2610/r07koku_jinkou.html"],
  ["S01","国立社会保障・人口問題研究所 地域別将来推計人口（令和5年）","2023年公表・2020～2050年","https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp"],
  ["S02","新潟県 第8次地域保健医療計画","2024～2029年度","https://www.pref.niigata.lg.jp/sec/chiikiiryo/1356890019056.html"],
  ["S03","長野県 第3期信州保健医療総合計画（第8次）","2024～2029年度","https://www.pref.nagano.lg.jp/kenko-fukushi/kenko/iryo/shisaku/3rdsogokeikaku.html"],
