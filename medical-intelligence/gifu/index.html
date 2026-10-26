@@ -5,12 +5,12 @@
 <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./visuals.css"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
 <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script defer src="./app.js"></script><script defer src="./visuals.js"></script></head>
+<script defer src="./app.js"></script><script defer src="./visuals.js"></script><script defer src="./public-research.js"></script></head>
 <body><a class="skip" href="#main">本文へ移動</a>
 <header class="site-hero" id="top"><div class="wrap"><div class="topline"><a href="../">JAPAN MEDICAL MARKET INTELLIGENCE</a><span>PUBLIC RESEARCH · GIFU · 2026</span></div>
 <div class="hero-grid"><div><p class="eyebrow">REGIONAL HEALTHCARE INTELLIGENCE / CENTRAL JAPAN</p><h1>岐阜県<br><span>医療マーケット解析</span></h1><p class="hero-sub">5つの医療圏 × 政策・人口 × 医療提供体制 × 医療機器・医療DX。<br>2026年10月27日時点の公開資料を基に、中立的な医療機器商社の視座で分析。</p><div class="pills"><span>公的情報中心</span><span>事実と推計を分離</span><span>地域医療構想</span><span>Where to Play / How to Win</span></div></div>
 <div class="hero-side"><div class="hero-icon"><svg viewBox="0 0 280 190" role="img" aria-label="医療の提供体制を象徴する建物と医療連携の図"><path d="M15 145H265" stroke="#8cc6cc" stroke-width="2"/><rect x="84" y="36" width="112" height="112" rx="8" fill="#fff"/><rect x="107" y="14" width="66" height="45" rx="6" fill="#a1dbda"/><path d="M140 24v22m-11-11h22" stroke="#12344b" stroke-width="7"/><path d="M107 90h66M107 114h66" stroke="#8bbbc3" stroke-width="8"/><rect x="124" y="127" width="32" height="22" fill="#27516b"/><circle cx="35" cy="74" r="9" fill="#b8db93"/><circle cx="245" cy="74" r="9" fill="#b8db93"/><path d="M45 78L90 94M235 78L190 94" stroke="#b8db93" stroke-width="3" stroke-dasharray="5 5"/></svg></div><p>診療所から高度急性期へ。<br>画像・病床・人材・地域連携を一体的に可視化。</p></div></div></div></header>
-<nav class="nav"><div class="wrap navscroll"><a href="#summary">概要</a><a href="#visualOverview">図解Atlas</a><a href="#population">人口・医療圏</a><a href="#beds">病床機能</a><a href="#providers">中核施設</a><a href="#institutions">大学・医師会・行政</a><a href="#devices">機器市場</a><a href="#distribution">流通</a><a href="#risks">外部環境</a><a href="#strategy">戦略分析</a><a href="#sources">出典</a></div></nav>
+<nav class="nav"><div class="wrap navscroll"><a href="#summary">概要</a><a href="#visualOverview">図解Atlas</a><a href="#population">人口・医療圏</a><a href="#beds">病床機能</a><a href="#providers">中核施設</a><a href="#institutions">大学・医師会・行政</a><a href="#devices">機器市場</a><a href="#distribution">流通</a><a href="#risks">外部環境</a><a href="#strategy">戦略分析</a><a href="#verified2026">2026公開資料・病院</a><a href="#sources">出典</a></div></nav>
 <main id="main">
 <section class="section" id="summary"><div class="wrap"><div class="section-label">01 / EXECUTIVE SUMMARY</div><h2>医療圏ごとに「市場の意味」が違う。</h2><p class="lede">岐阜・西濃・中濃・東濃・飛騨を単一の医療市場と見ない。人口の絶対規模だけでなく、診療科機能、政策再編、人材・交通条件、保守負担まで重ねる。</p>
 <div class="kpis"><article class="kpi"><small>県人口｜2025年10月確定</small><strong>188.96<span>万人</span></strong><a href="#sources">岐阜県統計課 / S01</a></article><article class="kpi"><small>二次医療圏｜第8期計画</small><strong>5<span>圏域</span></strong><a href="#sources">岐阜県医療整備課 / S02</a></article><article class="kpi"><small>病床機能報告｜2025年7月</small><strong>16,235<span>床</span></strong><a href="#sources">休棟含む / S03</a></article><article class="kpi"><small>2025年必要病床数｜政策推計</small><strong>14,978<span>床</span></strong><a href="#sources">算定方法は報告数と異なる / S04</a></article></div>
@@ -133,5 +133,60 @@
 <div class="panel"><h3>SWOT（県全体・商社視点）</h3><div class="four"><div><b>Strength / 強み</b><p>岐阜の高度医療集積、圏域中核病院、医師会の地域連携。</p></div><div><b>Weakness / 弱み</b><p>医師偏在、医療圏間アクセス格差、設備更新余力の差。</p></div><div><b>Opportunity / 機会</b><p>画像共有、共同利用、医療DX、機能転換と遠隔支援。</p></div><div><b>Threat / 脅威</b><p>人口減少、人材確保、病院財務、災害・物流・供給制約。</p></div></div></div>
 <div class="two"><div class="panel"><h3>短期｜90日</h3><ol><li>県計画と2026年度調整会議資料を5圏域で照合</li><li>CT/MRI/US等の公的台数原表・分母を整備</li><li>中核病院の共同利用/紹介導線を可視化</li><li>保守拠点からの到達時間とBCPをレビュー</li><li>学術・医師会連携は公正なルールで検討</li></ol></div><div class="panel"><h3>中期｜1〜3年</h3><ol><li>回復期・在宅も含めた画像・情報連携</li><li>病院統合後の稼働KPI・保守KPIの継続測定</li><li>診療所の共同利用・遠隔診断体制を支援</li><li>機器別TCO・更新周期・電源/物流リスクを標準化</li><li>年度ごとの圏域スコア再採点と公開資料更新</li></ol></div></div>
 <div class="notice"><strong>反証・リスク：</strong>政策による「病床再編＝機器の新規購入」ではない。人口減少下では総設置数が減少する場合もあり、画像データ標準化や運用効率化はむしろ装置需要を抑える可能性がある。設備投資が難しい施設には共同利用・保守延長が合理的な選択となる。</div></div></section>
-<section class="section alternate" id="sources"><div class="wrap"><div class="section-label">10 / SOURCES & METHODS</div><h2>出典・年次・公開基準</h2><p>数値には県・国の公表元と年次を付記。行政指定・大学情報・医師会・設置状況は各公式ページから確認。未確認項目は「要確認」と記し、社内市場データ・顧客情報・単価・契約条件を引用しない。</p><div id="sourceGrid" class="sourcegrid"></div><div class="panel"><h3>品質・更新ログ</h3><p>最終更新：<time datetime="2026-10-27">2026年10月27日</time>。初版：同日。データ基準：人口2025年10月、病床報告2025年7月、医師数2024年、医師偏在2026年4月、社人研将来人口2023年推計、政策情報2026年10月。</p><p>検証未了：機器設置台数の一次表統合、診療科ごとの患者移動・全国台数比較、個別医療機関の建替計画・装置更新年、医師会の個別事業、保健所の座標測位。出典URLの継続可用性は発信者側の変更に依存する。</p><p><b>免責：</b>本ページは公表情報に基づく独立した研究・編集資料です。正確性・完全性・最新性を保証するものではありません。特定メーカー・ディーラーとの提携・推奨・批判・投資助言を意味しません。個別の購入・調達・医療判断は必ず現地確認を行ってください。</p></div></div></section></main>
+<section class="section" id="verified2026"><div class="wrap">
+<div class="section-label">10 / NEW PUBLIC RESEARCH · 2026 UPDATE</div>
+<h2>追加資料を再検証｜2026年・岐阜医療の構造変化</h2>
+<p class="lede">追加の市場レポート、病院ランキング、医療需給分析、診療所データベース、医療機器関連表を相互参照したうえで、自治体・病院・国の一次公開情報から再確認できた論点を統合しました。<strong>内部の営業実績、販社別販売シェア、顧客攻略資料、院内の非公開装置情報、商談条件は転載していません。</strong></p>
+<div class="annex-notes"><span>県内5医療圏</span><span>病院14施設（確認済みの抜粋）</span><span>病院別許可病床と公開年次</span><span>設備更新・医療再編年表</span><span>県の政策原文</span></div>
+<div class="viz-grid" style="margin:26px 0">
+<article class="viz-surface v-col-7">
+<div class="viz-topline"><h3 class="viz-card-title">人口・診療所・病院の圏域差</h3><span class="viz-tag">2020人口 × 2025施設統計</span></div>
+<div class="annex-chart"><canvas id="annexRegionScatter" role="img" aria-label="岐阜県5医療圏の2020年人口と2025年診療所数を比較する散布図。円サイズは2025病院数。"></canvas></div>
+<p class="viz-muted">横軸は2020年国勢調査人口、縦軸は2025年10月の一般診療所数、円の大きさは同月の病院数。<strong>年次が異なる指標の相関を説明する図であり、将来需要や医療機器の販売台数を予測しません。</strong> 出典S04・S27。</p>
+</article>
+<article class="viz-surface v-col-5">
+<div class="viz-topline"><h3 class="viz-card-title">医療再編の公的指定</h3><span class="viz-tag">県公式</span></div>
+<div class="annex-policy-stack">
+<div class="annex-policy"><strong>東濃・飛騨</strong><span>地域医療構想の「推進区域」</span><small>2025年2月、県が対応方針を公表。疾病・地域特性に応じた機能分担と連携を確認。</small></div>
+<div class="annex-policy"><strong>中濃・東濃</strong><span>地域医療構想の「重点支援区域」</span><small>東濃：2021年1月22日、中濃：2025年6月27日選定（県掲載）。推進区域と指定制度は異なる。</small></div>
+<div class="annex-policy"><strong>2026年度</strong><span>圏域地域医療構想等調整会議</span><small>病床報告・対応方針・医師数・DPC・医療連携の資料を圏域別に公開。</small></div></div>
+<p class="viz-muted">資料：<a href="https://www.pref.gifu.lg.jp/page/13850.html" target="_blank" rel="noopener noreferrer">岐阜県・地域医療構想</a> ／ <a href="https://www.pref.gifu.lg.jp/page/504301.html" target="_blank" rel="noopener noreferrer">2026年度調整会議</a>。選定自体が具体的な装置購入を意味するものではありません。</p>
+</article></div>
+<div class="viz-surface" style="margin-bottom:22px">
+<div class="annex-top"><div><span class="viz-kicker">HOSPITAL NETWORK / PERMITTED BEDS</span><h3 class="viz-card-title">主要病院の施設機能・病床比較｜公式出典への直リンク</h3></div><div class="annex-controls"><label for="annexHospitalRegion">医療圏：</label><select id="annexHospitalRegion"><option value="all">5医療圏すべて</option><option value="岐阜">岐阜</option><option value="西濃">西濃</option><option value="中濃">中濃</option><option value="東濃">東濃</option><option value="飛騨">飛騨</option></select><span id="annexHospitalCount" class="viz-tag">14施設</span></div></div>
+<p class="viz-muted">病床数は施設ごとの公表時点における許可・届出数。稼働病床、DPC対象病床、病床機能報告病床と区別します。添付ランキングに掲載された施設等のうち、公的機関・病院公式ページで確認できた抜粋であり、<strong>県内全病院の順位を確定するものではありません。</strong></p>
+<div class="tablewrap annex-tablewrap"><table class="annex-hospital-table"><thead><tr><th>圏域</th><th>施設（原典リンク）</th><th>病床数</th><th>公表されている機能</th><th>確認時点</th><th>注意・公表情報</th></tr></thead><tbody id="annexHospitalRows"></tbody></table></div>
+</div>
+<div class="viz-grid" style="margin-bottom:22px">
+<article class="viz-surface v-col-6">
+<h3 class="viz-card-title">医療機器・医療DX・病院再編の公開年表</h3>
+<p class="viz-muted">既に実施済みの公表事象です。未受注案件や将来の納入予定を示すものではありません。</p>
+<div id="annexEvents" class="annex-events"></div>
+</article>
+<article class="viz-surface v-col-6">
+<h3 class="viz-card-title">受療連携・画像診断｜考えるべき4つの機能</h3>
+<div class="annex-function-grid">
+<article><b>01</b><h4>高度急性期・救急</h4><p>夜間・休日の画像検査可用性、遠隔読影、救急車受入動線。装置保有数だけで判断しない。</p></article>
+<article><b>02</b><h4>診療所・外来</h4><p>診療科別の需要、検査予約、紹介逆紹介、画像共同利用、在宅での可搬型検査。</p></article>
+<article><b>03</b><h4>高齢化・回復期</h4><p>回復期病床・リハビリ・在宅サービスの接続。医療従事者数と患者移動時間も評価。</p></article>
+<article><b>04</b><h4>事業継続・DX</h4><p>広域物流、装置停止時の代替手段、災害とクラウド、情報セキュリティ、保守体制。</p></article>
+</div>
+<div class="annex-case">
+<div class="viz-kicker">PUBLISHED DEVICE RENEWALS / FACTS</div>
+<h4>飛騨の画像診断・IT更新事例</h4>
+<p>久美愛厚生病院は<strong>2025年2月PET-CT更新</strong>、<strong>2025年10月電子カルテ更新・クラウド化</strong>、<strong>2026年2月MRI更新</strong>を沿革で公表しています。メーカー名、装置構成の全数、契約価格・次回更新時期は不明です。</p>
+<a href="https://www.kumiai.gfkosei.or.jp/about-us/overview/" target="_blank" rel="noopener noreferrer">病院公式・概要と沿革</a></div>
+</article></div>
+<div class="viz-surface" style="margin-bottom:22px"><div class="viz-topline"><h3 class="viz-card-title">5医療圏｜添付資料を手がかりに整理した論点</h3><span class="viz-tag">公表事実＋編集部の考察を分離</span></div>
+<div id="annexLenses" class="annex-lenses"></div></div>
+<div class="viz-surface" style="margin-bottom:22px"><h3 class="viz-card-title">出典の時点・病床定義の相違を整理</h3>
+<p class="viz-muted">収集資料には複数の年度・定義・市場推計が混在しています。旧数値を黙って書き換えず、何を採用・保留したか記録します。</p>
+<div class="tablewrap"><table class="annex-qa-table"><thead><tr><th>論点</th><th>資料間の相違・注意</th><th>今回の公開版での扱い</th></tr></thead><tbody id="annexCorrections"></tbody></table></div></div>
+<div class="viz-surface">
+<h3 class="viz-card-title">追加で照合した公開一次資料・施設公表</h3>
+<div class="annex-sourcegrid" id="annexSources"></div>
+<div class="notice"><strong>公開ポリシー：</strong>添付した戦略報告、ディーラー市場シェア表、全病院ランキング、診療所データベース、個別攻略計画、日本経営の医療需給総覧などは、そのままサーバーへアップロードしていません。公的統計と施設が自ら公表した情報を基準に、独立した図表・要約へ編集しています。分析上の推論は推論として表記します。</div>
+</div>
+</div></section>
+<section class="section alternate" id="sources"><div class="wrap"><div class="section-label">11 / SOURCES & METHODS</div><h2>出典・年次・公開基準</h2><p>数値には県・国の公表元と年次を付記。行政指定・大学情報・医師会・設置状況は各公式ページから確認。未確認項目は「要確認」と記し、社内市場データ・顧客情報・単価・契約条件を引用しない。</p><div id="sourceGrid" class="sourcegrid"></div><div class="panel"><h3>品質・更新ログ</h3><p>最終更新：<time datetime="2026-10-27">2026年10月27日</time>。初版：同日。データ基準：人口2025年10月、病床報告2025年7月、医師数2024年、医師偏在2026年4月、社人研将来人口2023年推計、政策情報2026年10月。</p><p>検証未了：機器設置台数の一次表統合、診療科ごとの患者移動・全国台数比較、個別医療機関の建替計画・装置更新年、医師会の個別事業、保健所の座標測位。出典URLの継続可用性は発信者側の変更に依存する。</p><p><b>免責：</b>本ページは公表情報に基づく独立した研究・編集資料です。正確性・完全性・最新性を保証するものではありません。特定メーカー・ディーラーとの提携・推奨・批判・投資助言を意味しません。個別の購入・調達・医療判断は必ず現地確認を行ってください。</p></div></div></section></main>
 <footer><div class="wrap"><strong>GIFU MEDICAL MARKET INTELLIGENCE</strong><p>公開医療データから、地域の医療提供体制を読み解く。</p><div class="footerlinks"><a href="https://sinobu13-bpei.github.io/medical-intelligence/">全国医療市場リポジトリ</a><a href="https://sinobu13-bpei.github.io/medical-congress-2027/">学会カレンダー</a><a href="https://sinobu13-bpei.github.io/research-atlas/index.html">論文調査</a><a href="https://sinobu13-bpei.github.io/meeting-compliance/">会食に関して</a></div><small>編纂：Japan Medical Market Intelligence 編集資料｜更新：2026-10-27</small></div></footer></body></html>
