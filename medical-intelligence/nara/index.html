@@ -42,10 +42,10 @@
     <div class="geoPanel">
       <h4>面積と人口の配分比率</h4>
       <div class="splitChartBlock"><div class="splitLabel"><b>県内人口構成（2020年）</b><span>100%</span></div><div class="stackedVisual" id="populationStack" role="img" aria-label="5医療圏の人口構成比"></div></div>
-      <div class="splitChartBlock"><div class="splitLabel"><b>県内面積構成（2020年基準）</b><span>100%</span></div><div class="stackedVisual" id="areaStack" role="img" aria-label="5医療圏の面積構成比"></div></div>
+      <div class="splitChartBlock"><div class="splitLabel"><b>県内面積構成（2023年公表調査）</b><span>100%</span></div><div class="stackedVisual" id="areaStack" role="img" aria-label="5医療圏の面積構成比"></div></div>
       <div class="geoLegend" id="geoLegend"></div>
       <div class="southInsight"><strong>南和の実像</strong><span><b>面積 63.6%</b>に対し<b>人口 4.9%</b>。検査機器の設置だけでなく、搬送・保守・遠隔連携が医療供給を左右する。</span></div>
-      <p class="vizFoot">出典：奈良県第8次医療計画・医療圏区域図（S02/S24）、人口は2020年国勢調査。割合は独自再計算。</p>
+      <p class="vizFoot">出典：奈良県第8次医療計画・医療圏区域図（S02/S24）。人口は2020年国勢調査、面積は2023年全国都道府県市区町村別面積調。割合は独自再計算。</p>
     </div>
   </div>
 </div><div class="insight"><b>分析の結論</b><p>Where to Play＝<strong>中和・奈良の高度診断/診療所連携</strong>と<strong>西和の再編・更新</strong>。How to Win＝<strong>公的な設備・疾患・病床情報に基づく企画提案と、設置後の保守・データ接続・災害対応</strong>。南和は投資額だけでなく医療アクセス改善を別軸で優先する。</p></div></section>
@@ -54,7 +54,7 @@
 
 <div class="visualBand grid2">
   <div class="panel pictorial"><span class="eyebrowTiny">DEMOGRAPHIC STRUCTURE</span><h3>奈良県の人口構成（2025年）</h3><div class="donutRow"><div class="donutFrame"><canvas id="ageCompositionChart" role="img" aria-label="65歳以上33.21パーセント、65歳未満66.79パーセントの人口構成"></canvas><div class="donutCenter"><strong>33.21%</strong><span>65歳以上</span></div></div><div class="donutFacts"><b>423,173人</b><span>65歳以上人口</span><b>851,023人</b><span>65歳未満人口（差引）</span></div></div><p class="vizFoot">出典：奈良県2025年推計人口年報（S01）。65歳未満は総人口との差引。</p></div>
-  <div class="panel pictorial"><span class="eyebrowTiny">POPULATION / DENSITY</span><h3>医療圏の人口密度</h3><canvas id="densityChart" role="img" aria-label="二次医療圏ごとの人口密度。西和が高く南和が低い"></canvas><p class="vizFoot">2020年人口を2020年基準の医療圏面積で除した独自計算（人/km²）。出典 S02/S24。</p></div>
+  <div class="panel pictorial"><span class="eyebrowTiny">POPULATION / DENSITY</span><h3>医療圏の人口密度</h3><canvas id="densityChart" role="img" aria-label="二次医療圏ごとの人口密度。西和が高く南和が低い"></canvas><p class="vizFoot">2020年国勢調査人口を2023年公表の医療圏面積で除した独自計算（人/km²）。出典 S02/S24。</p></div>
 </div><div class="panel"><h3>5医療圏の人口規模（2020年国勢調査基準）</h3><canvas id="populationChart" role="img" aria-label="5医療圏の人口比較"></canvas><p class="small">2020年国勢調査の医療圏別集計。2025年県全体の推計人口とは年次が異なるため、同一年の値として合算・比較しない。<a href="https://www.pref.nara.lg.jp/n081/2740.html">出典 S02</a></p></div></section>
 <section class="section" id="beds"><div class="sectionTitle"><p>03 / MEDICAL FUNCTION</p><h2>5二次医療圏の病床機能と2025年必要病床数</h2></div>
 <div class="panel"><h3>病床機能別の構成（2025年7月1日・実績）</h3><canvas id="bedsChart" role="img" aria-label="5医療圏の高度急性期、急性期、回復期、慢性期別病床数"></canvas><p class="small">令和7年度報告の現状欄。休棟・廃止予定分は積上げ棒に含まない。<a href="https://www.pref.nara.lg.jp/n081/78913.html">出典 S03・2025年7月</a></p></div>
@@ -107,7 +107,7 @@
 <h3 class="subhead">医療圏別 優先度スコア（独自分析・推計）</h3><p>5つの評価軸（需要30%・集積25%・再編20%・到達性15%・複合提案10%）を1～5点で採点し100点換算。市場規模、売上予測ではない。</p><div class="panel"><canvas id="priorityChart" role="img" aria-label="医療圏別の独自優先度スコア"></canvas><div class="tableScroll"><table><thead><tr><th>医療圏</th><th>需要30</th><th>集積25</th><th>再編20</th><th>到達15</th><th>複合10</th><th>合計100</th></tr></thead><tbody id="priorityRows"></tbody></table></div></div>
 
 <div class="vizFeature"><div class="vizHead"><div><span class="eyebrowTiny">POSITIONING MATRIX / INDEPENDENT EVALUATION</span><h3>医療機能集積 × サービス到達性の視点</h3></div><span class="estimate">模式図｜独自分析</span></div><div class="grid2">
-<div class="panel"><canvas id="opportunityBubbleChart" role="img" aria-label="2020年人口密度と2026年医師偏在指標による二次医療圏のバブル比較"></canvas><p class="vizFoot">横軸：2020年人口密度（対数目盛）。縦軸：2026年公表の医師偏在指標。バブル面積：2020年人口に比例。異年次データの構造比較であり因果や売上規模を示しません。出典 S02/S21/S24。</p></div>
+<div class="panel"><canvas id="opportunityBubbleChart" role="img" aria-label="2020年人口密度と2026年医師偏在指標による二次医療圏のバブル比較"></canvas><p class="vizFoot">横軸：2020年人口・2023年公表面積から算出した密度（対数目盛）。縦軸：2026年公表の医師偏在指標。バブル面積：2020年人口に比例。異年次データの構造比較であり因果や売上規模を示しません。出典 S02/S21/S24。</p></div>
 <div class="panel"><h4>優先度の考え方</h4><div class="weightBars" id="weightBars"></div><p class="vizFoot">重みは独自設定。評点は1～5段階の仮説評価で、公開データから直接算出した成約確率ではありません。</p></div></div></div>
 <div class="panel roadmapPanel"><span class="eyebrowTiny">ACTION ROADMAP / RESEARCH FRAMEWORK</span><h3>90日と３–５年の行動ロードマップ</h3><div class="roadmapGraphic"><div><b>DAY 0–30</b><span>一次資料を整合</span><small>人口・病床・設備台帳</small></div><div><b>DAY 31–60</b><span>現地課題を把握</span><small>診療科・導入年・保守</small></div><div><b>DAY 61–90</b><span>検証テーマを絞る</span><small>連携・DX・BCP</small></div><div><b>YEAR 1–5</b><span>施策の横展開</span><small>再編・更新・地域医療</small></div></div><p class="vizFoot">推奨行動の例。特定企業の営業計画や案件情報ではありません。</p></div><div class="framework" id="framework">
 <article><h3>PEST</h3><p>政治：第8次計画/再編とDX。経済：病院収支・建設費。社会：高齢化33.21%と南北格差。技術：診断AI、画像共有、遠隔保守。</p></article>
