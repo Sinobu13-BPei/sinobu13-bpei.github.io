@@ -153,3 +153,28 @@
 @media(max-width:900px){.facility-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.assoc-results,.association-overview{grid-template-columns:1fr}.assoc-controls{display:grid;grid-template-columns:1fr}.assoc-controls select,.assoc-controls input{width:100%;min-width:0}.region-facility-summary{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:360px){.facility-mini{grid-template-columns:1fr;padding:10px}.facility-glyph{grid-row:auto;width:30px;height:30px}.facility-mini strong{font-size:1.25rem}.facility-summary-head{flex-wrap:wrap}.region-stat b{font-size:14px}}
+
+
+/* Expanded evidence-based geographical, staffing, DPC, market panels; Oct 27 2026 */
+#research-2026 .panel{min-width:0}
+#research-2026 .section-h>div{max-width:680px}
+.research-note{border:1px solid #b1d7d9;background:#ecf8f8;border-radius:10px;padding:15px 18px;margin:0 0 20px;color:#285263;font-size:12px;line-height:1.9}
+.research-note strong{color:#075e6d}
+#research-2026 .chart.tall{height:330px}
+#deepResearchAreaTable{min-width:830px}
+#deepResearchAreaTable th:not(:first-child),#deepResearchAreaTable td:not(:first-child){text-align:right}
+#deepResearchAreaTable tbody th{white-space:nowrap;font-weight:850;color:#20516a}
+#deepResearchAreaTable tbody tr:nth-child(4){background:#fff5df}
+#deepResearchAreaTable .dpc-ratio-cell{font-weight:900;color:#0d6f7e}
+#marketFacilitySnapshots{min-width:480px}
+#marketFacilitySnapshots th{white-space:nowrap}
+.diagnostic-tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:19px}
+.diagnostic-item{background:linear-gradient(110deg,#f0f9fa,#f5f8fc);border:1px solid #d6e6eb;border-radius:10px;padding:12px 14px}
+.diagnostic-item h4{font-size:14px;margin-bottom:4px;color:#0d6472}
+.diagnostic-item p{font-size:12px;margin:0 0 5px;color:#416175}
+.diagnostic-item small{color:#6a7c89;font-size:10px}
+.research-source-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:15px 0}
+.research-source-links a{display:block;padding:11px;background:#e5f1f5;border:1px solid #bcd6df;border-radius:9px;font-size:12px;font-weight:800;text-align:center;text-decoration:none}
+.research-source-links a:hover{background:#d8ecef}
+@media(max-width:900px){.research-source-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.diagnostic-tracks{grid-template-columns:1fr}#research-2026 .chart.tall{height:310px}.research-source-links{gap:7px}}
