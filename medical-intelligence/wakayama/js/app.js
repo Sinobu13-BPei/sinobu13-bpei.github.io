@@ -103,6 +103,89 @@
     matrix.innerHTML='<table aria-label="医療圏の定性評価マトリクス"><caption>全セルは独自の5段階定性評価。最終列のみ重み付き合計。</caption><thead><tr><th>医療圏</th>'+labels.map(l=>'<th>'+l+'</th>').join('')+'<th>総合/5</th></tr></thead><tbody>'+
       rows.map(a=>'<tr><td>'+escapeHTML(a.name)+'</td>'+a.score.map((v,i)=>'<td class="heat'+v+'" title="'+escapeHTML(labels[i])+'：'+v+'点（分析者による定性評価）">'+v+'</td>').join('')+'<td>'+score(a).toFixed(2)+'</td></tr>').join('')+'</tbody></table>';
   }
+
+  // Facility counts, at separate source dates: prefecture survey (2022) vs. undated JMAP display values.
+  const survey=data.facilitySurvey;
+  if(survey){
+    const official=survey.official2022, current=survey.jmapMedicalAreas, towns=survey.municipalities;
+    const associationCounts=survey.physicianAssociations;
+    const officialByName=Object.fromEntries(official.map(r=>[r.name,r]));
+    const currentByName=Object.fromEntries(current.map(r=>[r.name,r]));
+    const sumField=(rows,key)=>rows.reduce((total,r)=>total+r[key],0);
+    const areaTable=$('facilityAreaTable')?.tBodies[0];
+    if(areaTable){
+      areaTable.innerHTML=current.map(r=>{
+        const historical=officialByName[r.name];
+        return '<tr><td><b>'+escapeHTML(r.name)+'</b></td>'+
+          '<td class="num">'+fmt(historical.clinics)+'</td><td class="num">'+fmt(historical.hospitals)+'</td><td class="num">'+fmt(historical.medicalInstitutions)+'</td>'+
+          '<td class="num">'+fmt(r.clinics)+'</td><td class="num">'+fmt(r.hospitals)+'</td><td class="num">'+fmt(r.dentalClinics)+'</td><td class="num">'+fmt(r.pharmacies)+'</td>'+
+          '<td><a href="'+escapeHTML(r.sourceUrl)+'" target="_blank" rel="noopener noreferrer">JMAP原表 ↗</a></td></tr>';
+      }).join('')+'<tr class="stat-total"><td><b>7医療圏の合計</b></td>'+
+        '<td class="num">'+fmt(sumField(official,'clinics'))+'</td><td class="num">'+fmt(sumField(official,'hospitals'))+'</td><td class="num">'+fmt(sumField(official,'medicalInstitutions'))+'</td>'+
+        '<td class="num">'+fmt(sumField(current,'clinics'))+'</td><td class="num">'+fmt(sumField(current,'hospitals'))+'</td><td class="num">'+fmt(sumField(current,'dentalClinics'))+'</td><td class="num">'+fmt(sumField(current,'pharmacies'))+'</td><td>各圏域原表の和</td></tr>';
+    }
+    chart('clinics2022Chart',{
+      type:'bar',data:{labels:official.map(r=>r.name),datasets:[
+        {label:'一般診療所（2022年）',data:official.map(r=>r.clinics),backgroundColor:'#087d84',borderRadius:4},
+        {label:'病院（2022年）',data:official.map(r=>r.hospitals),backgroundColor:'#e0ad51',borderRadius:4}]},
+      options:{...chartDefault,plugins:{...chartDefault.plugins,tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.parsed.y)+'施設'}}},
+        scales:{x:{...chartDefault.scales.x,grid:{display:false}},y:{...chartDefault.scales.y,beginAtZero:true,title:{display:true,text:'施設数'}}}}
+    });
+    chart('areaFacilityTypesChart',{
+      type:'bar',data:{labels:current.map(r=>r.name),datasets:[
+        {label:'一般診療所',data:current.map(r=>r.clinics),backgroundColor:'#0c7684',borderRadius:2},
+        {label:'病院',data:current.map(r=>r.hospitals),backgroundColor:'#cf9850',borderRadius:2},
+        {label:'歯科診療所',data:current.map(r=>r.dentalClinics),backgroundColor:'#5f8fad',borderRadius:2},
+        {label:'薬局',data:current.map(r=>r.pharmacies),backgroundColor:'#8d80b8',borderRadius:2}]},
+      options:{...chartDefault,plugins:{...chartDefault.plugins,tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.parsed.y)+'施設'}}},
+        scales:{x:{...chartDefault.scales.x,stacked:true,grid:{display:false}},y:{...chartDefault.scales.y,stacked:true,beginAtZero:true,title:{display:true,text:'掲載施設数'}}}}
+    });
+    const sortedAssociations=[...associationCounts].sort((a,b)=>b.clinics-a.clinics);
+    chart('associationClinicChart',{
+      type:'bar',data:{labels:sortedAssociations.map(a=>a.name),datasets:[
+        {label:'担当市町村の一般診療所',data:sortedAssociations.map(a=>a.clinics),backgroundColor:sortedAssociations.map((a,i)=>i<2?'#0a7680':'#75b1b8'),borderRadius:3,maxBarThickness:24}]},
+      options:{...chartDefault,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'所在地ベース '+fmt(c.parsed.x)+'施設'}}},
+        scales:{x:{...chartDefault.scales.x,beginAtZero:true,title:{display:true,text:'施設数（会員施設数ではない）'}},y:{...chartDefault.scales.y,grid:{display:false},ticks:{color:'#31566a',font:{size:11}}}}}
+    });
+    const assocTbody=$('associationStatsTable')?.tBodies[0];
+    if(assocTbody){
+      assocTbody.innerHTML=associationCounts.map(a=>
+        '<tr><td><b><a href="'+escapeHTML(a.officialUrl)+'" target="_blank" rel="noopener noreferrer">'+escapeHTML(a.name)+' ↗</a></b></td>'+
+        '<td><small>'+escapeHTML(a.municipalities.join('・'))+'</small></td>'+
+        '<td>'+a.medicalAreas.map(n=>'<span class="area-tag">'+escapeHTML(n)+'</span>').join('')+(a.medicalAreas.length>1?'<small class="cross-area">医療圏をまたぐ</small>':'')+'</td>'+
+        '<td class="num"><b>'+fmt(a.clinics)+'</b></td><td class="num">'+fmt(a.hospitals)+'</td>'+
+        '<td class="num">'+fmt(a.clinics+a.hospitals)+'</td></tr>'
+      ).join('')+'<tr class="stat-total"><td><b>担当区域の合計</b></td><td colspan="2">重複なし・県内30市町村</td>'+
+        '<td class="num">'+fmt(sumField(associationCounts,'clinics'))+'</td>'+
+        '<td class="num">'+fmt(sumField(associationCounts,'hospitals'))+'</td>'+
+        '<td class="num">'+fmt(sumField(associationCounts,'clinics')+sumField(associationCounts,'hospitals'))+'</td></tr>';
+    }
+    if($('assocClinicTotal'))$('assocClinicTotal').textContent=fmt(sumField(associationCounts,'clinics'));
+    const townTbody=$('municipalityFacilityTable')?.tBodies[0];
+    function showTowns(){
+      if(!townTbody)return;
+      const term=($('townFilter')?.value||'').trim().toLocaleLowerCase('ja-JP');
+      const matches=towns.filter(t=>(t.name+' '+t.medicalArea+' '+t.association).toLocaleLowerCase('ja-JP').includes(term));
+      townTbody.innerHTML=matches.length?matches.map(t=>
+        '<tr><td><b>'+escapeHTML(t.name)+'</b></td><td>'+escapeHTML(t.medicalArea)+'</td><td>'+escapeHTML(t.association)+'</td>'+
+        '<td class="num">'+fmt(t.clinics)+'</td><td class="num">'+fmt(t.hospitals)+'</td><td class="num">'+fmt(t.clinics+t.hospitals)+'</td>'+
+        '<td><a href="'+escapeHTML(t.sourceUrl)+'" target="_blank" rel="noopener noreferrer">JMAP ↗</a></td></tr>').join('')
+        :'<tr><td colspan="7">該当する市町村はありません。</td></tr>';
+    }
+    $('townFilter')?.addEventListener('input',showTowns);showTowns();
+    const regionCardHost=$('regionQuickCards');
+    if(regionCardHost){
+      for(const button of regionCardHost.querySelectorAll('button[data-area]')){
+        const record=currentByName[button.dataset.area];
+        if(record){
+          const note=document.createElement('small');
+          note.className='quick-clinic-count';
+          note.textContent='診療所 '+fmt(record.clinics)+'／病院 '+fmt(record.hospitals)+'（JMAP）';
+          button.appendChild(note);
+        }
+      }
+    }
+  }
   const regionTbody = $('regionTable')?.tBodies[0];
   function renderRegions(){
     if(!regionTbody)return;
