@@ -30,13 +30,13 @@ function render(d){
  var byCat=[0,0,0,0,0];d.areas.forEach(function(a){a.beds24.slice(0,4).forEach(function(v,i){byCat[i]+=v;});});
  var targets=[
  ['人口',fmt(d.population.value)+'人','2026年9月1日推計・出典 S01'],
- ['65歳以上',d.population.aging2024+'%','2024年・全国'+d.population.agingNational2024+'%・出典 S03/S16'],
+ ['65歳以上',d.population.aging2025+'%','2025年国勢調査確定・出典 S23（2024年全国'+d.population.agingNational2024+'%との年次差に注意）'],
  ['病床機能報告',fmt(allBeds)+'床','2024年度・4機能＋休棟等・出典 S05'],
  ['医師',fmt(d.population.doctors2024)+'人','2024年調査・出典 S08']
  ];
  el('kpis').innerHTML=targets.map(function(k,i){return '<div class="card '+['blue','green','amber','navy'][i]+'"><div class="label">'+esc(k[0])+'</div><div class="kpi">'+esc(k[1])+'</div><div class="minor">'+esc(k[2])+'</div></div>';}).join('');
  el('population-timeline').innerHTML='<div class="card"><h3>人口：基準年を揃えて読む</h3><div class="table-scroll"><table><thead><tr><th>指標</th><th>値</th><th>基準・位置づけ</th></tr></thead><tbody>'+
- [['2025年国勢調査',fmt(d.population.census2025)+'人','2025年10月1日・2026年9月29日公表の確定値／S02'],['2026年9月推計',fmt(d.population.value)+'人','2026年9月1日／S01'],['前年同月差',fmt(d.population.fromPriorYear)+'人','2026年9月公表／S01'],['65歳以上人口割合',d.population.aging2025+'%','2025年国勢調査確定・2026年9月公表／S02'],['2026年9月の転入 / 転出',fmt(d.population.migration2026Sep.in)+' / '+fmt(d.population.migration2026Sep.out)+'人','2026年9月県月報・社会増減▲62人／S01'],['2040年将来人口', '約'+fmt(d.population.forecast2040)+'人','社人研2023年推計・概数／S09・S10']].map(function(x){return '<tr><td>'+esc(x[0])+'</td><td class="num">'+esc(x[1])+'</td><td>'+esc(x[2])+'</td></tr>';}).join('')+'</tbody></table></div><p class="minor">社人研は2020年国勢調査を基準にした将来推計。2025年・2026年の実測／推計値から2040年へ直線外挿していない。2025年国勢調査確定は速報（1,512,969人）から訂正され、1,511,783人。</p><p class="minor"><strong>市町村差：</strong>鹿児島市580,549人、姶良市は2020年比520人増、南大隅町は17.5%減、錦江町は17.3%減（S02・2025年国勢調査確報）。</p></div>';
+ [['2025年国勢調査',fmt(d.population.census2025)+'人','2025年10月1日・2026年9月29日公表の確定値／S02'],['2026年9月推計',fmt(d.population.value)+'人','2026年9月1日／S01'],['前年同月差',fmt(d.population.fromPriorYear)+'人','2026年9月公表／S01'],['65歳以上人口割合',d.population.aging2025+'%（'+fmt(d.population.elderly2025)+'人）','2025年国勢調査確定・県各歳別表／S23'],['2026年9月の転入 / 転出',fmt(d.population.migration2026Sep.in)+' / '+fmt(d.population.migration2026Sep.out)+'人','2026年9月県月報・社会増減▲62人／S01'],['2040年将来人口', '約'+fmt(d.population.forecast2040)+'人','社人研2023年推計・概数／S09・S10']].map(function(x){return '<tr><td>'+esc(x[0])+'</td><td class="num">'+esc(x[1])+'</td><td>'+esc(x[2])+'</td></tr>';}).join('')+'</tbody></table></div><p class="minor">社人研は2020年国勢調査を基準にした将来推計。2025年・2026年の実測／推計値から2040年へ直線外挿していない。2025年国勢調査確定は速報（1,512,969人）から訂正され、1,511,783人。</p><p class="minor"><strong>市町村差：</strong>鹿児島市580,549人、姶良市は2020年比520人増、南大隅町は17.5%減、錦江町は17.3%減（S02・2025年国勢調査確報）。</p></div>';
  var lines=d.areas.map(function(a){
  var tot=a.beds24.reduce(function(x,y){return x+y;},0), need=a.need25.reduce(function(x,y){return x+y;},0);
  return '<tr><td><strong>'+esc(a.name)+'</strong><div class="minor">'+esc(a.code)+'</div></td><td class="num">'+fmt(tot)+'</td><td class="num">'+fmt(need)+'</td><td class="num">'+esc(a.phys)+'</td><td>'+esc(a.drivers)+'</td></tr>';
