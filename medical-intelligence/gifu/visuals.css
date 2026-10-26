@@ -103,3 +103,29 @@
 @media(max-width:650px){.viz-surface{padding:17px}.viz-grid .v-col-4,.viz-grid .v-col-5,.viz-grid .v-col-6,.viz-grid .v-col-7,.viz-grid .v-col-8,.viz-grid .v-col-12{grid-column:span 12}.viz-grid{gap:12px}.viz-hero-feature{grid-template-columns:1fr 1fr;gap:8px}.viz-feature{padding:14px 11px}.viz-workflow,.viz-patient-path,.viz-roles,.viz-risk{grid-template-columns:1fr 1fr}.viz-workflow .viz-step:last-child{grid-column:span 2}.viz-workflow .viz-step:nth-child(2):after,.viz-workflow .viz-step:nth-child(4):after{display:none}.viz-patient-node:nth-child(2):after{display:none}.viz-patient-node{padding:12px 5px}.viz-patient-node p{display:none}.viz-poprow{grid-template-columns:52px 1fr 85px;gap:7px}.viz-mbar-row{grid-template-columns:39px 1fr 55px;gap:5px}.viz-role{padding:12px}.viz-strategy-stream{grid-template-columns:repeat(2,minmax(0,1fr))}.viz-strategy-stream>div:nth-child(2):after,.viz-strategy-stream>div:nth-child(4):after{display:none}}
 @media(max-width:380px){.viz-risk,.viz-hero-feature{grid-template-columns:1fr 1fr}.viz-feature svg{width:36px;height:36px}}
 @media print{.viz-surface{box-shadow:none;break-inside:avoid}.viz-heatwrap{overflow:visible}.viz-heat{min-width:0}.viz-heat td button{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+
+/* 2026-10-27: district association facility statistics */
+.association-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0}
+.assoc-kpi{border:1px solid #cee1e5;background:linear-gradient(135deg,#f7fcfc,#eaf5f6);border-radius:12px;padding:16px;min-width:0}
+.assoc-kpi small{display:block;font-size:11px;color:#506b77;line-height:1.6}
+.assoc-kpi strong{display:block;margin:4px 0;font-size:31px;line-height:1.5;font-weight:850;color:#145b70;font-variant-numeric:tabular-nums}
+.assoc-kpi strong span{font-size:12px;margin-left:3px}
+.assoc-areas{margin:20px 0 16px;padding:15px;border:1px solid #dce9eb;border-radius:12px;background:#fbfdfd}
+.assoc-bar-grid{display:grid;gap:10px}
+.assoc-bar{display:grid;grid-template-columns:45px minmax(0,1fr) 95px;gap:10px;align-items:center;font-size:12px}
+.assoc-bar b{color:#325d71}
+.assoc-bar strong{text-align:right;color:#265b6b;font-weight:800;white-space:nowrap}
+.assoc-bar-track{height:14px;overflow:hidden;border-radius:10px;background:#e6f0f2}
+.assoc-bar-track i{display:block;height:100%;background:linear-gradient(90deg,#137b84,#66bbc0);border-radius:10px}
+.assoc-filter-controls{margin:19px 0}
+.assoc-table{min-width:900px}
+.assoc-table thead th{position:sticky;top:0;background:#e9f4f6;z-index:1;white-space:normal;vertical-align:middle}
+.assoc-table thead th small{font-size:10px;font-weight:650;color:#4b6c78}
+.assoc-table td{font-size:12px;vertical-align:middle}
+.assoc-table td:first-child{min-width:135px}
+.assoc-table td.assoc-number{font-size:15px;font-weight:850;text-align:center;color:#135d71;font-variant-numeric:tabular-nums}
+.assoc-table td.assoc-member a{font-weight:850;white-space:nowrap;color:#217d69}
+.assoc-table td.assoc-member small{display:block;font-size:10px;color:#6a7983;margin-top:2px;white-space:nowrap}
+.assoc-table td.assoc-scope{font-size:11px;color:#526f7e;min-width:140px;max-width:240px;white-space:normal}
+@media(max-width:700px){.association-kpis{grid-template-columns:1fr 1fr}.assoc-kpi:nth-child(3){grid-column:span 2}.assoc-kpi strong{font-size:26px}.assoc-bar{grid-template-columns:35px 1fr 88px;gap:6px}.assoc-areas{padding:10px}.assoc-table td:first-child{min-width:120px}}
