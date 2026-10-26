@@ -92,6 +92,16 @@ function draw(){
     let row=document.createElement('div');row.className='region';
     let title=document.createElement('strong');title.textContent=p[0];
     let actions=document.createElement('div');actions.className='region-actions';
+    if(p[0]==='広島県'){
+      const hiroshimaMkt=document.createElement('a');
+      hiroshimaMkt.href='./hiroshima/';
+      hiroshimaMkt.target='_blank';hiroshimaMkt.rel='noopener noreferrer';
+      hiroshimaMkt.textContent='広島MKT ↗';
+      hiroshimaMkt.className='hiroshima-mkt-btn';
+      hiroshimaMkt.setAttribute('aria-label','広島県 医療マーケット総合研究2026を開く');
+      hiroshimaMkt.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:42px;background:#076d76;color:#fff;border:2px solid #064951;border-radius:9px;padding:8px 13px;font-weight:800;text-decoration:none;';
+      actions.appendChild(hiroshimaMkt);
+    }
     if(p[0]==='栃木県'){
       const tochigiLink=document.createElement('a');
       tochigiLink.href='./tochigi/';
