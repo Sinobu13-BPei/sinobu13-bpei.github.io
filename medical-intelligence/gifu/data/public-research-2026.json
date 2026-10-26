@@ -1,7 +1,7 @@
 {
   "version": "2026-10-27",
   "scope": "PUBLIC ONLY",
-  "method": "User supplied 19 files reviewed; private customer, target, device shares, contract and internal price data excluded. All public figures sourced to facility or government disclosures. Hospital facility selection is not a prefecture-wide top N ranking.",
+  "method": "User supplied 20 files reviewed; private customer, target, device shares, contract and internal price data excluded. All public figures sourced to facility or government disclosures. Hospital facility selection is not a prefecture-wide top N ranking.",
   "hospitals": [
     {
       "name": "大垣市民病院",
@@ -319,6 +319,11 @@
       "id": "G46",
       "name": "厚生労働省 医療情報ネット（ナビイ）",
       "url": "https://www.iryou.teikyouseido.mhlw.go.jp/"
+    },
+    {
+      "id": "G47",
+      "name": "岐阜県 地域医療構想・推進区域と重点支援区域",
+      "url": "https://www.pref.gifu.lg.jp/page/13850.html"
     }
   ]
 }
