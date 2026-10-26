@@ -9,12 +9,14 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 <script src="data/hiroshima-data.js" defer></script>
 <script src="js/app.js" defer></script>
+<script src="data/medical-resources.js" defer></script>
 <script src="js/visuals.js" defer></script>
+<script src="js/resources-ui.js" defer></script>
 </head><body>
 <a class="skip" href="#main">本文へ移動</a>
 <header class="top"><div class="shell top-inner">
 <a class="brand" href="../" aria-label="医療マーケット全国トップに戻る"><span class="brand-icon" aria-hidden="true">✦</span><span>MEDICAL MARKET<br><small>INTELLIGENCE / HIROSHIMA</small></span></a>
-<nav class="top-nav" aria-label="主な項目"><a href="#demography">人口・医療圏</a><a href="#services">医療体制</a><a href="#devices">機器市場</a><a href="#strategy">戦略</a><a href="#sources">出典</a></nav>
+<nav class="top-nav" aria-label="主な項目"><a href="#facility-census">施設数</a><a href="#institutions">医師会</a><a href="#demography">人口・医療圏</a><a href="#services">医療体制</a><a href="#devices">機器市場</a><a href="#strategy">戦略</a><a href="#sources">出典</a></nav>
 <a class="back" href="../">47都道府県一覧へ</a></div></header>
 <svg class="svg-sprites" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" width="0" height="0">
 <defs>
@@ -80,6 +82,19 @@
    </svg></div>
   </div>
 </section>
+<section id="facility-census" class="section tint" aria-label="広島県医療圏別施設数"><div class="shell">
+<div class="section-h"><div><span class="eyebrow dark">MEDICAL INFRASTRUCTURE / OFFICIAL DATA 2022</span><h2>7医療圏の病院・診療所・歯科・薬局数</h2></div><p>医療施設数と医師会の会員施設数を分けて表示。第8次広島県保健医療計画・資料編353ページ掲載の2022年医療施設調査等に統一。</p></div>
+<div class="facility-metrics" id="facilityTotals" aria-label="広島県の施設集計"></div>
+<div class="split">
+<article class="panel"><h3>医療圏別 一般診療所数</h3><div class="chart tall"><canvas id="clinicCountChart" role="img" aria-label="7医療圏別の一般診療所数"></canvas></div><p class="small">一般診療所の施設数。医師会への入会施設数や医師人数ではありません。</p></article>
+<article class="panel"><h3>一般診療所の人口10万人当たり施設数</h3><div class="chart tall"><canvas id="clinicRateChart" role="img" aria-label="7医療圏別の一般診療所密度比較"></canvas></div><p class="small">人口10万人対指標は公式資料に載る2022年基準人口による値。2025年国勢調査人口で割り直していません。</p></article>
+</div>
+<div class="panel"><div class="panel-head"><h3>医療圏別の医療資源 詳細比較表</h3><span class="chip accent">医療施設調査・2022年</span></div>
+<div class="table-scroll"><table id="facilityCensusTable"><caption>出典：広島県第8次保健医療計画 資料編p353（病院・診療所・歯科診療所：医療施設調査／薬局：衛生行政報告例、2022年）</caption>
+<thead><tr><th>医療圏</th><th>病院</th><th>一般病院</th><th>精神科病院</th><th>一般診療所</th><th>有床診療所</th><th>無床診療所</th><th>歯科診療所</th><th>薬局</th><th>診療所／10万人</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
+<p class="small">出典：<a href="https://www.pref.hiroshima.lg.jp/uploaded/attachment/572533.pdf#page=7" target="_blank" rel="noopener noreferrer">広島県「第8次保健医療計画」資料編353ページ（2022年） ↗</a>。施設数は医療機関所在地で集計。診療所の有床・無床は「一般診療所」の内訳です。薬局は医療施設調査ではなく衛生行政報告例に基づきます。</p></div>
+<div class="panel"><h3>病院・一般診療所・歯科・薬局の施設構成</h3><div class="chart tall"><canvas id="multiFacilityChart" role="img" aria-label="7医療圏の病院・一般診療所・歯科診療所・薬局の施設数 積み上げ棒グラフ"></canvas></div><p class="small">診療所、病院、歯科診療所、薬局は別の施設区分です。施設総数を示すための単純合算は、医療機関数と薬局数を混合するため行いません。</p></div>
+</div></section>
 <section id="demography" class="section tint"><div class="shell"><div class="section-h"><div><span class="eyebrow dark">02 / DEMOGRAPHY & REGIONS</span><h2>人口構造と7医療圏</h2></div><p>人口は2020年国勢調査・2026年推計・社人研将来推計。異なる統計系列を明示します。</p></div>
 <div class="split"><article class="panel"><h3>広島県の人口推移と将来推計</h3><div class="chart"><canvas id="populationChart" aria-label="広島県の実績・推計人口チャート" role="img"></canvas></div><p class="small">2020年は国勢調査、2026年は県推計、2030年以降は社人研2023年推計。推計起点が異なり、系列を連結した予測ではありません。</p></article>
 <article class="panel"><h3>地域による課題の分断</h3><div class="compare"><b>広島市</b><span>2025国勢調査：1,171,915人。2020年から2.4%減。安佐北・安芸で減少率が高い。</span><b>備北</b><span>広い山間地を少数拠点で支える。救急搬送、代診、遠隔診療と保守の移動負荷。</span><b>瀬戸内島しょ</b><span>江田島・大崎上島・佐木島・百島など海上交通の制約。災害時の迂回と代替医療を重要視。</span></div><p class="small"><a href="https://www.city.hiroshima.lg.jp/shisei/toukei/1027865/1027866/1050276.html" target="_blank" rel="noopener">出典：広島市2025年国勢調査（確定） ↗</a></p></article></div>
@@ -131,6 +146,14 @@
 <p class="small">隣接県比較は医師偏在指標に限定。装置設置密度を同じ指標として誤認しないよう、台数/人口の比較は全県同一の設置台数データが揃うまで掲載を保留します。</p>
 <p class="small">出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kinkyu/index.html" target="_blank" rel="noopener">厚労省「医師偏在指標」2026年4月版</a>。指標は患者流出入・性年齢別受療率等で補正されるため、人口10万人対医師数と同義ではありません。医師多数/少数区域の法的区分は、最新医師確保計画で個別確認が必要です。</p></article>
 <article class="panel"><h3>大学・医師会・医療DX</h3><p>広島大学病院：医学教育・高度医療・臨床研究の中心。広島県医師会と県が構築・運営するHMネットは県域の医療情報共有基盤で、診療所・病院・薬局の接続に関わります。</p><p><a href="https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/" target="_blank" rel="noopener">市区郡地区医師会一覧 ↗</a>　<a href="https://www.hm-net.or.jp/about/index.html" target="_blank" rel="noopener">HMネット概要 ↗</a></p><p>保健所の所管は政令市・中核市・県で異なります。行政窓口の所在と管轄は厚労省の一覧で確認できます。</p><p><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/34hiroshima.html" target="_blank" rel="noopener">厚労省 保健所所管区域 ↗</a></p></article></div>
+<div class="panel association-panel"><div class="panel-head"><h3>地区医師会・会員施設と圏域医療資源</h3><span class="chip accent">23の市郡地区医師会＋区医師会例</span></div>
+<p>広島県医師会の公式一覧に掲載された各地域の医師会を、医療圏と関連づけて掲載。各医師会の会員施設数は、公表資料で確認できた組織のみ表示します。「圏域の一般診療所数」は各医師会が保有・所属する施設数ではありません。</p>
+<div class="association-overview" id="associationOverview"></div>
+<div class="assoc-controls"><label for="assocArea">表示する医療圏</label><select id="assocArea"><option value="">全7医療圏</option><option>広島</option><option>広島西</option><option>呉</option><option>広島中央</option><option>尾三</option><option>福山・府中</option><option>備北</option></select><label for="assocQuery">医師会名を検索</label><input type="search" id="assocQuery" placeholder="例：尾道、因島、福山、西区"></div>
+<div class="assoc-card-grid" id="medicalAssociations"></div>
+<div class="notice"><strong>集計単位の違い：</strong>2022年施設数＝県の医療圏統計。会員施設数・会員数＝個別医師会が独自に公表した数値。医療圏と医師会の境界は一致せず、福山市・尾道市などは複数の地区医師会に分かれます。公開のない数値は「未確認」と表記し、医療圏の施設数を割り振った推計値は出しません。</div>
+<p class="small">地区医師会一覧：<a href="https://www.hiroshima.med.or.jp/ishikai/shikugunchiku/" target="_blank" rel="noopener noreferrer">広島県医師会 ↗</a>　県医師会会員数：<a href="https://www.med.or.jp/jma/about/member.html" target="_blank" rel="noopener noreferrer">日本医師会・2025年12月1日現在 ↗</a></p>
+</div>
 <div class="panel"><h3>医師会・保健所の公開窓口</h3><div class="split"><div><h4>地域医師会</h4><div id="associationList" class="compact-list"></div></div><div><h4>保健所・支所</h4><div id="healthOfficeList" class="compact-list"></div></div></div></div>
 </section>
 <section id="devices" class="section tint"><div class="shell"><div class="section-h"><div><span class="eyebrow dark">06 / MEDICAL DEVICE INSTALLED BASE</span><h2>医療機器市場と更新需要</h2></div><p>施設別公表台数と県全数・メーカー別シェアは別物。未検証の推計を事実扱いしません。</p></div>
