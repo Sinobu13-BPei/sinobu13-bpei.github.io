@@ -92,6 +92,17 @@ function draw(){
     let row=document.createElement('div');row.className='region';
     let title=document.createElement('strong');title.textContent=p[0];
     let actions=document.createElement('div');actions.className='region-actions';
+    if(p[0]==='宮崎県'){
+      const miyazakiLink=document.createElement('a');
+      miyazakiLink.href='./miyazaki/';
+      miyazakiLink.target='_blank';
+      miyazakiLink.rel='noopener noreferrer';
+      miyazakiLink.className='miyazaki-mkt-btn';
+      miyazakiLink.textContent='宮崎MKT ↗';
+      miyazakiLink.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:42px;background:#0d8187;color:#fff;border:2px solid #095c60;border-radius:10px;padding:7px 13px;text-decoration:none;font-weight:800;';
+      miyazakiLink.setAttribute('aria-label','宮崎県の医療機器市場・地域医療分析を開く');
+      actions.appendChild(miyazakiLink);
+    }
     if(p[0]==='広島県'){
       const hiroshimaMkt=document.createElement('a');
       hiroshimaMkt.href='./hiroshima/';
