@@ -12,7 +12,11 @@
 <header class="mast"><div class="shell"><div class="mast-top"><a class="home" href="../">MEDICAL MARKET INTELLIGENCE</a><span class="edition">TOCHIGI / PUBLIC RESEARCH · 2026.10.26</span></div>
 <h1>栃木県 医療機器市場・<br>地域医療インテリジェンス</h1>
 <p class="lede">6つの二次医療圏を、人口変動・医師偏在・病床機能・検査提供体制から立体的に分析。<strong>特定メーカーの立場に依存しない独立調査</strong>です。</p>
-<div class="hero-links"><a href="#strategy">Where to Play / How to Win</a><a href="#areas">医療圏比較へ</a><a href="../">全国MKTに戻る</a></div></div></header>
+<div class="hero-figures" aria-label="地域医療市場の分析の3つの視点">
+<span><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 3v18M3 7h18M17 3v18M3 17h18"/></svg> 6 二次医療圏</span>
+<span><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg> 大学・医師・病床</span>
+<span><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 16l6-7 5 4 7-9M3 20h18"/></svg> 医療機器需要</span>
+</div><div class="hero-links"><a href="#strategy">Where to Play / How to Win</a><a href="#areas">医療圏比較へ</a><a href="../">全国MKTに戻る</a></div></div></header>
 <nav class="page-nav" aria-label="ページ内メニュー"><div class="shell"><a href="#summary">サマリー</a><a href="#demography">人口・医療圏</a><a href="#hospitals">医療提供体制</a><a href="#institutions">大学・医師会・行政</a><a href="#equipment">機器市場</a><a href="#distribution">流通</a><a href="#environment">外部環境</a><a href="#strategy">戦略提言</a><a href="#sources">出典一覧</a></div></nav>
 <main id="main" class="shell">
 <section id="summary" class="section"><div class="section-top"><span class="chapter">01 · EXECUTIVE SUMMARY</span><h2>重要指標と意思決定の論点</h2></div><div class="stats" id="statCards"></div>
@@ -37,6 +41,15 @@
 <section id="hospitals" class="section"><div class="section-top"><span class="chapter">03 · PROVIDER NETWORK</span><h2>医療提供体制と病院群</h2></div>
 <div class="two"><div><h3>医療提供体制の読み方</h3><p>大学病院・高度急性期の集積は県南、都市部の救急・紹介拠点は宇都宮に存在します。県北・県西・両毛では救急搬送時間と県境を越える受療が重要です。</p><p>特定機能病院、地域医療支援病院、がん診療連携拠点病院、救命救急センター、災害拠点病院、へき地医療拠点病院は、県保健医療計画・2026年機能別医療機関名簿で区分別に確認します。下記は主要施設の例示で、指定施設の全件リストではありません。</p><p class="caption">出典 <a href="#S06">[S06]</a> <a href="#S09">[S09]</a></div>
 <div><h3>医師偏在と地域連携</h3><div class="chartWrap"><canvas id="physChart" aria-label="二次医療圏別医師偏在指標"></canvas></div><p class="caption">公表2024年資料の新指標。全国255.6、栃木230.5、県北・県西・両毛が医師少数区域。指標は医師数の絶対的な充足を示しません。<a href="#S07">[S07]</a></p></div></div>
+<h3>全国・隣接県との医師偏在指標比較</h3>
+<div class="table-scroll"><table><caption>令和6年度資料・同一指標による比較（多寡は医師数充足の直接判定ではない）</caption>
+<thead><tr><th>地域</th><th>医師偏在指標</th><th>全国を100とした比率</th><th>読み取り</th></tr></thead>
+<tbody><tr><th>全国</th><td>255.6</td><td>100.0%</td><td>比較基準</td></tr>
+<tr><th>栃木県</th><td>230.5</td><td>90.2%</td><td>全国より低い</td></tr>
+<tr><th>群馬県（隣接）</th><td>219.7</td><td>86.0%</td><td>栃木県より低い</td></tr>
+<tr><th>茨城県（隣接）</th><td>193.6</td><td>75.7%</td><td>栃木県より低い</td></tr>
+</tbody></table></div>
+<p class="caption">出典：栃木県医師偏在指標公表資料 <a href="#S07">[S07]</a>、同表の都道府県比較。隣接する福島県・埼玉県も含めた全件比較には原表再抽出が必要です。比率は表示数値からの独自計算です。</p>
 <label for="facilityFilter" class="fieldlabel">施設一覧の絞り込み</label><select id="facilityFilter"><option value="all">すべて</option><option value="病院">病院</option><option value="行政">行政</option><option value="医師会">医師会</option><option value="保健所">保健所</option></select>
 <div class="facility-grid" id="facilityList"></div>
 <p class="caption">Googleマップは施設名称＋所在地の検索。地理院地図リンクは掲載自治体周辺の概略中心へ移動するもので<strong>施設位置のピンポイント案内ではありません</strong>。各施設の公式住所・指定状況は <a href="#S09">[S09]</a> または各公式サイトで要確認。</p></section>
