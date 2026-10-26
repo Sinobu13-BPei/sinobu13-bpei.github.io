@@ -1,0 +1,637 @@
+{
+  "regions": [
+    {
+      "id": "0201",
+      "name": "津軽",
+      "city": "弘前市",
+      "lat": 40.604,
+      "lon": 140.464,
+      "pop2020": 275508,
+      "pop2024": 262000,
+      "pop2040": 203000,
+      "bed2024": [
+        446,
+        1838,
+        520,
+        660,
+        127
+      ],
+      "need2025": [
+        318,
+        1110,
+        1244,
+        467
+      ],
+      "bed2026": [
+        460,
+        1608,
+        591,
+        701
+      ],
+      "doctor": 259.7,
+      "doctors2024": 884,
+      "local": "大学病院・高度医療・専門医療の中心",
+      "demand": "紹介・手術・がん、循環器、画像診断の高度化／回復期への移行",
+      "issues": "回復期病床の不足、人口縮小、専門医・医療人材の集中と周辺への派遣",
+      "facilities": [
+        "弘前大学医学部附属病院",
+        "国立病院機構弘前総合医療センター",
+        "弘前市立病院"
+      ],
+      "products": "MRI・CT・血管撮影／内視鏡・超音波・画像IT／回復期運用",
+      "actions": "大学病院との地域連携、紹介患者の画像共有、回復期病院の検査・保守網整備",
+      "scores": [
+        4,
+        5,
+        5,
+        4,
+        3
+      ],
+      "total2024": 3591,
+      "total2025need": 3139,
+      "total2026": 3360,
+      "score": 87
+    },
+    {
+      "id": "0202",
+      "name": "八戸",
+      "city": "八戸市",
+      "lat": 40.512,
+      "lon": 141.488,
+      "pop2020": 310282,
+      "pop2024": 300000,
+      "pop2040": 239000,
+      "bed2024": [
+        116,
+        1574,
+        662,
+        636,
+        189
+      ],
+      "need2025": [
+        323,
+        1122,
+        1082,
+        704
+      ],
+      "bed2026": [
+        110,
+        1565,
+        681,
+        612
+      ],
+      "doctor": 179.3,
+      "doctors2024": 622,
+      "local": "県南部の基幹・救急と岩手県北をまたぐ広域流動",
+      "demand": "救急・手術・脳卒中・心血管疾患／救命救急と後方支援",
+      "issues": "医師偏在、広域救急の負荷、急性期・回復期の適正配置",
+      "facilities": [
+        "八戸市立市民病院",
+        "八戸赤十字病院",
+        "八戸市立市民病院"
+      ],
+      "products": "CT・MRI・血管撮影／US・心電図／在宅・施設IT",
+      "actions": "広域救急の画像連携、検査室省人化、保守SLAと遠隔支援",
+      "scores": [
+        5,
+        4,
+        5,
+        4,
+        4
+      ],
+      "total2024": 3177,
+      "total2025need": 3231,
+      "total2026": 2968,
+      "score": 90
+    },
+    {
+      "id": "0203",
+      "name": "青森",
+      "city": "青森市",
+      "lat": 40.822,
+      "lon": 140.747,
+      "pop2020": 295593,
+      "pop2024": 283000,
+      "pop2040": 220000,
+      "bed2024": [
+        595,
+        1196,
+        737,
+        634,
+        147
+      ],
+      "need2025": [
+        338,
+        900,
+        1127,
+        659
+      ],
+      "bed2026": [
+        538,
+        1096,
+        789,
+        590
+      ],
+      "doctor": 186.0,
+      "doctors2024": 626,
+      "local": "行政・県中枢・病院再編の政策拠点",
+      "demand": "統合新病院、がん・救急・周産期の高度医療と地域病院間連携",
+      "issues": "新病院整備計画変更、人口減少と設備投資・負債管理、患者導線",
+      "facilities": [
+        "青森県立中央病院",
+        "青森市民病院",
+        "青森新都市病院"
+      ],
+      "products": "統合病院のCT・MRI・画像IT／保守・データ移行／US",
+      "actions": "統合前の医療機器資産棚卸・移管と患者データ接続を提案、経営・運用面を重視",
+      "scores": [
+        5,
+        5,
+        5,
+        4,
+        5
+      ],
+      "total2024": 3309,
+      "total2025need": 3024,
+      "total2026": 3013,
+      "score": 97
+    },
+    {
+      "id": "0204",
+      "name": "西北五",
+      "city": "五所川原市",
+      "lat": 40.807,
+      "lon": 140.442,
+      "pop2020": 120470,
+      "pop2024": 115000,
+      "pop2040": 77000,
+      "bed2024": [
+        0,
+        392,
+        125,
+        188,
+        144
+      ],
+      "need2025": [
+        43,
+        270,
+        246,
+        245
+      ],
+      "bed2026": [
+        16,
+        405,
+        106,
+        156
+      ],
+      "doctor": 170.0,
+      "doctors2024": 166,
+      "local": "広域連合型の医療・沿岸・過疎圏",
+      "demand": "基幹病院・診療所・巡回診療の画像診断と地域完結性",
+      "issues": "人口縮小・移動距離・患者流出、在宅復帰支援不足",
+      "facilities": [
+        "つがる総合病院",
+        "鶴田診療所"
+      ],
+      "products": "中型CT／US・一般X線／保守・遠隔読影接続",
+      "actions": "つがる総合病院を中心に診療所を結ぶ更新・代替機・保守体制",
+      "scores": [
+        2,
+        4,
+        3,
+        2,
+        3
+      ],
+      "total2024": 849,
+      "total2025need": 804,
+      "total2026": 683,
+      "score": 56
+    },
+    {
+      "id": "0205",
+      "name": "上十三",
+      "city": "十和田市",
+      "lat": 40.613,
+      "lon": 141.206,
+      "pop2020": 167931,
+      "pop2024": 161000,
+      "pop2040": 127000,
+      "bed2024": [
+        87,
+        815,
+        79,
+        174,
+        65
+      ],
+      "need2025": [
+        96,
+        506,
+        371,
+        203
+      ],
+      "bed2026": [
+        87,
+        707,
+        98,
+        189
+      ],
+      "doctor": 134.2,
+      "doctors2024": 212,
+      "local": "十和田・三沢・六ヶ所を含む広域医療・産業立地圏",
+      "demand": "救急・生活習慣病・産業関連人口の診療と遠隔医療",
+      "issues": "回復期機能の不足と医師偏在、地理的分散",
+      "facilities": [
+        "十和田市立中央病院",
+        "三沢市立三沢病院"
+      ],
+      "products": "CT・US／透析・心電図／救急遠隔支援",
+      "actions": "十和田・三沢の機能分担、少人数運用可能な機器と教育・保守を組み合わせる",
+      "scores": [
+        3,
+        5,
+        3,
+        3,
+        4
+      ],
+      "total2024": 1220,
+      "total2025need": 1176,
+      "total2026": 1081,
+      "score": 72
+    },
+    {
+      "id": "0206",
+      "name": "下北",
+      "city": "むつ市",
+      "lat": 41.292,
+      "lon": 141.183,
+      "pop2020": 68200,
+      "pop2024": 65000,
+      "pop2040": 47000,
+      "bed2024": [
+        6,
+        359,
+        78,
+        80,
+        19
+      ],
+      "need2025": [
+        39,
+        162,
+        168,
+        84
+      ],
+      "bed2026": [
+        6,
+        359,
+        78,
+        80
+      ],
+      "doctor": 187.1,
+      "doctors2024": 101,
+      "local": "下北半島・冬季交通・へき地対策",
+      "demand": "遠隔地の救急、がん診療、在宅と災害時の診療継続",
+      "issues": "道路・冬季・人材確保・機器保守の供給制約",
+      "facilities": [
+        "むつ総合病院",
+        "大間病院"
+      ],
+      "products": "汎用CT・US・一般X線／保守遠隔・BCP",
+      "actions": "共同保守・交換機手配、代替交通路・修理部品の備蓄設計",
+      "scores": [
+        2,
+        4,
+        3,
+        1,
+        3
+      ],
+      "total2024": 542,
+      "total2025need": 453,
+      "total2026": 523,
+      "score": 53
+    }
+  ],
+  "facilities": [
+    {
+      "name": "弘前大学医学部附属病院",
+      "area": "津軽",
+      "address": "青森県弘前市本町53",
+      "lat": 40.5974,
+      "lon": 140.4705,
+      "category": "大学・特定機能病院",
+      "url": "https://www.med.hirosaki-u.ac.jp/hospital/"
+    },
+    {
+      "name": "国立病院機構弘前総合医療センター",
+      "area": "津軽",
+      "address": "青森県弘前市富野町1",
+      "lat": 40.591,
+      "lon": 140.479,
+      "category": "公的基幹",
+      "url": "https://hirosaki.hosp.go.jp/"
+    },
+    {
+      "name": "弘前市医師会",
+      "area": "津軽",
+      "address": "青森県弘前市野田2-7-1",
+      "lat": 40.609,
+      "lon": 140.483,
+      "category": "医師会",
+      "url": "http://www.hirosaki.aomori.med.or.jp/"
+    },
+    {
+      "name": "中南保健所",
+      "area": "津軽",
+      "address": "青森県弘前市下白銀町14-2",
+      "lat": 40.607,
+      "lon": 140.462,
+      "category": "保健所",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/02aomori.html"
+    },
+    {
+      "name": "八戸市立市民病院",
+      "area": "八戸",
+      "address": "青森県八戸市田向3丁目1-1",
+      "lat": 40.489,
+      "lon": 141.503,
+      "category": "救急・地域がん拠点",
+      "url": "https://www.hospital.hachinohe.aomori.jp/"
+    },
+    {
+      "name": "八戸赤十字病院",
+      "area": "八戸",
+      "address": "青森県八戸市田面木中明戸2",
+      "lat": 40.496,
+      "lon": 141.453,
+      "category": "公的基幹",
+      "url": "https://www.hachinohe.jrc.or.jp/"
+    },
+    {
+      "name": "八戸市医師会",
+      "area": "八戸",
+      "address": "青森県八戸市田向3-6-20",
+      "lat": 40.491,
+      "lon": 141.51,
+      "category": "医師会",
+      "url": "http://www.hachinohe.aomori.med.or.jp/ishikai/"
+    },
+    {
+      "name": "八戸市保健所",
+      "area": "八戸",
+      "address": "青森県八戸市田向3-6-1",
+      "lat": 40.492,
+      "lon": 141.506,
+      "category": "保健所",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/02aomori.html"
+    },
+    {
+      "name": "三戸保健所",
+      "area": "八戸",
+      "address": "青森県八戸市尻内町鴨田7",
+      "lat": 40.51,
+      "lon": 141.419,
+      "category": "保健所",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/02aomori.html"
+    },
+    {
+      "name": "青森県立中央病院",
+      "area": "青森",
+      "address": "青森県青森市東造道2-1-1",
+      "lat": 40.825,
+      "lon": 140.794,
+      "category": "県がん拠点・高度医療",
+      "url": "https://aomori-kenbyo.jp/"
+    },
+    {
+      "name": "青森市民病院",
+      "area": "青森",
+      "address": "青森県青森市勝田1-14-20",
+      "lat": 40.814,
+      "lon": 140.753,
+      "category": "市立基幹",
+      "url": "https://www.city.aomori.aomori.jp/aomoricity_hospital/"
+    },
+    {
+      "name": "青森県庁",
+      "area": "青森",
+      "address": "青森県青森市長島1-1-1",
+      "lat": 40.824,
+      "lon": 140.74,
+      "category": "行政",
+      "url": "https://www.pref.aomori.lg.jp/"
+    },
+    {
+      "name": "青森県医師会",
+      "area": "青森",
+      "address": "青森県青森市新町2-8-21",
+      "lat": 40.829,
+      "lon": 140.743,
+      "category": "医師会",
+      "url": "https://www.aomori.med.or.jp/"
+    },
+    {
+      "name": "青森市医師会",
+      "area": "青森",
+      "address": "青森県青森市勝田1-16-16",
+      "lat": 40.812,
+      "lon": 140.758,
+      "category": "医師会",
+      "url": "http://www.aoshi.aomori.med.or.jp/"
+    },
+    {
+      "name": "青森市保健所",
+      "area": "青森",
+      "address": "青森県青森市佃2-19-13",
+      "lat": 40.82,
+      "lon": 140.785,
+      "category": "保健所",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/02aomori.html"
+    },
+    {
+      "name": "東津軽保健所",
+      "area": "青森",
+      "address": "青森県青森市第二問屋町4-11-6",
+      "lat": 40.793,
+      "lon": 140.765,
+      "category": "保健所",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/02aomori.html"
+    },
+    {
+      "name": "つがる総合病院",
+      "area": "西北五",
+      "address": "青森県五所川原市岩木町12-3",
+      "lat": 40.806,
+      "lon": 140.439,
+      "category": "広域連合基幹",
+      "url": "https://www.tsgren.jp/"
+    },
+    {
+      "name": "西北保健所",
+      "area": "西北五",
+      "address": "青森県五所川原市末広町14",
+      "lat": 40.81,
+      "lon": 140.449,
+      "category": "保健所",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/02aomori.html"
+    },
+    {
+      "name": "十和田市立中央病院",
+      "area": "上十三",
+      "address": "青森県十和田市西十二番町14-8",
+      "lat": 40.615,
+      "lon": 141.214,
+      "category": "地域がん診療病院",
+      "url": "https://www.hp-chuou-towada.towada.aomori.jp/"
+    },
+    {
+      "name": "三沢市立三沢病院",
+      "area": "上十三",
+      "address": "青森県三沢市三沢堀口164-65",
+      "lat": 40.69,
+      "lon": 141.37,
+      "category": "自治体病院",
+      "url": "https://www.misawa-hospital.jp/"
+    },
+    {
+      "name": "上北保健所",
+      "area": "上十三",
+      "address": "青森県十和田市西二番町10-15",
+      "lat": 40.61,
+      "lon": 141.209,
+      "category": "保健所",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/02aomori.html"
+    },
+    {
+      "name": "むつ総合病院",
+      "area": "下北",
+      "address": "青森県むつ市小川町1-2-8",
+      "lat": 41.289,
+      "lon": 141.211,
+      "category": "地域がん診療病院",
+      "url": "https://www.hospital-mutsu.or.jp/"
+    },
+    {
+      "name": "下北保健所",
+      "area": "下北",
+      "address": "青森県むつ市中央1-3-33",
+      "lat": 41.293,
+      "lon": 141.185,
+      "category": "保健所",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/02aomori.html"
+    }
+  ],
+  "compare": [
+    {
+      "name": "青森",
+      "p2020": 1237984,
+      "p2050": 754751
+    },
+    {
+      "name": "岩手",
+      "p2020": 1210534,
+      "p2050": 783000
+    },
+    {
+      "name": "秋田",
+      "p2020": 959502,
+      "p2050": 560000
+    },
+    {
+      "name": "宮城",
+      "p2020": 2301996,
+      "p2050": 1830000
+    },
+    {
+      "name": "全国",
+      "p2020": 126146099,
+      "p2050": 104686000
+    }
+  ],
+  "cities": [
+    {
+      "name": "青森市",
+      "pop202604": 252940
+    },
+    {
+      "name": "弘前市",
+      "pop202604": 154117
+    },
+    {
+      "name": "八戸市",
+      "pop202604": 203452
+    }
+  ],
+  "retail": [
+    {
+      "name": "シバタ医理科",
+      "place": "弘前市",
+      "service": "医療機器・消耗品・設備",
+      "url": "http://www.shibatairika.com/",
+      "src": "retail1"
+    },
+    {
+      "name": "レジットメディカル",
+      "place": "青森市",
+      "service": "医療機器・医薬品・介護福祉機器",
+      "url": "https://legitmedical.co.jp/",
+      "src": "retail2"
+    },
+    {
+      "name": "北斗医理科",
+      "place": "弘前市",
+      "service": "医療機器、設備、保守・点検",
+      "url": "https://www.hokuto-irika.jp/outline.html",
+      "src": "retail3"
+    },
+    {
+      "name": "共立医科器械",
+      "place": "岩手県を拠点とする広域事業者",
+      "service": "医療機器・材料",
+      "url": "https://www.google.com/search?q=%E5%85%B1%E7%AB%8B%E5%8C%BB%E7%A7%91%E5%99%A8%E6%A2%B0",
+      "src": "retail2"
+    },
+    {
+      "name": "協和医療器",
+      "place": "八戸市",
+      "service": "医療機器卸売・機器対応",
+      "url": "https://www.google.com/search?q=%E5%8D%94%E5%92%8C%E5%8C%BB%E7%99%82%E5%99%A8+%E5%85%AB%E6%88%B8",
+      "src": "retail1"
+    },
+    {
+      "name": "江渡商事",
+      "place": "青森県に拠点を置く事業者",
+      "service": "画像診断関連",
+      "url": "https://www.google.com/search?q=%E6%B1%9F%E6%B8%A1%E5%95%86%E4%BA%8B+%E5%8C%BB%E7%99%82%E6%A9%9F%E5%99%A8",
+      "src": "retail1"
+    }
+  ],
+  "sources": {
+    "pop": "国立社会保障・人口問題研究所「日本の地域別将来推計人口（令和5年推計）」; https://www.ipss.go.jp/syoushika/tohkei/Data/Popular2026/T12-06.files/sheet001.htm （2023年12月推計、2026年資料集）",
+    "jmap": "日本医師会JMAP「青森県の将来推計人口」; https://www.jmap.jp/cities/detail/pref/2?pref_id=2 （2023年12月推計）",
+    "bed": "青森県「令和6年度病床機能報告集計結果」; https://www.pref.aomori.lg.jp/soshiki/kenko/iryo/byousyoukinouhoukoku.html （2024年7月1日）",
+    "needs": "厚生労働省・青森県地域医療構想に基づく2025年必要病床数、SCUEL再整理; https://scueldata.me/ph/plan/p/02/ （2025年必要量・2026年10月14日更新）",
+    "plan": "青森県「第8次青森県保健医療計画」; https://www.pref.aomori.lg.jp/soshiki/kenko/iryo/iryoukeikaku.html （2024–2029年度、2026年7月修正版）",
+    "physician": "SCUEL「青森県の医師数・医師偏在指標」厚生労働省集計; https://scueldata.me/insight/workforce/doctor/aomori/ （医師数2024年・偏在指標2026年公表）",
+    "dx": "青森県「青森県外来医療計画と医療機器の共同利用」; https://www.pref.aomori.lg.jp/soshiki/kenko/iryo/gairaiiryokeikaku.html （2026年1月時点の共同利用計画）",
+    "med": "青森県「がん医療提供体制」; https://www.pref.aomori.lg.jp/soshiki/kenko/ganseikatsu/suisinbyouin.html （2026年8月26日）",
+    "collab": "青森県「あおもり医療連携推進機構・参加団体追加」; https://www.pref.aomori.lg.jp/release/2026/81139.html （2026年8月5日）",
+    "project": "青森県立中央病院「共同経営・統合新病院整備について」; https://aomori-kenbyo.jp/about/review-meeting/ （2025年基本計画・2026年継続状況確認先）",
+    "project26": "青森県「地域医療構想調整会議」; https://www.pref.aomori.lg.jp/soshiki/kenko/iryo/chouseikaigi.html （2026年3月6日・病床数の見直し）",
+    "assoc": "青森県医師会「県内郡市医師会事務局」; https://www.aomori.med.or.jp/common/jimukyoku.html （参照2026年10月）",
+    "health": "厚生労働省「青森県の保健所所管区域」; https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/02aomori.html （参照2026年10月）",
+    "move": "総務省統計局「住民基本台帳人口移動報告2025年結果」; https://www.stat.go.jp/data/idou/2025np/jissu/youyaku/index.html （2026年2月・4月公表）",
+    "city": "青森県オープンデータ「令和8年4月1日推計人口」; https://opendata.pref.aomori.lg.jp/dataset/2437/resource/29070/content.html?page=3 （2026年4月）",
+    "fund": "青森県「地域医療構想」「地域医療介護総合確保基金」; https://www.pref.aomori.lg.jp/soshiki/kenko/iryo/tiikiiryokousou_01.html （2025年）",
+    "cab": "青森県「令和6年度青森県計画事後評価」; https://www.pref.aomori.lg.jp/soshiki/kenko/iryo/files/R6kenkeikaku_jigohyoka.pdf （2026年）",
+    "medical_device": "厚生労働省「令和7年度病床機能報告公表データ」（施設票・医療機器台数）; https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/open_data_00020.html （2025年度報告）",
+    "shared": "青森県「医療機器共同利用計画・稼働状況」; https://www.pref.aomori.lg.jp/soshiki/kenko/iryo/gairaiiryokeikaku.html （2026年1月）",
+    "local": "国勢調査2020 二次医療圏値（総務省、二次利用にあたって定義と区域を照合）; https://www.e-stat.go.jp/ （2020年）",
+    "stats": "青森県「令和5年保健統計年報」; https://www.pref.aomori.lg.jp/soshiki/kenko/kkenkofu/05nenpou_00.html （2023年・2026年3月修正）",
+    "regions": "厚生労働省病床機能報告の区域別整理; https://scueldata.me/ph/plan/p/02/ （2026年10月14日）",
+    "newhosp": "青森市「共同経営・統合新病院基本計画」; https://www.city.aomori.aomori.jp/aomoricity_hospital/shoukai/1003294/1009581/1008651.html （2025年3月策定）",
+    "suib": "青森県医師会; https://www.aomori.med.or.jp/ （参照2026年10月）",
+    "retail1": "シバタ医理科; http://www.shibatairika.com/ （会社公式サイト、参照2026年10月）",
+    "retail2": "レジットメディカル; https://legitmedical.co.jp/ （会社公式サイト、2026年10月時点）",
+    "retail3": "北斗医理科; https://www.hokuto-irika.jp/outline.html （会社公式サイト、参照2026年10月）"
+  },
+  "updated": "2026-10-26"
+}
