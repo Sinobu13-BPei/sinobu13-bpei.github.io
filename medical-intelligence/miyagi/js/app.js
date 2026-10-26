@@ -20,6 +20,7 @@ $("assessment").innerHTML=D.weightLabels.map((x,i)=>'<span class="pill">'+esc(x)
 $("association-list").innerHTML=D.associations.map(a=>'<li>'+esc(a)+' '+link('https://www.miyagi.med.or.jp/',"県医師会")+' '+link('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(a),"Googleマップ")+' <span class="note">個別公式HP未確認</span></li>').join('');
 $("source-list").innerHTML=D.sources.map(s=>'<div class="source" id="'+esc(s[0])+'">'+link(safeUrl(s[3]),esc(s[0])+' '+esc(s[1]))+'<small>基準：'+esc(s[2])+' ｜ '+esc(s[3])+'</small></div>').join('');
 $("device-rows").innerHTML=["US（超音波）","CT","MRI","PET・PET/CT","リニアック・放射線治療","血管撮影装置","内視鏡","心電図・生体情報","透析機器"].map(a=>'<tr><th scope="row">'+a+'</th><td>各施設・メーカー混在／県内全数は未検証</td><td>比較不可（機器定義・年次を統一中）</td><td>施設別型式・導入年・共同利用体制・更新予定を収集</td></tr>').join('');
+$("facility2025-rows").innerHTML=D.facilities2025.map(r=>'<tr><th scope="row">'+esc(r.name)+'</th><td>'+n(r.hosp)+'</td><td>'+r.hospRate.toFixed(1)+'</td><td>'+n(r.clinic)+'</td><td>'+r.clinicRate.toFixed(1)+'</td></tr>').join('');
 $("census-rows").innerHTML=[["全国",123049524],["宮城県",2227240],["青森県",1140395],["岩手県",1125502],["秋田県",882100],["山形県",993127],["福島県",1711937]].map(([a,b])=>'<tr><th scope="row">'+a+'</th><td>'+n(b)+'</td><td>'+((b/123049524)*100).toFixed(2)+'%</td></tr>').join('');
 function renderPlaceList(){
  const word=$('place-search').value.trim(),kind=$('place-kind').value,area=$('place-region').value;
