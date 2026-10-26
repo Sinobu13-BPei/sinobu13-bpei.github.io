@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="栃木県の6二次医療圏・人口・病床・医師偏在・大学病院・医療機器市場を公的資料で分析。2026年10月版。">
+<meta name="theme-color" content="#123a5a"><title>栃木県 医療機器市場・地域医療インテリジェンス｜2026</title>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBh4nE+WQfR2yBo2ntqmRUV3QvYo1CxEXsD0s=" crossorigin="">
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script defer src="./data/tochigi.js"></script><script defer src="./js/app.js"></script></head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="mast"><div class="shell"><div class="mast-top"><a class="home" href="../">MEDICAL MARKET INTELLIGENCE</a><span class="edition">TOCHIGI / PUBLIC RESEARCH · 2026.10.26</span></div>
+<h1>栃木県 医療機器市場・<br>地域医療インテリジェンス</h1>
+<p class="lede">6つの二次医療圏を、人口変動・医師偏在・病床機能・検査提供体制から立体的に分析。<strong>特定メーカーの立場に依存しない独立調査</strong>です。</p>
+<div class="hero-links"><a href="#strategy">Where to Play / How to Win</a><a href="#areas">医療圏比較へ</a><a href="../">全国MKTに戻る</a></div></div></header>
+<nav class="page-nav" aria-label="ページ内メニュー"><div class="shell"><a href="#summary">サマリー</a><a href="#demography">人口・医療圏</a><a href="#hospitals">医療提供体制</a><a href="#institutions">大学・医師会・行政</a><a href="#equipment">機器市場</a><a href="#distribution">流通</a><a href="#environment">外部環境</a><a href="#strategy">戦略提言</a><a href="#sources">出典一覧</a></div></nav>
+<main id="main" class="shell">
+<section id="summary" class="section"><div class="section-top"><span class="chapter">01 · EXECUTIVE SUMMARY</span><h2>重要指標と意思決定の論点</h2></div><div class="stats" id="statCards"></div>
+<div class="note"><strong>調査上の重要な区別：</strong>2025年国勢調査確報・2026年9月人口推計・2024年度病床機能報告・2025年必要病床数は母集団／基準時点／計算方法が異なります。病床数の差を直ちに「余剰・不足」と断定しません。各表に年次と出典を表示しています。</div>
+<div class="three"><article class="mini"><h3>構造 1：2大学病院</h3><p>県南に自治医科大学と獨協医科大学が集積。高度急性期・がん・周産期・手術を核に広域受療が生まれます。</p></article>
+<article class="mini"><h3>構造 2：都市と広域</h3><p>宇都宮の患者集積と、県北・県西の広域移動の両方を考慮。単純な人口比例で医療提供力は測れません。</p></article>
+<article class="mini"><h3>構造 3：病床機能</h3><p>回復期の必要量推計と報告実績の乖離が大きい一方、機能定義の差・患者流出入・稼働率の検証が不可欠です。</p></article></div></section>
+<section id="demography" class="section"><div class="section-top"><span class="chapter">02 · PEOPLE & MEDICAL AREAS</span><h2>人口動態と二次医療圏</h2></div>
+<div class="two"><div><h3>人口見通し・公的データ</h3><div class="chartWrap"><canvas id="populationChart" aria-label="2020年実績・2025年確報・2026年推計・2050年社人研推計の比較"></canvas></div>
+<p class="caption">出典：<a href="#S01">[S01]</a> <a href="#S02">[S02]</a> <a href="#S03">[S03]</a>。2050年は2020年国勢調査を起点とする社人研推計。2025年・2026年実績と予測系列を連結した連続予測ではありません。</p></div>
+<div><h3>地域の特性</h3><p>2025年国勢調査確報で1,863,329人（2020年比▲3.6%）。全25市町で人口減少。2026年9月推計は1,849,836人です。</p>
+<p>2025年10月の高齢化率は30.9%（県毎月人口調査の年報）。自然減に加え、月次転入・転出は変動します。離島はありませんが、日光・那須等の山間部ではアクセスが重大な課題となります。</p>
+<p>2050年の人口は社人研推計で約150.2万人、65歳以上約59.5万人。人口減少率と医療需要の減少率は一致しません。</p>
+<p class="caption">出典：<a href="#S01">[S01]</a> <a href="#S02">[S02]</a> <a href="#S03">[S03]</a> <a href="#S16">[S16]</a> <a href="#S25">[S25]</a>。</p></div></div>
+<h3 id="areas">6医療圏：病床機能と医師偏在</h3><div class="table-scroll"><table id="areaTable"><caption>2024年7月病床報告、2025年必要量推計、医師偏在指標を並記</caption><thead><tr><th>二次医療圏</th><th>対象市町村</th><th>現状病床</th><th>高度急性期</th><th>急性期</th><th>回復期</th><th>慢性期</th><th>2025必要量</th><th>医師偏在</th><th>独自優先度</th></tr></thead><tbody></tbody></table></div>
+<p class="caption">出典：病床実績 <a href="#S04">[S04]</a>、必要量 <a href="#S05">[S05]</a>、医師偏在指標 <a href="#S07">[S07]</a>。必要病床数は2016年策定の地域医療構想における2025年推計。報告と直接差し引いて稼働余力を確定できません。評価スコアは独自分析。</p>
+<div class="two"><div><h3>病床機能別比較</h3><div class="chartWrap tall"><canvas id="bedsChart" aria-label="6医療圏の2024年病床機能別積み上げグラフ"></canvas></div><p class="caption">2024年度病床機能報告 <a href="#S04">[S04]</a>。休棟は含めず、内訳のみ表示。</p></div><div><h3>2024年回復期 vs 2025年必要量</h3><div class="chartWrap tall"><canvas id="recoveryChart" aria-label="回復期病床現状と必要量の比較"></canvas></div><p class="caption">異なる定義の指標を対置した課題抽出用の比較であり不足病床数そのものを意味しません。<a href="#S04">[S04]</a> <a href="#S05">[S05]</a></p></div></div>
+<div class="map-grid"><div><h3>地理院タイルによる医療圏の概略位置</h3><div id="map" role="img" aria-label="栃木県内6医療圏の代表都市付近を示す地図"></div><p class="caption">© <a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener noreferrer">国土地理院「地理院タイル」</a>。ピンは医療圏の代表都市周辺の概略位置であり、医療圏の厳密な境界や施設の実測座標ではありません。</p></div>
+<div><h3>二次医療圏ごとの方向性</h3><div id="areaCards" class="area-cards"></div></div></div>
+<h3>25市町の人口（2025年10月・県公表旧基準値）</h3><p class="caption">県公式「人口・面積」の表を転載せず必要箇所を参照用に再整理。2025年国勢調査確報に基づく遡及改定とは数値が異なる可能性があります。出典 <a href="#S28">[S28]</a>。最新確報の市町別数値は <a href="#S01">[S01]</a>をご参照ください。</p>
+<div class="table-scroll"><table id="cityTable"><thead><tr><th>市町名</th><th>人口（人・旧基準）</th><th>医療圏</th></tr></thead><tbody></tbody></table></div></section>
+<section id="hospitals" class="section"><div class="section-top"><span class="chapter">03 · PROVIDER NETWORK</span><h2>医療提供体制と病院群</h2></div>
+<div class="two"><div><h3>医療提供体制の読み方</h3><p>大学病院・高度急性期の集積は県南、都市部の救急・紹介拠点は宇都宮に存在します。県北・県西・両毛では救急搬送時間と県境を越える受療が重要です。</p><p>特定機能病院、地域医療支援病院、がん診療連携拠点病院、救命救急センター、災害拠点病院、へき地医療拠点病院は、県保健医療計画・2026年機能別医療機関名簿で区分別に確認します。下記は主要施設の例示で、指定施設の全件リストではありません。</p><p class="caption">出典 <a href="#S06">[S06]</a> <a href="#S09">[S09]</a></div>
+<div><h3>医師偏在と地域連携</h3><div class="chartWrap"><canvas id="physChart" aria-label="二次医療圏別医師偏在指標"></canvas></div><p class="caption">公表2024年資料の新指標。全国255.6、栃木230.5、県北・県西・両毛が医師少数区域。指標は医師数の絶対的な充足を示しません。<a href="#S07">[S07]</a></p></div></div>
+<label for="facilityFilter" class="fieldlabel">施設一覧の絞り込み</label><select id="facilityFilter"><option value="all">すべて</option><option value="病院">病院</option><option value="行政">行政</option><option value="医師会">医師会</option><option value="保健所">保健所</option></select>
+<div class="facility-grid" id="facilityList"></div>
+<p class="caption">Googleマップは施設名称＋所在地の検索。地理院地図リンクは掲載自治体周辺の概略中心へ移動するもので<strong>施設位置のピンポイント案内ではありません</strong>。各施設の公式住所・指定状況は <a href="#S09">[S09]</a> または各公式サイトで要確認。</p></section>
+<section id="institutions" class="section"><div class="section-top"><span class="chapter">04 · ACADEMIA, ASSOCIATIONS & GOVERNMENT</span><h2>医学部・医師会・行政</h2></div>
+<div class="three"><article class="mini"><h3>自治医科大学 医学部</h3><p>下野市。附属病院に加え、地域医療・医師養成の機能を持ち、卒業生を通じた全国的な医師ネットワークに特徴があります。栃木県内の医学部の一つ。</p><a href="https://www.jichi.ac.jp/access/" target="_blank" rel="noopener noreferrer">公式アクセス</a></article>
+<article class="mini"><h3>獨協医科大学 医学部</h3><p>壬生町。附属病院を有し、日光医療センターなどの臨床・教育機能と連動。県南を中心とした高度医療の担い手。</p><a href="https://www.dokkyomed.ac.jp/dmu/contact/" target="_blank" rel="noopener noreferrer">公式情報</a></article>
+<article class="mini"><h3>県・市町・保健所</h3><p>県医療政策課、5県保健所と宇都宮市保健所を軸に、医療計画・医師確保・地域医療構想・保健医療の危機管理が運営されます。</p><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo/09tochigi.html" target="_blank" rel="noopener noreferrer">保健所所管一覧</a></article></div>
+<h3>栃木県医師会：郡市・大学医師会</h3><p>県医師会が公表する12の郡市・大学医師会を掲載。個別サイトURLが確認できない団体は県医師会の公式一覧にリンクします。</p><div class="association" id="associationList"></div><p class="caption">出典：<a href="#S10">[S10]</a>、大学アクセス <a href="#S14">[S14]</a> <a href="#S15">[S15]</a>。</p>
+<h3>政策の最新論点</h3><div class="three"><article class="mini"><h4>地域医療構想の再設計</h4><p>2026年9月調整会議で構想区域の点検、外来医療計画、かかりつけ医機能を協議。現時点の議論を決定済みの再編と混同しません。</p><a href="#S08">[S08]</a></article>
+<article class="mini"><h4>医師確保</h4><p>2026年8月の協議会で2027年度専攻医シーリングと医師確保計画後期案を議論。大学・県・医師会の連携が鍵です。</p><a href="#S21">[S21]</a></article>
+<article class="mini"><h4>地域医療介護総合確保基金</h4><p>2027年度に向けた事業アイデア公募を実施。募集終了・採択確定を区別し、対象・要件を都度確認する必要があります。</p><a href="#S13">[S13]</a></article></div></section>
+<section id="equipment" class="section"><div class="section-top"><span class="chapter">05 · DEVICE INSTALLED BASE</span><h2>医療機器市場：設置実態と更新需要</h2></div>
+<div class="note"><strong>データ品質：</strong> CT/MRI/PET/リニアック/US/血管撮影/内視鏡/ECG/透析の設置台数は、機種別・年度別・医療圏別の公的原表と完全照合できた値に限定すべきです。今回の版では<strong>未確認の台数、全国比、シェア、金額推計を掲載していません</strong>。原表へ直接リンクしています。</div>
+<div class="equipment-grid" id="equipmentCards"></div>
+<div class="two"><article class="mini"><h3>共同利用と更新の規制・制度</h3><p>県の外来医療計画では、CT・MRI・PET・放射線治療装置・マンモグラフィ等の効率的活用／共同利用を議論します。更新・リースにおいても制度上の確認が必要な場合があります。機器単体の投資採算だけでなく、地域医療構想に整合した運用提案が重要です。</p><p class="caption">出典 <a href="#S26">[S26]</a> <a href="#S06">[S06]</a></p></article>
+<article class="mini"><h3>機器導入・更新の判断式</h3><div class="flowline">疾病・検査需要 → 既存設備・稼働率 → 人材・共同利用 → 経営採算 → 調達・BCP</div><p>導入可能性の判断には検査実績、稼働年数、保守継続、紹介患者数、技師稼働、予算・設備要件を併せます。公開情報だけで特定施設の更新時期を断定できません。</p></article></div></section>
+<section id="distribution" class="section"><div class="section-top"><span class="chapter">06 · CHANNEL & DISTRIBUTION</span><h2>流通構造と商社に必要な機能</h2></div>
+<p>流通は、メーカー直販・全国系医薬品卸・地域系医療機器商社・専門ディーラー・保守サービスで構成されます。施設への実際の販売順位、契約金額、企業間の非公開取引関係は掲載しません。</p>
+<div class="flowline">メーカー／輸入元 → 医薬品卸・機器卸・専門商社 → 病院・診療所・検査センター → 保守・診療DX・共同利用</div>
+<div class="three"><article class="mini"><h3>全国ネットワーク</h3><p>医薬品卸の全国系・地域系グループは医療機関への物流網を持ちますが、グループ名の掲載は県内の医療機器取引実績を意味しません。</p></article>
+<article class="mini"><h3>地域ディーラー</h3><p>地域専門企業は納品・初期導入・保守窓口などを担い得ます。地域別の勢力順位は公的な比較資料が無く、推定せず非掲載です。</p></article>
+<article class="mini"><h3>公正競争</h3><p>医療機関の調達では仕様中立性、競争性、説明責任、アフターサービス体制を評価。特定企業の推奨や批判は行いません。</p></article></div>
+<p class="caption">確認経路：県内病院名簿 <a href="#S09">[S09]</a>、各事業者の公開企業概要・拠点情報。添付の企業別市場シェア・非公開販売高等は反映していません。</p></section>
+<section id="environment" class="section"><div class="section-top"><span class="chapter">07 · EXTERNAL ENVIRONMENT</span><h2>診療報酬・産業・災害・地政学</h2></div>
+<div class="three"><article class="mini"><h3>経営・診療報酬</h3><p>人件費・材料費・エネルギー費と診療報酬体系の変化により、装置単体更新よりワークフロー改善・保守総額・人手不足対策が意思決定を左右します。改定の効果は施設別検証が必要です。</p></article>
+<article class="mini"><h3>工業・人口・物流</h3><p>宇都宮・芳賀・小山・県南の雇用集積と、北西部の人口密度の差が診療科別需要を分けます。県境を越える通勤・受療、冬季の移動時間を同時に評価します。</p></article>
+<article class="mini"><h3>BCP・国際調達</h3><p>河川洪水、山間部の土砂、積雪、停電を把握。半導体・医療材料・放射線機器部品の供給制約に備え、代替検査・在庫・復旧計画を策定します。</p><a href="https://disaportal.gsi.go.jp/" target="_blank" rel="noopener noreferrer">国土地理院ハザードマップ</a></article></div>
+<p class="caption">公的参照：第8期計画 <a href="#S06">[S06]</a>、2026年構想調整会議 <a href="#S08">[S08]</a>、地理院ハザードマップ <a href="#S17">[S17]</a>。</p></section>
+<section id="strategy" class="section"><div class="section-top"><span class="chapter">08 · STRATEGY SAUCE</span><h2>Where to Play × How to Win</h2></div>
+<p class="emphasis">戦略のSauceは、<strong>どこで活動するか</strong>と<strong>地域医療にどう価値を出すか</strong>を、公開根拠に基づいて接続することです。市場規模のみを目的にしない中立的な商社視点で整理します。</p>
+<div class="two"><article class="mini"><h3>Where to Play</h3><p>県南：高度専門医療と連携。宇都宮：都市型病診連携・画像共同利用。県北・県西・両毛：アクセス確保・救急／在宅・BCP。県東：地域病院を核とした共同運用。</p></article>
+<article class="mini"><h3>How to Win</h3><p>機器価格だけでなく、①稼働率改善②患者移動の最小化③職員負荷低減④共同利用⑤維持費・保守⑥情報標準化を一体提案。成功指標は検査待機日数・稼働率・紹介率・総保有費用。</p></article></div>
+<h3>PEST → 3C → STP → 4P → 4C → VRIO → Five Forces</h3><div id="frameworks" class="frameworks"></div>
+<h3>SWOT分析</h3><div id="swot" class="swot"></div>
+<h3>優先度スコアリングの方法（独自試算）</h3><p>医療圏別に各評価軸を1〜5点で定性的評価し、合計を100点換算。<strong>市場シェア・受注見込み・公的ランクではありません</strong>。評価軸：需要・施設規模25%、高齢化／地理20%、回復期等の連携余地20%、医師不足・省人化必要性20%、導入・共同利用の実装性15%。同じ制度下でも実査によって評価は変わります。</p>
+<div class="chartWrap"><canvas id="scoreChart" aria-label="6医療圏の定性優先度スコア（独自試算）"></canvas></div><div class="table-scroll"><table id="scoreTable"><thead><tr><th>医療圏</th><th>需要25</th><th>高齢化20</th><th>連携余地20</th><th>省人化20</th><th>実装性15</th><th>合計100</th></tr></thead><tbody></tbody></table></div>
+<h3>KSF：地域医療機器商社の重要成功要因</h3><div class="ksf"><strong>地域医療構想に整合した装置・人材・資金・診療DXの統合力</strong><span>公表データの調査能力 / 機器の適正配置 / 共同利用の設計 / 保守とBCP / 紹介連携の運用支援 / 総保有費用の透明化</span></div>
+<h3>実行計画：短期90日・中期3〜5年</h3><div class="two"><article class="mini"><h4>短期（0〜90日）</h4><ol><li>6医療圏の施設台帳と機器設置公的原表を照合する</li><li>重点疾患・在宅／紹介受療データを重ね、候補テーマを分類する</li><li>地域別に画像共同利用・デモ・保守の選択肢を設計する</li><li>費用対効果は匿名化・集計ベースで検証する</li></ol></article><article class="mini"><h4>中期（2027〜2030年）</h4><ol><li>CT/MRI/US・内視鏡・病理・PACSを横断する地域共同運用</li><li>在宅US、救急画像、遠隔読影を地域医療計画と整合</li><li>医療BCPの標準化と代替装置・保守体制の整備</li><li>高齢化・人口流動・検査需要の年次モニタリング</li></ol></article></div>
+<p class="caption">フレームワーク、SWOT、スコア、KSF、施策は独自分析・提案。公的な事実とは明確に区別しています。</p></section>
+<section id="sources" class="section"><div class="section-top"><span class="chapter">09 · SOURCE LEDGER</span><h2>出典一覧・再現可能性</h2></div><p>公的統計を優先し、資料年次と閲覧対象を記載。URLは原則一次情報です。2026年10月26日調査。研究解釈・推計と公表事実を明確に区別しています。</p><div id="sourceList"></div>
+<h3>未充足・追加検証が必要なデータ</h3><div class="note">医療機器9分類の全設置台数と人口当たり全国比較、施設別更新年・保守年数、2026年度以降の指定施設全件照合、県境を越える受療実績、将来の病院統合／新築計画の最終決定状況、施設別機器の共同利用件数は、公的資料の原表照合が必要です。出典が確定していない数値を補完していません。</div>
+<p class="disclaimer">免責事項：本資料は2026年10月26日時点で参照可能な公表情報をもとに作成した独立研究です。情報の正確性・最新性・完全性を保証するものではありません。診療行為・投資判断・行政の正式見解の代用にはなりません。特定メーカー・卸・医療施設への推奨・批判ではなく、非公開の営業情報は含みません。</p></section></main>
+<footer><div class="shell"><span>栃木県 医療マーケット調査｜最終更新：2026年10月26日</span><a href="https://sinobu13-bpei.github.io/medical-intelligence/">Japan Medical Market Intelligence 全国一覧へ</a></div></footer>
+</body></html>
