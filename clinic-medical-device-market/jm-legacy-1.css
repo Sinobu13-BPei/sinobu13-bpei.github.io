@@ -63,3 +63,13 @@ body[data-site-type="atlas"] canvas{max-width:100%}
 #clinic-2026-policy a{color:#075F80;text-decoration:underline;text-underline-offset:2px}
 @media(max-width:850px){#clinic-2026-policy .clinic-policy-kpis,#clinic-2026-policy .clinic-policy-themes{grid-template-columns:repeat(2,minmax(0,1fr))}#clinic-2026-policy .clinic-policy-grid{grid-template-columns:1fr}}
 @media(max-width:420px){#clinic-2026-policy .clinic-policy-kpis article{padding:10px}#clinic-2026-policy .clinic-policy-kpis strong{font-size:19px}#clinic-2026-policy .clinic-policy-themes{grid-template-columns:1fr}}
+
+/* Clinic hero light-background fallback: dark text requested for readability */
+body[data-site-type="atlas"] header.hero{background:#F3F6FA!important;color:#172B40!important;border-bottom:1px solid #D9E3EA}
+body[data-site-type="atlas"] header.hero :is(h1,.clinic-rest,.scope-note,.editor,.lead,.chip){color:#172B40!important;-webkit-text-fill-color:#172B40!important}
+body[data-site-type="atlas"] header.hero .clinic-subtitle,body[data-site-type="atlas"] header.hero .market-scope{color:#28516B!important;-webkit-text-fill-color:#28516B!important}
+body[data-site-type="atlas"] header.hero .scope-note{background:#E6EDF4!important;border-left-color:#C38A2B!important}
+body[data-site-type="atlas"] header.hero .chip{background:#fff!important;border:1px solid #C7D5E0!important}
+body[data-site-type="atlas"] header.hero .clinic-focus{background:#A65E13!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+body[data-site-type="atlas"] header.hero .hero-actions a:not(.alt){background:#123C60!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+body[data-site-type="atlas"] header.hero .hero-actions a.alt{background:#E1EFF1!important;color:#0F5360!important;-webkit-text-fill-color:#0F5360!important;border:1px solid #8FBBC2!important}
