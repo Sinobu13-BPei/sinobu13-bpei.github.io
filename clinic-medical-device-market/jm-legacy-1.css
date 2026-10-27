@@ -43,3 +43,23 @@ body[data-site-type="atlas"] :is(.table-wrap,.tablewrap,.table-scroll){max-width
 body[data-site-type="atlas"] canvas{max-width:100%}
 @media(max-width:600px){body[data-site-type="atlas"] .wrap{padding-inline:14px}body[data-site-type="atlas"] .hero h1{font-size:clamp(25px,7vw,35px);line-height:1.24;overflow-wrap:anywhere}body[data-site-type="atlas"] .hero .clinic-focus{line-height:1.2}body[data-site-type="atlas"] .hero .clinic-rest{font-size:.82em}body[data-site-type="atlas"] .hero-actions{display:grid;grid-template-columns:1fr}body[data-site-type="atlas"] .hero-actions a{text-align:center}body[data-site-type="atlas"] .section h2{font-size:clamp(22px,6vw,29px)}body[data-site-type="atlas"] .chartbox{height:290px}body[data-site-type="atlas"] .kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-site-type="atlas"] .kpi{padding:12px}body[data-site-type="atlas"] .kpi strong{font-size:clamp(18px,5vw,26px)}body[data-site-type="atlas"] .section{padding-block:28px}}
 @media(max-width:360px){body[data-site-type="atlas"] .kpi-grid{grid-template-columns:1fr}}
+
+/* 2026 sourced clinic policy update: compact accessible cards */
+#clinic-2026-policy .clinic-policy-label{background:#E7F3F5;color:#075D68;border-color:#B8DDE0;margin-bottom:12px}
+#clinic-2026-policy .clinic-policy-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0}
+#clinic-2026-policy .clinic-policy-kpis article{background:#fff;border:1px solid #D8E3E9;border-radius:12px;padding:14px;min-width:0}
+#clinic-2026-policy .clinic-policy-kpis small,#clinic-2026-policy .clinic-policy-kpis span{display:block;color:#4C6070;font-size:12px}
+#clinic-2026-policy .clinic-policy-kpis strong{display:block;font-size:clamp(19px,2.1vw,28px);color:#123C60;line-height:1.5}
+#clinic-2026-policy .clinic-policy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0}
+#clinic-2026-policy .clinic-policy-grid .card{min-width:0}
+#clinic-2026-policy .clinic-policy-grid p{font-size:14px;line-height:1.75}
+#clinic-2026-policy .clinic-policy-meter{height:16px;border-radius:99px;background:#D6E1EA;overflow:hidden;margin:16px 0 10px}
+#clinic-2026-policy .clinic-policy-meter span{display:block;width:95.1%;height:100%;background:#087B86}
+#clinic-2026-policy .clinic-policy-themes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+#clinic-2026-policy .clinic-policy-themes>div{padding:13px;border:1px solid #D8E3E9;background:#fff;border-radius:10px;min-width:0}
+#clinic-2026-policy .clinic-policy-themes b{display:block;color:#123C60;margin-bottom:5px}
+#clinic-2026-policy .clinic-policy-themes span{display:block;color:#42586A;font-size:13px;line-height:1.65}
+#clinic-2026-policy .clinic-policy-caption{font-size:12px;line-height:1.75;color:#475D6F}
+#clinic-2026-policy a{color:#075F80;text-decoration:underline;text-underline-offset:2px}
+@media(max-width:850px){#clinic-2026-policy .clinic-policy-kpis,#clinic-2026-policy .clinic-policy-themes{grid-template-columns:repeat(2,minmax(0,1fr))}#clinic-2026-policy .clinic-policy-grid{grid-template-columns:1fr}}
+@media(max-width:420px){#clinic-2026-policy .clinic-policy-kpis article{padding:10px}#clinic-2026-policy .clinic-policy-kpis strong{font-size:19px}#clinic-2026-policy .clinic-policy-themes{grid-template-columns:1fr}}
