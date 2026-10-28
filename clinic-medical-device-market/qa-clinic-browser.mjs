@@ -68,12 +68,12 @@ try{
  await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
  const candidates=['google-chrome','chromium'].map(x=>spawnSync('which',[x],{encoding:'utf8'})).filter(x=>x.status===0);
  assert.ok(candidates.length,'Chromium not installed');
- const bin=candidates[0].stdout.trim(),port=29537;
+ const bin=candidates[0].stdout.trim();let port=0;
  profile=mkdtempSync(tmpdir()+'/hub-contrast-');
- browser=spawn(bin,['--headless=new','--no-sandbox','--disable-setuid-sandbox','--disable-dev-shm-usage','--disable-gpu','--disable-extensions','--no-first-run','--no-default-browser-check','--remote-allow-origins=*','--remote-debugging-port='+port,'--user-data-dir='+profile,'about:blank'],{stdio:['ignore','ignore','pipe']});
+ browser=spawn(bin,['--headless=new','--no-sandbox','--disable-setuid-sandbox','--disable-dev-shm-usage','--disable-gpu','--disable-extensions','--no-first-run','--no-default-browser-check','--remote-allow-origins=*','--remote-debugging-port=0','--user-data-dir='+profile,'about:blank'],{stdio:['ignore','ignore','pipe']});
  let stderr='';browser.stderr.on('data',chunk=>{stderr+=String(chunk).slice(0,5000)});
  let target;
- for(let i=0;i<110;i++){try{const r=await fetch('http://127.0.0.1:'+port+'/json');if(r.ok){target=(await r.json()).find(x=>x.type==='page'&&x.webSocketDebuggerUrl);if(target)break}}catch(e){}await sleep(100)}
+ for(let i=0;i<350;i++){try{if(!port&&existsSync(profile+'/DevToolsActivePort'))port=+(readFileSync(profile+'/DevToolsActivePort','utf8').split('\n')[0]);if(port){const r=await fetch('http://127.0.0.1:'+port+'/json');if(r.ok){target=(await r.json()).find(x=>x.type==='page'&&x.webSocketDebuggerUrl);if(target)break}}}catch(e){}await sleep(100)}
  assert.ok(target,'Chrome CDP unavailable; binary='+bin+' exit='+browser.exitCode+' stderr='+stderr.slice(-2000));
  ws=new WebSocket(target.webSocketDebuggerUrl);
  await new Promise((ok,fail)=>{ws.addEventListener('open',ok,{once:true});ws.addEventListener('error',fail,{once:true})});
