@@ -252,3 +252,46 @@ body.jm-site .hero .hero-cta-layout :is(.links,.handbook-stack) a:focus-visible{
 #hospital-groups .hg-network a{color:#006B78!important}
 #hospital-groups .hg-foot{font-size:13px;color:#445566;line-height:1.75}
 @media(max-width:600px){#hospital-groups .hg-toolbar{align-items:stretch;flex-direction:column}#hospital-groups #hospitalGroupSearch{width:100%}#hospital-groups .hg-note{padding:12px}}
+
+/* Ordered footer resources | clinic -> associations -> distribution -> research -> strategy -> leisure */
+body.jm-site .footer-link-zone{max-width:100%;min-width:0;margin-top:16px}
+body.jm-site .footer-link-zone .footer-link-note{margin:0 0 8px;color:#0F2A4A!important;font-weight:700;font-size:13px}
+body.jm-site .footer-link-strip{
+  display:flex!important;flex-wrap:nowrap!important;gap:8px!important;
+  width:100%;max-width:100%;min-width:0;overflow-x:auto!important;
+  overflow-y:hidden!important;overscroll-behavior-inline:contain;
+  -webkit-overflow-scrolling:touch;scrollbar-width:thin;
+  scroll-snap-type:x proximity;padding:4px 2px 10px!important;
+  border:0;background:transparent
+}
+body.jm-site .footer-link-strip>a{
+  display:inline-flex!important;flex:0 0 auto!important;align-items:center;
+  justify-content:center;box-sizing:border-box;scroll-snap-align:start;
+  width:auto!important;min-width:max-content!important;max-width:none!important;
+  min-height:42px;padding:8px 12px!important;white-space:nowrap!important;
+  overflow:visible!important;text-overflow:clip!important;
+  font-size:13px!important;line-height:1.35!important;
+  border-radius:8px!important;text-decoration:none!important;
+  background-color:#0E7C86!important;border:1px solid #0E7C86!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important
+}
+body.jm-site .footer-link-strip>a :is(span,small,strong,b){
+  color:#fff!important;-webkit-text-fill-color:#fff!important
+}
+body.jm-site .footer-link-strip>a:is(:hover,:focus-visible){
+  background:#0F2A4A!important;border-color:#0F2A4A!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important
+}
+body.jm-site .footer-link-strip>a:focus-visible{
+  outline:3px solid #B26A00!important;outline-offset:2px
+}
+body.jm-site .footer-contact-row{margin-top:8px;padding:0 2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+body.jm-site .footer-contact-row>a{display:inline-flex;align-items:center;justify-content:center;
+  min-height:38px;padding:8px 12px;border:1px solid #DDE3EA;
+  border-radius:8px;background:#fff!important;color:#0F2A4A!important;
+  -webkit-text-fill-color:#0F2A4A!important;text-decoration:none;font-size:13px;font-weight:700
+}
+@media(max-width:600px){
+  body.jm-site .footer-link-strip{gap:6px!important;padding-bottom:12px!important}
+  body.jm-site .footer-link-strip>a{min-height:40px;padding:7px 10px!important;font-size:13px!important}
+}
