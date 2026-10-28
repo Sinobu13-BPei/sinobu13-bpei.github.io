@@ -63,7 +63,7 @@
     left.append(el('div','jm-footer-title','Japan Medical Market Intelligence'));
     left.append(el('p','jm-footer-note','公開資料の基準年・出典・利用条件をご確認ください。'));
     const links=el('nav','jm-footer-nav');links.setAttribute('aria-label','共通フッター');
-    [['ハブ','medical-intelligence/'],['戦略策定','medical-device-strategy-handbook/']].forEach(([label,target])=>{
+    (path.startsWith('medical-intelligence/')?[['ハブ','medical-intelligence/']]:[['ハブ','medical-intelligence/'],['戦略策定','medical-device-strategy-handbook/']]).forEach(([label,target])=>{
       const a=el('a','',label);a.href=relative(target);links.appendChild(a);
     });
     /* Use the page's existing contact destination when unambiguous. */
@@ -86,7 +86,7 @@
       const oldRelated=document.querySelector('.footer-link-zone');
       if(oldRelated){
         const already=new Set([...links.querySelectorAll('a')].map(a=>new URL(a.href,document.baseURI).pathname));
-        const related=el('nav','jm-footer-nav');related.setAttribute('aria-label','関連リンク');
+        const related=el('nav','jm-footer-nav jm-footer-resources');related.setAttribute('aria-label','関連リンク');
         [...oldRelated.querySelectorAll('a[href]')].forEach(a=>{
           const url=new URL(a.href,document.baseURI);
           if(already.has(url.pathname)||url.protocol==='mailto:')return;
