@@ -94,7 +94,7 @@ try{
   const result=await evaluate('('+auditPage.toString()+')()');
   assert.ok(!result.error,JSON.stringify(result));
   assert.equal(result.regions,47,'47 prefectures');
-  const expectedFooter=['診療所MKT分析 ↗','医師会 ↗','商社・HD ↗','JAHID','CT-MKT分析 ↗','MRI-MKT分析 ↗','学会カレンダー（画像系） ↗','論文調査｜JRS・SMI・MSK ↗','戦略策定 基礎 ↗','戦略策定 立案 ↗','会食に関して ↗','お食事処','散策場所 ↗'];
+  const expectedFooter=['診療所MKT分析 ↗','医師会 ↗','商社・HD ↗','JAHID','CT-MKT分析 ↗','MRI-MKT分析 ↗','学会カレンダー（画像系） ↗','論文調査｜JRS・SMI・MSK ↗','戦略策定 基礎 ↗','戦略策定 立案 ↗','会食に関して ↗','お食事処 ↗','散策場所 ↗'];
   assert.deepEqual(result.footerLabels,expectedFooter,'footer navigation order and deduplication');
   assert.equal(result.contactCount,1,'one contact link in footer');
   assert.ok(result.footerWidth>250,'footer strip is visible');
