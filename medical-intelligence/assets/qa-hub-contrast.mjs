@@ -65,7 +65,7 @@ function auditPage(){
   if(contrast+.05<target&&bad.length<20)bad.push({tag:el.tagName,text:(el.textContent||'').trim().slice(0,65),contrast:Number(contrast.toFixed(2)),color:st.color});
  }
  const footer=document.querySelector('.footer-link-strip');
- const footerLabels=[...footer?.querySelectorAll('a')||[]].map(a=>a.textContent.replace(/\\s+/g,' ').trim());
+ const footerLabels=[...footer?.querySelectorAll('a')||[]].map(a=>a.textContent.replace(/[\s\u3000]+/g,' ').trim());
  const contactCount=document.querySelectorAll('.footer-contact-row a[href^="mailto:"]').length;
  const footerWidth=footer?.clientWidth||0;
  return {width:innerWidth,documentWidth:document.documentElement.scrollWidth,regions:regions.length,buttons,checked:count,repairs:repaired.repaired,bad,footerLabels,footerWidth,contactCount};
