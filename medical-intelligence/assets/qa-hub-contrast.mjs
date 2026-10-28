@@ -64,19 +64,23 @@ function auditPage(){
   const target=large?3:4.5;count++;
   if(contrast+.05<target&&bad.length<20)bad.push({tag:el.tagName,text:(el.textContent||'').trim().slice(0,65),contrast:Number(contrast.toFixed(2)),color:st.color});
  }
- return {width:innerWidth,documentWidth:document.documentElement.scrollWidth,regions:regions.length,buttons,checked:count,repairs:repaired.repaired,bad};
+ const footer=document.querySelector('.footer-link-strip');
+ const footerLabels=[...footer?.querySelectorAll('a')||[]].map(a=>a.textContent.replace(/\\s+/g,' ').trim());
+ const contactCount=document.querySelectorAll('.footer-contact-row a[href^="mailto:"]').length;
+ const footerWidth=footer?.clientWidth||0;
+ return {width:innerWidth,documentWidth:document.documentElement.scrollWidth,regions:regions.length,buttons,checked:count,repairs:repaired.repaired,bad,footerLabels,footerWidth,contactCount};
 }
 const widths=[375,768,1280],report=[];
 try{
  await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
  const candidates=['google-chrome','chromium'].map(x=>spawnSync('which',[x],{encoding:'utf8'})).filter(x=>x.status===0);
  assert.ok(candidates.length,'Chromium not installed');
- const bin=candidates[0].stdout.trim(),port=29537;
+ const bin=candidates[0].stdout.trim();let port=0;
  profile=mkdtempSync(tmpdir()+'/hub-contrast-');
- browser=spawn(bin,['--headless=new','--no-sandbox','--disable-setuid-sandbox','--disable-dev-shm-usage','--disable-gpu','--disable-extensions','--no-first-run','--no-default-browser-check','--remote-allow-origins=*','--remote-debugging-port='+port,'--user-data-dir='+profile,'about:blank'],{stdio:['ignore','ignore','pipe']});
+ browser=spawn(bin,['--headless=new','--no-sandbox','--disable-setuid-sandbox','--disable-dev-shm-usage','--disable-gpu','--disable-extensions','--no-first-run','--no-default-browser-check','--remote-allow-origins=*','--remote-debugging-port=0','--user-data-dir='+profile,'about:blank'],{stdio:['ignore','ignore','pipe']});
  let stderr='';browser.stderr.on('data',chunk=>{stderr+=String(chunk).slice(0,5000)});
  let target;
- for(let i=0;i<110;i++){try{const r=await fetch('http://127.0.0.1:'+port+'/json');if(r.ok){target=(await r.json()).find(x=>x.type==='page'&&x.webSocketDebuggerUrl);if(target)break}}catch(e){}await sleep(100)}
+ for(let i=0;i<350;i++){try{if(!port&&existsSync(profile+'/DevToolsActivePort'))port=+(readFileSync(profile+'/DevToolsActivePort','utf8').split('\n')[0]);if(port){const r=await fetch('http://127.0.0.1:'+port+'/json');if(r.ok){target=(await r.json()).find(x=>x.type==='page'&&x.webSocketDebuggerUrl);if(target)break}}}catch(e){}await sleep(100)}
  assert.ok(target,'Chrome CDP unavailable; binary='+bin+' exit='+browser.exitCode+' stderr='+stderr.slice(-2000));
  ws=new WebSocket(target.webSocketDebuggerUrl);
  await new Promise((ok,fail)=>{ws.addEventListener('open',ok,{once:true});ws.addEventListener('error',fail,{once:true})});
@@ -90,6 +94,11 @@ try{
   const result=await evaluate('('+auditPage.toString()+')()');
   assert.ok(!result.error,JSON.stringify(result));
   assert.equal(result.regions,47,'47 prefectures');
+  const expectedFooter=['診療所MKT分析 ↗','医師会 ↗','商社・HD ↗','JAHID','CT-MKT分析 ↗','MRI-MKT分析 ↗','学会カレンダー（画像系） ↗','論文調査｜JRS・SMI・MSK ↗','戦略策定 基礎 ↗','戦略策定 立案 ↗','会食に関して ↗','お食事処','散策場所 ↗'];
+  assert.deepEqual(result.footerLabels,expectedFooter,'footer navigation order and deduplication');
+  assert.equal(result.contactCount,1,'one contact link in footer');
+  assert.ok(result.footerWidth>250,'footer strip is visible');
+
   for(const b of result.buttons){
    const needed=['新潟県','長野県','山梨県'].includes(b.name)?'甲信越MKT ↗':b.name==='大阪府'?'大阪MKT ↗':b.name==='兵庫県'?'兵庫MKT ↗':'熊本MKT ↗';
    assert.ok(b.links.includes(needed),'missing '+needed+' in '+b.name);
