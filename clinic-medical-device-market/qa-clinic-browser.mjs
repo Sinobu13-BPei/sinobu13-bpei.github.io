@@ -33,7 +33,7 @@ async function evaluate(expression){
  return r.result?.value;
 }
 function auditPage(){
- if(typeof window.JMContrastAudit!=='function')return {error:'Shared UI unavailable'};
+ if(typeof window.JMContrastAudit!=='function')return {error:'Shared UI unavailable',state:document.readyState,scripts:[...document.scripts].map(x=>x.src),bodyClass:document.body.className,explorerLoaded:!!window.filteredRows,html:document.documentElement.outerHTML.slice(-400)};
  const contrast=window.JMContrastAudit(),ids=['summary','clinic-2026-policy','visual','covid','mizuho','explorer','heat','pareto','bubbles','map','tree','pref-master','detail','sources'];
  const initRows=document.querySelectorAll('#prefTable tr').length,initData=window.filteredRows?.length??0;
  const year=document.getElementById('yearSel'),region=document.getElementById('regionSel'),initial=document.getElementById('fTam').textContent;
