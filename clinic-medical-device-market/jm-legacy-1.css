@@ -24,26 +24,44 @@ nav{position:sticky;top:0;z-index:40;background:#fffffff2;backdrop-filter:blur(8
 @media(max-width:1000px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.grid2,.grid3,.pict-grid,.source-matrix{grid-template-columns:1fr}.controls{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:1fr}.chartbox{height:330px}.treemap{grid-template-columns:repeat(6,minmax(0,1fr))}.tile{grid-column:span 3}}
 @media(max-width:560px){.wrap{padding:0 14px}.kpi-grid{grid-template-columns:1fr}.controls{grid-template-columns:1fr}.hero{padding-top:32px}.section{padding:34px 0}.treemap{grid-template-columns:1fr}.tile{grid-column:1!important}.detail-toolbar{align-items:stretch}.pager{width:100%;justify-content:space-between}.flow-hint{display:block}.to-top{right:10px;bottom:10px}}
 
-/* Clinic market mobile accessibility / contrast repair 2026-10-27 */
-html{scroll-padding-top:68px}body{overflow-x:clip}
-body[data-site-type="atlas"] .hero{background:#123C60!important;color:#fff!important}
-body[data-site-type="atlas"] .hero :is(h1,.clinic-rest,.scope-note,.editor,.lead,.chip){color:#fff!important;-webkit-text-fill-color:#fff!important}
-body[data-site-type="atlas"] .hero .clinic-focus{background:#A65E13!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
-body[data-site-type="atlas"] .hero .market-scope,body[data-site-type="atlas"] .hero .clinic-subtitle{color:#E5F8FF!important;-webkit-text-fill-color:#E5F8FF!important}
-body[data-site-type="atlas"] .hero .hero-actions a:not(.alt){background:#fff!important;color:#123C60!important;-webkit-text-fill-color:#123C60!important}
-body[data-site-type="atlas"] .hero .hero-actions a.alt{background:#0D7180!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
-body[data-site-type="atlas"] :is(.tile,.ortho-card-link,.okinawa-card-link,.to-top){color:#fff!important;-webkit-text-fill-color:#fff!important}
-body[data-site-type="atlas"] .tile :is(b,strong,small,span){color:#fff!important;-webkit-text-fill-color:#fff!important}
-body[data-site-type="atlas"] :is(.card,.kpi,.pict-card,.src,.note){color:#243548}
-body[data-site-type="atlas"] :is(input,select,button){font:inherit;max-width:100%}
-body[data-site-type="atlas"] :is(input,select){background:#fff;color:#172B40;-webkit-text-fill-color:#172B40}
-body[data-site-type="atlas"] :is(a,button,input,select):focus-visible{outline:3px solid #E1A342;outline-offset:3px}
-body[data-site-type="atlas"] :is(.grid2,.grid3,.card,.kpi,.chartbox,.controls){min-width:0}
-body[data-site-type="atlas"] :is(.table-wrap,.tablewrap,.table-scroll){max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
-body[data-site-type="atlas"] canvas{max-width:100%}
-@media(max-width:600px){body[data-site-type="atlas"] .wrap{padding-inline:14px}body[data-site-type="atlas"] .hero h1{font-size:clamp(25px,7vw,35px);line-height:1.24;overflow-wrap:anywhere}body[data-site-type="atlas"] .hero .clinic-focus{line-height:1.2}body[data-site-type="atlas"] .hero .clinic-rest{font-size:.82em}body[data-site-type="atlas"] .hero-actions{display:grid;grid-template-columns:1fr}body[data-site-type="atlas"] .hero-actions a{text-align:center}body[data-site-type="atlas"] .section h2{font-size:clamp(22px,6vw,29px)}body[data-site-type="atlas"] .chartbox{height:290px}body[data-site-type="atlas"] .kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-site-type="atlas"] .kpi{padding:12px}body[data-site-type="atlas"] .kpi strong{font-size:clamp(18px,5vw,26px)}body[data-site-type="atlas"] .section{padding-block:28px}}
-@media(max-width:360px){body[data-site-type="atlas"] .kpi-grid{grid-template-columns:1fr}}
 
+/* 2026-10-28 | Unified clinic market layout and high contrast */
+html{scroll-padding-top:80px}
+body[data-site-type=atlas]{background:#F5F7FA;color:#1F2933;overflow-x:clip}
+body[data-site-type=atlas] .wrap{max-width:1120px}
+body[data-site-type=atlas] header.hero{background:#F5F7FA!important;background-image:none!important;color:#0F2A4A!important;padding:25px 0 20px!important;border-bottom:1px solid #DDE3EA}
+body[data-site-type=atlas] header.hero :is(h1,.clinic-rest,.scope-note,.lead,.editor,.chip){color:#0F2A4A!important;-webkit-text-fill-color:#0F2A4A!important}
+body[data-site-type=atlas] header.hero :is(.clinic-subtitle,.market-scope){color:#31536B!important;-webkit-text-fill-color:#31536B!important}
+body[data-site-type=atlas] header.hero .clinic-focus{background:#925314!important;background-image:none!important;color:#fff!important;-webkit-text-fill-color:#fff!important;box-shadow:none}
+body[data-site-type=atlas] header.hero .scope-note{background:#E6EDF4!important;border-left-color:#B26A00!important;margin:8px 0 10px}
+body[data-site-type=atlas] header.hero .chip{background:#fff!important;border:1px solid #C7D5E0!important;padding:5px 9px}
+body[data-site-type=atlas] header.hero .hero-actions{gap:8px;margin-top:12px}
+body[data-site-type=atlas] header.hero .hero-actions a:not(.alt){background:#0F2A4A!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border:1px solid #0F2A4A}
+body[data-site-type=atlas] header.hero .hero-actions a.alt{background:#E1EFF1!important;color:#0F5360!important;-webkit-text-fill-color:#0F5360!important;border:1px solid #8FBBC2}
+body[data-site-type=atlas] nav[aria-label="ページ内ナビゲーション"]{background:#fff!important}
+body[data-site-type=atlas] nav[aria-label="ページ内ナビゲーション"] .wrap{overflow-x:auto;overflow-y:hidden;flex-wrap:nowrap;gap:7px;padding-block:6px}
+body[data-site-type=atlas] nav[aria-label="ページ内ナビゲーション"] a{flex:0 0 auto;min-height:34px;display:inline-flex;align-items:center;padding:5px 8px;color:#076777!important;font-size:13px}
+body[data-site-type=atlas] :is(.tile,.ortho-card-link,.okinawa-card-link,.to-top),body[data-site-type=atlas] .tile :is(b,strong,small,span){color:#fff!important;-webkit-text-fill-color:#fff!important}
+body[data-site-type=atlas] :is(input,select){background:#fff;color:#172B40!important;-webkit-text-fill-color:#172B40!important}
+body[data-site-type=atlas] button:not(.secondary){background:#0F2A4A!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+body[data-site-type=atlas] button.secondary{background:#fff!important;color:#0F2A4A!important;-webkit-text-fill-color:#0F2A4A!important;border:1px solid #B7C8D6!important}
+body[data-site-type=atlas] :is(a,button,input,select):focus-visible{outline:3px solid #B26A00;outline-offset:2px}
+body[data-site-type=atlas] :is(.grid2,.grid3,.card,.kpi,.controls,.chartbox,.pict-grid){min-width:0}
+body[data-site-type=atlas] :is(.chart-scroll,.table-wrap,.tablewrap){max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+body[data-site-type=atlas] :is(.chartbox,canvas){max-width:100%}
+body[data-site-type=atlas] .chartbox{height:320px}
+body[data-site-type=atlas] .chartbox.tall{height:410px}
+body[data-site-type=atlas] .chart-wide{max-width:none}
+body[data-site-type=atlas] .section{padding:28px 0}
+body[data-site-type=atlas] .section h2{font-size:clamp(21px,2.4vw,28px)}
+body[data-site-type=atlas] .kpi{border-radius:8px;padding:14px}
+body[data-site-type=atlas] :is(.kpi small,.kpi span,.pict-card small,.src small,.chart-note,.note,.clinic-policy-caption){font-size:13px!important}
+body[data-site-type=atlas] .table-wrap th{background:#E5EDF4!important;color:#0F2A4A!important}
+body[data-site-type=atlas] .table-wrap td{color:#1F2933!important}
+body[data-site-type=atlas] .table-wrap td a{color:#076978!important}
+body[data-site-type=atlas] #leafletMap{height:520px;max-width:100%}
+@media(max-width:600px){body[data-site-type=atlas] .wrap{padding-inline:14px}body[data-site-type=atlas] header.hero{padding:18px 0 16px!important}body[data-site-type=atlas] header.hero h1{font-size:clamp(25px,7vw,36px)!important;line-height:1.24;overflow-wrap:anywhere}body[data-site-type=atlas] header.hero .clinic-rest{font-size:.82em!important}body[data-site-type=atlas] header.hero .lead{font-size:14px}body[data-site-type=atlas] .hero-actions{display:grid;grid-template-columns:1fr}body[data-site-type=atlas] .hero-actions a{overflow-wrap:anywhere;text-align:center}body[data-site-type=atlas] .section{padding:22px 0}body[data-site-type=atlas] .controls{grid-template-columns:repeat(2,minmax(0,1fr));padding:10px;gap:8px}body[data-site-type=atlas] .controls>div{min-width:0}body[data-site-type=atlas] .chartbox{height:275px}body[data-site-type=atlas] .chartbox.tall{height:325px}body[data-site-type=atlas] .kpi{padding:11px}body[data-site-type=atlas] .kpi strong{font-size:clamp(19px,5vw,25px)}body[data-site-type=atlas] #leafletMap{height:390px}body[data-site-type=atlas] .treemap{grid-template-columns:1fr}body[data-site-type=atlas] .tile{grid-column:1!important}}
+@media(max-width:360px){body[data-site-type=atlas] .controls,body[data-site-type=atlas] .kpi-grid{grid-template-columns:1fr}}
 /* 2026 sourced clinic policy update: compact accessible cards */
 #clinic-2026-policy .clinic-policy-label{background:#E7F3F5;color:#075D68;border-color:#B8DDE0;margin-bottom:12px}
 #clinic-2026-policy .clinic-policy-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0}
@@ -64,12 +82,3 @@ body[data-site-type="atlas"] canvas{max-width:100%}
 @media(max-width:850px){#clinic-2026-policy .clinic-policy-kpis,#clinic-2026-policy .clinic-policy-themes{grid-template-columns:repeat(2,minmax(0,1fr))}#clinic-2026-policy .clinic-policy-grid{grid-template-columns:1fr}}
 @media(max-width:420px){#clinic-2026-policy .clinic-policy-kpis article{padding:10px}#clinic-2026-policy .clinic-policy-kpis strong{font-size:19px}#clinic-2026-policy .clinic-policy-themes{grid-template-columns:1fr}}
 
-/* Clinic hero light-background fallback: dark text requested for readability */
-body[data-site-type="atlas"] header.hero{background:#F3F6FA!important;color:#172B40!important;border-bottom:1px solid #D9E3EA}
-body[data-site-type="atlas"] header.hero :is(h1,.clinic-rest,.scope-note,.editor,.lead,.chip){color:#172B40!important;-webkit-text-fill-color:#172B40!important}
-body[data-site-type="atlas"] header.hero .clinic-subtitle,body[data-site-type="atlas"] header.hero .market-scope{color:#28516B!important;-webkit-text-fill-color:#28516B!important}
-body[data-site-type="atlas"] header.hero .scope-note{background:#E6EDF4!important;border-left-color:#C38A2B!important}
-body[data-site-type="atlas"] header.hero .chip{background:#fff!important;border:1px solid #C7D5E0!important}
-body[data-site-type="atlas"] header.hero .clinic-focus{background:#A65E13!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
-body[data-site-type="atlas"] header.hero .hero-actions a:not(.alt){background:#123C60!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
-body[data-site-type="atlas"] header.hero .hero-actions a.alt{background:#E1EFF1!important;color:#0F5360!important;-webkit-text-fill-color:#0F5360!important;border:1px solid #8FBBC2!important}
