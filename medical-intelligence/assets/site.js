@@ -272,6 +272,16 @@
     window.JMContrastAudit=()=>{scan(document.body);return {...window.__jmContrastStatus}};
   }
 
-  const start=()=>{try{common();smallRepairs();structure();failSafe();contrastRepair()}catch(e){console.warn('[JM shared UI]',e)}};
+  const start=()=>{
+    const phases=[['header-footer',common],['small-repairs',smallRepairs],['structure',structure],['failsafe',failSafe],['contrast',contrastRepair]];
+    window.__jmInitErrors=[];
+    for(const [name,fn] of phases){
+      try{fn()}catch(e){
+        const message=name+': '+(e&&e.message||String(e));
+        window.__jmInitErrors.push(message);
+        console.warn('[JM shared UI]',message,e);
+      }
+    }
+  };
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
