@@ -1,0 +1,1012 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="医療機器営業ロールプレイ研修のシナリオ生成・行動評価・振り返り・ローカル集計ツール">
+<title>医療機器営業 ロープレLAB｜設計・評価・研修分析</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap">
+<style>
+/* Layout: 一枚の作業シート。上から ①顧客設定 → ②事前資料 → ③評価 → ④フィードバック。上部バーに点数とタイマーを常時表示 */
+:root{
+  --paper:#f5f4f2; --sheet:#ffffff; --ink:#1d2127; --sub:#5d6470; --line:#dcdad6; --soft:#efeeeb;
+  --accent:#c8102e; --accent-ink:#ffffff; --accent-soft:#fbe9ec;
+  --navy:#22324a; --navy-soft:#e8edf4;
+  --good:#11734f; --good-soft:#e3f3ec; --warn:#9a5b00; --warn-soft:#fbf0dc; --bad:#b42318; --bad-soft:#fbe6e3;
+  --secret:#fff7f8; --secret-line:#e7aab5;
+  --display:"Zen Kaku Gothic New","BIZ UDPGothic","Hiragino Sans","Yu Gothic",sans-serif;
+  --body:"BIZ UDPGothic","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#16181c; --sheet:#1f2228; --ink:#eceae6; --sub:#a3a8b1; --line:#353943; --soft:#272b32;
+  --accent:#ff5c72; --accent-ink:#1a0a0d; --accent-soft:#3a1d24;
+  --navy:#9fb6d6; --navy-soft:#253246;
+  --good:#5fd3a2; --good-soft:#18352a; --warn:#f0b75a; --warn-soft:#3a2d16; --bad:#ff8a7a; --bad-soft:#3d1f1b;
+  --secret:#2a1f23; --secret-line:#7a4552; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#16181c; --sheet:#1f2228; --ink:#eceae6; --sub:#a3a8b1; --line:#353943; --soft:#272b32;
+  --accent:#ff5c72; --accent-ink:#1a0a0d; --accent-soft:#3a1d24;
+  --navy:#9fb6d6; --navy-soft:#253246;
+  --good:#5fd3a2; --good-soft:#18352a; --warn:#f0b75a; --warn-soft:#3a2d16; --bad:#ff8a7a; --bad-soft:#3d1f1b;
+  --secret:#2a1f23; --secret-line:#7a4552; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--sheet)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--sheet);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-block:10px}
+.brand{display:flex;align-items:baseline;gap:10px;margin-right:auto;min-width:0}
+.brand h1{font-size:18px;font-weight:900;letter-spacing:.02em}
+.brand span{font-size:12px;color:var(--sub)}
+.steps{display:flex;gap:4px;flex-wrap:wrap}
+.steps a{font-size:12px;font-weight:700;color:var(--sub);text-decoration:none;padding:5px 9px;border-radius:6px}
+.steps a:hover{background:var(--soft);color:var(--ink)}
+.livescore{display:flex;align-items:baseline;gap:4px;font-family:var(--display);font-variant-numeric:tabular-nums}
+.livescore b{font-size:24px;font-weight:900;color:var(--accent)}
+.livescore small{font-size:12px;color:var(--sub)}
+.grade-chip{font-family:var(--display);font-weight:900;font-size:13px;padding:2px 9px;border-radius:999px;background:var(--soft);color:var(--sub)}
+.timer{display:flex;align-items:center;gap:6px}
+.timer output{font-variant-numeric:tabular-nums;font-weight:700;font-size:16px;min-width:52px}
+.timer output.run{color:var(--accent)}
+.timer output.end{color:var(--bad)}
+
+/* sections */
+main{padding-block:18px 40px;display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+main>section{min-width:0}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.sec-no{font-family:var(--display);font-weight:900;font-size:13px;color:var(--accent-ink);background:var(--accent);border-radius:6px;padding:2px 8px}
+.sec-head h2{font-size:21px;font-weight:900}
+.sec-head p{margin:0;color:var(--sub);font-size:13px}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:12px}
+.pad{padding:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid2>*,.grid3>*{min-width:0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr}}
+
+/* setting */
+.setting{display:grid;grid-template-columns:1fr 320px;gap:0}
+.setting>*{min-width:0}
+@media(max-width:980px){.setting{grid-template-columns:1fr}}
+.setbody{padding:16px;display:grid;gap:16px;border-right:1px solid var(--line)}
+@media(max-width:980px){.setbody{border-right:0;border-bottom:1px solid var(--line)}}
+.row-label{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:.04em;margin-bottom:6px;display:flex;gap:8px;align-items:baseline}
+.row-label em{font-style:normal;font-weight:400;color:var(--sub)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--sheet);border-radius:8px;padding:6px 10px;font-size:13px;font-weight:700;line-height:1.35;text-align:left}
+.chip small{display:block;font-weight:400;font-size:11px;color:var(--sub)}
+.chip:hover{border-color:var(--sub)}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--sheet)}
+.chip[aria-pressed="true"] small{color:var(--sheet);opacity:.8}
+.chip .fit{font-size:11px;margin-left:4px;opacity:.85}
+.inline{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.age{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.age input[type=range]{width:220px;max-width:100%;accent-color:var(--accent)}
+.age output{font-family:var(--display);font-weight:900;font-size:20px;font-variant-numeric:tabular-nums;min-width:56px}
+.age .trait{font-size:12px;color:var(--sub);flex:1;min-width:180px}
+select,input[type=text],input[type=date],input[type=number],textarea{border:1px solid var(--line);background:var(--sheet);border-radius:8px;padding:7px 9px;width:100%}
+textarea{resize:vertical;min-height:64px;line-height:1.6}
+.field label{display:block;font-size:12px;font-weight:700;color:var(--sub);margin-bottom:4px}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.meta>*{min-width:0}
+/* dashboard */
+.dash-filters{display:flex;gap:10px;flex-wrap:wrap;padding:14px 16px;border-bottom:1px solid var(--line);align-items:end}
+.dash-filters .field{min-width:150px;flex:1}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-bottom:1px solid var(--line)}
+@media(max-width:800px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{padding:14px 16px;border-right:1px solid var(--line)}
+.kpi:last-child{border-right:0}
+.kpi span{display:block;font-size:11.5px;color:var(--sub);font-weight:700}
+.kpi b{font-family:var(--display);font-size:28px;font-weight:900;font-variant-numeric:tabular-nums}
+.kpi small{color:var(--sub);font-size:12px}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.dash-grid>*{min-width:0;padding:16px;border-bottom:1px solid var(--line)}
+.dash-grid>*:nth-child(odd){border-right:1px solid var(--line)}
+@media(max-width:900px){.dash-grid{grid-template-columns:1fr}.dash-grid>*:nth-child(odd){border-right:0}}
+.dash-grid h3{font-size:14px;margin-bottom:10px}
+.ibar{display:grid;grid-template-columns:minmax(0,1fr) 120px 44px;gap:8px;align-items:center;font-size:12px;margin:5px 0}
+.ibar .track i{background:var(--navy)}
+.ibar.weak .track i{background:var(--warn)}
+.ibar.weak span:first-child{color:var(--warn);font-weight:700}
+.ibar output{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.sc{display:inline-block;min-width:38px;text-align:center;font-weight:900;font-family:var(--display);border-radius:6px;padding:1px 6px;font-variant-numeric:tabular-nums}
+.sc.g{background:var(--good-soft);color:var(--good)} .sc.o{background:var(--navy-soft);color:var(--navy)} .sc.w{background:var(--warn-soft);color:var(--warn)} .sc.b{background:var(--bad-soft);color:var(--bad)}
+.up{color:var(--good);font-weight:700} .down{color:var(--bad);font-weight:700}
+.mode{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px}
+.mode.shared{background:var(--good-soft);color:var(--good)} .mode.local{background:var(--warn-soft);color:var(--warn)}
+.tbl{overflow-x:auto}
+.tbl table{min-width:520px}
+@media(max-width:700px){.meta{grid-template-columns:1fr 1fr}}
+.fitpanel{padding:16px;display:grid;gap:12px;align-content:start;background:var(--soft);border-radius:0 12px 12px 0}
+@media(max-width:980px){.fitpanel{border-radius:0 0 12px 12px}}
+.fitpanel h3{font-size:14px}
+.fitrow{display:grid;grid-template-columns:72px 28px 1fr;gap:8px;align-items:start;font-size:12px}
+.fitrow b{font-size:12px}
+.mark{font-family:var(--display);font-weight:900;font-size:16px;line-height:1.1;text-align:center}
+.mark.g{color:var(--good)} .mark.o{color:var(--navy)} .mark.w{color:var(--warn)} .mark.x{color:var(--bad)}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--sheet);border-radius:8px;padding:8px 13px;font-weight:700;font-size:13px}
+.btn:hover{border-color:var(--sub)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.dark{background:var(--navy);border-color:var(--navy);color:var(--sheet)}
+.btn.small{padding:4px 9px;font-size:12px}
+.btn.danger{color:var(--bad)}
+.dirty{font-size:12px;color:var(--warn);font-weight:700}
+
+/* brief + knowledge */
+.card-h{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.card-h h3{font-size:16px}
+.tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--soft);color:var(--sub)}
+.tag.red{background:var(--accent-soft);color:var(--accent)}
+.brief{display:grid;gap:10px;padding:16px}
+.kn{padding:12px 16px 16px;display:grid;gap:12px}
+.kn h4{margin:0 0 4px;font-size:12px;color:var(--sub);letter-spacing:.04em}
+.kn ul{margin:0;padding-left:1.2em}
+.kn li{margin:2px 0}
+.kn .src a{color:var(--navy);font-size:12px;word-break:break-all}
+.note{font-size:12px;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:8px 10px}
+.secret{border:1px dashed var(--secret-line);background:var(--secret);border-radius:12px}
+.secret .body{padding:16px;display:grid;gap:10px}
+.cover{padding:18px;text-align:center;color:var(--accent);font-weight:700;font-size:13px}
+
+/* evaluation */
+.summary{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:16px;border-bottom:1px solid var(--line)}
+@media(max-width:700px){.summary{grid-template-columns:1fr}}
+.big{font-family:var(--display);font-variant-numeric:tabular-nums}
+.big b{font-size:52px;font-weight:900;line-height:1;color:var(--accent)}
+.big span{font-size:14px;color:var(--sub)}
+.big .g{display:inline-block;margin-top:6px;font-size:15px;font-weight:900;padding:2px 12px;border-radius:999px;background:var(--soft)}
+.big .rated{display:block;font-size:12px;color:var(--sub);margin-top:6px}
+.bars{display:grid;gap:9px;align-content:center}
+.barrow{display:grid;grid-template-columns:110px 1fr 54px;gap:10px;align-items:center;font-size:12px}
+.track{height:10px;background:var(--soft);border-radius:999px;overflow:hidden}
+.track i{display:block;height:100%;width:0;background:var(--navy);border-radius:999px;transition:width .25s}
+.barrow output{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.items{display:grid}
+.item{display:grid;grid-template-columns:44px 1fr 250px;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0}
+.item>*{min-width:0}
+@media(max-width:860px){.item{grid-template-columns:36px 1fr}.item .rate{grid-column:1/-1}}
+.ino{font-family:var(--display);font-weight:900;font-size:18px;color:var(--sub)}
+.ititle{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.ititle b{font-size:15px;font-family:var(--display)}
+.w{font-size:11px;color:var(--sub);font-variant-numeric:tabular-nums}
+.anchor{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px;font-size:11.5px;color:var(--sub)}
+@media(max-width:600px){.anchor{grid-template-columns:1fr}}
+.anchor div{background:var(--soft);border-radius:6px;padding:5px 7px}
+.anchor div b{color:var(--ink)}
+.helper{margin-top:8px;font-size:12px}
+.helper .hint{color:var(--sub);margin-bottom:4px}
+.checks{display:grid;gap:3px}
+.checks label{display:flex;gap:7px;align-items:flex-start;cursor:pointer}
+.checks input{margin-top:3px;accent-color:var(--navy)}
+.count{font-weight:700;color:var(--navy)}
+.rate{display:grid;gap:6px;align-content:start}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.scale button{height:36px;border:1px solid var(--line);background:var(--sheet);border-radius:7px;font-weight:900;font-family:var(--display);font-variant-numeric:tabular-nums}
+.scale button[aria-pressed="true"][data-v="5"],.scale button[aria-pressed="true"][data-v="4"]{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.scale button[aria-pressed="true"][data-v="3"]{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+.scale button[aria-pressed="true"][data-v="2"],.scale button[aria-pressed="true"][data-v="1"]{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.pts{font-size:11px;color:var(--sub);font-variant-numeric:tabular-nums;text-align:right}
+.rate textarea{min-height:44px;font-size:12px}
+.calc{display:grid;grid-template-columns:repeat(4,1fr) ;gap:6px;margin-top:6px;align-items:end}
+@media(max-width:600px){.calc{grid-template-columns:1fr 1fr}}
+.calc label{font-size:11px;color:var(--sub)}
+.calc-out{font-weight:700;color:var(--navy);margin-top:4px;font-variant-numeric:tabular-nums}
+
+/* feedback */
+.kpt{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:800px){.kpt{grid-template-columns:1fr}}
+.history{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:12.5px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:11px;color:var(--sub);font-weight:700;background:var(--soft)}
+td.num{font-variant-numeric:tabular-nums;font-weight:700}
+.empty{color:var(--sub);padding:14px 16px;font-size:13px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--navy);color:var(--sheet);padding:9px 16px;border-radius:999px;font-weight:700;font-size:13px;z-index:20}
+footer{color:var(--sub);font-size:11.5px;padding-block:0 30px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.lab-intro{background:linear-gradient(115deg,#122841,#204c60);color:#fff;border-radius:14px;overflow:hidden;padding:20px 22px;box-shadow:0 8px 22px #0d28421c}
+.intro-top{display:grid;grid-template-columns:1fr 180px;gap:24px;align-items:center}.intro-top h2{font-size:clamp(19px,2.5vw,30px);line-height:1.35;margin:5px 0}.intro-top p{margin:4px 0 0;line-height:1.7;color:#e3eef5}.eyebrow{font-size:10px;font-weight:800;letter-spacing:.12em;color:#76ded4}.intro-number{text-align:center;border-left:1px solid #7992aa;padding:0 10px}.intro-number strong{display:block;font-size:54px;line-height:1}.intro-number small,.intro-number span{display:block;color:#d2e2ed;font-size:12px}.intro-number span{font-size:10px;margin-top:4px}.process{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin-top:16px}.process>div{background:#ffffff13;border:1px solid #ffffff29;border-radius:9px;padding:11px;position:relative}.process>div:not(:last-child):after{content:'›';position:absolute;right:-8px;top:30%;font-size:22px;color:#94eff3;z-index:2}.process span{display:inline-block;font-size:10px;color:#72e4dc;margin-right:5px}.process b{font-size:14px}.process small{display:block;color:#d4e5ee;font-size:11px}.intro-note{color:#c2d5e1;font-size:11px;margin-top:11px}.privacy-notice{background:var(--navy-soft);border-left:3px solid var(--navy);padding:10px 12px;font-size:12px;border-radius:6px}.analytics-row,.dash-viz{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid var(--line)}.analytics-row>.viz-panel:first-child,.dash-viz>.viz-panel:first-child{border-right:1px solid var(--line)}.viz-panel{min-width:0;padding:14px 16px}.viz-panel h3,.viz-heading{font-size:14px;margin:0 0 8px}.viz-panel p,.mini{font-size:11px;color:var(--sub);margin:8px 0 0;line-height:1.7}.viz-panel svg{max-width:100%;display:block;margin:0 auto}.dmu-map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:stretch}.dmu-node{background:var(--navy-soft);border:1px solid var(--line);border-radius:9px;padding:11px 7px;text-align:center;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center}.dmu-node strong{font-size:13px}.dmu-node small{font-size:10px;color:var(--sub)}.dmu-node.selected{background:var(--accent-soft);border-color:var(--accent)}.dmu-node.selected strong{color:var(--accent)}.area{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0}.area label{font-size:12px;font-weight:700}.area select{max-width:165px}.area-map{display:block;width:100%;height:300px;border:1px solid var(--line);border-radius:10px;background:var(--soft)}.training-bars{display:grid;gap:9px}.training-bars>div{display:grid;grid-template-columns:135px 1fr;align-items:center;gap:11px;font-size:12px}.training-bars b{display:block;background:linear-gradient(90deg,var(--tone) var(--part),var(--soft) var(--part));height:30px;padding:4px 9px;border-radius:6px;text-align:right;font-size:11px;color:var(--ink)}.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.source-grid a{border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-size:12px;min-width:0;color:var(--navy);text-decoration:none;overflow-wrap:anywhere}.source-grid a:hover{background:var(--navy-soft)}.learning-panel{display:grid;gap:6px}.smallbar{display:grid;grid-template-columns:95px 1fr 40px;align-items:center;gap:6px;margin:5px 0;font-size:11px}.smallbar meter{width:100%;height:18px}.priority-tag{border-left:3px solid var(--accent);padding:8px 10px;background:var(--soft);font-size:12px;border-radius:4px}.priority-tag strong{display:block}.chart-empty{font-size:12px;color:var(--sub);padding:35px 8px;text-align:center}.completed-notice{display:inline-flex;font-size:11px;color:var(--good)}
+@media(max-width:760px){.intro-top{grid-template-columns:1fr}.intro-number{display:none}.process{grid-template-columns:repeat(2,1fr)}.process>div:after{display:none}.analytics-row,.dash-viz{grid-template-columns:1fr}.analytics-row>.viz-panel:first-child,.dash-viz>.viz-panel:first-child{border-right:0;border-bottom:1px solid var(--line)}.source-grid{grid-template-columns:1fr}.dmu-map{grid-template-columns:repeat(2,minmax(0,1fr))}.area-map{height:260px}}
+@media print{.bar,.btns,.timer,.area-map{display:none!important}body{background:#fff}main{display:block}.sheet,.lab-intro{break-inside:avoid;margin-bottom:12px}}
+</style>
+</head><body>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="brand"><h1>医療機器営業 ロープレLAB</h1><span>6商材 × 施設・診療科 × DMU｜Rev.3</span></div>
+    <nav class="steps" aria-label="セクション">
+      <a href="#setting">① 顧客設定</a><a href="#prep">② 事前資料</a><a href="#eval">③ 評価</a><a href="#fb">④ フィードバック</a><a href="#dash">⑤ 集計</a><a href="#learning">⑥ 研修設計</a>
+    </nav>
+    <div class="livescore" title="現在の点数"><b id="topScore">0</b><small>/100</small></div>
+    <span class="grade-chip" id="topGrade">—</span>
+    <div class="timer">
+      <select id="tmLen" aria-label="ロープレ時間" style="width:auto;padding:5px 6px"><option value="10">10分</option><option value="15" selected>15分</option><option value="20">20分</option></select>
+      <output id="tmOut">15:00</output>
+      <button class="btn small" id="tmBtn" type="button">開始</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+<section class="lab-intro" aria-label="研修の進め方">
+ <div class="intro-top"><div><span class="eyebrow">ROLEPLAY / CLINICAL SALES ENABLEMENT · 2026</span><h2>製品説明から、顧客の意思決定支援へ。</h2><p>架空の医療機関で再現性のある商談訓練。<b>聞く → 仮説を検証 → 顧客価値に接続 → 次の行動を合意</b>を、行動に基づく採点と再演習で鍛えます。</p></div><div class="intro-number"><strong>100</strong><small>点満点 · 10行動項目</small><span>公式の社内評価規程ではない独自の研修用モデル</span></div></div>
+ <div class="process" aria-label="研修サイクル"><div><span>01</span><b>設計</b><small>施設／診療科／DMU</small></div><div><span>02</span><b>準備</b><small>顧客ブリーフと製品根拠</small></div><div><span>03</span><b>模擬面談</b><small>15分・顧客の言葉を聞く</small></div><div><span>04</span><b>行動評価</b><small>根拠を残して10項目採点</small></div><div><span>05</span><b>再演習</b><small>改善1点を短時間で反復</small></div></div>
+ <div class="intro-note">架空施設・架空数値によるトレーニングです。実在病院の評価、患者情報、競合の非公開情報は入力しないでください。保険点数・仕様・費用効果は演習の仮定と実際の確認事項を分けます。</div>
+</section>
+
+
+<!-- ① 顧客設定 -->
+<section id="setting">
+  <div class="sec-head"><span class="sec-no">①</span><h2>顧客設定</h2><p>施設・診療科・年齢・面談相手（DMU）・商材を選び、事前資料を作ります。</p></div>
+  <div class="sheet">
+    <div class="pad" style="border-bottom:1px solid var(--line)">
+      <div class="meta">
+        <div class="field"><label for="m_date">実施日</label><input type="date" id="m_date"></div>
+        <div class="field"><label for="m_dealer">所属（任意・端末内保存）</label><input type="text" id="m_dealer" list="dealerList" placeholder="例：メディセオ"></div>
+        <div class="field"><label for="m_branch">支店・部署</label><input type="text" id="m_branch" placeholder="例：ME神奈川支店"></div>
+        <div class="field"><label for="m_trainee">被評価者（識別コード推奨）</label><input type="text" id="m_trainee" placeholder="例：受講者A"></div>
+        <div class="field"><label for="m_evaluator">評価者</label><input type="text" id="m_evaluator" placeholder="例：講師A"></div>
+        <div class="field"><label for="m_role">顧客役</label><input type="text" id="m_role" placeholder="例：CMSC 〇〇"></div>
+        <div class="field" style="grid-column:span 2"><label for="m_event">研修名・実施場面</label><input type="text" id="m_event" placeholder="例：メディセオME神奈川 定例会ロープレ（2026年11月）"></div>
+      </div>
+      <datalist id="dealerList"></datalist>
+    </div>
+    <div class="setting">
+      <div class="setbody">
+        <div><div class="row-label">施設区分</div><div class="chips" id="cFac"></div></div>
+        <div><div class="row-label">診療科 <em>商材との相性を表示</em></div><div class="chips" id="cDept"></div></div>
+        <div><div class="row-label">面談相手（DMU）</div><div class="chips" id="cDmu"></div></div>
+        <div>
+          <div class="row-label">面談相手の年齢</div>
+          <div class="age"><input type="range" id="age" min="30" max="80" step="1" value="55" aria-label="年齢"><output id="ageOut">55歳</output><span class="trait" id="ageTrait"></span></div>
+        </div>
+        <div><div class="row-label">商材</div><div class="chips" id="cProd"></div></div>
+        <div><div class="row-label">本当のニーズがある使用シーン <em>隠し設定。複数選択可。受講者がヒアリングで聞き出せるかを評価②で確認</em></div><div class="chips" id="cScene"></div></div>
+        <div class="inline">
+          <div class="field" style="flex:1;min-width:220px"><label for="comp">競合の状況</label><select id="comp"></select></div>
+          <div class="field" style="flex:1;min-width:220px"><label>難易度</label><div class="chips" id="cLevel"></div></div>
+        </div>
+        <div class="inline" style="justify-content:space-between">
+          <div class="btns"><button class="btn primary" id="genBtn" type="button">この設定で事前資料を作る</button><button class="btn" id="rndBtn" type="button">おまかせで作る</button></div>
+          <span class="dirty" id="dirty" hidden>設定が変わりました。事前資料を作り直してください</span>
+        </div>
+      </div>
+      <aside class="fitpanel" aria-label="設定の妥当性">
+        <h3>設定の妥当性チェック</h3>
+        <div id="fitList"></div>
+        <div class="note" id="fitNote" hidden></div>
+        <div style="font-size:11.5px;color:var(--sub)">◎ 主要ターゲット　○ 提案可能　△ 条件付き　× 対象外。商材ごとの想定であり、実際の施設に合わせて変えてください。</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ② 事前資料 -->
+<section id="prep">
+  <div class="sec-head"><span class="sec-no">②</span><h2>事前資料</h2><p>受講者用ブリーフと商材ナレッジは事前に配布します。隠し設定は評価者と顧客役だけが見ます。各欄は書き換えられます。</p></div>
+  <div class="grid2">
+    <div class="sheet">
+      <div class="card-h"><h3>受講者用ブリーフ</h3><div class="btns"><span class="tag red">受講者に配布</span><button class="btn small" type="button" data-copy="brief">コピー</button></div></div>
+      <div class="brief">
+        <div class="grid2" style="gap:10px">
+          <div class="field"><label for="b_fac">施設</label><input type="text" id="b_fac"></div>
+          <div class="field"><label for="b_prod">提案商材</label><input type="text" id="b_prod"></div>
+        </div>
+        <div class="field"><label for="b_profile">施設の概要</label><textarea id="b_profile"></textarea></div>
+        <div class="field"><label for="b_person">面談相手</label><textarea id="b_person"></textarea></div>
+        <div class="field"><label for="b_current">現在の状況（分かっていること）</label><textarea id="b_current"></textarea></div>
+        <div class="field"><label for="b_goal">あなたのゴール（開始前に宣言）</label><textarea id="b_goal"></textarea></div>
+      </div>
+    </div>
+    <div class="sheet">
+      <div class="card-h"><h3 id="knTitle">商材ナレッジ</h3><div class="btns"><span class="tag">受講者に配布</span><button class="btn small" type="button" data-copy="kn">コピー</button></div></div>
+      <div class="kn" id="kn"></div>
+    </div>
+  </div>
+  <div class="secret" id="secret" style="margin-top:14px">
+    <div class="card-h" style="border-color:var(--secret-line)"><h3>評価者・顧客役用 隠し設定</h3><div class="btns"><button class="btn small" id="secretBtn" type="button" aria-expanded="false">隠し設定を表示</button><button class="btn small" type="button" data-copy="secret">コピー</button></div></div>
+    <div class="cover" id="secretCover">受講者には見せない設定です（画面共有中は開かないでください）</div>
+    <div class="body" id="secretBody" hidden>
+      <div class="grid2" style="gap:10px">
+        <div class="field"><label for="h_facts">聞かれたら答える事実</label><textarea id="h_facts" rows="5"></textarea></div>
+        <div class="field"><label for="h_latent">潜在ニーズ（掘られたら段階的に開示）</label><textarea id="h_latent" rows="5"></textarea></div>
+        <div class="field"><label for="h_real">面談相手の本音・判断基準</label><textarea id="h_real" rows="4"></textarea></div>
+        <div class="field"><label for="h_comp">競合の状況</label><textarea id="h_comp" rows="4"></textarea></div>
+        <div class="field"><label for="h_rules">顧客役の反応ルール</label><textarea id="h_rules" rows="6"></textarea></div>
+        <div class="field"><label for="h_watch">評価者の着眼点</label><textarea id="h_watch" rows="6"></textarea></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ③ 評価 -->
+<section id="eval">
+  <div class="sec-head"><span class="sec-no">③</span><h2>評価・採点</h2><p>10項目を5段階で評価し、重み付けで100点満点に換算します。チェック欄は採点の根拠メモです。10項目の完了後だけ正式な評価として保存・集計できます。</p></div>
+  <div class="sheet">
+    <div class="summary">
+      <div class="big"><b id="sumScore">0</b><span> / 100点</span><br><span class="g" id="sumGrade">未評価</span><span class="rated" id="sumRated">評価済み 0 / 10項目</span></div>
+      <div class="bars" id="bars"></div>
+    </div>
+    <div class="analytics-row"><div class="viz-panel"><h3>能力バランス（評価グループ別）</h3><div id="radar"></div><p>未評価のグループは 0% とし、項目が揃うまでは暫定表示です。</p></div><div class="viz-panel"><h3>次回の重点テーマ</h3><div id="priority"></div><p>最も得点率の低い項目を、次の演習で1つだけ重点化します。</p></div></div><div class="items" id="items"></div>
+  </div>
+</section>
+
+<!-- ④ フィードバック -->
+<section id="fb">
+  <div class="sec-head"><span class="sec-no">④</span><h2>フィードバック・保存</h2><p>Keep / Problem / Try は具体的な発言・行動で1つずつ書きます。</p></div>
+  <div class="sheet pad" style="display:grid;gap:14px">
+      <div class="privacy-notice"><strong>データの取扱い</strong> このWebページは外部DBに送信しません。記録はこのブラウザのローカル保存領域に残ります。共有端末では氏名の代わりに識別コードを使用し、必要な評価結果はCSV / JSONで控えてください。</div>
+    <div class="grid2">
+      <div class="field"><label for="f_goal">目標達成度</label>
+        <select id="f_goal"><option value="">未選択</option><option>100%：目的と成功条件のあるNext Actionを合意</option><option>80%：ニーズと判断条件まで把握、次回を調整</option><option>60%：潜在ニーズを把握したが提案が未完</option><option>40%：情報収集はできたが深掘り不足</option><option>20%：製品説明中心で終了</option></select></div>
+      <div class="field"><label for="f_next">合意したNext Action（誰が・何を・いつ・何を確認するため）</label><input type="text" id="f_next" placeholder="例：11/12 院長・看護師長同席で、診察室でアイギアプロのHbA1c測定を30分デモ。結果が5分で出る運用を確認"></div>
+    </div>
+    <div class="kpt">
+      <div class="field"><label for="f_keep">Keep：続けてほしい行動</label><textarea id="f_keep" rows="4"></textarea></div>
+      <div class="field"><label for="f_problem">Problem：目標に届かなかった理由</label><textarea id="f_problem" rows="4"></textarea></div>
+      <div class="field"><label for="f_try">Try：次回1つだけ変える行動</label><textarea id="f_try" rows="4"></textarea></div>
+    </div>
+    <div class="btns" style="align-items:center">
+      <button class="btn primary" id="saveBtn" type="button">評価をストックする</button>
+      <button class="btn dark" id="copyBtn" type="button">結果をコピー（Excel貼り付け用）</button>
+      <button class="btn danger" id="newBtn" type="button">評価をクリア</button>
+      <span class="mode local" id="modeTag">接続を確認中…</span>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ 集計 -->
+<section id="dash">
+  <div class="sec-head"><span class="sec-no">⑤</span><h2>集計</h2><p>ストックした評価を、項目・商材・販社と支店・受講者ごとに集計します。</p></div>
+  <div class="sheet">
+    <div class="dash-filters">
+      <div class="field"><label for="fPeriod">期間</label><select id="fPeriod"><option value="all">全期間</option><option value="fy">今年度（4月〜）</option><option value="3m">直近3か月</option><option value="1m">直近1か月</option></select></div>
+      <div class="field"><label for="fDealer">販社</label><select id="fDealer"><option value="">すべて</option></select></div>
+      <div class="field"><label for="fProd">商材</label><select id="fProd"><option value="">すべて</option></select></div>
+      <div class="field"><label for="fFac">施設区分</label><select id="fFac"><option value="">すべて</option></select></div>
+      <div class="field"><label for="fQ">受講者名で絞り込み</label><input type="text" id="fQ" placeholder="氏名の一部"></div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="dash-grid">
+      <div><h3>評価項目別の平均（弱い項目を色付け）</h3><div id="dItems"></div></div>
+      <div><h3>商材別</h3><div class="tbl" id="dProd"></div></div>
+      <div><h3>販社・支店別</h3><div class="tbl" id="dDealer"></div></div>
+      <div><h3>受講者別（初回→最新の伸び）</h3><div class="tbl" id="dTrainee"></div></div>
+    </div>
+    <div class="dash-viz"><div class="viz-panel"><h3>評価点分布</h3><div id="histogram"></div></div><div class="viz-panel"><h3>評価の推移（実施日順・最新20件）</h3><div id="trend"></div></div></div><div class="card-h"><h3>ストックした評価の一覧</h3><div class="btns"><button class="btn small" id="csvBtn" type="button">集計CSVを出力</button><button class="btn small" id="jsonBtn" type="button">全履歴JSONをバックアップ</button><button class="btn small" id="importBtn" type="button">JSONを復元</button><input id="importFile" type="file" accept="application/json,.json" hidden><span class="tag" id="dCount"></span></div></div>
+    <div class="history" id="history"></div>
+  </div>
+</section>
+
+
+<section id="learning">
+ <div class="sec-head"><span class="sec-no">⑥</span><h2>研修プログラム・意思決定マップ</h2><p>短時間演習を反復し、点数ではなく現場で再現できる行動を定着させます。</p></div>
+ <div class="grid2">
+ <div class="sheet pad"><h3 class="viz-heading">意思決定ユニット（DMU）の会話設計</h3><div id="dmuMap" class="dmu-map"></div><p class="mini">商談相手だけでなく、実使用者・決裁者・購買・運用担当の観点を確認。実際の決裁構造を調査してから提案すること。</p></div>
+ <div class="sheet pad"><h3 class="viz-heading">地域・商圏の参考地図</h3><p class="mini">演習の地域条件を確認するための地図です。架空施設の所在地を示していません。</p><div class="area"><label for="areaSelect">地域を選択</label><select id="areaSelect" aria-label="地図に表示する都道府県"></select><a class="btn dark" id="mapsLink" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/">Google マップで開く ↗</a></div><iframe id="areaMap" class="area-map" title="地域参考地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD&output=embed"></iframe><p class="mini">Googleマップは外部サービスです。選択した地域名のみを地図表示に使用します。</p></div>
+ </div>
+ <div class="sheet pad learning-panel"><h3 class="viz-heading">推奨する1回の研修（35分）</h3><div class="training-bars"><div><span>顧客設定・目標</span><b style="--part:9%;--tone:#64748b">3分</b></div><div><span>面談（観察）</span><b style="--part:43%;--tone:#0d7786">15分</b></div><div><span>行動根拠の採点</span><b style="--part:14%;--tone:#3868a4">5分</b></div><div><span>KPT・合意</span><b style="--part:20%;--tone:#8a5bc0">7分</b></div><div><span>重点再演習</span><b style="--part:14%;--tone:#b35768">5分</b></div></div><p class="mini">時間配分は研修設計上の推奨例であり、研究で確定した最適値ではありません。評価者間の採点合わせと、30日後の現場行動確認を行うと比較しやすくなります。</p></div>
+ <div class="sheet pad"><h3 class="viz-heading">研究・実務の根拠と留意事項</h3><div class="source-grid"><a href="https://www.ahrq.gov/teamstepps-program/curriculum/team/tools/debrief.html" target="_blank" rel="noopener">AHRQ TeamSTEPPS｜Debrief</a><a href="https://www.ahrq.gov/teamstepps-program/curriculum/mutual/tools/feedback.html" target="_blank" rel="noopener">AHRQ｜Formative feedback</a><a href="https://pubmed.ncbi.nlm.nih.gov/38240623/" target="_blank" rel="noopener">シミュレーション教育のデブリーフ研究（2024）</a><a href="https://www.jahid.or.jp/about/ethics" target="_blank" rel="noopener">JAHID｜企業倫理・公正競争規約</a><a href="https://jp.medical.canon/products/ultrasound/products/aplio-air/" target="_blank" rel="noopener">キヤノンメディカル｜Aplio air 公式</a><a href="https://jp.medical.canon/products/xray/cxdi/digital-radiography/" target="_blank" rel="noopener">キヤノンメディカル｜CXDI公式</a></div><div class="mini">行動アンカーは原本の設計を継承し、公式の検証済み心理測定尺度ではありません。採点者の訓練・二重採点・ケースの難易度調整を実施して妥当性を高めてください。</div></div>
+</section>
+
+<footer class="wrap">評価はこの端末のブラウザ内にのみ保存されます。サーバー共有は行いません。共有端末で個人情報を入力しないでください。製品情報は原本の記載と公式公開情報を参照した研修用のものです。仕様・販売条件・承認範囲は必ず最新のメーカー資料で確認してください。診療報酬の点数は2026年度改定後の点数表で必ず確認してから使ってください。海外仕様と記した数値は国内仕様を確認してください。</footer>
+</main>
+
+<script>
+/* ===================== データ ===================== */
+const FAC = {
+  large:{label:'大病院',sub:'急性期・DPC／300床以上',names:['県央総合医療センター','市立中央病院','みなと医療センター'],
+    profile:'急性期・DPC病院。放射線部・検査部・ME室・看護部・健診センターなど部門ごとに判断する人がいる。外来 約1,200人/日。',
+    purchase:'部門の要望→予算委員会→入札・見積合わせ。年度予算化と仕様書作成が前提。',timing:'次年度予算の取りまとめ（秋〜冬）に間に合うかが鍵'},
+  mid:{label:'中小病院',sub:'100〜199床／ケアミックス',names:['さくら記念病院','あおば中央病院','ひかり台病院'],
+    profile:'地域密着の急性期〜回復期・療養。人員が少なく兼務が多い。外来 約250人/日。',
+    purchase:'理事長・院長の意向が強い。事務長が予算と業者を取りまとめ、相見積が通例。',timing:'決算・補助金・機器更新計画に合わせて判断'},
+  clinic:{label:'診療所',sub:'無床・有床クリニック',names:['小山医院','みどり内科クリニック','駅前ファミリークリニック','つばさクリニック'],
+    profile:'院長がオーナー経営者。スタッフ数名で運営。外来 約50人/日。',
+    purchase:'院長が即決することが多いが、配偶者・事務長・税理士の意見も影響。リース・CMF（キヤノンメディカルファイナンス）の活用が多い。',timing:'決算前、リース満了、承継などがきっかけ'},
+  check:{label:'健診施設',sub:'健診センター・人間ドック',names:['ウェルネス健診センター','中央総合健診プラザ'],
+    profile:'健診・ドック専門。受診者の流れ（スループット）と満足度を重視。受診者 約150人/日。',
+    purchase:'センター長と事務部門が判断。法人本部の承認が必要な場合あり。',timing:'次年度の健診メニュー改定前に判断'}
+};
+const DEPT = {
+  gim:{label:'一般内科',note:'高血圧・糖尿病・脂質異常などの生活習慣病外来が中心'},
+  dm:{label:'糖尿病・内分泌内科',note:'血糖管理と合併症（網膜症・腎症・動脈硬化）の管理'},
+  cardio:{label:'循環器内科',note:'心疾患・高血圧・動脈硬化の管理'},
+  gi:{label:'消化器内科',note:'腹部エコー・内視鏡、脂肪肝・肝疾患'},
+  ortho:{label:'整形外科',note:'X線撮影が多い。骨粗鬆症・運動器'},
+  obgyn:{label:'産婦人科',note:'妊婦健診のエコー、閉経後の骨粗鬆症'},
+  uro:{label:'泌尿器科',note:'残尿・膀胱容量の確認、腎疾患'},
+  surg:{label:'外科',note:'小手術・処置が多く器材の滅菌が必須'},
+  ped:{label:'小児科',note:'被ばく・採血の負担を少なく。感染症の診療'},
+  eye:{label:'眼科',note:'眼底撮影・網膜疾患'},
+  derm:{label:'皮膚科',note:'小手術・処置器材'},
+  kenshin:{label:'健診・予防医学',note:'スループットとオプション検査'},
+  er:{label:'救急・総合診療',note:'迅速な初期評価'},
+  home:{label:'在宅医療',note:'訪問先での検査・判断'}
+};
+const DMU = {
+  inc:{label:'院長・理事長',type:'ディサイダー（決裁者）',persona:'経営者として投資判断を行う',
+    concerns:['診療方針・地域での差別化','投資回収と資金繰り','スタッフの負担'],
+    ask:['5年後、どんな診療をしていたいですか？','今の検査の流れで、患者さんを待たせている場面はありますか？'],
+    hidden:'本音は「5年後も地域で選ばれる施設でいたい」。製品説明が3分続くと話を切り上げようとする。',ng:'スペックの羅列'},
+  doc:{label:'医師（勤務医）',type:'ユーザー／インフルエンサー',persona:'臨床現場で使う立場。院長への推薦者になる',
+    concerns:['臨床的な有用性・診断の確からしさ','画質・精度','診療時間への影響'],
+    ask:['どんな患者さんで、判断に迷う場面がありますか？','今の運用で、結果待ちのために方針を決められないことはありますか？'],
+    hidden:'臨床の根拠を重視。根拠のない「きれいです」「速いです」には「何と比べて？」と返す。',ng:'臨床効果の誇張'},
+  jim:{label:'事務長',type:'バイヤー／ゲートキーパー',persona:'予算・業者選定・契約の取りまとめ役',
+    concerns:['総費用（本体・保守・消耗品）','算定・収益への影響','支払い方法（リース・CMF）'],
+    ask:['今期の設備投資は、どのような枠組みで判断されていますか？','保守費や消耗品まで含めた年間の費用は把握されていますか？'],
+    hidden:'今期の設備投資枠は限られている。月額で考えたい。保守費まで含めた総額を知りたい。価格以外の比較軸を示されないと最安値で決める。',ng:'価格の話から逃げる'},
+  rad:{label:'放射線技師長',type:'ユーザー／インフルエンサー',persona:'X線・画像の運用責任者',
+    concerns:['画質と被ばく（線量管理）','撮影の流れ・効率','既存装置・PACSとの互換'],
+    ask:['1日の撮影件数と、待ちが出る時間帯を教えてください','線量管理で今取り組まれていることはありますか？'],
+    hidden:'既存X線装置とPACSとの互換性を必ず確認する。同じ被写体で比べないと画質の話は信用しない。',ng:'技術的な質問をはぐらかす'},
+  lab:{label:'臨床検査技師長',type:'ユーザー／インフルエンサー',persona:'検体検査・生理検査の運用責任者',
+    concerns:['測定精度・精度管理','結果が出るまでの時間','試薬ロス・作業負担'],
+    ask:['外注している項目と件数を教えていただけますか？','精度管理はどのように行っていますか？'],
+    hidden:'精度管理と作業負担を重視。試薬の使用期限によるロスを気にしている。',ng:'精度の根拠を示さない'},
+  me:{label:'ME（臨床工学技士）',type:'インフルエンサー／ゲートキーパー',persona:'医療機器の保守・点検・台数管理を担う',
+    concerns:['保守・点検のしやすさ','故障時の対応・代替機','消毒方法・ワイヤレス機器のセキュリティ'],
+    ask:['機器の点検や所在管理で手間がかかっている機器はありますか？','故障時、復旧までどのくらいかかっていますか？'],
+    hidden:'故障時の代替機と対応時間、消毒方法を必ず聞く。院内ネットワークへの接続条件を気にしている。',ng:'保守体制を曖昧にする'},
+  ns:{label:'看護師長',type:'ユーザー／インフルエンサー',persona:'現場スタッフと患者の負担を見ている',
+    concerns:['患者の負担','スタッフの手間・教育','感染対策'],
+    ask:['患者さんを移動させたり、待たせたりしている場面はありますか？','新しい機器が入るとき、スタッフ教育で困ったことはありますか？'],
+    hidden:'「誰が使うのか」「教育は誰がするのか」を必ず聞く。スタッフの手間が増える話には反対する。',ng:'現場の負担を無視する'},
+  buy:{label:'用度・購買担当',type:'バイヤー',persona:'仕様書・見積・契約を担当',
+    concerns:['仕様と価格の比較','納期・契約条件','販社の対応力'],
+    ask:['比較の際、価格以外に重視される項目はありますか？','仕様書はどなたが作成されますか？'],
+    hidden:'価格以外の比較軸（保守・消耗品・稼働率）が仕様書に入らないと最安値で決まる。',ng:'仕様書づくりに関わろうとしない'}
+};
+const AGE = [
+  {min:30,max:39,label:'30代',trait:'年齢はシナリオ設定の参考値です。課題・意思決定・IT習熟度は本人への質問で確認します。',rule:'年齢だけから価値観・予算・意思決定を推測しない。'},
+  {min:40,max:49,label:'40代',trait:'年齢はシナリオ設定の参考値です。本人の課題と運用環境を確認します。',rule:'本人の判断基準・勤務体制・導入障壁を確認する。'},
+  {min:50,max:59,label:'50代',trait:'年齢はシナリオ設定の参考値です。投資方針・導入時期は個別に確認します。',rule:'決裁構造・導入時期と成功条件を本人に尋ねる。'},
+  {min:60,max:69,label:'60代',trait:'年齢はシナリオ設定の参考値です。承継・機器更新は事実確認が必要です。',rule:'承継や更新の話は先入観ではなく質問で確認する。'},
+  {min:70,max:99,label:'70代以上',trait:'年齢はシナリオ設定の参考値です。個別の役割と意向を尊重します。',rule:'年齢による推定を避け、実際の関係者と判断基準を確認する。'}
+];
+const COMP = {
+  none:{label:'競合の提案なし',hidden:'競合からの提案はまだない。ただし他の販社（ディーラー）も出入りしている。'},
+  proposing:{label:'競合が提案中（見積提示済み）',hidden:'競合が先に見積を出している。価格を前面に出しており、顧客は比較の軸を持っていない（聞かれたら競合名と価格帯を答える）。'},
+  using:{label:'競合製品を使用中（更新検討）',hidden:'現行は競合製品。大きな不満はないが、保守対応の遅さに一部不満がある（聞かれたら答える）。'},
+  rejected:{label:'競合を検討し見送った',hidden:'以前、競合を検討したが「運用に合わない」と見送った（理由を聞かれたら具体的に答える）。'}
+};
+const LEVEL = {
+  easy:{label:'初級',rules:['質問には素直に答える。','競合の話は聞かれたら出す。','目的のある提案ならNext Actionに応じる。']},
+  mid:{label:'中級',rules:['冒頭の製品説明には「今は特に困っていない」と返す。','具体的な質問には事実で答える。理由を掘られた場合に限り、潜在ニーズを1つずつ開示する。','隠し設定を当てに来るような唐突な質問には深く答えない。','「何を確認するデモか」が明確ならNext Actionに応じる。']},
+  hard:{label:'上級',rules:['冒頭で「業者が多くて時間がない。手短に」と言う。','競合の見積価格を示して値引きを迫る。','院内に別の決裁者がいることを、聞かれるまで伏せる。','反論を2回以上出す。判断条件と成功条件が合意できた場合のみNext Actionに応じる。']}
+};
+
+const PROD = {
+  air:{name:'Aplio air',cat:'ワイヤレス携帯型超音波診断装置',maker:'キヤノンメディカルシステムズ（国内受注開始 2024年10月）',
+    spec:['デュアルヘッドプローブ：コンベックス＋リニアを1台に搭載','約200g。Wi-Fiでスマートフォン・タブレットに接続し専用アプリで操作（端末は別途）','連続使用 約70分、ワイヤレス充電、本体IP67（防塵・防水）','パルスドプラ、膀胱容量の自動計測、Auto-IMT（頸動脈の内膜中膜複合体厚の自動計測）、ApliCam（超音波画像と撮影写真のひも付け）','3年保証。想定シーン：在宅医療・へき地・救急・災害・ベッドサイド'],
+    clinical:['在宅・往診・病棟のベッドサイドで、その場で腹部・膀胱・頸動脈などを観察できる（POCUS）','膀胱容量の自動計測で、尿閉・残尿の確認が簡単になる','Auto-IMTで頸動脈の動脈硬化を手軽に評価できる','パルスドプラで血流の評価にも対応','一次評価として使い、精査は据置機（Aplio go／Aplio me）につなぐ'],
+    ops:['患者を検査室へ移動させずに済む','IP67で清拭・消毒がしやすい','タブレット画面を見せながら患者に説明できる'],
+    biz:['訪問診療時の超音波検査の算定（2026年度点数を確認）','据置機の空き待ちがなくなり検査件数を増やせる','2台目として低い投資で導入できる'],
+    comp:'他社のワイヤレス・ポケット型エコー（国内外各社）',
+    diff:['同じ部位で画質を比べる場（デモ）を作った','1台でコンベックス＋リニアを示した','IP67・3年保証など耐久性と保証を示した','Auto-IMT・膀胱容量の自動計測を相手の用途に結びつけた','据置Aplioとの役割分担・サポート体制を示した'],
+    obj:['小さいエコーは画質が心配','スマホをつなぐのはセキュリティが不安','据置機があるから要らない','他社のポケットエコーの方が安い'],
+    ng:['「据置機と同じ画質です」と断定する','他社製品をけなす'],
+    cross:['Aplio go／Aplio me（据置での精査・ATIで脂肪肝評価）','アイギアプロ(K)（糖尿病管理）'],
+    currentBy:{large:'救急外来と各病棟に据置型エコーが分散しているが台数が足りない',mid:'据置型エコー1台を検査室で共用（導入9年）',clinic:'据置型エコー1台（導入8年）を処置室で使用。週2〜3件、腹部中心',check:'据置型エコー3台（腹部・頸動脈）'},
+    latentBy:{large:['救急・ICUですぐ当てたいが、据置機の取り合いになる','病棟の残尿確認のために検査室のエコーを運んでいる'],mid:['病棟での残尿・膀胱容量の確認が手間','夜間・休日に医師が自分ですぐ当てたい','施設入所者への往診を増やしたい'],clinic:['これから在宅・訪問診療を始めたい','診察室が狭く、患者を処置室へ移動させている','頸動脈エコーをやりたいが時間と場所がない'],check:['巡回健診で使える携帯型を探している','オプション検査を増やしたいが部屋がない']},
+    fit:{large:'○',mid:'◎',clinic:'◎',check:'△'},
+    deptFit:{gim:'◎',dm:'◎',cardio:'○',gi:'○',ortho:'○',obgyn:'○',uro:'◎',surg:'○',ped:'○',eye:'×',derm:'△',kenshin:'△',er:'◎',home:'◎'},
+    deptHook:{uro:'膀胱容量の自動計測で、外来・在宅での残尿測定が簡単になる',home:'訪問先でその場で腹水・胸水・膀胱などを確認できる',er:'外傷・救急の初期評価にすぐ使える',dm:'Auto-IMTで動脈硬化のフォローができる',gim:'生活習慣病の患者に頸動脈・腹部をその場で確認できる',ortho:'リニアで筋・腱・関節を診察室で観察できる',cardio:'一次評価に使い、精査は据置の心エコーへ',obgyn:'診察室・病棟でのクイックチェック用（精査は据置機）'},
+    keyDMU:['inc','doc','ns','me','jim'],
+    scenes:[
+      {k:'opd',label:'外来・診察室',q:['1日に何件くらい当てていますか？誰が当てていますか？','診察室にエコーは置けていますか？患者さんを処置室へ移動させていませんか？'],fact:'診察室が狭く据置機を置けない。エコーのたびに患者を処置室へ移動させている'},
+      {k:'ward',label:'病棟',q:['病棟で残尿・膀胱容量を確認する頻度と、誰が測っていますか？','病棟へ据置機を運ぶことはありますか？'],fact:'病棟の残尿確認のたびに検査室の据置機を運んでいる。看護師も測れると助かる'},
+      {k:'home',label:'往診・在宅',q:['訪問診療は月に何件ありますか？','訪問先で「エコーがあれば判断できたのに」という場面は？（腹水・胸水・尿閉・DVTなど）'],fact:'訪問診療を月40件ほど行っている。訪問先で尿閉や胸水の判断に迷い、病院へ紹介することがある'},
+      {k:'er',label:'救急・夜間',q:['救急・夜間の腹痛や外傷で、すぐ当てたい場面はありますか？','夜間に技師はいますか？医師が自分で当てていますか？'],fact:'夜間は技師がおらず、当直医が自分で当てたいが据置機の場所まで行く必要がある'},
+      {k:'ope',label:'手術室・処置',q:['手術室や処置室で、穿刺や確認のためにエコーを使う場面はありますか？','清潔操作（プローブカバー）や消毒はどう運用していますか？'],fact:'処置・穿刺の確認に使いたいが、据置機は大きく手術室・処置室に持ち込みにくい'},
+      {k:'out',label:'健診・巡回・災害',q:['巡回健診や施設往診、災害時に持ち出す予定はありますか？'],fact:'巡回健診・災害時用に持ち出せる機器を探している'},
+      {k:'it',label:'端末・画像管理',q:['院内でスマートフォン・タブレットを使う際のルールはありますか？','画像はどこに保存したいですか？（電子カルテ・PACS）','機器の管理はどの部署（ME等）が担当していますか？'],fact:'院内のスマホ利用ルールが厳しく、ME室が端末とネットワークを管理している'}
+    ],
+    src:[['キヤノンメディカル プレスリリース（2024/9/6）','https://jp.medical.canon/about/pressrelease/2024/2024-09-06/']]},
+  cxdi:{name:'CXDI（CXDI-Pro／CXDI-Elite）',cat:'ワイヤレスX線デジタル撮影装置（FPD）',maker:'キヤノンメディカルシステムズ',
+    spec:['CXDI-Pro（スタンダード）：半切ワイヤレス、公式掲載の重量3.3kg（型式・計測条件を確認）、高感度CsIシンチレータ、IP55、起動4秒以下、撮影サイクル5秒以下、バッテリー10時間以上','CXDI-Elite（2023年4月発売・ハイエンド）：CXDI-720C Wireless（半切）／420C（フルサイズ）／820C（大四）。CsIの改良でDQE・MTFを向上','BiAA（Built-in AEC Assistance、オプション）：天板やストレッチャー上の撮影でも撮影時間を自動制御','マグネシウム合金＋CFRP。Eliteは均一荷重310kgに耐える'],
+    clinical:['撮影直後に画像を確認でき、再撮影の判断が早い','高感度CsIで低線量撮影が期待できる（線量管理の取り組みに貢献）','画質（DQE・MTF）向上で微細な所見の観察を支援','ポータブル・病棟撮影や、小児・高齢者の撮影負担を軽くする'],
+    ops:['CRのカセッテ運搬・読取作業がなくなる','撮影サイクルが短く待ち時間を減らせる','BiAAで撮影条件設定の負担を減らす','電子カルテ・PACSへ画像を直接送れる'],
+    biz:['CR読取装置・IPの保守費とのTCO比較','撮影件数と技師の業務時間の改善','画像のデジタル管理に関する加算（2026年度の要件を確認）'],
+    comp:'他社FPD（富士フイルム、コニカミノルタ、島津製作所ほか）',
+    diff:['同じ被写体で画質・線量を比べる場を作った','重量・耐荷重・防水など堅牢性を示した','既存X線装置（RADREX等）との連携・BiAAを示した','バッテリー・撮影サイクルを相手の件数に結びつけた','保守体制・CMFでの支払いを示した'],
+    obj:['CRで困っていない','X線装置のメーカーとそろえたい','他社FPDの見積が安い','X線装置の更新と一緒に考えたい'],
+    ng:['被ばくが「半分になる」など根拠のない数値を言う','他社をけなす'],
+    note:'コニカミノルタとはUS（産婦人科・整形外科）で協業中。XRでの扱い（協業か競合か）は社内ルールを確認してからシナリオに入れてください。',
+    cross:['Aplio air（整形・救急でのPOCUS）','超音波骨密度 CM-300（整形・骨粗鬆症）'],
+    currentBy:{large:'他社FPDとCRが混在。ポータブル撮影はCR',mid:'CR（導入11年）と他社X線装置',clinic:'CR（導入10年）。読取装置の保守期限が近い',check:'他社FPD（導入7年）'},
+    latentBy:{large:['病棟のポータブル撮影でCRの運搬・読取に時間がかかる','線量管理の取り組みを強化したい'],mid:['技師2名で回しており撮影待ちが長い','夜間の救急撮影を当直技師1人で行う負担が大きい'],clinic:['撮影後の待ち時間に患者から不満が出ている','CR読取装置の修理部品がなくなると言われた','撮影件数が多く、技師の手間を減らしたい'],check:['受診者の流れを速くしたい','胸部撮影の画質を上げて読影医の負担を減らしたい']},
+    fit:{large:'○',mid:'◎',clinic:'◎',check:'◎'},
+    deptFit:{gim:'◎',dm:'△',cardio:'○',gi:'○',ortho:'◎',obgyn:'△',uro:'○',surg:'◎',ped:'○',eye:'×',derm:'×',kenshin:'◎',er:'◎',home:'△'},
+    deptHook:{ortho:'撮影件数が多く、撮影サイクルの短さが効く',ped:'低線量撮影の取り組みを説明できる',kenshin:'胸部撮影のスループットと画質',er:'ストレッチャー上の撮影でBiAAが使える',gim:'胸部撮影の待ち時間の短縮'},
+    keyDMU:['inc','rad','jim','doc','buy'],
+    scenes:[
+      {k:'room',label:'一般撮影室',q:['1日の撮影件数と、待ちが出る時間帯は？','CRの読取に1件あたりどのくらいかかっていますか？'],fact:'1日の撮影は約60件。午前に撮影待ちが集中する'},
+      {k:'ward',label:'病棟ポータブル',q:['病棟のポータブル撮影は1日何件ですか？','回診車はどのメーカー・年式ですか？'],fact:'病棟のポータブル撮影が1日10件。CRのカセッテを運んで読取に戻る往復が負担'},
+      {k:'er',label:'救急',q:['救急でストレッチャー上の撮影はどのくらいありますか？','夜間の撮影は誰が担当していますか？'],fact:'夜間は当直技師1人。ストレッチャー上の撮影で条件設定に苦労している'},
+      {k:'ope',label:'手術室',q:['術中撮影はありますか？液体がかかる環境で使いますか？'],fact:'整形外科の術中撮影がある。パネルの防水性を気にしている'},
+      {k:'sys',label:'装置・システム連携',q:['今のX線装置のメーカーと年式は？','画像は電子カルテ・PACSのどちらに送っていますか？'],fact:'X線装置は導入12年の他社製。PACSは他社'},
+      {k:'staff',label:'技師の体制',q:['技師は何名ですか？兼務はありますか？'],fact:'技師2名で外来・病棟・健診を兼務'}
+    ],
+    src:[['CXDI-Pro 公式製品情報','https://jp.medical.canon/products/xray/cxdi/digital-radiography/cxdi-pro/'],['CXDI-Elite 公式製品情報','https://jp.medical.canon/products/xray/cxdi/digital-radiography/cxdi-elite/']]},
+  cr10:{name:'デジタル眼底カメラ CR-10',cat:'眼底カメラ',maker:'キヤノン／キヤノンメドテックサプライ（2023年10月発売、希望小売価格 税別430万円）',
+    spec:['画面の眼をタッチすると、位置合わせ・眼の動きの追尾・撮影を自動で行い、左右眼から結果一覧まで自動','撮影失敗を自動判定し、ワンタッチで再撮影','音声ガイダンス（日本語を含む7言語）','小型化し、PC等を電動昇降式の光学台に集約。L字・横並びの配置に対応','約2,420万画素・画角45°・最小瞳孔径4.0mm（海外仕様。国内仕様を確認）','画像管理ソフト Retinal Expert（RX）'],
+    clinical:['糖尿病網膜症の早期発見と経過観察のために眼底写真を記録できる','高血圧・動脈硬化による眼底の変化を評価できる（健診の眼底検査）','画像を眼科への紹介・連携に使い、受診を勧める根拠にできる','内科で網膜症の有無を把握し、糖尿病管理の質を上げる'],
+    ops:['自動撮影で、眼科の専門スタッフでなくても撮影しやすい','失敗画像の自動判定で撮り直しの手間を減らせる','省スペースで設置できる'],
+    biz:['眼底カメラ撮影の算定（2026年度点数を確認）','健診オプション・詳細健診の眼底検査を受託できる','糖尿病の合併症管理まで院内で完結し、患者が定着する'],
+    comp:'眼科機器各社（トプコン、ニデック、興和ほか）',
+    diff:['自動撮影・失敗判定による撮影の確実さを示した','設置スペースと配置の自由度を示した','画質（高画素）を実画像で示した','画像管理・眼科連携のしやすさを示した','保守・販社サポートを示した'],
+    obj:['眼底は眼科に任せている','撮っても自分では読めない','置く場所がない','件数が少なく元が取れない'],
+    ng:['「内科で網膜症の診断ができます」と言い切る（読影・診断体制を確認する）'],
+    cross:['アイギアプロ(K)（HbA1c・ACRで糖尿病管理）','Aplio air（Auto-IMTで動脈硬化）'],
+    currentBy:{large:'眼科に他社眼底カメラ。健診部門は別機種',mid:'眼底カメラなし（眼科へ紹介）',clinic:'眼底カメラなし。糖尿病患者は近くの眼科へ紹介',check:'他社の無散瞳眼底カメラ（導入9年）'},
+    latentBy:{large:['健診センターの撮影スタッフが足りない','撮り直しが多い'],mid:['健診部門を強化したい','眼科医は週1回の非常勤'],clinic:['紹介しても糖尿病患者が眼科を受診してくれない','HbA1cは見ているが合併症まで追えていない','近くの眼科と連携を強めたい'],check:['撮影担当者が毎年替わり、撮影品質がばらつく','受診者の待ち時間を減らしたい']},
+    fit:{large:'△',mid:'○',clinic:'◎',check:'◎'},
+    deptFit:{gim:'◎',dm:'◎',cardio:'○',gi:'△',ortho:'×',obgyn:'△',uro:'△',surg:'×',ped:'×',eye:'◎',derm:'×',kenshin:'◎',er:'×',home:'×'},
+    deptHook:{dm:'網膜症の把握で、合併症管理まで院内で完結',gim:'生活習慣病の患者の眼底を定期的に記録',eye:'自動撮影でスタッフの撮影負担を軽くする',kenshin:'撮影担当者が替わっても品質を保てる',cardio:'高血圧・動脈硬化の評価に眼底所見を加える'},
+    keyDMU:['inc','doc','ns','jim'],
+    scenes:[
+      {k:'dm',label:'糖尿病外来',q:['糖尿病の患者さんは何人くらいですか？眼科の受診状況は把握できていますか？','眼科への紹介後、結果は返ってきていますか？'],fact:'糖尿病患者は約200人。眼科受診率は半分程度で、結果が返ってこないことも多い'},
+      {k:'check',label:'健診・ドック',q:['眼底検査の年間件数は？','誰が撮影していますか？撮り直しはどのくらいありますか？'],fact:'健診の眼底検査が年間3,000件。撮影担当者が毎年替わる'},
+      {k:'place',label:'設置場所',q:['どこに設置する想定ですか？部屋の広さ・明るさは？'],fact:'専用の部屋はなく、検査室の一角に置きたい'},
+      {k:'read',label:'読影・連携',q:['撮った画像は誰が見ますか？眼科との連携方法は？'],fact:'院長が見て、気になる所見は近くの眼科に画像付きで紹介したい'},
+      {k:'it',label:'画像管理',q:['画像は電子カルテに取り込みたいですか？'],fact:'電子カルテに画像を取り込みたい'}
+    ],
+    src:[['キヤノン ニュースリリース（2023/9/29）','https://global.canon/ja/news/2023/20230929.html'],['CR-10 製品情報（海外）','https://asia.canon/en/business/cr-10/product']]},
+  steri:{name:'滅菌器（LA-220／SA-H160 ほか）',cat:'感染管理機器（滅菌器）',maker:'キヤノンメドテックサプライ',
+    spec:['LA-220（卓上小型高圧蒸気滅菌器）：121℃／132℃切替、送風乾燥 最大90分、有効室220×330mm（18cm丸カスト2個）、AC100V 1,440VA、27kg','SA-H160（カートリッジ方式 全自動EOG滅菌器）：約16L、1回1本のカートリッジでボンベ交換不要、全工程陰圧、ガス漏れ警報器を標準装備、AC100V、約25kg、工程プリンタ（オプション）','病院向け：過酸化水素ガス低温滅菌 ES-H900／ES-H1600／ES-1400、EOG SA-H360〜SA-W1700、EOG除去装置 ECO-SR230／530','滅菌バッグ用シーラー hm850DC-V'],
+    clinical:['器材を確実に滅菌し、院内感染（交差感染）のリスクを下げる','耐熱器材は高圧蒸気、非耐熱器材（樹脂・内視鏡関連など）は低温（EOG・過酸化水素）と方式を使い分ける','工程表示・工程記録で滅菌の確実性を示せる','器材の適正管理（単回使用品の再使用防止）につながる'],
+    ops:['操作が簡単で、担当者が替わっても運用できる','カートリッジ方式でボンベ交換が不要（SA-H160）','卓上サイズで処置室に置ける（LA-220）','EOGは排ガス処理・作業環境の管理が必要'],
+    biz:['器材の回転が上がり、処置・小手術の件数を増やせる','外部委託滅菌やディスポ品購入費との比較','監査・立入検査に備えた記録'],
+    comp:'国内外の滅菌器メーカー（高圧蒸気・低温滅菌）',
+    diff:['器材に合った方式（蒸気／EOG／過酸化水素）を確認して提案した','サイクル時間・処理量を相手の件数に結びつけた','記録・トレーサビリティを示した','設置条件（電源・換気・排気）と工事の有無を確認した','消耗品・保守を含む総費用を示した'],
+    obj:['今の滅菌器がまだ動いている','外注・ディスポで足りている','EOGは管理が大変と聞く','価格が高い'],
+    ng:['感染対策の不備を責めるような言い方','方式の適否を確認せずに機種を決める'],
+    cross:['Aplio air（外科・整形の処置時のエコー）','CXDI（整形外科・外科のX線）'],
+    currentBy:{large:'中央材料室に大型高圧蒸気滅菌器と他社低温滅菌器',mid:'高圧蒸気滅菌器（導入15年）。非耐熱器材は旧型EOG',clinic:'卓上オートクレーブ（導入12年）',check:'滅菌器は使わず、ディスポ品が中心'},
+    latentBy:{large:['中材の処理能力がひっ迫している','手術件数が増え、器材の回転を上げたい'],mid:['老朽化しており、故障時の代わりがない','非耐熱器材の滅菌に時間がかかり、内視鏡件数を増やせない','EOGのボンベ交換が負担'],clinic:['小手術の器材が足りず、1日に何度も回している','乾燥が不十分で器材がぬれたまま出てくることがある','保健所の立入検査で記録を求められた'],check:['内視鏡件数を増やしたいが洗浄・滅菌体制がネック']},
+    fit:{large:'○',mid:'◎',clinic:'◎',check:'△'},
+    deptFit:{gim:'○',dm:'△',cardio:'△',gi:'◎',ortho:'◎',obgyn:'◎',uro:'○',surg:'◎',ped:'○',eye:'○',derm:'◎',kenshin:'△',er:'○',home:'△'},
+    deptHook:{surg:'小手術・処置器材の回転率',ortho:'処置器材の確実な滅菌',derm:'小手術器材の回転と乾燥',obgyn:'処置器材の確実な滅菌と記録',gi:'非耐熱器材は低温滅菌の方式を確認'},
+    keyDMU:['ns','me','jim','inc','buy'],
+    scenes:[
+      {k:'items',label:'器材の種類',q:['滅菌している器材は何ですか？耐熱でないもの（樹脂・内視鏡関連など）はありますか？'],fact:'鋼製小物が中心だが、非耐熱の器材も一部ある'},
+      {k:'volume',label:'処理量・回数',q:['1日に何回まわしていますか？足りなくなる時間帯は？'],fact:'1日4回まわしている。午後の処置に器材が間に合わないことがある'},
+      {k:'current',label:'現行機',q:['今の滅菌器は何年目ですか？故障や乾燥不良はありますか？'],fact:'導入12年目。最近、乾燥不良と異音がある'},
+      {k:'place',label:'設置条件',q:['設置場所の電源・換気・排気はどうなっていますか？'],fact:'処置室の奥に置いている。コンセントは100Vのみ'},
+      {k:'record',label:'記録・監査',q:['滅菌の記録はどのように残していますか？指導や監査で求められたことは？'],fact:'記録は手書き。保健所の立入検査で指摘された'},
+      {k:'out',label:'外注・ディスポ',q:['外部委託やディスポ品の費用は年間どのくらいですか？'],fact:'一部をディスポ品にしており、年間の費用が増えている'}
+    ],
+    src:[['キヤノンメドテックサプライ 感染管理機器','https://mts.medical.canon/healthcare/machine-healthcare/']]},
+  bone:{name:'超音波骨密度測定装置 CM-300',cat:'超音波骨評価装置（踵骨）',maker:'古野電気 製造／キヤノンメドテックサプライ 販売（2015年2月発売）',
+    spec:['踵骨に超音波を透過させ、音速（SOS）を測定','測定時間 約10秒。精度 %CV 0.5%以下（試験条件）','カラータッチパネル・プリンタ内蔵（グラフで印字）','足サイズ5段階調整・温度補正','USB・Bluetoothでデータ連携。前機種CM-100／200のデータと操作性を継承','約10kg。持ち運びできる'],
+    clinical:['X線を使わず被ばくがないため、妊婦や若い人も測定できる','骨粗鬆症のスクリーニング（ふるい分け）に向く','結果をきっかけにDXA等の精密検査・治療へつなぐ（診断はDXA等で行う）','骨折リスクを説明でき、治療を続ける動機づけになる'],
+    ops:['約10秒で測定でき、待ち時間が短い','本体だけで印字まで完結。出張検診やイベントに持ち出せる','専門の技師がいなくても運用できる'],
+    biz:['骨粗鬆症検診・自治体検診・イベントでの集患','精密検査・治療（外来の継続）への導線','DXA（SwiftDEXA等）との役割分担で検査全体を効率化'],
+    comp:'他社の超音波骨評価装置、DXA装置',
+    diff:['測定時間と操作の簡単さを示した','可搬性・プリンタ内蔵を相手の運用に結びつけた','前機種とのデータの継続性を示した','DXAとの役割分担を正確に説明した'],
+    obj:['超音波で骨密度は正確なのか','DXAがあるから要らない','保険でほとんど取れないなら意味がない','置き場所がない'],
+    ng:['「これで骨粗鬆症と診断できます」と言う','「DXAと同等」と言う'],
+    cross:['CXDI（整形外科のX線）','SwiftDEXA等（精密検査）'],
+    currentBy:{large:'放射線科で他社DXAを使用',mid:'他社の旧型超音波骨密度計（導入12年）',clinic:'骨密度の測定はしていない（近くの病院へ紹介）',check:'他社の超音波骨評価装置'},
+    latentBy:{large:['DXAの予約が埋まっている','骨折リエゾンサービス（FLS）を始めたい'],mid:['地域の骨粗鬆症検診を受託したい','整形外科医が非常勤で、スクリーニングで振り分けたい'],clinic:['高齢女性の患者が多く、骨折予防に関心がある','DXAを置くスペースも予算もない','骨粗鬆症の薬を出しても続かない'],check:['オプション検査を増やしたい','受診者の待ち時間を増やしたくない']},
+    fit:{large:'△',mid:'○',clinic:'◎',check:'◎'},
+    deptFit:{gim:'◎',dm:'○',cardio:'△',gi:'△',ortho:'◎',obgyn:'◎',uro:'△',surg:'△',ped:'×',eye:'×',derm:'×',kenshin:'◎',er:'×',home:'○'},
+    deptHook:{ortho:'スクリーニングで振り分け、治療・DXAへつなぐ',obgyn:'閉経後女性の骨の健康チェック',gim:'高齢患者の骨折予防のきっかけ',kenshin:'約10秒で受診者の流れを止めない',home:'持ち運べるので出張検診にも使える'},
+    keyDMU:['inc','doc','ns','jim'],
+    scenes:[
+      {k:'pt',label:'対象患者',q:['高齢の女性の患者さんはどのくらいいますか？','骨粗鬆症の治療中の方は何人くらいですか？'],fact:'65歳以上の女性患者が多く、骨粗鬆症の治療中は約80人'},
+      {k:'dxa',label:'精密検査の体制',q:['DXAは院内にありますか？紹介先は？'],fact:'DXAはなく、近くの病院に紹介しているが予約が1か月先'},
+      {k:'kenshin',label:'検診の受託',q:['自治体の骨粗鬆症検診や、職域健診を受けていますか？'],fact:'自治体の骨粗鬆症検診を来年度から受託したい'},
+      {k:'place',label:'測定場所',q:['外来で測りますか？検診会場やイベントに持ち出しますか？'],fact:'外来と、年2回の地域イベントで測りたい'},
+      {k:'cont',label:'治療の継続',q:['骨粗鬆症の薬を始めた方は、続けられていますか？'],fact:'治療を始めても半年で来なくなる患者が多い'}
+    ],
+    src:[['CM-300 ニュースリリース','https://mts.medical.canon:443/wp-content/themes/canonlifecare/lib/pdf/newsrelease/P171.pdf'],['FURUNO CM-300 仕様','https://www.furuno.com/en/products/ultrasound-bone-densitometer/cm-300/index.html']]},
+  igear:{name:'アイギアプロ(K)',cat:'パック式臨床化学分析装置（POCT）',maker:'キヤノンメディカルダイアグノスティックス（旧ミナリスメディカル。2023年7月キヤノンメディカルグループ入り、2025年2月社名変更）',
+    spec:['1台でHbA1c・CRP・ACR（尿中アルブミン／クレアチニン比）を測定','反応時間 約5分','検体量：全血 約1μL（HbA1c・CRP）、尿 約80μL（ACR）','幅130×奥行200×高さ250mm、3.5kg（A5サイズに収まる）。タッチパネル・プリンタ内蔵','前機種 A1c iGear Quick K の後継。試薬：メディダスHbA1c K（ラテックス凝集法、標準物質JCCRM411で較正）、アイギアプロCRP(K)、アイギアプロACR(K)'],
+    clinical:['診察中にHbA1cの結果が出るので、その日のうちに治療方針を決めて説明できる（糖尿病管理）','ACRで糖尿病性腎症・CKDを早く見つけられる','糖尿病とCKDは、三大疾病のうち心疾患・脳卒中の大きなリスク因子。リスクを早く把握して介入できる','CRPで感染症・炎症をその場で評価できる（抗菌薬が必要かどうかの判断を補助）','結果を見せながら説明でき、生活習慣の改善と通院継続につながる'],
+    ops:['指先からの微量の血液（1μL）で済み、採血の負担が小さい','技師がいない診療所でも運用しやすい','外注の結果待ち（再来院・電話連絡）がなくなる'],
+    biz:['外注検査費との比較（項目×件数）','検体検査実施料・迅速検体検査加算など（2026年度点数を確認）','再来院の手間が減り、患者満足と通院継続が上がる','試薬の継続取引（販社にとって継続的な売上）'],
+    comp:'国内外のPOCT分析装置メーカー、検査センター（外注）',
+    diff:['1台で3項目（HbA1c・CRP・ACR）を示した','検体量・測定時間を相手の診療の流れに結びつけた','設置面積・操作の簡単さを示した','試薬の保管・使用期限とロスを確認した','標準物質での較正・精度管理の支援を示した'],
+    obj:['外注で十分間に合っている','うちには技師がいない','試薬のロスが心配','測定精度は大丈夫か'],
+    ng:['「三大疾病が診断できる」と言う（リスク因子の把握であることを正確に伝える）','「外注より必ず安い」と断定する'],
+    cross:['CR-10 眼底カメラ（糖尿病網膜症）','Aplio air／Aplio go（Auto-IMTで動脈硬化、ATIで脂肪肝）'],
+    currentBy:{large:'中央検査部に大型分析装置（他社）。外来では結果待ちが発生',mid:'院内に生化学装置（他社）あり。HbA1cは外注',clinic:'HbA1c・CRPは外注（結果は翌日以降）。糖尿病患者 約200人',check:'検体は検査センターへ外注'},
+    latentBy:{large:['外来の診察前検査の待ち時間を短くしたい','救急外来でCRPをすぐ見たい'],mid:['外来の待ち時間が長いと苦情がある','糖尿病の教育入院を強化したい'],clinic:['結果説明のために患者を再来院させている','糖尿病患者の腎症チェックが年1回もできていない','発熱外来でCRPをすぐ見たい'],check:['当日中に結果説明まで終える健診を打ち出したい']},
+    fit:{large:'△',mid:'○',clinic:'◎',check:'○'},
+    deptFit:{gim:'◎',dm:'◎',cardio:'◎',gi:'○',ortho:'△',obgyn:'△',uro:'○',surg:'△',ped:'○',eye:'△',derm:'△',kenshin:'○',er:'○',home:'○'},
+    deptHook:{dm:'HbA1cとACRで血糖と腎症を当日に評価',gim:'生活習慣病の患者に当日結果で説明',cardio:'糖尿病・CKDという心血管リスクを当日に把握',ped:'CRPで感染症の評価をその場で',uro:'ACRで腎機能の早期変化を把握',home:'持ち運べるサイズで、結果を当日に説明'},
+    keyDMU:['inc','doc','ns','lab','jim'],
+    scenes:[
+      {k:'dm',label:'糖尿病外来',q:['糖尿病の患者さんは何人くらいですか？HbA1cはどのくらいの頻度で測っていますか？','結果説明のために再来院してもらっていますか？'],fact:'糖尿病患者は約200人。HbA1cは外注で結果は翌日。説明のための再来院が多い'},
+      {k:'kidney',label:'腎症チェック',q:['尿中アルブミンの測定はどのくらいできていますか？'],fact:'尿中アルブミンは年1回も測れていない患者が多い'},
+      {k:'fever',label:'発熱外来・感染症',q:['発熱の患者さんで、CRPをすぐ見たい場面はありますか？'],fact:'発熱外来でCRPをすぐ見たいが外注のため翌日になる'},
+      {k:'out',label:'外注の状況',q:['外注している項目と月の件数、費用は把握されていますか？'],fact:'HbA1c・CRPを月300件外注している'},
+      {k:'who',label:'誰が測るか',q:['院内で測るとしたら、誰が担当しますか？（看護師・技師）'],fact:'技師はいない。看護師が測ることになる'},
+      {k:'place',label:'設置場所',q:['どこに置く想定ですか？（診察室・処置室）'],fact:'処置室の机の上に置きたい'}
+    ],
+    src:[['アイギアプロ(K) 製品ページ','https://mdc.medical.canon/products/device/igear_pro_k/index.html'],['メディダスHbA1c K','https://mdc.medical.canon/products/poct/medidas_hba1c_k/index.html'],['社名変更のお知らせ','https://mdc.medical.canon/pdf/news_release/news_release_241101_01.pdf']]}
+};
+
+/* 評価項目（重み合計100） */
+const ITEMS = [
+  {id:'i1',grp:0,w:5,t:'事前準備・仮説',a:['準備なしで製品説明から入る','施設情報を把握し仮説を持っている','施設・相手・競合の仮説と、外れた時の代替仮説を持っている']},
+  {id:'i2',grp:0,w:10,t:'現状ヒアリング（使用シーン・BANT）',a:['使う場面も予算・決裁・時期も確認しない','使用シーンかBANTの一部を確認した','使用シーンを広く確認して本当のニーズの場面にたどり着き、予算・決裁者・時期も確認して要約した'],helper:'scene'},
+  {id:'i3',grp:0,w:10,t:'DMU理解・相手に合わせた訴求',a:['誰にでも同じ説明','相手の役割に一部合わせた','相手の判断基準を確認し、その言葉で訴求。ほかの関係者（DMU）も確認した'],helper:'dmu'},
+  {id:'i4',grp:0,w:10,t:'潜在ニーズの掘り起こし',a:['表面的なニーズのみ','理由を掘って1つ引き出した','事実→仮説→質問で複数引き出し、顧客自身に言語化させた'],helper:'latent'},
+  {id:'i5',grp:1,w:15,t:'臨床有用性の説明',a:['スペックの羅列','主な臨床価値は話せたが相手の症例と結びつかない','相手の患者・症例に結びつけて、正確に（誇張なく）説明した'],helper:'clinical'},
+  {id:'i6',grp:1,w:10,t:'運用価値・経営価値（試算）',a:['触れない','定性的に説明した','前提を明示した試算（件数×点数、TCO、外注比較など）を相手と一緒に作った'],helper:'calc'},
+  {id:'i7',grp:2,w:15,t:'競合比較・適合評価',a:['競合状況を確認しない／価格勝負になる','競合を確認し差別化を説明した','競合の評価点と懸念点を聞き、顧客の選定条件に沿った公平な比較・検証の場を作った（誹謗なし）'],helper:'diff'},
+  {id:'i8',grp:2,w:10,t:'反論への対応',a:['すぐ反論する／黙る','回答はできたが意図を確認していない','意図を確認→受け止め→根拠で回答→納得を確認した'],helper:'obj'},
+  {id:'i9',grp:2,w:10,t:'クロージング・Next Action',a:['次の約束なし','デモ・見積など次回は決めたが目的が曖昧','目的・成功条件・参加者・日時を合意した']},
+  {id:'i10',grp:3,w:5,t:'コンプライアンス・姿勢',a:['誇大表現・誹謗・未確認の点数を断定','おおむね適切','根拠を示し、未確認事項は「確認して回答します」と言えた。傾聴・態度も良好'],helper:'ng'}
+];
+const GROUPS = ['顧客理解','価値提案','競合・交渉','基本姿勢'];
+
+/* ===================== 状態 ===================== */
+const STORE_DRAFT='cmsc_rp_v2_draft', STORE_HIST='cmsc_rp_v2_hist';
+const st={fac:'clinic',dept:'dm',dmu:'inc',age:55,prod:'igear',scenes:['dm','kidney'],comp:'proposing',level:'mid',ratings:{},checks:{},generated:null};
+const DEFAULT_SCENES={air:['ward','home'],cxdi:['room','ward'],cr10:['dm','read'],steri:['volume','record'],bone:['pt','dxa'],igear:['dm','kidney']};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const ageBand=v=>AGE.find(a=>v>=a.min&&v<=a.max)||AGE[2];
+const markCls=m=>m==='◎'?'g':m==='○'?'o':m==='△'?'w':'x';
+const SURN=['小山','佐藤','高橋','田中','伊藤','中村','山本','渡辺','加藤','吉田','松本','井上'];
+function safeGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function safeSet(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
+function toast(msg){const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),1600)}
+
+/* ===================== 設定UI ===================== */
+function renderChips(){
+  const p=PROD[st.prod];
+  $('#cFac').innerHTML=Object.entries(FAC).map(([k,f])=>`<button type="button" class="chip" data-k="${k}" aria-pressed="${st.fac===k}">${f.label}<span class="fit">${p.fit[k]}</span><small>${f.sub}</small></button>`).join('');
+  $('#cDept').innerHTML=Object.entries(DEPT).map(([k,d])=>`<button type="button" class="chip" data-k="${k}" aria-pressed="${st.dept===k}" title="${esc(d.note)}">${d.label}<span class="fit">${p.deptFit[k]}</span></button>`).join('');
+  $('#cDmu').innerHTML=Object.entries(DMU).map(([k,d])=>`<button type="button" class="chip" data-k="${k}" aria-pressed="${st.dmu===k}">${d.label}${p.keyDMU.includes(k)?'<span class="fit">★</span>':''}<small>${d.type}</small></button>`).join('');
+  $('#cProd').innerHTML=Object.entries(PROD).map(([k,x])=>`<button type="button" class="chip" data-k="${k}" aria-pressed="${st.prod===k}">${x.name}<small>${x.cat}</small></button>`).join('');
+  $('#cScene').innerHTML=p.scenes.map(s=>`<button type="button" class="chip" data-k="${s.k}" aria-pressed="${st.scenes.includes(s.k)}">${s.label}</button>`).join('');
+  $('#cLevel').innerHTML=Object.entries(LEVEL).map(([k,l])=>`<button type="button" class="chip" data-k="${k}" aria-pressed="${st.level===k}">${l.label}</button>`).join('');
+  const b=ageBand(st.age); $('#ageOut').textContent=st.age+'歳'; $('#ageTrait').textContent=b.trait;
+  renderFit();
+}
+function renderFit(){
+  const p=PROD[st.prod];
+  const fm=p.fit[st.fac], dm=p.deptFit[st.dept], km=p.keyDMU.includes(st.dmu)?'◎':'△';
+  const rows=[
+    ['施設',fm,`${FAC[st.fac].label}は${p.name}の${fm==='◎'?'主要ターゲット':fm==='○'?'提案可能な施設':'条件付きの施設'}`],
+    ['診療科',dm,(p.deptHook[st.dept]||DEPT[st.dept].note)],
+    ['面談相手',km,km==='◎'?`${DMU[st.dmu].label}はこの商材の主要な関係者`:`${DMU[st.dmu].label}はこの商材では主な判断者ではない。影響者としての設定になる`],
+    ['年齢',' ',ageBand(st.age).label+'：'+ageBand(st.age).rule]
+  ];
+  $('#fitList').innerHTML=rows.map(r=>`<div class="fitrow"><b>${r[0]}</b><span class="mark ${markCls(r[1])}">${r[1]}</span><span>${esc(r[2])}</span></div>`).join('');
+  const warns=[]; if(dm==='×')warns.push('この診療科は対象外に近い組み合わせです。上級者向けの「断られる前提」シナリオとして使うか、診療科を変えてください。');
+  if(p.note)warns.push(p.note);
+  $('#fitNote').hidden=!warns.length; $('#fitNote').innerHTML=warns.map(esc).join('<br>');
+}
+function bindChips(id,key,after){
+  $(id).addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;st[key]=b.dataset.k;
+    if(key==='prod'){st.checks={};st.scenes=[...DEFAULT_SCENES[st.prod]];renderKnowledge();renderItems();}
+    markDirty();renderChips();if(after)after();saveDraft();});
+}
+function markDirty(){ if(st.generated) $('#dirty').hidden=JSON.stringify(currentKey())===st.generated; }
+function currentKey(){return [st.fac,st.dept,st.dmu,st.age,st.prod,st.scenes.join(','),st.comp,st.level]}
+$('#cScene').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const k=b.dataset.k;
+  st.scenes=st.scenes.includes(k)?st.scenes.filter(x=>x!==k):[...st.scenes,k];
+  b.setAttribute('aria-pressed',String(st.scenes.includes(k)));markDirty();renderItems();saveDraft();});
+
+/* ===================== 事前資料 ===================== */
+function renderKnowledge(){
+  const p=PROD[st.prod];
+  $('#knTitle').textContent='商材ナレッジ：'+p.name;
+  const ul=a=>'<ul>'+a.map(x=>`<li>${esc(x)}</li>`).join('')+'</ul>';
+  $('#kn').innerHTML=`
+    <div><h4>製品の事実（${esc(p.maker)}）</h4>${ul(p.spec)}</div>
+    <div><h4>使用シーン別のヒアリング項目</h4><ul>${p.scenes.map(s=>`<li><b>${esc(s.label)}</b>：${esc(s.q.join(' '))}</li>`).join('')}</ul></div>
+    <div><h4>臨床的な有用性</h4>${ul(p.clinical)}</div>
+    <div class="grid2" style="gap:12px"><div><h4>運用の価値</h4>${ul(p.ops)}</div><div><h4>経営の価値</h4>${ul(p.biz)}</div></div>
+    <div><h4>想定される競合</h4><p style="margin:0">${esc(p.comp)}</p></div>
+    <div><h4>よく出る反論</h4>${ul(p.obj)}</div>
+    <div><h4>言ってはいけないこと</h4>${ul(p.ng)}</div>
+    <div><h4>次につなげる商材（クロスセル）</h4>${ul(p.cross)}</div>
+    <div class="src"><h4>出典</h4>${p.src.map(s=>`<div><a href="${s[1]}" target="_blank" rel="noopener">${esc(s[0])}</a></div>`).join('')}</div>`;
+}
+function generate(random){
+  if(random){
+    st.prod=pick(Object.keys(PROD)); const p=PROD[st.prod];
+    st.fac=pick(Object.keys(FAC).filter(k=>p.fit[k]!=='△'));
+    st.dept=pick(Object.keys(DEPT).filter(k=>['◎','○'].includes(p.deptFit[k])));
+    st.dmu=pick(p.keyDMU); st.age=['inc','doc'].includes(st.dmu)?32+Math.floor(Math.random()*44):35+Math.floor(Math.random()*28);
+    st.ratings={};
+    st.comp=pick(Object.keys(COMP)); st.level=pick(['easy','mid','mid','hard']);
+    const sc=[...p.scenes].sort(()=>Math.random()-.5); st.scenes=sc.slice(0,1+Math.floor(Math.random()*2)).map(s=>s.k);
+    $('#age').value=st.age; $('#comp').value=st.comp; st.checks={}; renderKnowledge(); renderItems();
+  }
+  const f=FAC[st.fac], d=DEPT[st.dept], m=DMU[st.dmu], p=PROD[st.prod], b=ageBand(st.age), c=COMP[st.comp], lv=LEVEL[st.level];
+  const facName=pick(f.names)+(st.fac==='clinic'?'':'');
+  const sur=pick(SURN);
+  const isDoctor=['inc','doc'].includes(st.dmu);
+  const who=isDoctor?`${sur} 先生（${st.age}歳・${d.label}）`:`${sur} ${m.label}（${st.age}歳）`;
+  $('#b_fac').value=`${facName}（${f.label}・${d.label}）`;
+  $('#b_prod').value=p.name;
+  $('#b_profile').value=`${f.profile}\n標榜・主な診療：${d.label}（${d.note}）\n購買の流れ：${f.purchase}`;
+  $('#b_person').value=`${who}\n立場：${m.label}／${m.type}。${m.persona}。\n人物像：${b.trait}`;
+  $('#b_current').value=`現行：${p.currentBy[st.fac]}\n商談の状況：アポイントは取れている。${st.comp==='none'?'他の販社も出入りしている。':'競合の動きがあるらしい（詳細は不明）。'}\n判断のタイミング：${f.timing}`;
+  $('#b_goal').value=`${m.label}の判断基準を確認し、${p.name}の臨床的な有用性と運用・経営の価値を相手の言葉で示す。競合との比較条件を顧客の判断基準に沿って整理し、目的と成功条件のあるNext Actionを合意する。`;
+  const tScenes=p.scenes.filter(s=>st.scenes.includes(s.k));
+  const lat=[...tScenes.map(s=>`【${s.label}】${s.fact}`),...p.latentBy[st.fac]]; if(p.deptHook[st.dept]) lat.push(`（${d.label}として）${p.deptHook[st.dept]}ことに関心がある`);
+  $('#h_facts').value=[`現行：${p.currentBy[st.fac]}`,`購買・決裁：${f.purchase}`,`判断時期：${f.timing}`,`${d.label}の外来の特徴：${d.note}`].map(x=>'・'+x).join('\n');
+  $('#h_latent').value=lat.map(x=>'・'+x).join('\n');
+  $('#h_real').value=`・${m.hidden}\n・関心事：${m.concerns.join('／')}\n・年齢（${b.label}）による傾向：${b.rule}`;
+  $('#h_comp').value=`・${c.label}：${c.hidden}\n・想定される競合：${p.comp}`;
+  $('#h_rules').value=lv.rules.map(x=>'・'+x).join('\n')+`\n・反論は次から選んで使う：${p.obj.map(o=>'「'+o+'」').join('')}`;
+  $('#h_watch').value=[`使用シーンのヒアリング：本当のニーズは「${tScenes.map(s=>s.label).join('・')||'未設定'}」。受講者がシーンを順に確認し、ここにたどり着けたか`,`臨床有用性：${p.clinical.slice(0,3).join('／')}`,`客観比較の軸：${p.diff.slice(0,3).join('／')}`,`NG：${p.ng.join('／')}`,`${m.label}に効く質問の例：${m.ask.join(' ')}`].map(x=>'・'+x).join('\n');
+  st.generated=JSON.stringify(currentKey()); $('#dirty').hidden=true; autosizeAll();
+  renderChips(); renderItems(); saveDraft();
+}
+
+function autosize(el){el.style.height='auto';el.style.height=(el.scrollHeight+2)+'px'}
+function autosizeAll(){$$('.brief textarea,#secretBody textarea').forEach(autosize)}
+document.addEventListener('input',e=>{if(e.target.matches('.brief textarea,#secretBody textarea'))autosize(e.target)});
+/* ===================== 評価 ===================== */
+function helperHTML(it){
+  const p=PROD[st.prod], m=DMU[st.dmu];
+  const cl=(key,arr)=>{const sel=st.checks[key]||[];return `<div class="checks">${arr.map((x,i)=>`<label><input type="checkbox" data-ck="${key}" data-i="${i}" ${sel.includes(i)?'checked':''}><span>${esc(x)}</span></label>`).join('')}</div>`};
+  const cnt=(key,arr)=>`<span class="count" data-cnt="${key}">${(st.checks[key]||[]).length}/${arr.length}</span>`;
+  switch(it.helper){
+    case 'scene':{const labels=p.scenes.map(s=>s.label+'：'+s.q[0]);const bant=['予算（Budget）','決裁者（Authority）','導入時期（Time frame）'];
+      return `<div class="helper"><div class="hint">確認できた使用シーン ${cnt('scene',labels)}（本当のニーズは隠し設定で確認）</div>${cl('scene',labels)}<div class="hint" style="margin-top:6px">BANT ${cnt('bant',bant)}</div>${cl('bant',bant)}</div>`}
+    case 'dmu':return `<div class="helper"><div class="hint">${esc(m.label)}の関心事：${esc(m.concerns.join('／'))}　触れた数 ${cnt('dmu',m.concerns)}</div>${cl('dmu',m.concerns)}</div>`;
+    case 'latent':{const a=PROD[st.prod].latentBy[st.fac];return `<div class="helper"><div class="hint">引き出せた潜在ニーズ ${cnt('latent',a)}</div>${cl('latent',a)}</div>`}
+    case 'clinical':return `<div class="helper"><div class="hint">${esc(p.name)}の臨床ポイントのうち、正しく話せたもの ${cnt('clinical',p.clinical)}</div>${cl('clinical',p.clinical)}</div>`;
+    case 'diff':return `<div class="helper"><div class="hint">比較・検証の行動 ${cnt('diff',p.diff)}（競合：${esc(p.comp)}）</div>${cl('diff',p.diff)}</div>`;
+    case 'obj':return `<div class="helper"><div class="hint">適切に対応できた反論 ${cnt('obj',p.obj)}</div>${cl('obj',p.obj)}</div>`;
+    case 'ng':return `<div class="helper"><div class="hint">NG表現が出たらチェック（出た場合は2以下が目安）</div>${cl('ng',p.ng)}</div>`;
+    case 'calc':return `<div class="helper"><div class="hint">試算メモ（点数は2026年度改定後の点数表で確認して入力）</div>
+      <div class="calc"><div><label for="cPts">点数</label><input type="number" id="cPts" min="0" placeholder="例 350"></div><div><label for="cPer">1日の追加件数</label><input type="number" id="cPer" min="0" value="1"></div><div><label for="cDays">月の診療日</label><input type="number" id="cDays" min="0" value="20"></div><div><label for="cYrs">年数</label><input type="number" id="cYrs" min="1" value="5"></div></div>
+      <div class="calc-out" id="cOut">点数を入れると試算します</div></div>`;
+  }
+  return '';
+}
+function renderItems(){
+  $('#items').innerHTML=ITEMS.map((it,i)=>{const r=st.ratings[it.id]||0;
+    return `<div class="item" data-id="${it.id}">
+      <div class="ino">${i+1}</div>
+      <div><div class="ititle"><b>${it.t}</b><span class="w">配点 ${it.w}点・${GROUPS[it.grp]}</span></div>
+        <div class="anchor"><div><b>1</b>　${esc(it.a[0])}</div><div><b>3</b>　${esc(it.a[1])}</div><div><b>5</b>　${esc(it.a[2])}</div></div>
+        ${helperHTML(it)}</div>
+      <div class="rate"><div class="scale" role="group" aria-label="${it.t}の評価">${[1,2,3,4,5].map(v=>`<button type="button" data-v="${v}" aria-pressed="${r===v}">${v}</button>`).join('')}</div>
+        <div class="pts" data-pts="${it.id}">${r?(it.w*r/5).toFixed(1):'—'} / ${it.w}点</div>
+        <textarea id="cm_${it.id}" placeholder="根拠（発言・行動）">${esc(st['cm_'+it.id]||'')}</textarea></div>
+    </div>`}).join('');
+  ['cPts','cPer','cDays','cYrs'].forEach(id=>{const el=$('#'+id);if(el){if(st[id]!==undefined)el.value=st[id];el.addEventListener('input',()=>{st[id]=el.value;calc();saveDraft()})}});
+  calc(); updateScore();
+}
+function calc(){
+  const o=$('#cOut'); if(!o)return;
+  const pts=+($('#cPts').value||0), per=+($('#cPer').value||0), days=+($('#cDays').value||0), yrs=+($('#cYrs').value||0);
+  if(!pts){o.textContent='点数を入れると試算します';return}
+  const y=pts*10*per*days*12; o.textContent=`年間 約${Math.round(y/10000).toLocaleString()}万円／${yrs}年で 約${Math.round(y*yrs/10000).toLocaleString()}万円（${pts}点×10円×${per}件×${days}日×12か月）`;
+}
+function updateScore(){
+  let sum=0,n=0; const g=[0,0,0,0], gw=[0,0,0,0];
+  ITEMS.forEach(it=>{const r=st.ratings[it.id];if(r){const s=it.w*r/5;sum+=s;n++;g[it.grp]+=s;gw[it.grp]+=it.w}});
+  const total=Math.round(sum);
+  let grade='未完了'; if(n===10)grade=total>=90?'S':total>=80?'A':total>=65?'B':total>=50?'C':'D';
+  $('#sumScore').textContent=total; $('#topScore').textContent=total; $('#sumGrade').textContent=grade; $('#topGrade').textContent=n===10?grade:'—';
+  $('#sumRated').textContent=`評価済み ${n} / 10項目 ${n===10?'｜集計可能':'｜保存には全項目採点が必要'}`;
+  $('#bars').innerHTML=GROUPS.map((name,i)=>{const pct=gw[i]?Math.round(g[i]/gw[i]*100):null;
+    const max=ITEMS.filter(x=>x.grp===i).reduce((a,b)=>a+b.w,0);
+    return `<div class="barrow"><span>${name}<span class="w">（${max}点）</span></span><div class="track"><i style="width:${pct??0}%"></i></div><output>${pct==null?'—':pct+'%'}</output></div>`}).join('');
+}
+$('#items').addEventListener('click',e=>{
+  const b=e.target.closest('.scale button'); if(!b)return;
+  const id=b.closest('.item').dataset.id, v=+b.dataset.v;
+  st.ratings[id]=st.ratings[id]===v?undefined:v; if(!st.ratings[id])delete st.ratings[id];
+  b.parentElement.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(+x.dataset.v===st.ratings[id])));
+  const it=ITEMS.find(x=>x.id===id); b.closest('.rate').querySelector('.pts').textContent=`${st.ratings[id]?(it.w*st.ratings[id]/5).toFixed(1):'—'} / ${it.w}点`;
+  updateScore(); saveDraft();
+});
+$('#items').addEventListener('change',e=>{
+  const c=e.target.closest('input[data-ck]'); if(!c)return;
+  const k=c.dataset.ck,i=+c.dataset.i; const a=new Set(st.checks[k]||[]); c.checked?a.add(i):a.delete(i); st.checks[k]=[...a];
+  const cntEl=$(`[data-cnt="${k}"]`); if(cntEl){const total=cntEl.textContent.split('/')[1];cntEl.textContent=`${a.size}/${total}`}
+  saveDraft();
+});
+$('#items').addEventListener('input',e=>{if(e.target.id&&e.target.id.startsWith('cm_')){st[e.target.id]=e.target.value;saveDraft()}});
+
+/* ===================== 保存・コピー ===================== */
+const FIELDS=['m_date','m_dealer','m_branch','m_event','m_trainee','m_evaluator','m_role','b_fac','b_prod','b_profile','b_person','b_current','b_goal','h_facts','h_latent','h_real','h_comp','h_rules','h_watch','f_goal','f_next','f_keep','f_problem','f_try'];
+function snapshot(){const o={st:JSON.parse(JSON.stringify(st)),f:{}};FIELDS.forEach(id=>o.f[id]=$('#'+id).value);return o}
+function restore(o){if(!o)return;Object.assign(st,o.st||{});FIELDS.forEach(id=>{if(o.f&&o.f[id]!==undefined)$('#'+id).value=o.f[id]});
+  $('#age').value=st.age;$('#comp').value=st.comp;renderChips();renderKnowledge();renderItems();$('#dirty').hidden=!st.generated||JSON.stringify(currentKey())===st.generated;}
+let draftT; function saveDraft(){clearTimeout(draftT);draftT=setTimeout(()=>safeSet(STORE_DRAFT,JSON.stringify(snapshot())),300)}
+FIELDS.forEach(id=>$('#'+id).addEventListener('input',saveDraft));
+
+function resultText(){
+  const p=PROD[st.prod]; const rows=[];
+  rows.push(['実施日',$('#m_date').value],['所属',$('#m_dealer').value+' '+$('#m_branch').value],['研修名',$('#m_event').value],['被評価者',$('#m_trainee').value],['評価者',$('#m_evaluator').value],['施設',$('#b_fac').value],['施設区分',FAC[st.fac].label],['診療科',DEPT[st.dept].label],['面談相手',DMU[st.dmu].label],['年齢',st.age+'歳'],['商材',p.name],['競合状況',COMP[st.comp].label],['難易度',LEVEL[st.level].label],[]);
+  rows.push(['No','評価項目','配点','評価(1-5)','得点','根拠']);
+  ITEMS.forEach((it,i)=>{const r=st.ratings[it.id]||'';rows.push([i+1,it.t,it.w,r,r?(it.w*r/5).toFixed(1):'',(st['cm_'+it.id]||'').replace(/\s+/g,' ')])});
+  rows.push([],['合計',$('#sumScore').textContent,'判定',$('#sumGrade').textContent]);
+  rows.push(['目標達成度',$('#f_goal').value],['Next Action',$('#f_next').value],['Keep',$('#f_keep').value],['Problem',$('#f_problem').value],['Try',$('#f_try').value]);
+  return rows.map(r=>r.map(x=>String(x??'').replace(/\t|\n/g,' ')).join('\t')).join('\n');
+}
+async function copyText(txt,msg){try{await navigator.clipboard.writeText(txt);toast(msg)}catch(e){const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(msg)}catch(_){toast('コピーできませんでした。文字を選択してコピーしてください')}ta.remove()}}
+$('#copyBtn').addEventListener('click',()=>copyText(resultText(),'コピーしました。Excelに貼り付けてください'));
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const k=b.dataset.copy;let t='';
+  if(k==='brief')t=[['施設',$('#b_fac').value],['提案商材',$('#b_prod').value],['施設の概要',$('#b_profile').value],['面談相手',$('#b_person').value],['現在の状況',$('#b_current').value],['あなたのゴール',$('#b_goal').value]].map(x=>`【${x[0]}】\n${x[1]}`).join('\n\n');
+  if(k==='kn')t=$('#kn').innerText;
+  if(k==='secret')t=[['聞かれたら答える事実','h_facts'],['潜在ニーズ','h_latent'],['本音・判断基準','h_real'],['競合の状況','h_comp'],['反応ルール','h_rules'],['評価者の着眼点','h_watch']].map(x=>`【${x[0]}】\n${$('#'+x[1]).value}`).join('\n\n');
+  copyText(t,'コピーしました');});
+
+/* ===================== ストック（共有DB／端末内） ===================== */
+const DEALERS=['メディセオ','エバルス','アトル','東七','MMコーポレーション','アステック','四国薬業','よんやく','中澤氏家','スズケン','サンキ','アスティス','翔薬','沖縄薬品','アルフレッサ','TSアルフレッサ','明祥','琉薬','東北アルフレッサ','四国アルフレッサ','東邦薬品','ほくやく','バイタルネット','鍋林','中北薬品','KSK','セイエル','アステム','岩渕薬品','コニカミノルタジャパン','キヤノンメディカルシステムズ（社内）'];
+$('#dealerList').innerHTML=DEALERS.map(d=>`<option value="${esc(d)}">`).join('');
+let DB=null, USER=null, EVALS=[], MODE='local', canWrite=true, canAdmin=false, unsub=null;
+function loadHist(){try{const h=JSON.parse(safeGet(STORE_HIST)||'[]');return Array.isArray(h)?h.filter(r=>r&&(r.rated===10||(r.ratings&&Object.values(r.ratings).filter(v=>v>=1&&v<=5).length===10))):[]}catch(e){return[]}}
+function normalize(r){ // 旧形式（端末保存v2）にも対応
+  if(r.total!==undefined)return r;
+  const s=r.snap&&r.snap.st||{};
+  return {id:r.id||('local_'+(r.date||'')+'_'+Math.random().toString(36).slice(2,7)),date:r.date,trainee:r.trainee,evaluator:'',dealer:'',branch:'',fac:s.fac,dept:s.dept,dmu:s.dmu,age:s.age,prod:s.prod,level:s.level,ratings:s.ratings||{},total:r.score,grade:r.grade,createdAt:r.date,snap:r.snap};
+}
+function setMode(m){MODE=m;const t=$('#modeTag');
+  if(m==='shared'){t.className='mode shared';t.textContent=canWrite?'共有ストックに保存（このページを使う全員で集計）':'閲覧のみ（ストックする権限がありません）'}
+  else{t.className='mode local';t.textContent='端末内保存（他ユーザーと非共有）'}
+  $('#saveBtn').disabled=(m==='shared'&&!canWrite);
+}
+async function initStore(){
+  setMode('local'); EVALS=loadHist().map(normalize).filter(r=>r.rated===10 || (r.ratings&&Object.values(r.ratings).filter(v=>v>=1&&v<=5).length===10)); renderDash();
+}
+function buildRecord(){
+  const total=+$('#sumScore').textContent, comments={};
+  ITEMS.forEach(it=>{if(st['cm_'+it.id])comments[it.id]=st['cm_'+it.id]});
+  return {date:$('#m_date').value,trainee:$('#m_trainee').value.trim()||'（未入力）',evaluator:$('#m_evaluator').value.trim(),dealer:$('#m_dealer').value.trim(),branch:$('#m_branch').value.trim(),event:$('#m_event').value.trim(),
+    facility:$('#b_fac').value,fac:st.fac,dept:st.dept,dmu:st.dmu,age:st.age,prod:st.prod,scenes:st.scenes,comp:st.comp,level:st.level,
+    ratings:{...st.ratings},rated:Object.keys(st.ratings).length,total,grade:$('#sumGrade').textContent,comments,
+    goal:$('#f_goal').value,next:$('#f_next').value,keep:$('#f_keep').value,problem:$('#f_problem').value,try:$('#f_try').value,
+    createdAt:new Date().toISOString(),snap:snapshot()};
+}
+$('#saveBtn').addEventListener('click',async()=>{
+  const rec=buildRecord();
+  if(rec.rated!==10){toast('10項目すべてを採点してください（未評価：'+(10-rec.rated)+'項目）');location.hash='eval';return}
+  if(!$('#m_trainee').value.trim()){toast('被評価者の氏名を入れてください');$('#m_trainee').focus();return}
+  if(false&&MODE==='shared'&&DB){
+    $('#saveBtn').disabled=true;
+    try{await DB.collection('evals').add(rec);toast('ストックしました（全員の集計に反映）');location.hash='dash'}
+    catch(e){
+      if(e&&e.code==='invalid_argument'){canWrite=false;setMode('shared');toast('このアカウントにはストックする権限がありません。「結果をコピー」を使ってください')}
+      else if(e&&e.code==='quota_exceeded'){toast('保存件数の上限に達しました。古い評価を削除してください')}
+      else toast('ストックできませんでした。少し待ってからもう一度押してください');
+    }finally{$('#saveBtn').disabled=(MODE==='shared'&&!canWrite)}
+  }else{
+    rec.id='local_'+Date.now(); const h=loadHist(); h.unshift(rec);
+    if(safeSet(STORE_HIST,JSON.stringify(h.slice(0,300)))){EVALS=h.map(normalize);renderDash();toast('この端末にストックしました');location.hash='dash'}
+    else toast('このブラウザでは保存できません。「結果をコピー」を使ってください');
+  }
+});
+
+/* ===================== 集計 ===================== */
+const scCls=v=>v>=80?'g':v>=65?'o':v>=50?'w':'b';
+const avg=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:0;
+function fillFilter(id,values,labelFn){const el=$('#'+id),cur=el.value;el.innerHTML='<option value="">すべて</option>'+values.map(v=>`<option value="${esc(v)}">${esc(labelFn?labelFn(v):v)}</option>`).join('');if(values.includes(cur))el.value=cur}
+function filtered(){
+  const p=$('#fPeriod').value, dl=$('#fDealer').value, pr=$('#fProd').value, fa=$('#fFac').value, q=$('#fQ').value.trim();
+  const now=new Date(); let from=null;
+  if(p==='1m'){from=new Date(now);from.setMonth(now.getMonth()-1)}
+  if(p==='3m'){from=new Date(now);from.setMonth(now.getMonth()-3)}
+  if(p==='fy'){from=new Date(now.getMonth()>=3?now.getFullYear():now.getFullYear()-1,3,1)}
+  return EVALS.filter(r=>{const d=new Date(r.date||r.createdAt);
+    return (!from||d>=from)&&(!dl||r.dealer===dl)&&(!pr||r.prod===pr)&&(!fa||r.fac===fa)&&(!q||(r.trainee||'').includes(q))});
+}
+function groupTable(rows,keyFn,head){
+  const g={}; rows.forEach(r=>{const k=keyFn(r);(g[k]=g[k]||[]).push(r)});
+  const list=Object.entries(g).map(([k,a])=>({k,n:a.length,avg:avg(a.map(x=>+x.total||0)),best:Math.max(...a.map(x=>+x.total||0))})).sort((a,b)=>b.avg-a.avg);
+  if(!list.length)return '<div class="empty">該当する評価はありません</div>';
+  return `<table><thead><tr><th>${head}</th><th>件数</th><th>平均点</th><th>最高点</th></tr></thead><tbody>${list.map(x=>`<tr><td>${esc(x.k)}</td><td class="num">${x.n}</td><td><span class="sc ${scCls(x.avg)}">${x.avg.toFixed(1)}</span></td><td class="num">${x.best}</td></tr>`).join('')}</tbody></table>`;
+}
+function renderDash(){
+  fillFilter('fDealer',[...new Set(EVALS.map(r=>r.dealer).filter(Boolean))].sort());
+  fillFilter('fProd',Object.keys(PROD).filter(k=>EVALS.some(r=>r.prod===k)),k=>PROD[k].name);
+  fillFilter('fFac',Object.keys(FAC).filter(k=>EVALS.some(r=>r.fac===k)),k=>FAC[k].label);
+  const rows=filtered(), tot=rows.map(r=>+r.total||0);
+  const trainees=new Set(rows.map(r=>(r.dealer||'')+'|'+r.trainee));
+  const highShare=rows.length?Math.round(rows.filter(r=>(+r.total||0)>=80).length/rows.length*100):0;
+  $('#kpis').innerHTML=[
+    ['評価件数',rows.length,'件'],['平均点',rows.length?avg(tot).toFixed(1):'—','/ 100'],['最高点',rows.length?Math.max(...tot):'—','/ 100'],
+    ['受講者数',trainees.size,'人'],['A以上（80点〜）',rows.length?highShare:'—','%']
+  ].map(k=>`<div class="kpi"><span>${k[0]}</span><b>${k[1]}</b> <small>${k[2]}</small></div>`).join('');
+  // 項目別
+  const ia=ITEMS.map(it=>{const v=rows.map(r=>r.ratings&&r.ratings[it.id]).filter(Boolean);return {it,n:v.length,a:v.length?avg(v):null}});
+  const ranked=ia.filter(x=>x.a!=null).sort((a,b)=>a.a-b.a); const weak=new Set(ranked.slice(0,2).map(x=>x.it.id));
+  $('#dItems').innerHTML=rows.length?ia.map((x,i)=>`<div class="ibar ${weak.has(x.it.id)?'weak':''}"><span>${i+1}. ${esc(x.it.t)}</span><div class="track"><i style="width:${x.a?Math.round(x.a/5*100):0}%"></i></div><output>${x.a?x.a.toFixed(1):'—'}</output></div>`).join('')+'<div style="font-size:11.5px;color:var(--sub);margin-top:6px">5段階評価の平均。色付きは平均が低い2項目（次回研修の重点）</div>':'<div class="empty">ストックされた評価がまだありません。④の「評価をストックする」で保存すると、ここに集計が出ます。</div>';
+  $('#dProd').innerHTML=groupTable(rows,r=>PROD[r.prod]?PROD[r.prod].name:(r.prod||'不明'),'商材');
+  $('#dDealer').innerHTML=groupTable(rows,r=>(r.dealer||'（所属未入力）')+(r.branch?' '+r.branch:''),'販社・支店');
+  // 受講者別
+  const g={}; rows.forEach(r=>{const k=(r.dealer?r.dealer+'／':'')+r.trainee;(g[k]=g[k]||[]).push(r)});
+  const tl=Object.entries(g).map(([k,a])=>{a=[...a].sort((x,y)=>(String(x.date||'')+String(x.createdAt||'')).localeCompare(String(y.date||'')+String(y.createdAt||'')));
+    const first=+a[0].total||0,last=+a[a.length-1].total||0;return {k,n:a.length,avg:avg(a.map(x=>+x.total||0)),last,diff:a.length>1?last-first:null}}).sort((a,b)=>b.avg-a.avg);
+  $('#dTrainee').innerHTML=tl.length?`<table><thead><tr><th>受講者</th><th>回数</th><th>平均点</th><th>最新</th><th>伸び</th></tr></thead><tbody>${tl.map(x=>`<tr><td>${esc(x.k)}</td><td class="num">${x.n}</td><td><span class="sc ${scCls(x.avg)}">${x.avg.toFixed(1)}</span></td><td class="num">${x.last}</td><td>${x.diff==null?'—':x.diff>0?`<span class="up">+${x.diff}</span>`:x.diff<0?`<span class="down">${x.diff}</span>`:'±0'}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">該当する評価はありません</div>';
+  // 一覧
+  $('#dCount').textContent=`${rows.length}件表示／全${EVALS.length}件`;
+  const canDel=MODE==='local'||canAdmin;
+  $('#history').innerHTML=rows.length?`<table><thead><tr><th>実施日</th><th>被評価者</th><th>販社・支店</th><th>設定（施設・診療科・相手）</th><th>商材</th><th>点数</th><th>判定</th><th>評価者</th><th></th></tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(r.date)}</td><td>${esc(r.trainee)}</td><td>${esc([r.dealer,r.branch].filter(Boolean).join(' '))}</td><td>${esc([FAC[r.fac]&&FAC[r.fac].label,DEPT[r.dept]&&DEPT[r.dept].label,DMU[r.dmu]&&DMU[r.dmu].label].filter(Boolean).join('・'))}${r.age?`（${r.age}歳）`:''}</td><td>${esc(PROD[r.prod]?PROD[r.prod].name:'')}</td><td><span class="sc ${scCls(+r.total||0)}">${r.total}</span></td><td>${esc(r.grade)}</td><td>${esc(r.evaluator)}</td><td><div class="btns"><button class="btn small" type="button" data-load="${esc(r.id)}">開く</button>${canDel?`<button class="btn small danger" type="button" data-del="${esc(r.id)}">削除</button>`:''}</div></td></tr>`).join('')}</tbody></table>`:'<div class="empty">該当する評価はありません。</div>';
+}
+['fPeriod','fDealer','fProd','fFac'].forEach(id=>$('#'+id).addEventListener('change',renderDash));
+$('#fQ').addEventListener('input',renderDash);
+$('#history').addEventListener('click',async e=>{
+  const l=e.target.closest('[data-load]'); if(l){const r=EVALS.find(x=>x.id===l.dataset.load);if(r&&r.snap){restore(r.snap);toast('評価を開きました');location.hash='setting'}return}
+  const d=e.target.closest('[data-del]'); if(!d)return;
+  if(!d.dataset.armed){d.dataset.armed='1';d.textContent='もう一度押して削除';setTimeout(()=>{if(d.isConnected){delete d.dataset.armed;d.textContent='削除'}},2500);return}
+  const id=d.dataset.del;
+  if(false&&MODE==='shared'&&DB){try{await DB.collection('evals').doc(id).delete();toast('削除しました')}catch(err){toast('削除できませんでした（権限がない可能性があります）')}}
+  else{const h=loadHist().filter(x=>normalize(x).id!==id&&x.id!==id);safeSet(STORE_HIST,JSON.stringify(h));EVALS=h.map(normalize);renderDash();toast('削除しました')}
+});
+$('#newBtn').addEventListener('click',e=>{const b=e.currentTarget;
+  if(!b.dataset.armed){b.dataset.armed='1';b.textContent='もう一度押すとクリア';setTimeout(()=>{delete b.dataset.armed;b.textContent='評価をクリア'},2500);return}
+  delete b.dataset.armed;b.textContent='評価をクリア';st.ratings={};st.checks={};ITEMS.forEach(it=>delete st['cm_'+it.id]);['f_goal','f_next','f_keep','f_problem','f_try','m_trainee'].forEach(id=>$('#'+id).value='');renderItems();saveDraft();toast('評価をクリアしました');
+});
+
+/* ===================== その他 ===================== */
+$('#secretBtn').addEventListener('click',e=>{const open=$('#secretBody').hidden;$('#secretBody').hidden=!open;if(open)requestAnimationFrame(autosizeAll);$('#secretCover').hidden=open;e.currentTarget.textContent=open?'隠し設定を隠す':'隠し設定を表示';e.currentTarget.setAttribute('aria-expanded',String(open))});
+$('#comp').innerHTML=Object.entries(COMP).map(([k,c])=>`<option value="${k}">${c.label}</option>`).join('');
+$('#comp').addEventListener('change',e=>{st.comp=e.target.value;markDirty();saveDraft()});
+$('#age').addEventListener('input',e=>{st.age=+e.target.value;renderChips();markDirty();saveDraft()});
+bindChips('#cFac','fac');bindChips('#cDept','dept');bindChips('#cDmu','dmu');bindChips('#cProd','prod');bindChips('#cLevel','level');
+$('#genBtn').addEventListener('click',()=>{generate(false);toast('事前資料を作りました');});
+$('#rndBtn').addEventListener('click',()=>{generate(true);toast('おまかせで作りました');});
+
+let remain=15*60,timer=null;
+function paint(){const m=Math.floor(remain/60),s=remain%60;const o=$('#tmOut');o.textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;o.classList.toggle('run',!!timer);o.classList.toggle('end',remain===0)}
+$('#tmBtn').addEventListener('click',()=>{if(timer){clearInterval(timer);timer=null;$('#tmBtn').textContent='開始'}else{if(remain===0)remain=+$('#tmLen').value*60;timer=setInterval(()=>{remain=Math.max(0,remain-1);if(remain===0){clearInterval(timer);timer=null;$('#tmBtn').textContent='開始';paint()}else paint()},1000);$('#tmBtn').textContent='停止'}paint()});
+$('#tmLen').addEventListener('change',()=>{if(timer){clearInterval(timer);timer=null;$('#tmBtn').textContent='開始'}remain=+$('#tmLen').value*60;paint()});
+
+
+/* === Rev.3: 可視化・バックアップ・地図・DMU === */
+function rpRadar(){
+ const groups=GROUPS.map((name,i)=>{const its=ITEMS.filter(x=>x.grp===i);const max=its.reduce((s,x)=>s+x.w,0),score=its.reduce((s,x)=>s+(st.ratings[x.id]||0)*x.w/5,0);return {name,pct:max?100*score/max:0,rated:its.filter(x=>st.ratings[x.id]).length,all:its.length}});
+ const center=110,r=75,ang=i=>(-Math.PI/2+i*Math.PI/2),point=(i,v)=>[center+Math.cos(ang(i))*r*v/100,center+Math.sin(ang(i))*r*v/100];
+ const poly=a=>a.map(x=>x.join(',')).join(' '); let svg='<svg viewBox="0 0 220 232" role="img" aria-label="顧客理解・価値提案・比較交渉・基本姿勢のレーダー図">';
+ [25,50,75,100].forEach(k=>svg+=`<polygon points="${poly(groups.map((_,i)=>point(i,k)))}" fill="none" stroke="currentColor" stroke-opacity=".18"/>`);
+ groups.forEach((g,i)=>{const [x,y]=point(i,100); svg+=`<line x1="110" y1="110" x2="${x}" y2="${y}" stroke="currentColor" stroke-opacity=".15"/>`; const tx=center+Math.cos(ang(i))*98,ty=center+Math.sin(ang(i))*94+4;svg+=`<text x="${tx}" y="${ty}" font-size="9" fill="currentColor" text-anchor="middle">${esc(g.name)} ${Math.round(g.pct)}%</text>`});
+ svg+=`<polygon points="${poly(groups.map((g,i)=>point(i,g.pct)))}" fill="#178c99" fill-opacity=".26" stroke="#178c99" stroke-width="2"/>`;svg+='</svg>';$('#radar').innerHTML=svg;
+ const ranked=[...ITEMS].filter(x=>st.ratings[x.id]).sort((a,b)=>(st.ratings[a.id]||0)-(st.ratings[b.id]||0));
+ $('#priority').innerHTML=ranked.length?ranked.slice(0,3).map((it,i)=>`<div class="smallbar"><span>${i+1}. ${esc(it.t)}</span><meter value="${st.ratings[it.id]}" min="0" max="5"></meter><b>${st.ratings[it.id]}/5</b></div>`).join('')+`<div class="priority-tag"><strong>次回の重点：${esc(ranked[0].t)}</strong>根拠メモから再実施する行動を1つ選択</div>`:'<div class="chart-empty">採点すると、改善する行動が自動表示されます</div>';
+}
+const RP_AREAS='北海道 青森県 岩手県 宮城県 秋田県 山形県 福島県 茨城県 栃木県 群馬県 埼玉県 千葉県 東京都 神奈川県 新潟県 富山県 石川県 福井県 山梨県 長野県 岐阜県 静岡県 愛知県 三重県 滋賀県 京都府 大阪府 兵庫県 奈良県 和歌山県 鳥取県 島根県 岡山県 広島県 山口県 徳島県 香川県 愛媛県 高知県 福岡県 佐賀県 長崎県 熊本県 大分県 宮崎県 鹿児島県 沖縄県'.split(' ');
+function rpMap(){const el=$('#areaSelect');if(!el)return;el.innerHTML=RP_AREAS.map(n=>`<option ${n==='東京都'?'selected':''}>${n}</option>`).join('');const paint=()=>{const q=encodeURIComponent(el.value);$('#mapsLink').href=`https://www.google.com/maps/search/?api=1&query=${q}`;$('#areaMap').src=`https://maps.google.com/maps?q=${q}&output=embed`};el.addEventListener('change',paint);paint()}
+function rpDMU(){const selected=st.dmu;
+ const ids=['inc','doc','jim','rad','lab','me','ns','buy'];$('#dmuMap').innerHTML=ids.map(id=>`<div class="dmu-node ${id===selected?'selected':''}"><strong>${esc(DMU[id].label)}</strong><small>${esc(DMU[id].type)}</small>${id===selected?'<small>選択中の面談相手</small>':''}</div>`).join('');
+}
+function rpCharts(){const rows=filtered().filter(r=>Object.values(r.ratings||{}).filter(v=>v>=1&&v<=5).length===10);const buckets=[0,0,0,0,0],ranges=['0–49','50–64','65–79','80–89','90–100'];rows.forEach(r=>{const v=+r.total||0; buckets[v<50?0:v<65?1:v<80?2:v<90?3:4]++});
+ const hist=$('#histogram');if(hist){const m=Math.max(1,...buckets);hist.innerHTML=rows.length?buckets.map((v,i)=>`<div class="smallbar"><span>${ranges[i]}点</span><div class="track"><i style="width:${v/m*100}%;background:${['#b86b6b','#d0a05c','#8c96ae','#3c8d96','#23714c'][i]}"></i></div><b>${v}件</b></div>`).join(''):'<div class="chart-empty">記録を保存すると分布を表示します</div>'}
+ const trend=$('#trend');if(!trend)return;const sorted=[...rows].sort((a,b)=>String(a.date||a.createdAt).localeCompare(String(b.date||b.createdAt))).slice(-20);if(!sorted.length){trend.innerHTML='<div class="chart-empty">評価履歴がありません</div>';return}
+ const pts=sorted.map((r,i)=>[32+(sorted.length===1?120:i*255/(sorted.length-1)),154-(+r.total||0)*1.25]);let s='<svg viewBox="0 0 320 190" role="img" aria-label="評価点推移">';for(let k=0;k<=100;k+=20){let y=154-k*1.25;s+=`<line x1="32" x2="300" y1="${y}" y2="${y}" stroke="currentColor" opacity=".14"/><text x="24" y="${y+3}" text-anchor="end" font-size="9" fill="currentColor">${k}</text>`}s+=`<polyline points="${pts.map(v=>v.join(',')).join(' ')}" fill="none" stroke="#0d8194" stroke-width="2"/>`;pts.forEach((p,i)=>s+=`<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="#08788e"><title>${esc(sorted[i].date||'')}：${sorted[i].total}点</title></circle>`);s+='</svg>';trend.innerHTML=s;
+}
+function rpDownload(name,txt,mime){const blob=new Blob(['\uFEFF',txt],{type:mime});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000)}
+function rpCSV(rows){return rows.map(row=>row.map(x=>'"'+String(x??'').replace(/^[=+@-]/,m=>"'"+m).replace(/"/g,'""')+'"').join(',')).join('\r\n')}
+$('#csvBtn').addEventListener('click',()=>{const rows=filtered();const head=['実施日','所属','部署','識別コード','商材','施設','診療科','難易度','点数','判定',...ITEMS.map(x=>x.t)];rpDownload('roleplay_evaluations.csv',rpCSV([head,...rows.map(r=>[r.date,r.dealer,r.branch,r.trainee,PROD[r.prod]?.name,FAC[r.fac]?.label,DEPT[r.dept]?.label,LEVEL[r.level]?.label,r.total,r.grade,...ITEMS.map(x=>r.ratings?.[x.id]||'')])]),'text/csv;charset=utf-8')});
+$('#jsonBtn').addEventListener('click',()=>rpDownload('roleplay_backup.json',JSON.stringify({schema:'cmsc-rp3',exportedAt:new Date().toISOString(),records:loadHist()},null,2),'application/json;charset=utf-8'));
+$('#importBtn').addEventListener('click',()=>$('#importFile').click());$('#importFile').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{if(f.size>3000000)throw Error('上限3MB');const d=JSON.parse(await f.text());if(d.schema!=='cmsc-rp3'||!Array.isArray(d.records))throw Error('対応形式ではありません');const clean=d.records.slice(0,300).filter(r=>r&&typeof r==='object'&&r.snap&&r.ratings&&Object.keys(r.ratings).length===10);if(!clean.length)throw Error('有効な評価がありません');if(!confirm(clean.length+'件をこの端末の保存データへ追加しますか？'))return;const old=loadHist();const merged=[...clean,...old].filter((r,i,a)=>a.findIndex(q=>(q.id||q.createdAt)===(r.id||r.createdAt))===i).slice(0,300);if(!safeSet(STORE_HIST,JSON.stringify(merged)))throw Error('ブラウザに保存できません');EVALS=merged.map(normalize);renderDash();toast(clean.length+'件を読み込みました')}catch(err){toast('復元失敗：'+err.message)}finally{e.target.value=''}});
+const _rpUpdate=updateScore;updateScore=function(){_rpUpdate();rpRadar()};
+const _rpRender=renderDash;renderDash=function(){_rpRender();rpCharts()};
+const _rpChip=renderChips;renderChips=function(){_rpChip();rpDMU()};
+rpMap();rpDMU();rpRadar();rpCharts();
+
+/* 初期表示：下書きがあれば復元、なければサンプル設定で作成 */
+(function init(){
+  const today=new Date();$('#m_date').value=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
+  let d=null; try{d=JSON.parse(safeGet(STORE_DRAFT)||'null')}catch(e){}
+  if(d&&d.st&&d.st.generated){restore(d)}else{$('#comp').value=st.comp;renderChips();renderKnowledge();generate(false)}
+  initStore(); paint(); requestAnimationFrame(autosizeAll);
+})();
+</script>
+
+</body></html>
