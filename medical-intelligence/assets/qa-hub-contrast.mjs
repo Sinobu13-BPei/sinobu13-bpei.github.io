@@ -64,13 +64,31 @@ function auditPage(){
   const target=large?3:4.5;count++;
   if(contrast+.05<target&&bad.length<20)bad.push({tag:el.tagName,text:(el.textContent||'').trim().slice(0,65),contrast:Number(contrast.toFixed(2)),color:st.color});
  }
+ const sections=[...document.querySelectorAll('main>section.section')];
+ const chapterLabels=sections.map(section=>section.querySelector(':scope>.wrap>.tag')?.textContent.trim()||'');
+ const tocCount=document.querySelectorAll('.jm-toc>a').length;
+ const duplicateLabels=document.querySelectorAll('.jm-section-label').length;
+ const regionSearch=document.querySelector('#search'),regionalList=document.querySelector('#regionList');
+ regionSearch.value='静岡';regionSearch.dispatchEvent(new Event('input',{bubbles:true}));
+ const filterCount=regionalList.querySelectorAll('.region').length;
+ regionSearch.value='';regionSearch.dispatchEvent(new Event('input',{bubbles:true}));
+ const restoredCount=regionalList.querySelectorAll('.region').length;
+ const hospitalInput=document.querySelector('#hospitalGroupSearch');
+ const hospitalRows=[...document.querySelectorAll('#hospitalGroupTable tbody tr')];
+ hospitalInput.value='徳洲会';hospitalInput.dispatchEvent(new Event('input',{bubbles:true}));
+ const hospitalFiltered=hospitalRows.filter(row=>!row.hidden).length;
+ hospitalInput.value='';hospitalInput.dispatchEvent(new Event('input',{bubbles:true}));
+ const hospitalRestored=hospitalRows.filter(row=>!row.hidden).length;
+ const buttonsClipped=[...document.querySelectorAll('.mkt-resource-row>a,#site-footer .jm-footer-resources>a')].filter(a=>a.scrollWidth>a.clientWidth+2).map(a=>a.textContent.trim().slice(0,50));
+ const tocValid=chapterLabels.length===13&&chapterLabels.every((label,i)=>label.startsWith(String(i+1).padStart(2,'0')+' /'));
+ const duplicateIds=[...document.querySelectorAll('[id]')].map(x=>x.id).filter((id,i,all)=>all.indexOf(id)!==i);
  const footer=document.querySelector('#site-footer .jm-footer-resources');
  const footerLabels=[...footer?.querySelectorAll('a')||[]].map(a=>a.textContent.replace(/[\s\u3000]+/g,' ').trim());
  const contactCount=document.querySelectorAll('#site-footer a[href^="mailto:"]').length;
  const footerWidth=footer?.clientWidth||0;
- return {width:innerWidth,documentWidth:document.documentElement.scrollWidth,regions:regions.length,buttons,checked:count,repairs:repaired.repaired,bad,footerLabels,footerWidth,contactCount};
+ return {width:innerWidth,documentWidth:document.documentElement.scrollWidth,regions:regions.length,buttons,checked:count,repairs:repaired.repaired,bad,footerLabels,footerWidth,contactCount,chapterLabels,tocValid,tocCount,duplicateLabels,filterCount,restoredCount,hospitalFiltered,hospitalRestored,hospitalRowCount:hospitalRows.length,buttonsClipped,duplicateIds};
 }
-const widths=[375,768,1280],report=[];
+const widths=[320,375,768,1280],report=[];
 try{
  await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
  const candidates=['google-chrome','chromium'].map(x=>spawnSync('which',[x],{encoding:'utf8'})).filter(x=>x.status===0);
@@ -94,6 +112,17 @@ try{
   const result=await evaluate('('+auditPage.toString()+')()');
   assert.ok(!result.error,JSON.stringify(result));
   assert.equal(result.regions,47,'47 prefectures');
+
+  assert.equal(result.tocCount,13,'13 chapter TOC links');
+  assert.ok(result.tocValid,'Chapter numbering must be 01–13 in page order: '+JSON.stringify(result.chapterLabels));
+  assert.equal(result.duplicateLabels,0,'Automatic labels must not duplicate chapter tags');
+  assert.deepEqual(result.duplicateIds,[],'Duplicate IDs are forbidden');
+  assert.equal(result.filterCount,1,'Prefecture search for Shizuoka');
+  assert.equal(result.restoredCount,47,'Clearing prefecture search restores all rows');
+  assert.equal(result.hospitalFiltered,1,'Hospital group search filters to Tokushukai');
+  assert.equal(result.hospitalRestored,result.hospitalRowCount,'Clearing hospital group search restores all rows');
+  assert.deepEqual(result.buttonsClipped,[],'Link labels must not be clipped');
+
   const expectedFooter=['診療所MKT分析 ↗','医師会 ↗','商社・HD ↗','JAHID','CT-MKT分析 ↗','MRI-MKT分析 ↗','学会カレンダー（画像系） ↗','論文調査｜JRS・SMI・MSK ↗','戦略策定 基礎 ↗','戦略策定 立案 ↗','会食に関して ↗','お食事処 ↗','散策場所 ↗'];
   assert.deepEqual(result.footerLabels,expectedFooter,'footer navigation order and deduplication');
   assert.equal(result.contactCount,1,'one contact link in footer');
