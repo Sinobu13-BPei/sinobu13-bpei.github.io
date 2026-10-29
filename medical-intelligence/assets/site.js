@@ -90,7 +90,8 @@
         [...oldRelated.querySelectorAll('a[href]')].forEach(a=>{
           const url=new URL(a.href,document.baseURI);
           if(already.has(url.pathname)||url.protocol==='mailto:')return;
-          const clone=a.cloneNode(true);related.appendChild(clone);already.add(url.pathname);
+          /* Reuse the existing link node: no hidden duplicate in the DOM. */
+          related.appendChild(a);already.add(url.pathname);
         });
         if(related.childElementCount)inner.appendChild(related);
         oldRelated.hidden=true;
