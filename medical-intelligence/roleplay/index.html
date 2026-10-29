@@ -219,7 +219,7 @@ footer{color:var(--sub);font-size:11.5px;padding-block:0 30px}
 
 <div class="bar">
   <div class="wrap">
-    <div class="brand"><h1>医療機器営業 ロープレLAB</h1><span>6商材 × 施設・診療科 × DMU｜Rev.3</span></div>
+    <div class="brand"><h1>医療機器営業 ロープレLAB</h1><span>6商材 × 施設・診療科 × DMU｜Rev.4</span></div>
     <nav class="steps" aria-label="セクション">
       <a href="#setting">① 顧客設定</a><a href="#prep">② 事前資料</a><a href="#eval">③ 評価</a><a href="#fb">④ フィードバック</a><a href="#dash">⑤ 集計</a><a href="#learning">⑥ 研修設計</a>
     </nav>
@@ -248,14 +248,13 @@ footer{color:var(--sub);font-size:11.5px;padding-block:0 30px}
     <div class="pad" style="border-bottom:1px solid var(--line)">
       <div class="meta">
         <div class="field"><label for="m_date">実施日</label><input type="date" id="m_date"></div>
-        <div class="field"><label for="m_dealer">所属（任意・端末内保存）</label><input type="text" id="m_dealer" list="dealerList" placeholder="例：メディセオ"></div>
-        <div class="field"><label for="m_branch">支店・部署</label><input type="text" id="m_branch" placeholder="例：ME神奈川支店"></div>
+        <div class="field"><label for="m_dealer">社名（自由入力・任意）</label><input type="text" id="m_dealer" autocomplete="organization" placeholder="例：〇〇株式会社／〇〇医療法人"></div>
+        <div class="field"><label for="m_branch">所属（部署・支店など／自由入力）</label><input type="text" id="m_branch" placeholder="例：営業本部／医療営業部／〇〇支店"></div>
         <div class="field"><label for="m_trainee">被評価者（識別コード推奨）</label><input type="text" id="m_trainee" placeholder="例：受講者A"></div>
         <div class="field"><label for="m_evaluator">評価者</label><input type="text" id="m_evaluator" placeholder="例：講師A"></div>
         <div class="field"><label for="m_role">顧客役</label><input type="text" id="m_role" placeholder="例：CMSC 〇〇"></div>
         <div class="field" style="grid-column:span 2"><label for="m_event">研修名・実施場面</label><input type="text" id="m_event" placeholder="例：メディセオME神奈川 定例会ロープレ（2026年11月）"></div>
       </div>
-      <datalist id="dealerList"></datalist>
     </div>
     <div class="setting">
       <div class="setbody">
@@ -363,11 +362,11 @@ footer{color:var(--sub);font-size:11.5px;padding-block:0 30px}
 
 <!-- ⑤ 集計 -->
 <section id="dash">
-  <div class="sec-head"><span class="sec-no">⑤</span><h2>集計</h2><p>ストックした評価を、項目・商材・販社と支店・受講者ごとに集計します。</p></div>
+  <div class="sec-head"><span class="sec-no">⑤</span><h2>集計</h2><p>ストックした評価を、項目・商材・社名と所属・受講者ごとに集計します。</p></div>
   <div class="sheet">
     <div class="dash-filters">
       <div class="field"><label for="fPeriod">期間</label><select id="fPeriod"><option value="all">全期間</option><option value="fy">今年度（4月〜）</option><option value="3m">直近3か月</option><option value="1m">直近1か月</option></select></div>
-      <div class="field"><label for="fDealer">販社</label><select id="fDealer"><option value="">すべて</option></select></div>
+      <div class="field"><label for="fDealer">社名で絞り込み</label><select id="fDealer"><option value="">すべて</option></select></div>
       <div class="field"><label for="fProd">商材</label><select id="fProd"><option value="">すべて</option></select></div>
       <div class="field"><label for="fFac">施設区分</label><select id="fFac"><option value="">すべて</option></select></div>
       <div class="field"><label for="fQ">受講者名で絞り込み</label><input type="text" id="fQ" placeholder="氏名の一部"></div>
@@ -376,7 +375,7 @@ footer{color:var(--sub);font-size:11.5px;padding-block:0 30px}
     <div class="dash-grid">
       <div><h3>評価項目別の平均（弱い項目を色付け）</h3><div id="dItems"></div></div>
       <div><h3>商材別</h3><div class="tbl" id="dProd"></div></div>
-      <div><h3>販社・支店別</h3><div class="tbl" id="dDealer"></div></div>
+      <div><h3>社名・所属別</h3><div class="tbl" id="dDealer"></div></div>
       <div><h3>受講者別（初回→最新の伸び）</h3><div class="tbl" id="dTrainee"></div></div>
     </div>
     <div class="dash-viz"><div class="viz-panel"><h3>評価点分布</h3><div id="histogram"></div></div><div class="viz-panel"><h3>評価の推移（実施日順・最新20件）</h3><div id="trend"></div></div></div><div class="card-h"><h3>ストックした評価の一覧</h3><div class="btns"><button class="btn small" id="csvBtn" type="button">集計CSVを出力</button><button class="btn small" id="jsonBtn" type="button">全履歴JSONをバックアップ</button><button class="btn small" id="importBtn" type="button">JSONを復元</button><input id="importFile" type="file" accept="application/json,.json" hidden><span class="tag" id="dCount"></span></div></div>
@@ -835,7 +834,7 @@ FIELDS.forEach(id=>$('#'+id).addEventListener('input',saveDraft));
 
 function resultText(){
   const p=PROD[st.prod]; const rows=[];
-  rows.push(['実施日',$('#m_date').value],['所属',$('#m_dealer').value+' '+$('#m_branch').value],['研修名',$('#m_event').value],['被評価者',$('#m_trainee').value],['評価者',$('#m_evaluator').value],['施設',$('#b_fac').value],['施設区分',FAC[st.fac].label],['診療科',DEPT[st.dept].label],['面談相手',DMU[st.dmu].label],['年齢',st.age+'歳'],['商材',p.name],['競合状況',COMP[st.comp].label],['難易度',LEVEL[st.level].label],[]);
+  rows.push(['実施日',$('#m_date').value],['社名',$('#m_dealer').value],['所属',$('#m_branch').value],['研修名',$('#m_event').value],['被評価者',$('#m_trainee').value],['評価者',$('#m_evaluator').value],['施設',$('#b_fac').value],['施設区分',FAC[st.fac].label],['診療科',DEPT[st.dept].label],['面談相手',DMU[st.dmu].label],['年齢',st.age+'歳'],['商材',p.name],['競合状況',COMP[st.comp].label],['難易度',LEVEL[st.level].label],[]);
   rows.push(['No','評価項目','配点','評価(1-5)','得点','根拠']);
   ITEMS.forEach((it,i)=>{const r=st.ratings[it.id]||'';rows.push([i+1,it.t,it.w,r,r?(it.w*r/5).toFixed(1):'',(st['cm_'+it.id]||'').replace(/\s+/g,' ')])});
   rows.push([],['合計',$('#sumScore').textContent,'判定',$('#sumGrade').textContent]);
@@ -851,8 +850,6 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if
   copyText(t,'コピーしました');});
 
 /* ===================== ストック（共有DB／端末内） ===================== */
-const DEALERS=['メディセオ','エバルス','アトル','東七','MMコーポレーション','アステック','四国薬業','よんやく','中澤氏家','スズケン','サンキ','アスティス','翔薬','沖縄薬品','アルフレッサ','TSアルフレッサ','明祥','琉薬','東北アルフレッサ','四国アルフレッサ','東邦薬品','ほくやく','バイタルネット','鍋林','中北薬品','KSK','セイエル','アステム','岩渕薬品','コニカミノルタジャパン','キヤノンメディカルシステムズ（社内）'];
-$('#dealerList').innerHTML=DEALERS.map(d=>`<option value="${esc(d)}">`).join('');
 let DB=null, USER=null, EVALS=[], MODE='local', canWrite=true, canAdmin=false, unsub=null;
 function loadHist(){try{const h=JSON.parse(safeGet(STORE_HIST)||'[]');return Array.isArray(h)?h.filter(r=>r&&(r.rated===10||(r.ratings&&Object.values(r.ratings).filter(v=>v>=1&&v<=5).length===10))):[]}catch(e){return[]}}
 function normalize(r){ // 旧形式（端末保存v2）にも対応
@@ -932,7 +929,7 @@ function renderDash(){
   const ranked=ia.filter(x=>x.a!=null).sort((a,b)=>a.a-b.a); const weak=new Set(ranked.slice(0,2).map(x=>x.it.id));
   $('#dItems').innerHTML=rows.length?ia.map((x,i)=>`<div class="ibar ${weak.has(x.it.id)?'weak':''}"><span>${i+1}. ${esc(x.it.t)}</span><div class="track"><i style="width:${x.a?Math.round(x.a/5*100):0}%"></i></div><output>${x.a?x.a.toFixed(1):'—'}</output></div>`).join('')+'<div style="font-size:11.5px;color:var(--sub);margin-top:6px">5段階評価の平均。色付きは平均が低い2項目（次回研修の重点）</div>':'<div class="empty">ストックされた評価がまだありません。④の「評価をストックする」で保存すると、ここに集計が出ます。</div>';
   $('#dProd').innerHTML=groupTable(rows,r=>PROD[r.prod]?PROD[r.prod].name:(r.prod||'不明'),'商材');
-  $('#dDealer').innerHTML=groupTable(rows,r=>(r.dealer||'（所属未入力）')+(r.branch?' '+r.branch:''),'販社・支店');
+  $('#dDealer').innerHTML=groupTable(rows,r=>(r.dealer||'（社名未入力）')+(r.branch?'／'+r.branch:''),'社名・所属');
   // 受講者別
   const g={}; rows.forEach(r=>{const k=(r.dealer?r.dealer+'／':'')+r.trainee;(g[k]=g[k]||[]).push(r)});
   const tl=Object.entries(g).map(([k,a])=>{a=[...a].sort((x,y)=>(String(x.date||'')+String(x.createdAt||'')).localeCompare(String(y.date||'')+String(y.createdAt||'')));
@@ -941,7 +938,7 @@ function renderDash(){
   // 一覧
   $('#dCount').textContent=`${rows.length}件表示／全${EVALS.length}件`;
   const canDel=MODE==='local'||canAdmin;
-  $('#history').innerHTML=rows.length?`<table><thead><tr><th>実施日</th><th>被評価者</th><th>販社・支店</th><th>設定（施設・診療科・相手）</th><th>商材</th><th>点数</th><th>判定</th><th>評価者</th><th></th></tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(r.date)}</td><td>${esc(r.trainee)}</td><td>${esc([r.dealer,r.branch].filter(Boolean).join(' '))}</td><td>${esc([FAC[r.fac]&&FAC[r.fac].label,DEPT[r.dept]&&DEPT[r.dept].label,DMU[r.dmu]&&DMU[r.dmu].label].filter(Boolean).join('・'))}${r.age?`（${r.age}歳）`:''}</td><td>${esc(PROD[r.prod]?PROD[r.prod].name:'')}</td><td><span class="sc ${scCls(+r.total||0)}">${r.total}</span></td><td>${esc(r.grade)}</td><td>${esc(r.evaluator)}</td><td><div class="btns"><button class="btn small" type="button" data-load="${esc(r.id)}">開く</button>${canDel?`<button class="btn small danger" type="button" data-del="${esc(r.id)}">削除</button>`:''}</div></td></tr>`).join('')}</tbody></table>`:'<div class="empty">該当する評価はありません。</div>';
+  $('#history').innerHTML=rows.length?`<table><thead><tr><th>実施日</th><th>被評価者</th><th>社名・所属</th><th>設定（施設・診療科・相手）</th><th>商材</th><th>点数</th><th>判定</th><th>評価者</th><th></th></tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(r.date)}</td><td>${esc(r.trainee)}</td><td>${esc([r.dealer,r.branch].filter(Boolean).join(' '))}</td><td>${esc([FAC[r.fac]&&FAC[r.fac].label,DEPT[r.dept]&&DEPT[r.dept].label,DMU[r.dmu]&&DMU[r.dmu].label].filter(Boolean).join('・'))}${r.age?`（${r.age}歳）`:''}</td><td>${esc(PROD[r.prod]?PROD[r.prod].name:'')}</td><td><span class="sc ${scCls(+r.total||0)}">${r.total}</span></td><td>${esc(r.grade)}</td><td>${esc(r.evaluator)}</td><td><div class="btns"><button class="btn small" type="button" data-load="${esc(r.id)}">開く</button>${canDel?`<button class="btn small danger" type="button" data-del="${esc(r.id)}">削除</button>`:''}</div></td></tr>`).join('')}</tbody></table>`:'<div class="empty">該当する評価はありません。</div>';
 }
 ['fPeriod','fDealer','fProd','fFac'].forEach(id=>$('#'+id).addEventListener('change',renderDash));
 $('#fQ').addEventListener('input',renderDash);
@@ -996,7 +993,7 @@ function rpCharts(){const rows=filtered().filter(r=>Object.values(r.ratings||{})
 }
 function rpDownload(name,txt,mime){const blob=new Blob(['\uFEFF',txt],{type:mime});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000)}
 function rpCSV(rows){return rows.map(row=>row.map(x=>'"'+String(x??'').replace(/^[=+@-]/,m=>"'"+m).replace(/"/g,'""')+'"').join(',')).join('\r\n')}
-$('#csvBtn').addEventListener('click',()=>{const rows=filtered();const head=['実施日','所属','部署','識別コード','商材','施設','診療科','難易度','点数','判定',...ITEMS.map(x=>x.t)];rpDownload('roleplay_evaluations.csv',rpCSV([head,...rows.map(r=>[r.date,r.dealer,r.branch,r.trainee,PROD[r.prod]?.name,FAC[r.fac]?.label,DEPT[r.dept]?.label,LEVEL[r.level]?.label,r.total,r.grade,...ITEMS.map(x=>r.ratings?.[x.id]||'')])]),'text/csv;charset=utf-8')});
+$('#csvBtn').addEventListener('click',()=>{const rows=filtered();const head=['実施日','社名','所属','識別コード','商材','施設','診療科','難易度','点数','判定',...ITEMS.map(x=>x.t)];rpDownload('roleplay_evaluations.csv',rpCSV([head,...rows.map(r=>[r.date,r.dealer,r.branch,r.trainee,PROD[r.prod]?.name,FAC[r.fac]?.label,DEPT[r.dept]?.label,LEVEL[r.level]?.label,r.total,r.grade,...ITEMS.map(x=>r.ratings?.[x.id]||'')])]),'text/csv;charset=utf-8')});
 $('#jsonBtn').addEventListener('click',()=>rpDownload('roleplay_backup.json',JSON.stringify({schema:'cmsc-rp3',exportedAt:new Date().toISOString(),records:loadHist()},null,2),'application/json;charset=utf-8'));
 $('#importBtn').addEventListener('click',()=>$('#importFile').click());$('#importFile').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{if(f.size>3000000)throw Error('上限3MB');const d=JSON.parse(await f.text());if(d.schema!=='cmsc-rp3'||!Array.isArray(d.records))throw Error('対応形式ではありません');const clean=d.records.slice(0,300).filter(r=>r&&typeof r==='object'&&r.snap&&r.ratings&&Object.keys(r.ratings).length===10);if(!clean.length)throw Error('有効な評価がありません');if(!confirm(clean.length+'件をこの端末の保存データへ追加しますか？'))return;const old=loadHist();const merged=[...clean,...old].filter((r,i,a)=>a.findIndex(q=>(q.id||q.createdAt)===(r.id||r.createdAt))===i).slice(0,300);if(!safeSet(STORE_HIST,JSON.stringify(merged)))throw Error('ブラウザに保存できません');EVALS=merged.map(normalize);renderDash();toast(clean.length+'件を読み込みました')}catch(err){toast('復元失敗：'+err.message)}finally{e.target.value=''}});
 const _rpUpdate=updateScore;updateScore=function(){_rpUpdate();rpRadar()};
