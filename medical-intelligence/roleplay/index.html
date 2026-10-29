@@ -719,6 +719,9 @@ function renderKnowledge(){
     <div class="src"><h4>出典</h4>${p.src.map(s=>`<div><a href="${s[1]}" target="_blank" rel="noopener">${esc(s[0])}</a></div>`).join('')}</div>`;
 }
 function generate(random){
+  if(st.generated&&JSON.stringify(currentKey())!==st.generated){
+    st.ratings={};st.checks={};ITEMS.forEach(it=>delete st['cm_'+it.id]);
+  }
   if(random){
     st.prod=pick(Object.keys(PROD)); const p=PROD[st.prod];
     st.fac=pick(Object.keys(FAC).filter(k=>p.fit[k]!=='△'));
@@ -875,6 +878,7 @@ function buildRecord(){
     createdAt:new Date().toISOString(),snap:snapshot()};
 }
 $('#saveBtn').addEventListener('click',async()=>{
+  if(st.generated&&JSON.stringify(currentKey())!==st.generated){toast('設定を変更したため、事前資料を再生成してください');location.hash='setting';return}
   const rec=buildRecord();
   if(rec.rated!==10){toast('10項目すべてを採点してください（未評価：'+(10-rec.rated)+'項目）');location.hash='eval';return}
   if(!$('#m_trainee').value.trim()){toast('被評価者の氏名を入れてください');$('#m_trainee').focus();return}
