@@ -6,6 +6,7 @@ on:
     paths:
       - 'medical-intelligence/index.html'
       - 'medical-intelligence/assets/site.css'
+      - 'medical-intelligence/assets/hub-compact.css'
       - 'medical-intelligence/assets/site.js'
       - 'medical-intelligence/assets/qa-hub-contrast.mjs'
       - '.github/workflows/hub-contrast-qa.yml'
@@ -19,5 +20,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Check hub contrast and six representative region links
+      - name: Check 320px–1280px hub contrast, links, filters and chapter structure
         run: node medical-intelligence/assets/qa-hub-contrast.mjs
