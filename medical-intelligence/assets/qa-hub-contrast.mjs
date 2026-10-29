@@ -82,11 +82,24 @@ function auditPage(){
  const buttonsClipped=[...document.querySelectorAll('.mkt-resource-row>a,#site-footer .jm-footer-resources>a')].filter(a=>a.scrollWidth>a.clientWidth+2).map(a=>a.textContent.trim().slice(0,50));
  const tocValid=chapterLabels.length===13&&chapterLabels.every((label,i)=>label.startsWith(String(i+1).padStart(2,'0')+' /'));
  const duplicateIds=[...document.querySelectorAll('[id]')].map(x=>x.id).filter((id,i,all)=>all.indexOf(id)!==i);
+ const canvas=[...document.querySelectorAll('canvas')];
+ const chartsUnavailable=!window.Chart;
+ const chartFailures=canvas.filter(c=>{
+   if(c.hidden)return !(c.nextElementSibling?.textContent||'').includes('グラフ');
+   if(chartsUnavailable)return true;
+   return !window.Chart.getChart(c);
+ }).map(c=>c.id||c.getAttribute('aria-label')||'unnamed');
+ const menuButton=document.querySelector('#site-header .jm-menu-toggle');
+ const menuNav=document.querySelector('#jm-primary-nav');
+ menuButton?.click();
+ const menuExpanded=menuButton?.getAttribute('aria-expanded')==='true'&&menuNav?.classList.contains('is-open');
+ menuButton?.click();
+ const menuClosed=menuButton?.getAttribute('aria-expanded')==='false'&&!menuNav?.classList.contains('is-open');
  const footer=document.querySelector('#site-footer .jm-footer-resources');
  const footerLabels=[...footer?.querySelectorAll('a')||[]].map(a=>a.textContent.replace(/[\s\u3000]+/g,' ').trim());
  const contactCount=document.querySelectorAll('#site-footer a[href^="mailto:"]').length;
  const footerWidth=footer?.clientWidth||0;
- return {width:innerWidth,documentWidth:document.documentElement.scrollWidth,regions:regions.length,buttons,checked:count,repairs:repaired.repaired,bad,footerLabels,footerWidth,contactCount,chapterLabels,tocValid,tocCount,duplicateLabels,filterCount,restoredCount,hospitalFiltered,hospitalRestored,hospitalRowCount:hospitalRows.length,buttonsClipped,duplicateIds};
+ return {width:innerWidth,documentWidth:document.documentElement.scrollWidth,regions:regions.length,buttons,checked:count,repairs:repaired.repaired,bad,footerLabels,footerWidth,contactCount,chapterLabels,tocValid,tocCount,duplicateLabels,filterCount,restoredCount,hospitalFiltered,hospitalRestored,hospitalRowCount:hospitalRows.length,buttonsClipped,duplicateIds,chartCount:canvas.length,chartFailures,chartsUnavailable,menuExpanded,menuClosed};
 }
 const widths=[320,375,768,1280],report=[];
 try{
@@ -122,6 +135,9 @@ try{
   assert.equal(result.hospitalFiltered,1,'Hospital group search filters to Tokushukai');
   assert.equal(result.hospitalRestored,result.hospitalRowCount,'Clearing hospital group search restores all rows');
   assert.deepEqual(result.buttonsClipped,[],'Link labels must not be clipped');
+  assert.equal(result.chartCount,11,'Expected 11 market graphs');
+  assert.deepEqual(result.chartFailures,[],'Every market graph must render or provide a visible error message');
+  assert.ok(result.menuExpanded&&result.menuClosed,'Mobile shared menu open/close behavior');
 
   const expectedFooter=['診療所MKT分析 ↗','医師会 ↗','商社・HD ↗','JAHID','CT-MKT分析 ↗','MRI-MKT分析 ↗','学会カレンダー（画像系） ↗','論文調査｜JRS・SMI・MSK ↗','戦略策定 基礎 ↗','戦略策定 立案 ↗','会食に関して ↗','お食事処 ↗','散策場所 ↗'];
   assert.deepEqual(result.footerLabels,expectedFooter,'footer navigation order and deduplication');
