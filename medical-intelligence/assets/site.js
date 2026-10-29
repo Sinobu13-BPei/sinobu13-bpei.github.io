@@ -136,7 +136,7 @@
       if(!h.id)h.id='jm-section-'+number;
       const a=el('a','',number+'｜'+h.textContent.trim().replace(/^\s*[0-9]{1,2}\s*[.｜:]\s*/,'').slice(0,36));a.href='#'+h.id;toc.appendChild(a);
       /* Visual labels only: original heading text and section semantics remain untouched. */
-      if(!h.previousElementSibling?.classList.contains('jm-section-label')){
+      if(!h.previousElementSibling?.matches('.jm-section-label,.tag')){
         const lbl=el('span','jm-section-label',number+'｜SECTION');
         h.before(lbl);
       }
