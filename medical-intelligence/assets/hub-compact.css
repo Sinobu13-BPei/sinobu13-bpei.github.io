@@ -132,73 +132,43 @@ body.jm-site .jm-footer p{margin:3px 0}
 @media(prefers-reduced-motion:reduce){.reading-top{transition:none}}
 @media print{.reading-top{display:none!important}#regionList{max-height:none;overflow:visible}}
 
-/* Hub head CSS consolidated into external stylesheet | 2026-10-29 */
 
-/* Former head style 1 | compatibility rules preserved */
-
-/* National medical distribution navigation: explicit four-plus-two layout. */
-.hero-cta-layout .mkt-action-links{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:8px!important;min-width:0;width:100%}
-.hero-cta-layout .mkt-main-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;width:100%;min-width:0}
-.hero-cta-layout .mkt-second-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%;min-width:0}
-.hero-cta-layout .mkt-util-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.hero-cta-layout .mkt-main-row>a,.hero-cta-layout .mkt-second-row>a{display:flex;min-width:0;min-height:46px;width:100%;align-items:center;justify-content:center;text-align:center;padding:9px 10px;font-size:12px;line-height:1.4;white-space:normal;text-decoration:none;overflow-wrap:anywhere}
-.hero-cta-layout .mkt-util-row>a{display:inline-flex;min-height:39px;align-items:center;padding:8px 12px;font-size:12px}
-.hero-cta-layout .mkt-main-row>a:hover,.hero-cta-layout .mkt-second-row>a:hover{filter:brightness(.94)}
-body.jm-site .hero .hero-cta-layout .mkt-main-row>a.merchant-hd{background-color:#20557d!important;border-color:#487d9e!important;color:#fff!important}
-body.jm-site .footer-link-strip>a.merchant-hd{background-color:#20557d!important;border-color:#487d9e!important;color:#fff!important}
-body.jm-site .footer-link-strip>a.research-link{background-color:#58569a!important;border-color:#7b79ba!important;color:#fff!important}
-.hero-cta-layout .mkt-main-row>a.merchant-hd,.footer-link-strip>a.merchant-hd{background:#20557d;border:1px solid #487d9e;color:white}
-.hero-cta-layout .mkt-main-row>a.merchant-hd:focus-visible,.footer-link-strip>a.merchant-hd:focus-visible{outline:3px solid #f9b854;outline-offset:3px}
-@media(max-width:760px){.hero-cta-layout .mkt-main-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:400px){.hero-cta-layout .mkt-main-row>a,.hero-cta-layout .mkt-second-row>a{font-size:11.5px;min-height:50px;padding:9px 7px}}
-@media(prefers-reduced-motion:reduce){.hero-cta-layout .mkt-main-row>a,.hero-cta-layout .mkt-second-row>a{transition:none!important}}
-
-/* Strategy links immediately follow academic calendar and research links */
-.hero-cta-layout .hero-handbooks{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%;min-width:0;margin:0!important}
-.hero-cta-layout .hero-handbooks>a{display:flex;align-items:center;justify-content:center;text-align:center;min-height:46px;padding:9px 10px;min-width:0;overflow-wrap:anywhere;line-height:1.4}
-@media(max-width:600px){.hero-cta-layout .hero-handbooks{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-cta-layout .hero-handbooks>a:last-child{grid-column:1/-1}}
-
-/* Compact five-link single-line utility navigation; no wrapping or extra vertical rows. */
-.hero-cta-layout .mkt-resource-row{display:grid!important;grid-template-columns:1.3fr 1.45fr 1fr 1fr 1fr;gap:6px;width:100%;min-width:0;align-items:stretch}
-.hero-cta-layout .mkt-resource-row>a{display:flex!important;align-items:center;justify-content:center;text-align:center;min-width:0;min-height:34px;padding:5px 7px!important;font-size:clamp(9px,.86vw,12px)!important;line-height:1.25!important;white-space:nowrap!important;overflow:hidden;text-overflow:ellipsis;border-radius:7px;color:#fff!important;-webkit-text-fill-color:#fff!important;background:#0C7883!important;text-decoration:none!important}
-.hero-cta-layout .mkt-resource-row>a span{color:#fff!important;-webkit-text-fill-color:#fff!important}
-@media(max-width:700px){.hero-cta-layout .mkt-resource-row{display:flex!important;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:thin;-webkit-overflow-scrolling:touch;padding-bottom:3px}.hero-cta-layout .mkt-resource-row>a{flex:0 0 auto;font-size:11px!important;min-height:36px;overflow:visible}}
-
-/* 2026-10-27: prevent academic/strategy labels from escaping button boundaries. */
-.hero-cta-layout .mkt-resource-row{display:flex!important;flex-wrap:nowrap!important;gap:6px!important;max-width:100%;min-width:0;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:thin;-webkit-overflow-scrolling:touch;padding:2px 1px 6px!important}
-.hero-cta-layout .mkt-resource-row>a{box-sizing:border-box!important;flex:0 0 auto!important;width:auto!important;max-width:none!important;min-width:max-content!important;min-height:36px!important;padding:7px 11px!important;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;font-size:12px!important;letter-spacing:0!important;line-height:1.4!important}
-.hero-cta-layout .mkt-resource-row>a span{white-space:nowrap!important}
-
-
-/* Former head style 2 | compatibility rules preserved */
-.map-database-links{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:11px 0 9px}.map-database-links a{display:inline-flex!important;justify-content:center;align-items:center;min-width:140px;min-height:45px;padding:10px 18px!important;border-radius:10px!important;text-decoration:none!important;font-size:15px!important;letter-spacing:.015em;font-weight:800!important;box-shadow:0 3px 8px #032b4129}.db-jahid-btn{background:#087c83!important;color:white!important}.db-jahid-btn:hover{background:#075b68!important;color:white!important}.db-market-btn{background:#fff!important;color:#06657a!important;border:1px solid #8cc9cd!important}.db-market-btn:hover{background:#e0f2f4!important;color:#053b49!important}@media(max-width:520px){.map-database-links a{flex:1;min-width:110px}}
-
-/* Former head style 3 | compatibility rules preserved */
-
-.hero-cta-layout .mkt-main-row{grid-template-columns:repeat(5,minmax(0,1fr))}
-body.jm-site .hero .hero-cta-layout .mkt-main-row>a.hospital-directory-link,.hero-cta-layout .mkt-main-row>a.hospital-directory-link{background:#ae2345!important;border:1px solid #d35f78!important;color:#fff!important;font-weight:800}
-.hero-cta-layout .mkt-main-row>a.hospital-directory-link:hover,.map-database-links>a.db-hospital-btn:hover{background:#851632!important;color:#fff!important}
-.map-database-links>a.db-hospital-btn{background:#ae2345!important;color:#fff!important;border:1px solid #ae2345!important}
-.hero-cta-layout .mkt-main-row>a.hospital-directory-link:focus-visible,.map-database-links>a.db-hospital-btn:focus-visible{outline:3px solid #ffbb4f;outline-offset:3px}
+/* Hub CTA and map links | consolidated from four obsolete inline style blocks */
+.hero-cta-layout .mkt-action-links{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:8px!important;width:100%;min-width:0}
+.hero-cta-layout .mkt-main-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;width:100%;min-width:0}
+.hero-cta-layout .mkt-util-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.hero-cta-layout .mkt-main-row>a{display:flex;align-items:center;justify-content:center;min-height:46px;width:100%;min-width:0;padding:9px 10px;font-size:12px;line-height:1.4;text-align:center;white-space:normal;overflow-wrap:anywhere;text-decoration:none}
+.hero-cta-layout .mkt-util-row>a{display:inline-flex;align-items:center;min-height:39px;padding:8px 12px;font-size:12px}
+.hero-cta-layout .mkt-main-row>a:hover{filter:brightness(.94)}
+body.jm-site .hero .hero-cta-layout .mkt-main-row>a.merchant-hd{background:#20557d!important;border:1px solid #487d9e!important;color:#fff!important}
+body.jm-site .hero .hero-cta-layout .mkt-main-row>a.hospital-directory-link{background:#ae2345!important;border:1px solid #d35f78!important;color:#fff!important;font-weight:800}
+body.jm-site .hero .hero-cta-layout .mkt-main-row>a.hospital-directory-link:hover{background:#851632!important}
+.hero-cta-layout .mkt-main-row>a.merchant-hd:focus-visible,.hero-cta-layout .mkt-main-row>a.hospital-directory-link:focus-visible{outline:3px solid #f9b854;outline-offset:3px}
+.hero-cta-layout .mkt-resource-row{display:flex!important;flex-wrap:nowrap!important;align-items:stretch;gap:6px!important;max-width:100%;min-width:0;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:thin;-webkit-overflow-scrolling:touch;padding:2px 1px 6px!important}
+.hero-cta-layout .mkt-resource-row>a{display:flex!important;align-items:center;justify-content:center;flex:0 0 auto!important;width:auto!important;min-width:max-content!important;max-width:none!important;min-height:36px;padding:7px 11px!important;font-size:12px!important;line-height:1.4!important;text-align:center;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;letter-spacing:0!important;border-radius:7px;background:#0C7883!important;color:#fff!important;-webkit-text-fill-color:#fff!important;text-decoration:none!important}
+.hero-cta-layout .mkt-resource-row>a :is(span,strong,b){color:#fff!important;-webkit-text-fill-color:#fff!important}
+body.jm-site .footer-link-strip>a.merchant-hd{background:#20557d!important;border-color:#487d9e!important;color:#fff!important}
+body.jm-site .footer-link-strip>a.research-link{background:#58569a!important;border-color:#7b79ba!important;color:#fff!important}
+.map-database-links{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:11px 0 9px}
+.map-database-links>a{display:inline-flex!important;align-items:center;justify-content:center;min-width:140px;min-height:45px;padding:10px 18px!important;border-radius:10px!important;font-size:15px!important;font-weight:800!important;letter-spacing:.015em;text-decoration:none!important}
+.map-database-links .db-jahid-btn{background:#087c83!important;color:#fff!important}
+.map-database-links .db-jahid-btn:hover{background:#075b68!important;color:#fff!important}
+.map-database-links .db-market-btn{background:#fff!important;color:#06657a!important;border:1px solid #8cc9cd!important}
+.map-database-links .db-market-btn:hover{background:#e0f2f4!important;color:#053b49!important}
+.map-database-links.map-two-by-two{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;align-items:stretch!important;width:100%!important;max-width:100%!important;margin:12px 0 10px!important}
+.map-database-links.map-two-by-two>a{display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;width:100%!important;min-height:51px!important;padding:10px 8px!important;margin:0!important;white-space:normal!important;overflow-wrap:anywhere!important;text-align:center!important;border-radius:10px!important;font-size:clamp(12px,1.12vw,15px)!important;letter-spacing:0!important;line-height:1.35!important}
+.map-database-links.map-two-by-two>a.db-hospital-btn{background:#ae2345!important;border:1px solid #ae2345!important;color:#fff!important}
+.map-database-links.map-two-by-two>a.db-ishikai-btn{background:#166a9c!important;border:1px solid #166a9c!important;color:#fff!important}
+.map-database-links.map-two-by-two>a.db-jahid-btn{background:#087c83!important;border:1px solid #087c83!important;color:#fff!important}
+.map-database-links.map-two-by-two>a.db-market-btn{background:#fff!important;border:1px solid #8cc9cd!important;color:#07596c!important}
+.map-database-links.map-two-by-two>a:hover{filter:brightness(.94)}
+.map-database-links.map-two-by-two>a:focus-visible{outline:3px solid #ffbf59!important;outline-offset:3px}
 @media(max-width:1050px){.hero-cta-layout .mkt-main-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.hero-cta-layout .mkt-main-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:360px){.map-database-links>a.db-hospital-btn{min-width:100%}}
-
-
-/* Former head style 4 | compatibility rules preserved */
-
-/* Map navigation: 2 x 2 across desktop and mobile. No other hub links are changed. */
-body .map-database-links.map-two-by-two{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;align-items:stretch!important;width:100%!important;max-width:100%!important;margin:12px 0 10px!important}
-body .map-database-links.map-two-by-two>a{display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;width:100%!important;min-height:51px!important;padding:10px 8px!important;margin:0!important;white-space:normal!important;overflow-wrap:anywhere!important;text-align:center!important;text-decoration:none!important;border-radius:10px!important;font-size:clamp(12px,1.12vw,15px)!important;font-weight:800!important;letter-spacing:0!important;line-height:1.35!important;box-shadow:0 4px 12px rgba(16,49,69,.13)}
-body .map-database-links.map-two-by-two>a.db-hospital-btn{background:#ae2345!important;border:1px solid #ae2345!important;color:#fff!important}
-body .map-database-links.map-two-by-two>a.db-ishikai-btn{background:#166a9c!important;border:1px solid #166a9c!important;color:#fff!important}
-body .map-database-links.map-two-by-two>a.db-jahid-btn{background:#087c83!important;border:1px solid #087c83!important;color:#fff!important}
-body .map-database-links.map-two-by-two>a.db-market-btn{background:#fff!important;border:1px solid #8cc9cd!important;color:#07596c!important}
-body .map-database-links.map-two-by-two>a:hover{filter:brightness(.94)}
-body .map-database-links.map-two-by-two>a:focus-visible{outline:3px solid #ffbf59!important;outline-offset:3px}
-@media(max-width:520px){body .map-database-links.map-two-by-two{gap:7px!important}body .map-database-links.map-two-by-two>a{min-height:47px!important;padding:8px 5px!important;font-size:12px!important}}
-
-
+@media(max-width:520px){.map-database-links.map-two-by-two{gap:7px!important}.map-database-links.map-two-by-two>a{min-height:47px!important;padding:8px 5px!important;font-size:12px!important}}
+@media(max-width:400px){.hero-cta-layout .mkt-main-row>a{font-size:11.5px;min-height:50px;padding:9px 7px}}
+@media(max-width:360px){.map-database-links>a.db-hospital-btn{min-width:0}}
+@media(prefers-reduced-motion:reduce){.hero-cta-layout .mkt-main-row>a{transition:none!important}}
 /* Mobile-first legibility pass | 2026-10-29 */
 body.jm-site .jm-toc a{font-size:13px!important;line-height:1.35;min-height:36px}
 body.jm-site main .section>.wrap>.tag,body.jm-site .hero .eyebrow{font-size:13px!important;letter-spacing:.06em}
