@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>医療AI支援制度マップ 2026｜制度・研究・Kaggle・学会・47都道府県 Rev.2</title>
+<title>医療AI支援制度マップ 2026｜制度・研究・Kaggle・学会・47都道府県 Rev.3</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -180,6 +180,7 @@ html{scroll-padding-top:72px;scroll-behavior:smooth}
 @media (max-width:1050px){.verified-grid{grid-template-columns:repeat(2,1fr)}.clinical-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:800px){.insight-grid,.roi-grid,.regional-map,#societies .grid2{grid-template-columns:1fr}.hero-grid{gap:6px}.hero svg{max-width:320px;margin:auto}.verified-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.chart.map{height:350px}.filters{top:auto}.journey{gap:5px}}
 @media (max-width:550px){.clinical-grid,.verified-grid,.pref-grid{grid-template-columns:1fr}.roi-form{grid-template-columns:1fr 1fr}.wrap{padding:0 14px}.verify-card{padding:12px}section{padding:24px 0}.hero{padding:22px 0 12px}.chart{height:300px}.roi-cards b{font-size:19px}.kpis{gap:7px}.kpi{padding:9px}.kpi .v{font-size:23px}}
+.insight-grid>.panel{min-width:0}.matrix-wrap{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}.mx{table-layout:auto}
 @media print{nav.top,.filters,.btn,.hero-tags{display:none!important}section{break-inside:avoid}.wrap{max-width:none}.card{break-inside:avoid}.chart{height:260px}body{background:white;color:#111}a{color:#111}}
 
 </style>
@@ -343,7 +344,7 @@ html{scroll-padding-top:72px;scroll-behavior:smooth}
     <div class="seg" role="group" aria-label="地図の範囲"><button type="button" id="mJapan" aria-pressed="true">日本</button><button type="button" id="mWorld" aria-pressed="false">世界</button></div>
   </div>
   <p class="sub">点が開催地、波紋つきの点は今後3か月以内の開催です。直近の最重要は第46回医療情報学連合大会（11月12〜15日・札幌）とRSNA（11月29日〜12月3日・シカゴ）です。会場が毎年変わる学会は地図に載せず、下の一覧に入れています。</p>
-  <div class="grid2" style="grid-template-columns:1.25fr 1fr">
+  <div class="grid2">
     <div class="panel"><div class="chart map" id="chMap"></div></div>
     <div class="panel">
       <div class="searchrow" style="margin-bottom:8px"><input type="search" id="qs" placeholder="学会名・領域で検索（例：画像、情報、CT）" aria-label="学会を検索"></div>
@@ -388,7 +389,7 @@ html{scroll-padding-top:72px;scroll-behavior:smooth}
   <ul class="src" id="srcList"></ul>
 </div></section>
 </main>
-<footer><div class="wrap">編纂・調査：プロジェクト営業統括センター　ビジネスパートナー営業部　高橋忍｜2026年10月30日 改訂 Rev.2。制度の金額・申請資格・期限は申請前に一次情報で確認してください。営業向け考察は編纂者の分析であり、各機関・企業の公式見解ではありません。技術導入効果の試算はシナリオであり実績を示しません。<span class="footlinks"><a href="https://sinobu13-bpei.github.io/medical-intelligence/">医療機器市場 Intelligence HUB</a></span></div></footer>
+<footer><div class="wrap">編纂・調査：プロジェクト営業統括センター　ビジネスパートナー営業部　高橋忍｜2026年10月30日 改訂 Rev.3。制度の金額・申請資格・期限は申請前に一次情報で確認してください。営業向け考察は編纂者の分析であり、各機関・企業の公式見解ではありません。技術導入効果の試算はシナリオであり実績を示しません。<span class="footlinks"><a href="https://sinobu13-bpei.github.io/medical-intelligence/">医療機器市場 Intelligence HUB</a></span></div></footer>
 
 <script src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
