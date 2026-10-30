@@ -93,11 +93,17 @@
           /* Reuse the existing link node: no hidden duplicate in the DOM. */
           related.appendChild(a);already.add(url.pathname);
         });
-        if(related.childElementCount)inner.appendChild(related);
-        oldRelated.hidden=true;
+        /* Remove the old wrapper completely: links have already moved into related. */
+        oldRelated.remove();
+        inner.append(left);
+        if(related.childElementCount)inner.append(related);
+      }else{
+        inner.append(left);
       }
+    }else{
+      inner.append(left);
     }
-    inner.append(left,links);foot.appendChild(inner);
+    inner.append(links);foot.appendChild(inner);
     const meta=document.querySelector('[data-site-meta]')||el('div','jm-shell jm-meta');
     meta.setAttribute('data-site-meta','');
     if(!meta.parentNode)head.insertAdjacentElement('afterend',meta);
