@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>医療AI支援制度マップ 2026｜制度・研究・Kaggle・学会・47都道府県 Rev.2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: 公文書の「台帳」— 濃紺の罫線と一点の赤で、上から 要約→図解→台帳(検索)→学会→打ち手 の順に読む */
+:root{
+  --paper:#f4f6f9;
+  --surface:#ffffff;
+  --ink:#16213a;
+  --muted:#5a6578;
+  --line:#d9dee7;
+  --accent:#c8102e;
+  --teal:#0e7a87;
+  --soft:#eef1f6;
+  --ok:#1f8a4c; --warn:#c97a00; --crit:#c8102e; --info:#2f5fb3; --idle:#7b7f99; --done:#9aa1ad;
+  --f-display:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --f-body:"Noto Sans JP","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1522; --surface:#161e2e; --ink:#e7ebf3; --muted:#9aa5b8; --line:#2a3447; --soft:#1c2638;
+    --accent:#ff4d64; --teal:#3cc3cf; --ok:#43c27a; --warn:#f0a531; --crit:#ff5a6e; --info:#6f9cf0; --idle:#a3a6c4; --done:#6b7486;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1522; --surface:#161e2e; --ink:#e7ebf3; --muted:#9aa5b8; --line:#2a3447; --soft:#1c2638;
+  --accent:#ff4d64; --teal:#3cc3cf; --ok:#43c27a; --warn:#f0a531; --crit:#ff5a6e; --info:#6f9cf0; --idle:#a3a6c4; --done:#6b7486;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,label:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:clamp(26px,4.2vw,40px);font-weight:900;letter-spacing:.01em}
+h2{font-size:22px;font-weight:700}
+h3{font-size:16px;font-weight:700}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+nav.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;gap:4px 16px;align-items:center;overflow-x:auto;white-space:nowrap;padding-top:8px;padding-bottom:8px}
+nav.top b{font-family:var(--f-display);color:var(--accent);margin-right:6px}
+nav.top a{color:var(--muted);text-decoration:none;font-size:13px}
+nav.top a:hover{color:var(--ink)}
+header.hero{padding:34px 0 18px}
+.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:center}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.lead{color:var(--muted);max-width:62ch;margin:12px 0 0}
+.hero svg{width:100%;height:auto;max-height:230px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--ink);padding:12px 14px;border-radius:4px}
+.kpi.red{border-top-color:var(--accent)}
+.kpi .v{font-family:var(--f-display);font-size:28px;font-weight:900;font-variant-numeric:tabular-nums}
+.kpi .v small{font-size:13px;font-weight:700;margin-left:2px}
+.kpi .l{font-size:12px;color:var(--muted)}
+section{padding:30px 0;border-top:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.sec-head .tag{font-size:12px;color:var(--muted)}
+.sub{color:var(--muted);margin:4px 0 16px;max-width:75ch}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px}
+.panel h3{margin-bottom:4px}
+.panel .cap{font-size:12px;color:var(--muted);margin:0 0 6px}
+.chart{width:100%;height:340px}
+.chart.tall{height:520px}
+.chart.map{height:440px}
+.urgent{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ucard{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.ucard .rank{font-family:var(--f-display);font-weight:900;color:var(--accent);font-size:13px}
+.ucard p{margin:0;font-size:14px}
+.ucard .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:1px 9px;border-radius:99px;border:1px solid currentColor;white-space:nowrap}
+.st-open{color:var(--ok)} .st-soon{color:var(--crit)} .st-run{color:var(--info)} .st-next{color:var(--idle)} .st-end{color:var(--done)}
+.chip-s{display:inline-block;font-size:11.5px;padding:0 7px;border-radius:3px;background:var(--soft);color:var(--muted);white-space:nowrap}
+/* filters */
+.filters{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;display:grid;gap:10px;position:sticky;top:44px;z-index:10}
+.searchrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.searchrow input[type=search]{flex:1 1 260px;font:inherit;padding:8px 12px;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink)}
+.searchrow select{font:inherit;font-size:13px;padding:7px 8px;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink)}
+.fgroup{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.fgroup .fl{font-size:12px;color:var(--muted);width:64px;flex:none}
+.fchip{font:inherit;font-size:12.5px;padding:2px 10px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.fchip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.fchip:hover{border-color:var(--ink)}
+.btn{font:inherit;font-size:13px;padding:6px 12px;border-radius:4px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.count{font-size:13px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:8px;position:relative}
+.card .stripe{position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:6px 0 0 6px}
+.card .top{display:flex;gap:10px;align-items:flex-start}
+.card .ico{flex:none;width:38px;height:38px;border-radius:8px;display:grid;place-items:center;background:var(--soft);color:var(--ink)}
+.card .ico svg{width:22px;height:22px}
+.card h3{font-size:15px}
+.card h3 a{color:var(--ink);text-decoration:none}
+.card h3 a:hover{text-decoration:underline}
+.card .ag{font-size:12px;color:var(--muted)}
+.card dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:0;font-size:13px}
+.card dt{color:var(--muted)}
+.card dd{margin:0}
+.card .targets{display:flex;gap:6px;flex-wrap:wrap}
+.tgt{display:inline-flex;align-items:center;gap:3px;font-size:12px;color:var(--muted)}
+.tgt svg{width:15px;height:15px}
+.canon{display:inline-flex;gap:2px;align-items:center;font-size:12px;color:var(--muted)}
+.canon i{display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--line)}
+.canon i.on{background:var(--accent)}
+.note{font-size:13px;background:var(--soft);border-radius:4px;padding:6px 9px;margin:0}
+.tablewrap{overflow-x:auto;margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:860px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:700;background:var(--soft);position:sticky;top:0}
+td.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.empty{padding:30px;text-align:center;color:var(--muted)}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:6px}
+.legend span{display:inline-flex;gap:5px;align-items:center}
+.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.seg button{font:inherit;font-size:12.5px;padding:4px 12px;border:0;background:var(--paper);color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+/* strategy */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;align-items:stretch;margin:6px 0 18px}
+.fstep{background:var(--surface);border:1px solid var(--line);padding:12px;text-align:center;position:relative;font-size:13px}
+.fstep svg{width:34px;height:34px;color:var(--teal);display:block;margin:0 auto 6px}
+.fstep b{display:block;font-family:var(--f-display);font-size:14px}
+.fstep:not(:last-child)::after{content:"";position:absolute;right:-9px;top:50%;width:16px;height:16px;background:var(--surface);border-top:1px solid var(--line);border-right:1px solid var(--line);transform:translateY(-50%) rotate(45deg);z-index:2}
+.fstep.hl{border-color:var(--accent)}
+.fstep.hl svg{color:var(--accent)}
+.strat{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.strat .panel{border-top:3px solid var(--teal)}
+.strat ul{margin:6px 0 0;padding-left:18px;font-size:14px}
+.todo{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.todo label{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:8px 12px;cursor:pointer;font-size:14px}
+.todo input{margin-top:5px;accent-color:var(--accent)}
+.todo .when{font-weight:700;min-width:118px;font-variant-numeric:tabular-nums}
+.todo input:checked + span{text-decoration:line-through;color:var(--muted)}
+.src{columns:2;font-size:13px;padding-left:18px}
+.src li{break-inside:avoid;margin-bottom:3px}
+footer{padding:24px 0 40px;color:var(--muted);font-size:12px}
+.fallback{display:grid;place-items:center;height:100%;color:var(--muted);font-size:13px;text-align:center;padding:20px}
+@media (max-width:900px){
+  .hero-grid,.grid2,.strat{grid-template-columns:1fr}
+  .urgent,.grid3{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:1fr;gap:10px}
+  .fstep:not(:last-child)::after{display:none}
+  .filters{position:static}
+  .src{columns:1}
+  .chart.tall{height:640px}
+}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+/* Rev2: responsive enhancements and additional visual features */
+[hidden]{display:none!important}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+.hero-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.hero-tags span{font-size:11px;font-weight:700;color:var(--teal);border:1px solid var(--line);padding:3px 9px;border-radius:40px;background:var(--surface)}
+.verified-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.verify-card{background:var(--surface);border:1px solid var(--line);padding:16px;border-radius:8px;position:relative;border-top:3px solid var(--teal)}
+.verify-card .vnum{font:900 20px var(--f-display);color:var(--teal)}
+.verify-card p{font-size:12.5px;line-height:1.7;margin:8px 0 12px}.verify-card a{font-size:12px;font-weight:700;display:block}
+.clinical-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.cl-card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--teal);border-radius:8px;padding:18px;text-align:left;display:flex;flex-direction:column;gap:5px;font:inherit;color:var(--ink);cursor:pointer;min-width:0;transition:transform .15s ease,box-shadow .15s ease}.cl-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px #0001}.cl-card:focus-visible{outline:2px solid var(--accent)}
+.cl-ico{font-size:28px;line-height:1.2;color:var(--teal)}.cl-card>b{font-size:16px;font-family:var(--f-display)}.cl-card>span:not(.cl-ico){font-weight:700;color:var(--teal);font-size:13px}.cl-card small{font-size:12px;color:var(--muted)}.cl-card i{font-style:normal;font-size:11px;color:var(--accent);margin-top:auto;padding-top:7px}
+.journey{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:16px}.journey span{padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);font-size:12px;font-weight:700}.journey b{color:var(--teal)}
+.insight-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}.matrix-wrap{overflow:auto;padding-top:10px}.mx{border-collapse:separate;border-spacing:4px;min-width:560px;width:100%}.mx th{position:static;background:transparent;text-align:center;font-size:11px}.mx td{border:0;text-align:center}.mx button{width:100%;padding:9px 5px;color:var(--ink);font-weight:700;border:1px solid var(--line);border-radius:4px;cursor:pointer;font:inherit;font-size:12px}.mx button:hover{outline:2px solid var(--teal)}.hbars{margin:12px 0;display:grid;gap:12px}.hb-row{display:grid;grid-template-columns:102px 1fr 30px;align-items:center;gap:8px;font-size:12px}.hb-track{background:var(--soft);height:16px;border-radius:3px;overflow:hidden}.hb-track>div{height:100%;background:var(--teal);border-radius:3px}.hb-row>strong{text-align:right}.mini-rule{border-top:1px solid var(--line);margin-top:24px;padding-top:12px;font-size:12px;color:var(--muted)}
+.roi-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:15px}.roi-form{display:grid;grid-template-columns:1fr 1fr;gap:10px}.roi-form label{font-size:12px;font-weight:700;color:var(--muted)}.roi-form label:first-child{grid-column:1/-1}.roi-form input,.roi-form select{display:block;width:100%;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:4px;padding:8px;margin-top:4px;font:inherit;font-size:14px}.roi-form .cap{grid-column:1/-1}
+.roi-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}.roi-cards>div{padding:12px;border:1px solid var(--line);border-radius:5px;background:var(--paper);display:flex;flex-direction:column;gap:4px}.roi-cards small{color:var(--muted);font-size:11px}.roi-cards b{font:900 clamp(17px,2.5vw,24px) var(--f-display)}.roi-stackbar{height:36px;display:flex;overflow:hidden;border-radius:6px;background:var(--soft)}.roi-stackbar>div:first-child{background:var(--teal);transition:width .2s}.roi-stackbar>div:last-child{background:var(--accent);transition:width .2s}
+.regional-map{display:grid;grid-template-columns:2fr 1fr;gap:16px}.pref-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.pref-region{border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:10px}.pref-region>h3{font-size:13px;padding-bottom:5px;border-bottom:1px solid var(--line);color:var(--teal)}.pref-region .pref-links{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}.pref-links a{font-size:11.5px;padding:3px 6px;border-radius:4px;color:var(--ink);background:var(--soft);text-decoration:none;border:1px solid var(--line)}.pref-links a:hover{border-color:var(--teal);color:var(--teal)}.pref-links a.confirmed{border-color:var(--accent);color:var(--accent);font-weight:700}.pref-confirm{display:grid;gap:8px;margin-top:12px}.pref-confirm a{font-size:12px;border:1px solid var(--line);padding:8px;border-radius:4px}.mini-step{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;margin:12px 0}.mini-step b{border-radius:50%;background:var(--teal);color:white;min-width:20px;text-align:center;font-size:12px}
+.prefecture-guide{position:relative}.footlinks{margin-left:12px}
+#societies .grid2{grid-template-columns:1.25fr 1fr}
+@media (max-width:1050px){.verified-grid{grid-template-columns:repeat(2,1fr)}.clinical-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:800px){.insight-grid,.roi-grid,.regional-map,#societies .grid2{grid-template-columns:1fr}.hero-grid{gap:6px}.hero svg{max-width:320px;margin:auto}.verified-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.chart.map{height:350px}.filters{top:auto}.journey{gap:5px}}
+@media (max-width:550px){.clinical-grid,.verified-grid,.pref-grid{grid-template-columns:1fr}.roi-form{grid-template-columns:1fr 1fr}.wrap{padding:0 14px}.verify-card{padding:12px}section{padding:24px 0}.hero{padding:22px 0 12px}.chart{height:300px}.roi-cards b{font-size:19px}.kpis{gap:7px}.kpi{padding:9px}.kpi .v{font-size:23px}}
+@media print{nav.top,.filters,.btn,.hero-tags{display:none!important}section{break-inside:avoid}.wrap{max-width:none}.card{break-inside:avoid}.chart{height:260px}body{background:white;color:#111}a{color:#111}}
+
+</style>
+</head>
+<body>
+<nav class="top" aria-label="ページ内リンク"><div class="wrap">
+  <b>医療AI支援制度マップ</b>
+  <a href="#now">今すぐ動く</a><a href="#budget">予算</a><a href="#eco">全体図</a><a href="#position">ポジション</a><a href="#timeline">タイムライン</a><a href="#clinical">医療AI適用</a><a href="#insights">制度分析</a><a href="#db">制度を探す</a><a href="#roi">導入試算</a><a href="#pref">47都道府県</a><a href="#societies">学会マップ</a><a href="#strategy">打ち手</a><a href="#sources">出典</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">キヤノンメディカルシステムズ　ビジネスパートナー営業部向け</div>
+      <h1>医療AI 支援制度マップ 2026</h1>
+      <p class="lead">国（経産省・厚労省・文科省・総務省・内閣府）、AMED、自治体、民間（Kaggle等のコンペ・クラウド各社・財団）のAI関連支援制度と、医療AI関連学会を一つにまとめました。検索と絞り込みで、顧客提案・R&amp;D・情報収集のどれに使えるかを探せます。</p>
+      <p class="lead num" style="font-size:13px">情報時点：2026年10月30日｜原本の制度・学会・図表・出典を継承し増補。締切・金額は公募回ごとに変わります。申請前に必ず公式の公募要領で確認してください。</p><div class="hero-tags"><span>政府・自治体の支援</span><span>医療AI / SaMD</span><span>Kaggle・民間</span><span>学会</span><span>全国47都道府県の調査入口</span></div>
+    </div>
+    <svg viewBox="0 0 360 230" role="img" aria-label="CT装置のガントリーとAIネットワークを表すイラスト">
+      <defs>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="var(--teal)" stop-opacity=".25"/><stop offset="1" stop-color="var(--teal)" stop-opacity="0"/></radialGradient>
+      </defs>
+      <circle cx="140" cy="118" r="104" fill="url(#glow)"/>
+      <circle cx="140" cy="118" r="86" fill="none" stroke="var(--ink)" stroke-width="16"/>
+      <circle cx="140" cy="118" r="86" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="40 500" transform="rotate(-60 140 118)"/>
+      <circle cx="140" cy="118" r="56" fill="var(--surface)" stroke="var(--line)"/>
+      <rect x="40" y="152" width="250" height="14" rx="7" fill="var(--muted)" opacity=".55"/>
+      <g stroke="var(--teal)" stroke-width="1.6" fill="none" opacity=".9">
+        <path d="M118 100 L140 88 L162 104 L150 132 L124 134 Z"/><path d="M140 88 L150 132 M118 100 L162 104 M124 134 L162 104"/>
+      </g>
+      <g fill="var(--teal)"><circle cx="118" cy="100" r="4"/><circle cx="140" cy="88" r="4"/><circle cx="162" cy="104" r="4"/><circle cx="150" cy="132" r="4"/><circle cx="124" cy="134" r="4"/></g>
+      <g font-family="var(--f-display)" font-weight="700" font-size="12" fill="var(--ink)">
+        <g transform="translate(262 26)"><rect width="88" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="10" y="17">¥ 補助金</text></g>
+        <g transform="translate(272 76)"><rect width="78" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="10" y="17">研究開発</text></g>
+        <g transform="translate(262 126)"><rect width="88" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="10" y="17">コンペ</text></g>
+        <g transform="translate(272 176)"><rect width="78" height="26" rx="4" fill="var(--surface)" stroke="var(--accent)"/><text x="10" y="17" fill="var(--accent)">学会</text></g>
+      </g>
+      <g stroke="var(--line)" stroke-width="1.4"><path d="M226 100 L262 39 M226 110 L272 89 M226 120 L262 139 M226 130 L272 189"/></g>
+    </svg>
+  </div>
+  <div class="kpis" id="kpis"></div>
+</div></header>
+
+<main>
+<section id="now"><div class="wrap">
+  <div class="sec-head"><h2>今すぐ動くべき3件</h2><span class="tag">2026年10月30日時点の優先度</span></div>
+  <div class="urgent" id="urgent"></div>
+</div></section>
+
+<section id="budget"><div class="wrap">
+  <div class="sec-head"><h2>国のAI関連予算は約2.5倍に</h2><span class="tag">出典：内閣府「令和8年度AI関連予算について」</span></div>
+  <p class="sub">令和8年度のAI関連予算は5,027億円で、前年度の1,969億円から約2.5倍です。9割が「AIを創る」（開発力強化）に向いており、医療は厚労省のAIプログラム医療機器・業務負担軽減（約6億円）と創薬AI（約5億円）が名指しされています。</p>
+  <div class="grid2">
+    <div class="panel"><h3>AI関連予算の推移</h3><p class="cap">単位：億円（当初予算）</p><div class="chart" id="chBudget"></div></div>
+    <div class="panel"><h3>令和8年度の内訳（AI基本計画の方針別）</h3><p class="cap">単位：億円。「AIを使う」等は総額から3方針を差し引いた残り</p><div class="chart" id="chBudgetMix"></div></div>
+  </div>
+</div></section>
+
+<section id="verified"><div class="wrap">
+  <div class="sec-head"><h2>公式情報から確認した重要条件</h2><span class="tag">申請可否の誤解を避けるための確認欄</span></div>
+  <div class="verified-grid">
+    <article class="verify-card"><span class="vnum">01</span><h3>厚労省・病院業務効率化支援</h3><p>補助上限<b>8,000万円</b>。2026年度実施の病院向け。計画策定・成果評価があり、<b>成果が認められない場合に返還を求められる可能性</b>にも注意。</p><a href="https://www.mhlw.go.jp/stf/newpage_70522.html" target="_blank" rel="noopener noreferrer">厚労省 公式要綱・説明 ↗</a></article>
+    <article class="verify-card"><span class="vnum">02</span><h3>大阪府・AI対象経費の具体例</h3><p>業務効率化補助の対象例に<b>生成AI問診・文書自動作成支援</b>を明記。CT・MRI等の装置全体が自動的に対象になるという意味ではありません。</p><a href="https://www.pref.osaka.lg.jp/o100030/iryo/hojyokin/r8_hojyokin.html" target="_blank" rel="noopener noreferrer">大阪府 公式案内 ↗</a></article>
+    <article class="verify-card"><span class="vnum">03</span><h3>東京都・AI活用促進</h3><p>補助率は<b>1/2</b>。基準額は通常1,000万円、コンサル併用時2,000万円。したがって計算上の補助上限は<b>通常500万円／併用1,000万円</b>です。</p><a href="https://www.hokeniryo.metro.tokyo.lg.jp/iryo/jigyo/ai" target="_blank" rel="noopener noreferrer">東京都 公式案内 ↗</a></article>
+    <article class="verify-card"><span class="vnum">04</span><h3>AMED・AI医療機器の研究開発</h3><p>ヘルステック・チャレンジは<b>11月4日正午</b>締切。AI-SaMDの研究課題を含みます。別事業「医工連携・人工知能実装研究」は<b>4月21日に締切済み</b>です。</p><a href="https://www.amed.go.jp/koubo/03002/01/B_00020.html" target="_blank" rel="noopener noreferrer">AMED 公式公募 ↗</a></article>
+  </div>
+</div></section>
+
+<section id="eco"><div class="wrap">
+  <div class="sec-head"><h2>全体図：誰のお金が、何の形で、誰に届くか</h2><span class="tag">下の「制度を探す」の絞り込みに連動</span></div>
+  <p class="sub">左が所管、中央が支援の形、右が受け手です。線の太さは制度の数です。キヤノンの顧客である「病院」に届く線の多くは厚労省・自治体の導入補助で、企業に届く研究開発の線はAMEDと経産省（GENIAC）に集中しています。</p>
+  <div class="panel"><div class="chart tall" id="chSankey"></div></div>
+</div></section>
+
+<section id="position"><div class="wrap">
+  <div class="sec-head"><h2>ポジショニング：金額 × キヤノンとの関連度</h2><span class="tag">金額が公表されている制度のみ</span></div>
+  <p class="sub">右上ほど「支援額が大きく、キヤノンとの関連が高い」という社内評価です。ただし懸賞賞金の総額、研究費の年間上限、導入補助上限は受給単位が異なるため、金額を直接比較して採択可能額とみなすことはできません。点の色は所管、縦位置は関連度（3＝直結、2＝顧客・BP経由、1＝情報収集）です。</p>
+  <div class="panel"><div class="chart" id="chScatter" style="height:420px"></div><div class="legend" id="lgAgency"></div></div>
+</div></section>
+
+<section id="timeline"><div class="wrap">
+  <div class="sec-head"><h2>タイムライン：2026年11月〜2027年7月</h2><span class="tag">赤線＝本日</span></div>
+  <p class="sub">濃い帯は確定日程、淡い帯は「例年」の時期からの見込みです。11月は締切と学会が集中し、補正予算の発表が11月下旬〜12月に来る見込みです。</p>
+  <div class="panel"><div class="chart" id="chGantt" style="height:560px"></div>
+    <div class="legend"><span><i style="background:var(--accent)"></i>国・自治体の制度</span><span><i style="background:var(--teal)"></i>AMED・研究費</span><span><i style="background:var(--info)"></i>学会</span><span><i style="background:var(--warn)"></i>民間・コンペ</span><span><i style="background:var(--muted);opacity:.4"></i>見込み（例年）</span></div>
+  </div>
+</div></section>
+
+
+<section id="clinical"><div class="wrap">
+ <div class="sec-head"><h2>医療AIの適用領域と支援制度の接続マップ</h2><span class="tag">図解：導入先と開発主体を混同しない</span></div>
+ <p class="sub">次の6領域を起点に、制度を横断検索できます。図の「推奨制度」は制度趣旨との方向性の一致であり、採択・対象経費への適合を保証するものではありません。</p>
+ <div class="clinical-grid" id="clinicalGrid">
+  <button class="cl-card" data-search="画像" aria-label="画像診断AIの制度を検索"><span class="cl-ico">▣</span><b>01　画像診断AI</b><span>CT / MRI / US / XR</span><small>AI-SaMD、画像再構成、読影支援、画像データ解析</small><i>AMED・医工連携 / GENIAC</i></button>
+  <button class="cl-card" data-search="問診" aria-label="AI問診の制度を検索"><span class="cl-ico">✚</span><b>02　外来・診療所AI</b><span>AI問診 / 電子カルテ</span><small>問診の標準化、診療録作成、待ち時間短縮</small><i>東京都・AI促進 / デジタル化補助</i></button>
+  <button class="cl-card" data-search="文書" aria-label="医療文書AIの制度を検索"><span class="cl-ico">▤</span><b>03　医療文書・事務</b><span>音声入力 / 要約 / 生成AI</span><small>退院サマリ・診療記録・報告書・申し送り</small><i>厚労省・業務効率化 / AMED</i></button>
+  <button class="cl-card" data-search="人手不足" aria-label="看護病棟支援の制度を検索"><span class="cl-ico">♧</span><b>04　病棟・看護支援</b><span>見守り / 搬送 / 人員配置</span><small>介護・看護の人手不足、院内連絡、業務負担軽減</small><i>厚労省・業務効率化 / GENIAC PRIZE</i></button>
+  <button class="cl-card" data-search="研究" aria-label="研究開発支援制度を検索"><span class="cl-ico">⌬</span><b>05　創薬・研究データ</b><span>LLM / バイオバンク / 臨床研究</span><small>アカデミアと企業の医療AI共同開発・検証</small><i>AMED / 文科省 / JST</i></button>
+  <button class="cl-card" data-search="研修" aria-label="AI人材育成の制度を検索"><span class="cl-ico">◈</span><b>06　人材育成・実装</b><span>Kaggle / SIGNATE / 研修</span><small>AIリテラシー、開発者探索、医療AI運用</small><i>民間コンペ / 人材開発支援</i></button>
+ </div>
+ <div class="journey" aria-label="医療AIの実装工程"><span>臨床課題</span><b>→</b><span>企画・研究助成</span><b>→</b><span>開発・検証 / SaMD該当性確認</span><b>→</b><span>導入補助</span><b>→</b><span>運用評価・効果測定</span></div>
+</div></section>
+<section id="insights"><div class="wrap">
+ <div class="sec-head"><h2>所管省庁・支援形態のファクトマトリクス</h2><span class="tag">原本収録制度の件数を自動集計</span></div>
+ <p class="sub">色が濃いセルほど登録制度の件数が多いことを示します（<b>予算額・採択率・優劣ではありません</b>）。任意のセルを選ぶと制度台帳を絞り込みます。</p>
+ <div class="insight-grid"><div class="panel"><h3>所管・分類のクロス集計</h3><div id="matrix" class="matrix-wrap" aria-label="省庁と支援形態の制度件数"></div></div>
+ <div class="panel"><h3>受け手別の登録件数</h3><p class="cap">1制度が複数の受け手に該当する場合は重複計上</p><div id="targetBars" class="hbars"></div><div class="mini-rule"><strong>注意</strong><p>本ページはユーザー提供資料を基礎とした調査台帳です。制度件数の多さは助成の厚さを意味せず、採択実績・公募残額も示しません。</p></div></div></div>
+</div></section>
+
+<section id="db"><div class="wrap">
+  <div class="sec-head"><h2>制度を探す</h2><span class="count num" id="dbCount"></span></div>
+  <p class="sub">キーワード検索と絞り込みは、上の全体図・ポジショニング図にも反映されます。締切日がある制度は閲覧端末の日付で自動判定します。「実施中」は新規申請受付を保証しません。</p>
+  <div class="filters" role="search">
+    <div class="searchrow">
+      <input type="search" id="q" placeholder="例：SaMD、病院、Kaggle、生成AI、AMED" aria-label="キーワードで検索">
+      <label for="sort" class="count">並び順</label>
+      <select id="sort">
+        <option value="canon">キヤノン関連度が高い順</option>
+        <option value="deadline">締切が近い順</option>
+        <option value="amount">金額が大きい順</option>
+        <option value="agency">所管順</option>
+      </select>
+      <div class="seg" role="group" aria-label="表示切替">
+        <button type="button" id="vCards" aria-pressed="true">カード</button><button type="button" id="vTable" aria-pressed="false">表</button>
+      </div>
+      <button type="button" class="btn" id="reset">条件をクリア</button><button type="button" class="btn primary" id="downloadCsv" title="現在表示中の制度をCSVで保存">CSV出力</button>
+    </div>
+    <div class="fgroup" id="fAgency"><span class="fl">所管</span></div>
+    <div class="fgroup" id="fType"><span class="fl">支援の形</span></div>
+    <div class="fgroup" id="fTarget"><span class="fl">受け手</span></div>
+    <div class="fgroup" id="fStatus"><span class="fl">状態</span></div>
+    <div class="fgroup" id="fCanon"><span class="fl">関連度</span></div>
+  </div>
+  <div id="cards" class="cards"></div>
+  <div id="tableWrap" class="tablewrap" hidden></div>
+</div></section>
+
+
+<section id="roi"><div class="wrap">
+ <div class="sec-head"><h2>導入効果・費用のシミュレーター</h2><span class="tag">架空の検討条件で試算／採択保証なし</span></div>
+ <p class="sub">AI導入の経営効果を「時間削減・人件費換算・初期投資・補助候補」で比較します。補助率・上限はシミュレーション用であり、対象経費や申請資格は必ず公式要領で確認してください。</p>
+ <div class="roi-grid"><form class="panel roi-form" id="roiForm" onsubmit="return false">
+  <label>検討する制度<select id="roiScheme"><option value="none">補助なし</option><option value="tokyo">東京都 AI活用（通常・上限500万円）</option><option value="tokyo2">東京都 AI活用（コンサル併用・上限1,000万円）</option><option value="mhlw">厚労省 病院業務効率化（上限8,000万円）</option><option value="it">デジタル化・AI導入 通常枠（上限450万円）</option></select></label>
+  <label>初期導入・連携費用（万円）<input type="number" id="roiCost" value="1800" min="0" max="100000" step="50"></label>
+  <label>年間削減時間（時間／年）<input type="number" id="roiHours" value="2000" min="0" max="1000000" step="100"></label>
+  <label>人件費換算（円／時間）<input type="number" id="roiWage" value="3500" min="0" max="100000" step="100"></label>
+  <label>年間運用費（万円／年）<input type="number" id="roiOp" value="150" min="0" max="100000" step="10"></label>
+  <p class="cap">制度別の上限値は比較用。採択・同一経費への併用・税区分・補助対象外経費・収益の実現可能性・資金繰りは未評価です。</p></form>
+  <div class="panel"><h3>概算結果</h3><div class="roi-cards"><div><small>補助額（条件成立時の参考）</small><b id="roiGrant">―</b></div><div><small>導入側の実質初期負担</small><b id="roiNet">―</b></div><div><small>年間純便益</small><b id="roiSaving">―</b></div><div><small>単純回収年数</small><b id="roiPayback">―</b></div></div><div class="roi-stackbar" id="roiStack" role="img" aria-label="補助額と自己負担の比率"><div></div><div></div></div><div class="legend"><span><i style="background:var(--teal)"></i>仮に適用された補助額</span><span><i style="background:var(--accent)"></i>自己負担</span></div><p id="roiMsg" class="note" aria-live="polite"></p></div>
+ </div>
+</div></section>
+
+<section id="pref"><div class="wrap">
+ <div class="sec-head"><h2>全国47都道府県｜医療AI補助制度の調査入口</h2><span class="tag">日本地図を意識した地域ブロック配置・検索リンク</span></div>
+ <p class="sub"><b>これは全47県の制度が確認済みであることを意味しません。</b>各県の「検索」は公開検索エンジンを利用した一次情報探索用、「地図」はGoogleマップに接続します。現時点で具体例を確認した都府県は東京都・大阪府です。</p>
+ <div class="regional-map"><div id="prefGrid" class="pref-grid"></div><aside class="panel prefecture-guide"><h3>制度確認の手順</h3><div class="mini-step"><b>1.</b>都道府県を選んで公式情報を探索</div><div class="mini-step"><b>2.</b>県の所管課・募集要領を取得</div><div class="mini-step"><b>3.</b>対象病院／有床診療所／医療法人の条件を確認</div><div class="mini-step"><b>4.</b>AIシステム・本体・保守・関連工事の対象を分ける</div><div class="mini-step"><b>5.</b>交付決定前発注の可否と申請期限を確認</div><div class="pref-confirm"><a href="https://www.hokeniryo.metro.tokyo.lg.jp/iryo/jigyo/ai" target="_blank" rel="noopener noreferrer">東京：AI活用促進・公式</a><a href="https://www.pref.osaka.lg.jp/o100030/iryo/hojyokin/r8_hojyokin.html" target="_blank" rel="noopener noreferrer">大阪：業務効率化補助・公式</a><a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener noreferrer">全国：Jグランツ</a><a href="https://www.mhlw.go.jp/stf/newpage_70522.html" target="_blank" rel="noopener noreferrer">厚労省：全国共通の要件</a></div></aside></div>
+</div></section>
+
+<section id="societies"><div class="wrap">
+  <div class="sec-head"><h2>医療AI関連学会マップ</h2>
+    <div class="seg" role="group" aria-label="地図の範囲"><button type="button" id="mJapan" aria-pressed="true">日本</button><button type="button" id="mWorld" aria-pressed="false">世界</button></div>
+  </div>
+  <p class="sub">点が開催地、波紋つきの点は今後3か月以内の開催です。直近の最重要は第46回医療情報学連合大会（11月12〜15日・札幌）とRSNA（11月29日〜12月3日・シカゴ）です。会場が毎年変わる学会は地図に載せず、下の一覧に入れています。</p>
+  <div class="grid2" style="grid-template-columns:1.25fr 1fr">
+    <div class="panel"><div class="chart map" id="chMap"></div></div>
+    <div class="panel">
+      <div class="searchrow" style="margin-bottom:8px"><input type="search" id="qs" placeholder="学会名・領域で検索（例：画像、情報、CT）" aria-label="学会を検索"></div>
+      <div class="fgroup" id="fSoc" style="margin-bottom:8px"></div>
+      <div id="socList" style="max-height:360px;overflow-y:auto;display:grid;gap:8px"></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="strategy"><div class="wrap">
+  <div class="sec-head"><h2>キヤノンメディカル視点の打ち手</h2><span class="tag">BP営業部としての提案</span></div>
+  <p class="sub">補助金は自社がもらうものより、顧客（病院）の購入障壁を下げる営業ツールとして使う方がリターンが大きいと考えます。研究開発資金は開発部門と分担し、営業は現場ニーズと共同研究先の持ち込みで貢献します。</p>
+  <div class="flow" aria-label="補助金を使った提案の流れ">
+    <div class="fstep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M9 8l3 4 3-4M9 13h6M9 15.5h6M12 12v6"/></svg><b>制度を把握</b>本ページで締切と要件を確認</div>
+    <div class="fstep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V9l8-5 8 5v11"/><path d="M10 20v-5h4v5M12 8v4M10 10h4"/></svg><b>病院の課題を数値化</b>検査時間・読影負担・残業</div>
+    <div class="fstep hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l3 3v15H6z"/><path d="M9 10h6M9 13h6M9 16h4"/></svg><b>補助金前提の提案書</b>「時間削減」を審査軸に合わせる</div>
+    <div class="fstep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M3 19c0-3 2-5 5-5s5 2 5 5M11 19c0-3 2-5 5-5s5 2 5 5"/></svg><b>BP・CMFと組成</b>補助金＋リース＋保守</div>
+    <div class="fstep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12l4 4 10-10"/></svg><b>交付決定後に受注</b>決定前の発注は対象外</div>
+  </div>
+  <div class="strat">
+    <div class="panel"><h3>1. 病院向け：「業務効率化」の文脈で組む</h3><ul>
+      <li>厚労省の業務効率化支援事業（4/5、上限8,000万円）は生産性向上が審査軸です。装置単体でなく、検査ワークフロー短縮や読影負担軽減の数字で提案書を作ります。</li>
+      <li>診療報酬の1.3人換算（生成AI文書作成）と組み合わせ、一過性の補助＋恒常収益の2段構えで経営層に説明します。</li>
+      <li>同一経費への国と自治体の併用は不可の場合が多く、受注タイミングを補助金の日程に合わせます。</li></ul></div>
+    <div class="panel"><h3>2. BPと「補助金カレンダー」を共有</h3><ul>
+      <li>メディパルHD・日本光電は全国の病院と接点があります。本ページを基に提案先を共同で抽出します。</li>
+      <li>CMFやオリックス・レンテックと「補助金＋リース」の組成を作ります。</li>
+      <li>デジタル化・AI導入補助金は登録ツールが前提です。自社・BP・コニカミノルタとの協業品の登録有無は商品部門への確認が必要です（未確認）。</li></ul></div>
+    <div class="panel"><h3>3. R&amp;D：AMEDとGENIACの次回公募を視野に</h3><ul>
+      <li>AMED医工連携・AI実装（SaMD、年最大5,200万円）は例年春公募です。共同提案先の大学を年内に固めるのが理想です。</li>
+      <li>GENIACは大企業も補助1/2です。医用画像の基盤モデル開発の計算資源確保として、開発部門と応募可否を検討する価値があります。</li></ul></div>
+    <div class="panel"><h3>4. 競合と学会での発信量</h3><ul>
+      <li>富士フイルムは日本X線CT医学会、医療情報学連合大会、人間ドック学会でAIの共催セミナーを続けています。CTのトップシェアとして学会でのAI発信で後れを取らないことが重要です。</li>
+      <li>熊本中央病院×キヤノンITソリューションズ（月800時間の文書作成削減）はグループの生成AI成功事例として提案に使えます。</li></ul></div>
+  </div>
+  <h3 style="margin:22px 0 8px">次の行動（チェックはこのブラウザに保存されます）</h3>
+  <ul class="todo" id="todo"></ul>
+</div></section>
+
+<section id="sources"><div class="wrap">
+  <h2>出典</h2>
+  <ul class="src" id="srcList"></ul>
+</div></section>
+</main>
+<footer><div class="wrap">編纂・調査：プロジェクト営業統括センター　ビジネスパートナー営業部　高橋忍｜2026年10月30日 改訂 Rev.2。制度の金額・申請資格・期限は申請前に一次情報で確認してください。営業向け考察は編纂者の分析であり、各機関・企業の公式見解ではありません。技術導入効果の試算はシナリオであり実績を示しません。<span class="footlinks"><a href="https://sinobu13-bpei.github.io/medical-intelligence/">医療機器市場 Intelligence HUB</a></span></div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+<script>
+(function(){
+"use strict";
+/* ---------- pictograms ---------- */
+const P = {
+  病院:'<path d="M4 21V7h16v14"/><path d="M2 21h20M10 21v-4h4v4M12 9v5M9.5 11.5h5"/>',
+  診療所:'<path d="M3 11l9-7 9 7"/><path d="M5 10v11h14V10M12 12v5M9.5 14.5h5"/>',
+  企業:'<path d="M4 21V4h10v17M14 9h6v12"/><path d="M7 8h2M7 12h2M7 16h2M17 13h1M17 17h1M2 21h20"/>',
+  スタートアップ:'<path d="M12 3c4 2 6 6 5 11l-3 3h-4l-3-3c-1-5 1-9 5-11z"/><circle cx="12" cy="10" r="2"/><path d="M9 17l-3 4M15 17l3 4"/>',
+  研究者:'<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M7.5 15h9"/>',
+  自治体:'<path d="M3 9l9-5 9 5H3z"/><path d="M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 21h18M3 18h18"/>',
+  誰でも:'<circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M3 20c0-3 2-6 5-6s5 3 5 6M11 20c0-3 2-6 5-6s5 3 5 6"/>'
+};
+const T = {
+  導入補助:'<circle cx="12" cy="12" r="9"/><path d="M8.5 7l3.5 5 3.5-5M8.5 13h7M8.5 16h7M12 12v6"/>',
+  研究開発:'<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><circle cx="10" cy="16" r="1"/><circle cx="14" cy="14" r="1"/>',
+  'コンペ・懸賞':'<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H4a3 3 0 0 0 4 4M16 6h4a3 3 0 0 1-4 4M12 13v4M8 21h8M9 17h6v4H9z"/>',
+  研究助成:'<path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/>',
+  民間支援:'<path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 9.5 4.3 4.3 0 0 0 7 18z"/>',
+  '診療報酬・その他':'<path d="M6 3h9l3 3v15H6z"/><path d="M9 10h6M9 13h6M9 16h4"/>'
+};
+const svg = (inner, cls) => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"'+(cls?' class="'+cls+'"':'')+'>'+inner+'</svg>';
+
+/* ---------- data ---------- */
+const AG = ['経産省','厚労省','AMED','文科省','内閣府','総務省','東京都','民間'];
+const AGC = {経産省:'#2f5fb3',厚労省:'#c8102e',AMED:'#0e7a87',文科省:'#7b4fb3',内閣府:'#b36b00',総務省:'#4f8a2f',東京都:'#d14b8f',民間:'#6b7486'};
+const D = [
+ {n:'デジタル化・AI導入補助金2026（旧IT導入補助金）',ag:'経産省',sub:'中小企業庁・中小機構',ty:'導入補助',tg:['診療所','病院'],amt:450,amtT:'5万〜450万円',rate:'1/2以内',dl:'2026-10-30',next:'次の公募回は公式サイトで確認',per:'通常枠6次締切 10月30日17時（民間解説サイト情報）',c:2,cn:'中小規模の医療法人・個人開業医も対象（従業員300人以下）。電子カルテ・AI問診・レセコン等の登録ITツールが対象で、画像装置本体は対象外。',u:'https://it-shien.smrj.go.jp/',k:'IT導入 電子カルテ AI問診 クリニック'},
+ {n:'中小企業省力化投資補助金（一般型）',ag:'経産省',sub:'中小機構',ty:'導入補助',tg:['診療所'],amt:10000,amtT:'上限1億円',rate:'1/2〜2/3',dl:'2026-10-16',next:'第9回以降は未定',per:'第8回 9月18日〜10月16日（終了）',c:1,cn:'第7回から歯科医業の医療法人が対象に追加。歯科用CT・口腔内スキャナー等。',u:'https://j-net21.smrj.go.jp/snavi/articles/189811',k:'省力化 歯科 CT'},
+ {n:'GENIAC 領域特化生成AI基盤モデルの開発',ag:'経産省',sub:'NEDO',ty:'研究開発',tg:['企業','スタートアップ'],amt:null,amtT:'予算上限なし（計算資源調達費）',rate:'大企業1/2・中小2/3',dl:'2026-03-19',next:'例年12〜1月に次回公募予告',per:'2026年1月27日〜3月19日（終了）',c:3,cn:'大企業も対象。医用画像・医療LLMの基盤モデル開発の計算資源確保に使える。ABEJAが医療事務向け日本語LLMを開発した例あり。',u:'https://www.nedo.go.jp/koubo/CD2_100421.html',k:'生成AI 基盤モデル LLM GPU 計算資源'},
+ {n:'GENIAC-PRIZE 2026（懸賞金型）',ag:'経産省',sub:'NEDO',ty:'コンペ・懸賞',tg:['企業','スタートアップ'],amt:63000,amtT:'賞金総額最大6.3億円（事業全体の総額・個社上限ではない）',rate:'懸賞金',dl:null,run:true,per:'5月29日公募開始、最終コンテスト2027年3月',c:2,cn:'テーマ1は「エッセンシャルワーカーの人手不足解消AI」。看護・医療事務の業務改革が該当し得る。',u:'https://www.nedo.go.jp/koubo/CD2_100446.html',k:'懸賞 人手不足 看護 生成AI'},
+ {n:'ジャパン・ヘルスケアビジネスコンテスト（JHeC）',ag:'経産省',sub:'',ty:'コンペ・懸賞',tg:['スタートアップ'],amt:null,amtT:'表彰・大企業/VCとのマッチング',rate:'―',dl:null,next:'例年7〜8月募集、1月表彰',per:'例年7〜8月募集',c:2,cn:'ヘルスケアスタートアップの発掘・協業先探しに。サポート団体として参加する道もある。',u:'https://www.meti.go.jp/press/2023/07/20230720002/20230720002.html',k:'スタートアップ ビジコン マッチング'},
+ {n:'医療分野における業務効率化・職場環境改善支援事業',ag:'厚労省',sub:'都道府県経由',ty:'導入補助',tg:['病院'],amt:8000,amtT:'総事業費1億円・交付上限8,000万円',rate:'4/5（国2/3・県1/3）',dl:null,run:true,per:'令和7年度補正200億円を繰越し、令和8年度に実施',c:3,cn:'ベースアップ評価料の届出等が必要な病院向け。定量的な業務効率化計画・推進委員会・効果測定が必要。大阪府の例ではAI問診・文書自動作成などを対象経費として明記。画像診断装置本体等は個別要件確認。選定内示後に着手するのが原則。',u:'https://www.mhlw.go.jp/stf/newpage_70522.html',k:'ICT 生産性向上 病院 インカム スマホ'},
+ {n:'東京都 医療機関におけるAI技術活用促進事業',ag:'東京都',sub:'保健医療局',ty:'導入補助',tg:['病院','診療所'],amt:500,amtT:'通常：補助基準額1,000万円×1/2＝上限500万円（コンサル実施時は基準額2,000万円×1/2＝上限1,000万円）',rate:'1/2',dl:'2026-09-30',next:'例年4月頃受付開始',per:'2026年4月15日〜9月30日（終了）',c:2,cn:'都内200床未満の病院・有床診療所。AI問診・音声自動入力・AI通訳など。通常の補助額上限は500万円、AI導入と合わせたコンサル実施の場合は1,000万円（基準額×補助率による）。2026年申請は終了。',u:'https://www.hokeniryo.metro.tokyo.lg.jp/iryo/jigyo/ai',k:'AI問診 音声入力 通訳 東京'},
+ {n:'電子処方箋の導入補助（医療情報化支援基金）',ag:'厚労省',sub:'',ty:'導入補助',tg:['診療所','病院'],amt:27.1,amtT:'診療所 上限27.1万円（院内処方込み35.9万円）',rate:'1/2',dl:'2027-03-31',per:'医療機関は2027年3月導入分まで延長',c:1,cn:'医療DXの基盤。電子カルテ連携とセットで提案。',u:'https://www.mhlw.go.jp/stf/denshishohousen.html',k:'電子処方箋 医療DX'},
+ {n:'電子カルテ情報共有サービス導入補助金',ag:'厚労省',sub:'',ty:'導入補助',tg:['病院','診療所'],amt:null,amtT:'国仕様への改修・接続費',rate:'要領参照',dl:null,run:true,per:'令和8年度実施中',c:1,cn:'院内効率化ではなく、全国の医療情報共有の仕組みへの接続用。',u:'https://note.com/365medical_tokyo/n/nf7a9451c47a5',k:'電子カルテ 共有 CLINS'},
+ {n:'地域医療介護総合確保基金（都道府県事業）',ag:'厚労省',sub:'都道府県',ty:'導入補助',tg:['病院','自治体'],amt:null,amtT:'都道府県の要綱による',rate:'要綱による',dl:null,run:true,per:'通年（都道府県ごと）',c:2,cn:'ICT・AI導入も対象になり得る。県ごとに中身が違うため、重点県から要綱を確認。',u:'https://boostx-inc.com/blog/medical-care-ai-subsidy-grant-guide/',k:'基金 都道府県 ICT'},
+ {n:'人材開発支援助成金（AI研修）',ag:'厚労省',sub:'',ty:'研究助成',tg:['病院','企業'],amt:null,amtT:'訓練経費の最大75%＋賃金助成',rate:'最大75%',dl:null,run:true,per:'通年',c:1,cn:'顧客向けの生成AI活用研修の費用軽減に。',u:'https://boostx-inc.com/blog/medical-care-ai-subsidy-grant-guide/',k:'研修 リスキリング 生成AI'},
+ {n:'診療報酬：医師事務作業補助体制加算の生成AI換算',ag:'厚労省',sub:'令和8年度改定',ty:'診療報酬・その他',tg:['病院'],amt:null,amtT:'補助者1人を最大1.3人に換算',rate:'―',dl:null,run:true,per:'2026年6月施行',c:2,cn:'生成AIの医療文書原案作成システム＋ICT活用で人員換算が上がる。恒常収益になるため一過性の補助金より強い営業トーク。',u:'https://www.cb-p.co.jp/column/24945/',k:'診療報酬 生成AI 文書作成 加算'},
+ {n:'AMED 医療機器開発推進研究事業（ヘルステック・チャレンジ）',ag:'AMED',sub:'',ty:'研究開発',tg:['スタートアップ','研究者'],amt:760,amtT:'R8・R9 各380万円、R10 760万円（年）',rate:'委託',dl:'2026-11-04',per:'締切 11月4日正午',c:2,cn:'スタートアップと起業意思のある研究者向け。0〜6課題。有望スタートアップの早期把握・協業候補探しに。',u:'https://www.amed.go.jp/koubo/03002/01/B_00020.html',k:'スタートアップ 医療機器 治療機器'},
+ {n:'AMED 医工連携・人工知能実装研究事業（分野1：AIプログラム医療機器）',ag:'AMED',sub:'',ty:'研究開発',tg:['企業','研究者'],amt:5200,amtT:'年最大2,100万→4,200万→5,200万円',rate:'委託',dl:'2026-04-21',next:'例年春に公募',per:'R8は4月21日締切（終了）、研究期間は最長R13年度末',c:3,cn:'最重要。読影支援・画像再構成などのSaMD開発に合致。0〜14課題程度。',u:'https://www.amed.go.jp/koubo/03005/01/B_00005.html',k:'SaMD プログラム医療機器 画像診断 AI'},
+ {n:'AMED 医工連携・人工知能実装研究事業（分野2：業務負担軽減AI）',ag:'AMED',sub:'',ty:'研究開発',tg:['企業','研究者'],amt:2000,amtT:'年最大1,500万→2,000万円',rate:'委託',dl:'2026-04-21',next:'例年春に公募',per:'R8は終了、研究期間はR11年度末まで',c:3,cn:'医療従事者の業務負担軽減を目的としたAIサービス・製品。ワークフロー・生成AI系。',u:'https://www.amed.go.jp/koubo/03005/01/B_00005.html',k:'業務負担軽減 ワークフロー 生成AI'},
+ {n:'AMED 次世代ヘルステック・スタートアップ育成支援事業',ag:'AMED',sub:'',ty:'研究開発',tg:['スタートアップ'],amt:3500,amtT:'医療機器 年最大1,500万円（臨床研究時3,500万円）',rate:'委託',dl:'2026-02-28',next:'例年冬〜春',per:'R8は終了',c:2,cn:'協業候補スタートアップの把握に。',u:'https://grant-search.com/agency/amed/',k:'スタートアップ ヘルステック'},
+ {n:'AMED 医療機器等研究成果展開事業（開発実践・チャレンジ）',ag:'AMED',sub:'',ty:'研究開発',tg:['研究者','企業'],amt:1000,amtT:'チャレンジ（若手・女性）年最大1,000万円',rate:'委託',dl:'2026-02-02',next:'例年12月公募',per:'R8は1〜2月締切（終了）',c:2,cn:'大学シーズと企業のマッチング型。共同研究先の発掘に。',u:'https://www.amed.go.jp/content/000153804.pdf',k:'シーズ 医療機器 若手'},
+ {n:'AMED 次世代医療実現バイオバンク利活用プログラム',ag:'AMED',sub:'',ty:'研究開発',tg:['研究者'],amt:null,amtT:'要領参照',rate:'委託',dl:'2026-11-18',per:'締切 11月18日',c:1,cn:'データ利活用系。画像データとの連携可能性を共同研究先経由で確認。',u:'https://www.amed.go.jp/search.php?search=search&nav=4&order_by=1&pageID=1',k:'バイオバンク データ利活用'},
+ {n:'SIP第3期「統合型ヘルスケアシステムの構築」（生成AI活用）',ag:'内閣府',sub:'研究推進法人：NCGM',ty:'研究開発',tg:['研究者','企業'],amt:80000,amtT:'生成AI活用は1テーマ8億円程度（2024年公募）',rate:'委託',dl:null,run:true,per:'2026年度は5年計画の4年目、社会実装段階',c:2,cn:'医療LLMの研究開発・実装。社会実装の受け皿として病院・企業の連携余地。',u:'https://www.ncgm.go.jp/recruit/057/pdf/20260108_7.pdf',k:'医療LLM 生成AI SIP NCGM'},
+ {n:'AI for Science萌芽的挑戦研究創出事業（SPReAD）',ag:'文科省',sub:'',ty:'研究開発',tg:['研究者'],amt:null,amtT:'令和7年度補正50億円',rate:'補助',dl:'2026-06-26',next:'第3回は未定',per:'第1回採択率2.9%、第2回3.7%',c:1,cn:'大学等の研究者向け。共同研究先の医学部が申請する場合の伴走。',u:'https://www.mext.go.jp/content/20260723-mxt_kiso-000051129_6.pdf',k:'AI for Science 大学'},
+ {n:'科研費（JSPS）',ag:'文科省',sub:'日本学術振興会',ty:'研究開発',tg:['研究者'],amt:null,amtT:'研究種目による',rate:'補助',dl:'2026-09-17',next:'特別推進・基盤Sは例年4月公募開始',per:'R9基盤A/B/C・若手は9月17日締切（終了）',c:1,cn:'企業は直接申請不可。共同研究契約で関与する。',u:'https://www.ritsumei.ac.jp/research/member/kakenhi/oubo/index.html',k:'科研費 KAKEN 基盤研究'},
+ {n:'ムーンショット型研究開発事業（目標2・3）',ag:'内閣府',sub:'JST・AMED',ty:'研究開発',tg:['研究者'],amt:null,amtT:'大型',rate:'委託',dl:null,next:'PM公募は不定期',per:'不定期',c:1,cn:'目標2は疾患の超早期予測、目標3はAIとロボットの共進化。',u:'https://www.jst.go.jp/pr/info/info1419/index.html',k:'ムーンショット 超早期 ロボット'},
+ {n:'地域社会DX推進パッケージ事業（補助事業）',ag:'総務省',sub:'',ty:'導入補助',tg:['自治体','企業'],amt:null,amtT:'通信インフラ等整備費の補助',rate:'要領参照',dl:'2026-09-30',next:'令和9年度は未定',per:'三次公募 8月4日〜9月30日（終了）',c:1,cn:'自治体の関与が必要。公立病院・地域医療連携を自治体提案として仕立てれば活用余地。',u:'https://www.soumu.go.jp/menu_news/s-news/01ryutsu06_02000484.html',k:'地域DX 自治体 通信'},
+ {n:'地域社会DX推進パッケージ 地域共有型エッジAI実証',ag:'総務省',sub:'',ty:'研究開発',tg:['企業','自治体'],amt:null,amtT:'実証',rate:'委託',dl:'2026-07-31',per:'7月1日公募、9月7日選定済み',c:1,cn:'地域共有のエッジAI基盤を使ったAI導入モデル実証。',u:'https://www.soumu.go.jp/menu_news/s-news/01tsushin03_02000465.html',k:'エッジAI 実証'},
+ {n:'公共分野における信頼できるAIを用いた開発実証事業',ag:'総務省',sub:'',ty:'研究開発',tg:['企業'],amt:null,amtT:'実証',rate:'委託',dl:'2026-05-31',per:'4月27日公募',c:1,cn:'政府・自治体が信頼して使える国産AIの開発実証。',u:'https://www.soumu.go.jp/menu_news/s-news/01tsushin03_02000452.html',k:'国産AI 信頼 公共'},
+ {n:'令和8年度補正予算（見込み）',ag:'内閣府',sub:'政府全体',ty:'診療報酬・その他',tg:['病院','企業','研究者'],amt:null,amtT:'未定',rate:'―',dl:null,next:'例年11月下旬閣議決定・12月成立',per:'昨年は11月28日閣議決定、12月16日成立',c:3,cn:'医療DX・AI系の新しい枠が出る可能性が高い。11月下旬から要監視。',u:'https://dl.ndl.go.jp/view/prepareDownload?itemId=info%3Andljp%2Fpid%2F14660844',k:'補正予算 経済対策'},
+ {n:'RSNA Knee Abnormality Detection（Kaggle）',ag:'民間',sub:'北米放射線学会',ty:'コンペ・懸賞',tg:['誰でも'],amt:null,amtT:'賞金総額77,000ドル',rate:'賞金',dl:'2026-10-22',next:'RSNAは例年夏にKaggleで新コンペ',per:'8月5日〜10月22日（終了）、表彰はRSNA 11月29日〜12月3日',c:2,cn:'膝MRI＋12言語の読影レポートの初のマルチモーダル課題。モダリティメーカーとして技術ベンチマーク・人材発掘の場。',u:'https://www.rsna.org/news/2026/august/ai-challenge-knee-mri',k:'Kaggle カゲル MRI 画像 コンペ'},
+ {n:'MedGemma Impact Challenge（Kaggle）',ag:'民間',sub:'Google Research',ty:'コンペ・懸賞',tg:['誰でも'],amt:null,amtT:'―',rate:'―',dl:'2026-02-24',per:'1月13日〜2月24日（終了）',c:1,cn:'医療特化オープンモデル（HAI-DEF）を使ったアプリ開発。',u:'https://www.kaggle.com/competitions/med-gemma-impact-challenge',k:'Kaggle カゲル Google 医療LLM'},
+ {n:'SPR BI-RADS Report Challenge（Kaggle）',ag:'民間',sub:'サンパウロ放射線学会',ty:'コンペ・懸賞',tg:['誰でも'],amt:null,amtT:'―',rate:'―',dl:'2026-05-31',per:'2026年開催',c:1,cn:'マンモグラフィの読影レポートからBI-RADS分類を予測する言語系課題。',u:'https://radiologyai.substack.com/p/spr-launches-a-new-kaggle-challenge',k:'Kaggle カゲル マンモ 乳がん レポート'},
+ {n:'SIGNATE Cup（企業対抗AIコンペ）',ag:'民間',sub:'SIGNATE',ty:'コンペ・懸賞',tg:['企業'],amt:null,amtT:'ツール無償提供・企業取組賞',rate:'―',dl:'2026-06-26',next:'例年春・秋開催',per:'2026春：5月25日〜6月26日、33社参加',c:1,cn:'社内AI人材育成の場。キヤノンとして参加・または医療課題でコンペ主催も選択肢。',u:'https://prtimes.jp/main/html/rd/p/000000312.000038674.html',k:'SIGNATE 国内コンペ 人材育成'},
+ {n:'AWSジャパン 生成AI実用化推進プログラム',ag:'民間',sub:'AWS',ty:'民間支援',tg:['企業','スタートアップ'],amt:null,amtT:'戦略立案・モデルカスタマイズ・モデル活用の3コース',rate:'―',dl:null,run:true,per:'随時',c:2,cn:'200社超を支援。GENIAC-PRIZE応募者支援プランもあり。',u:'https://aws.amazon.com/jp/blogs/news/2025-gen-ai-accel-program-new-plan',k:'AWS クラウド 生成AI'},
+ {n:'AWS ANGEL Dojo（内製化支援）',ag:'民間',sub:'AWS',ty:'民間支援',tg:['病院','企業'],amt:null,amtT:'約3か月の内製化トレーニング',rate:'―',dl:null,next:'例年開催',per:'2025年10月に医療機関が初参加',c:3,cn:'熊本中央病院×キヤノンITソリューションズで月800時間の文書作成時間削減。グループ内の成功事例として提案に使える。',u:'https://aws.amazon.com/jp/blogs/news/jcmi-45th-2025-report',k:'AWS 内製化 キヤノンITS 熊本'},
+ {n:'Microsoft for Startups × NVIDIA Inception（ヘルスケア）',ag:'民間',sub:'Microsoft・NVIDIA',ty:'民間支援',tg:['スタートアップ'],amt:null,amtT:'Azureクレジット15万ドル等（発表時点）',rate:'―',dl:null,run:true,per:'随時',c:1,cn:'ヘルスケア・ライフサイエンスのスタートアップ向け。',u:'https://getcoai.com/news/microsoft-and-nvidia-team-up-to-accelerate-ai-healthcare-startups',k:'NVIDIA Microsoft GPU クレジット'},
+ {n:'セコム科学技術振興財団 特定領域研究助成（情報医療）',ag:'民間',sub:'財団',ty:'研究助成',tg:['研究者'],amt:1500,amtT:'1件 年1,500万円以内',rate:'助成',dl:'2026-10-05',next:'例年9〜10月',per:'2026年9月7日〜10月5日（終了）',c:1,cn:'「情報」の生物学的効果を用いた情報医療の技術開発。',u:'https://www.jnss.org/hp_images/files/2026/09/20260904-03.pdf',k:'財団 情報医療'},
+ {n:'中部科学技術センター 人工知能研究助成',ag:'民間',sub:'財団',ty:'研究助成',tg:['研究者'],amt:null,amtT:'要項参照',rate:'助成',dl:'2026-08-31',next:'例年夏',per:'令和8年度第37回',c:1,cn:'医療・介護の知的支援に関するAI研究を含む。',u:'https://www.juen.ac.jp/050about/050approach/110assist/files/20260605.pdf',k:'財団 AI 研究助成'},
+ {n:'武田科学振興財団 医学系研究助成',ag:'民間',sub:'財団',ty:'研究助成',tg:['研究者'],amt:200,amtT:'1件200万円・約240件',rate:'助成',dl:'2026-03-09',next:'例年1〜3月',per:'2026年1月6日〜3月9日（終了）',c:1,cn:'45歳未満の医学系研究者。AI特化ではない。',u:'https://imo.chiba-u.jp/academic/kenkyujyosei/2025pdf/j372.pdf',k:'財団 医学 若手'},
+ {n:'持田記念医学薬学振興財団 研究助成',ag:'民間',sub:'財団',ty:'研究助成',tg:['研究者'],amt:300,amtT:'1件300万円・100件',rate:'助成',dl:'2026-05-06',next:'例年2〜5月',per:'2026年2月27日〜5月6日（終了）',c:1,cn:'バイオ技術を基盤とする先端医療など。',u:'https://imo.chiba-u.jp/academic/kenkyujyosei/2025pdf/j388.pdf',k:'財団 先端医療'},
+ {n:'医療機器センター附属医療機器産業研究所 調査研究助成',ag:'民間',sub:'財団',ty:'研究助成',tg:['研究者'],amt:100,amtT:'上限100万円',rate:'助成',dl:'2026-05-07',next:'例年4〜5月',per:'2026年4月6日〜5月7日（終了）',c:1,cn:'医療機器産業の社会科学系研究。',u:'https://imo.chiba-u.jp/academic/kenkyujyosei/2025pdf/k402.pdf',k:'医療機器 産業 政策研究'}
+];
+const SOC = [
+ {n:'第46回 医療情報学連合大会（日本医療情報学会）',area:'国内',f:'医療情報・電子カルテ・生成AI',s:'2026-11-12',e:'2026-11-15',city:'札幌',lp:'left',lat:43.06,lon:141.39,use:'病院情報部門・CIOとの接点。富士フイルムがAI共催セミナー。',u:'https://digitalpr.jp/r/145653'},
+ {n:'日本医療情報学会 春季学術大会',area:'国内',f:'医療情報',s:'2027-06-10',e:'2027-06-12',est:true,city:'未定',use:'2026年は6月11〜13日・宇都宮。',u:'https://hamamatsuh.johas.go.jp/data/media/hamamatsuh/page/departments/pharmacy/pdf/2026-gakai.pdf'},
+ {n:'JRC（日本医学放射線学会・日本放射線技術学会・日本医学物理学会）＋ITEM',area:'国内',f:'画像診断・画像AI・装置展示',s:'2027-04-15',e:'2027-04-18',est:true,city:'横浜',lp:'bottom',lat:35.46,lon:139.63,use:'最重要の展示会。2026年は4月17〜19日。競合AIの定点観測。',u:'https://site2.convention.co.jp/jrc2026/outline/'},
+ {n:'日本医用画像工学会（JAMIT）大会',area:'国内',f:'医用画像処理・CAD・深層学習',s:'2026-07-05',e:'2026-07-07',city:'名古屋',lp:'left',lat:35.17,lon:136.91,use:'画像再構成・AI研究者の採用・共同研究。例年7月。',u:'https://www.jstage.jst.go.jp/browse/mit/-char/ja'},
+ {n:'日本X線CT医学会 学術集会',area:'国内',f:'CT・CT診断AI',s:'2026-05-16',e:'2026-05-17',city:'品川',lp:'right',lat:35.63,lon:139.74,use:'2026年新設。富士フイルムがCT診断支援AIセミナーを共催。CTトップシェアとして空白にしない。',u:'https://www.fujifilm.com/jp/ja/healthcare/events/14551'},
+ {n:'人工知能学会（JSAI）全国大会',area:'国内',f:'AI全般（約5,000名）',s:'2026-06-08',e:'2026-06-12',city:'高崎',lp:'left',lat:36.33,lon:139.04,use:'生成AI人材との接点。医用人工知能研究会（SIG-AIMED）あり。',u:'https://prtimes.jp/main/html/rd/p/000000004.000183050.html'},
+ {n:'日本メディカルAI学会（JMAI）学術集会',area:'国内',f:'医療AI全般・公認資格',s:'2027-06-15',e:'2027-06-30',est:true,city:'毎年変更',use:'公認資格を社内・BP営業の育成に活用。例年6月。',u:'https://monoist.itmedia.co.jp/mn/articles/1805/30/news028.html'},
+ {n:'日本医用画像人工知能研究会（JSAIMI）',area:'国内',f:'画像AI（放射線科医）',city:'放射線学会に併設',use:'読影医KOLとの関係づくり。',u:'https://www.radiology.jp/jsaimi/doc/1st_meeting_poster.pdf'},
+ {n:'日本生体医工学会',area:'国内',f:'医工学全般',city:'毎年変更',use:'医工連携の共同研究先探し。例年春。'},
+ {n:'電子情報通信学会 医用画像研究会（MI）',area:'国内',f:'画像処理研究',city:'年数回',use:'若手研究者の掘り起こし。',u:'https://www.ieice.org/jpn/kaikoku/pdf/202001/link/is/ken-d-mi.pdf'},
+ {n:'日本消化器内視鏡学会・日本デジタルパソロジー研究会・日本遠隔医療学会',area:'国内',f:'内視鏡AI・病理AI・遠隔読影',city:'各学会',use:'協業先（オリンパス等）との接点。'},
+ {n:'RSNA 年次集会',area:'海外',f:'放射線・画像AI・Kaggle表彰',s:'2026-11-29',e:'2026-12-03',city:'シカゴ',lat:41.88,lon:-87.63,use:'世界最大の放射線学会。GE・Philips・SIEMENSの新AIを一望。',u:'https://axisimagingnews.com/imaging-news/associations/rsna-launches-2026-knee-mri-challenge'},
+ {n:'AMIA Annual Symposium',area:'海外',f:'医療情報学',s:'2026-11-07',e:'2026-11-11',city:'ダラス',lp:'bottom',lat:32.78,lon:-96.80,use:'米国の医療情報・臨床AI動向。',u:'https://www.innervision.co.jp/congress-event/congress2_2026/amia2026/'},
+ {n:'HIMSS Global',area:'海外',f:'ヘルスIT全般（70か国・2万4,000人）',s:'2027-03-08',e:'2027-03-12',est:true,city:'ラスベガス',lp:'top',lat:36.17,lon:-115.14,use:'2026年は3月10〜12日。病院IT・AIエージェントの潮流。',u:'https://www.salesforce.com/jp/blog/category/medical-devices-and-diagnostics/'},
+ {n:'ECR（欧州放射線学会）',area:'海外',f:'放射線・画像AI',s:'2027-02-24',e:'2027-02-28',est:true,city:'ウィーン',lat:48.21,lon:16.37,use:'欧州規制（AI法・MDR）下の画像AI動向。例年2〜3月。'},
+ {n:'MICCAI',area:'海外',f:'医用画像計算・AIのトップ会議',city:'毎年変更',use:'研究トレンドとトップ研究者。例年9〜10月。'},
+ {n:'SIIM',area:'海外',f:'画像情報学・PACS・AI実装',city:'毎年変更',use:'AIの院内実装・ワークフロー。例年6月。'},
+ {n:'ISMRM',area:'海外',f:'MRI・AI再構成',city:'毎年変更',use:'MRのAI再構成競争の最前線。例年5月。'}
+];
+const GANTT = [
+ {n:'デジタル化・AI導入補助金 6次締切',l:'g',s:'2026-10-30'},
+ {n:'AMED ヘルステック・チャレンジ締切',l:'a',s:'2026-11-04'},
+ {n:'AMIA（ダラス）',l:'s',s:'2026-11-07',e:'2026-11-11'},
+ {n:'医療情報学連合大会（札幌）',l:'s',s:'2026-11-12',e:'2026-11-15'},
+ {n:'AMED バイオバンク利活用 締切',l:'a',s:'2026-11-18'},
+ {n:'令和8年度 補正予算',l:'g',s:'2026-11-20',e:'2026-12-20',x:true},
+ {n:'RSNA 2026（シカゴ）',l:'s',s:'2026-11-29',e:'2026-12-03'},
+ {n:'AMED 医療機器等研究成果展開 公募',l:'a',s:'2026-12-15',e:'2027-01-28',x:true},
+ {n:'GENIAC 次回公募の予告',l:'g',s:'2026-12-20',e:'2027-01-31',x:true},
+ {n:'武田科学振興財団 医学系助成',l:'p',s:'2027-01-06',e:'2027-03-09',x:true},
+ {n:'ECR（ウィーン）',l:'s',s:'2027-02-24',e:'2027-02-28',x:true},
+ {n:'AMED 医工連携・AI実装 公募',l:'a',s:'2027-03-01',e:'2027-04-21',x:true},
+ {n:'HIMSS（ラスベガス）',l:'s',s:'2027-03-08',e:'2027-03-12',x:true},
+ {n:'GENIAC-PRIZE 最終コンテスト',l:'p',s:'2027-03-01',e:'2027-03-31'},
+ {n:'電子処方箋 導入補助の期限',l:'g',s:'2027-03-31'},
+ {n:'科研費 特推・基盤S 公募',l:'a',s:'2027-04-10',e:'2027-06-16',x:true},
+ {n:'JRC2027・ITEM（横浜）',l:'s',s:'2027-04-15',e:'2027-04-18',x:true},
+ {n:'東京都 AI技術活用促進事業 受付',l:'g',s:'2027-04-15',e:'2027-07-31',x:true},
+ {n:'JSAI・JMAI・JAMI春季',l:'s',s:'2027-06-01',e:'2027-06-30',x:true},
+ {n:'JAMIT',l:'s',s:'2027-07-01',e:'2027-07-10',x:true}
+];
+const TODO = [
+ ['11月4日まで','AMEDヘルステック・チャレンジ応募予定のスタートアップを取引先・学会経由で把握'],
+ ['11月12〜15日','医療情報学連合大会（札幌）で競合の生成AI提案を観測'],
+ ['11月中','主要都道府県の業務効率化支援事業の要綱を取得し、当社製品が対象経費に入るか確認'],
+ ['11月下旬〜12月','令和8年度補正予算の医療DX・AI関連項目を確認し、本ページを更新'],
+ ['12月','メディパル・日本光電・CMFと「補助金提案先リスト」の共同作成を打診'],
+ ['2027年1月まで','AMED医工連携・AI実装の共同提案先候補を開発部門と合意']
+];
+const SRC = [
+ ['厚生労働省 医療分野における業務効率化・職場環境改善支援（公式）','https://www.mhlw.go.jp/stf/newpage_70522.html'],
+ ['大阪府 医療分野における業務効率化支援・生成AIの対象例（公式）','https://www.pref.osaka.lg.jp/o100030/iryo/hojyokin/r8_hojyokin.html'],
+ ['デジタル化・AI導入補助金2026 申請日程（公式）','https://it-shien.smrj.go.jp/schedule'],
+ ['RSNA 2026 Knee MRI AI Challenge（公式）','https://www.rsna.org/artificial-intelligence/ai-image-challenge/knee-mri-ai-challenge'],
+ ['内閣府 令和8年度AI関連予算','https://www8.cao.go.jp/cstp/ai/yosan_8nendo.pdf'],
+ ['経済産業省 令和8年度当初予算の概要','https://www.meti.go.jp/main/yosan/yosan_fy2026/pdf/01.pdf'],
+ ['デジタル化・AI導入補助金2026 公式','https://it-shien.smrj.go.jp/'],
+ ['医療業向けAI補助金ガイド（締切情報）','https://hojokin-dx.com/articles/medical-business-ai-subsidy-2026-complete-guide/'],
+ ['中小企業省力化投資補助金 第8回（J-Net21）','https://j-net21.smrj.go.jp/snavi/articles/189811'],
+ ['NEDO GENIAC公募','https://www.nedo.go.jp/koubo/CD2_100421.html'],
+ ['経産省 GENIAC今後の公募検討状況','https://www.meti.go.jp/policy/mono_info_service/joho/post5g/pdf/20260109_GENIAC.pdf'],
+ ['NEDO GENIAC-PRIZE 2026','https://www.nedo.go.jp/koubo/CD2_100446.html'],
+ ['厚労省 令和7年度補正予算 主要施策集','https://www.mhlw.go.jp/wp/yosan/yosan/25hosei/dl/25hosei_20251128_01.pdf'],
+ ['北海道 業務効率化・職場環境改善支援事業','https://www.pref.hokkaido.lg.jp/hf/cis/248555.html'],
+ ['東京都 医療機関におけるAI技術活用促進事業','https://www.hokeniryo.metro.tokyo.lg.jp/iryo/jigyo/ai'],
+ ['医療DXの補助金（電子処方箋・都道府県）','https://www.sokuraku-doctor.com/post/iryo-dx-hojokin'],
+ ['令和8年度診療報酬改定 AI・ICT編','https://www.cb-p.co.jp/column/24945/'],
+ ['AMED 医工連携・人工知能実装研究事業 R8','https://www.amed.go.jp/koubo/03005/01/B_00005.html'],
+ ['AMED ヘルステック・チャレンジ R8','https://www.amed.go.jp/koubo/03002/01/B_00020.html'],
+ ['AMED 公募情報検索','https://www.amed.go.jp/search.php?search=search&nav=4&order_by=1&pageID=1'],
+ ['AMED公募一覧（研究費サーチ）','https://grant-search.com/agency/amed/'],
+ ['NCGM SIP第3期','https://www.ncgm.go.jp/recruit/057/pdf/20260108_7.pdf'],
+ ['文科省 SPReAD 採択結果','https://www.mext.go.jp/content/20260723-mxt_kiso-000051129_6.pdf'],
+ ['科研費 R9公募スケジュール（立命館大学）','https://www.ritsumei.ac.jp/research/member/kakenhi/oubo/index.html'],
+ ['総務省 地域社会DX推進パッケージ 三次公募','https://www.soumu.go.jp/menu_news/s-news/01ryutsu06_02000484.html'],
+ ['総務省 エッジAI実証','https://www.soumu.go.jp/menu_news/s-news/01tsushin03_02000465.html'],
+ ['総務省 信頼できるAI開発実証','https://www.soumu.go.jp/menu_news/s-news/01tsushin03_02000452.html'],
+ ['国立国会図書館 令和8年度予算案の概要（補正の日程）','https://dl.ndl.go.jp/view/prepareDownload?itemId=info%3Andljp%2Fpid%2F14660844'],
+ ['RSNA Knee AI Challenge','https://www.rsna.org/news/2026/august/ai-challenge-knee-mri'],
+ ['Kaggle MedGemma Impact Challenge','https://www.kaggle.com/competitions/med-gemma-impact-challenge'],
+ ['SIGNATE Cup 2026春','https://prtimes.jp/main/html/rd/p/000000312.000038674.html'],
+ ['AWS 生成AI実用化推進プログラム','https://aws.amazon.com/jp/blogs/news/2025-gen-ai-accel-program-new-plan'],
+ ['AWS ANGEL Dojo 医療事例','https://aws.amazon.com/jp/blogs/news/jcmi-45th-2025-report'],
+ ['Microsoft×NVIDIA ヘルスケア支援','https://getcoai.com/news/microsoft-and-nvidia-team-up-to-accelerate-ai-healthcare-startups'],
+ ['セコム科学技術振興財団','https://www.jnss.org/hp_images/files/2026/09/20260904-03.pdf'],
+ ['医療情報学連合大会（富士フイルム案内）','https://www.fujifilm.com/jp/ja/healthcare/events/14930'],
+ ['JRC2026','https://site2.convention.co.jp/jrc2026/outline/'],
+ ['JSAI2026','https://prtimes.jp/main/html/rd/p/000000004.000183050.html'],
+ ['AMIA 2026','https://www.innervision.co.jp/congress-event/congress2_2026/amia2026/'],
+ ['日本X線CT医学会（富士フイルム案内）','https://www.fujifilm.com/jp/ja/healthcare/events/14551']
+];
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const today = (()=>{const d=new Date();d.setHours(0,0,0,0);return d;})();
+const day = s => {const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d);};
+const daysLeft = s => Math.round((day(s)-today)/86400000);
+const fmtD = s => {const d=day(s);return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';};
+const STATUS = ['締切間近','募集中','実施中','次回待ち','終了'];
+const STC = {'締切間近':'st-soon','募集中':'st-open','実施中':'st-run','次回待ち':'st-next','終了':'st-end'};
+function status(it){
+  if(it.dl){const k=daysLeft(it.dl); if(k>=0) return k<=14?'締切間近':'募集中';}
+  if(it.run) return '実施中';
+  if(it.next) return '次回待ち';
+  return '終了';
+}
+D.forEach((it,i)=>{it.id=i;it.st=status(it);});
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const TYPES = Object.keys(T), TARGETS = Object.keys(P);
+
+/* ---------- KPIs & urgent ---------- */
+function kpis(){
+  const live = D.filter(d=>['締切間近','募集中','実施中'].includes(d.st)).length;
+  const up = D.filter(d=>d.dl && daysLeft(d.dl)>=0).sort((a,b)=>day(a.dl)-day(b.dl))[0];
+  $('#kpis').innerHTML =
+   '<div class="kpi"><div class="v">'+D.length+'<small>件</small></div><div class="l">掲載した支援制度（国・自治体・民間）</div></div>'+
+   '<div class="kpi"><div class="v">'+live+'<small>件</small></div><div class="l">公募締切前・事業実施中（要確認）</div></div>'+
+   '<div class="kpi red"><div class="v">'+(up?(daysLeft(up.dl)===0?'本日':daysLeft(up.dl)+'<small>日後</small>'):'―')+'</div><div class="l">次の締切：'+(up?esc(up.n.replace(/（.*?）/g,'')):'なし')+'</div></div>'+
+   '<div class="kpi"><div class="v">5,027<small>億円</small></div><div class="l">令和8年度 国のAI関連予算（前年度比 約2.5倍）</div></div>';
+  const U = [
+   {r:'1　顧客提案',id:5,why:'病院のICT導入費を4/5補助、1病院あたり交付上限8,000万円。都道府県経由で令和8年度に執行中で、営業提案に直結します。'},
+   {r:'2　要監視',id:25,why:'昨年は11月28日閣議決定・12月16日成立。今年も同時期に医療DX・AI系の新しい枠が出る可能性が高く、11月下旬から確認します。'},
+   {r:'3　R&D仕込み',id:13,why:'AIプログラム医療機器の開発に年最大5,200万円。R8は締切済みのため、例年春の次回公募に向けて共同提案先の大学を固めます。'}
+  ];
+  $('#urgent').innerHTML = U.map(u=>{const it=D[u.id];return '<article class="ucard"><div class="rank">'+u.r+'</div><h3>'+esc(it.n)+'</h3><p>'+esc(u.why)+'</p><div class="meta"><span class="pill '+STC[it.st]+'">'+it.st+'</span><span class="chip-s">'+esc(it.ag)+'</span><a href="'+esc(it.u)+'" style="font-size:12px">公式・出典</a></div></article>';}).join('');
+}
+
+/* ---------- filters ---------- */
+const F = {q:'',ag:new Set(),ty:new Set(),tg:new Set(),st:new Set(),c:0,sort:'canon',view:'cards'};
+try{const v=localStorage.getItem('medai-view'); if(v==='table'||v==='cards') F.view=v;}catch(e){}
+function chips(host,list,set,label){
+  const el=$(host);
+  list.forEach(v=>{const b=document.createElement('button');b.type='button';b.className='fchip';b.setAttribute('aria-pressed','false');
+    b.innerHTML=label?label(v):esc(v);
+    b.addEventListener('click',()=>{set.has(v)?set.delete(v):set.add(v);b.setAttribute('aria-pressed',set.has(v));apply();});el.appendChild(b);});
+}
+chips('#fAgency',AG,F.ag,v=>'<span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:'+AGC[v]+';margin-right:4px"></span>'+v);
+chips('#fType',TYPES,F.ty);
+chips('#fTarget',TARGETS,F.tg);
+chips('#fStatus',STATUS,F.st,v=>'<span class="'+STC[v]+'">●</span> '+v);
+(function(){const el=$('#fCanon');[[0,'すべて'],[2,'2以上（顧客・BP経由以上）'],[3,'3（直結のみ）']].forEach(([v,l])=>{const b=document.createElement('button');b.type='button';b.className='fchip';b.dataset.v=v;b.setAttribute('aria-pressed',v===0);b.textContent=l;b.addEventListener('click',()=>{F.c=v;el.querySelectorAll('.fchip').forEach(x=>x.setAttribute('aria-pressed',+x.dataset.v===v));apply();});el.appendChild(b);});})();
+$('#q').addEventListener('input',e=>{F.q=e.target.value.trim().toLowerCase();apply();});
+$('#sort').addEventListener('change',e=>{F.sort=e.target.value;apply();});
+function setView(v){F.view=v;$('#vCards').setAttribute('aria-pressed',v==='cards');$('#vTable').setAttribute('aria-pressed',v==='table');try{localStorage.setItem('medai-view',v);}catch(e){}apply();}
+$('#vCards').addEventListener('click',()=>setView('cards'));$('#vTable').addEventListener('click',()=>setView('table'));
+$('#reset').addEventListener('click',()=>{F.q='';$('#q').value='';['ag','ty','tg','st'].forEach(k=>F[k].clear());F.c=0;document.querySelectorAll('.filters .fchip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v==='0'));apply();});
+
+function filtered(){
+  return D.filter(d=>{
+    if(F.q){const hay=(d.n+' '+d.ag+' '+d.sub+' '+d.ty+' '+d.tg.join(' ')+' '+d.cn+' '+d.k+' '+d.amtT+' '+d.per).toLowerCase(); if(!F.q.split(/\s+/).every(w=>hay.includes(w))) return false;}
+    if(F.ag.size&&!F.ag.has(d.ag)) return false;
+    if(F.ty.size&&!F.ty.has(d.ty)) return false;
+    if(F.tg.size&&!d.tg.some(t=>F.tg.has(t))) return false;
+    if(F.st.size&&!F.st.has(d.st)) return false;
+    if(d.c<F.c) return false;
+    return true;
+  }).sort((a,b)=>{
+    if(F.sort==='canon') return b.c-a.c || STATUS.indexOf(a.st)-STATUS.indexOf(b.st);
+    if(F.sort==='amount') return (b.amt||-1)-(a.amt||-1);
+    if(F.sort==='agency') return AG.indexOf(a.ag)-AG.indexOf(b.ag);
+    const ka=a.dl&&daysLeft(a.dl)>=0?daysLeft(a.dl):9999, kb=b.dl&&daysLeft(b.dl)>=0?daysLeft(b.dl):9999; return ka-kb;
+  });
+}
+const canonBar = c => '<span class="canon" title="キヤノン関連度 '+c+'/3">関連度 <i class="'+(c>=1?'on':'')+'"></i><i class="'+(c>=2?'on':'')+'"></i><i class="'+(c>=3?'on':'')+'"></i></span>';
+const dlText = d => d.dl ? (daysLeft(d.dl)>=0 ? fmtD(d.dl)+'（あと'+daysLeft(d.dl)+'日）' : fmtD(d.dl)+'（終了）') : '―';
+function render(list){
+  $('#dbCount').textContent = list.length+' / '+D.length+' 件を表示';
+  if(!list.length){$('#cards').innerHTML='<div class="empty">条件に合う制度がありません。条件を減らすか「条件をクリア」を押してください。</div>';$('#tableWrap').innerHTML='';}
+  $('#cards').hidden = F.view!=='cards'; $('#tableWrap').hidden = F.view!=='table';
+  if(!list.length) return;
+  if(F.view==='cards'){
+    $('#cards').innerHTML = list.map(d=>'<article class="card"><span class="stripe" style="background:'+AGC[d.ag]+'"></span>'+
+     '<div class="top"><div class="ico" title="'+esc(d.ty)+'">'+svg(T[d.ty])+'</div><div><h3><a href="'+esc(d.u)+'">'+esc(d.n)+'</a></h3><div class="ag">'+esc(d.ag)+(d.sub?'・'+esc(d.sub):'')+'　'+esc(d.ty)+'</div></div></div>'+
+     '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span class="pill '+STC[d.st]+'">'+d.st+'</span>'+canonBar(d.c)+'</div>'+
+     '<dl><dt>金額</dt><dd class="num">'+esc(d.amtT)+'</dd><dt>補助率</dt><dd>'+esc(d.rate)+'</dd><dt>時期</dt><dd>'+esc(d.per)+(d.next&&d.st==='次回待ち'?'<br><span class="chip-s">次回：'+esc(d.next)+'</span>':'')+'</dd></dl>'+
+     '<div class="targets">'+d.tg.map(t=>'<span class="tgt">'+svg(P[t])+esc(t)+'</span>').join('')+'</div>'+
+     '<p class="note">'+esc(d.cn)+'</p></article>').join('');
+  } else {
+    $('#tableWrap').innerHTML = '<table><thead><tr><th>制度</th><th>所管</th><th>形</th><th>受け手</th><th>状態</th><th>締切</th><th>金額</th><th>補助率</th><th>関連度</th></tr></thead><tbody>'+
+     list.map(d=>'<tr><td><a href="'+esc(d.u)+'">'+esc(d.n)+'</a></td><td><span style="color:'+AGC[d.ag]+'">■</span> '+esc(d.ag)+'</td><td>'+esc(d.ty)+'</td><td>'+d.tg.map(esc).join('、')+'</td><td><span class="pill '+STC[d.st]+'">'+d.st+'</span></td><td class="num">'+dlText(d)+'</td><td class="num">'+esc(d.amtT)+'</td><td>'+esc(d.rate)+'</td><td>'+canonBar(d.c)+'</td></tr>').join('')+'</tbody></table>';
+  }
+}
+
+/* ---------- charts ---------- */
+const charts = {};
+/* scatter: short label + position, and vertical offsets to separate close points */
+const SN={0:['デジタル化・AI導入補助金','left'],1:['省力化投資補助金','left'],3:['GENIAC-PRIZE','left'],5:['業務効率化支援事業','top'],6:['東京都AI活用促進','bottom'],7:['電子処方箋','right'],12:['ヘルステック・チャレンジ','left'],13:['医工連携AI 分野1','bottom'],14:['医工連携AI 分野2','left'],15:['ヘルステックSU育成','right'],16:['研究成果展開','top'],18:['SIP 生成AI','left'],33:['セコム財団','right'],35:['武田財団','top'],36:['持田財団','right'],37:['医療機器センター','bottom']};
+const JY={0:-0.12,6:-0.14,16:0.12,12:0.1,15:0.06,13:-0.12,5:0.1,14:0,3:0.08,18:-0.08,1:0.05,7:0,33:0.08,35:0.1,36:-0.08,37:-0.1};
+const hasE = typeof window.echarts !== 'undefined';
+function mk(id){ const el=document.getElementById(id); if(!hasE){el.innerHTML='<div class="fallback">図表ライブラリを読み込めませんでした。ネットワーク接続を確認して再読み込みしてください。</div>';return null;}
+  if(charts[id]) charts[id].dispose(); charts[id]=echarts.init(el,null,{renderer:'svg'}); return charts[id]; }
+function base(){return {textStyle:{fontFamily:css('--f-body'),color:css('--ink')},tooltip:{backgroundColor:css('--surface'),borderColor:css('--line'),textStyle:{color:css('--ink'),fontSize:12},extraCssText:'box-shadow:0 4px 14px rgba(0,0,0,.12);max-width:300px;white-space:normal'}};}
+const axisC = () => ({axisLine:{lineStyle:{color:css('--line')}},axisLabel:{color:css('--muted')},splitLine:{lineStyle:{color:css('--line'),type:'dashed'}}});
+
+function drawBudget(){
+  const c=mk('chBudget'); if(!c) return;
+  c.setOption(Object.assign(base(),{grid:{left:56,right:20,top:30,bottom:34},
+    xAxis:Object.assign({type:'category',data:['令和7年度','令和8年度']},axisC(),{splitLine:{show:false}}),
+    yAxis:Object.assign({type:'value',max:6000},axisC()),
+    series:[{type:'bar',barWidth:'42%',data:[{value:1969,itemStyle:{color:css('--muted')}},{value:5027,itemStyle:{color:css('--accent')}}],
+      label:{show:true,position:'top',color:css('--ink'),fontWeight:700,fontSize:14,formatter:p=>p.value.toLocaleString()+'億円'}}],
+    tooltip:Object.assign(base().tooltip,{trigger:'axis',formatter:p=>p[0].name+'：'+p[0].value.toLocaleString()+'億円'})}));
+}
+function drawBudgetMix(){
+  const c=mk('chBudgetMix'); if(!c) return;
+  const data=[{name:'AIを創る（開発力強化）',value:4559},{name:'AIを使う 等（残り）',value:438},{name:'AIと協働する',value:19},{name:'AIの信頼性を高める',value:11}];
+  c.setOption(Object.assign(base(),{tooltip:Object.assign(base().tooltip,{trigger:'item',formatter:p=>p.name+'<br><b>'+p.value.toLocaleString()+'億円</b>（'+p.percent+'%）'}),
+    series:[{type:'pie',radius:['46%','72%'],center:['50%','52%'],startAngle:90,data:data,
+      color:[css('--accent'),css('--teal'),css('--info'),css('--warn')],
+      label:{color:css('--ink'),fontSize:12,formatter:p=>p.name+'\n'+p.value.toLocaleString()+'億円'},labelLine:{lineStyle:{color:css('--line')}},
+      itemStyle:{borderColor:css('--surface'),borderWidth:2}}],
+    graphic:[{type:'text',left:'center',top:'47%',style:{text:'5,027億円',fill:css('--ink'),font:'700 16px '+css('--f-display'),textAlign:'center'}}]}));
+}
+function drawSankey(list){
+  const c=mk('chSankey'); if(!c) return;
+  if(!list.length){c.clear();return;}
+  const nodes=new Map(), links=new Map();
+  const add=(n,col,depth)=>{if(!nodes.has(n)) nodes.set(n,{name:n,depth:depth,itemStyle:{color:col}});};
+  const link=(s,t)=>{const k=s+'>'+t;links.set(k,(links.get(k)||0)+1);};
+  list.forEach(d=>{add(d.ag,AGC[d.ag],0);const ty='［形］'+d.ty;add(ty,css('--muted'),1);link(d.ag,ty);
+    d.tg.forEach(t=>{const tn='［受け手］'+t;add(tn,t==='病院'||t==='診療所'?css('--accent'):css('--teal'),2);link(ty,tn);});});
+  c.setOption(Object.assign(base(),{tooltip:Object.assign(base().tooltip,{trigger:'item',formatter:p=>p.dataType==='edge'?p.data.source.replace(/［.*?］/,'')+' → '+p.data.target.replace(/［.*?］/,'')+'：'+p.data.value+'件':p.name.replace(/［.*?］/,'')}),
+    series:[{type:'sankey',left:8,right:110,top:10,bottom:10,nodeWidth:14,nodeGap:10,draggable:false,layoutIterations:32,
+      data:[...nodes.values()],links:[...links].map(([k,v])=>{const [s,t]=k.split('>');return {source:s,target:t,value:v};}),
+      label:{color:css('--ink'),fontSize:12,formatter:p=>p.name.replace(/［.*?］/,'')},
+      lineStyle:{color:'source',opacity:.32,curveness:.5},emphasis:{focus:'adjacency'}}]}));
+}
+function drawScatter(list){
+  const c=mk('chScatter'); if(!c) return;
+  const pts=list.filter(d=>d.amt);
+  const jit=i=>(JY[i]||0);
+  const byAg={};pts.forEach(d=>{(byAg[d.ag]=byAg[d.ag]||[]).push(d);});
+  c.setOption(Object.assign(base(),{grid:{left:110,right:30,top:20,bottom:50},
+    xAxis:Object.assign({type:'log',logBase:10,min:10,max:100000,name:'補助・研究費の上限（万円、対数目盛）',nameLocation:'middle',nameGap:30,nameTextStyle:{color:css('--muted')},
+      axisLabel:{color:css('--muted'),formatter:v=>v>=10000?(v/10000)+'億':v.toLocaleString()+'万'}},{axisLine:{lineStyle:{color:css('--line')}},splitLine:{lineStyle:{color:css('--line'),type:'dashed'}}}),
+    yAxis:Object.assign({type:'value',min:0,max:4,interval:1,axisLabel:{color:css('--muted'),formatter:v=>({1:'1 情報収集',2:'2 顧客・BP経由',3:'3 直結'})[v]||''}},{axisLine:{lineStyle:{color:css('--line')}},splitLine:{lineStyle:{color:css('--line'),type:'dashed'}}}),
+    tooltip:Object.assign(base().tooltip,{trigger:'item',formatter:p=>'<b>'+esc(p.data.d.n)+'</b><br>'+esc(p.data.d.amtT)+'<br>'+p.data.d.ag+'・'+p.data.d.st}),
+    series:Object.keys(byAg).map(ag=>({type:'scatter',name:ag,symbolSize:d=>14,itemStyle:{color:AGC[ag],borderColor:css('--surface'),borderWidth:1.5,opacity:.92},
+      data:byAg[ag].map(d=>({value:[d.amt,d.c+jit(d.id)],d:d,label:{position:SN[d.id]?SN[d.id][1]:'right'}})),
+      label:{show:true,position:'right',fontSize:11,color:css('--ink'),position:'right',formatter:p=>SN[p.data.d.id]?SN[p.data.d.id][0]:''}})),
+    markArea:null}));
+  $('#lgAgency').innerHTML=AG.map(a=>'<span><i style="background:'+AGC[a]+'"></i>'+a+'</span>').join('');
+}
+function drawGantt(){
+  const c=mk('chGantt'); if(!c) return;
+  const LC={g:css('--accent'),a:css('--teal'),s:css('--info'),p:css('--warn')};
+  const rows=GANTT.map(g=>g.n).reverse();
+  const data=GANTT.map(g=>({value:[rows.indexOf(g.n),day(g.s).getTime(),day(g.e||g.s).getTime()+86400000],g:g}));
+  c.setOption(Object.assign(base(),{grid:{left:230,right:24,top:20,bottom:30},
+    xAxis:Object.assign({type:'time',min:day('2026-10-15').getTime(),max:day('2027-07-31').getTime(),
+      axisLabel:{showMinLabel:false,showMaxLabel:false,color:css('--muted'),formatter:v=>{const d=new Date(v);return (d.getMonth()===0?d.getFullYear()+'年\n':'')+(d.getMonth()+1)+'月';}}},{axisLine:{lineStyle:{color:css('--line')}},splitLine:{show:true,lineStyle:{color:css('--line'),type:'dashed'}}}),
+    yAxis:{type:'category',data:rows,axisLabel:{color:css('--ink'),fontSize:12},axisLine:{lineStyle:{color:css('--line')}},axisTick:{show:false}},
+    tooltip:Object.assign(base().tooltip,{trigger:'item',formatter:p=>{const g=p.data.g;return '<b>'+esc(g.n)+'</b><br>'+fmtD(g.s)+(g.e?'〜'+fmtD(g.e):'')+(g.x?'<br>（例年からの見込み）':'');}}),
+    series:[{type:'custom',renderItem:(params,api)=>{
+        const y=api.value(0),s=api.coord([api.value(1),y]),e=api.coord([api.value(2),y]);const h=api.size([0,1])[1]*0.56;
+        const g=data[params.dataIndex].g;const w=Math.max(e[0]-s[0],8);
+        return {type:'rect',shape:{x:s[0],y:s[1]-h/2,width:w,height:h,r:3},style:{fill:LC[g.l],opacity:g.x?.38:.95,stroke:g.x?LC[g.l]:null,lineDash:g.x?[3,2]:null}};
+      },encode:{x:[1,2],y:0},data:data,
+      markLine:{silent:true,symbol:'none',label:{formatter:'本日',color:css('--accent'),position:'start'},lineStyle:{color:css('--accent'),width:2,type:'solid'},data:[{xAxis:today.getTime()}]}}]}));
+}
+let mapMode='japan';
+function drawMap(){
+  const c=mk('chMap'); if(!c) return;
+  if(!echarts.getMap('world')){document.getElementById('chMap').innerHTML='<div class="fallback">地図データを読み込めませんでした。</div>';return;}
+  const pts=SOC.filter(s=>s.lat!=null&&(mapMode==='world'||s.area==='国内'));
+  const soon=s=>s.s&&daysLeft(s.s)>=-3&&daysLeft(s.s)<=92;
+  const mkData=arr=>arr.map(s=>({name:s.city,value:[s.lon,s.lat],s:s,label:{position:s.lp||'right',show:mapMode==='japan'||s.area==='海外'||s.city==='札幌'}}));
+  c.setOption(Object.assign(base(),{
+    geo:{map:'world',roam:true,center:mapMode==='japan'?[137.6,37.6]:[25,32],zoom:mapMode==='japan'?6.8:1.2,
+      itemStyle:{areaColor:css('--soft'),borderColor:css('--line')},emphasis:{itemStyle:{areaColor:css('--line')},label:{show:false}},label:{show:false}},
+    tooltip:Object.assign(base().tooltip,{trigger:'item',formatter:p=>{const s=p.data&&p.data.s;if(!s) return '';return '<b>'+esc(s.n)+'</b><br>'+esc(s.city)+(s.s?'　'+fmtD(s.s)+(s.e?'〜'+fmtD(s.e).replace(/^\d+年/,''):''):'')+(s.est?'（例年からの見込み）':'')+'<br>'+esc(s.f);}}),
+    series:[
+      {type:'scatter',coordinateSystem:'geo',data:mkData(pts.filter(s=>!soon(s))),symbolSize:11,itemStyle:{color:css('--info'),borderColor:css('--surface'),borderWidth:1.5},
+        label:{show:true,formatter:p=>p.data.s.city+'｜'+p.data.s.n.replace(/（.*?）/g,'').replace(/^第\d+回\s*/,'').slice(0,14),color:css('--ink'),fontSize:11,backgroundColor:css('--surface'),padding:[2,4],borderRadius:3}},
+      {type:'effectScatter',coordinateSystem:'geo',data:mkData(pts.filter(soon)),symbolSize:14,rippleEffect:{scale:3.2,brushType:'stroke'},itemStyle:{color:css('--accent')},
+        label:{show:true,formatter:p=>p.data.s.city+'｜'+p.data.s.n.replace(/（.*?）/g,'').replace(/^第\d+回\s*/,'').slice(0,14),color:css('--accent'),fontWeight:700,fontSize:11,backgroundColor:css('--surface'),padding:[2,4],borderRadius:3}}
+    ]}));
+}
+function setMap(m){mapMode=m;$('#mJapan').setAttribute('aria-pressed',m==='japan');$('#mWorld').setAttribute('aria-pressed',m==='world');drawMap();}
+$('#mJapan').addEventListener('click',()=>setMap('japan'));$('#mWorld').addEventListener('click',()=>setMap('world'));
+
+/* ---------- societies list ---------- */
+const SF={q:'',a:'すべて'};
+(function(){const el=$('#fSoc');['すべて','国内','海外'].forEach(a=>{const b=document.createElement('button');b.type='button';b.className='fchip';b.textContent=a;b.setAttribute('aria-pressed',a==='すべて');b.addEventListener('click',()=>{SF.a=a;el.querySelectorAll('.fchip').forEach(x=>x.setAttribute('aria-pressed',x.textContent===a));renderSoc();});el.appendChild(b);});})();
+$('#qs').addEventListener('input',e=>{SF.q=e.target.value.trim().toLowerCase();renderSoc();});
+function renderSoc(){
+  const L=SOC.filter(s=>(SF.a==='すべて'||s.area===SF.a)&&(!SF.q||(s.n+s.f+s.city+s.use).toLowerCase().includes(SF.q)))
+    .sort((a,b)=>(a.s&&daysLeft(a.s)>=-5?daysLeft(a.s):99999)-(b.s&&daysLeft(b.s)>=-5?daysLeft(b.s):99999));
+  $('#socList').innerHTML=L.length?L.map(s=>{const up=s.s&&daysLeft(s.s)>=-5;const k=s.s?daysLeft(s.s):null;
+    return '<div class="card" style="padding:10px 12px;gap:4px"><span class="stripe" style="background:'+(s.area==='国内'?css('--teal'):css('--info'))+'"></span>'+
+    '<div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline"><h3 style="font-size:14px">'+(s.u?'<a href="'+esc(s.u)+'">'+esc(s.n)+'</a>':esc(s.n))+'</h3><span class="chip-s">'+s.area+'</span></div>'+
+    '<div class="ag num">'+esc(s.city)+(s.s?'　'+fmtD(s.s)+(s.e?'〜'+fmtD(s.e).replace(/^\d+年/,''):''):'')+(s.est?'（見込み）':'')+(up&&k!=null&&k<=92&&k>=0?'　<b style="color:var(--accent)">あと'+k+'日</b>':'')+'</div>'+
+    '<div style="font-size:12.5px"><span class="chip-s">'+esc(s.f)+'</span></div><div style="font-size:13px">'+esc(s.use)+'</div></div>';}).join(''):'<div class="empty">該当する学会がありません。</div>';
+}
+
+/* ---------- todo & sources ---------- */
+let done={};try{done=JSON.parse(localStorage.getItem('medai-todo')||'{}');}catch(e){}
+$('#todo').innerHTML=TODO.map((t,i)=>'<li><label for="td'+i+'"><input type="checkbox" id="td'+i+'" '+(done[i]?'checked':'')+'><span><span class="when">'+esc(t[0])+'</span>　'+esc(t[1])+'</span></label></li>').join('');
+$('#todo').addEventListener('change',e=>{const i=e.target.id.slice(2);done[i]=e.target.checked;try{localStorage.setItem('medai-todo',JSON.stringify(done));}catch(err){}});
+$('#srcList').innerHTML=SRC.map(s=>'<li><a href="'+esc(s[1])+'">'+esc(s[0])+'</a></li>').join('');
+
+
+/* ---------- Rev2 interactive analyses ---------- */
+function drawAnalysisMatrix(){
+ const ags=AG, tys=TYPES; const cnt=(a,t)=>D.filter(d=>d.ag===a&&d.ty===t).length;
+ const max=Math.max(1,...ags.flatMap(a=>tys.map(t=>cnt(a,t))));
+ const mx='<table class="mx"><thead><tr><th>所管</th>'+tys.map(t=>'<th>'+esc(t)+'</th>').join('')+'</tr></thead><tbody>'+ags.map(a=>'<tr><th>'+esc(a)+'</th>'+tys.map(t=>{const n=cnt(a,t),opacity=(.07+.62*n/max).toFixed(2);return '<td><button type="button" data-ag="'+esc(a)+'" data-ty="'+esc(t)+'" style="background:color-mix(in srgb, var(--teal) '+Math.round((.09+.62*n/max)*100)+'%,var(--surface))" title="'+a+'・'+t+'：'+n+'件。クリックで台帳を絞り込み">'+n+'</button></td>';}).join('')+'</tr>').join('')+'</tbody></table>';
+ $('#matrix').innerHTML=mx;
+ $('#matrix').addEventListener('click',e=>{const b=e.target.closest('button[data-ag]');if(!b)return;F.ag.clear();F.ty.clear();F.ag.add(b.dataset.ag);F.ty.add(b.dataset.ty);$('#q').value='';F.q='';document.querySelectorAll('#fAgency .fchip,#fType .fchip').forEach(x=>x.setAttribute('aria-pressed',x.textContent.trim().includes(b.dataset.ag)||x.textContent.trim()===b.dataset.ty));apply();$('#db').scrollIntoView({behavior:'smooth'});});
+ const c=TARGETS.map(t=>({t,n:D.filter(d=>d.tg.includes(t)).length})).sort((a,b)=>b.n-a.n);const mxn=Math.max(...c.map(x=>x.n));
+ $('#targetBars').innerHTML=c.map(x=>'<div class="hb-row"><span>'+esc(x.t)+'</span><div class="hb-track"><div style="width:'+((x.n/mxn)*100).toFixed(1)+'%"></div></div><strong>'+x.n+'</strong></div>').join('');
+}
+const pfgroups={
+ '北海道・東北':['北海道','青森','岩手','宮城','秋田','山形','福島'],
+ '関東':['茨城','栃木','群馬','埼玉','千葉','東京','神奈川'],
+ '甲信越・北陸':['新潟','富山','石川','福井','山梨','長野'],
+ '東海':['岐阜','静岡','愛知','三重'],
+ '近畿':['滋賀','京都','大阪','兵庫','奈良','和歌山'],
+ '中国':['鳥取','島根','岡山','広島','山口'],
+ '四国':['徳島','香川','愛媛','高知'],
+ '九州・沖縄':['福岡','佐賀','長崎','熊本','大分','宮崎','鹿児島','沖縄']
+};
+function drawPref(){
+ $('#prefGrid').innerHTML=Object.entries(pfgroups).map(([g,ps])=>'<div class="pref-region"><h3>'+g+'</h3><div class="pref-links">'+ps.map(n=>{const name=n+'県';const full=(n==='北海道'?'北海道':n==='東京'?'東京都':n==='大阪'?'大阪府':n==='京都'?'京都府':name);const url='https://www.google.com/search?q='+encodeURIComponent(full+' 医療機関 AI ICT 補助金 2026 県庁');return '<a href="'+url+'" target="_blank" rel="noopener noreferrer" class="'+(['東京','大阪'].includes(n)?'confirmed':'')+'" title="'+full+'の公的補助金を検索。制度の存在や募集状況は未確認">'+n+(['東京','大阪'].includes(n)?'●':'')+'</a>';}).join('')+'</div></div>').join('');
+}
+function drawROI(){
+ const num=id=>Math.max(0,Number($(id).value)||0); const cost=num('#roiCost'),hr=num('#roiHours'),wage=num('#roiWage'),op=num('#roiOp');
+ const cfg={none:[0,0],tokyo:[.5,500],tokyo2:[.5,1000],mhlw:[.8,8000],it:[.5,450]};const [rate,cap]=cfg[$('#roiScheme').value]||[0,0];const grant=Math.min(cost*rate,cap),net=cost-grant,benefit=hr*wage/10000-op;
+ const man=v=>Number(v).toLocaleString('ja-JP',{maximumFractionDigits:1})+'万円';
+ $('#roiGrant').textContent=man(grant);$('#roiNet').textContent=man(net);$('#roiSaving').textContent=man(benefit);$('#roiPayback').textContent=benefit>0?(net/benefit).toFixed(1)+'年':'算定不可';
+ const a=cost?grant/cost*100:0;$('#roiStack').children[0].style.width=a.toFixed(1)+'%';$('#roiStack').children[1].style.width=(100-a).toFixed(1)+'%';
+ $('#roiMsg').textContent='初期投資 '+man(cost)+' ／ 年間削減時間 '+hr.toLocaleString()+'時間。人件費換算による参考シナリオです。補助が不採択となれば初期負担は '+man(cost)+' です。'+(benefit<=0?' 運用費が便益を上回るため回収年数は算定できません。':'');
+}
+$('#roiForm').addEventListener('input',drawROI);$('#roiForm').addEventListener('change',drawROI);
+document.querySelectorAll('.cl-card').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.search;F.q=k;$('#q').value=k;apply();$('#db').scrollIntoView({behavior:'smooth'});}));
+function csvCell(v){return '"'+String(v==null?'':v).replace(/"/g,'""')+'"';}
+$('#downloadCsv').addEventListener('click',()=>{
+ const headers=['制度','所管','詳細所管','支援形態','受け手','上限（文字）','補助率','募集状況（参考）','期日','時期','次回','CMSC関連度','医療用途・注意点','出典URL'];
+ const rows=filtered().map(d=>[d.n,d.ag,d.sub,d.ty,d.tg.join('・'),d.amtT,d.rate,d.st,d.dl||'',d.per,d.next||'',d.c,d.cn,d.u]);
+ const csv='\uFEFF'+[headers,...rows].map(row=>row.map(csvCell).join(',')).join('\r\n');
+ const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='medical-ai-grants-2026-filtered.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+// Societies: add place links when a city is known. This is a search link, not a verified venue location.
+const oldRenderSoc=renderSoc;
+renderSoc=function(){oldRenderSoc();document.querySelectorAll('#socList .card').forEach((el,i)=>{
+ const name=el.querySelector('h3')?.textContent||'';const s=SOC.find(v=>v.n===name);
+ if(!s||s.lat==null)return;
+ const a=document.createElement('a');a.textContent='開催都市をGoogleマップで開く ↗';a.target='_blank';a.rel='noopener noreferrer';a.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(s.city+' '+s.n);a.style.fontSize='11.5px';a.style.fontWeight='700';el.appendChild(a);
+ });};
+
+/* ---------- run ---------- */
+function apply(){const L=filtered();render(L);drawSankey(L);drawScatter(L);}
+function drawAll(){drawBudget();drawBudgetMix();drawGantt();drawMap();apply();}
+kpis();drawAnalysisMatrix();drawPref();drawROI();renderSoc();setView(F.view);drawBudget();drawBudgetMix();drawGantt();drawMap();
+window.addEventListener('resize',()=>Object.values(charts).forEach(c=>c&&c.resize()));
+try{window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',drawAll);}catch(e){}
+new MutationObserver(drawAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+})();
+</script>
+</body>
+</html>
