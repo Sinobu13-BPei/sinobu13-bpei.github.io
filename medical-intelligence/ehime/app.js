@@ -103,6 +103,63 @@
       requestAnimationFrame(()=>instance.invalidateSize());
     }catch(err){console.warn('Showing map links instead of Leaflet',err);restore()}
   }
+
+  /* 2020 historical municipal estimates, 2024 historical dealer estimates, and 2026 subsidy map. */
+  function initializeMarketExtension(){
+    const source=one('#ehime-market-data');
+    if(!source)return;
+    let d;
+    try{d=JSON.parse(source.textContent)}catch(e){console.warn('Market supplement JSON invalid; static charts remain',e);return}
+    const c=d.cityMarket?.cities||[],companies=d.dealers?.top||[];
+    if(window.Chart){
+      plot('cityMarketChart','bar',c.map(x=>x[0]),
+        [{label:'2020年度 市町別市場規模（億円・民間推計）',data:c.map(x=>+(x[1]/100).toFixed(2)),backgroundColor:'#237da0'}],
+        {indexAxis:'y'});
+      plot('dealerShareChart','bar',companies.map(x=>x[0]),
+        [{label:'2024年度 県内販売額構成比（％・民間推計）',data:companies.map(x=>x[2]),backgroundColor:'#178774'}],
+        {indexAxis:'y',max:30});
+      for(const id of ['cityMarketChart','dealerShareChart']){
+        const cv=one('#'+id);
+        const fallback=one('#'+id+'-host .market-static-chart');
+        if(cv&&!cv.hidden&&fallback)fallback.hidden=true;
+      }
+    }
+    const holder=one('#subsidyMap');
+    if(!holder||!window.L)return;
+    const backup=holder.innerHTML;
+    let leaflet=null,failed=0,restored=false;
+    function restore(){
+      if(restored)return;restored=true;
+      try{leaflet?.remove()}catch(err){}
+      holder.classList.remove('map-ready');
+      holder.innerHTML=backup;
+    }
+    try{
+      holder.replaceChildren();
+      holder.classList.add('map-ready');
+      leaflet=window.L.map(holder,{scrollWheelZoom:false,zoomControl:true}).setView([33.65,132.94],8);
+      window.L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{
+        maxZoom:18,attribution:'<a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">国土地理院「地理院タイル」</a>'
+      }).on('tileerror',()=>{if(++failed>=8)restore()}).addTo(leaflet);
+      const colors={city:'#cc8a25',pref:'#08799d',exception:'#8260bf',exclude:'#7e8a91'};
+      for(const pt of (d.markers||[])){
+        const popup=document.createElement('div');
+        const name=document.createElement('strong');name.textContent=pt.name;
+        const info=document.createElement('p');info.textContent=pt.detail+'。表示点は概略中心であり、制度の対象境界や施設住所を示しません。';
+        const a=document.createElement('a');a.target='_blank';a.rel='noopener noreferrer';
+        a.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('愛媛県 '+pt.name);
+        a.textContent='Googleマップで確認 ↗';
+        popup.append(name,info,a);
+        window.L.circleMarker([pt.lat,pt.lon],{radius:pt.kind==='city'?10:8,color:colors[pt.kind]||'#127c9a',fillColor:colors[pt.kind]||'#127c9a',fillOpacity:.75,weight:2})
+          .addTo(leaflet).bindPopup(popup);
+      }
+      requestAnimationFrame(()=>leaflet.invalidateSize());
+    }catch(e){
+      console.warn('GSI map unavailable, static regional links restored',e);
+      restore();
+    }
+  }
+
   function navigation(){
     const nav=all('.toc a[href^="#"]'),section=nav.map(a=>one(a.getAttribute('href'))).filter(Boolean);
     if('IntersectionObserver' in window){
@@ -134,7 +191,7 @@
     update();
   }
   function boot(){
-    search();navigation();
+    search();navigation();initializeMarketExtension();
     try{
       const d=JSON.parse(one('#ehime-embedded-data').textContent);
       if(!Array.isArray(d.regions)||!Array.isArray(d.sources))return;
