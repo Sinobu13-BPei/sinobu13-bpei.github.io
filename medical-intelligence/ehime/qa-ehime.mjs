@@ -20,12 +20,12 @@ const idSet=new Set(ids);
 assert.equal(idSet.size,ids.length,'Duplicate HTML ids');
 assert([...html.matchAll(/href="#([^"]+)"/g)].every(m=>idSet.has(m[1])),'Broken internal anchor');
 assert([...html.matchAll(/href="#(S\d\d)"/g)].every(m=>data.sources.some(x=>x[0]===m[1])),'Unknown source reference');
-assert.equal(data.sources.length,27,'Source registry count changed unexpectedly');
+assert.equal(data.sources.length,33,'Source registry count changed unexpectedly');
 assert.equal(data.regions.length,6,'Expected 6 medical areas');
 assert.equal(data.regions.reduce((sum,r)=>sum+r.total,0),17006,'Medical area reported bed total mismatch');
 assert.equal(data.additionalEvidence.clinic2023.clinics,1175,'Clinic benchmark mismatch');
 
-for(const section of ['summary','population','beds','providers','university','devices','evidence','channels','external','strategy','sources']){
+for(const section of ['summary','population','beds','providers','university','devices','local-market','dealer-share','subsidies','evidence','channels','external','strategy','sources']){
   assert(idSet.has(section),'Missing section: '+section);
   assert(html.includes('href="#'+section+'"'),'Missing navigation link: '+section);
 }
@@ -47,6 +47,18 @@ assert.equal((html.match(/class="chart-fallback"/g)||[]).length,4,'Expected 4 ac
 assert.equal((html.match(/<svg /g)||[]).length,4,'SVG fallbacks invalid');
 assert(html.includes('class="map-fallback"'),'Map fallback missing');
 assert(html.includes('地理院タイル'),'GSI tile attribution missing');
+assert(html.includes('id="subsidyMap"'),'Missing subsidy regional map');
+assert(html.includes('class="subsidy-map-fallback"'),'Missing offline subsidy map links');
+assert(html.includes('id="cityMarketChart"') && html.includes('id="dealerShareChart"'),'New market canvases missing');
+const ext=JSON.parse(load('data/market-subsidy-2026.json'));
+const extInline=html.match(/<script type="application\/json" id="ehime-market-data">([\s\S]*?)<\/script>/);
+assert(extInline,'Embedded 2026 market supplement missing');
+assert.deepEqual(JSON.parse(extInline[1]),ext,'Market extension JSON mismatch');
+assert.equal(ext.cityMarket.year,2020,'Market by city must be labelled 2020');
+assert.equal(ext.dealers.year,2024,'Dealer figures must be labelled 2024');
+assert.equal(ext.subsidies.length,7,'Expected 7 subsidy programs');
+assert.equal(ext.markers.length,9,'Expected 9 policy map markers');
+assert(html.includes('2026年度募集の協議書期限終了'),'Uwajima deadline must be clearly marked');
 assert(html.includes('id="facilityEmpty"'),'Search no-result feedback missing');
 assert(html.includes('id="clearFacilitySearch"'),'Search clear control missing');
 assert(html.includes('id="readingProgress"'),'Reading progress indicator missing');
@@ -61,6 +73,6 @@ assert(!/CMSC|販社同席率|社内目標|社外秘/.test(html),'Confidential c
 
 const siteIndex=load('../index.html');
 assert(siteIndex.includes('medical-intelligence/ehime/'),'Missing prefecture hub link');
-console.log(JSON.stringify({result:'PASS',sections:11,regions:data.regions.length,
+console.log(JSON.stringify({result:'PASS',sections:14,regions:data.regions.length,
   hospitals:data.facilities.length,sourceCount:data.sources.length,svgFallbacks:4,
   editor:'日野富子',responsive:true,jsSyntax:'PASS'},null,2));
