@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-10-26",
+    "updated": "2026-10-31",
     "population2026": 1244298,
     "forecast2030": 1203481,
     "forecast2040": 1073827,
@@ -8,7 +8,8 @@
     "scope": "愛媛県6二次医療圏",
     "note": "2025病床機能報告（2025/7/1）の病床数。休棟等を含む総数は機能4分類計と異なる",
     "editor": "日野富子",
-    "edition": "追加資料の内容を検証・公表可能な部分のみ反映した公開版"
+    "edition": "既存の病床・人口・医療圏・行政等を維持し、2020年市町市場推計と2024年流通推計、2026年補助制度を区分して追加",
+    "marketSupplement": "market-subsidy-2026.json"
   },
   "population": [
     {
@@ -640,6 +641,42 @@
       "愛媛県鬼北町：愛媛RWD構想への医療情報提供契約",
       "2026-04-10公表",
       "https://www.town.kihoku.ehime.jp/soshiki/choumin/34043.html"
+    ],
+    [
+      "S28",
+      "愛媛県 医療施設・設備整備関係補助制度",
+      "2026年度制度一覧・交付要綱（案）",
+      "https://www.pref.ehime.jp/page/4187.html"
+    ],
+    [
+      "S29",
+      "愛媛県 重点医師偏在対策支援区域と診療所承継・開業支援",
+      "2025-10-01公表、2026-10確認",
+      "https://www.pref.ehime.jp/page/122882.html"
+    ],
+    [
+      "S30",
+      "愛媛県 医療施設等生産性向上・職場環境整備等支援事業",
+      "2025–2026掲載、申請対象期間要確認",
+      "https://www.pref.ehime.jp/page/120634.html"
+    ],
+    [
+      "S31",
+      "宇和島市 医療機関新規開業等支援事業",
+      "2026年度、協議書期限2026-09-30",
+      "https://www.city.uwajima.ehime.jp/soshiki/20/r8iryou-new-subsidy.html"
+    ],
+    [
+      "S32",
+      "大洲市 小児科診療所新規開業促進事業",
+      "市公式掲載、2019-07-18更新",
+      "https://www.city.ozu.ehime.jp/soshiki/kenkou/33137.html"
+    ],
+    [
+      "S33",
+      "四国中央市 診療所開業等支援事業費補助金",
+      "市公式掲載、2024-07-01更新",
+      "https://www.city.shikokuchuo.ehime.jp/soshiki/58/46848.html"
     ]
   ],
   "additionalEvidence": {
