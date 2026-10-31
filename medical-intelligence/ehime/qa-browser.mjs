@@ -25,6 +25,11 @@ try{
       return {
         overflow:d.scrollWidth-window.innerWidth,
         sources:document.querySelectorAll('#sourceList li').length,
+        localMarket:!!document.querySelector('#local-market'),
+        dealerMarket:!!document.querySelector('#dealer-share'),
+        subsidyCards:document.querySelectorAll('#subsidies .fund-card').length,
+        subsidyMapFallback:!!document.querySelector('#subsidyMap .subsidy-map-fallback'),
+        marketBarCharts:document.querySelectorAll('.market-static-chart').length,
         regionRows:document.querySelectorAll('#regionTable tbody tr').length,
         facilities:document.querySelectorAll('#facilityTable tbody tr').length,
         fallbacks:[...document.querySelectorAll('.chart-fallback')].filter(x=>getComputedStyle(x).display!=='none').length,
@@ -51,7 +56,11 @@ try{
     });
     console.log('Viewport diagnostics:',width,JSON.stringify(metrics));
     assert(metrics.overflow<=1,'Horizontal viewport overflow at '+width+': '+metrics.overflow+'px');
-    assert.equal(metrics.sources,27,'27 citation entries visible');
+    assert.equal(metrics.sources,33,'33 citation entries visible');
+    assert(metrics.localMarket&&metrics.dealerMarket,'New market sections missing');
+    assert.equal(metrics.subsidyCards,7,'Seven policy cards visible');
+    assert(metrics.subsidyMapFallback,'Offline region map links missing');
+    assert.equal(metrics.marketBarCharts,2,'Two historical market chart fallbacks missing');
     assert.equal(metrics.regionRows,6,'6 region table rows');
     assert.equal(metrics.facilities,17,'17 facility rows');
     assert.equal(metrics.fallbacks,4,'4 static SVG charts available');
