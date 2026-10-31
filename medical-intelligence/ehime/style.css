@@ -141,3 +141,73 @@ footer .footer-button{min-height:44px}
 
 /* Hero ring extends 8% beyond the edge at phone widths: clip only the decoration. */
 .hero{overflow:hidden}
+
+/* Ehime 2026 market / subsidy extension. Original report styles remain intact. */
+.market-extension-section{scroll-margin-top:104px}
+.market-extension-section .market-explainer{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;margin-bottom:18px}
+.market-explainer>div:first-child{min-width:0;flex:1}
+.market-explainer h3{margin:0 0 8px}
+.market-explainer p{margin:0;color:#36586b}
+.market-mini-kpi{background:#e9f4fa;border:1px solid #b9d9e9;border-radius:14px;padding:13px 16px;min-width:172px;text-align:center;flex-shrink:0}
+.market-mini-kpi strong{display:block;color:#105777;font-size:1.6rem;line-height:1.4;font-variant-numeric:tabular-nums}
+.market-mini-kpi small{font-size:11px;color:#526c80}
+.market-chart-host{height:480px;position:relative;overflow:hidden;min-width:0}
+.market-chart-host canvas:not([hidden]){width:100%!important;height:100%!important}
+.market-static-chart{width:100%;height:100%;display:flex;flex-direction:column;gap:6px;justify-content:space-evenly}
+.marketbar{display:grid;grid-template-columns:minmax(94px,150px) minmax(0,1fr) 82px;align-items:center;column-gap:10px;min-height:36px}
+.marketbar-label{font-size:13px;font-weight:700;overflow-wrap:anywhere}
+.marketbar-track{height:23px;border-radius:5px;background:#e8f0f6;overflow:hidden}
+.marketbar-fill{display:block;height:100%;background:linear-gradient(90deg,#12749f,#33a3bd);border-radius:5px}
+.marketbar-fill.dealer-fill{background:linear-gradient(90deg,#146b83,#299c83)}
+.marketbar-value{text-align:right;font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.research-table{min-width:510px}
+.research-table td:nth-child(n+2){font-variant-numeric:tabular-nums}
+.market-extension-section .chart-values{margin:15px 0 8px}
+.fund-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
+.fund-card{display:flex;min-width:0;flex-direction:column;gap:10px;padding:18px;border-radius:15px;border:1px solid #c9dce7;background:#f9fcfe}
+.fund-card h3{font-size:1rem;line-height:1.5;margin:0;color:#164764}
+.fund-card p{font-size:13px;margin:0;line-height:1.7}
+.fund-top{display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
+.fund-scope{font-size:12px;font-weight:700;color:#165774}
+.fund-seq{font-size:11px;color:#668598;border:1px solid #cadfe8;border-radius:50%;width:27px;height:27px;flex-shrink:0;display:grid;place-items:center}
+.fund-benefit{font-size:15px;font-weight:800;color:#0a5b77;background:#e8f5f8;border-radius:10px;padding:10px 12px}
+.fund-card .fund-status{margin-top:auto;color:#4b6274}
+.fund-card>a:not(.fund-source){background:#0c627c;color:white;display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:10px;text-decoration:none;font-weight:800;font-size:13px;padding:8px 12px}
+.fund-card>a:not(.fund-source):hover{background:#084b61}
+.fund-card .fund-source{font-size:11px;text-align:right}
+.subsidy-map{min-height:390px;border-radius:14px;background:#e5f0f5;overflow:hidden;position:relative}
+.subsidy-map.map-ready{height:450px}
+.subsidy-map-fallback{padding:18px}
+.subsidy-map-fallback>p{font-size:13px}
+.subsidy-locations{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;padding:0;list-style:none;margin:14px 0}
+.subsidy-locations li{background:#fff;border:1px solid #c9dce5;border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:5px;min-width:0}
+.subsidy-locations li b{font-size:13px}
+.subsidy-locations li small{color:#526b7c;font-size:11px;line-height:1.5}
+.subsidy-locations li .maps{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.subsidy-locations li .maps a{border:1px solid #b3cfdc;border-radius:6px;padding:4px 7px;font-size:11px;min-height:30px;background:#f9fcff}
+.subsidy-legend{display:flex;flex-wrap:wrap;gap:12px;padding:14px 0}
+.subsidy-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#385972}
+.subsidy-legend i{display:inline-block;border-radius:50%;width:12px;height:12px}
+.subsidy-legend .l-city{background:#d18b22}
+.subsidy-legend .l-pref{background:#147b9f}
+.subsidy-legend .l-exception{background:#8860c2}
+.subsidy-legend .l-excluded{background:#72818a}
+.subsidy-map .leaflet-popup-content{font-size:13px;line-height:1.6}
+.subsidy-map .leaflet-control-attribution{background:#fffefee5;color:#234c5f}
+@media(max-width:850px){
+ .fund-grid{grid-template-columns:1fr}
+ .subsidy-locations{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:550px){
+ .market-extension-section .market-explainer{flex-direction:column}
+ .market-mini-kpi{width:100%;text-align:left}
+ .market-chart-host{height:445px}
+ .marketbar{grid-template-columns:84px minmax(0,1fr) 64px;gap:6px;min-height:35px}
+ .marketbar-label{font-size:11px}
+ .marketbar-value{font-size:11px}
+ .fund-card{padding:14px}
+ .subsidy-locations{grid-template-columns:1fr}
+ .subsidy-map.map-ready{height:360px}
+ .subsidy-map-fallback{padding:12px}
+}
+@media(prefers-reduced-motion:reduce){.market-extension-section *{scroll-behavior:auto}}
