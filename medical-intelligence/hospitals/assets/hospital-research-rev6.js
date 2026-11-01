@@ -15,10 +15,10 @@ const officialDPC=[['大学病院本院群',82,'#9e314b'],['DPC特定病院群',
 const section=document.createElement('section');section.id='hi-research';
 section.innerHTML=[
 '<h2>病院深掘り分析｜DPC・病床・診療領域・医師数</h2>',
-'<p class="hi-muted">原票8,019施設を維持。国の2026年DPC統計と既存の旧DPCタグは別系列で表示。病床・系列は原票時点の情報であり、公式確認前の項目には「未確認」を表示します。</p>',
+'<p class="hi-muted">原票8,019施設を維持。厚労省2025年10月1日調査では病院8,001施設（差18）。基準日・対象定義・重複の個別照合は未完了です。国の2026年DPC統計と既存の旧DPCタグは別系列で表示。病床・系列は原票時点の情報であり、公式確認前の項目には「未確認」を表示します。</p>',
 '<div class="hi-cards" id="hi-kpis" aria-live="polite"></div>',
 '<div class="hi-grid">',
-'<article class="hi-box"><h3>2026年度 DPC分類（全国）</h3><div class="hi-stacked" id="hi-dpc-new"></div><div class="hi-key" id="hi-dpc-new-key"></div><p class="hi-muted">対象1,685施設。旧D1/D2/D3から自動変換しません。</p></article>',
+'<article class="hi-box"><h3>2026年度 DPC分類（全国）</h3><div class="hi-stacked" id="hi-dpc-new"></div><div class="hi-key" id="hi-dpc-new-key"></div><p class="hi-muted">対象1,685施設。旧D1/D2/D3から自動変換しません。制度概要資料では標準群1を1,142とする記載もあり、総数と整合する1,141で表示。要突合。</p></article>',
 '<article class="hi-box"><h3>原票内 DPC旧タグ分布</h3><div class="hi-stacked" id="hi-dpc-old"></div><div class="hi-key" id="hi-dpc-old-key"></div><p class="hi-muted">現行制度の個別病院区分を表すものではありません。</p></article>',
 '<article class="hi-box"><h3>病床規模別施設数</h3><div class="hi-bars" id="hi-beds"></div></article>',
 '<article class="hi-box"><h3>病院機能フラグ</h3><div class="hi-bars" id="hi-flags"></div><p class="hi-muted">原票の機能タグ。複数該当あり・更新未照合。</p></article>',
