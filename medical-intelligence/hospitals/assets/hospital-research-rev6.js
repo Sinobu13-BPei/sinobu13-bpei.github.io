@@ -5,8 +5,8 @@ if(!Array.isArray(D)||!D.length){console.warn('Hospital Rev6 data not available'
 const fmt=n=>Number(n||0).toLocaleString('ja-JP');
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const verified=[
-{test:/国立がん研究センター中央病院/,url:'https://www.ncc.go.jp/jp/ncch/about/info/index.html',physicians:214,year:'2026-04-01',specialties:'がん専門各科（公式Web参照）',features:'がんゲノム医療中核・特定機能・臨床研究中核'},
-{test:/北海道大学病院/,url:'https://www.huhp.hokudai.ac.jp/outline/',year:'2026年度病院概要'},
+{test:/国立がん研究センター中央病院/,url:'https://www.ncc.go.jp/jp/ncch/about/info/index.html',physicians:214,year:'2026-04-01',specialties:'がん専門各科（公式Web参照）',affiliate:'同法人：国立がん研究センター東病院',features:'がんゲノム医療中核・特定機能・臨床研究中核'},
+{test:/北海道大学病院/,url:'https://www.huhp.hokudai.ac.jp/outline/',year:'2026-07-01 厚生局届出転載',physiciansText:'医師（常勤）244名・非常勤651名／歯科医師は別',specialties:'内科、循環器内科、消化器内科、脳神経外科、整形外科、眼科、産婦人科ほか（届出略称）'},
 {test:/東京大学医学部附属病院/,url:'https://www.crc.h.u-tokyo.ac.jp/patient/depts/index.html',year:'公式診療科・部門一覧'}];
 const evidence=x=>verified.find(v=>v.test.test(x.cells[2]));
 const site=x=>evidence(x)?.url||'https://www.google.com/search?q='+encodeURIComponent('"'+x.cells[2]+'" '+x.pref+' 病院 公式サイト');
@@ -85,7 +85,7 @@ if(x.dpc!=='非DPC' && row.cells[6].textContent.includes('DPC外')){row.cells[6]
 const n=row.cells[2],name=x.cells[2],e=evidence(x),a=document.createElement('a');a.className='hi-hospital-name';a.textContent=name;a.href=site(x);a.target='_blank';a.rel='noopener noreferrer';a.title=e?'公式病院Webを開く':'公式サイトを検索・施設一致未確認';n.insertBefore(a,n.firstChild);
 for(const child of Array.from(n.childNodes))if(child.nodeType===3&&child.textContent.trim()===name)child.remove();
 const verifiedTag=document.createElement('span');verifiedTag.className='hi-official-badge';verifiedTag.textContent=e?'公式資料確認：'+e.year:'公式サイト検索（未確認）';n.append(verifiedTag);
-const values=[e?.specialties||'未確認',e?.physicians!=null?fmt(e.physicians)+'名（出典時点明記）':'未確認',(x.group?'系列推定：'+x.group:'関連病院：未確認')+'／'+(e?.features||'原票タグ：'+(tags(x).join('・')||'未判定'))];
+const values=[e?.specialties||'未確認',e?.physiciansText||(e?.physicians!=null?fmt(e.physicians)+'名（出典時点明記）':'未確認'),(e?.affiliate|| (x.group?'系列推定：'+x.group:'関連病院：未確認'))+'／'+(e?.features||'原票タグ：'+(tags(x).join('・')||'未判定'))];
 values.forEach((v,i)=>{const cell=row.insertCell();cell.className='hi-extra'+(i===2?' hi-feature':'');cell.dataset.label=labels[i+9];cell.textContent=v});
 }}
 decorate();const observer=new MutationObserver(()=>{decorate();refresh()});observer.observe(tbody,{childList:true});
