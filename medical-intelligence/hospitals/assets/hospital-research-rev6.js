@@ -25,6 +25,8 @@ section.innerHTML=[
 '<article class="hi-box"><h3>病院機能フラグ</h3><div class="hi-bars" id="hi-flags"></div><p class="hi-muted">原票の機能タグ。複数該当あり・更新未照合。</p></article>',
 '<article class="hi-box"><h3>都道府県別施設数 上位10</h3><div class="hi-bars" id="hi-pref"></div></article>',
 '<article class="hi-box"><h3>推定系列グループ 上位10</h3><div class="hi-bars" id="hi-group"></div><p class="hi-muted">原票による名称推定を含みます。「未確認」は系列病院がないことを意味しません。</p></article>',
+'<article class="hi-box"><h3>47都道府県 ヒートマップ（収録施設数）</h3><div id="hi-heat" class="hi-heat"></div><p class="hi-muted">色は施設数を示す。県を押すと下の病院リストを絞り込みます。</p></article>',
+'<article class="hi-box"><h3>地域の病床配置｜散布図</h3><div id="hi-scatter" class="hi-scatter"></div><p class="hi-muted">横軸＝原票施設数、縦軸＝病床平均。点の大きさは病床総数。各点に県名を表示。</p></article>',
 '</div>',
 '<div class="hi-box"><h3>診療科別割合・所属医師数の収録状況</h3>',
 '<p id="hi-coverage" class="hi-note">診療科目・所属医師数は現在の原票では未収録。未確認を0件として集計しません。</p>',
@@ -44,6 +46,23 @@ const chart=(id,arr,n=10)=>{const root=E(id);root.replaceChildren();const mx=Mat
 const stack=(id,key,arr)=>{const root=E(id),legend=E(key),sum=arr.reduce((n,x)=>n+x[1],0)||1;root.replaceChildren();legend.replaceChildren();for(const [name,val,color] of arr){const slice=document.createElement('span');slice.style.background=color;slice.style.width=(100*val/sum)+'%';slice.title=name+':'+fmt(val);root.append(slice);const item=document.createElement('span'),k=document.createElement('b');k.style.background=color;item.append(k,document.createTextNode(name+' '+fmt(val)));legend.append(item)}};
 stack('hi-dpc-new','hi-dpc-new-key',officialDPC);
 function selected(){const sel=id=>E(id)?.value||'',q=sel('q').normalize('NFKC').toLocaleLowerCase('ja').trim().split(/\s+/).filter(Boolean),p=sel('prefSel'),d=sel('dpcSel'),o=sel('ownerSel'),g=sel('groupSel'),e=sel('evidenceSel');return D.filter(x=>(!p||x.pref===p)&&(!d||x.dpc===d)&&(!o||(o==='public-all'?['prefecture','municipal','public-university','public-other'].includes(x.owner):o===x.owner))&&(!g||(g==='none'?!x.group:x.group===g))&&(!e||x.evidence===e)&&q.every(t=>x.text.includes(t)))}
+function heat(rows){
+const root=E('hi-heat');root.replaceChildren();
+const all=count(D,x=>x.pref),filtered=new Map(count(rows,x=>x.pref));const max=Math.max(1,...all.map(x=>x[1]));
+for(const [pref,total] of all.sort((a,b)=>a[0].localeCompare(b[0],'ja'))){
+const n=filtered.get(pref)||0;const b=document.createElement('button');b.type='button';b.className='hi-tile';b.textContent=pref+' '+fmt(n);b.title=pref+'：現在の抽出'+fmt(n)+'施設／全'+fmt(total)+'施設';
+b.style.background='rgba(17,112,143,'+(0.09+0.78*n/max).toFixed(3)+')';b.style.color=n/max>.54?'white':'#12394f';
+b.addEventListener('click',()=>{E('prefSel').value=pref;E('prefSel').dispatchEvent(new Event('change',{bubbles:true}));table.scrollIntoView({behavior:'smooth',block:'start'})});root.append(b)}
+}
+function scatter(rows){
+const root=E('hi-scatter');root.replaceChildren();
+const m=new Map();for(const x of rows){let v=m.get(x.pref)||{n:0,b:0};v.n++;v.b+=x.beds;m.set(x.pref,v)}
+const pts=[...m].map(([name,v])=>({name,n:v.n,avg:v.b/v.n,total:v.b})),maxX=Math.max(1,...pts.map(p=>p.n)),maxY=Math.max(1,...pts.map(p=>p.avg)),maxSize=Math.max(1,...pts.map(p=>p.total));
+const NS='http://www.w3.org/2000/svg',svg=document.createElementNS(NS,'svg');svg.setAttribute('viewBox','0 0 600 320');svg.setAttribute('role','img');svg.setAttribute('aria-label','都道府県別、施設数と平均病床規模の散布図');
+for(let k=0;k<=4;k++){const line=document.createElementNS(NS,'line');let y=284-k*65;line.setAttribute('x1',45);line.setAttribute('x2',575);line.setAttribute('y1',y);line.setAttribute('y2',y);line.setAttribute('stroke','#dce7ef');svg.append(line)}
+for(const p of pts){const c=document.createElementNS(NS,'circle');c.setAttribute('cx',45+530*p.n/maxX);c.setAttribute('cy',284-260*p.avg/maxY);c.setAttribute('r',4+13*Math.sqrt(p.total/maxSize));c.setAttribute('fill','#12808f');c.setAttribute('fill-opacity','.54');c.setAttribute('stroke','#17657c');const title=document.createElementNS(NS,'title');title.textContent=p.name+'：'+fmt(p.n)+'施設、平均'+Math.round(p.avg)+'床、合計'+fmt(p.total)+'床';c.append(title);svg.append(c)}
+const label=document.createElementNS(NS,'text');label.setAttribute('x','48');label.setAttribute('y','310');label.setAttribute('font-size','13');label.textContent='施設数 →';svg.append(label);const ylabel=document.createElementNS(NS,'text');ylabel.setAttribute('x','48');ylabel.setAttribute('y','17');ylabel.setAttribute('font-size','13');ylabel.textContent='平均病床数 ↑';svg.append(ylabel);root.append(svg)
+}
 let subset=D;
 function refresh(){subset=selected();const beds=subset.map(x=>x.beds).filter(x=>x>0).sort((a,b)=>a-b),total=beds.reduce((n,x)=>n+x,0),middle=beds.length?(beds[Math.floor((beds.length-1)/2)]+beds[Math.floor(beds.length/2)])/2:0;
 const kpi=[['抽出病院',fmt(subset.length)+'施設'],['病床数合計（原票）',fmt(total)+'床'],['病床数中央値',fmt(middle)+'床'],['系列名収録（推定含）',fmt(subset.filter(x=>x.group).length)+'施設']];
@@ -53,6 +72,7 @@ chart('hi-beds',[['0〜99床',0,99],['100〜199床',100,199],['200〜299床',200
 chart('hi-flags',['救急','がん','地域支援','大学','特定','精神'].map(n=>[n,subset.filter(x=>tags(x).some(t=>t.includes(n))).length]),7);
 chart('hi-pref',count(subset,x=>x.pref));
 chart('hi-group',count(subset,x=>x.group));
+heat(subset);scatter(subset);
 E('hi-coverage').textContent='抽出'+fmt(subset.length)+'施設。診療科名・医師数は現行原票に確定データがなく、全数での診療科割合は未算出です。個別公式情報を確認したもののみ参考表示し、未確認値を0に換算しません。';
 }
 const labels=['県','No.','病院名／公式Web','所在地','病床数','旧DPC','機能フラグ','設置主体（推定）','系列（推定）','診療科目','医師数','関連病院・特徴'];
