@@ -1,0 +1,48 @@
+/* Hospital Intelligence Rev.6 — additive/mobile-safe */
+:root{--hi-blue:#154b72;--hi-line:#d9e5ef}
+html,body{max-width:100%;overflow-x:clip}
+#hi-research{scroll-margin-top:70px;margin:22px auto;padding:0 4px}
+#hi-research h2{font-size:clamp(21px,3vw,28px);color:#073b73;margin:0 0 10px}
+#hi-research p{line-height:1.65}
+#hi-research .hi-muted{font-size:12px;color:#586b7d}
+#hi-research .hi-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0}
+#hi-research .hi-box{border:1px solid var(--hi-line);border-radius:13px;background:#fff;padding:14px;min-width:0}
+#hi-research .hi-box strong{display:block;font-size:clamp(18px,2vw,28px);color:var(--hi-blue);overflow-wrap:anywhere}
+#hi-research .hi-box small{display:block;color:#64748b;font-size:12px}
+#hi-research .hi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}
+#hi-research .hi-bars{display:grid;gap:9px}
+#hi-research .hi-bar{display:grid;grid-template-columns:minmax(90px,38%) 1fr auto;gap:8px;align-items:center;font-size:12px}
+#hi-research .hi-track{height:12px;background:#e8eef5;border-radius:10px;overflow:hidden}
+#hi-research .hi-fill{display:block;height:100%;background:#127d87;border-radius:10px}
+#hi-research .hi-val{font-weight:800;min-width:40px;text-align:right;font-variant-numeric:tabular-nums}
+#hi-research .hi-list{font-size:13px;margin:10px 0 0;padding-left:18px}
+#hi-research .hi-stacked{height:21px;border-radius:9px;overflow:hidden;display:flex;background:#e7e9ed}
+#hi-research .hi-stacked>span{height:100%;min-width:0}
+#hi-research .hi-key{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;margin-top:10px}
+#hi-research .hi-key b{display:inline-block;width:11px;height:11px;margin-right:4px;border-radius:2px}
+#hi-research .hi-sections{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#hi-research a{overflow-wrap:anywhere}
+#hi-research .hi-note{border-left:4px solid #d59d30;padding:10px 13px;background:#fffbf1;font-size:13px}
+#hi-research .hi-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+#hi-research .hi-actions a,#hi-research .hi-actions button{display:inline-flex;align-items:center;justify-content:center;border-radius:9px;border:1px solid #2a7593;background:#ecf7fb;color:#134a67;padding:8px 12px;font-weight:800;font-size:12px;text-decoration:none;cursor:pointer}
+#detailTable .hi-hospital-name{display:block;font-weight:800;color:#145d8c;text-decoration:underline;text-underline-offset:3px}
+#detailTable .hi-official-badge{font-size:10px;color:#64748b;display:block}
+#detailTable .hi-extra{font-size:12px;min-width:100px}
+#detailTable td{overflow-wrap:anywhere}
+#detailTable .hi-feature{max-width:260px;white-space:normal}
+.fixednav{flex-wrap:wrap;overflow-x:visible}
+@media(max-width:900px){#hi-research .hi-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:660px){.container{padding:15px 12px 42px}.hero{padding:24px 16px}.hero h1{font-size:clamp(23px,6.5vw,34px)}.grid-4,.grid-3,.grid-2,.two-col,.three-col{grid-template-columns:minmax(0,1fr)}#hi-research .hi-grid,#hi-research .hi-sections{grid-template-columns:minmax(0,1fr)}#hi-research .hi-box{padding:12px}#hi-research .hi-bar{grid-template-columns:minmax(74px,36%) 1fr auto;gap:5px}.searchbar{flex-wrap:wrap}.searchbar input,.searchbar select{min-height:42px;min-width:0;max-width:100%}.fixednav{position:static}.section-title h2{font-size:23px}}
+@media(max-width:700px){
+#detailTable{width:100%;min-width:0;border-collapse:separate;border-spacing:0 10px}
+#detailTable thead{display:none}
+#detailTable tbody{display:block}
+#detailTable tbody tr{display:block;background:#fff!important;border:1px solid #d9e5ef;border-radius:12px;overflow:hidden;margin:0 0 9px}
+#detailTable td{display:flex!important;gap:10px;align-items:flex-start;padding:7px 10px!important;width:100%!important;border-right:0!important}
+#detailTable td::before{content:attr(data-label);display:block;flex:0 0 80px;font-size:11px;color:#64748b;font-weight:800}
+#detailTable td:nth-child(3){display:block!important}
+#detailTable td:nth-child(3)::before{display:block;margin-bottom:3px}
+#detailTable .hi-hospital-name{font-size:15px}
+#detailTable td:nth-child(8),#detailTable td:nth-child(9){max-width:none}
+.table-wrap:has(#detailTable){overflow-x:hidden;max-height:none!important}
+}
