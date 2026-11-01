@@ -13,7 +13,7 @@ check(html.includes('window.__hospitalResearch=dataset'),'dataset bridge present
 check(html.includes('hospital-research-rev6.js'),'research JS linked');
 check(html.includes('hospital-research-rev6.css'),'research CSS linked');
 check(js.includes('医師数')&&js.includes('診療科目')&&js.includes('未確認'),'research evidence fields present');
-check(js.includes('1141')&&js.includes('1685'),'2026 DPC reference explicitly shown');
+check(js.includes('1141')&&js.includes('1,685'),'2026 DPC reference explicitly shown');
 check(js.includes('MutationObserver'),'pagination enhancements handled');
 check(css.includes('grid-template-columns:repeat(2,minmax(0,1fr))'),'mobile two-column metric panels');
 const parsed=spawnSync(process.execPath,['--check',root+'assets/hospital-research-rev6.js'],{encoding:'utf8'});
