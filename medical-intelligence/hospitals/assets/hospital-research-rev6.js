@@ -16,6 +16,7 @@ const section=document.createElement('section');section.id='hi-research';
 section.innerHTML=[
 '<h2>病院深掘り分析｜DPC・病床・診療領域・医師数</h2>',
 '<p class="hi-muted">原票8,019施設を維持。厚労省2025年10月1日調査では病院8,001施設（差18）。基準日・対象定義・重複の個別照合は未完了です。国の2026年DPC統計と既存の旧DPCタグは別系列で表示。病床・系列は原票時点の情報であり、公式確認前の項目には「未確認」を表示します。</p>',
+'<p class="hi-note"><b>重要な原票不整合：</b>旧DPC対象1,749施設中1,743施設で機能タグに「DPC外」を併記。原票上の矛盾を訂正せずに残し、分析からこのタグを除外しています。2025年国統計との差は18施設・10,880床。個別照合待ちです。</p>',
 '<div class="hi-cards" id="hi-kpis" aria-live="polite"></div>',
 '<div class="hi-grid">',
 '<article class="hi-box"><h3>2026年度 DPC分類（全国）</h3><div class="hi-stacked" id="hi-dpc-new"></div><div class="hi-key" id="hi-dpc-new-key"></div><p class="hi-muted">対象1,685施設。旧D1/D2/D3から自動変換しません。制度概要資料では標準群1を1,142とする記載もあり、総数と整合する1,141で表示。要突合。</p></article>',
@@ -49,7 +50,7 @@ const kpi=[['抽出病院',fmt(subset.length)+'施設'],['病床数合計（原�
 E('hi-kpis').innerHTML=kpi.map(([l,n])=>'<div class="hi-box"><small>'+safe(l)+'</small><strong>'+safe(n)+'</strong></div>').join('');
 stack('hi-dpc-old','hi-dpc-old-key',[['D1', '#a14250'],['D2','#cd655b'],['D3','#14818e'],['非DPC','#a4b4c2']].map(([n,color])=>[n,subset.filter(x=>x.dpc===n).length,color]));
 chart('hi-beds',[['0〜99床',0,99],['100〜199床',100,199],['200〜299床',200,299],['300〜499床',300,499],['500〜799床',500,799],['800床以上',800,Infinity]].map(([n,min,max])=>[n,subset.filter(x=>x.beds>=min&&x.beds<=max).length]));
-chart('hi-flags',['救急','がん','地域支援','大学','特定','精神','DPC外'].map(n=>[n,subset.filter(x=>tags(x).some(t=>t.includes(n))).length]),7);
+chart('hi-flags',['救急','がん','地域支援','大学','特定','精神'].map(n=>[n,subset.filter(x=>tags(x).some(t=>t.includes(n))).length]),7);
 chart('hi-pref',count(subset,x=>x.pref));
 chart('hi-group',count(subset,x=>x.group));
 E('hi-coverage').textContent='抽出'+fmt(subset.length)+'施設。診療科名・医師数は現行原票に確定データがなく、全数での診療科割合は未算出です。個別公式情報を確認したもののみ参考表示し、未確認値を0に換算しません。';
@@ -60,6 +61,7 @@ const tbody=table.tBodies[0];
 const rowMap=new WeakMap(D.map(x=>[x.row,x]));
 function decorate(){for(const row of tbody.rows){if(row.dataset.rev6)return;const x=rowMap.get(row);if(!x)continue;row.dataset.rev6='1';
 for(let i=0;i<row.cells.length;i++)row.cells[i].dataset.label=labels[i]||'詳細';
+if(x.dpc!=='非DPC' && row.cells[6].textContent.includes('DPC外')){row.cells[6].title='原票不整合：DPC対象とDPC外タグが同時に登録。原票の値は保持し個別照合が必要';row.cells[6].style.color='#9a3412';}
 const n=row.cells[2],name=x.cells[2],e=evidence(x),a=document.createElement('a');a.className='hi-hospital-name';a.textContent=name;a.href=site(x);a.target='_blank';a.rel='noopener noreferrer';a.title=e?'公式病院Webを開く':'公式サイトを検索・施設一致未確認';n.insertBefore(a,n.firstChild);
 for(const child of Array.from(n.childNodes))if(child.nodeType===3&&child.textContent.trim()===name)child.remove();
 const verifiedTag=document.createElement('span');verifiedTag.className='hi-official-badge';verifiedTag.textContent=e?'公式資料確認：'+e.year:'公式サイト検索（未確認）';n.append(verifiedTag);
