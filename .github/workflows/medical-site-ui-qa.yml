@@ -36,6 +36,8 @@ jobs:
           node-version: '22'
       - name: Validate HTML links, JS syntax and common shell
         run: node medical-intelligence/assets/qa-site.mjs
+      - name: Hospital Rev6 syntax and all 8019 records integrity
+        run: node medical-intelligence/hospitals/qa-hospitals-rev6.mjs
       - name: Install Japanese fonts for reliable Hyogo visual screenshots
         run: |
           sudo apt-get update -qq
