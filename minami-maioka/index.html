@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#415c46">
+<meta name="description" content="南舞岡の休日 ～裕子さんとの休日～。南舞岡から車で行けるラーメン・蕎麦・うどんの昼食候補を探す、ふたりの休日ランチ手帖。">
+<meta property="og:title" content="南舞岡の休日 ～裕子さんとの休日～">
+<meta property="og:description" content="南舞岡から出かける、ふたりの休日ランチ。ジャンル・エリアでお店を探せます。">
+<meta property="og:type" content="website">
+<title>南舞岡の休日 ～裕子さんとの休日～</title>
+<style>
+:root{--paper:#fbf8f1;--ink:#302f29;--sub:#68675f;--forest:#415c46;--sage:#eaf1e6;--warm:#bd6947;--line:#e4e4d9;--card:#fffefa;--gold:#e7bb7e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:18px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.8;font-size:16px;-webkit-text-size-adjust:100%}
+button,input{font:inherit}
+button{cursor:pointer}
+a{color:#375f4c;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #a95f3a;outline-offset:3px}
+.container{width:min(100% - 36px,1060px);margin-inline:auto}
+.skip{position:absolute;top:-60px;left:12px;background:white;padding:9px;z-index:99}.skip:focus{top:8px}
+.hero{background:linear-gradient(135deg,#e9efe2 0%,#fff9ef 69%,#f6e6d9 100%);border-bottom:1px solid var(--line);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(230px,.55fr);gap:28px;align-items:center;padding-block:58px 48px}
+.eyebrow{text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--forest);margin:0 0 8px}
+h1{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:clamp(34px,5vw,58px);line-height:1.26;letter-spacing:.02em;margin:0;color:#334e3c;overflow-wrap:anywhere}
+.subtitle{font-size:clamp(17px,2.5vw,23px);margin:12px 0 16px;color:#775944;font-weight:700}
+.intro{max-width:580px;font-size:clamp(15.5px,1.8vw,18px);margin:0 0 24px}
+.hero-pills{display:flex;gap:8px;flex-wrap:wrap}
+.hero-pills span{font-size:13px;color:#435c48;border:1px solid #cddccc;background:rgba(255,255,255,.7);padding:5px 12px;border-radius:999px}
+.hero-art{aspect-ratio:1.1/1;border-radius:40% 60% 54% 46%/58% 40% 60% 42%;background:radial-gradient(circle at 34% 23%,#fffaf1 3%,transparent 38%),linear-gradient(155deg,#d1dfc8,#e6c5a2);display:flex;align-items:center;justify-content:center;position:relative;transform:rotate(-5deg)}
+.hero-art .plate{width:68%;aspect-ratio:1;border:12px solid #fffcf4;border-radius:50%;background:linear-gradient(140deg,#b4c398,#d9d6a6);display:grid;place-items:center;font-size:clamp(46px,7vw,94px);box-shadow:0 14px 30px #566a4030;transform:rotate(5deg)}
+.hero-art:after{content:"休日のお昼を、ふたりで。";position:absolute;bottom:8%;font-family:serif;font-size:13px;color:#4b5142;letter-spacing:.04em}
+.jump{display:inline-block;background:var(--forest);color:white;border-radius:10px;text-decoration:none;padding:12px 20px;font-weight:700;margin-top:20px}
+main{padding:26px 0 60px}
+.section{margin:28px 0 42px}
+.section-heading{margin-bottom:17px}
+.section-heading h2{font-size:clamp(24px,3vw,31px);line-height:1.5;margin:0 0 4px;color:#324c3b;font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+.section-heading p{margin:0;color:var(--sub);font-size:14px}
+.picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.pick{border:1px solid #d8ded1;background:var(--card);border-radius:18px;padding:18px;text-align:left;min-width:0;min-height:165px;display:flex;flex-direction:column;gap:6px;box-shadow:0 5px 16px #263c2410;transition:transform .2s,box-shadow .2s}
+.pick:hover{transform:translateY(-2px);box-shadow:0 8px 22px #263c2420}
+.pick .tag{font-size:12px;color:#6e6a5e;font-weight:700}
+.pick strong{font-size:19px;color:#3b513f;line-height:1.5;overflow-wrap:anywhere}
+.pick .desc{font-size:14px;color:#74675e;line-height:1.7}
+.pick .more{font-size:13px;color:#8d5339;font-weight:700;margin-top:auto}
+.controls{border:1px solid var(--line);background:#fffefa;border-radius:20px;padding:20px;display:grid;gap:17px}
+.searchbox{display:grid;gap:7px}
+.searchbox label{font-size:13px;font-weight:700;color:#53644e}
+.searchbox input{width:100%;min-width:0;border:1px solid #cbd5c9;border-radius:11px;padding:12px 14px;min-height:48px;background:#fff;color:var(--ink);font-size:16px}
+.filterline{display:grid;grid-template-columns:86px 1fr;align-items:start;gap:10px}
+.filterline .filter-label{font-size:13px;font-weight:700;color:#53644e;padding-top:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid #c9d4c6;border-radius:999px;padding:7px 14px;min-height:44px;background:white;color:#415a46;font-size:14px;font-weight:600}
+.chip[aria-pressed="true"]{background:var(--forest);color:#fff;border-color:var(--forest)}
+.result-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:20px 0 14px;flex-wrap:wrap}
+.result-bar p{margin:0;font-weight:700;color:#3e5745}
+.reset{background:none;border:0;border-bottom:1px solid #9b684e;color:#936144;min-height:40px;padding:6px 1px;font-size:14px}
+.zone{margin:20px 0 26px}
+.zone-title{font-size:17px;color:#3b5945;border-left:4px solid #a6bd9c;padding-left:10px;margin:0 0 12px;line-height:1.55}
+.zone-title span{display:block;color:#777568;font-size:12px;font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.shop{min-width:0;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:7px;scroll-margin-top:24px}
+.shop.is-best{border-color:#d9bc9b}
+.shop-head{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.kind{border-radius:6px;background:#f1e7dc;color:#714b37;font-weight:700;font-size:12px;padding:3px 8px}
+.kind.soba{background:#edf1df;color:#526a37}.kind.udon{background:#f5e9ce;color:#805e26}
+.best-label{font-size:12px;font-weight:700;color:#986344}
+.shop h3{font-size:21px;line-height:1.45;margin:0;overflow-wrap:anywhere;color:#2f4a38}
+.area{font-size:13px;color:#71716a;margin:0}
+.description{font-size:15px;margin:3px 0 4px;line-height:1.75;flex:1}
+.shop-meta{border-top:1px solid var(--line);padding-top:10px;display:grid;gap:5px;font-size:13px;color:#615f58}
+.shop-meta span{display:block;overflow-wrap:anywhere}
+.map-link{border:1px solid #8ba18d;border-radius:10px;text-align:center;background:#f3f7ef;color:#36563f;text-decoration:none;min-height:46px;display:flex;align-items:center;justify-content:center;padding:8px 12px;font-size:14px;font-weight:700;margin-top:8px}
+.map-link:hover{background:#e1eddf}
+.nodata{padding:26px;text-align:center;border:1px dashed #d0d9cd;border-radius:16px;color:var(--sub)}
+.notice{padding:18px 20px;border-radius:15px;border:1px solid #e3e0d5;background:#f3f1e8;color:#4e5048}
+.notice h2{font-size:18px;margin:0 0 8px}
+.notice p{margin:6px 0;font-size:14px}
+.sitefooter{border-top:1px solid var(--line);padding:26px 0 44px;text-align:center;color:#696d61;font-size:13px}
+.related{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:0 0 16px}
+.related a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;text-align:center;border:1px solid #d3d9cd;border-radius:10px;padding:8px 14px;text-decoration:none;background:white;font-size:14px;font-weight:700}
+@media(max-width:740px){.hero-grid{grid-template-columns:1fr;padding-block:35px 30px}.hero-art{display:none}.picks{grid-template-columns:1fr}.pick{min-height:0;padding:16px}.grid{grid-template-columns:1fr}.container{width:min(100% - 32px,630px)}.section{margin:24px 0 36px}.controls{padding:16px}.filterline{grid-template-columns:1fr;gap:5px}.filterline .filter-label{padding-top:0}}
+@media(max-width:370px){h1{font-size:32px}.chip{padding:7px 12px;font-size:13px}.shop{padding:15px}.related{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pick{transition:none}}
+</style>
+</head><body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="hero"><div class="container hero-grid">
+<div>
+<p class="eyebrow">MINAMI MAIOKA · WEEKEND JOURNAL</p>
+<h1>南舞岡の休日</h1>
+<p class="subtitle">～裕子さんとの休日～</p>
+<p class="intro">今日は、何を食べに行こうか。<br>南舞岡から車で出かける、ラーメン・お蕎麦・うどんの小さな昼ごはん案内。</p>
+<div class="hero-pills"><span>近場からちょっと遠出まで</span><span>全17店</span><span>2026年11月1日 整理</span></div>
+<a class="jump" href="#find">お店を探す　↓</a>
+</div><div class="hero-art" aria-hidden="true"><div class="plate">🍜</div></div>
+</div></header>
+<main id="main" class="container">
+<section class="section" aria-labelledby="picks-title">
+<div class="section-heading"><h2 id="picks-title">迷ったら、この3軒。</h2><p>その日の気分に合わせて、近くで一杯。お店を選ぶと詳細へ移動します。</p></div>
+<div class="picks">
+<button type="button" class="pick" data-pick="0"><span class="tag">近くで、ラーメン</span><strong>麺 島むら</strong><span class="desc">下永谷。醤油・ワンタン麺が気になる日。</span><span class="more">お店の詳細を見る ↓</span></button>
+<button type="button" class="pick" data-pick="2"><span class="tag">ゆっくり、お蕎麦</span><strong>一徳庵</strong><span class="desc">日限山。蕎麦も天ぷらも楽しみたい日に。</span><span class="more">お店の詳細を見る ↓</span></button>
+<button type="button" class="pick" data-pick="10"><span class="tag">少し足を延ばして</span><strong>中華そば さとう 大船店</strong><span class="desc">大船。澄んだスープの中華そばを目当てに。</span><span class="more">お店の詳細を見る ↓</span></button>
+</div></section>
+<section class="section" id="find" aria-labelledby="find-title">
+<div class="section-heading"><h2 id="find-title">今日のお昼を探す</h2><p>気分・距離・店名で絞り込み。気になるお店はGoogleマップで確認できます。</p></div>
+<div class="controls" role="search" aria-label="お店の絞り込み">
+<div class="searchbox"><label for="search">店名・エリア・料理の特徴で検索</label><input id="search" type="search" placeholder="例：ワンタン、天ぷら、大船" autocomplete="off"></div>
+<div class="filterline"><span class="filter-label" id="genre-label">ジャンル</span><div class="chips" role="group" aria-labelledby="genre-label">
+<button class="chip" type="button" data-filter="g" data-value="all" aria-pressed="true">すべて</button>
+<button class="chip" type="button" data-filter="g" data-value="ramen" aria-pressed="false">ラーメン</button>
+<button class="chip" type="button" data-filter="g" data-value="soba" aria-pressed="false">蕎麦</button>
+<button class="chip" type="button" data-filter="g" data-value="udon" aria-pressed="false">うどん</button></div></div>
+<div class="filterline"><span class="filter-label" id="range-label">車での距離感</span><div class="chips" role="group" aria-labelledby="range-label">
+<button class="chip" type="button" data-filter="z" data-value="all" aria-pressed="true">すべて</button>
+<button class="chip" type="button" data-filter="z" data-value="1" aria-pressed="false">近場</button>
+<button class="chip" type="button" data-filter="z" data-value="2" aria-pressed="false">少し足を延ばす</button>
+<button class="chip" type="button" data-filter="z" data-value="3" aria-pressed="false">小さな遠出</button></div></div>
+</div>
+<div class="result-bar"><p id="count" role="status" aria-live="polite">17店を表示しています</p><button type="button" class="reset" id="reset">条件をリセット</button></div>
+<div id="list" aria-label="候補店舗一覧"></div>
+<p id="empty" class="nodata" hidden>条件に合うお店がありません。検索語や絞り込みを変えてみてください。</p>
+</section>
+<section class="section notice" aria-labelledby="notes-title">
+<h2 id="notes-title">出かける前の小さなメモ</h2>
+<p>営業時間・定休日・口コミ評価・駐車場情報は、2026年11月1日に整理した参考情報です。変更や臨時休業があり得るため、出発前に各店舗の最新情報をGoogleマップ等で確認してください。</p>
+<p>特に12時前後は混雑しやすいお店もあります。掲載の移動時間は目安であり、道路状況によって変わります。駅近のお店では周辺駐車場の確認もおすすめです。</p>
+</section>
+</main>
+<footer class="sitefooter"><div class="container">
+<nav class="related" aria-label="関連するページ">
+<a href="https://sinobu13-bpei.github.io/dining-guide/" target="_blank" rel="noopener noreferrer">おすすめお食事Map</a>
+<a href="https://sinobu13-bpei.github.io/maioka/" target="_blank" rel="noopener noreferrer">舞岡公園 谷戸の手帖</a>
+</nav>
+<p>南舞岡の休日 ～裕子さんとの休日～　｜　忍・裕子の休日メモ</p>
+</div></footer>
+<script>
+const shops = [
+  // zone 1: 〜15分
+  {z:1,g:"ramen",best:true,name:"麺 島むら",area:"港南区 下永谷",rate:"3.8（118件）",hours:"11:00〜14:30",park:"無料（隣の「るい斗」と共用）",
+   desc:"優しい醤油と塩、看板はワンタン麺。チャーシューも脂っぽくなく、生姜を効かせた一杯も人気。",id:"ChIJy1kFQABbGGARpfE2hJqMeHE"},
+  {z:1,g:"ramen",name:"手打ち中華そば ラクダのコブ",area:"港南区 日野南",rate:"3.7（31件）",hours:"11:30〜13:30（短め）",park:"要確認",
+   desc:"家系の多い界隈では珍しい魚介だしの淡麗醤油と手打ち麺。カウンター約5席の小さなお店。",id:"ChIJn4SqRQBFGGARji5L4QBiplw"},
+  {z:1,g:"soba",best:true,name:"一徳庵",area:"港南区 日限山",rate:"4.2（476件）",hours:"11:00〜14:30",park:"あり（早めに埋まる）",
+   desc:"コシのある蕎麦と大きな海老天。丼セットも充実。鍋焼きうどんも絶品で、蕎麦かうどんか迷う日にも。",id:"ChIJ4fQty91aGGARml6zw-wHDWU"},
+  {z:1,g:"soba",name:"そば処 鎌倉",area:"戸塚区 舞岡町",rate:"4.1（460件）",hours:"11:00〜14:30",park:"あり（正午には満車に）",
+   desc:"南舞岡からいちばん近い。細打ちの蕎麦と揚げたての天ぷら、ごま油の香りが評判。",id:"ChIJxUxQqulaGGAR6CwS5VtH4xg"},
+  {z:1,g:"udon",name:"ハマコ",area:"戸塚駅 東口",rate:"4.2（110件）",hours:"11:00〜14:00（売切れ次第終了）",park:"なし（コインP）",
+   desc:"自家製麺の人気うどん店。カフェのような雰囲気で、鶏天・チャーシューのせの「特製」が名物。",id:"ChIJJz09KZtaGGAR7t35KyxJ3x8"},
+  // zone 2: 15〜25分
+  {z:2,g:"ramen",best:true,name:"川の先の上",area:"港南区 大久保（上大岡）",rate:"4.2（871件）",hours:"11:30〜21:30（通し）",park:"なし（コインP）",
+   desc:"人気の「G麺7」系列。鶏・豚・魚介を合わせた中華そばで、醤油の香りと深みがあるのに重くない。ビルの2階（階段のみ）。",id:"ChIJCyn1eI5bGGARTD_elkSUXzs"},
+  {z:2,g:"ramen",name:"Free Birds",area:"栄区 桂町",rate:"4.4（707件）",hours:"11:00〜15:00",park:"あり（埋まりやすい）",
+   desc:"鶏だしのさっぱり醤油・塩。軽いのに味がしっかり。売り切れ閉店もあるので開店狙いが確実。",id:"ChIJEToizGpFGGAReqW_4KBsdVI"},
+  {z:2,g:"soba",name:"青々庵",area:"栄区 小山台",rate:"4.1（147件）",hours:"11:00〜15:00",park:"約4台",
+   desc:"手打ち蕎麦。週末は十割蕎麦も。天ぷらは軽く、胃にもたれない。静かで広々とした店内。",id:"ChIJmRvf4y1FGGARbR-ZU4RZmTs"},
+  {z:2,g:"soba",name:"手打そば 藤かけ",area:"戸塚区 平戸",rate:"4.0（294件）",hours:"11:00〜15:00",park:"広め",
+   desc:"北海道・十勝産のそば粉を使ったコシ強めの蕎麦。大きなかき揚げのミニ丼セットが人気。",id:"ChIJKZzuGKtbGGARZAVngIx9EPo"},
+  {z:2,g:"soba",name:"藪中",area:"戸塚区 柏尾町（国道1号沿い）",rate:"4.1（182件）",hours:"11:00〜15:00",park:"約5台",
+   desc:"コシのある蕎麦にしっかりしたつゆ。郊外の蕎麦屋らしい落ち着いた雰囲気。",id:"ChIJpSkB_GBaGGARQgPD5eoqSgU"},
+  // zone 3: 20〜30分
+  {z:3,g:"ramen",best:true,name:"中華そば さとう 大船店",area:"鎌倉市 大船（東口側）",rate:"4.2（925件）",hours:"11:00〜16:50（通し）",park:"なし（コインP）",
+   desc:"魚介だしの澄んだスープで、軽いのに旨みがあり最後まで飲める。戸塚駅を越えずに栄区経由で。",id:"ChIJ2x72PGdFGGARpxjNdnvQsXI"},
+  {z:3,g:"ramen",name:"鳥左近",area:"鎌倉市 大船",rate:"4.1（180件）",hours:"11:00〜22:00",park:"なし（コインP）",
+   desc:"無化調で、透き通った鶏だしの塩・醤油。さとうが混んでいたときの代わりに。店内は狭め。",id:"ChIJAaaMvqVFGGARJ4ujU4hf_G4"},
+  {z:3,g:"ramen",name:"らーめん KOMUGI",area:"南区 弘明寺",rate:"4.2（237件）",hours:"11:00〜15:00",park:"なし（コインP）",
+   desc:"淡麗の特製醤油とワンタンが人気。もちもちの麺とワンタンの皮の相性がいい。",id:"ChIJJ76FbwBbGGARWvz9_1QRsnU"},
+  {z:3,g:"ramen",name:"麺屋 星虎",area:"保土ケ谷区 星川",rate:"4.1（122件）",hours:"11:00〜15:00",park:"要確認",
+   desc:"2024年オープン。無添加を思わせる澄んだ優しい醤油。生姜ラーメンも評判。",id:"ChIJ1an7EgBbGGARfaqT8WiLwv4"},
+  {z:3,g:"soba",name:"かまくら 手打ちそば 英",area:"鎌倉市 大船",rate:"4.3（74件）",hours:"11:30〜15:30",park:"なし（コインP）",
+   desc:"北海道・幌加内産のそば粉で十割と二八の両方。カウンターと2人席だけの小さな本格派。",id:"ChIJTzZIttZFGGARZF-XHirfd6k"},
+  {z:3,g:"soba",name:"手打そば 若菜",area:"南区 井土ヶ谷",rate:"4.3（60件）",hours:"11:00〜14:30",park:"要確認",
+   desc:"住宅街の一軒家で出す十割蕎麦。席が少なく、昼はすぐ満席に。",id:"ChIJF0zGXABbGGARGSoTItPt95o"},
+  {z:3,g:"soba",name:"増田屋",area:"保土ケ谷区 今井町",rate:"4.1（141件）",hours:"11:00〜14:00",park:"少なめ",
+   desc:"野菜天もりが名物。「人生で一番の蕎麦」という口コミがあるほどファンが多い。",id:"ChIJa6MddzFaGGARJ4fK0mC6Zik"}
+];
+const zones = {1:"車で〜15分｜港南台・日野・日限山・上永谷・下永谷",2:"車で15〜25分｜上大岡・栄区・東戸塚・柏尾",3:"車で20〜30分｜大船・弘明寺・井土ヶ谷・保土ケ谷"};
+const gname = {ramen:"ラーメン",soba:"蕎麦",udon:"うどん"};
+const state={g:"all",z:"all",text:""};
+const results=document.getElementById("list");
+const search=document.getElementById("search");
+const count=document.getElementById("count");
+const empty=document.getElementById("empty");
+function mapUrl(shop){
+ const query=encodeURIComponent(shop.name+" "+shop.area);
+ const id=encodeURIComponent(shop.id||"");
+ return "https://www.google.com/maps/search/?api=1&query="+query+(id?"&query_place_id="+id:"");
+}
+function node(tag,cls,value){
+ const e=document.createElement(tag);
+ if(cls)e.className=cls;
+ if(value!==undefined&&value!==null)e.textContent=String(value);
+ return e;
+}
+function shopCard(s,i){
+ const card=node("article","shop"+(s.best?" is-best":""));
+ card.id="shop-"+i;
+ const head=node("div","shop-head");
+ const kind=node("span","kind "+s.g,gname[s.g]);
+ head.appendChild(kind);
+ if(s.best)head.appendChild(node("span","best-label","休日の候補"));
+ card.appendChild(head);
+ card.appendChild(node("h3","",s.name));
+ card.appendChild(node("p","area",s.area));
+ card.appendChild(node("p","description",s.desc));
+ const meta=node("div","shop-meta");
+ [["評価（掲載時点）",s.rate],["日曜営業時間の目安",s.hours],["駐車場",s.park]].forEach(function(a){
+  meta.appendChild(node("span","",a[0]+"： "+a[1]));
+ });
+ card.appendChild(meta);
+ const link=node("a","map-link","Googleマップで場所・最新情報を確認 ↗");
+ link.href=mapUrl(s); link.target="_blank";link.rel="noopener noreferrer";
+ link.setAttribute("aria-label",s.name+"をGoogleマップで確認");
+ card.appendChild(link);
+ return card;
+}
+function normalize(s){return String(s||"").normalize("NFKC").toLocaleLowerCase("ja");}
+function render(){
+ const q=normalize(state.text.trim());
+ const frag=document.createDocumentFragment();
+ let total=0;
+ [1,2,3].forEach(function(z){
+  if(state.z!=="all"&&String(z)!==state.z)return;
+  const selected=shops.map(function(s,i){return {shop:s,index:i};}).filter(function(x){
+   const s=x.shop;
+   return s.z===z&&(state.g==="all"||s.g===state.g)&&(!q||normalize([s.name,s.area,s.desc,gname[s.g],s.park].join(" ")).includes(q));
+  });
+  if(!selected.length)return;
+  total+=selected.length;
+  const sec=node("section","zone");
+  const title=node("h3","zone-title");
+  const parts=zones[z].split("｜");
+  title.appendChild(node("strong","",parts[0]||""));
+  title.appendChild(node("span","",parts[1]||""));
+  sec.appendChild(title);
+  const grid=node("div","grid");
+  selected.forEach(function(x){grid.appendChild(shopCard(x.shop,x.index));});
+  sec.appendChild(grid);frag.appendChild(sec);
+ });
+ results.replaceChildren(frag);
+ count.textContent=total+"店を表示しています（全"+shops.length+"店）";
+ empty.hidden=total!==0;
+}
+function syncButtons(){
+ document.querySelectorAll("[data-filter]").forEach(function(b){b.setAttribute("aria-pressed",String(state[b.dataset.filter]===b.dataset.value));});
+}
+function clearFilters(){
+ state.g="all";state.z="all";state.text="";search.value="";syncButtons();render();
+}
+document.querySelectorAll("[data-filter]").forEach(function(b){
+ b.addEventListener("click",function(){state[b.dataset.filter]=b.dataset.value;syncButtons();render();});
+});
+search.addEventListener("input",function(){state.text=search.value;render();});
+document.getElementById("reset").addEventListener("click",clearFilters);
+document.querySelectorAll("[data-pick]").forEach(function(b){
+ b.addEventListener("click",function(){
+  const id=Number(b.dataset.pick);
+  clearFilters();
+  const target=document.getElementById("shop-"+id);
+  if(target){target.setAttribute("tabindex","-1");target.focus({preventScroll:true});target.scrollIntoView({behavior:"smooth",block:"center"});}
+ });
+});
+render();
+</script>
+</body></html>
