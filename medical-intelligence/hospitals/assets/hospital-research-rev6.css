@@ -46,3 +46,9 @@ html,body{max-width:100%;overflow-x:clip}
 #detailTable td:nth-child(8),#detailTable td:nth-child(9){max-width:none}
 .table-wrap:has(#detailTable){overflow-x:hidden;max-height:none!important}
 }
+
+#hi-research .hi-heat{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+#hi-research .hi-tile{border:1px solid #d1e4ed;border-radius:7px;padding:7px 2px;text-align:center;font-size:11px;font-weight:800;cursor:pointer;min-width:0}
+#hi-research .hi-tile:hover,#hi-research .hi-tile:focus-visible{outline:2px solid #176a98;outline-offset:1px}
+#hi-research .hi-scatter svg{display:block;width:100%;height:auto;max-height:330px}
+@media(max-width:700px){#hi-research .hi-heat{grid-template-columns:repeat(3,minmax(0,1fr))}#hi-research .hi-tile{font-size:10px}}
