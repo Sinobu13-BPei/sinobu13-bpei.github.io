@@ -25,7 +25,7 @@ assert.equal(data.regions.length,6,'Expected 6 medical areas');
 assert.equal(data.regions.reduce((sum,r)=>sum+r.total,0),17006,'Medical area reported bed total mismatch');
 assert.equal(data.additionalEvidence.clinic2023.clinics,1175,'Clinic benchmark mismatch');
 
-for(const section of ['summary','population','beds','providers','radiologists','university','devices','local-market','dealer-share','subsidies','funding-donations','evidence','channels','external','strategy','sources']){
+for(const section of ['summary','population','beds','providers','radiologists','radiology-technologists','university','devices','local-market','dealer-share','subsidies','funding-donations','evidence','channels','external','strategy','sources']){
   assert(idSet.has(section),'Missing section: '+section);
   assert(html.includes('href="#'+section+'"'),'Missing navigation link: '+section);
 }
@@ -87,6 +87,22 @@ assert(html.includes('id="radiologyRegionChart"')&&html.includes('id="radiologyA
 assert(html.includes('愛媛県の年齢構成ではありません'),'Must not conflate nationwide ages with Ehime');
 assert(html.includes('医局の在籍数')&&html.includes('常勤数'),'Hospital and department count definitions missing');
 
+const technologists=JSON.parse(load('data/radiology-technologists-2026.json'));
+const techInline=html.match(/<script type="application\/json" id="ehime-technologist-data">([\s\S]*?)<\/script>/);
+assert(techInline,'Technologist embedded data missing');
+assert.deepEqual(JSON.parse(techInline[1]),technologists,'Technologist JSON embedded data differs from source');
+assert.equal(technologists.prefecture.totalFTE,637.0,'Expected 637.0 Ehime technologist FTE');
+assert.equal(technologists.prefecture.hospitalFTE,547.2,'Expected 547.2 hospital FTE');
+assert.equal(technologists.radiologyFacilities.allListCount,111,'Expected 111 directory records');
+assert.equal(technologists.radiologyFacilities.hospitalListCount,63,'Expected 63 hospital directory records');
+assert.equal(technologists.facilities.length,7,'Expected seven facility staffing observations');
+assert.equal(technologists.sources.length,11,'Expected 11 unique technologist source references');
+assert.equal(new Set(technologists.facilities.map(x=>x.name)).size,7,'Duplicate technologist facility names');
+for(const src of technologists.sources)assert(html.includes('id="'+src[0]+'"'),'Technologist source anchor missing '+src[0]);
+assert(html.includes('id="rtSectorChart"')&&html.includes('id="rtShikokuChart"'),'Technologist canvases missing');
+assert(html.includes('id="rtFacilityMap"')&&html.includes('class="rt-map-fallback"'),'Technologist fallback map missing');
+assert.equal((html.match(/class="rt-bar"/g)||[]).length,6,'Expected six technologist static bar rows');
+assert(!html.includes('診療所48件'),'Do not infer outpatient clinic count across directories');
 assert(html.includes('id="facilityEmpty"'),'Search no-result feedback missing');
 assert(html.includes('id="clearFacilitySearch"'),'Search clear control missing');
 assert(html.includes('id="readingProgress"'),'Reading progress indicator missing');
@@ -101,6 +117,6 @@ assert(!/CMSC|販社同席率|社内目標|社外秘/.test(html),'Confidential c
 
 const siteIndex=load('../index.html');
 assert(siteIndex.includes('medical-intelligence/ehime/'),'Missing prefecture hub link');
-console.log(JSON.stringify({result:'PASS',sections:16,regions:data.regions.length,
+console.log(JSON.stringify({result:'PASS',sections:17,regions:data.regions.length,
   hospitals:data.facilities.length,sourceCount:data.sources.length,svgFallbacks:4,
   editor:'日野富子',responsive:true,jsSyntax:'PASS'},null,2));
