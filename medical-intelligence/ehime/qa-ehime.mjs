@@ -102,7 +102,7 @@ for(const src of technologists.sources)assert(html.includes('id="'+src[0]+'"'),'
 assert(html.includes('id="rtSectorChart"')&&html.includes('id="rtShikokuChart"'),'Technologist canvases missing');
 assert(html.includes('id="rtFacilityMap"')&&html.includes('class="rt-map-fallback"'),'Technologist fallback map missing');
 assert.equal((html.match(/class="rt-bar"/g)||[]).length,6,'Expected six technologist static bar rows');
-assert(!html.includes('診療所48件'),'Do not infer outpatient clinic count across directories');
+assert(html.includes('差を診療所数と解釈しません'),'Different directories must not be subtracted into outpatient counts');
 assert(html.includes('id="facilityEmpty"'),'Search no-result feedback missing');
 assert(html.includes('id="clearFacilitySearch"'),'Search clear control missing');
 assert(html.includes('id="readingProgress"'),'Reading progress indicator missing');
