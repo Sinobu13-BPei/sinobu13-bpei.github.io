@@ -249,6 +249,60 @@
     }
   }
 
+
+  function initializeRadiologyTechnologists(){
+    const payload=one('#ehime-technologist-data');
+    if(!payload)return;
+    let d;
+    try{d=JSON.parse(payload.textContent)}catch(err){
+      console.warn('Technologist data unavailable; static content remains',err);return;
+    }
+    if(window.Chart){
+      plot('rtSectorChart','bar',['病院','病院以外（差分）'],
+        [{label:'2023年・診療放射線技師 常勤換算',data:[d.prefecture.hospitalFTE,d.prefecture.otherFTE],backgroundColor:['#117a9a','#6f9db3']}],
+        {indexAxis:'y'});
+      plot('rtShikokuChart','bar',d.regionComparison.map(x=>x[0]),
+        [{label:'2023年・診療放射線技師 常勤換算',data:d.regionComparison.map(x=>x[1]),backgroundColor:'#526da9'}],
+        {indexAxis:'y'});
+      for(const id of ['rtSectorChart','rtShikokuChart']){
+        const c=one('#'+id),stat=c?.parentElement?.querySelector('.rt-static');
+        if(c&&!c.hidden&&stat)stat.hidden=true;
+      }
+    }
+    const holder=one('#rtFacilityMap');
+    if(!holder||!window.L||!d.facilities?.length)return;
+    const backup=holder.innerHTML;
+    let mapObject=null,failedTiles=0,alreadyRestored=false;
+    const restore=()=>{
+      if(alreadyRestored)return;
+      alreadyRestored=true;
+      try{mapObject?.remove()}catch(err){}
+      holder.classList.remove('rt-map-ready');
+      holder.innerHTML=backup;
+    };
+    try{
+      holder.replaceChildren();
+      holder.classList.add('rt-map-ready');
+      mapObject=window.L.map(holder,{scrollWheelZoom:false,zoomControl:true}).setView([33.65,132.9],8);
+      window.L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{
+        maxZoom:18,attribution:'国土地理院「地理院タイル」'
+      }).on('tileerror',()=>{if(++failedTiles>=8)restore()}).addTo(mapObject);
+      for(const f of d.facilities){
+        const popup=document.createElement('div');
+        const name=document.createElement('strong');name.textContent=f.name;
+        const detail=document.createElement('p');detail.textContent='診療放射線技師'+f.techs+'名（'+f.asOf+'）。公開基準日が異なるため現員の確定値ではありません。';
+        const link=document.createElement('a');link.href=f.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='病院公式情報を見る ↗';
+        popup.append(name,detail,link);
+        window.L.circleMarker([f.lat,f.lon],{radius:8,color:'#0f5976',weight:2,fillColor:'#229ba9',fillOpacity:.92})
+          .addTo(mapObject).bindPopup(popup);
+      }
+      requestAnimationFrame(()=>mapObject.invalidateSize());
+    }catch(err){
+      console.warn('Technologist map unavailable; using static facility links',err);
+      restore();
+    }
+  }
+
   function navigation(){
     const nav=all('.toc a[href^="#"]'),section=nav.map(a=>one(a.getAttribute('href'))).filter(Boolean);
     if('IntersectionObserver' in window){
@@ -280,7 +334,7 @@
     update();
   }
   function boot(){
-    search();navigation();initializeMarketExtension();initializeFundingFilters();initializeRadiologyWorkforce();
+    search();navigation();initializeMarketExtension();initializeFundingFilters();initializeRadiologyWorkforce();initializeRadiologyTechnologists();
     try{
       const d=JSON.parse(one('#ehime-embedded-data').textContent);
       if(!Array.isArray(d.regions)||!Array.isArray(d.sources))return;
