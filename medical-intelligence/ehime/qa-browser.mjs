@@ -26,6 +26,12 @@ try{
         overflow:d.scrollWidth-window.innerWidth,
         sources:document.querySelectorAll('#sourceList li').length,
         radiologistSources:document.querySelectorAll('.rd-source-list li').length,
+        technologistSources:document.querySelectorAll('.rt-source-list li').length,
+        technologistHospitals:document.querySelectorAll('.rt-facility-table tbody tr').length,
+        technologistBars:document.querySelectorAll('.rt-static .rt-bar').length,
+        technologistMapFallback:!!document.querySelector('#rtFacilityMap .rt-map-fallback'),
+        techSectorCanvas:!!document.querySelector('#rtSectorChart'),
+        techShikokuCanvas:!!document.querySelector('#rtShikokuChart'),
         radiologistFacilities:document.querySelectorAll('.rd-facility-table tbody tr').length,
         radiologistBars:document.querySelectorAll('.rd-static .rd-bar').length,
         radiologistMapFallback:!!document.querySelector('#radiologyMap .rd-map-fallback'),
@@ -67,6 +73,11 @@ try{
     assert(metrics.overflow<=1,'Horizontal viewport overflow at '+width+': '+metrics.overflow+'px');
     assert.equal(metrics.sources,48,'48 citation entries visible');
     assert.equal(metrics.radiologistSources,17,'17 radiologist source links visible');
+    assert.equal(metrics.technologistSources,11,'11 radiologic technologist sources required');
+    assert.equal(metrics.technologistHospitals,7,'Seven technologist staffing institutions required');
+    assert.equal(metrics.technologistBars,6,'Six technologist SVG-free bar visualizations required');
+    assert(metrics.technologistMapFallback,'Technologist no-CDN map links required');
+    assert(metrics.techSectorCanvas&&metrics.techShikokuCanvas,'Interactive technologist canvas targets missing');
     assert.equal(metrics.radiologistFacilities,8,'8 radiologist institution records visible');
     assert.equal(metrics.radiologistBars,12,'6 regional and 6 age distribution bars visible');
     assert(metrics.radiologistMapFallback,'Radiology offline facility map missing');
