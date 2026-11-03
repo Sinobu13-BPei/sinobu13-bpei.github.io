@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "title": "愛媛県 診療放射線技師と放射線科標榜施設",
+    "editor": "日野富子",
+    "updated": "2026-11-03",
+    "snapshot": "技師数2023年10月1日／施設人数は公表資料ごと／放射線科施設掲載数は民間ディレクトリの閲覧時点",
+    "definition": "診療放射線技師＝病院・診療所等で働く常勤換算（実人数と異なる）。放射線科施設数＝民間名簿掲載検索件数であり、行政の施設全数ではない。",
+    "limitations": "施設別技師人数は異なる基準日・常勤換算方式・集計対象であり合算しない。病院診療科と画像診断実施体制は必ずしも同義ではない。"
+  },
+  "prefecture": {
+    "year": 2023,
+    "totalFTE": 637,
+    "hospitalFTE": 547.2,
+    "otherFTE": 89.8,
+    "otherMethod": "637.0−547.2を差引算出、診療所等相当。公表集計の対象を独立照合した厳密な診療所数ではない",
+    "per100k": 49.8,
+    "nationalPer100k": 46.9,
+    "nationalRank": 20,
+    "totalSource": "T01",
+    "hospitalSource": "T02"
+  },
+  "regionComparison": [
+    [
+      "徳島県",
+      403.9,
+      58.4
+    ],
+    [
+      "香川県",
+      470.1,
+      50.5
+    ],
+    [
+      "愛媛県",
+      637,
+      49.8
+    ],
+    [
+      "高知県",
+      357.3,
+      54.6
+    ]
+  ],
+  "radiologyFacilities": {
+    "directorySnapshot": "2026年11月検索時点",
+    "allListCount": 111,
+    "allListName": "Caloo 放射線科を検索条件とする病院・クリニック掲載件数",
+    "allSource": "T03",
+    "hospitalListCount": 63,
+    "hospitalListName": "ホスピタルズ・ファイル 放射線科の病院掲載件数",
+    "hospitalSource": "T04",
+    "warning": "媒体・掲載範囲・更新日が異なる。111件と63件は足し引きできない。行政の『標榜施設数』の確定値でもない。専門医在籍施設の数とも異なる。"
+  },
+  "facilities": [
+    {
+      "name": "愛媛県立中央病院",
+      "area": "松山",
+      "techs": 39,
+      "asOf": "公式ページ更新2026-04-06",
+      "basis": "放射線部在籍人数（診療放射線技師39名、補助職員11名）",
+      "url": "https://www.eph.pref.ehime.jp/epch/guide/department/support/xray/index.html",
+      "source": "T05",
+      "lat": 33.831,
+      "lon": 132.764,
+      "city": "松山市"
+    },
+    {
+      "name": "四国がんセンター",
+      "area": "松山",
+      "techs": 24,
+      "asOf": "公式採用ページ（基準日未記載、旧情報の可能性）",
+      "basis": "男性21人・女性3人、計24人。2025年病床機能報告を基にした他集計と異なる可能性あり。",
+      "url": "https://shikoku-cc.hosp.go.jp/recruit/adoption/technology/radiological/",
+      "source": "T06",
+      "lat": 33.811,
+      "lon": 132.852,
+      "city": "松山市"
+    },
+    {
+      "name": "市立宇和島病院",
+      "area": "宇和島",
+      "techs": 21,
+      "asOf": "2021-12-31",
+      "basis": "放射線科（技師）スタッフ数。2026年現員ではない。",
+      "url": "https://www.uwajima-mh.jp/04course/index06b.html",
+      "source": "T07",
+      "lat": 33.221,
+      "lon": 132.561,
+      "city": "宇和島市"
+    },
+    {
+      "name": "愛媛県立新居浜病院",
+      "area": "新居浜・西条",
+      "techs": 10,
+      "asOf": "公式サイト本文（基準年月未記載）",
+      "basis": "放射線科医師2人との協働体制。別の広報誌で11人と記載の期間があるため最新現員と断定しない。",
+      "url": "https://www.eph.pref.ehime.jp/epnh/dept/radiation.html",
+      "source": "T08",
+      "lat": 33.957,
+      "lon": 133.269,
+      "city": "新居浜市"
+    },
+    {
+      "name": "愛媛労災病院",
+      "area": "新居浜・西条",
+      "techs": 10,
+      "asOf": "公式サイト本文（基準年月未記載）",
+      "basis": "中央放射線部のスタッフ構成：診療放射線技師10名。",
+      "url": "https://www.ehimeh.johas.go.jp/group/radiation/",
+      "source": "T09",
+      "lat": 33.97,
+      "lon": 133.292,
+      "city": "新居浜市"
+    },
+    {
+      "name": "愛媛県立今治病院",
+      "area": "今治",
+      "techs": 9,
+      "asOf": "公式サイト本文（基準年月未記載）",
+      "basis": "放射線部のスタッフ構成：放射線技師9名。",
+      "url": "https://www.eph.pref.ehime.jp/epimah/department/radiation/index.html",
+      "source": "T10",
+      "lat": 34.078,
+      "lon": 132.999,
+      "city": "今治市"
+    },
+    {
+      "name": "国立病院機構 愛媛医療センター",
+      "area": "松山",
+      "techs": 6,
+      "asOf": "公式サイト本文（基準年月未記載）",
+      "basis": "放射線技師部門の説明：在籍6名。",
+      "url": "https://ehime.hosp.go.jp/station/radiology.html",
+      "source": "T11",
+      "lat": 33.791,
+      "lon": 132.885,
+      "city": "東温市"
+    }
+  ],
+  "sources": [
+    [
+      "T01",
+      "SCUEL 診療放射線技師 医療人材インサイト（厚生労働省・2023年医療施設調査二次集計）",
+      "2023年10月／2026-10-14集計生成",
+      "https://scueldata.me/insight/workforce/radiologic-technologist/"
+    ],
+    [
+      "T02",
+      "ジョブメドレー：愛媛県内病院の診療放射線技師数（令和5年医療施設調査に基づく）",
+      "2023年10月1日",
+      "https://job-medley.com/rt/pref38/"
+    ],
+    [
+      "T03",
+      "Caloo 放射線科 愛媛県の病院・クリニック検索結果",
+      "2026-11-03検索確認時点",
+      "https://caloo.jp/hospitals/search/38/k146"
+    ],
+    [
+      "T04",
+      "ホスピタルズ・ファイル 愛媛県の放射線科の病院検索結果",
+      "2026年10月掲載情報／2026-11-03確認",
+      "https://hospitalsfile.doctorsfile.jp/search/ms67_st38/"
+    ],
+    [
+      "T05",
+      "愛媛県立中央病院 放射線部スタッフ紹介",
+      "2026-04-06ページ更新",
+      "https://www.eph.pref.ehime.jp/epch/guide/department/support/xray/index.html"
+    ],
+    [
+      "T06",
+      "四国がんセンター 診療放射線技師採用情報・スタッフ紹介",
+      "基準年月未記載",
+      "https://shikoku-cc.hosp.go.jp/recruit/adoption/technology/radiological/"
+    ],
+    [
+      "T07",
+      "市立宇和島病院 放射線科（技師）スタッフ紹介",
+      "2021-12-31",
+      "https://www.uwajima-mh.jp/04course/index06b.html"
+    ],
+    [
+      "T08",
+      "愛媛県立新居浜病院 放射線部スタッフ紹介",
+      "ページ本文基準年月未記載",
+      "https://www.eph.pref.ehime.jp/epnh/dept/radiation.html"
+    ],
+    [
+      "T09",
+      "愛媛労災病院 中央放射線部スタッフ紹介",
+      "ページ本文基準年月未記載",
+      "https://www.ehimeh.johas.go.jp/group/radiation/"
+    ],
+    [
+      "T10",
+      "愛媛県立今治病院 放射線部スタッフ構成",
+      "ページ本文基準年月未記載",
+      "https://www.eph.pref.ehime.jp/epimah/department/radiation/index.html"
+    ],
+    [
+      "T11",
+      "国立病院機構 愛媛医療センター 放射線技師部門",
+      "ページ本文基準年月未記載",
+      "https://ehime.hosp.go.jp/station/radiology.html"
+    ]
+  ]
+}
