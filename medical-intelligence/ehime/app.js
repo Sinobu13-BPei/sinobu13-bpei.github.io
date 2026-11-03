@@ -192,6 +192,63 @@
     update();
   }
 
+
+  function initializeRadiologyWorkforce(){
+    const src=one('#ehime-radiology-data');
+    if(!src)return;
+    let d;
+    try{d=JSON.parse(src.textContent)}catch(err){
+      console.warn('Radiologist data unavailable; static tables and diagrams remain',err);return;
+    }
+    if(window.Chart){
+      plot('radiologyRegionChart','bar',d.regions.map(x=>x.name),
+        [{label:'2024年 放射線科医師（人）',data:d.regions.map(x=>x.count),backgroundColor:'#0d7e9c'}],
+        {indexAxis:'y'});
+      plot('radiologyAgeChart','bar',d.nationalAge2024.groups.map(x=>x[0]),
+        [{label:'全国放射線科医師の人数（愛媛県ではない）',data:d.nationalAge2024.groups.map(x=>x[1]),backgroundColor:'#6d74b1'}],
+        {indexAxis:'y'});
+      for(const chartId of ['radiologyRegionChart','radiologyAgeChart']){
+        const canvas=one('#'+chartId);
+        const staticBars=canvas?.parentElement?.querySelector('.rd-static');
+        if(canvas&&!canvas.hidden&&staticBars)staticBars.hidden=true;
+      }
+    }
+    const holder=one('#radiologyMap');
+    if(!holder||!window.L)return;
+    const backup=holder.innerHTML;
+    let leaflet=null,failedTiles=0,restored=false;
+    function fallback(){
+      if(restored)return;
+      restored=true;
+      try{leaflet?.remove()}catch(_e){}
+      holder.classList.remove('rd-map-ready');
+      holder.innerHTML=backup;
+    }
+    try{
+      holder.replaceChildren();
+      holder.classList.add('rd-map-ready');
+      leaflet=window.L.map(holder,{scrollWheelZoom:false}).setView([33.65,132.88],8);
+      window.L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{
+        maxZoom:18,
+        attribution:'国土地理院「地理院タイル」'
+      }).on('tileerror',()=>{if(++failedTiles>=8)fallback()}).addTo(leaflet);
+      for(const f of d.facilities){
+        const popup=document.createElement('div');
+        const name=document.createElement('strong');name.textContent=f.name;
+        const desc=document.createElement('p');desc.textContent=f.countLabel+'｜'+f.asOf+'。公表時点の異なる数値であり、現在の医師人数を保証しません。';
+        const link=document.createElement('a');link.href=f.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='施設の公開情報を見る ↗';
+        popup.append(name,desc,link);
+        window.L.circleMarker([f.lat,f.lon],{
+          radius:8,color:'#145c79',weight:2,fillColor:'#23a1ad',fillOpacity:.9
+        }).addTo(leaflet).bindPopup(popup);
+      }
+      requestAnimationFrame(()=>leaflet.invalidateSize());
+    }catch(err){
+      console.warn('Radiology map unavailable; keeping static facility links',err);
+      fallback();
+    }
+  }
+
   function navigation(){
     const nav=all('.toc a[href^="#"]'),section=nav.map(a=>one(a.getAttribute('href'))).filter(Boolean);
     if('IntersectionObserver' in window){
@@ -223,7 +280,7 @@
     update();
   }
   function boot(){
-    search();navigation();initializeMarketExtension();initializeFundingFilters();
+    search();navigation();initializeMarketExtension();initializeFundingFilters();initializeRadiologyWorkforce();
     try{
       const d=JSON.parse(one('#ehime-embedded-data').textContent);
       if(!Array.isArray(d.regions)||!Array.isArray(d.sources))return;
