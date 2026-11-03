@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-10-31",
+    "updated": "2026-11-03",
     "population2026": 1244298,
     "forecast2030": 1203481,
     "forecast2040": 1073827,
@@ -9,7 +9,8 @@
     "note": "2025病床機能報告（2025/7/1）の病床数。休棟等を含む総数は機能4分類計と異なる",
     "editor": "日野富子",
     "edition": "既存の病床・人口・医療圏・行政等を維持し、2020年市町市場推計と2024年流通推計、2026年補助制度を区分して追加",
-    "marketSupplement": "market-subsidy-2026.json"
+    "marketSupplement": "market-subsidy-2026.json",
+    "fundingSupplement": "funding-donations-2026.json"
   },
   "population": [
     {
@@ -677,6 +678,96 @@
       "四国中央市 診療所開業等支援事業費補助金",
       "市公式掲載、2024-07-01更新",
       "https://www.city.shikokuchuo.ehime.jp/soshiki/58/46848.html"
+    ],
+    [
+      "S34",
+      "愛媛県 医師の働き方改革・病院業務効率化支援（5病院内示）",
+      "2026年度",
+      "https://www.pref.ehime.jp/page/4182.html"
+    ],
+    [
+      "S35",
+      "愛媛県 医療機関等の賃上げ・物価上昇支援事業",
+      "2026年度・申請期限2026-07-10",
+      "https://www.pref.ehime.jp/page/134738.html"
+    ],
+    [
+      "S36",
+      "愛媛県 病床数適正化緊急支援事業",
+      "2026年度・第2回申請期限2026-09-30",
+      "https://www.pref.ehime.jp/page/149317.html"
+    ],
+    [
+      "S37",
+      "JKA 2027年度 検診車・診療車等の補助申請案内",
+      "2027年度補助・登録2026-11-06・申請2026-11-13",
+      "https://www.jka-cycle.jp/shinsei"
+    ],
+    [
+      "S38",
+      "日本宝くじ協会 公益法人等が行う公益事業への助成",
+      "2027年度事業・申請終了2026-10-15",
+      "https://jla-takarakuji.or.jp/bosyu/"
+    ],
+    [
+      "S39",
+      "日本財団 2027年度助成金募集",
+      "2027年度・受付終了2026-10-30",
+      "https://www.nippon-foundation.or.jp/who/news/information/2026/20261001-125381.html"
+    ],
+    [
+      "S40",
+      "愛媛県 企業版ふるさと納税",
+      "2026-06更新",
+      "https://www.pref.ehime.jp/page/4535.html"
+    ],
+    [
+      "S41",
+      "宇和島市 企業版ふるさと納税の物納寄附公表事例",
+      "2024-03-15",
+      "https://www.city.uwajima.ehime.jp/soshiki/1/kigyoubanfurusatonouzeimutou.html"
+    ],
+    [
+      "S42",
+      "愛媛県共同募金会 障害福祉サービス事業所整備事業",
+      "2026年度募集・2026-05-15締切",
+      "https://www.akaihane-ehime.or.jp/site/josei/syougaifukusisa-bisuzigyousyo.html"
+    ],
+    [
+      "S43",
+      "AMED 令和8年度医療機器開発推進研究事業ヘルステック・チャレンジ",
+      "2026-11-04 12:00締切",
+      "https://www.amed.go.jp/koubo/03002/01/B_00020.html"
+    ],
+    [
+      "S44",
+      "AMED 令和8年度医工連携・人工知能実装研究事業",
+      "2026年度募集終了",
+      "https://www.amed.go.jp/koubo/03005/01/B_00005.html"
+    ],
+    [
+      "S45",
+      "デジタル化・AI導入補助金2026 公募日程",
+      "2026-10-30の公募回終了",
+      "https://it-shien.smrj.go.jp/schedule"
+    ],
+    [
+      "S46",
+      "中小企業省力化投資補助金（一般型）",
+      "公募回別・2026-11時点要確認",
+      "https://shoryokuka.smrj.go.jp/ippan/"
+    ],
+    [
+      "S47",
+      "公益財団法人武田科学振興財団 助成案内",
+      "年度別研究助成・公募確認",
+      "https://www.takeda-sci.or.jp/"
+    ],
+    [
+      "S48",
+      "公益財団法人持田記念医学薬学振興財団 研究助成案内",
+      "年度別研究助成・公募確認",
+      "https://www.mochidazaidan.or.jp/"
     ]
   ],
   "additionalEvidence": {
