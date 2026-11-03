@@ -160,6 +160,38 @@
     }
   }
 
+
+  function initializeFundingFilters(){
+    const search=one('#fundingSearch'),category=one('#fundingCategory'),status=one('#fundingStatus'),reset=one('#fundingReset');
+    const count=one('#fundingCount'),empty=one('#fundingEmpty');
+    const cards=all('#fundingCards .resource-card');
+    if(!search||!category||!status||!cards.length)return;
+    const norm=v=>String(v||'').normalize('NFKC').toLocaleLowerCase('ja-JP').replace(/\s+/g,' ').trim();
+    function update(){
+      const word=norm(search.value);
+      const kind=category.value;
+      const state=status.value;
+      let hits=0;
+      cards.forEach(card=>{
+        const ok=(!word||norm(card.dataset.search||card.textContent).includes(word))&&
+          (!kind||card.dataset.category===kind)&&(!state||card.dataset.status===state);
+        card.hidden=!ok;
+        if(ok)hits++;
+      });
+      if(count)count.textContent=hits+'件 / 全'+cards.length+'件';
+      if(empty)empty.hidden=hits!==0;
+      if(reset)reset.disabled=!word&&!kind&&!state;
+    }
+    search.addEventListener('input',update);
+    category.addEventListener('change',update);
+    status.addEventListener('change',update);
+    reset?.addEventListener('click',()=>{
+      search.value='';category.value='';status.value='';
+      update();search.focus();
+    });
+    update();
+  }
+
   function navigation(){
     const nav=all('.toc a[href^="#"]'),section=nav.map(a=>one(a.getAttribute('href'))).filter(Boolean);
     if('IntersectionObserver' in window){
@@ -191,7 +223,7 @@
     update();
   }
   function boot(){
-    search();navigation();initializeMarketExtension();
+    search();navigation();initializeMarketExtension();initializeFundingFilters();
     try{
       const d=JSON.parse(one('#ehime-embedded-data').textContent);
       if(!Array.isArray(d.regions)||!Array.isArray(d.sources))return;
