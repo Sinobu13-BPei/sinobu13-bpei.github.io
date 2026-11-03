@@ -20,12 +20,12 @@ const idSet=new Set(ids);
 assert.equal(idSet.size,ids.length,'Duplicate HTML ids');
 assert([...html.matchAll(/href="#([^"]+)"/g)].every(m=>idSet.has(m[1])),'Broken internal anchor');
 assert([...html.matchAll(/href="#(S\d\d)"/g)].every(m=>data.sources.some(x=>x[0]===m[1])),'Unknown source reference');
-assert.equal(data.sources.length,33,'Source registry count changed unexpectedly');
+assert.equal(data.sources.length,48,'Source registry count changed unexpectedly');
 assert.equal(data.regions.length,6,'Expected 6 medical areas');
 assert.equal(data.regions.reduce((sum,r)=>sum+r.total,0),17006,'Medical area reported bed total mismatch');
 assert.equal(data.additionalEvidence.clinic2023.clinics,1175,'Clinic benchmark mismatch');
 
-for(const section of ['summary','population','beds','providers','university','devices','local-market','dealer-share','subsidies','evidence','channels','external','strategy','sources']){
+for(const section of ['summary','population','beds','providers','university','devices','local-market','dealer-share','subsidies','funding-donations','evidence','channels','external','strategy','sources']){
   assert(idSet.has(section),'Missing section: '+section);
   assert(html.includes('href="#'+section+'"'),'Missing navigation link: '+section);
 }
@@ -59,6 +59,18 @@ assert.equal(ext.dealers.year,2024,'Dealer figures must be labelled 2024');
 assert.equal(ext.subsidies.length,7,'Expected 7 subsidy programs');
 assert.equal(ext.markers.length,9,'Expected 9 policy map markers');
 assert(html.includes('2026年度募集の協議書期限終了'),'Uwajima deadline must be clearly marked');
+const finance=JSON.parse(load('data/funding-donations-2026.json'));
+const financeInline=html.match(/<script type="application\/json" id="ehime-funding-data">([\s\S]*?)<\/script>/);
+assert(financeInline,'Embedded grants & donation registry missing');
+assert.deepEqual(JSON.parse(financeInline[1]),finance,'Embedded funding data differs from JSON');
+assert.equal(finance.records.length,18,'Expected 18 curated grants and donation resources');
+assert.equal(new Set(finance.records.map(x=>x.id)).size,18,'Duplicate funding resource IDs');
+assert(finance.records.every(x=>x.url.startsWith('https://')),'Funding entries must have official secure source URL');
+assert(finance.records.every(x=>data.sources.some(s=>s[0]===x.source)),'Funding record missing source register reference');
+assert(html.includes('id="fundingSearch"')&&html.includes('id="fundingCategory"')&&html.includes('id="fundingStatus"'),'Funding filter inputs missing');
+assert(html.includes('id="fundingEmpty"'),'Funding empty state missing');
+assert(html.includes('寄附')&&html.includes('2026年11月3日'),'Funding publication date or donation title missing');
+assert.equal((html.match(/class="resource-card"/g)||[]).length,18,'Expected 18 HTML funding cards');
 assert(html.includes('id="facilityEmpty"'),'Search no-result feedback missing');
 assert(html.includes('id="clearFacilitySearch"'),'Search clear control missing');
 assert(html.includes('id="readingProgress"'),'Reading progress indicator missing');
@@ -73,6 +85,6 @@ assert(!/CMSC|販社同席率|社内目標|社外秘/.test(html),'Confidential c
 
 const siteIndex=load('../index.html');
 assert(siteIndex.includes('medical-intelligence/ehime/'),'Missing prefecture hub link');
-console.log(JSON.stringify({result:'PASS',sections:14,regions:data.regions.length,
+console.log(JSON.stringify({result:'PASS',sections:15,regions:data.regions.length,
   hospitals:data.facilities.length,sourceCount:data.sources.length,svgFallbacks:4,
   editor:'日野富子',responsive:true,jsSyntax:'PASS'},null,2));
