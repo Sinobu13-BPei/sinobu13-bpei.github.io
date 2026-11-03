@@ -25,6 +25,12 @@ try{
       return {
         overflow:d.scrollWidth-window.innerWidth,
         sources:document.querySelectorAll('#sourceList li').length,
+        radiologistSources:document.querySelectorAll('.rd-source-list li').length,
+        radiologistFacilities:document.querySelectorAll('.rd-facility-table tbody tr').length,
+        radiologistBars:document.querySelectorAll('.rd-static .rd-bar').length,
+        radiologistMapFallback:!!document.querySelector('#radiologyMap .rd-map-fallback'),
+        radiologistRegionChart:!!document.querySelector('#radiologyRegionChart'),
+        radiologistAgeChart:!!document.querySelector('#radiologyAgeChart'),
         resourceCards:document.querySelectorAll('#fundingCards .resource-card').length,
         financeCharts:document.querySelectorAll('#funding-donations .funding-bar').length,
         donationSourceLinks:document.querySelectorAll('#fundingCards .resource-sourcelink').length,
@@ -60,6 +66,11 @@ try{
     console.log('Viewport diagnostics:',width,JSON.stringify(metrics));
     assert(metrics.overflow<=1,'Horizontal viewport overflow at '+width+': '+metrics.overflow+'px');
     assert.equal(metrics.sources,48,'48 citation entries visible');
+    assert.equal(metrics.radiologistSources,17,'17 radiologist source links visible');
+    assert.equal(metrics.radiologistFacilities,8,'8 radiologist institution records visible');
+    assert.equal(metrics.radiologistBars,12,'6 regional and 6 age distribution bars visible');
+    assert(metrics.radiologistMapFallback,'Radiology offline facility map missing');
+    assert(metrics.radiologistRegionChart && metrics.radiologistAgeChart,'Radiology interactive canvas targets missing');
     assert.equal(metrics.resourceCards,18,'Funding cards not rendered');
     assert.equal(metrics.financeCharts,4,'Funding category chart missing');
     assert.equal(metrics.donationSourceLinks,18,'Citation per funding entry missing');
