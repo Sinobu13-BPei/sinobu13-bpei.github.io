@@ -211,3 +211,88 @@ footer .footer-button{min-height:44px}
  .subsidy-map-fallback{padding:12px}
 }
 @media(prefers-reduced-motion:reduce){.market-extension-section *{scroll-behavior:auto}}
+
+/* Ehime grants, donations and medical AI funding — 2026-11-03 */
+#funding-donations{scroll-margin-top:110px}
+.funding-intro-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:19px 0 15px}
+.funding-intro-metrics article{background:#f3f9fc;border:1px solid #d5e5ed;border-radius:12px;padding:12px 14px;min-width:0}
+.funding-intro-metrics strong{display:block;font-size:clamp(1.45rem,3vw,2.1rem);line-height:1.3;color:#0b5a78;font-weight:850;font-variant-numeric:tabular-nums}
+.funding-intro-metrics small{display:block;color:#41657b;font-size:12px;line-height:1.5}
+.funding-overview{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+.funding-overview>.panel{min-width:0}
+.funding-overview h3,.funding-filter-head h3{margin:0 0 10px}
+.funding-chart{display:flex;flex-direction:column;gap:17px;justify-content:space-evenly;min-height:230px;padding:9px 0}
+.funding-bar{display:grid;grid-template-columns:126px minmax(0,1fr) 45px;gap:8px;align-items:center;font-size:12px}
+.funding-bar>b{font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.funding-bar-track{height:17px;border-radius:5px;background:#e6eff4;overflow:hidden}
+.funding-bar-track span{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,#0b769b,#38a7ac)}
+.funding-bar>strong{text-align:right;font-variant-numeric:tabular-nums;color:#0b5971}
+.funding-deadlines{list-style:none;margin:12px 0;padding:0;display:grid;gap:10px}
+.funding-deadlines li{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:12px;align-items:center;border-bottom:1px solid #e3ecf1;padding:9px 0}
+.funding-deadlines time{font-size:13px;font-weight:850;color:#ad5b16;white-space:nowrap}
+.funding-deadlines span{font-size:13px;line-height:1.45}
+.funding-deadlines small{display:block;color:#5b7a8d;font-size:11px}
+.funding-deadlines a{font-size:12px;font-weight:750}
+.funding-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:16px 0}
+.funding-step{position:relative;background:#f2f9fb;border:1px solid #c9e4e9;border-radius:13px;padding:16px 12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.funding-step:not(:last-child)::after{content:'›';position:absolute;right:-15px;top:30%;font-weight:850;font-size:25px;color:#167997}
+.funding-step>span{display:grid;place-items:center;height:30px;width:30px;border-radius:9px;background:#0c6b83;color:#fff;font-size:12px;font-weight:850}
+.funding-step b{font-size:13px;line-height:1.5}
+.funding-step small{font-size:11px;line-height:1.55;color:#547384}
+.funding-ethics{border-left:3px solid #c48a38;padding:13px 15px;background:#fbf8f0;border-radius:8px}
+.funding-ethics strong{font-size:14px;color:#704b1d}
+.funding-ethics p{color:#665b48;font-size:12px;margin:6px 0 0}
+.funding-filter-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
+.funding-filter-head p{font-size:12px;color:#526f81;margin:0 0 11px}
+#fundingCount{font-size:14px;color:#0b617c;white-space:nowrap;font-variant-numeric:tabular-nums}
+.funding-filters{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1.4fr) minmax(0,1.3fr) auto;gap:9px;align-items:end;margin:11px 0 17px}
+.funding-filters label{font-size:12px;font-weight:750;color:#385c71}
+.funding-filters input,.funding-filters select{display:block;width:100%;min-width:0;min-height:44px;border:1px solid #adc7d3;color:#173b50;background:white;border-radius:9px;padding:9px 11px;margin-top:5px;font:inherit;font-weight:500;font-size:13px}
+.funding-filters button{min-height:44px;border:1px solid #c0d5e0;border-radius:9px;padding:8px 12px;font-weight:800;background:#e9f4f7;color:#0e5672;cursor:pointer;white-space:nowrap}
+.funding-filters button:hover{background:#d7eef4}
+.resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.resource-card{min-width:0;border:1px solid #d5e3eb;border-radius:14px;padding:15px;background:#fcfeff;display:flex;flex-direction:column;gap:9px}
+.resource-card[hidden]{display:none!important}
+.resource-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center}
+.resource-type{font-size:12px;color:#335e72;font-weight:800;display:flex;align-items:center;gap:5px}
+.resource-type i{font-style:normal;width:24px;height:24px;display:grid;place-items:center;border-radius:8px;background:#e2f0f4;color:#146783}
+.resource-status{font-size:11px;line-height:1.45;border-radius:999px;padding:4px 8px;white-space:normal;text-align:right;font-weight:750;background:#e7edf1;color:#486377}
+.resource-open{background:#e5f5ed;color:#186846}
+.resource-closed{background:#f0f1f3;color:#65717c}
+.resource-review{background:#e6effa;color:#315f8c}
+.resource-history{background:#f1ebfb;color:#674f8d}
+.resource-card h3{margin:0;font-size:16px;line-height:1.5;color:#183f56}
+.resource-amount{background:#edf6f9;color:#135d7a;border-radius:9px;padding:8px 10px;font-weight:800;font-size:13px;line-height:1.6}
+.resource-summary{font-size:13px;margin:0;color:#36576c;line-height:1.7}
+.resource-fields{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:0}
+.resource-fields div{border-top:1px solid #e5eef2;padding:6px 0;min-width:0}
+.resource-fields dt{color:#657d8b;font-size:10px;font-weight:750}
+.resource-fields dd{margin:0;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.resource-caution{font-size:12px;color:#6b543f;background:#fcf9f0;padding:10px;border-radius:7px;line-height:1.7;margin:0}
+.resource-actions{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;flex-wrap:wrap}
+.resource-official{min-height:44px;display:inline-flex;align-items:center;text-decoration:none;background:#0a657f;border-radius:9px;color:white!important;padding:8px 13px;font-size:12px;font-weight:850}
+.resource-official:hover{background:#064a62;text-decoration:none}
+.resource-sourcelink{font-size:12px;font-weight:750}
+#fundingEmpty{padding:20px;border:1px dashed #abc8d5;border-radius:12px;background:#f7fbfd;color:#41677e}
+@media(max-width:920px){
+ .funding-overview{grid-template-columns:1fr}
+ .funding-flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .funding-step:nth-child(2)::after{content:none}
+ .funding-filters{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}
+ .funding-filters button{justify-self:start}
+}
+@media(max-width:660px){
+ .funding-intro-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .resource-grid{grid-template-columns:1fr}
+ .funding-filters{grid-template-columns:1fr}
+ .funding-filters label,.funding-filters button{width:100%}
+ .funding-deadlines li{grid-template-columns:1fr;gap:4px}
+ .funding-deadlines a{justify-self:start}
+ .funding-flow{grid-template-columns:1fr;gap:12px}
+ .funding-step::after{content:none!important}
+ .resource-card{padding:14px}
+ .resource-fields{grid-template-columns:1fr}
+ .funding-bar{grid-template-columns:100px minmax(0,1fr) 34px;gap:6px;font-size:11px}
+ .funding-bar>b{font-size:11px}
+ .funding-filter-head{flex-wrap:wrap}
+}
