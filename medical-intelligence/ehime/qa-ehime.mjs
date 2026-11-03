@@ -25,7 +25,7 @@ assert.equal(data.regions.length,6,'Expected 6 medical areas');
 assert.equal(data.regions.reduce((sum,r)=>sum+r.total,0),17006,'Medical area reported bed total mismatch');
 assert.equal(data.additionalEvidence.clinic2023.clinics,1175,'Clinic benchmark mismatch');
 
-for(const section of ['summary','population','beds','providers','university','devices','local-market','dealer-share','subsidies','funding-donations','evidence','channels','external','strategy','sources']){
+for(const section of ['summary','population','beds','providers','radiologists','university','devices','local-market','dealer-share','subsidies','funding-donations','evidence','channels','external','strategy','sources']){
   assert(idSet.has(section),'Missing section: '+section);
   assert(html.includes('href="#'+section+'"'),'Missing navigation link: '+section);
 }
@@ -71,6 +71,22 @@ assert(html.includes('id="fundingSearch"')&&html.includes('id="fundingCategory"'
 assert(html.includes('id="fundingEmpty"'),'Funding empty state missing');
 assert(html.includes('寄附')&&html.includes('2026年11月3日'),'Funding publication date or donation title missing');
 assert.equal((html.match(/class="resource-card"/g)||[]).length,18,'Expected 18 HTML funding cards');
+const radiology=JSON.parse(load('data/radiology-physicians-2026.json'));
+const radiologyInline=html.match(/<script type="application\/json" id="ehime-radiology-data">([\s\S]*?)<\/script>/);
+assert(radiologyInline,'Radiologist embedded JSON missing');
+assert.deepEqual(JSON.parse(radiologyInline[1]),radiology,'Radiology embedded and stored dataset mismatch');
+assert.equal(radiology.prefecture.radiologists,127,'Ehime physician count mismatch');
+assert.equal(radiology.regions.reduce((total,x)=>total+x.count,0),127,'Region headcount does not sum to 127');
+assert.equal(radiology.nationalAge2024.groups.reduce((total,x)=>total+x[1],0),7533,'National radiology age bands mismatch');
+assert.equal(radiology.facilities.length,8,'Expected 8 hospitals / institutions');
+assert.equal(radiology.sources.length,17,'Expected 17 radiology sources');
+for(const s of radiology.sources)assert(html.includes('id="'+s[0]+'"'),'Radiology source anchor missing '+s[0]);
+assert.equal((html.match(/class="rd-bar"/g)||[]).length,12,'Expected 12 static bars for regions / nationwide age groups');
+assert.equal((html.match(/class="rd-map-fallback"/g)||[]).length,1,'Radiology no-JS map missing');
+assert(html.includes('id="radiologyRegionChart"')&&html.includes('id="radiologyAgeChart"'),'Radiologist charts missing');
+assert(html.includes('愛媛県の年齢構成ではありません'),'Must not conflate nationwide ages with Ehime');
+assert(html.includes('医局の在籍数')&&html.includes('常勤数'),'Hospital and department count definitions missing');
+
 assert(html.includes('id="facilityEmpty"'),'Search no-result feedback missing');
 assert(html.includes('id="clearFacilitySearch"'),'Search clear control missing');
 assert(html.includes('id="readingProgress"'),'Reading progress indicator missing');
@@ -85,6 +101,6 @@ assert(!/CMSC|販社同席率|社内目標|社外秘/.test(html),'Confidential c
 
 const siteIndex=load('../index.html');
 assert(siteIndex.includes('medical-intelligence/ehime/'),'Missing prefecture hub link');
-console.log(JSON.stringify({result:'PASS',sections:15,regions:data.regions.length,
+console.log(JSON.stringify({result:'PASS',sections:16,regions:data.regions.length,
   hospitals:data.facilities.length,sourceCount:data.sources.length,svgFallbacks:4,
   editor:'日野富子',responsive:true,jsSyntax:'PASS'},null,2));
