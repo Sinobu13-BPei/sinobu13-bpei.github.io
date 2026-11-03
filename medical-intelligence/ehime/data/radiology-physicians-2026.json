@@ -1,0 +1,361 @@
+{
+  "meta": {
+    "title": "愛媛県 放射線科医師の配置・施設・年齢参考データ",
+    "editor": "日野富子",
+    "updated": "2026-11-03",
+    "snapshot": "医師数：2024-12-31／施設：出典の各公表時点",
+    "method": "2024年主たる診療科『放射線科』の医療施設従事医師。厚生労働省統計を二次集計したSCUEL公開値。年齢は2024年の全国値のみ。施設別数値は一次情報の過去公表値であり、都道府県人数へ単純合算しない。"
+  },
+  "prefecture": {
+    "name": "愛媛県",
+    "year": 2024,
+    "radiologists": 127,
+    "prior1998": 82,
+    "per100k": 9.8,
+    "comparisonNationalPer100k": 6.1,
+    "radiologySpecialists": 100,
+    "source": "R49",
+    "specialistsSource": "R49",
+    "note": "専門医資格保有100人は、主たる診療科127人とは統計概念が異なる。差分27人を専攻医数と解釈しない。"
+  },
+  "regions": [
+    {
+      "name": "松山",
+      "count": 86,
+      "per100k": 13.8,
+      "source": "R50",
+      "center": [
+        33.84,
+        132.77
+      ]
+    },
+    {
+      "name": "今治",
+      "count": 15,
+      "per100k": 9.8,
+      "source": "R51",
+      "center": [
+        34.07,
+        133
+      ]
+    },
+    {
+      "name": "新居浜・西条",
+      "count": 10,
+      "per100k": 4.6,
+      "source": "R52",
+      "center": [
+        33.94,
+        133.29
+      ]
+    },
+    {
+      "name": "宇和島",
+      "count": 8,
+      "per100k": 8.2,
+      "source": "R53",
+      "center": [
+        33.22,
+        132.56
+      ]
+    },
+    {
+      "name": "宇摩",
+      "count": 4,
+      "per100k": 4.9,
+      "source": "R54",
+      "center": [
+        33.97,
+        133.54
+      ]
+    },
+    {
+      "name": "八幡浜・大洲",
+      "count": 4,
+      "per100k": 3.2,
+      "source": "R55",
+      "center": [
+        33.46,
+        132.43
+      ]
+    }
+  ],
+  "nationalAge2024": {
+    "year": 2024,
+    "label": "全国放射線科医師の年齢構成（愛媛県ではない）",
+    "avgAge": 48.2,
+    "total": 7533,
+    "groups": [
+      [
+        "29歳以下",
+        510
+      ],
+      [
+        "30–39歳",
+        1888
+      ],
+      [
+        "40–49歳",
+        1873
+      ],
+      [
+        "50–59歳",
+        1640
+      ],
+      [
+        "60–69歳",
+        1209
+      ],
+      [
+        "70歳以上",
+        413
+      ]
+    ],
+    "source": "R56",
+    "note": "全国の主たる診療科『放射線科』の年齢階級。愛媛県の127人の内訳ではない。"
+  },
+  "facilities": [
+    {
+      "name": "愛媛大学医学部附属病院／放射線医学講座",
+      "area": "松山",
+      "address": "東温市志津川454",
+      "lat": 33.8,
+      "lon": 132.878,
+      "doctorCount": 30,
+      "countLabel": "医局員30人",
+      "countDetail": "2024年4月時点の放射線科医局の医師30人。診断専門医14人・治療専門医4人・大学院生7人は内数／一部重複を含む区分であり、病院常勤人数30人と同義ではない。",
+      "asOf": "2024年4月",
+      "type": "大学医局・在籍数",
+      "url": "https://www.m.ehime-u.ac.jp/school/radiology/students/recruit/",
+      "source": "R57",
+      "age": "非公表（公開情報では確認不能）"
+    },
+    {
+      "name": "愛媛県立中央病院",
+      "area": "松山",
+      "address": "松山市春日町83",
+      "lat": 33.831,
+      "lon": 132.764,
+      "doctorCount": 16,
+      "countLabel": "常勤16人",
+      "countDetail": "2024年3月号広報誌に放射線科常勤医師16人（専攻医3人、女性医師5人を含む）と記載。2026年現在数は別途要確認。",
+      "asOf": "2024年3月号",
+      "type": "病院常勤・過去公表",
+      "url": "https://www.eph.pref.ehime.jp/epch/medical/asset/3no44.pdf",
+      "source": "R58",
+      "age": "非公表（専攻医数は年齢別内訳ではない）"
+    },
+    {
+      "name": "市立宇和島病院",
+      "area": "宇和島",
+      "address": "宇和島市御殿町1-1",
+      "lat": 33.221,
+      "lon": 132.561,
+      "doctorCount": 5,
+      "countLabel": "常勤5人＋非常勤2人",
+      "countDetail": "公式診療科ページの2021年診療総括に常勤5人・非常勤2人。現行スタッフ紹介には6名掲載されるが、掲載人数・常勤換算・2026年在籍数を同一視しない。",
+      "asOf": "2021年診療総括",
+      "type": "病院常勤＋非常勤・過去公表",
+      "url": "https://www.uwajima-mh.jp/04course/index06a.html",
+      "source": "R59",
+      "age": "非公表"
+    },
+    {
+      "name": "愛媛県立今治病院",
+      "area": "今治",
+      "address": "今治市石井町4丁目5-5",
+      "lat": 34.078,
+      "lon": 132.999,
+      "doctorCount": 3,
+      "countLabel": "医師3人",
+      "countDetail": "公式放射線部ページのスタッフ構成に放射線科医師3名と記載。ページ上で厳密な基準年月を特定できないため現員確定値とは扱わない。",
+      "asOf": "公表時点（基準日未記載）",
+      "type": "病院スタッフ構成",
+      "url": "https://www.eph.pref.ehime.jp/epimah/department/radiation/index.html",
+      "source": "R60",
+      "age": "非公表"
+    },
+    {
+      "name": "愛媛県立新居浜病院",
+      "area": "新居浜・西条",
+      "address": "新居浜市本郷3丁目1-1",
+      "lat": 33.957,
+      "lon": 133.269,
+      "doctorCount": 2,
+      "countLabel": "医師2人",
+      "countDetail": "公式放射線部ページに放射線科医師2名。ページの人員データの基準日は未記載。",
+      "asOf": "公表時点（基準日未記載）",
+      "type": "病院スタッフ構成",
+      "url": "https://www.eph.pref.ehime.jp/epnh/dept/radiation.html",
+      "source": "R61",
+      "age": "非公表"
+    },
+    {
+      "name": "愛媛労災病院",
+      "area": "新居浜・西条",
+      "address": "新居浜市南小松原町13-27",
+      "lat": 33.97,
+      "lon": 133.292,
+      "doctorCount": 1,
+      "countLabel": "医師1人",
+      "countDetail": "公式中央放射線部ページに放射線科医師1名。ページの人員データの基準日は未記載。",
+      "asOf": "公表時点（基準日未記載）",
+      "type": "病院スタッフ構成",
+      "url": "https://www.ehimeh.johas.go.jp/group/radiation/",
+      "source": "R62",
+      "age": "非公表"
+    },
+    {
+      "name": "松山赤十字病院",
+      "area": "松山",
+      "address": "松山市文京町1",
+      "lat": 33.851,
+      "lon": 132.771,
+      "doctorCount": null,
+      "countLabel": "施設別人数は未確認",
+      "countDetail": "放射線科の医師紹介と画像診断・放射線治療の公開情報あり。施設別常勤・非常勤人数の統一基準は確認できない。",
+      "asOf": "公式スタッフ紹介（閲覧2026-11）",
+      "type": "人員未確認・機能公開",
+      "url": "https://www.matsuyama.jrc.or.jp/aboutus/fields/radiology/staff/",
+      "source": "R63",
+      "age": "非公表"
+    },
+    {
+      "name": "四国がんセンター",
+      "area": "松山",
+      "address": "松山市南梅本町甲160",
+      "lat": 33.811,
+      "lon": 132.852,
+      "doctorCount": null,
+      "countLabel": "施設別人数は未確認",
+      "countDetail": "がん診療拠点。放射線診断・治療関連部門の詳細は病院公式サイトから確認。今回、放射線科医師の人数と年齢を裏付ける公式集計は得られていない。",
+      "asOf": "2026年11月調査",
+      "type": "人数未確認・主要病院",
+      "url": "https://shikoku-cc.hosp.go.jp/",
+      "source": "R64",
+      "age": "非公表"
+    }
+  ],
+  "analysis": {
+    "matsuyamaShare": 67.71653543307087,
+    "otherAreasCount": 41,
+    "highestRegionalIntensity": {
+      "area": "松山",
+      "per100k": 13.8
+    },
+    "lowestRegionalIntensity": {
+      "area": "八幡浜・大洲",
+      "per100k": 3.2
+    },
+    "points": [
+      "放射線科医師の地理的集中が顕著。装置台数だけでなく画像診断・治療ワークフロー、救急検査、遠隔読影連携の有無を合わせて評価する。",
+      "施設公開の医師数は異なる時点・数え方なので合算しない。大学医局数は専門医・大学院生の内数などと混同しない。",
+      "県内の年齢構成は非公表。全国平均48.2歳を愛媛県の平均年齢と表示してはならない。",
+      "画像診断科と放射線治療科を一括する病院・区別する病院があり、同一基準で横比較できない。"
+    ]
+  },
+  "sources": [
+    [
+      "R49",
+      "SCUEL 愛媛県医師数（厚労省医師・歯科医師・薬剤師統計2024年に基づく二次集計）",
+      "2024年",
+      "https://scueldata.me/insight/workforce/doctor/ehime/"
+    ],
+    [
+      "R50",
+      "SCUEL 松山医療圏・放射線科医師数",
+      "2024年",
+      "https://scueldata.me/insight/workforce/doctor/ehime/area-3804/"
+    ],
+    [
+      "R51",
+      "SCUEL 今治医療圏・放射線科医師数",
+      "2024年",
+      "https://scueldata.me/insight/workforce/doctor/ehime/area-3803/"
+    ],
+    [
+      "R52",
+      "SCUEL 新居浜・西条医療圏・放射線科医師数",
+      "2024年",
+      "https://scueldata.me/insight/workforce/doctor/ehime/area-3802/"
+    ],
+    [
+      "R53",
+      "SCUEL 宇和島医療圏・放射線科医師数",
+      "2024年",
+      "https://scueldata.me/insight/workforce/doctor/ehime/area-3806/"
+    ],
+    [
+      "R54",
+      "SCUEL 宇摩医療圏・放射線科医師数",
+      "2024年",
+      "https://scueldata.me/insight/workforce/doctor/ehime/area-3801/"
+    ],
+    [
+      "R55",
+      "SCUEL 八幡浜・大洲医療圏・放射線科医師数",
+      "2024年",
+      "https://scueldata.me/insight/workforce/doctor/ehime/area-3805/"
+    ],
+    [
+      "R56",
+      "厚生労働省 令和6年医師・歯科医師・薬剤師統計 統計表5（放射線科・全国年齢階級）",
+      "2024年12月31日",
+      "https://www.mhlw.go.jp/toukei/saikin/hw/ishi/24/dl/R06_1gaikyo.pdf"
+    ],
+    [
+      "R57",
+      "愛媛大学放射線医学 入局案内（医局30人）",
+      "2024年4月",
+      "https://www.m.ehime-u.ac.jp/school/radiology/students/recruit/"
+    ],
+    [
+      "R58",
+      "愛媛県立中央病院 地域連携室便り No.44（放射線科医師16人）",
+      "2024年3月号",
+      "https://www.eph.pref.ehime.jp/epch/medical/asset/3no44.pdf"
+    ],
+    [
+      "R59",
+      "市立宇和島病院 放射線科 2021年診療総括・スタッフ紹介",
+      "2021年診療総括／現行掲載",
+      "https://www.uwajima-mh.jp/04course/index06a.html"
+    ],
+    [
+      "R60",
+      "愛媛県立今治病院 放射線部（医師3人）",
+      "掲載年月未記載",
+      "https://www.eph.pref.ehime.jp/epimah/department/radiation/index.html"
+    ],
+    [
+      "R61",
+      "愛媛県立新居浜病院 放射線部（医師2人）",
+      "掲載年月未記載",
+      "https://www.eph.pref.ehime.jp/epnh/dept/radiation.html"
+    ],
+    [
+      "R62",
+      "愛媛労災病院 中央放射線部（医師1人）",
+      "掲載年月未記載",
+      "https://www.ehimeh.johas.go.jp/group/radiation/"
+    ],
+    [
+      "R63",
+      "松山赤十字病院 放射線科 スタッフ紹介",
+      "2026年11月閲覧",
+      "https://www.matsuyama.jrc.or.jp/aboutus/fields/radiology/staff/"
+    ],
+    [
+      "R64",
+      "四国がんセンター 公式ウェブサイト",
+      "2026年11月閲覧",
+      "https://shikoku-cc.hosp.go.jp/"
+    ],
+    [
+      "R65",
+      "e-Stat 医師・歯科医師・薬剤師統計2024 医師（表25・35は主たる診療科集計）",
+      "2025年12月23日公開",
+      "https://www.e-stat.go.jp/stat-search/files?cycle=7&tclass=000001234962&year=20240"
+    ]
+  ]
+}
