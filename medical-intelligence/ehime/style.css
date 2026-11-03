@@ -296,3 +296,68 @@ footer .footer-button{min-height:44px}
  .funding-bar>b{font-size:11px}
  .funding-filter-head{flex-wrap:wrap}
 }
+
+/* Radiologist Workforce 2026-11-03 — public source-backed workforce section */
+#radiologists{scroll-margin-top:105px}
+.rd-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:20px 0 8px}
+.rd-kpis article{background:#f0f8fb;border:1px solid #d0e4ed;border-radius:12px;padding:14px;min-width:0}
+.rd-kpis strong{display:block;font-size:clamp(1.3rem,2.6vw,2rem);color:#085c7b;font-variant-numeric:tabular-nums;line-height:1.4}
+.rd-kpis small{display:block;color:#3e6477;font-size:11px;line-height:1.65}
+.rd-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:14px 0}
+.rd-pair .panel{min-width:0}
+.rd-pair h3{margin:0 0 8px}
+.rd-chart-wrap{height:350px;position:relative;overflow:hidden;min-width:0}
+.rd-chart-wrap canvas:not([hidden]){position:absolute;inset:0;width:100%!important;height:100%!important}
+.rd-static{height:100%;display:flex;flex-direction:column;justify-content:space-evenly;gap:6px;overflow:hidden}
+.rd-bar{display:grid;grid-template-columns:104px minmax(0,1fr) 66px auto;gap:7px;align-items:center;min-height:36px}
+.rd-bar>span{font-size:12px;font-weight:700;overflow-wrap:anywhere;color:#264b60;line-height:1.4}
+.rd-bar .rd-track{height:22px;background:#e8f1f5;border-radius:6px;overflow:hidden}
+.rd-bar .rd-track i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#13799b,#2ea3ae)}
+.rd-bar .rd-track-age i{background:linear-gradient(90deg,#3678af,#8679bf)}
+.rd-bar>strong{font-size:12px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.rd-bar>a{font-size:10px;white-space:nowrap}
+.rd-facility-table{min-width:1100px}
+.rd-facility-table td,.rd-facility-table th{font-size:12px}
+.rd-facility-table td a{font-weight:700}
+.rd-facility-table small{display:block;color:#517185;font-size:11px;line-height:1.65;margin:3px 0}
+.rd-maplinks{min-width:145px}
+.rd-maplinks a{display:inline-flex;align-items:center;min-height:35px;margin:1px 0 4px 5px;font-size:11px;border:1px solid #c7dce7;border-radius:6px;padding:4px 6px}
+.rd-map{min-height:380px;border-radius:14px;background:#eaf3f7;overflow:hidden}
+.rd-map.rd-map-ready{height:470px}
+.rd-map-fallback{padding:15px}
+.rd-map-fallback ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;list-style:none;padding:0;margin:0 0 12px}
+.rd-map-fallback li{min-width:0;background:#fff;border:1px solid #d6e6ee;border-radius:9px;padding:10px;display:flex;flex-direction:column;gap:5px}
+.rd-map-fallback li>strong{font-size:12px;line-height:1.5}
+.rd-map-fallback li>small{font-size:11px;color:#526f80}
+.rd-map-fallback li>span{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.rd-map-fallback li>span a{display:inline-flex;align-items:center;font-size:11px;min-height:32px}
+.rd-insights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.rd-insights article{min-width:0;border:1px solid #d1e2ea;background:#f7fbfd;border-radius:11px;padding:13px}
+.rd-insights b{font-size:13px;display:block;color:#19516a;margin-bottom:6px}
+.rd-insights p{font-size:12px;line-height:1.75;margin:0}
+.rd-source-list{list-style:decimal;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 24px;padding-left:22px}
+.rd-source-list li{font-size:12px;min-width:0;scroll-margin-top:100px;padding:7px 2px;border-bottom:1px solid #e2ebf0}
+.rd-source-list li strong{display:block;line-height:1.6}
+.rd-source-list li small{display:block;color:#5d7a8a;margin:4px 0}
+.rd-source-list li a{display:block;overflow-wrap:anywhere;font-size:11px}
+.rd-source-list li:target{background:#fff6df;border-radius:6px}
+@media(max-width:920px){
+ .rd-pair{grid-template-columns:1fr}
+ .rd-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .rd-insights{grid-template-columns:1fr}
+ .rd-source-list{grid-template-columns:1fr}
+ .rd-map-fallback ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:550px){
+ .rd-chart-wrap{height:310px}
+ .rd-bar{grid-template-columns:90px minmax(0,1fr) 57px auto;gap:5px}
+ .rd-bar>span,.rd-bar>strong{font-size:10.5px}
+ .rd-bar>a{font-size:10px}
+ .rd-map-fallback ul{grid-template-columns:1fr}
+ .rd-map.rd-map-ready{height:360px}
+ .rd-map-fallback{padding:11px}
+ .rd-kpis{gap:7px}
+ .rd-kpis article{padding:10px}
+ .rd-kpis strong{font-size:1.5rem}
+ .rd-kpis small{font-size:10.5px}
+}
