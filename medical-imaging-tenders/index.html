@@ -272,7 +272,7 @@ $("deadlineList").innerHTML=D.map(d=>{
 }).join("");
 function ann(){
  var q=$("annQuery").value.toLocaleLowerCase().normalize("NFKC");
- $("announcements").innerHTML=A.filter(x=>JSON.stringify(x).normalize("NFKC").toLocaleLowerCase().includes(q)).map(r=>'<div class="deadline"><strong>'+escapeHtml(r["件名"])+'</strong><div class="tiny">'+escapeHtml(asDate(r["公告日"]))+" / "+escapeHtml(r["対象地域"])+" / "+escapeHtml(r["公告機関"])+'</div><div class="note">'+escapeHtml(r["装置分類"])+" / "+escapeHtml(r["公表数量・状態"])+'</div>'+link(r["出典URL"],"公告原典")+'</div>').join("")||'<div class="empty">該当する公告はありません。</div>';
+ $("announcements").innerHTML=A.filter(x=>JSON.stringify(x).normalize("NFKC").toLocaleLowerCase().includes(q)).sort((x,y)=>asDate(y["公告日"]).localeCompare(asDate(x["公告日"]))).map(r=>'<div class="deadline"><strong>'+escapeHtml(r["件名"])+'</strong><div class="tiny">'+escapeHtml(asDate(r["公告日"]))+" / "+escapeHtml(r["対象地域"])+" / "+escapeHtml(r["公告機関"])+'</div><div class="note">'+escapeHtml(r["装置分類"])+" / "+escapeHtml(r["公表数量・状態"])+'</div>'+link(r["出典URL"],"公告原典")+'</div>').join("")||'<div class="empty">該当する公告はありません。</div>';
 }
 $("annQuery").addEventListener("input",ann);
 var REGIONS=[
