@@ -25,6 +25,9 @@ try{
       return {
         overflow:d.scrollWidth-window.innerWidth,
         sources:document.querySelectorAll('#sourceList li').length,
+        resourceCards:document.querySelectorAll('#fundingCards .resource-card').length,
+        financeCharts:document.querySelectorAll('#funding-donations .funding-bar').length,
+        donationSourceLinks:document.querySelectorAll('#fundingCards .resource-sourcelink').length,
         localMarket:!!document.querySelector('#local-market'),
         dealerMarket:!!document.querySelector('#dealer-share'),
         subsidyCards:document.querySelectorAll('#subsidies .fund-card').length,
@@ -56,7 +59,10 @@ try{
     });
     console.log('Viewport diagnostics:',width,JSON.stringify(metrics));
     assert(metrics.overflow<=1,'Horizontal viewport overflow at '+width+': '+metrics.overflow+'px');
-    assert.equal(metrics.sources,33,'33 citation entries visible');
+    assert.equal(metrics.sources,48,'48 citation entries visible');
+    assert.equal(metrics.resourceCards,18,'Funding cards not rendered');
+    assert.equal(metrics.financeCharts,4,'Funding category chart missing');
+    assert.equal(metrics.donationSourceLinks,18,'Citation per funding entry missing');
     assert(metrics.localMarket&&metrics.dealerMarket,'New market sections missing');
     assert.equal(metrics.subsidyCards,7,'Seven policy cards visible');
     assert(metrics.subsidyMapFallback,'Offline region map links missing');
@@ -68,6 +74,16 @@ try{
     assert(metrics.navMinHeight>=44,'Accessible nav tap target');
     assert.equal(errors.length,0,'Browser JavaScript runtime errors: '+errors.join('; '));
 
+    await page.locator('#fundingSearch').fill('JKA');
+    assert.equal(await page.locator('#fundingCards .resource-card:visible').count(),3,'JKA text filter failed');
+    await page.locator('#fundingCategory').selectOption('寄附・民間財源');
+    assert.equal(await page.locator('#fundingCards .resource-card:visible').count(),0,'Funding conjunctive filtering failed');
+    assert(await page.locator('#fundingEmpty').isVisible(),'Funding no-result feedback missing');
+    await page.locator('#fundingReset').click();
+    assert.equal(await page.locator('#fundingCards .resource-card:visible').count(),18,'Funding reset failed');
+    await page.locator('#fundingStatus').selectOption('open');
+    assert.equal(await page.locator('#fundingCards .resource-card:visible').count(),4,'Open funding filter failed');
+    await page.locator('#fundingReset').click();
     await page.locator('#facilitySearch').fill('愛媛大学');
     assert.equal(await page.locator('#facilityTable tbody tr:visible').count(),1,'Clinic search not working');
     await page.locator('#facilitySearch').fill('該当しない固有文字列98765');
