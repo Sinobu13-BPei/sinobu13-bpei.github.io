@@ -65,6 +65,8 @@ E('#sourceTable tbody').innerHTML=D.sources.map(([org,title,dt,u,kind])=>`<tr><t
 document.querySelectorAll('[data-jump-sector]').forEach(link=>link.addEventListener('click',()=>{const wanted=link.getAttribute('data-jump-sector');const button=document.querySelector('#sectorBtns [data-sector="'+wanted+'"]');if(button)button.click()}));
 const backTop=document.getElementById('backTop');if(backTop){backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));}
 
-const requestedSector=new URLSearchParams(window.location.search).get('sector');
+const sectorMap={medical:'医療',pharmacy:'調剤',care:'介護'};
+const rawSector=new URLSearchParams(window.location.search).get('sector');
+const requestedSector=sectorMap[rawSector]||rawSector;
 if(['医療','調剤','介護'].includes(requestedSector)){const b=document.querySelector('#sectorBtns [data-sector="'+requestedSector+'"]');if(b)b.click()}
 </script><button aria-label="ページ先頭に戻る" class="back-top no-print" id="backTop">↑</button></body></html>
