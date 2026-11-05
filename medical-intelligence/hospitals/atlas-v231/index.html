@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#12305a">
+<title>全国医療市場アトラス｜病院詳細カルテ v231</title>
+<style>:root{
+  --bg1:#dbe8f4; --bg2:#e8eef8; --ink:#14243a; --ink2:#43556d; --muted:#6b7c92;
+  --card:#ffffff; --card2:#f4f8fc; --line:#d3deea; --line2:#b8c8da;
+  --navy:#12305a; --navy2:#1c4377; --teal:#0b8f8a; --teal2:#0a7470; --teal-soft:#dff3f1;
+  --orange:#ee7d1b; --orange-soft:#fff0e1; --red:#c8423b; --green:#2f8f4e; --violet:#6a56c8;
+  --shadow:0 1px 2px rgba(18,48,90,.08),0 8px 24px rgba(18,48,90,.08);
+  --r:16px; --r-sm:10px;
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --num:"SF Pro Rounded",ui-rounded,"Hiragino Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:120px}
+body{margin:0;color:var(--ink);font:15px/1.6 "Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Meiryo",system-ui,-apple-system,sans-serif;
+  background:radial-gradient(circle at 1px 1px,rgba(18,48,90,.07) 1px,transparent 0) 0 0/22px 22px,linear-gradient(160deg,var(--bg1),var(--bg2) 55%,#eaf3f1);
+  background-attachment:fixed;min-height:100vh;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit;color:inherit}
+a{color:var(--navy2)}
+svg{display:block}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.num{font-family:var(--num);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+/* ---------- header ---------- */
+.top{padding-top:env(safe-area-inset-top,0px);position:sticky;top:0;z-index:50;background:linear-gradient(90deg,var(--navy),var(--navy2));color:#fff;box-shadow:0 4px 18px rgba(18,48,90,.25)}
+.top-in{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 18px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;cursor:pointer;background:none;border:0;color:#fff;padding:0;text-align:left}
+.brand-logo{width:38px;height:38px;border-radius:11px;background:#fff;display:grid;place-items:center;flex:none}
+.brand b{display:block;font-size:16px;letter-spacing:.03em;white-space:nowrap}
+.brand small{display:block;font-size:10.5px;opacity:.75;letter-spacing:.08em}
+.gsearch{flex:1;max-width:520px;margin-left:auto;position:relative}
+.gsearch input{width:100%;height:42px;border-radius:21px;border:0;padding:0 16px 0 42px;background:#ffffff;color:var(--ink);font-size:15px;box-shadow:inset 0 0 0 2px transparent}
+.gsearch input:focus{outline:none;box-shadow:0 0 0 3px #7fe0d8}
+.gsearch .ico{position:absolute;left:14px;top:11px;color:var(--muted)}
+.suggest{position:absolute;left:0;right:0;top:48px;background:#fff;color:var(--ink);border-radius:14px;box-shadow:0 18px 40px rgba(18,48,90,.28);overflow:hidden;display:none;max-height:70vh;overflow-y:auto}
+.suggest.on{display:block}
+.suggest .sg-h{font-size:11px;color:var(--muted);padding:8px 14px 4px;background:var(--card2);letter-spacing:.06em}
+.suggest button{display:flex;width:100%;gap:10px;align-items:center;border:0;background:#fff;padding:10px 14px;text-align:left;cursor:pointer;border-bottom:1px solid #eef2f7;min-height:48px}
+.suggest button:hover,.suggest button.kb{background:var(--teal-soft)}
+.suggest .sg-sub{font-size:12px;color:var(--muted)}
+.tabs{max-width:1400px;margin:0 auto;display:flex;gap:6px;padding:0 18px 10px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{display:flex;align-items:center;gap:7px;height:40px;padding:0 16px;border-radius:20px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;white-space:nowrap;font-weight:600;font-size:14px;transition:.15s}
+.tab:hover{background:rgba(255,255,255,.2)}
+.tab[aria-current=page]{background:#fff;color:var(--navy);border-color:#fff;box-shadow:0 3px 0 #0a1f3d}
+
+/* ---------- layout ---------- */
+main{max-width:1400px;margin:0 auto;padding:22px 18px 40px}
+.page{display:none;animation:fade .25s ease}
+.page.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.ph{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:2px 0 16px}
+.ph h1{margin:0;font-size:26px;letter-spacing:.02em;line-height:1.3}
+.ph p{margin:4px 0 0;color:var(--ink2);font-size:14px}
+.kicker{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:.12em;color:var(--teal2);text-transform:uppercase}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g-map{grid-template-columns:minmax(0,1.55fr) minmax(320px,1fr)}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:18px 20px;border:1px solid rgba(255,255,255,.7);min-width:0}
+.card h2{margin:0 0 4px;font-size:18px;display:flex;align-items:center;gap:8px}
+.card h3{margin:14px 0 8px;font-size:15px}
+.card .sub{margin:0 0 12px;color:var(--muted);font-size:13px}
+.card-h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.note{font-size:12.5px;color:var(--muted);line-height:1.7}
+.note.warn{background:var(--orange-soft);color:#7a4310;border-radius:10px;padding:10px 12px;display:flex;gap:8px}
+.hr{height:1px;background:var(--line);margin:14px 0}
+
+/* ---------- KPI tiles ---------- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.kpi{position:relative;background:var(--card);border-radius:14px;padding:14px 14px 12px 64px;box-shadow:var(--shadow);min-height:84px;border:1px solid rgba(255,255,255,.8)}
+.kpi .pi{position:absolute;left:12px;top:14px;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--teal-soft);color:var(--teal2)}
+.kpi.o .pi{background:var(--orange-soft);color:var(--orange)}
+.kpi.n .pi{background:#e3ebf7;color:var(--navy2)}
+.kpi.v .pi{background:#ece8fb;color:var(--violet)}
+.kpi .k{font-size:12px;color:var(--muted);font-weight:600}
+.kpi .v{font-size:24px;font-weight:800;line-height:1.2}
+.kpi .v small{font-size:13px;font-weight:600;color:var(--ink2);margin-left:2px}
+.kpi .s{font-size:11.5px;color:var(--muted)}
+
+/* ---------- buttons / chips / controls ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:12px;border:0;cursor:pointer;font-weight:700;font-size:14.5px;
+  background:var(--teal);color:#fff;box-shadow:0 3px 0 var(--teal2),0 6px 14px rgba(11,143,138,.25);transition:transform .08s,box-shadow .08s,filter .15s;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.btn:hover{filter:brightness(1.06)}
+.btn:active{transform:translateY(3px);box-shadow:0 0 0 var(--teal2),0 2px 6px rgba(11,143,138,.2)}
+.btn.navy{background:var(--navy2);box-shadow:0 3px 0 var(--navy),0 6px 14px rgba(18,48,90,.25)}
+.btn.navy:active{box-shadow:0 0 0 var(--navy)}
+.btn.orange{background:var(--orange);box-shadow:0 3px 0 #b85d0f,0 6px 14px rgba(238,125,27,.25)}
+.btn.orange:active{box-shadow:0 0 0 #b85d0f}
+.btn.ghost{background:#fff;color:var(--navy2);box-shadow:0 0 0 2px var(--line2) inset,0 3px 0 var(--line2)}
+.btn.ghost:active{box-shadow:0 0 0 2px var(--line2) inset,0 0 0 var(--line2)}
+.btn.sm{min-height:38px;padding:0 13px;font-size:13px;border-radius:10px}
+.btn:focus-visible,.chip:focus-visible,.seg button:focus-visible,.tab:focus-visible{outline:3px solid #7fe0d8;outline-offset:2px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:20px;border:2px solid var(--line2);background:#fff;color:var(--ink2);cursor:pointer;font-weight:600;font-size:13.5px;transition:.12s;-webkit-tap-highlight-color:transparent}
+.chip:hover{border-color:var(--teal)}
+.chip[aria-pressed=true]{background:var(--teal);border-color:var(--teal);color:#fff;box-shadow:0 2px 0 var(--teal2)}
+.chip[aria-pressed=true]::before{content:"✓";font-weight:900}
+.chip .cnt{font-size:11.5px;opacity:.8}
+.seg{display:inline-flex;background:#e6edf5;border-radius:12px;padding:4px;gap:4px;flex-wrap:wrap}
+.seg button{min-height:38px;border:0;background:transparent;padding:0 14px;border-radius:9px;cursor:pointer;font-weight:700;font-size:13.5px;color:var(--ink2)}
+.seg button[aria-pressed=true]{background:#fff;color:var(--navy);box-shadow:0 2px 0 var(--line2),0 2px 8px rgba(18,48,90,.12)}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field>span{font-size:12px;font-weight:700;color:var(--ink2)}
+select,.inp{height:44px;border-radius:12px;border:2px solid var(--line2);background:#fff;padding:0 12px;font-size:15px;min-width:0;max-width:100%}
+select{appearance:none;-webkit-appearance:none;padding-right:36px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2312305a' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 13px center}
+select:focus,.inp:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-soft)}
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;align-items:end}
+
+/* ---------- flow chart ---------- */
+.flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.flow .st{flex:1 1 150px;display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;background:#fff;border:2px solid var(--line);cursor:pointer;text-align:left;min-height:76px;transition:.15s;box-shadow:0 3px 0 var(--line)}
+.flow .st:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 5px 0 var(--teal-soft)}
+.flow .st:active{transform:translateY(2px);box-shadow:0 0 0 var(--line)}
+.flow .st .pi{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--navy2);color:#fff;flex:none}
+.flow .st b{display:block;font-size:14.5px}.flow .st span{display:block;font-size:12px;color:var(--muted);line-height:1.45}
+.flow .ar{display:grid;place-items:center;width:28px;color:var(--teal);flex:none}
+
+/* ---------- map ---------- */
+.mapbox{position:relative;background:linear-gradient(180deg,#cfe4f3,#e5f0f8);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.mapbox svg{width:100%;height:auto;touch-action:manipulation}
+.mapbox path{vector-effect:non-scaling-stroke}
+.mapbox path.r{stroke:#fff;stroke-width:.7px;cursor:pointer;transition:fill .2s}
+.mapbox path.r:hover{filter:brightness(1.08);stroke:var(--orange);stroke-width:2px}
+.mapbox path.r.nb{stroke:none}.mapbox path.r.nb:hover{stroke:var(--orange);stroke-width:1.5px}
+.mapbox path.sel{stroke:var(--orange)!important;stroke-width:2.4px!important}
+.mapbox path.dim{opacity:.35}
+.mapbox .bd{fill:none;stroke:#fff;stroke-linejoin:round;pointer-events:none}
+.mapbox .inset{fill:none;stroke:#7f9bb8;stroke-dasharray:4 3;stroke-width:.8}
+.map-tools{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}
+.crumb{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13px}
+.crumb button{display:inline-flex;align-items:center;gap:5px;border:0;background:#fff;border-radius:16px;padding:6px 12px;cursor:pointer;font-weight:700;color:var(--navy2);box-shadow:0 2px 0 var(--line2);min-height:34px}
+.crumb .cur{font-weight:800;color:var(--ink);padding:6px 4px}
+.legend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11.5px;color:var(--ink2);margin-top:10px}
+.legend .sw{display:flex;border-radius:6px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.legend .sw i{display:block;width:30px;height:12px}
+.legend .lb{display:flex;justify-content:space-between;font-family:var(--num)}
+.tip{position:fixed;z-index:80;pointer-events:none;background:var(--ink);color:#fff;font-size:12.5px;border-radius:10px;padding:8px 11px;box-shadow:0 10px 26px rgba(0,0,0,.3);display:none;max-width:260px;line-height:1.5}
+.tip b{display:block;font-size:13.5px}
+.pin{pointer-events:none}
+
+/* ---------- bars / charts ---------- */
+.bars{display:flex;flex-direction:column;gap:7px}
+.bar{display:grid;grid-template-columns:minmax(76px,128px) 1fr minmax(64px,auto);gap:10px;align-items:center;font-size:13px;border:0;background:none;padding:2px 0;text-align:left;width:100%;border-radius:8px}
+button.bar{cursor:pointer}button.bar:hover{background:var(--teal-soft)}
+.bar .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.bar .tr{height:14px;background:#e9eff6;border-radius:7px;overflow:hidden;position:relative}
+.bar .tr i{position:absolute;inset:0 auto 0 0;border-radius:7px;background:linear-gradient(90deg,var(--teal),#2bb3a6)}
+.bar.hl .tr i{background:linear-gradient(90deg,var(--orange),#f6a456)}
+.bar .vl{text-align:right;font-family:var(--num);font-weight:700;white-space:nowrap}
+.bar .avg{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--navy)}
+.donut-wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.lg{display:flex;flex-direction:column;gap:6px;font-size:13px;flex:1;min-width:160px}
+.lg div{display:flex;align-items:center;gap:8px}
+.lg i{width:12px;height:12px;border-radius:4px;flex:none}
+.lg b{margin-left:auto;font-family:var(--num)}
+.chart text{font-size:11px;fill:var(--ink2)}
+.chart .ax{stroke:var(--line2)}
+.chart .gd{stroke:#e8eef5}
+.dot{cursor:pointer;transition:r .15s}
+.dot:hover{stroke:var(--ink);stroke-width:2}
+
+/* ---------- tables ---------- */
+.tw{overflow:auto;border-radius:12px;border:1px solid var(--line);max-height:560px;-webkit-overflow-scrolling:touch;background:#fff}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:13.5px}
+th{position:sticky;top:0;background:#eaf1f8;color:var(--ink2);font-size:12px;text-align:left;padding:10px 12px;white-space:nowrap;z-index:1;border-bottom:1px solid var(--line)}
+th.sort{cursor:pointer;user-select:none}th.sort::after{content:" ⇅";opacity:.4}th.asc::after{content:" ▲";opacity:1}th.desc::after{content:" ▼";opacity:1}
+td{padding:10px 12px;border-bottom:1px solid #edf2f7;white-space:nowrap}
+td.r,th.r{text-align:right;font-family:var(--num)}
+tbody tr:nth-child(even){background:#f8fbfd}
+tbody tr.go{cursor:pointer}tbody tr.go:hover{background:var(--teal-soft)}
+.minibar{display:inline-block;height:8px;border-radius:4px;background:var(--teal);vertical-align:middle;margin-right:6px}
+
+/* ---------- facility results ---------- */
+.res-h{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:6px 0 12px}
+.res-h .count{font-size:15px}.res-h .count b{font-size:22px;font-family:var(--num);color:var(--navy2)}
+.fl{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+.fc{background:#fff;border-radius:14px;padding:14px 14px 12px;box-shadow:var(--shadow);border:2px solid transparent;display:flex;flex-direction:column;gap:8px;min-width:0}
+.fc:hover{border-color:var(--teal-soft)}
+.fc-top{display:flex;gap:12px;align-items:flex-start}
+.fc .ty{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex:none;color:#fff}
+.ty.t0{background:var(--navy2)}.ty.t1{background:var(--violet)}.ty.t2{background:var(--teal)}
+.fc-name{font-weight:800;font-size:15.5px;line-height:1.4;border:0;background:none;padding:0;text-align:left;cursor:pointer;color:var(--ink)}
+.fc-name:hover{color:var(--teal2);text-decoration:underline}
+.fc-meta{font-size:12.5px;color:var(--muted);line-height:1.5}
+.tags{display:flex;gap:5px;flex-wrap:wrap}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;border-radius:7px;padding:2px 8px;background:#eef2f7;color:var(--ink2)}
+.tag.ct{background:#e3ebf7;color:var(--navy2)}.tag.mri{background:#ece8fb;color:var(--violet)}
+.tag.endo{background:var(--orange-soft);color:#a3530c}.tag.gi{background:#fff6e0;color:#8a6200}
+.tag.off{background:#fde8e6;color:var(--red)}.tag.canon{background:#ffe9e0;color:#b2401a}
+.fc-act{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:4px}
+.fc-act a,.fc-act button{flex:1 1 auto}
+.more{display:flex;justify-content:center;margin:18px 0 4px}
+.empty{text-align:center;padding:40px 10px;color:var(--muted)}
+.empty svg{margin:0 auto 10px;opacity:.5}
+
+/* ---------- drawer ---------- */
+.scrim{position:fixed;inset:0;background:rgba(12,28,52,.45);z-index:90;opacity:0;pointer-events:none;transition:opacity .2s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{visibility:hidden;position:fixed;top:0;right:0;bottom:0;width:min(560px,100vw);background:var(--bg2);z-index:95;transform:translateX(102%);transition:transform .25s ease;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.25)}
+.drawer.on{transform:none;visibility:visible}
+.dr-h{background:linear-gradient(90deg,var(--navy),var(--navy2));color:#fff;padding:16px 18px 14px;display:flex;gap:12px;align-items:flex-start;padding-top:max(16px,env(safe-area-inset-top))}
+.dr-h h2{margin:0;font-size:19px;line-height:1.35}
+.dr-h .x{margin-left:auto;width:44px;height:44px;border-radius:12px;border:0;background:rgba(255,255,255,.15);color:#fff;font-size:22px;cursor:pointer;flex:none}
+.dr-b{overflow-y:auto;padding:16px 16px calc(24px + var(--safe-b));display:flex;flex-direction:column;gap:14px;-webkit-overflow-scrolling:touch}
+.kv{display:grid;grid-template-columns:96px 1fr;gap:6px 12px;font-size:13.5px}
+.kv dt{color:var(--muted);font-weight:600}.kv dd{margin:0;word-break:break-all}
+.devs{display:flex;flex-direction:column;gap:8px}
+.dev{display:flex;gap:10px;align-items:center;background:var(--card2);border-radius:10px;padding:8px 10px;font-size:13px}
+.dev .ico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;flex:none;color:#fff}
+
+/* ---------- bottom nav (iPhone) ---------- */
+.bnav{display:none}
+.sheet{visibility:hidden;position:fixed;left:0;right:0;bottom:0;z-index:96;background:#fff;border-radius:20px 20px 0 0;padding:10px 16px calc(18px + var(--safe-b));transform:translateY(105%);transition:transform .22s;box-shadow:0 -10px 40px rgba(0,0,0,.2)}
+.sheet.on{transform:none;visibility:visible}
+.sheet .grab{width:44px;height:5px;border-radius:3px;background:var(--line2);margin:2px auto 12px}
+.sheet .grid{grid-template-columns:repeat(2,1fr)}
+
+/* ---------- loader ---------- */
+.loader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:linear-gradient(160deg,var(--navy),var(--navy2));color:#fff;text-align:center;transition:opacity .3s}
+.loader.done{opacity:0;pointer-events:none}
+.loader .spin{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;border:5px solid rgba(255,255,255,.2);border-top-color:#7fe0d8;animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* ---------- region card ---------- */
+.rg-head{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:16px;align-items:center}
+.rg-pick{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+.pictos{display:flex;flex-wrap:wrap;gap:3px;max-width:100%}
+.pictos i{width:14px;height:14px;border-radius:3px;display:block}
+.compare{font-size:12px;color:var(--muted)}
+.badge{display:inline-flex;align-items:center;gap:4px;border-radius:8px;padding:2px 9px;font-size:12px;font-weight:800}
+.badge.up{background:#e1f4e7;color:var(--green)}.badge.dn{background:#fde8e6;color:var(--red)}.badge.eq{background:#eef2f7;color:var(--ink2)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .g-map,.rg-head{grid-template-columns:1fr}
+  .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g3{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  body{font-size:15px}
+  .top-in{padding:8px 12px;gap:10px}
+  .brand-txt{display:none}
+  .gsearch input{height:40px}
+  .tabs{display:none}
+  main{padding:14px 12px calc(96px + var(--safe-b))}
+  .ph h1{font-size:21px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .card{padding:15px 14px;border-radius:14px}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .kpi{padding:12px 10px 10px 54px;min-height:78px}
+  .kpi .pi{width:36px;height:36px;left:10px;top:12px}
+  .kpi .v{font-size:19px}
+  .flow{flex-direction:column}.flow .st{flex:0 0 auto;min-height:64px;padding:10px 12px}.flow .ar{width:auto;height:18px;transform:rotate(90deg)}
+  .filters .field:has(.seg){grid-column:1/-1}
+  td,th{padding:8px 9px}
+  .scroll-hint{display:block!important}
+  .fl{grid-template-columns:1fr}
+  .bar{grid-template-columns:minmax(70px,96px) 1fr minmax(56px,auto);font-size:12.5px}
+  .bnav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);padding:6px 4px calc(6px + var(--safe-b));box-shadow:0 -6px 20px rgba(18,48,90,.1)}
+  .bnav button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10.5px;font-weight:700;color:var(--muted);padding:4px 0;min-height:52px;cursor:pointer;border-radius:12px;-webkit-tap-highlight-color:transparent}
+  .bnav button[aria-current=page]{color:var(--teal2);background:var(--teal-soft)}
+  .filters{grid-template-columns:1fr 1fr}
+  .tw{max-height:460px}
+  .kv{grid-template-columns:84px 1fr}
+}
+@media (max-width:380px){.filters{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}}
+@media print{.top,.bnav,.drawer,.scrim,.btn,.chips,.seg{display:none!important}body{background:#fff}.page{display:none!important}.page.on{display:block!important}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}}
+
+.scroll-hint{display:none;font-size:11.5px;color:var(--muted);text-align:right;margin-top:4px}
+</style>
+<style id="atlas-hospital-detail-v231">
+.atlas-mkt-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:11px 0}
+.atlas-mkt-metrics>div{background:#eaf5f5;border:1px solid #cbe8e6;border-radius:10px;padding:10px;min-width:0}
+.atlas-mkt-metrics small{display:block;color:#426477;font-weight:650;font-size:11.5px}
+.atlas-mkt-metrics b{display:block;font-family:var(--num);color:#126e77;font-size:19px;overflow-wrap:anywhere}
+.atlas-mkt-activity{border:1px solid var(--line);border-radius:9px;overflow:hidden;margin:10px 0}
+.atlas-mkt-activity>div{display:flex;justify-content:space-between;gap:8px;padding:9px 11px;border-bottom:1px solid var(--line);font-size:12.5px;align-items:center}
+.atlas-mkt-activity>div:last-child{border-bottom:0}.atlas-mkt-activity b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.atlas-hub-links{max-width:1400px;margin:auto;padding:8px 18px;display:flex;gap:8px;flex-wrap:wrap}
+.atlas-hub-links a{display:inline-flex;min-height:42px;align-items:center;padding:8px 13px;border:1px solid #d9e5eb;border-radius:10px;background:#fff;color:#174a68;text-decoration:none;font-weight:750;font-size:13px}
+@media(max-width:440px){.atlas-mkt-metrics b{font-size:16px}.atlas-hub-links{padding:8px 12px}.atlas-hub-links a{flex:1;justify-content:center}}
+</style></head>
+<body>
+<div class="loader" id="loader"><div><div class="spin"></div><b style="font-size:18px">全国医療市場アトラス</b><p id="loadMsg" style="opacity:.8;font-size:13px;margin:6px 0 0">データを展開しています…</p></div></div>
+
+<header class="top">
+  <div class="top-in">
+    <button class="brand" type="button" data-go="#/home" aria-label="ホームへ">
+      <span class="brand-logo" id="brandLogo"></span>
+      <span class="brand-txt"><b>全国医療市場アトラス</b><small>地域カルテ ・ v230</small></span>
+    </button>
+    <div class="gsearch" role="search">
+      <span class="ico" id="gsIco"></span>
+      <input id="gsInput" type="search" autocomplete="off" enterkeyhint="search" placeholder="施設名・都道府県・医療圏で検索" aria-label="施設・地域を検索">
+      <div class="suggest" id="gsList" role="listbox"></div>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs" aria-label="メイン"></nav>
+</header>
+
+<div class="atlas-hub-links"><a href="../">全国病院リスト（既存版） ↗</a><a href="../../">医療機器MKTハブ ↗</a><a href="#/facility?t=0">病院施設だけを検索 ↗</a></div>
+<main id="main">
+  <section class="page" id="p-home"></section>
+  <section class="page" id="p-map"></section>
+  <section class="page" id="p-region"></section>
+  <section class="page" id="p-facility"></section>
+  <section class="page" id="p-market"></section>
+  <section class="page" id="p-endo"></section>
+  <section class="page" id="p-data"></section>
+</main>
+
+<nav class="bnav" id="bnav" aria-label="メイン（モバイル）"></nav>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-modal="true" role="dialog" aria-labelledby="drTitle"></aside>
+<div class="sheet" id="sheet" role="dialog" aria-label="メニュー"></div>
+<div class="tip" id="tip"></div>
+
+<script id="payload" type="application/octet-stream"></script>
+<script>'use strict';
+/* ==================================================================
+   全国医療市場アトラス v230 — single-file app
+   ================================================================== */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = (n, d = 0) => n == null || !isFinite(n) ? '—' : Number(n).toLocaleString('ja-JP', {maximumFractionDigits: d, minimumFractionDigits: d});
+const fmtK = n => n == null || !isFinite(n) ? '—' : n >= 1e8 ? fmt(n / 1e8, 1) + '億' : n >= 1e4 ? fmt(n / 1e4, n >= 1e6 ? 0 : 1) + '万' : fmt(n);
+const norm = s => String(s || '').normalize('NFKC').toLowerCase().replace(/\s+/g, '');
+const debounce = (f, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => f(...a), ms); }; };
+
+/* ---------------- icons (24px, stroke) ---------------- */
+const P = {
+  home: '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
+  map: '<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/>',
+  region: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+  search: '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
+  chart: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+  endo: '<path d="M4 4c5 0 6 4 6 8s1 8 6 8"/><circle cx="17.5" cy="19.5" r="2.5"/><path d="M3 3l3 3"/>',
+  data: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+  hosp: '<path d="M4 21V7l8-4 8 4v14"/><path d="M12 8v6M9 11h6"/><path d="M9 21v-4h6v4"/>',
+  clinic: '<path d="M3 21V10l9-6 9 6v11"/><path d="M12 11v5M9.5 13.5h5"/>',
+  bed: '<path d="M3 18V7M3 14h18v4M21 14v-3a3 3 0 00-3-3h-7v6"/><circle cx="7" cy="11" r="2"/>',
+  ct: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M2 21h20"/>',
+  mri: '<rect x="3" y="5" width="18" height="13" rx="6"/><circle cx="12" cy="11.5" r="3"/><path d="M3 21h18"/>',
+  us: '<path d="M9 3h6v6l3 10H6l3-10z"/><path d="M9 9h6"/>',
+  xray: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 6v12M8 9h8M8 12h8M8 15h8"/>',
+  er: '<rect x="2" y="7" width="15" height="10" rx="2"/><path d="M17 10h3l2 3v4h-5"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M9.5 9.5v5M7 12h5"/>',
+  people: '<circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14c3 0 5 2 5 5"/>',
+  yen: '<path d="M6 3l6 8 6-8M12 11v10M7 13h10M7 17h10"/>',
+  pin: '<path d="M12 22s7-7.2 7-12.5A7 7 0 005 9.5C5 14.8 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/>',
+  link: '<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/>',
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',  menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+  filter: '<path d="M3 5h18l-7 8v6l-4 2v-8z"/>',
+  dl: '<path d="M12 3v12M7 10l5 5 5-5M4 21h16"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>',
+  layers: '<path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/>',
+  print: '<path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/>',
+  info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>',
+  target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>',
+  flow: '<rect x="3" y="3" width="7" height="6" rx="1.5"/><rect x="14" y="15" width="7" height="6" rx="1.5"/><path d="M6.5 9v4a2 2 0 002 2H14"/>',
+};
+const ic = (n, s = 20, sw = 2) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[n] || ''}</svg>`;
+const MOD_ICON = {CT: 'ct', MRI: 'mri', '超音波': 'us', '一般撮影': 'xray', 'マンモグラフィ': 'xray', 'PET/CT': 'ct', SPECT: 'ct', '骨密度': 'xray', '超音波減衰法': 'us', '残尿測定（超音波）': 'us'};
+const DEV_MODS = ['CT', 'MRI', 'PET/CT', 'SPECT', 'マンモグラフィ'];
+const MAKER = {CMSC: 'キヤノン', GE: 'GE', Philips: 'フィリップス', Siemens: 'シーメンス', '富士': '富士フイルム'};
+const MAKER_COL = {CMSC: '#e0532b', GE: '#6a56c8', Philips: '#1c4377', Siemens: '#0b8f8a', '富士': '#2f8f4e'};
+const makerName = k => MAKER[k] || k || '不明';
+const makerCol = k => MAKER_COL[k] || '#9aa8b8';
+const PAL = ['#e4f4f1', '#bde5de', '#8bcdc4', '#53b0a8', '#2b8b8f', '#1d6382', '#163f63'];
+const TYPE_IC = ['hosp', 'clinic', 'clinic'];
+const TYPE_SHORT = ['病院', '有床診', '無床診'];
+
+const D = {};          // all data
+const S = {page: 'home'}; // router state
+
+/* ==================================================================
+   1. load + index
+   ================================================================== */
+async function load() {
+  let b64 = $('#payload').textContent.trim();
+   if (!b64) { const files = ['payload-1.txt','payload-2.txt','payload-3.txt','payload-4.txt','payload-5.txt']; b64 = (await Promise.all(files.map(async file => { const response = await fetch(file); if (!response.ok) throw new Error('施設データ '+file+' の取得失敗'); return response.text(); }))).join(''); }
+  if (!('DecompressionStream' in window)) throw new Error('このブラウザは圧縮データの展開に対応していません。iOS 16.4以降のSafari、または最新のChrome／Edgeで開いてください。');
+  const bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+  const txt = await new Response(new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+  Object.assign(D, JSON.parse(txt));
+  $('#payload').remove();
+  index();
+}
+
+function index() {
+  D.prefBy = Object.fromEntries(D.prefs.map(p => [p.c, p]));
+  D.areaBy = {}; D.areasOf = {};
+  for (const a of D.areas) { D.areaBy[a.c] = a; (D.areasOf[a.p] ||= []).push(a); }
+  // pref device counts missing in the pref table (mammography) -> sum of area units (same N32/N33 source)
+  for (const p of D.prefs) for (const m of DEV_MODS) if (p.m[m][2] == null) { let s = 0, any = false; for (const a of D.areasOf[p.c] || []) if (a.u[m] != null) { s += a.u[m]; any = true; } if (any) { p.m[m][2] = s; p.m[m].fromArea = true; } }
+  // national totals
+  const nat = {pop: 0, aged: 0, hosp: 0, clinic: 0, beds: 0, er: 0, m: {}};
+  for (const p of D.prefs) {
+    for (const k of ['pop', 'aged', 'hosp', 'clinic', 'beds', 'er']) nat[k] += p[k] || 0;
+    for (const m of D.mods) { const v = p.m[m], t = (nat.m[m] ||= [0, 0, 0]); t[0] += v[0] || 0; t[1] += v[1] || 0; t[2] += v[2] || 0; }
+  }
+  for (const m of D.mods) if (!DEV_MODS.includes(m) || !nat.m[m][2]) nat.m[m][2] = null;
+  D.nat = nat;
+  // area-level national baseline: published counts per 1,000 beds
+  D.areaBase = {};
+  let bedsAll = 0; for (const a of D.areas) bedsAll += a.beds || 0;
+  for (const m of D.mods) { let c = 0; for (const a of D.areas) c += a.v[m]?.[0] || 0; D.areaBase[m] = c / bedsAll * 1000; }
+
+  // facilities
+  const F = D.fac, n = F.id.length;
+  F.len = n; F.pref = new Array(n); F.key = new Array(n); F.flag = new Uint8Array(n);
+  const reA = /内視鏡|胃カメラ|ファイバー|ＥＲＣＰ|ERCP/, reB = /消化器|胃腸/;
+  D.facByArea = {}; D.facByPref = {};
+  for (let i = 0; i < n; i++) {
+    const pf = F.id[i].slice(0, 2); F.pref[i] = pf;
+    const deps = F.dep[i] ? F.dep[i].split('.').map(x => D.depts[+x]).join(' ') : '';
+    F.key[i] = norm(F.n[i] + ' ' + F.id[i] + ' ' + deps + ' ' + (F.adr[i] || '') + ' ' + (D.cities[F.city[i]]?.[0] || ''));
+    let f = 0;
+    if (F.live[i]) f |= 1;
+    if (F.ct[i] > 0) f |= 2;
+    if (F.mri[i] > 0) f |= 4;
+    if (reA.test(F.n[i] + ' ' + deps)) f |= 8; else if (reB.test(deps)) f |= 16;
+    const det = D.det[F.id[i]];
+    if (det && (det[0].some(d => d[2] === 'CMSC') || det[1].some(d => d[2] === 'CMSC'))) f |= 32;
+    F.flag[i] = f;
+    (D.facByArea[F.area[i]] ||= []).push(i); (D.facByPref[pf] ||= []).push(i);
+  }
+  // endoscopy counts by pref/area (live only)
+  D.endo = {pref: {}, area: {}};
+  for (let i = 0; i < n; i++) {
+    if (!(F.flag[i] & 1)) continue;
+    const t = F.flag[i] & 8 ? 0 : F.flag[i] & 16 ? 1 : -1; if (t < 0) continue;
+    const pp = (D.endo.pref[F.pref[i]] ||= [0, 0]); pp[t]++;
+    const aa = (D.endo.area[F.area[i]] ||= [0, 0]); aa[t]++;
+  }
+  initMap();
+}
+
+/* ==================================================================
+   2. map engine (TopoJSON, pre-projected by jpn-atlas)
+   ================================================================== */
+const OKI = {dx: 170, dy: -490};   // Okinawa inset shift for the national view
+const NATION_VB = [180, 8, 500, 470];
+function initMap() {
+  const T = D.topo, [sx, sy] = T.transform.scale, [tx, ty] = T.transform.translate;
+  D.arcs = T.arcs.map(a => { let x = 0, y = 0; const o = new Float64Array(a.length * 2); a.forEach(([dx, dy], i) => { x += dx; y += dy; o[2 * i] = x * sx + tx; o[2 * i + 1] = y * sy + ty; }); return o; });
+  D.muni = new Map();
+  for (const g of T.objects.municipalities.geometries) { if (!D.muni.has(g.id)) D.muni.set(g.id, []); D.muni.get(g.id).push(g); }
+  D.prefGeo = new Map(T.objects.prefectures.geometries.map(g => [g.id, g]));
+  D.muniArea = id => D.topoArea[id] || null;
+  // arc ownership: areas & prefs on each side
+  const arcAreas = new Map(), arcPref = new Map();
+  const walk = (g, cb) => { const polys = g.type === 'MultiPolygon' ? g.arcs : g.type === 'Polygon' ? [g.arcs] : []; for (const p of polys) for (const r of p) for (const a of r) cb(a < 0 ? ~a : a); };
+  for (const [id, gs] of D.muni) { const ar = D.muniArea(id) || 'x' + id; for (const g of gs) walk(g, k => { if (!arcAreas.has(k)) arcAreas.set(k, new Set()); arcAreas.get(k).add(ar); }); }
+  for (const [id, g] of D.prefGeo) walk(g, k => arcPref.set(k, (arcPref.get(k) || 0) + 1));
+  D.areaBorderArcs = [...arcAreas].filter(([, s]) => s.size > 1).map(([k, s]) => [k, [...s]]);
+  D.prefBorderArcs = [...arcPref].filter(([, c]) => c > 1).map(([k]) => k);
+  D.pathCache = new Map();
+}
+function arcPts(i) { return i < 0 ? reverseArc(D.arcs[~i]) : D.arcs[i]; }
+function reverseArc(a) { const o = new Float64Array(a.length); for (let i = 0, n = a.length / 2; i < n; i++) { o[2 * i] = a[2 * (n - 1 - i)]; o[2 * i + 1] = a[2 * (n - 1 - i) + 1]; } return o; }
+function ringD(ring, dp) {
+  const m = 10 ** dp; let s = '', lx = NaN, ly = NaN, first = true;
+  for (const ai of ring) { const a = arcPts(ai);
+    for (let i = 0; i < a.length; i += 2) { const x = Math.round(a[i] * m) / m, y = Math.round(a[i + 1] * m) / m; if (x === lx && y === ly) continue; s += (first ? 'M' : 'L') + x + ',' + y; first = false; lx = x; ly = y; } }
+  return s + 'Z';
+}
+function geoD(gs, dp) { let s = ''; for (const g of gs) { const polys = g.type === 'MultiPolygon' ? g.arcs : [g.arcs]; for (const p of polys) for (const r of p) s += ringD(r, dp); } return s; }
+function muniD(id, dp) { const k = 'm' + id + dp; if (!D.pathCache.has(k)) D.pathCache.set(k, geoD(D.muni.get(id), dp)); return D.pathCache.get(k); }
+function prefD(id, dp) { const k = 'p' + id + dp; if (!D.pathCache.has(k)) D.pathCache.set(k, geoD([D.prefGeo.get(id)], dp)); return D.pathCache.get(k); }
+function arcsD(list, dp) { const m = 10 ** dp; let s = ''; for (const k of list) { const a = D.arcs[k]; for (let i = 0; i < a.length; i += 2) s += (i ? 'L' : 'M') + Math.round(a[i] * m) / m + ',' + Math.round(a[i + 1] * m) / m; } return s; }
+function bboxOf(ids) {
+  let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+  for (const id of ids) for (const g of D.muni.get(id) || []) { const polys = g.type === 'MultiPolygon' ? g.arcs : [g.arcs];
+    for (const p of polys) for (const r of p) for (const ai of r) { const a = D.arcs[ai < 0 ? ~ai : ai]; for (let i = 0; i < a.length; i += 2) { if (a[i] < x0) x0 = a[i]; if (a[i] > x1) x1 = a[i]; if (a[i + 1] < y0) y0 = a[i + 1]; if (a[i + 1] > y1) y1 = a[i + 1]; } } }
+  return [x0, y0, x1, y1];
+}
+function okiRect() {
+  if (!D._oki) { const [x0, y0, x1, y1] = bboxOf(munisOfPref('47')); D._oki = [x0 + OKI.dx - 8, y0 + OKI.dy - 16, x1 - x0 + 16, y1 - y0 + 24]; }
+  const [x, y, w, h] = D._oki; return `<rect class="inset" x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}" rx="6"/><text x="${(x + 5).toFixed(1)}" y="${(y + 11).toFixed(1)}" font-size="9" fill="#5a7390">沖縄県</text>`;
+}
+function munisOfPref(pc) { return [...D.muni.keys()].filter(id => id.slice(0, 2) === pc); }
+function prefVB(pc) {
+  const ids = munisOfPref(pc).filter(id => !(pc === '13' && +id >= 13360));   // ignore Izu/Ogasawara for framing
+  const [x0, y0, x1, y1] = bboxOf(ids); const w = x1 - x0, h = y1 - y0, p = Math.max(w, h) * .07;
+  return [x0 - p, y0 - p, w + 2 * p, h + 2 * p];
+}
+function centroid(id) {
+  const k = 'c' + id; if (D.pathCache.has(k)) return D.pathCache.get(k);
+  let best = null, bn = 0;
+  for (const g of D.muni.get(id) || []) { const polys = g.type === 'MultiPolygon' ? g.arcs : [g.arcs]; for (const p of polys) { let n = 0; for (const ai of p[0]) n += D.arcs[ai < 0 ? ~ai : ai].length; if (n > bn) { bn = n; best = p[0]; } } }
+  if (!best) return null;
+  let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+  for (const ai of best) { const a = D.arcs[ai < 0 ? ~ai : ai]; for (let i = 0; i < a.length; i += 2) { x0 = Math.min(x0, a[i]); x1 = Math.max(x1, a[i]); y0 = Math.min(y0, a[i + 1]); y1 = Math.max(y1, a[i + 1]); } }
+  const c = [(x0 + x1) / 2, (y0 + y1) / 2]; D.pathCache.set(k, c); return c;
+}
+const topoOfCity = c => D.cities[c]?.[5] || '';
+
+/* colour scale (quantiles) */
+function scale(vals) {
+  const v = vals.filter(x => x != null && isFinite(x)).sort((a, b) => a - b);
+  if (!v.length) return {col: () => '#d9dee5', br: []};
+  const k = PAL.length, br = []; for (let i = 1; i < k; i++) br.push(v[Math.min(v.length - 1, Math.floor(i * v.length / k))]);
+  return {br, min: v[0], max: v[v.length - 1], col: x => x == null || !isFinite(x) ? '#d9dee5' : PAL[br.filter(b => x >= b).length]};
+}
+function legendHTML(sc, unit, d = 0) {
+  if (!sc.br.length) return '';
+  const labs = [sc.min, ...sc.br, sc.max];
+  return `<div class="legend"><span>少</span><div><div class="sw">${PAL.map(c => `<i style="background:${c}"></i>`).join('')}</div><div class="lb num"><span>${fmtK(labs[0])}</span><span>${fmtK(labs[Math.floor(labs.length / 2)])}</span><span>${fmtK(labs[labs.length - 1])}</span></div></div><span>多</span><span style="margin-left:8px">（${esc(unit)}）</span><span style="display:inline-flex;align-items:center;gap:4px;margin-left:8px"><i style="width:12px;height:12px;background:#d9dee5;border-radius:3px;display:inline-block"></i>データなし</span></div>`;
+}
+
+/**
+ * Draw a map into `host`.
+ * o = {pref:null|'13', level:'pref'|'area', value:(key)=>number, sel:key, pinCity:'13101', onPick:(key,type)=>{}, tip:(key,type)=>html, mini:false}
+ */
+function drawMap(host, o) {
+  const dp = o.pref ? 2 : 1;
+  let vb = o.pref ? prefVB(o.pref) : NATION_VB;
+  if (o.fitArea) { const ids = [...D.muni.keys()].filter(id => D.muniArea(id) === o.fitArea && !(+id >= 13360 && id.startsWith('13'))); if (ids.length) { const [x0, y0, x1, y1] = bboxOf(ids); const s = Math.max(x1 - x0, y1 - y0, 6) * .3; vb = [x0 - s, y0 - s, x1 - x0 + 2 * s, y1 - y0 + 2 * s]; } }
+  let body = '', keys = [];
+  if (!o.pref && o.level === 'pref') {
+    keys = D.prefs.map(p => p.c);
+    const sc = scale(keys.map(o.value)); host._sc = sc;
+    const one = c => `<path class="r${o.sel === c ? ' sel' : ''}" data-k="${c}" data-t="pref" d="${prefD(c, dp)}" fill="${sc.col(o.value(c))}"/>`;
+    body = keys.filter(c => c !== '47').map(one).join('') + `<g transform="translate(${OKI.dx},${OKI.dy})">${one('47')}</g>`;
+    body += okiRect();
+  } else {
+    const munis = o.pref ? [...D.muni.keys()] : [...D.muni.keys()];
+    const inPref = id => !o.pref || id.slice(0, 2) === o.pref;
+    keys = o.pref ? (D.areasOf[o.pref] || []).map(a => a.c) : D.areas.map(a => a.c);
+    const sc = scale(keys.map(o.value)); host._sc = sc;
+    let base = '', main = '', oki = '';
+    if (o.pref) for (const p of D.prefs) if (p.c !== o.pref) base += `<path d="${prefD(p.c, 1)}" fill="#eef2f6" stroke="#fff" stroke-width=".6"/>`;
+    for (const id of munis) {
+      if (!inPref(id)) continue;
+      const a = D.muniArea(id);
+      const fill = a && (!o.pref || a.slice(0, 2) === o.pref) ? sc.col(o.value(a)) : '#d9dee5';
+      const cls = 'r' + (o.sel && a === o.sel ? ' sel' : '') + (o.sel && o.dimOthers && a !== o.sel ? ' dim' : '');
+      const p = `<path class="${cls}${o.pref ? '' : ' nb'}" data-k="${a || ''}" data-m="${id}" data-t="area" d="${muniD(id, dp)}" fill="${fill}" style="stroke-width:${o.pref ? .4 : 0}px"/>`;
+      if (!o.pref && id.slice(0, 2) === '47') oki += p; else main += p;
+    }
+    const sw = o.pref ? 1.4 : .8;
+    const ab = D.areaBorderArcs.filter(([, s]) => !o.pref || s.some(x => x.slice(0, 2) === o.pref)).map(([k]) => k);
+    const borders = `<path class="bd" d="${arcsD(ab, dp)}" stroke-width="${sw}"/><path class="bd" d="${arcsD(D.prefBorderArcs, dp)}" stroke-width="${sw * 1.7}" stroke="#ffffff"/>`;
+    body = base + main + (o.pref ? '' : `<g transform="translate(${OKI.dx},${OKI.dy})">${oki}</g>${okiRect()}`) + borders;
+    if (o.sel && o.pref) {           // emphasise the chosen area outline on top
+      body += [...D.muni.keys()].filter(id => D.muniArea(id) === o.sel).map(id => `<path d="${muniD(id, dp)}" fill="#ee7d1b" fill-opacity=".18" stroke="#ee7d1b" stroke-width="2.4" vector-effect="non-scaling-stroke" pointer-events="none"/>`).join('');
+    }
+  }
+  // pin
+  if (o.pinCity) {
+    const t = topoOfCity(o.pinCity), c = t && centroid(t);
+    if (c) { let [x, y] = c; if (!o.pref && t.slice(0, 2) === '47') { x += OKI.dx; y += OKI.dy; }
+      const s = Math.max(vb[2], vb[3]) / (o.fitArea ? 9 : 16);
+      body += `<path d="${muniD(t, dp)}" fill="#ee7d1b" fill-opacity=".55" stroke="#ee7d1b" stroke-width="1.5" vector-effect="non-scaling-stroke" pointer-events="none" ${!o.pref && t.slice(0, 2) === '47' ? `transform="translate(${OKI.dx},${OKI.dy})"` : ''}/>`;
+      body += `<g class="pin" transform="translate(${x - s / 2},${y - s})"><svg width="${s}" height="${s}" viewBox="0 0 24 24"><path d="M12 23s8-7.6 8-13.5A8 8 0 004 9.5C4 15.4 12 23 12 23z" fill="#c8423b" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="9.5" r="3" fill="#fff"/></svg></g>`; }
+  }
+  host.innerHTML = `<svg viewBox="${vb.map(v => +v.toFixed(2)).join(' ')}" role="img" aria-label="${o.pref ? esc(D.prefBy[o.pref].n) + 'の地図' : '日本地図'}" style="max-height:${o.mini ? 240 : 680}px">${body}</svg>`;
+  const svg = host.firstElementChild;
+  if (o.onPick) svg.addEventListener('click', e => { const p = e.target.closest('path.r'); if (p && p.dataset.k) o.onPick(p.dataset.k, p.dataset.t, p.dataset.m); });
+  if (o.tip) bindTip(svg, o.tip);
+}
+function bindTip(svg, fn) {
+  const tip = $('#tip');
+  svg.addEventListener('pointermove', e => { if (e.pointerType === 'touch') return; const p = e.target.closest('path.r'); if (!p || !p.dataset.k) { tip.style.display = 'none'; return; }
+    tip.innerHTML = fn(p.dataset.k, p.dataset.t, p.dataset.m); tip.style.display = 'block';
+    const w = tip.offsetWidth, h = tip.offsetHeight; tip.style.left = Math.min(innerWidth - w - 8, e.clientX + 14) + 'px'; tip.style.top = Math.max(8, e.clientY - h - 12) + 'px'; });
+  svg.addEventListener('pointerleave', () => tip.style.display = 'none');
+}
+
+/* ==================================================================
+   3. metrics
+   ================================================================== */
+const METRICS = {
+  pref: [
+    {id: 'cnt10', label: '算定回数／人口10万人', unit: '回', mod: true, f: (p, m) => p.m[m][0] / p.pop * 1e5},
+    {id: 'cnt', label: '算定回数（総数）', unit: '回', mod: true, f: (p, m) => p.m[m][0]},
+    {id: 'oku', label: '診療報酬換算額', unit: '億円', mod: true, d: 1, f: (p, m) => p.m[m][1]},
+    {id: 'dev10', label: '装置台数／人口10万人', unit: '台', mod: true, dev: true, d: 1, f: (p, m) => p.m[m][2] / p.pop * 1e5},
+    {id: 'perdev', label: '装置1台当たり算定回数', unit: '回／台', mod: true, dev: true, f: (p, m) => p.m[m][2] ? p.m[m][0] / p.m[m][2] : null},
+    {id: 'hosp10', label: '病院数／人口10万人', unit: '施設', d: 1, f: p => p.hosp / p.pop * 1e5},
+    {id: 'beds10', label: '病床数／人口10万人', unit: '床', f: p => p.beds / p.pop * 1e5},
+    {id: 'aged', label: '高齢化率', unit: '%', d: 1, f: p => p.aged / p.pop * 100},
+    {id: 'endo10', label: '内視鏡関連施設／人口10万人', unit: '施設', d: 1, f: p => ((D.endo.pref[p.c] || [0, 0])[0]) / p.pop * 1e5},
+  ],
+  area: [
+    {id: 'cnt', label: '算定回数（公開値）', unit: '回', mod: true, f: (a, m) => a.v[m]?.[0]},
+    {id: 'cntbed', label: '病床1,000床当たり算定回数', unit: '回', mod: true, f: (a, m) => a.beds ? (a.v[m]?.[0] || 0) / a.beds * 1000 : null},
+    {id: 'units', label: '装置台数', unit: '台', mod: true, dev: true, f: (a, m) => a.u[m] ?? null},
+    {id: 'perunit', label: '装置1台当たり算定回数', unit: '回／台', mod: true, dev: true, f: (a, m) => a.u[m] ? (a.v[m]?.[0] || 0) / a.u[m] : null},
+    {id: 'hosp', label: '病院数', unit: '施設', f: a => a.hosp},
+    {id: 'beds', label: '病床数', unit: '床', f: a => a.beds},
+    {id: 'endo', label: '内視鏡関連施設数', unit: '施設', f: a => (D.endo.area[a.c] || [0, 0])[0]},
+  ],
+};
+const metricOf = (lv, id) => METRICS[lv].find(x => x.id === id) || METRICS[lv][0];
+const modOptions = (sel, devOnly) => (devOnly ? DEV_MODS : D.mods).map(m => `<option ${m === sel ? 'selected' : ''}>${esc(m)}</option>`).join('');
+
+/* ==================================================================
+   4. small chart helpers
+   ================================================================== */
+function bars(items, o = {}) {
+  const max = Math.max(...items.map(x => x.v || 0), o.avg || 0) || 1;
+  return `<div class="bars">${items.map(x => {
+    const tag = x.go ? `button type="button" data-go="${esc(x.go)}"` : 'div';
+    return `<${tag} class="bar${x.hl ? ' hl' : ''}" title="${esc(x.n)}"><span class="nm">${esc(x.n)}</span><span class="tr"><i style="width:${Math.max(0, (x.v || 0) / max * 100).toFixed(1)}%"></i>${o.avg ? `<span class="avg" style="left:${(o.avg / max * 100).toFixed(1)}%" title="全国"></span>` : ''}</span><span class="vl">${x.lab ?? fmt(x.v, o.d || 0)}</span></${tag.split(' ')[0]}>`;
+  }).join('')}</div>${o.avg ? `<div class="compare" style="margin-top:6px">｜縦線＝${esc(o.avgLabel || '全国平均')}</div>` : ''}`;
+}
+function donut(parts, o = {}) {
+  const tot = parts.reduce((s, p) => s + (p.v || 0), 0) || 1, R = 54, C = 2 * Math.PI * R; let off = 0;
+  const segs = parts.map(p => { const len = (p.v || 0) / tot * C; const s = `<circle r="${R}" cx="70" cy="70" fill="none" stroke="${p.c}" stroke-width="24" stroke-dasharray="${len} ${C - len}" stroke-dashoffset="${-off}" transform="rotate(-90 70 70)"><title>${esc(p.n)} ${fmt(p.v / tot * 100, 1)}%</title></circle>`; off += len; return s; }).join('');
+  return `<div class="donut-wrap"><svg width="140" height="140" viewBox="0 0 140 140">${segs}<text x="70" y="66" text-anchor="middle" font-size="11" fill="#6b7c92">${esc(o.center || '合計')}</text><text x="70" y="84" text-anchor="middle" font-size="15" font-weight="800" fill="#14243a">${esc(o.total || fmtK(tot))}</text></svg>
+    <div class="lg">${parts.map(p => `<div><i style="background:${p.c}"></i><span>${esc(p.n)}</span><b>${fmt(p.v / tot * 100, 1)}%</b></div>`).join('')}</div></div>`;
+}
+function stack(parts) {
+  const tot = parts.reduce((s, p) => s + p.v, 0) || 1;
+  return `<div style="display:flex;height:22px;border-radius:8px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line)">${parts.map(p => `<i title="${esc(p.n)} ${fmt(p.v)}" style="display:block;width:${p.v / tot * 100}%;background:${p.c}"></i>`).join('')}</div>
+  <div class="lg" style="flex-direction:row;flex-wrap:wrap;gap:6px 14px;margin-top:8px">${parts.map(p => `<div><i style="background:${p.c}"></i><span>${esc(p.n)}</span><b style="margin-left:4px">${fmt(p.v)}（${fmt(p.v / tot * 100, 0)}%）</b></div>`).join('')}</div>`;
+}
+function scatter(pts, o) {
+  pts = pts.filter(p => isFinite(p.x) && isFinite(p.y)); if (pts.length < 2) return '<p class="note">表示できるデータがありません。</p>';
+  const W = 640, H = 380, L = 56, R = 18, T = 18, B = 46;
+  const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+  const x0 = 0, x1 = Math.max(...xs) * 1.08 || 1, y0 = 0, y1 = Math.max(...ys) * 1.08 || 1;
+  const X = v => L + (v - x0) / (x1 - x0) * (W - L - R), Y = v => H - B - (v - y0) / (y1 - y0) * (H - T - B);
+  const ticks = (a, b) => { const st = niceStep((b - a) / 5); const t = []; for (let v = Math.ceil(a / st) * st; v <= b; v += st) t.push(v); return t; };
+  let g = '';
+  for (const t of ticks(x0, x1)) g += `<line class="gd" x1="${X(t)}" x2="${X(t)}" y1="${T}" y2="${H - B}"/><text x="${X(t)}" y="${H - B + 16}" text-anchor="middle">${fmtK(t)}</text>`;
+  for (const t of ticks(y0, y1)) g += `<line class="gd" x1="${L}" x2="${W - R}" y1="${Y(t)}" y2="${Y(t)}"/><text x="${L - 6}" y="${Y(t) + 4}" text-anchor="end">${fmtK(t)}</text>`;
+  if (o.ax != null) g += `<line x1="${X(o.ax)}" x2="${X(o.ax)}" y1="${T}" y2="${H - B}" stroke="#ee7d1b" stroke-dasharray="5 4"/>`;
+  if (o.ay != null) g += `<line x1="${L}" x2="${W - R}" y1="${Y(o.ay)}" y2="${Y(o.ay)}" stroke="#ee7d1b" stroke-dasharray="5 4"/>`;
+  const q = [['供給多・稼働高', W - R - 6, T + 14, 'end'], ['供給少・稼働高', L + 8, T + 14, 'start'], ['供給少・稼働低', L + 8, H - B - 8, 'start'], ['供給多・稼働低', W - R - 6, H - B - 8, 'end']];
+  for (const [t, x, y, a] of q) g += `<text x="${x}" y="${y}" text-anchor="${a}" font-weight="700" fill="#9aa8b8" style="fill:#9aa8b8">${t}</text>`;
+  const mxs = xs.reduce((s, v) => s + v, 0) / xs.length, mys = ys.reduce((s, v) => s + v, 0) / ys.length, sx = Math.max(...xs) - Math.min(...xs) || 1, sy = Math.max(...ys) - Math.min(...ys) || 1;
+  const far = new Set(pts.map((p, k) => [k, ((p.x - mxs) / sx) ** 2 + ((p.y - mys) / sy) ** 2]).sort((a, b) => b[1] - a[1]).slice(0, o.nlab ?? 12).map(x => x[0]));
+  const dots = pts.map((p, k) => `<g><circle class="dot" data-go="${esc(p.go)}" cx="${X(p.x).toFixed(1)}" cy="${Y(p.y).toFixed(1)}" r="${p.r || 7}" fill="${p.c || '#0b8f8a'}" fill-opacity=".8" stroke="#fff" stroke-width="1.5"><title>${esc(p.n)}｜${esc(o.xl)} ${fmt(p.x, 1)}｜${esc(o.yl)} ${fmt(p.y)}</title></circle>${p.lab && far.has(k) ? `<text x="${X(p.x) + 9}" y="${Y(p.y) + 4}" style="font-size:10.5px">${esc(p.n.replace(/[都府県]$/, ''))}</text>` : ''}</g>`).join('');
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(o.title || '散布図')}">${g}<line class="ax" x1="${L}" x2="${W - R}" y1="${H - B}" y2="${H - B}"/><line class="ax" x1="${L}" x2="${L}" y1="${T}" y2="${H - B}"/>${dots}
+   <text x="${(L + W - R) / 2}" y="${H - 8}" text-anchor="middle" style="font-weight:700">${esc(o.xl)} →</text><text transform="translate(14 ${(T + H - B) / 2}) rotate(-90)" text-anchor="middle" style="font-weight:700">${esc(o.yl)} →</text></svg>`;
+}
+function niceStep(r) { const p = 10 ** Math.floor(Math.log10(r || 1)), n = r / p; return (n < 1.5 ? 1 : n < 3 ? 2 : n < 7 ? 5 : 10) * p; }
+const kpi = (icon, k, v, s, cls = '') => `<div class="kpi ${cls}"><span class="pi">${ic(icon, 22)}</span><div class="k">${esc(k)}</div><div class="v num">${v}</div>${s ? `<div class="s">${s}</div>` : ''}</div>`;
+const idxBadge = v => v == null || !isFinite(v) ? '' : `<span class="badge ${v >= 110 ? 'up' : v <= 90 ? 'dn' : 'eq'}">${v >= 110 ? '▲' : v <= 90 ? '▼' : '＝'} ${fmt(v)}</span>`;
+
+/* ==================================================================
+   5. router
+   ================================================================== */
+const PAGES = [
+  {id: 'home', label: 'ホーム', icon: 'home'},
+  {id: 'map', label: '地図で見る', icon: 'map'},
+  {id: 'region', label: '地域カルテ', icon: 'region'},
+  {id: 'facility', label: '施設を探す', icon: 'search'},
+  {id: 'market', label: '検査・市場', icon: 'chart'},
+  {id: 'endo', label: '内視鏡', icon: 'endo'},
+  {id: 'data', label: 'データ・出典', icon: 'data'},
+];
+function parseRef(ref) { const h = String(ref || '').replace(/^#\/?/, ''); const [pg, qs] = h.split('?'); return {page: PAGES.some(p => p.id === pg) ? pg : 'home', q: Object.fromEntries(new URLSearchParams(qs || ''))}; }
+function href(page, q = {}) { const s = new URLSearchParams(Object.entries(q).filter(([, v]) => v !== '' && v != null)).toString(); return '#/' + page + (s ? '?' + s : ''); }
+const EMBED = (() => { try { return window.self !== window.top; } catch (e) { return true; } })();
+function setUrl(page, q, push) {
+  // plain "#page" survives in hosted viewers; the full state travels in history.state
+  const st = {page, q}, h = '#' + page;
+  try { if (push) history.pushState(st, '', h); else history.replaceState(st, '', h); } catch (e) {}
+}
+function nav(page, q = {}, replace) { S.cur = {page, q}; setUrl(page, q, !replace); route(); }
+function route() {
+  const {page, q} = S.cur; const changed = S.page !== page; S.page = page; S.q = q;
+  $$('.page').forEach(p => p.classList.toggle('on', p.id === 'p-' + page));
+  $$('[data-page]').forEach(b => { if (b.dataset.page === page) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
+  closeDrawer(); closeSheet(); $('#tip').style.display = 'none';
+  RENDER[page](q);
+  document.title = PAGES.find(p => p.id === page).label + '｜全国医療市場アトラス';
+  if (changed) window.scrollTo({top: 0});
+}
+window.addEventListener('popstate', e => { S.cur = e.state && e.state.page ? e.state : parseRef(location.hash); route(); });
+window.addEventListener('hashchange', () => { const r = parseRef(location.hash); if (r.page !== S.cur?.page || location.hash.includes('?')) { S.cur = r; setUrl(r.page, r.q, false); route(); } });
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#/"]');
+  if (a) { e.preventDefault(); const r = parseRef(a.getAttribute('href')); nav(r.page, r.q); return; }
+  const g = e.target.closest('[data-go]'); if (!g) return;
+  e.preventDefault(); const v = g.dataset.go;
+  if (v.startsWith('#')) { const r = parseRef(v); nav(r.page, r.q); } else if (v.startsWith('fac:')) openFacility(+v.slice(4));
+});
+
+/* ==================================================================
+   6. pages
+   ================================================================== */
+const RENDER = {};
+
+/* ---------- HOME ---------- */
+RENDER.home = () => {
+  const el = $('#p-home'); if (el.dataset.ok) return; el.dataset.ok = 1;
+  const n = D.nat, F = D.fac; let live = 0, ct = 0, mri = 0, endo = 0; for (let i = 0; i < F.len; i++) { const f = F.flag[i]; if (f & 1) { live++; if (f & 2) ct++; if (f & 4) mri++; if (f & 8) endo++; } }
+  const market = D.mods.map(m => ({n: m, v: n.m[m][1], lab: fmt(n.m[m][1], 0) + '億円', go: href('market', {mod: m})})).sort((a, b) => b.v - a.v).filter(x => x.v > 0);
+  const totOku = market.reduce((s, x) => s + x.v, 0);
+  el.innerHTML = `
+  <div class="card" style="background:linear-gradient(120deg,#ffffff 0%,#f0faf8 60%,#e7f0fb 100%);margin-bottom:16px">
+    <div class="card-h"><div><span class="kicker">${ic('target', 15)} MARKET ATLAS</span><h1 style="margin:4px 0 2px;font-size:clamp(21px,3vw,30px)">全国の画像診断・検査市場を、地図から施設まで。</h1>
+    <p class="sub" style="margin:0">NDB 2024年度の算定実績、医療施設調査の装置・病床、全国 ${fmt(live)} 施設のマスターを1つにまとめた営業用アトラスです。</p></div></div>
+    <div class="flow" style="margin-top:12px">
+      <button class="st" data-go="${href('map')}"><span class="pi">${ic('globe', 22)}</span><span><b>① 全国</b><span>地図で地域差をつかむ</span></span></button><span class="ar">${ic('arrow', 22, 2.6)}</span>
+      <button class="st" data-go="${href('region', {c: '13'})}"><span class="pi">${ic('map', 22)}</span><span><b>② 都道府県</b><span>47県の地域カルテ</span></span></button><span class="ar">${ic('arrow', 22, 2.6)}</span>
+      <button class="st" data-go="${href('map', {level: 'area'})}"><span class="pi">${ic('layers', 22)}</span><span><b>③ 二次医療圏</b><span>330医療圏を比較</span></span></button><span class="ar">${ic('arrow', 22, 2.6)}</span>
+      <button class="st" data-go="${href('facility')}"><span class="pi">${ic('hosp', 22)}</span><span><b>④ 施設</b><span>名前・装置・診療科で検索</span></span></button>
+    </div>
+  </div>
+  <div class="kpis" style="margin-bottom:16px">
+    ${kpi('yen', '10検査の診療報酬換算額', fmt(totOku, 0) + '<small>億円</small>', 'NDB 2024年度・撮影／検査本体', 'o')}
+    ${kpi('hosp', '病院', fmt(n.hosp) + '<small>施設</small>', '一般診療所 ' + fmt(n.clinic), 'n')}
+    ${kpi('bed', '総病床数', fmt(n.beds) + '<small>床</small>', '医療施設調査 2024年10月')}
+    ${kpi('ct', 'CT設置施設（施設DB）', fmt(ct) + '<small>施設</small>', 'MRI設置 ' + fmt(mri) + '施設', 'v')}
+    ${kpi('endo', '内視鏡関連施設', fmt(endo) + '<small>施設</small>', '名称・標榜科から抽出', 'o')}
+    ${kpi('people', '人口', fmt(n.pop / 1e4, 0) + '<small>万人</small>', '高齢化率 ' + fmt(n.aged / n.pop * 100, 1) + '%', 'n')}
+  </div>
+  <div class="grid g-map">
+    <div class="card"><div class="card-h"><div><h2>${ic('map')} CT 算定回数／人口10万人</h2><p class="sub">県をタップすると地域カルテが開きます</p></div><a class="btn sm ghost" href="${href('map')}">${ic('map', 18)}地図で詳しく</a></div>
+      <div class="mapbox" id="homeMap"></div><div id="homeLeg"></div></div>
+    <div class="card"><div class="card-h"><div><h2>${ic('chart')} 検査別の市場規模</h2><p class="sub">診療報酬換算額（億円）・タップで検査別分析へ</p></div></div>${bars(market)}
+      <div class="hr"></div><h3>すぐ使う</h3><div class="btns">
+      <a class="btn" href="${href('facility', {f: 'ct'})}">${ic('ct', 18)}CT設置施設</a><a class="btn navy" href="${href('facility', {f: 'mri'})}">${ic('mri', 18)}MRI設置施設</a><a class="btn orange" href="${href('endo')}">${ic('endo', 18)}内視鏡ターゲット</a><a class="btn ghost" href="${href('market', {mod: '超音波'})}">${ic('us', 18)}超音波の内訳</a></div></div>
+  </div>`;
+  const m = metricOf('pref', 'cnt10');
+  drawMap($('#homeMap'), {level: 'pref', value: c => m.f(D.prefBy[c], 'CT'), onPick: c => nav('region', {c}), tip: c => `<b>${esc(D.prefBy[c].n)}</b>CT ${fmt(m.f(D.prefBy[c], 'CT'))} 回／10万人`});
+  $('#homeLeg').innerHTML = legendHTML($('#homeMap')._sc, '回／10万人');
+};
+
+/* ---------- MAP ---------- */
+RENDER.map = q => {
+  const el = $('#p-map');
+  const pref = q.pref && D.prefBy[q.pref] ? q.pref : '';
+  const level = pref ? 'area' : (q.level === 'area' ? 'area' : 'pref');
+  const met = metricOf(level, q.met || (level === 'pref' ? 'cnt10' : 'cntbed'));
+  const mod = met.dev ? (DEV_MODS.includes(q.mod) ? q.mod : 'CT') : (D.mods.includes(q.mod) ? q.mod : 'CT');
+  const sel = q.sel || '';
+  const val = level === 'pref' ? c => met.f(D.prefBy[c], mod) : c => D.areaBy[c] ? met.f(D.areaBy[c], mod) : null;
+  const pool = level === 'pref' ? D.prefs : (pref ? D.areasOf[pref] : D.areas);
+  const ranked = pool.map(x => ({x, v: val(x.c)})).filter(r => r.v != null && isFinite(r.v)).sort((a, b) => b.v - a.v);
+  const set = (k, v) => nav('map', {...q, [k]: v, ...(k === 'level' ? {met: '', sel: ''} : {})});
+  el.innerHTML = `
+  <div class="ph"><div><span class="kicker">${ic('map', 15)} MAP EXPLORER</span><h1>地図で見る</h1><p>色が濃いほど値が大きい地域です。地図をタップすると、その地域へ移動します。</p></div></div>
+  <div class="grid g-map">
+    <div class="card">
+      <div class="filters" style="margin-bottom:12px">
+        <label class="field"><span>表示単位</span><div class="seg" role="group"><button type="button" data-lv="pref" aria-pressed="${level === 'pref'}" ${pref ? 'disabled' : ''}>都道府県</button><button type="button" data-lv="area" aria-pressed="${level === 'area'}">二次医療圏</button></div></label>
+        <label class="field"><span>指標</span><select id="mMet">${METRICS[level].map(x => `<option value="${x.id}" ${x.id === met.id ? 'selected' : ''}>${esc(x.label)}</option>`).join('')}</select></label>
+        ${met.mod ? `<label class="field"><span>検査</span><select id="mMod">${modOptions(mod, met.dev)}</select></label>` : ''}
+      </div>
+      <div class="crumb" style="margin-bottom:10px"><button type="button" data-go="${href('map', {level, met: met.id, mod})}">${ic('globe', 16)} 全国</button>${pref ? `<span>›</span><span class="cur">${esc(D.prefBy[pref].n)}</span>` : ''}${sel && D.areaBy[sel] ? `<span>›</span><span class="cur">${esc(D.areaBy[sel].n)}</span>` : ''}</div>
+      <div class="mapbox" id="mapMain"></div><div id="mapLeg"></div>
+      <p class="note">${pref ? '白線＝二次医療圏の境界、太線＝県境。' : level === 'area' ? '二次医療圏は市区町村を合成して描画（政令市は市単位）。' : '沖縄県は左上の枠内に移動して表示しています。'}医療圏の算定回数は公開値（秘匿セルを除く）です。</p>
+    </div>
+    <div class="card" id="mapSide"></div>
+  </div>`;
+  $$('[data-lv]', el).forEach(b => b.onclick = () => set('level', b.dataset.lv));
+  $('#mMet').onchange = e => nav('map', {...q, met: e.target.value});
+  if ($('#mMod')) $('#mMod').onchange = e => nav('map', {...q, mod: e.target.value});
+  const tipF = (k, t) => { const o = t === 'pref' ? D.prefBy[k] : D.areaBy[k]; if (!o) return '未対応の地域'; return `<b>${esc(o.n)}</b>${t === 'area' ? esc(D.prefBy[o.p].n) + '<br>' : ''}${esc(met.label)}${met.mod ? '（' + esc(mod) + '）' : ''}<br><span class="num" style="font-size:15px;font-weight:800">${fmt(val(k), met.d || 0)}</span> ${esc(met.unit)}`; };
+  drawMap($('#mapMain'), {pref, level, value: val, sel, tip: tipF,
+    onPick: (k, t) => { if (t === 'pref') nav('map', {...q, pref: k, level: 'area', met: METRICS.area.some(x => x.id === met.id) ? met.id : 'cntbed', sel: ''}); else if (!pref) nav('map', {...q, pref: k.slice(0, 2), sel: k, level: 'area'}); else nav('map', {...q, sel: k}); }});
+  $('#mapLeg').innerHTML = legendHTML($('#mapMain')._sc, met.unit);
+  // side panel
+  const side = $('#mapSide');
+  const focus = sel && D.areaBy[sel] ? D.areaBy[sel] : pref ? D.prefBy[pref] : null;
+  const rank = ranked.findIndex(r => r.x.c === (focus?.c)) + 1;
+  const top = ranked.slice(0, 12).map(r => ({n: r.x.n + (level === 'area' && !pref ? '（' + D.prefBy[r.x.p].n.replace(/[都府県]$/, '') + '）' : ''), v: r.v, lab: fmt(r.v, met.d || 0), hl: r.x.c === focus?.c,
+    go: level === 'pref' ? href('map', {...q, pref: r.x.c, level: 'area', sel: ''}) : href('map', {...q, pref: r.x.p, sel: r.x.c})}));
+  side.innerHTML = (focus ? `
+    <span class="kicker">${focus.p ? '二次医療圏' : '都道府県'}</span><h2 style="font-size:22px;margin:2px 0 8px">${esc(focus.n)}</h2>
+    <div class="kpis" style="grid-template-columns:1fr 1fr">${kpi('hosp', '病院', fmt(focus.hosp))}${kpi('bed', '病床', fmt(focus.beds), '', 'n')}</div>
+    <p style="margin:12px 0 4px">${esc(met.label)}${met.mod ? '（' + esc(mod) + '）' : ''}：<b class="num" style="font-size:20px">${fmt(focus.p ? val(focus.c) : (level === 'pref' ? val(focus.c) : metricOf('pref', 'cnt10').f(focus, mod)), met.d || 0)}</b> ${esc(focus.p || level === 'pref' ? met.unit : '回')}${rank ? `　<span class="badge eq">${rank}位／${ranked.length}</span>` : ''}</p>
+    <div class="btns" style="margin:12px 0 4px"><a class="btn" href="${href('region', {c: focus.c})}">${ic('region', 18)}地域カルテを開く</a><a class="btn ghost" href="${href('facility', focus.p ? {area: focus.c} : {pref: focus.c})}">${ic('search', 18)}施設を見る</a></div><div class="hr"></div>` :
+    `<span class="kicker">RANKING</span><h2>${esc(met.label)}</h2><p class="sub">${met.mod ? esc(mod) + '・' : ''}上位12地域。タップで地図が移動します。</p>`) +
+    `${focus ? `<h3>${pref ? esc(D.prefBy[pref].n) + '内の' : ''}上位</h3>` : ''}${bars(top, {d: met.d})}
+    <div class="hr"></div><p class="note">${ic('info', 14)} 表示単位を「二次医療圏」にすると、全国330医療圏を同じ色の基準で比べられます。</p>`;
+};
+
+/* ---------- REGION CARD ---------- */
+RENDER.region = q => {
+  const el = $('#p-region');
+  const code = q.c && (D.prefBy[q.c] || D.areaBy[q.c]) ? q.c : '13';
+  const isPref = code.length === 2, R = isPref ? D.prefBy[code] : D.areaBy[code], pc = isPref ? code : R.p, P = D.prefBy[pc];
+  const facIdx = isPref ? D.facByPref[pc] || [] : D.facByArea[code] || [];
+  const F = D.fac; const tc = [0, 0, 0]; let ctF = 0, mriF = 0, endoA = 0, endoB = 0;
+  for (const i of facIdx) { const f = F.flag[i]; if (!(f & 1)) continue; tc[F.t[i]]++; if (f & 2) ctF++; if (f & 4) mriF++; if (f & 8) endoA++; if (f & 16) endoB++; }
+  // exams vs national
+  const rows = D.mods.map(m => {
+    if (isPref) { const v = R.m[m][0], per = v / R.pop * 1e5, natPer = D.nat.m[m][0] / D.nat.pop * 1e5; return {m, v, per, idx: natPer ? per / natPer * 100 : null, oku: R.m[m][1], dev: R.m[m][2]}; }
+    const v = R.v[m]?.[0] || 0, per = R.beds ? v / R.beds * 1000 : null; return {m, v, per, idx: D.areaBase[m] && per != null ? per / D.areaBase[m] * 100 : null, hid: R.v[m]?.[1] || 0, dev: R.u[m] ?? null};
+  });
+  // ultrasound breakdown
+  const usSum = {}; for (const a of isPref ? D.areasOf[pc] : [R]) for (const [k, z] of Object.entries(a.us || {})) usSum[k] = (usSum[k] || 0) + z[0];
+  const USC = ['#0b8f8a', '#ee7d1b', '#1c4377', '#6a56c8', '#2f8f4e', '#9aa8b8'];
+  // makers
+  const mk = {CT: {}, MRI: {}};
+  for (const i of facIdx) { const d = D.det[F.id[i]]; if (!d || !(F.flag[i] & 1)) continue; for (const x of d[0]) mk.CT[x[2]] = (mk.CT[x[2]] || 0) + (x[3] || 1); for (const x of d[1]) mk.MRI[x[2]] = (mk.MRI[x[2]] || 0) + (x[3] || 1); }
+  const mkParts = o => Object.entries(o).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({n: makerName(k), v, c: makerCol(k)}));
+  const topFac = facIdx.filter(i => F.flag[i] & 1).sort((a, b) => F.beds[b] - F.beds[a]).slice(0, 10);
+  const subs = isPref ? (D.areasOf[pc] || []) : [];
+  const unitP = [1, 2, 5, 10, 20, 50, 100, 200].find(u => Math.max(...tc) / u <= 160) || 500;
+  const subMod = D.mods.includes(q.mod) ? q.mod : 'CT';
+  el.innerHTML = `
+  <div class="ph"><div><span class="kicker">${ic('region', 15)} REGIONAL RECORD</span><h1>地域カルテ</h1><p>県・二次医療圏を選ぶと、検査実績・装置・施設・メーカー構成を1枚で確認できます。</p></div>
+    <div class="rg-pick"><label class="field"><span>都道府県</span><select id="rgP">${D.prefs.map(p => `<option value="${p.c}" ${p.c === pc ? 'selected' : ''}>${esc(p.n)}</option>`).join('')}</select></label>
+    <label class="field"><span>二次医療圏</span><select id="rgA"><option value="">（県全体）</option>${(D.areasOf[pc] || []).map(a => `<option value="${a.c}" ${a.c === code ? 'selected' : ''}>${esc(a.n)}</option>`).join('')}</select></label></div></div>
+  <div class="card" style="margin-bottom:16px"><div class="rg-head"><div>
+      <div class="crumb"><button type="button" data-go="${href('region', {c: pc})}">${esc(P.n)}</button>${isPref ? '' : `<span>›</span><span class="cur">${esc(R.n)}</span>`}</div>
+      <h2 style="font-size:26px;margin:8px 0 12px">${esc(R.n)} <span class="tag">${isPref ? '都道府県' : '二次医療圏 ' + esc(code)}</span></h2>
+      <div class="kpis">${isPref ? kpi('people', '人口', fmt(R.pop / 1e4, 1) + '<small>万人</small>', '高齢化率 ' + fmt(R.aged / R.pop * 100, 1) + '%', 'n') : ''}
+        ${kpi('hosp', '病院', fmt(R.hosp), isPref ? '10万人当たり ' + fmt(R.hosp / R.pop * 1e5, 1) : '')}${kpi('clinic', '一般診療所', fmt(R.clinic), R.bedc != null ? '有床 ' + fmt(R.bedc) : '', 'v')}
+        ${kpi('bed', '病床', fmt(R.beds), '', 'n')}${kpi('er', '救急告示病院', fmt(R.er), '', 'o')}</div>
+      <div class="btns" style="margin-top:14px"><a class="btn" href="${href('facility', isPref ? {pref: pc} : {area: code})}">${ic('search', 18)}この地域の施設 ${fmt(tc[0] + tc[1] + tc[2])}件</a><a class="btn ghost" href="${href('map', {pref: pc, sel: isPref ? '' : code})}">${ic('map', 18)}地図で見る</a></div>
+    </div><div class="mapbox" id="rgMap"></div></div></div>
+  <div class="grid g2">
+    <div class="card"><h2>${ic('chart')} 10検査の実績と全国比</h2><p class="sub">${isPref ? '指数＝人口10万人当たり算定回数の全国比（100＝全国並み）' : '指数＝病床1,000床当たり算定回数の全国比（100＝全国並み）。公開値ベースのため秘匿セルがある検査は過少になります。'}</p>
+      <div class="tw" style="max-height:none"><table><thead><tr><th>検査</th><th class="r">算定回数</th><th class="r">${isPref ? '10万人当たり' : '千床当たり'}</th><th>全国比</th>${isPref ? '<th class="r">換算額</th>' : '<th class="r">秘匿</th>'}</tr></thead><tbody>
+      ${rows.map(r => `<tr class="go" data-go="${href('market', {mod: r.m})}"><td><b>${esc(r.m)}</b></td><td class="r">${fmt(r.v)}</td><td class="r">${fmt(r.per)}</td><td>${r.idx != null ? `<span class="minibar" style="width:${Math.min(90, r.idx / 2.5)}px;background:${r.idx >= 110 ? '#2f8f4e' : r.idx <= 90 ? '#c8423b' : '#0b8f8a'}"></span>` + idxBadge(r.idx) : '—'}</td>${isPref ? `<td class="r">${fmt(r.oku, 1)}億円</td>` : `<td class="r">${r.hid ? `<span class="tag off">${r.hid}</span>` : '—'}</td>`}</tr>`).join('')}
+      </tbody></table></div></div>
+    <div class="card"><h2>${ic('ct')} 装置台数と1台当たり算定回数</h2><p class="sub">医療施設調査 2023年（N32 病院・N33 一般診療所）× NDB 2024年度</p>
+      ${bars(DEV_MODS.map(m => { const r = rows.find(x => x.m === m); return {n: m, v: r.dev || 0, lab: r.dev != null ? fmt(r.dev) + '台' : '—'}; }))}
+      <h3>1台当たり算定回数</h3>
+      ${bars(DEV_MODS.map(m => { const r = rows.find(x => x.m === m); const v = r.dev ? r.v / r.dev : null; return {n: m, v: v || 0, lab: v ? fmt(v) + '回' : '—'}; }))}</div>
+    <div class="card"><h2>${ic('us')} 超音波（D215）の部位別内訳</h2><p class="sub">NDB 2024年度・公開済算定回数</p>
+      ${Object.keys(usSum).length ? donut(Object.entries(usSum).map(([k, v], i) => ({n: k.replace('D215', ''), v, c: USC[i % USC.length]})), {center: '超音波', total: fmtK(Object.values(usSum).reduce((s, v) => s + v, 0)) + '回'}) : '<p class="empty">データがありません</p>'}</div>
+    <div class="card"><h2>${ic('hosp')} 施設構成</h2><p class="sub">施設マスター（現存のみ）。1マス＝${fmt(unitP)}施設</p>
+      ${[['病院', tc[0], '#1c4377'], ['有床診療所', tc[1], '#6a56c8'], ['無床診療所', tc[2], '#0b8f8a']].map(([n, v, c]) => `<div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700"><span>${n}</span><span class="num">${fmt(v)}</span></div><div class="pictos">${`<i style="background:${c}"></i>`.repeat(Math.ceil(v / unitP))}</div></div>`).join('')}
+      <div class="tags" style="margin-top:6px"><span class="tag ct">CT設置 ${fmt(ctF)}</span><span class="tag mri">MRI設置 ${fmt(mriF)}</span><span class="tag endo">内視鏡標榜 ${fmt(endoA)}</span><span class="tag gi">消化器系 ${fmt(endoB)}</span></div></div>
+    <div class="card"><h2>${ic('layers')} CT・MRI メーカー構成（施設DB）</h2><p class="sub">CT／MRI MARKET ATLAS の施設別台数を集計。調査範囲は公的統計と異なります。</p>
+      <h3>CT（${fmt(Object.values(mk.CT).reduce((s, v) => s + v, 0))}台）</h3>${Object.keys(mk.CT).length ? stack(mkParts(mk.CT)) : '<p class="note">該当なし</p>'}
+      <h3>MRI（${fmt(Object.values(mk.MRI).reduce((s, v) => s + v, 0))}台）</h3>${Object.keys(mk.MRI).length ? stack(mkParts(mk.MRI)) : '<p class="note">該当なし</p>'}</div>
+    <div class="card"><h2>${ic('bed')} 病床規模の大きい施設</h2><p class="sub">タップで施設カルテ（ホームページ検索・地図リンク付き）</p>
+      <div class="tw" style="max-height:420px"><table><thead><tr><th>施設名</th><th>種別</th><th class="r">病床</th><th>CT/MRI</th></tr></thead><tbody>
+      ${topFac.map(i => `<tr class="go" data-go="fac:${i}"><td><b>${esc(F.n[i])}</b><div class="note">${esc(D.areaBy[F.area[i]]?.n || '')}</div></td><td>${TYPE_SHORT[F.t[i]]}</td><td class="r">${fmt(F.beds[i])}</td><td>${F.ct[i] > 0 ? `<span class="tag ct">CT${F.ct[i]}</span>` : ''} ${F.mri[i] > 0 ? `<span class="tag mri">MRI${F.mri[i]}</span>` : ''}</td></tr>`).join('')}</tbody></table></div></div>
+  </div>
+  ${isPref ? `<div class="card" style="margin-top:16px"><div class="card-h"><div><h2>${ic('layers')} 県内の二次医療圏</h2><p class="sub">${esc(subMod)}の算定回数（公開値）。タップで医療圏のカルテへ。</p></div><select id="rgMod" aria-label="検査">${modOptions(subMod)}</select></div>
+    ${bars(subs.map(a => ({n: a.n, v: a.v[subMod]?.[0] || 0, go: href('region', {c: a.c})})).sort((a, b) => b.v - a.v))}</div>` : ''}`;
+  $('#rgP').onchange = e => nav('region', {c: e.target.value});
+  $('#rgA').onchange = e => nav('region', {c: e.target.value || pc});
+  if ($('#rgMod')) $('#rgMod').onchange = e => nav('region', {c: code, mod: e.target.value}, true);
+  drawMap($('#rgMap'), {pref: pc, level: 'area', mini: true, sel: isPref ? '' : code, value: c => c === code || isPref ? 1 : 0.3,
+    onPick: k => nav('region', {c: k}), tip: k => `<b>${esc(D.areaBy[k]?.n || '')}</b>タップでこの医療圏へ`});
+  // pale palette for the location map
+  $$('#rgMap path.r').forEach(p => { p.setAttribute('fill', !isPref && p.dataset.k === code ? '#ee7d1b' : '#9fd3cb'); });
+};
+
+/* ---------- FACILITY SEARCH ---------- */
+const FAC_FLAGS = [['ct', 'CT設置', 2], ['noct', 'CT情報なし', 0], ['mri', 'MRI設置', 4], ['endo', '内視鏡標榜', 8], ['gi', '消化器系', 16], ['canon', 'キヤノン機あり', 32]];
+RENDER.facility = q => {
+  const el = $('#p-facility');
+  if (!el.dataset.ok) {
+    el.dataset.ok = 1;
+    el.innerHTML = `
+    <div class="ph"><div><span class="kicker">${ic('search', 15)} FACILITY FINDER</span><h1>施設を探す</h1><p>全国 ${fmt(D.fac.len)} 施設（休止・廃止を含む）。名前・住所・診療科・機種名で検索し、条件で絞り込めます。</p></div></div>
+    <div class="card" style="margin-bottom:14px">
+      <div class="filters">
+        <label class="field" style="grid-column:1/-1"><span>キーワード</span><input class="inp" id="fQ" type="search" placeholder="例：中央病院／消化器内科／Aquilion／札幌市" autocomplete="off" enterkeyhint="search"></label>
+        <label class="field"><span>都道府県</span><select id="fP"><option value="">全国</option>${D.prefs.map(p => `<option value="${p.c}">${esc(p.n)}</option>`).join('')}</select></label>
+        <label class="field"><span>二次医療圏</span><select id="fA"><option value="">すべて</option></select></label>
+        <label class="field"><span>病床規模</span><select id="fB"><option value="">指定なし</option><option value="1">1床以上</option><option value="20">20床以上</option><option value="100">100床以上</option><option value="200">200床以上</option><option value="400">400床以上</option></select></label>
+        <label class="field"><span>並び順</span><select id="fS"><option value="beds">病床の多い順</option><option value="dev">CT+MRI台数の多い順</option><option value="name">名前順</option></select></label>
+      </div>
+      <div style="margin-top:12px"><div class="field"><span>施設種別</span></div><div class="chips" id="fT" style="margin-top:6px">${D.types.map((t, i) => `<button type="button" class="chip" data-t="${i}" aria-pressed="false">${ic(TYPE_IC[i], 16)}${t}</button>`).join('')}</div></div>
+      <div style="margin-top:12px"><div class="field"><span>装置・診療</span></div><div class="chips" id="fF" style="margin-top:6px">${FAC_FLAGS.map(([k, l]) => `<button type="button" class="chip" data-f="${k}" aria-pressed="false">${l}</button>`).join('')}<button type="button" class="chip" id="fLive" aria-pressed="false">休止・廃止も含める</button></div></div>
+      <div class="btns" style="margin-top:14px"><button type="button" class="btn ghost sm" id="fReset">${ic('filter', 16)}条件をクリア</button></div>
+    </div>
+    <div class="res-h"><div class="count" id="fCount"></div><div class="btns">${EMBED ? '' : `<button type="button" class="btn sm ghost" id="fCsv">${ic('dl', 16)}CSVで保存</button>`}<button type="button" class="btn sm ghost" id="fCopy">${ic('region', 16)}一覧をコピー</button></div></div>
+    <div class="fl" id="fList"></div><div class="more" id="fMore"></div>`;
+    const upd = debounce(() => nav('facility', readFac(), true), 180);
+    $('#fQ').addEventListener('input', upd);
+    for (const id of ['fP', 'fA', 'fB', 'fS']) $('#' + id).addEventListener('change', e => { if (id === 'fP') $('#fA').value = ''; nav('facility', readFac(), true); });
+    $('#fT').addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true'); nav('facility', readFac(), true); });
+    $('#fF').addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true'); nav('facility', readFac(), true); });
+    $('#fReset').onclick = () => nav('facility', {}, true);
+    if ($('#fCsv')) $('#fCsv').onclick = () => exportCsv(S.facRes || []);
+    $('#fCopy').onclick = async () => { const b = $('#fCopy'), n = Math.min(2000, (S.facRes || []).length);
+      try { await navigator.clipboard.writeText(csvText(S.facRes || [], '\t', 2000)); b.innerHTML = ic('region', 16) + 'コピーしました（' + fmt(n) + '件）'; } catch (e) { b.textContent = 'コピーできませんでした'; }
+      setTimeout(() => b.innerHTML = ic('region', 16) + '一覧をコピー', 2500); };
+  }
+  // sync controls from URL
+  const area = q.area && D.areaBy[q.area] ? q.area : '';
+  const pref = area ? area.slice(0, 2) : (q.pref && D.prefBy[q.pref] ? q.pref : '');
+  if (document.activeElement !== $('#fQ')) $('#fQ').value = q.q || '';
+  $('#fP').value = pref;
+  $('#fA').innerHTML = `<option value="">すべて</option>` + (pref ? (D.areasOf[pref] || []).map(a => `<option value="${a.c}">${esc(a.n)}</option>`).join('') : '');
+  $('#fA').value = area; $('#fA').disabled = !pref;
+  $('#fB').value = q.beds || ''; $('#fS').value = q.sort || 'beds';
+  const types = (q.t || '').split(',').filter(Boolean).map(Number);
+  $$('#fT .chip').forEach(b => b.setAttribute('aria-pressed', types.includes(+b.dataset.t)));
+  const flags = (q.f || '').split(',').filter(Boolean);
+  $$('#fF .chip[data-f]').forEach(b => b.setAttribute('aria-pressed', flags.includes(b.dataset.f)));
+  $('#fLive').setAttribute('aria-pressed', q.all === '1');
+  // filter
+  const F = D.fac, words = norm(q.q).length ? String(q.q).normalize('NFKC').toLowerCase().split(/\s+/).filter(Boolean).map(norm) : [];
+  let mask = 0; for (const [k, , b] of FAC_FLAGS) if (flags.includes(k)) mask |= b;
+  const minBeds = +q.beds || 0, live = q.all !== '1', noct = flags.includes('noct');
+  const pool = area ? D.facByArea[area] || [] : pref ? D.facByPref[pref] || [] : null;
+  const res = []; const it = pool || {length: F.len};
+  for (let j = 0; j < it.length; j++) {
+    const i = pool ? pool[j] : j, f = F.flag[i];
+    if (live && !(f & 1)) continue; if ((f & mask) !== mask) continue; if (noct && (f & 2)) continue;
+    if (types.length && !types.includes(F.t[i])) continue; if (minBeds && F.beds[i] < minBeds) continue;
+    if (words.length) { const k = F.key[i]; let ok = true; for (const w of words) if (!k.includes(w)) { ok = false; break; } if (!ok) continue; }
+    res.push(i);
+  }
+  const sort = q.sort || 'beds';
+  if (sort === 'beds') res.sort((a, b) => F.beds[b] - F.beds[a] || F.t[a] - F.t[b]);
+  else if (sort === 'dev') res.sort((a, b) => (Math.max(0, F.ct[b]) + Math.max(0, F.mri[b])) - (Math.max(0, F.ct[a]) + Math.max(0, F.mri[a])) || F.beds[b] - F.beds[a]);
+  else res.sort((a, b) => F.n[a].localeCompare(F.n[b], 'ja'));
+  S.facRes = res; S.facShown = 0;
+  $('#fCount').innerHTML = `<b>${fmt(res.length)}</b> 件${pref ? '　' + esc(D.prefBy[pref].n) : '　全国'}${area ? ' ／ ' + esc(D.areaBy[area].n) : ''}`;
+  $('#fList').innerHTML = ''; moreFac();
+};
+function readFac() {
+  const o = {q: $('#fQ').value.trim(), pref: $('#fP').value, area: $('#fA').value, beds: $('#fB').value, sort: $('#fS').value === 'beds' ? '' : $('#fS').value,
+    t: $$('#fT .chip[aria-pressed=true]').map(b => b.dataset.t).join(','), f: $$('#fF .chip[data-f][aria-pressed=true]').map(b => b.dataset.f).join(','), all: $('#fLive').getAttribute('aria-pressed') === 'true' ? '1' : ''};
+  if (o.area) o.pref = ''; return o;
+}
+function facCard(i) {
+  const F = D.fac, f = F.flag[i], city = D.cities[F.city[i]]?.[0] || '', pref = D.prefBy[F.pref[i]]?.n || '';
+  return `<article class="fc"><div class="fc-top"><span class="ty t${F.t[i]}">${ic(TYPE_IC[F.t[i]], 22)}</span><div style="min-width:0">
+    <button type="button" class="fc-name" data-go="fac:${i}">${esc(F.n[i])}</button>
+    <div class="fc-meta">${esc(pref)} ${esc(city)}　｜　${esc(D.areaBy[F.area[i]]?.n || '')}医療圏</div></div></div>
+    <div class="tags"><span class="tag">${D.types[F.t[i]]}</span>${F.beds[i] ? `<span class="tag">${ic('bed', 13)}${fmt(F.beds[i])}床</span>` : ''}${f & 2 ? `<span class="tag ct">CT ${F.ct[i]}台</span>` : ''}${f & 4 ? `<span class="tag mri">MRI ${F.mri[i]}台</span>` : ''}${f & 32 ? '<span class="tag canon">キヤノン機</span>' : ''}${f & 8 ? '<span class="tag endo">内視鏡</span>' : f & 16 ? '<span class="tag gi">消化器系</span>' : ''}${f & 1 ? '' : '<span class="tag off">休止・廃止</span>'}</div>
+    <div class="fc-act"><a class="btn sm" href="${hpUrl(i)}" target="_blank" rel="noopener">${ic('globe', 16)}ホームページ</a><a class="btn sm navy" href="${gmapUrl(i)}" target="_blank" rel="noopener">${ic('pin', 16)}Googleマップ</a><button type="button" class="btn sm ghost" data-go="fac:${i}">${ic('map', 16)}詳細・地図</button></div></article>`;
+}
+function moreFac() {
+  const res = S.facRes, from = S.facShown, to = Math.min(res.length, from + 60);
+  if (!res.length) { $('#fList').innerHTML = `<div class="empty card" style="grid-column:1/-1">${ic('search', 48, 1.5)}<b>該当する施設がありません</b><p>キーワードを短くするか、条件を外してください。</p></div>`; $('#fMore').innerHTML = ''; return; }
+  $('#fList').insertAdjacentHTML('beforeend', res.slice(from, to).map(facCard).join('')); S.facShown = to;
+  $('#fMore').innerHTML = to < res.length ? `<button type="button" class="btn navy" id="fMoreBtn">さらに表示（残り ${fmt(res.length - to)} 件）</button>` : `<span class="note">全 ${fmt(res.length)} 件を表示しました</span>`;
+  if ($('#fMoreBtn')) $('#fMoreBtn').onclick = moreFac;
+}
+function hpUrl(i) { const F = D.fac; return 'https://www.google.com/search?q=' + encodeURIComponent(F.n[i] + ' ' + (D.prefBy[F.pref[i]]?.n || '') + (D.cities[F.city[i]]?.[0] || '') + ' 公式ホームページ'); }
+function gmapUrl(i) { const F = D.fac; return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(F.adr[i] ? F.n[i] + ' ' + F.adr[i] : F.n[i] + ' ' + (D.prefBy[F.pref[i]]?.n || '') + (D.cities[F.city[i]]?.[0] || '')); }
+function csvText(res, sep = ',', max = Infinity) {
+  const F = D.fac, head = ['施設ID', '施設名', '種別', '状態', '都道府県', '市区町村', '二次医療圏', '病床', 'CT台数', 'MRI台数', '内視鏡区分', '住所', '診療科', 'ホームページ検索', 'Googleマップ'];
+  const q = sep === ',' ? v => '"' + String(v ?? '').replace(/"/g, '""') + '"' : v => String(v ?? '').replace(/[\t\r\n]/g, ' ');
+  const lines = [head.map(q).join(sep)];
+  for (const i of res.slice(0, max)) { const f = F.flag[i];
+    lines.push([F.id[i], F.n[i], D.types[F.t[i]], f & 1 ? '現存' : '休止・廃止', D.prefBy[F.pref[i]]?.n, D.cities[F.city[i]]?.[0], D.areaBy[F.area[i]]?.n, F.beds[i], F.ct[i] >= 0 ? F.ct[i] : '', F.mri[i] >= 0 ? F.mri[i] : '', f & 8 ? '内視鏡標榜' : f & 16 ? '消化器系' : '', F.adr[i], F.dep[i] ? F.dep[i].split('.').map(x => D.depts[+x]).join(' / ') : '', hpUrl(i), gmapUrl(i)].map(q).join(sep)); }
+  return lines.join('\r\n');
+}
+function exportCsv(res) {
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['\ufeff' + csvText(res)], {type: 'text/csv'}));
+  a.download = '施設リスト_' + new Date().toLocaleDateString('sv-SE') + '.csv'; document.body.append(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+
+/* ---------- facility drawer ---------- */
+function openFacility(i) {
+  const F = D.fac, f = F.flag[i], det = D.det[F.id[i]] || [[], []], pc = F.pref[i];
+  const deps = F.dep[i] ? F.dep[i].split('.').map(x => D.depts[+x]) : [];
+  const areaMkt = D.areaBy[F.area[i]] || null, prefMkt = D.prefBy[pc] || null;
+  const dr = $('#drawer');
+  dr.innerHTML = `<div class="dr-h"><span class="ty t${F.t[i]}" style="width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex:none">${ic(TYPE_IC[F.t[i]], 22)}</span><div><div style="font-size:12px;opacity:.8">施設カルテ ・ ${esc(F.id[i])}</div><h2 id="drTitle">${esc(F.n[i])}</h2></div><button class="x" type="button" id="drX" aria-label="閉じる">×</button></div>
+  <div class="dr-b">
+    <div class="btns"><a class="btn" href="${hpUrl(i)}" target="_blank" rel="noopener">${ic('globe', 18)}ホームページを開く（検索）</a><a class="btn navy" href="${gmapUrl(i)}" target="_blank" rel="noopener">${ic('pin', 18)}Googleマップ</a></div>
+    <div class="card" style="padding:14px"><h3 style="margin:0 0 8px">${ic('pin', 16)} 所在地と二次医療圏</h3><div class="mapbox" id="drMap"></div>
+      <div class="btns" style="margin-top:10px"><a class="btn sm ghost" href="${href('map', {pref: pc, sel: F.area[i]})}">${ic('map', 16)}地図ページで見る</a><a class="btn sm ghost" href="${href('region', {c: F.area[i]})}">${ic('region', 16)}${esc(D.areaBy[F.area[i]]?.n || '')}のカルテ</a></div></div>
+    <div class="card" style="padding:14px"><dl class="kv">
+      <dt>種別</dt><dd>${D.types[F.t[i]]}${f & 1 ? '' : ' <span class="tag off">休止・廃止</span>'}</dd>
+      <dt>所在地</dt><dd>${esc(F.adr[i] || ((D.prefBy[pc]?.n || '') + (D.cities[F.city[i]]?.[0] || '')))}</dd>
+      <dt>二次医療圏</dt><dd>${esc(D.prefBy[pc]?.n || '')} ${esc(D.areaBy[F.area[i]]?.n || '')}</dd>
+      <dt>病床</dt><dd class="num">${fmt(F.beds[i])} 床</dd>
+      <dt>CT／MRI</dt><dd>${F.ct[i] >= 0 ? 'CT ' + F.ct[i] + '台' : 'CT 情報なし'}・${F.mri[i] >= 0 ? 'MRI ' + F.mri[i] + '台' : 'MRI 情報なし'}</dd>
+      <dt>内視鏡</dt><dd>${f & 8 ? '<span class="tag endo">内視鏡を標榜／名称に含む</span>' : f & 16 ? '<span class="tag gi">消化器系の診療科あり</span>' : '該当なし'}</dd></dl></div>
+    ${areaMkt ? `<div class="card atlas-mkt" style="padding:14px"><h3 style="margin:0 0 8px">二次医療圏の医療提供体制</h3>
+    <p class="note">以下は「${esc(areaMkt.n)}」医療圏全体の指標です。この病院単独の値ではありません。</p>
+    <div class="atlas-mkt-metrics">
+      <div><small>医療圏の病院数</small><b>${fmt(areaMkt.hosp)}施設</b></div>
+      <div><small>医療圏の診療所数</small><b>${fmt(areaMkt.clinic)}施設</b></div>
+      <div><small>医療圏の病床</small><b>${fmt(areaMkt.beds)}床</b></div>
+      <div><small>医療圏の救急関連施設</small><b>${fmt(areaMkt.er)}施設</b></div>
+    </div>
+    <div class="atlas-mkt-activity">
+      <div><span>CT検査算定回数</span><b>${fmt(areaMkt.v?.CT?.[0] ?? 0)}回</b></div>
+      <div><span>MRI検査算定回数</span><b>${fmt(areaMkt.v?.MRI?.[0] ?? 0)}回</b></div>
+      <div><span>CT装置台数（圏域）</span><b>${areaMkt.u?.CT == null ? "資料なし" : fmt(areaMkt.u.CT) + "台"}</b></div>
+      <div><span>MRI装置台数（圏域）</span><b>${areaMkt.u?.MRI == null ? "資料なし" : fmt(areaMkt.u.MRI) + "台"}</b></div>
+    </div>
+    ${prefMkt ? `<p class="note">県全体：${esc(prefMkt.n)}｜病院 ${fmt(prefMkt.hosp)}施設｜人口 ${fmt(prefMkt.pop)}人｜65歳以上人口 ${fmt(prefMkt.aged)}人</p>` : ""}
+    <p class="note">検査件数は地域の算定集計、装置台数は設備の集計です。掲載時点・集計対象の違いにご注意ください。</p></div>` : ""}
+        ${det[0].length || det[1].length ? `<div class="card" style="padding:14px"><h3 style="margin:0 0 8px">${ic('ct', 16)} 装置（CT／MRI MARKET ATLAS 施設DB）</h3><div class="devs">
+      ${det[0].map(d => `<div class="dev"><span class="ico" style="background:${makerCol(d[2])}">${ic('ct', 18)}</span><div><b>CT ${esc(d[0] || '機種未記載')}</b><div class="note">${esc(makerName(d[2]))} ・ ${esc(d[1] || '列数未記載')} ・ ${fmt(d[3] || 1)}台</div></div></div>`).join('')}
+      ${det[1].map(d => `<div class="dev"><span class="ico" style="background:${makerCol(d[2])}">${ic('mri', 18)}</span><div><b>MRI ${esc(d[0] || '機種未記載')}</b><div class="note">${esc(makerName(d[2]))} ・ ${esc(d[1] || '磁場強度未記載')} ・ ${fmt(d[3] || 1)}台</div></div></div>`).join('')}
+    </div><p class="note">未掲載の装置は「保有なし」を意味しません。</p></div>` : ''}
+    ${deps.length ? `<div class="card" style="padding:14px"><h3 style="margin:0 0 8px">${ic('hosp', 16)} 診療科（${deps.length}）</h3><div class="tags">${deps.map(d => `<span class="tag${/内視鏡/.test(d) ? ' endo' : /消化器|胃腸/.test(d) ? ' gi' : ''}">${esc(d)}</span>`).join('')}</div></div>` : ''}
+    <p class="note">${ic('info', 14)} ホームページは施設名と所在地でのGoogle検索です（公式URLはデータに含まれていません）。</p>
+  </div>`;
+  $('#drX').onclick = closeDrawer;
+  dr.classList.add('on'); $('#scrim').classList.add('on'); document.body.style.overflow = 'hidden';
+  drawMap($('#drMap'), {pref: pc, level: 'area', mini: true, sel: F.area[i], fitArea: F.area[i], value: c => c === F.area[i] ? 2 : 1, pinCity: F.city[i]});
+  $$('#drMap path.r').forEach(p => p.setAttribute('fill', p.dataset.k === F.area[i] ? '#9fd3cb' : '#e2ece9'));
+  setTimeout(() => $('#drX').focus(), 50);
+}
+function closeDrawer() { $('#drawer').classList.remove('on'); if (!$('#sheet').classList.contains('on')) $('#scrim').classList.remove('on'); document.body.style.overflow = ''; }
+
+/* ---------- MARKET ---------- */
+RENDER.market = q => {
+  const el = $('#p-market');
+  const mod = D.mods.includes(q.mod) ? q.mod : 'CT', n = D.nat.m[mod], isDev = DEV_MODS.includes(mod) && n[2] > 0;
+  const metIds = isDev ? ['cnt10', 'cnt', 'oku', 'dev10', 'perdev'] : ['cnt10', 'cnt', 'oku'];
+  const met = metricOf('pref', metIds.includes(q.met) ? q.met : 'cnt10');
+  const ranked = D.prefs.map(p => ({p, v: met.f(p, mod)})).sort((a, b) => b.v - a.v);
+  const natV = met.id === 'cnt10' ? n[0] / D.nat.pop * 1e5 : met.id === 'dev10' ? n[2] / D.nat.pop * 1e5 : met.id === 'perdev' ? n[0] / n[2] : null;
+  const areaRows = D.areas.map(a => ({a, v: a.v[mod]?.[0] || 0, bed: a.beds ? (a.v[mod]?.[0] || 0) / a.beds * 1000 : null, u: a.u[mod] ?? null, hid: a.v[mod]?.[1] || 0}));
+  const asort = q.as || 'v';
+  areaRows.sort((x, y) => (y[asort] ?? -1) - (x[asort] ?? -1));
+  const us = {}; if (mod === '超音波') for (const a of D.areas) for (const [k, z] of Object.entries(a.us || {})) us[k] = (us[k] || 0) + z[0];
+  const mk = {}; if (mod === 'CT' || mod === 'MRI') { const F = D.fac; for (let i = 0; i < F.len; i++) { if (!(F.flag[i] & 1)) continue; const d = D.det[F.id[i]]; if (!d) continue; for (const x of d[mod === 'CT' ? 0 : 1]) mk[x[2]] = (mk[x[2]] || 0) + (x[3] || 1); } }
+  el.innerHTML = `
+  <div class="ph"><div><span class="kicker">${ic('chart', 15)} MARKET</span><h1>検査・市場</h1><p>検査を選ぶと、全国の規模・県別ランキング・供給と稼働の関係・医療圏の上位が切り替わります。</p></div></div>
+  <div class="card" style="margin-bottom:16px"><div class="chips" id="mkMods">${D.mods.map(m => `<button type="button" class="chip" data-m="${esc(m)}" aria-pressed="${m === mod}">${ic(MOD_ICON[m], 16)}${esc(m)}</button>`).join('')}</div></div>
+  <div class="kpis" style="margin-bottom:16px">
+    ${kpi(MOD_ICON[mod], '算定回数（全国）', fmtK(n[0]) + '<small>回</small>', 'NDB 2024年度')}
+    ${kpi('yen', '診療報酬換算額', fmt(n[1], 1) + '<small>億円</small>', '撮影・検査本体', 'o')}
+    ${kpi('people', '人口10万人当たり', fmt(n[0] / D.nat.pop * 1e5) + '<small>回</small>', '', 'n')}
+    ${isDev ? kpi('ct', '装置台数', fmt(n[2]) + '<small>台</small>', '1台当たり ' + fmt(n[0] / n[2]) + '回', 'v') : ''}
+  </div>
+  <div class="grid g2">
+    <div class="card"><div class="card-h"><div><h2>${ic('chart')} 都道府県ランキング</h2><p class="sub">${esc(met.label)}${natV ? '｜縦線＝全国' : ''}</p></div>
+      <select id="mkMet" aria-label="指標">${metIds.map(id => `<option value="${id}" ${id === met.id ? 'selected' : ''}>${esc(metricOf('pref', id).label)}</option>`).join('')}</select></div>
+      <div style="max-height:720px;overflow:auto;padding-right:4px">${bars(ranked.map(r => ({n: r.p.n, v: r.v, lab: fmt(r.v, met.d || 0), go: href('region', {c: r.p.c})})), {avg: natV, d: met.d})}</div></div>
+    <div class="grid" style="align-content:start">
+      ${isDev ? `<div class="card"><h2>${ic('target')} 供給 × 稼働マトリクス</h2><p class="sub">横＝装置台数／人口10万人、縦＝1台当たり算定回数。破線＝全国値。点をタップで地域カルテへ。</p>
+        ${scatter(D.prefs.map(p => ({n: p.n, x: p.m[mod][2] / p.pop * 1e5, y: p.m[mod][2] ? p.m[mod][0] / p.m[mod][2] : 0, go: href('region', {c: p.c}), lab: true, r: 4 + Math.sqrt(p.pop / 1e6) * 2.2, c: p.m[mod][2] / p.pop * 1e5 > n[2] / D.nat.pop * 1e5 ? '#1c4377' : '#0b8f8a'})), {xl: '台数／10万人', yl: '1台当たり回数', ax: n[2] / D.nat.pop * 1e5, ay: n[0] / n[2]})}</div>` : ''}
+      ${mod === '超音波' ? `<div class="card"><h2>${ic('us')} 超音波（D215）部位別の全国構成</h2>${donut(Object.entries(us).map(([k, v], i) => ({n: k.replace('D215', ''), v, c: ['#0b8f8a', '#ee7d1b', '#1c4377', '#6a56c8', '#2f8f4e', '#9aa8b8'][i]})), {center: 'D215', total: fmtK(Object.values(us).reduce((s, v) => s + v, 0))})}</div>` : ''}
+      ${Object.keys(mk).length ? `<div class="card"><h2>${ic('layers')} ${esc(mod)} メーカー構成（施設DB・全国）</h2><p class="sub">現存施設の掲載台数。キヤノン＝CMSC。</p>${stack(Object.entries(mk).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({n: makerName(k), v, c: makerCol(k)})))}</div>` : ''}
+      <div class="card"><h2>${ic('map')} 地図で見る</h2><div class="mapbox" id="mkMap"></div><div id="mkLeg"></div></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px"><div class="card-h"><div><h2>${ic('layers')} 二次医療圏 上位30</h2><p class="sub">見出しを押すと並べ替えます。行をタップで地域カルテ。</p></div></div>
+    <div class="tw"><table><thead><tr><th>#</th><th>二次医療圏</th><th>都道府県</th><th class="r sort ${asort === 'v' ? 'desc' : ''}" data-as="v">算定回数</th><th class="r sort ${asort === 'bed' ? 'desc' : ''}" data-as="bed">千床当たり</th>${isDev ? `<th class="r sort ${asort === 'u' ? 'desc' : ''}" data-as="u">装置台数</th><th class="r">1台当たり</th>` : ''}<th class="r">秘匿</th></tr></thead><tbody>
+    ${areaRows.slice(0, 30).map((r, k) => `<tr class="go" data-go="${href('region', {c: r.a.c})}"><td>${k + 1}</td><td><b>${esc(r.a.n)}</b></td><td>${esc(D.prefBy[r.a.p].n)}</td><td class="r">${fmt(r.v)}</td><td class="r">${fmt(r.bed)}</td>${isDev ? `<td class="r">${fmt(r.u)}</td><td class="r">${r.u ? fmt(r.v / r.u) : '—'}</td>` : ''}<td class="r">${r.hid ? `<span class="tag off">${r.hid}</span>` : '—'}</td></tr>`).join('')}</tbody></table></div></div>`;
+  $('#mkMods').onclick = e => { const b = e.target.closest('.chip'); if (b) nav('market', {mod: b.dataset.m, met: q.met}, true); };
+  $('#mkMet').onchange = e => nav('market', {mod, met: e.target.value}, true);
+  $$('th[data-as]', el).forEach(t => t.onclick = () => nav('market', {...q, mod, as: t.dataset.as}, true));
+  drawMap($('#mkMap'), {level: 'pref', value: c => met.f(D.prefBy[c], mod), onPick: c => nav('region', {c}), tip: c => `<b>${esc(D.prefBy[c].n)}</b>${esc(met.label)}<br><span class="num" style="font-weight:800">${fmt(met.f(D.prefBy[c], mod), met.d || 0)}</span> ${esc(met.unit)}`});
+  $('#mkLeg').innerHTML = legendHTML($('#mkMap')._sc, met.unit);
+};
+
+/* ---------- ENDOSCOPY ---------- */
+RENDER.endo = q => {
+  const el = $('#p-endo'); const F = D.fac;
+  const tier = q.tier === 'b' ? 'b' : 'a';
+  const mx = {a: [0, 0, 0, 0], b: [0, 0, 0, 0]};   // [total, hosp, ctYes, ctNo]
+  let totA = 0, totB = 0;
+  for (let i = 0; i < F.len; i++) { const f = F.flag[i]; if (!(f & 1)) continue; const k = f & 8 ? 'a' : f & 16 ? 'b' : null; if (!k) continue;
+    const m = mx[k]; m[0]++; if (F.t[i] === 0) m[1]++; if (f & 2) m[2]++; else m[3]++; if (k === 'a') totA++; else totB++; }
+  const idx = tier === 'a' ? 0 : 1;
+  const per = c => ((D.endo.pref[c] || [0, 0])[idx]) / D.prefBy[c].pop * 1e5;
+  const ranked = D.prefs.map(p => ({p, v: per(p.c), n: (D.endo.pref[p.c] || [0, 0])[idx]})).sort((a, b) => b.v - a.v);
+  const areaTop = D.areas.map(a => ({a, n: (D.endo.area[a.c] || [0, 0])[idx]})).sort((x, y) => y.n - x.n).slice(0, 15);
+  el.innerHTML = `
+  <div class="ph"><div><span class="kicker">${ic('endo', 15)} ENDOSCOPY</span><h1>内視鏡ターゲット施設</h1><p>施設マスターの名称・標榜診療科から、内視鏡を実施していると考えられる施設を抽出しました。</p></div></div>
+  <div class="note warn" style="margin-bottom:16px">${ic('info', 18)}<span>内視鏡の算定実績（NDB：上部消化管内視鏡・大腸内視鏡など）は、このファイルにはまだ入っていません。社内サイト MARKET ATLAS INTERNAL v236 のデータを取り込むと、ここに算定回数・換算額を追加できます。現状は「標榜・名称」に基づく施設の抽出です（装置保有や実施件数を示すものではありません）。</span></div>
+  <div class="card" style="margin-bottom:16px"><h2>${ic('flow')} 抽出の流れ</h2>
+    <div class="flow" style="margin-top:10px">
+      <div class="st" style="cursor:default"><span class="pi">${ic('data', 22)}</span><span><b>施設マスター</b><span>${fmt(F.len)}施設（2026年9月版）</span></span></div><span class="ar">${ic('arrow', 22, 2.6)}</span>
+      <div class="st" style="cursor:default"><span class="pi" style="background:#ee7d1b">${ic('endo', 22)}</span><span><b>A：内視鏡標榜</b><span>名称・診療科に「内視鏡」「胃カメラ」等</span></span></div><span class="ar">${ic('arrow', 22, 2.6)}</span>
+      <div class="st" style="cursor:default"><span class="pi" style="background:#c99a1b">${ic('hosp', 22)}</span><span><b>B：消化器系</b><span>消化器内科・胃腸内科などを標榜</span></span></div><span class="ar">${ic('arrow', 22, 2.6)}</span>
+      <div class="st" style="cursor:default"><span class="pi" style="background:#0b8f8a">${ic('target', 22)}</span><span><b>CT有無で分類</b><span>画像診断の提案余地を見る</span></span></div>
+    </div></div>
+  <div class="kpis" style="margin-bottom:16px">
+    ${kpi('endo', 'A：内視鏡標榜施設', fmt(totA), 'うち病院 ' + fmt(mx.a[1]), 'o')}
+    ${kpi('hosp', 'B：消化器系施設', fmt(totB), 'うち病院 ' + fmt(mx.b[1]), 'n')}
+    ${kpi('ct', 'A のうち CT情報なし', fmt(mx.a[3]), 'CT設置 ' + fmt(mx.a[2]), 'v')}
+    ${kpi('people', 'A／人口10万人（全国）', fmt(totA / D.nat.pop * 1e5, 1), '施設')}
+  </div>
+  <div style="margin:0 0 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap"><b style="font-size:13px">表示する区分</b><div class="seg" role="group"><button type="button" data-tier="a" aria-pressed="${tier === 'a'}">A：内視鏡標榜</button><button type="button" data-tier="b" aria-pressed="${tier === 'b'}">B：消化器系</button></div></div>
+  <div class="grid g2">
+    <div class="card"><h2>${ic('map')} 人口10万人当たり施設数</h2><p class="sub">県をタップすると、その県の${tier === 'a' ? '内視鏡標榜' : '消化器系'}施設を一覧表示します</p><div class="mapbox" id="enMap"></div><div id="enLeg"></div></div>
+    <div class="card"><h2>${ic('chart')} 都道府県ランキング</h2><p class="sub">人口10万人当たり（施設数）</p><div style="max-height:620px;overflow:auto">${bars(ranked.map(r => ({n: r.p.n, v: r.v, lab: fmt(r.v, 1) + '（' + fmt(r.n) + '）', go: href('facility', {pref: r.p.c, f: tier === 'a' ? 'endo' : 'gi'})})), {avg: (tier === 'a' ? totA : totB) / D.nat.pop * 1e5, d: 1})}</div></div>
+    <div class="card"><h2>${ic('target')} 提案余地マトリクス</h2><p class="sub">内視鏡関連施設 × CT設置の有無（現存施設）。数字をタップで施設一覧へ。</p>
+      <div class="tw" style="max-height:none"><table><thead><tr><th></th><th class="r">CT設置あり</th><th class="r">CT情報なし</th><th class="r">合計</th></tr></thead><tbody>
+      <tr><td><span class="tag endo">A 内視鏡標榜</span></td><td class="r"><a href="${href('facility', {f: 'endo,ct'})}">${fmt(mx.a[2])}</a></td><td class="r"><b><a href="${href('facility', {f: 'endo,noct'})}">${fmt(mx.a[3])}</a></b></td><td class="r">${fmt(mx.a[0])}</td></tr>
+      <tr><td><span class="tag gi">B 消化器系</span></td><td class="r"><a href="${href('facility', {f: 'gi,ct'})}">${fmt(mx.b[2])}</a></td><td class="r"><b><a href="${href('facility', {f: 'gi,noct'})}">${fmt(mx.b[3])}</a></b></td><td class="r">${fmt(mx.b[0])}</td></tr></tbody></table></div>
+      <p class="note">CT情報なし＝施設DBにCTの掲載がない施設。超音波・一般撮影・CTの提案候補として、オリンパスとの協業リストの起点に使えます。</p>
+      <div class="btns"><a class="btn orange" href="${href('facility', {f: 'endo'})}">${ic('search', 18)}内視鏡標榜施設を一覧</a><a class="btn ghost" href="${href('facility', {f: 'endo', t: '0'})}">${ic('hosp', 18)}病院だけ</a></div></div>
+    <div class="card"><h2>${ic('layers')} 二次医療圏 上位15</h2><p class="sub">${tier === 'a' ? '内視鏡標榜' : '消化器系'}施設数</p>${bars(areaTop.map(r => ({n: r.a.n + '（' + D.prefBy[r.a.p].n.replace(/[都府県]$/, '') + '）', v: r.n, go: href('facility', {area: r.a.c, f: tier === 'a' ? 'endo' : 'gi'})})))}</div>
+  </div>`;
+  $$('[data-tier]', el).forEach(b => b.onclick = () => nav('endo', {tier: b.dataset.tier}, true));
+  drawMap($('#enMap'), {level: 'pref', value: per, onPick: c => nav('facility', {pref: c, f: tier === 'a' ? 'endo' : 'gi'}), tip: c => `<b>${esc(D.prefBy[c].n)}</b>${fmt(per(c), 1)} 施設／10万人<br>${fmt((D.endo.pref[c] || [0, 0])[idx])} 施設`});
+  $('#enLeg').innerHTML = legendHTML($('#enMap')._sc, '施設／10万人');
+};
+
+/* ---------- DATA ---------- */
+RENDER.data = () => {
+  const el = $('#p-data'); if (el.dataset.ok) return; el.dataset.ok = 1;
+  const box = (x, y, w, t, s, c) => `<g><rect x="${x}" y="${y}" width="${w}" height="58" rx="12" fill="#fff" stroke="${c}" stroke-width="2"/><rect x="${x}" y="${y}" width="8" height="58" rx="4" fill="${c}"/><text x="${x + 18}" y="${y + 25}" font-size="13.5" font-weight="800" fill="#14243a">${t}</text><text x="${x + 18}" y="${y + 44}" font-size="11" fill="#6b7c92">${s}</text></g>`;
+  const ar = (x1, y1, x2, y2) => `<path d="M${x1} ${y1} C ${(x1 + x2) / 2} ${y1}, ${(x1 + x2) / 2} ${y2}, ${x2} ${y2}" fill="none" stroke="#9fb4c9" stroke-width="2" marker-end="url(#ah)"/>`;
+  const src = [['NDBオープンデータ', '第11回・2024年度 算定回数', '#0b8f8a'], ['医療施設調査', 'N32/N33 装置・病床 2023-24', '#1c4377'], ['人口推計', '2024年 都道府県別', '#6a56c8'], ['施設マスター', '97,393施設 2026年9月', '#ee7d1b'], ['CT／MRI 施設DB', 'MARKET ATLAS 2026年10月', '#c8423b'], ['地図データ', '国土地理院 地球地図日本', '#2f8f4e']];
+  let svg = '<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9fb4c9"/></marker></defs>';
+  src.forEach((s, k) => { svg += box(10, 10 + k * 70, 220, ...s); svg += ar(232, 39 + k * 70, 300, 120 + (k < 3 ? 0 : 170)); });
+  svg += box(302, 91, 210, '指標化（県・医療圏）', '10万人当たり・千床当たり・1台当たり', '#0b8f8a') + box(302, 261, 210, '名寄せ・地図接続', '施設ID＋住所／市区町村コード', '#ee7d1b');
+  svg += ar(514, 120, 580, 70) + ar(514, 120, 580, 190) + ar(514, 290, 580, 310) + ar(514, 290, 580, 430) + ar(514, 120, 580, 430);
+  [['地図で見る', '都道府県・二次医療圏の色分け'], ['地域カルテ・検査市場', '全国比・ランキング・供給×稼働'], ['施設を探す', 'HP検索・Googleマップ・CSV'], ['内視鏡ターゲット', '標榜×CT設置の提案余地']].forEach((t, k) => svg += box(582, 41 + k * 120, 200, t[0], t[1], '#12305a'));
+  el.innerHTML = `
+  <div class="ph"><div><span class="kicker">${ic('data', 15)} DATA & SOURCES</span><h1>データ・出典</h1><p>どのデータを、どう組み合わせて、どの画面に出しているかをまとめています。</p></div></div>
+  <div class="card" style="margin-bottom:16px"><h2>${ic('flow')} データの流れ</h2><div style="overflow-x:auto"><svg viewBox="0 0 790 440" style="min-width:680px;width:100%" role="img" aria-label="データの流れ図">${svg}</svg></div><span class="scroll-hint">← 横にスクロールできます →</span></div>
+  <div class="grid g2">
+    <div class="card"><h2>${ic('info')} 指標の定義</h2><div class="tw" style="max-height:none"><table><tbody>
+      <tr><td><b>算定回数</b></td><td style="white-space:normal">NDBオープンデータの撮影・検査本体の算定回数。二次医療圏は公開値のみで、10未満の秘匿セルは含まれません。</td></tr>
+      <tr><td><b>診療報酬換算額</b></td><td style="white-space:normal">区分別点数×算定回数×10円。造影剤・画像診断管理加算・写真診断料などは含みません。医療機関の売上ではありません。</td></tr>
+      <tr><td><b>全国比（指数）</b></td><td style="white-space:normal">県＝人口10万人当たり、医療圏＝病床1,000床当たりの値を全国値で割って100倍したもの。</td></tr>
+      <tr><td><b>1台当たり算定回数</b></td><td style="white-space:normal">算定回数÷装置台数（年度が異なります）。稼働率や装置別の件数ではありません。</td></tr>
+      <tr><td><b>内視鏡 A／B</b></td><td style="white-space:normal">A＝施設名または診療科に「内視鏡」「胃カメラ」等を含む。B＝Aに当たらず、消化器内科・胃腸内科などを標榜。</td></tr>
+      <tr><td><b>メーカー構成</b></td><td style="white-space:normal">CT／MRI MARKET ATLAS の施設別掲載台数の合計。医療施設調査の台数とは合算・直接比較しないでください。</td></tr>
+    </tbody></table></div></div>
+    <div class="card"><h2>${ic('info')} 注意事項</h2><ul class="note" style="padding-left:18px;margin:0">
+      <li>施設のホームページは、施設名と所在地でのGoogle検索リンクです。公式URLはデータに含まれていません。</li>
+      <li>地図の二次医療圏は市区町村の境界を合成して描画しています。政令市（川崎市・浜松市など）は市全体を1つの医療圏に寄せて塗っています。</li>
+      <li>秋田県は医療圏再編のため、装置台数と医療圏別実績の結合に注意が必要です。</li>
+      <li>施設検索の件数は現存施設が既定です。休止・廃止は「休止・廃止も含める」で表示できます。</li>
+      <li>内視鏡のNDB算定実績は未取込です。社内サイト v236 のデータ受領後に追加します。</li></ul>
+      <div class="hr"></div><h3>v230 での主な変更</h3><ul class="note" style="padding-left:18px;margin:0">
+      <li>レイアウトを全面刷新（地図中心・7画面に整理）。31画面に分散・重複していた分析を統合。</li>
+      <li>日本地図（県・二次医療圏・市区町村）を新規搭載。施設の所在市区町村をピンで表示。</li>
+      <li>全施設にホームページ検索・Googleマップのリンク、CSV出力を追加。</li>
+      <li>施設件数に休止・廃止の769施設が混在していた問題を修正。</li>
+      <li>内視鏡ターゲット施設の画面を追加。iPhone向けの下部メニュー・大きいボタンに対応。</li>
+      <li>データを圧縮し、ファイルサイズを約35MBから約3MBに縮小。</li></ul></div>
+  </div>`;
+};
+
+/* ==================================================================
+   7. global search, nav, sheet
+   ================================================================== */
+function buildNav() {
+  $('#brandLogo').innerHTML = `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#12305a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${P.map}<circle cx="18" cy="17" r="3.2" fill="#ee7d1b" stroke="#ee7d1b"/></svg>`;
+  $('#gsIco').innerHTML = ic('search', 18);
+  $('#tabs').innerHTML = PAGES.map(p => `<button type="button" class="tab" data-page="${p.id}" data-go="#/${p.id}">${ic(p.icon, 17)}${p.label}</button>`).join('');
+  const mob = ['home', 'map', 'facility', 'market'];
+  $('#bnav').innerHTML = mob.map(id => { const p = PAGES.find(x => x.id === id); return `<button type="button" data-page="${id}" data-go="#/${id}">${ic(p.icon, 22)}${p.label.replace('地図で見る', '地図').replace('施設を探す', '施設').replace('検査・市場', '市場')}</button>`; }).join('') + `<button type="button" id="bMore">${ic('menu', 22)}メニュー</button>`;
+  $('#sheet').innerHTML = `<div class="grab"></div><div class="grid">${PAGES.map(p => `<a class="btn ${p.id === 'endo' ? 'orange' : p.id === 'home' ? 'navy' : 'ghost'}" href="#/${p.id}">${ic(p.icon, 18)}${p.label}</a>`).join('')}${EMBED ? '' : `<button type="button" class="btn ghost" onclick="window.print()">${ic('print', 18)}印刷・PDF</button>`}</div>`;
+  $('#bMore').onclick = () => { $('#sheet').classList.add('on'); $('#scrim').classList.add('on'); };
+  $('#scrim').onclick = () => { closeSheet(); closeDrawer(); };
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeSheet(); closeDrawer(); $('#gsList').classList.remove('on'); } });
+}
+function closeSheet() { $('#sheet').classList.remove('on'); if (!$('#drawer').classList.contains('on')) $('#scrim').classList.remove('on'); }
+function buildSearch() {
+  const inp = $('#gsInput'), list = $('#gsList'); let kb = -1;
+  const run = debounce(() => {
+    const w = norm(inp.value); kb = -1; if (!w) { list.classList.remove('on'); return; }
+    const regs = [...D.prefs.map(p => ({c: p.c, n: p.n, s: '都道府県'})), ...D.areas.map(a => ({c: a.c, n: a.n, s: D.prefBy[a.p].n + '・二次医療圏'}))].filter(r => norm(r.n).includes(w)).slice(0, 5);
+    const F = D.fac, hits = []; for (let i = 0; i < F.len && hits.length < 400; i++) if (F.flag[i] & 1 && F.key[i].includes(w)) hits.push(i);
+    hits.sort((a, b) => (norm(F.n[b]).includes(w) - norm(F.n[a]).includes(w)) || F.beds[b] - F.beds[a]);
+    list.innerHTML = (regs.length ? `<div class="sg-h">地域</div>` + regs.map(r => `<button type="button" data-go="${href('region', {c: r.c})}">${ic('region', 18)}<span><b>${esc(r.n)}</b><div class="sg-sub">${esc(r.s)}</div></span></button>`).join('') : '') +
+      (hits.length ? `<div class="sg-h">施設</div>` + hits.slice(0, 7).map(i => `<button type="button" data-go="fac:${i}">${ic(TYPE_IC[F.t[i]], 18)}<span><b>${esc(F.n[i])}</b><div class="sg-sub">${esc(D.prefBy[F.pref[i]]?.n)} ${esc(D.cities[F.city[i]]?.[0] || '')}・${D.types[F.t[i]]}${F.beds[i] ? '・' + fmt(F.beds[i]) + '床' : ''}</div></span></button>`).join('') : '') +
+      `<button type="button" data-go="${href('facility', {q: inp.value.trim()})}">${ic('search', 18)}<span><b>「${esc(inp.value.trim())}」で施設を検索</b><div class="sg-sub">${hits.length >= 400 ? '400件以上' : fmt(hits.length) + '件'}の候補</div></span></button>`;
+    list.classList.add('on');
+  }, 140);
+  inp.addEventListener('input', run); inp.addEventListener('focus', run);
+  inp.addEventListener('keydown', e => { const bs = $$('button', list); if (!bs.length) return;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); kb = (kb + (e.key === 'ArrowDown' ? 1 : -1) + bs.length) % bs.length; bs.forEach((b, k) => b.classList.toggle('kb', k === kb)); bs[kb].scrollIntoView({block: 'nearest'}); }
+    if (e.key === 'Enter') { e.preventDefault(); (bs[kb] || bs[bs.length - 1]).click(); } });
+  list.addEventListener('click', () => { list.classList.remove('on'); inp.blur(); });
+  document.addEventListener('click', e => { if (!e.target.closest('.gsearch')) list.classList.remove('on'); });
+}
+
+/* ==================================================================
+   8. boot
+   ================================================================== */
+(async () => {
+  try {
+    await load();
+    buildNav(); buildSearch();
+    S.cur = parseRef(location.hash); setUrl(S.cur.page, S.cur.q, false);
+    route();
+    $('#loader').classList.add('done'); setTimeout(() => $('#loader').remove(), 400);
+  } catch (err) {
+    console.error(err);
+    $('#loadMsg').innerHTML = '読み込みに失敗しました：' + esc(err.message || err);
+  }
+})();
+</script>
+</body>
+</html>
