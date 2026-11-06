@@ -344,3 +344,43 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
  .big{white-space:normal;overflow-wrap:anywhere}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+
+/* 2026-11-07: height-safe bed function graphs, readable on smartphones */
+#beds-policy .fixedBedGrid{align-items:stretch;gap:18px}
+#beds-policy .fixedBedCard{min-width:0;display:flex;flex-direction:column;padding:21px 20px;overflow:hidden}
+#beds-policy .fixedBedCard h3{font-size:clamp(15px,1.5vw,19px);line-height:1.65;margin:0 0 20px;min-height:2.8em}
+#beds-policy .fixedBedChart{width:100%;min-width:0;flex:1}
+#beds-policy .fixedBedScale{display:flex;justify-content:space-between;gap:0;margin:0 69px 11px 87px;color:#637b93;font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap}
+#beds-policy .fixedBedRows{display:grid;gap:13px}
+#beds-policy .fixedBedRow{display:grid;grid-template-columns:78px minmax(0,1fr) 69px;gap:9px;align-items:center;min-height:30px}
+#beds-policy .fixedBedLabel{font-size:12px;line-height:1.3;color:#243f5c;font-weight:800;white-space:nowrap}
+#beds-policy .fixedBedTrack{height:19px;background:repeating-linear-gradient(90deg,#e7edf5 0,#e7edf5 calc(50% - 1px),#cad5e3 calc(50% - 1px),#cad5e3 50%,#e7edf5 calc(50% + 1px),#e7edf5 100%);border-radius:6px;overflow:hidden;min-width:0}
+#beds-policy .fixedBedFill{height:100%;display:block;min-width:2px;border-radius:6px;transition:none}
+#beds-policy .fixedBedFill--critical{background:#4f91c6}
+#beds-policy .fixedBedFill--acute{background:#e8a253}
+#beds-policy .fixedBedFill--recovery{background:#46a89f}
+#beds-policy .fixedBedFill--chronic{background:#9784c1}
+#beds-policy .fixedBedValue{font-size:13px;white-space:nowrap;text-align:right;color:#1d3854;font-weight:900;font-variant-numeric:tabular-nums}
+#beds-policy .fixedBedValue small,#beds-policy .fixedBedTotal small{font-size:10px;margin-left:1px}
+#beds-policy .fixedBedTotal{border-top:1px solid #dbe6f0;margin-top:21px;padding-top:15px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;color:#4b6279}
+#beds-policy .fixedBedTotal span{font-size:12px;line-height:1.6}
+#beds-policy .fixedBedTotal strong{font-size:20px;color:#183e63;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fixedChartViewport{position:relative;width:100%;height:325px;max-height:325px;min-height:0;overflow:hidden}
+.fixedChartViewport--comparison,.fixedChartViewport--priority{height:375px;max-height:375px}
+.fixedChartViewport>canvas{display:block!important;position:relative;max-width:100%;width:100%!important;height:100%!important;min-height:0!important;max-height:100%!important}
+@media(max-width:850px){#beds-policy .fixedBedGrid{grid-template-columns:minmax(0,1fr)}#beds-policy .fixedBedCard h3{min-height:0}}
+@media(max-width:720px){
+ #beds-policy .fixedBedCard{padding:16px 13px}
+ #beds-policy .fixedBedScale{margin-left:72px;margin-right:58px;font-size:9px}
+ #beds-policy .fixedBedRow{grid-template-columns:65px minmax(0,1fr) 60px;gap:7px;min-height:27px}
+ #beds-policy .fixedBedRows{gap:10px}
+ #beds-policy .fixedBedLabel{font-size:11px}
+ #beds-policy .fixedBedTrack{height:17px}
+ #beds-policy .fixedBedValue{font-size:12px}
+ #beds-policy .fixedBedTotal strong{font-size:19px}
+ .fixedChartViewport{height:285px;max-height:285px}
+ .fixedChartViewport--comparison,.fixedChartViewport--priority{height:350px;max-height:350px}
+}
+@media(max-width:360px){#beds-policy .fixedBedScale{margin-left:62px;margin-right:53px}#beds-policy .fixedBedRow{grid-template-columns:56px minmax(0,1fr) 53px;gap:5px}#beds-policy .fixedBedLabel{font-size:10px}#beds-policy .fixedBedValue{font-size:11px}}
+@media print{#beds-policy .fixedBedCard{break-inside:avoid}.fixedChartViewport{height:280px!important;max-height:280px!important}}
