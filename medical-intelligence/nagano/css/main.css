@@ -301,3 +301,46 @@ canvas{max-width:100%;display:block;min-height:220px}
 @media(max-width:720px){#latest-evidence .big{font-size:31px}canvas{min-height:210px}}
 
 .institutionGeo{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.institutionGeo a{display:inline-block;border:1px solid #d2e2f0;background:#f4f8fc;padding:4px 6px;border-radius:6px;font-size:10px;text-decoration:none;color:#1c547f;font-weight:750}.institutionGeo a:hover{color:#a8464c;border-color:#c0878c}
+
+/* Nagano UI quality pass Rev.20261107 */
+html{scroll-padding-top:72px}
+body{overflow-x:clip;overflow-wrap:break-word}
+.wrap{width:100%;max-width:1320px;min-width:0}
+.card,.grid>*,.hero>*,.sect,.facilityGrid>*,.institutionGrid>*{min-width:0}
+img,svg,video,canvas{max-width:100%}
+img{height:auto}
+a,button,input,select{touch-action:manipulation}
+a{overflow-wrap:anywhere}
+.tablewrap{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch}
+.tablewrap:focus-within{outline:2px solid #337eb8;outline-offset:2px}
+.tbl{max-width:none}
+#map{width:100%;height:clamp(330px,48vw,495px);z-index:0;isolation:isolate}
+.leaflet-container{font-family:inherit}
+.leaflet-popup-content{overflow-wrap:anywhere}
+.backTop{bottom:max(18px,env(safe-area-inset-bottom,0px) + 12px);right:max(14px,env(safe-area-inset-right,0px) + 12px)}
+section[id],#page-top{scroll-margin-top:80px}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #2689c8;outline-offset:3px}
+@media(max-width:720px){
+ .wrap{padding-inline:16px}
+ .hero{min-height:0;padding:36px 0 48px;gap:20px}
+ .hero h1{font-size:clamp(42px,10vw,68px)}
+ .hero p{font-size:15px;line-height:1.75}
+ .headtop{padding-top:14px}
+ .grid,.grid.two,.grid.four,.facilityGrid,.pathdiagram{grid-template-columns:minmax(0,1fr)}
+ .sect{padding-top:40px}
+ .card{padding:18px;border-radius:15px}
+ .tbl{font-size:12px}
+ .tbl th,.tbl td{padding:10px 9px}
+ .heroActions{gap:9px}
+ .heroActions .btn{min-height:44px}
+ .foot{margin-top:46px}
+ .foot .wrap{padding-bottom:env(safe-area-inset-bottom,0px)}
+ .navscroll{-webkit-overflow-scrolling:touch}
+}
+@media(max-width:380px){
+ .wrap{padding-inline:12px}
+ .brand{letter-spacing:0}
+ .card{padding:14px}
+ .big{white-space:normal;overflow-wrap:anywhere}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
