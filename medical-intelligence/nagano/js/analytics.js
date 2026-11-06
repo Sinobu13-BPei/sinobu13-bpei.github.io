@@ -11,8 +11,6 @@ const c=pick(id);if(!c)return;
 return new Chart(c,{type,data:{labels,datasets},options:Object.assign({responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"},tooltip:{enabled:true}},scales:{y:{beginAtZero:true}}},opts)});
 }
 const functionTypes=["高度急性期","急性期","回復期","慢性期"];
-chart("bedActualChart","bar",functionTypes,[{label:"2025年度報告病床（床）",data:[1865,8942,3519,3445],backgroundColor:colors}],{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}});
-chart("bedNeedChart","bar",functionTypes,[{label:"必要病床数推計（床）",data:[1907,6551,5121,3260],backgroundColor:colors}],{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}});
 chart("deviceBenchChart","bar",b.devicesHistorical.map(r=>r.name),[{label:"長野県（当時）",data:b.devicesHistorical.map(r=>r.nagano),backgroundColor:"#2475a6"},{label:"全国（当時）",data:b.devicesHistorical.map(r=>r.national),backgroundColor:"#efa85d"}],{indexAxis:"y",responsive:true,maintainAspectRatio:false});
 chart("doctorIndexChart","bar",b.physicianMaldistribution2026.map(r=>r[0]),[{label:"医師偏在指標（2026年）",data:b.physicianMaldistribution2026.map(r=>r[1]),backgroundColor:b.physicianMaldistribution2026.map(r=>r[0]==="長野"?"#da5354":"#5687b6")}],{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}});
 const areas=a.areas;
