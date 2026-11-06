@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="医療サイバーセキュリティ白書2026。病院・診療所・医療機器・制度・脅威・対策を図表で解説。">
+<title>医療サイバーセキュリティ白書 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap">
+<style>
+/* Layout: 臨床記録のような罫線とカード。上部に章ナビ、本文は1カラム（最大1080px）、図表は幅いっぱい */
+:root{
+  --bg:#f4f6f5; --surface:#ffffff; --surface2:#eaf0ef; --ink:#13222a; --muted:#56666e; --line:#d5dddd;
+  --accent:#0a6b78; --accent-soft:#dcefef; --alert:#b93d2a; --alert-soft:#f8e3de; --warn:#9a6512; --warn-soft:#f6ecd8;
+  --good:#2b7448; --good-soft:#dff0e5; --bar:#9aa8ad; --bar-soft:#c9d2d4;
+  --f-display:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-body:"BIZ UDPGothic","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1618; --surface:#152024; --surface2:#1b2a2f; --ink:#e4eef0; --muted:#9db0b6; --line:#2a3b41;
+  --accent:#55b9c5; --accent-soft:#163a40; --alert:#f0806a; --alert-soft:#3d1f19; --warn:#e2ad55; --warn-soft:#3a2d15;
+  --good:#71c592; --good-soft:#173525; --bar:#61747a; --bar-soft:#3a4a50; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1618; --surface:#152024; --surface2:#1b2a2f; --ink:#e4eef0; --muted:#9db0b6; --line:#2a3b41;
+  --accent:#55b9c5; --accent-soft:#163a40; --alert:#f0806a; --alert-soft:#3d1f19; --warn:#e2ad55; --warn-soft:#3a2d15;
+  --good:#71c592; --good-soft:#173525; --bar:#61747a; --bar-soft:#3a4a50; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.3;margin:0}
+h2{font-size:clamp(1.45rem,3.2vw,2rem);font-weight:900}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:8px;scrollbar-width:thin}
+.nav a{flex:none;text-decoration:none;color:var(--ink);font-size:.82rem;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:var(--bg);white-space:nowrap}
+.nav a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* hero */
+.hero{background:var(--surface);border-bottom:1px solid var(--line)}
+.hero .wrap{padding-block:40px 32px;display:grid;gap:22px}
+.eyebrow{font-size:.8rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.hero h1{font-size:clamp(1.9rem,5.4vw,3.2rem);font-weight:900;letter-spacing:.01em}
+.hero .lead{max-width:62ch;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:var(--bg);display:grid;gap:4px}
+.kpi b{font-family:var(--f-display);font-size:clamp(1.6rem,4vw,2.3rem);font-weight:900;line-height:1.1}
+.kpi span{font-size:.82rem;color:var(--muted);line-height:1.5}
+.kpi.al b{color:var(--alert)} .kpi.ac b{color:var(--accent)}
+.meta{font-size:.8rem;color:var(--muted)}
+
+/* sections */
+section.sec{padding-block:44px;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;margin-bottom:18px}
+.sec-no{font-family:var(--f-display);font-weight:900;font-size:.85rem;color:var(--surface);background:var(--accent);border-radius:6px;padding:2px 8px}
+.sec-head .ic{grid-row:span 2}
+.sec .point{font-size:1.05rem;font-weight:700;max-width:70ch;margin-bottom:22px}
+.stack{display:grid;gap:22px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;min-width:0}
+.card h3{margin-bottom:8px}
+.card.alert{border-color:var(--alert);background:var(--alert-soft)}
+.card.warn{border-color:var(--warn);background:var(--warn-soft)}
+.card.acc{border-color:var(--accent);background:var(--accent-soft)}
+.fig{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 18px 12px;min-width:0}
+.fig .ft{font-family:var(--f-display);font-weight:700;font-size:1.02rem;margin-bottom:2px}
+.fig .fs{font-size:.8rem;color:var(--muted);margin-bottom:10px}
+.fig .src{font-size:.75rem;color:var(--muted);margin-top:8px;line-height:1.5}
+.fig svg{width:100%;height:auto;display:block}
+.scroll{overflow-x:auto}
+ul.dots{margin:0;padding-left:1.2em} ul.dots li{margin:.25em 0}
+.note{font-size:.85rem;color:var(--muted)}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;border-radius:4px;padding:1px 7px;margin-right:4px;vertical-align:2px;white-space:nowrap}
+.t-al{background:var(--alert-soft);color:var(--alert)} .t-wa{background:var(--warn-soft);color:var(--warn)} .t-ac{background:var(--accent-soft);color:var(--accent)} .t-go{background:var(--good-soft);color:var(--good)} .t-mu{background:var(--surface2);color:var(--muted)}
+
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.88rem;line-height:1.6}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{background:var(--surface2);font-weight:700;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700}
+
+/* flow */
+.flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.flow .step{flex:1 1 150px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0;display:grid;gap:4px;align-content:start}
+.flow .step .n{font-family:var(--f-display);font-weight:900;color:var(--accent)}
+.flow .step.hot{border-color:var(--alert);background:var(--alert-soft)} .flow .step.hot .n{color:var(--alert)}
+.flow .arrow{flex:0 0 28px;display:grid;place-items:center;color:var(--muted)}
+.flow .step p{font-size:.85rem;color:var(--muted);line-height:1.55}
+@media (max-width:640px){.flow{flex-direction:column}.flow .arrow{transform:rotate(90deg);height:24px;flex-basis:24px}}
+
+/* timeline vertical */
+.tl{position:relative;display:grid;gap:12px;padding-left:22px}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl .ev{position:relative;display:grid;grid-template-columns:110px 1fr;gap:10px}
+.tl .ev::before{content:"";position:absolute;left:-20px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--bar)}
+.tl .ev.hot::before{background:var(--alert);border-color:var(--alert)}
+.tl .ev.acc::before{background:var(--accent);border-color:var(--accent)}
+.tl .ev.fut::before{background:var(--surface);border-color:var(--accent);border-style:dashed}
+.tl .d{font-weight:700;font-variant-numeric:tabular-nums;font-size:.88rem}
+.tl .t{font-size:.9rem}
+@media (max-width:520px){.tl .ev{grid-template-columns:1fr;gap:0}}
+
+/* flowchart */
+.fc{display:grid;gap:10px;justify-items:center}
+.fc .box{width:min(100%,560px);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;text-align:center}
+.fc .box b{font-family:var(--f-display)}
+.fc .box small{display:block;color:var(--muted);font-size:.8rem;line-height:1.5}
+.fc .box.start{background:var(--alert-soft);border-color:var(--alert)}
+.fc .box.end{background:var(--good-soft);border-color:var(--good)}
+.fc .dec{width:min(100%,560px);background:var(--warn-soft);border:1px dashed var(--warn);border-radius:10px;padding:10px 14px;text-align:center}
+.fc .dec b::before{content:"◇ ";color:var(--warn)}
+.fc .split{width:min(100%,760px);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.fc .down{color:var(--muted);line-height:1}
+.fc .split .box{width:100%}
+
+/* parties */
+.parties{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.party{border-radius:12px;padding:16px;border:1px solid var(--line);background:var(--surface);min-width:0}
+.party h3{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.party.h{border-top:6px solid var(--accent)} .party.m{border-top:6px solid var(--ink)} .party.d{border-top:6px solid var(--warn)}
+
+.layers{display:grid;gap:8px}
+.layer{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--surface)}
+.layer b{font-family:var(--f-display)}
+.layer:nth-child(1){margin-right:0} .layer:nth-child(2){margin-inline:3%} .layer:nth-child(3){margin-inline:6%} .layer:nth-child(4){margin-inline:9%} .layer:nth-child(5){margin-inline:12%}
+@media (max-width:640px){.layer{grid-template-columns:1fr;margin-inline:0!important}}
+
+.quote{border-left:4px solid var(--accent);background:var(--accent-soft);padding:14px 16px;border-radius:0 10px 10px 0;font-family:var(--f-display);font-weight:500}
+.btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.btns button{font:inherit;font-size:.82rem;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.btns button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.8rem;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.pins{display:grid;gap:10px}
+.pin{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:start}
+.pin svg{width:24px;height:24px}
+.picto-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.picto-row:last-child{border-bottom:0}
+.picto-row .lab{font-size:.88rem}
+.picto-row .val{font-family:var(--f-display);font-weight:900;font-size:1.3rem;font-variant-numeric:tabular-nums}
+.picto-row .people{grid-column:1 / -1;display:flex;gap:3px;flex-wrap:wrap}
+.people svg{width:20px;height:24px}
+.prio{counter-reset:p;display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.prio li{counter-increment:p;display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.prio li::before{content:counter(p);font-family:var(--f-display);font-weight:900;font-size:1.4rem;color:var(--accent);line-height:1.2}
+.prio .cost{font-size:.75rem;white-space:nowrap}
+.foot{padding-block:36px;color:var(--muted);font-size:.85rem}
+.src-list{columns:2;column-gap:32px;font-size:.85rem;line-height:1.6;padding-left:1.1em}
+.src-list li{break-inside:avoid;margin-bottom:6px}
+@media (max-width:860px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3,.parties{grid-template-columns:1fr}.src-list{columns:1}}
+.gmap{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+@media (max-width:640px){.grid2,.gmap{grid-template-columns:1fr}.prio li{grid-template-columns:32px 1fr}.prio .cost{grid-column:2}}
+@media (prefers-reduced-motion:no-preference){.fig svg .grow{transition:opacity .4s}}
+
+/* svg classes */
+.s-ink{fill:var(--ink)} .s-mut{fill:var(--muted)} .s-bar{fill:var(--bar)} .s-bars{fill:var(--bar-soft)} .s-acc{fill:var(--accent)} .s-al{fill:var(--alert)} .s-wa{fill:var(--warn)} .s-surf{fill:var(--surface)} .s-bg{fill:var(--bg)}
+.l-grid{stroke:var(--line);stroke-width:1} .l-bar{stroke:var(--bar);stroke-width:2} .l-acc{stroke:var(--accent);stroke-width:2} .l-al{stroke:var(--alert);stroke-width:2}
+svg text{font-family:var(--f-body)}
+
+/* Rev.UI2: iPhone/keyboard/large-print improvements */
+html {scroll-behavior:smooth; scroll-padding-top:76px; overflow-wrap:anywhere;}
+body {overflow-x:clip; -webkit-text-size-adjust:100%;}
+.skip-link {position:absolute;left:12px;top:-80px;z-index:99;background:var(--surface);color:var(--ink);padding:12px;border:2px solid var(--accent);border-radius:8px;}
+.skip-link:focus {top:12px;}
+.nav .wrap {overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;}
+.nav a {min-height:40px;display:inline-flex;align-items:center;}
+.nav .nav-home {border-color:var(--accent);font-weight:700;color:var(--accent);}
+.nav a[aria-current="location"] {background:var(--accent-soft);border-color:var(--accent);}
+.hero-actions {display:flex;gap:10px;flex-wrap:wrap;}
+.action-link {display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 15px;border-radius:10px;border:1px solid var(--accent);font-weight:700;text-decoration:none;color:var(--accent);background:var(--surface);}
+.action-link:hover {background:var(--accent-soft);}
+.action-link.primary {background:var(--accent);color:white;}
+.fig, .card, .party {overflow-wrap:anywhere;}
+.fig .scroll {max-width:100%;-webkit-overflow-scrolling:touch;}
+.fig svg {overflow:visible;}
+.tbl {-webkit-overflow-scrolling:touch;}
+.tbl:focus-visible {outline:3px solid var(--accent);outline-offset:2px;}
+.tbl::after {content:'横にスクロールして表の続きを確認できます';display:block;font-size:.75rem;color:var(--muted);padding:4px 12px 7px;}
+.sec-head {grid-template-columns:auto minmax(0,1fr);}
+.sec-no {align-self:start;}
+.flow .step {min-width:0;}
+.footer-links {display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+.backtop {position:fixed;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));border:1px solid var(--line);border-radius:50px;background:var(--surface);box-shadow:0 3px 16px #0002;padding:8px 12px;font:inherit;font-size:.8rem;z-index:8;cursor:pointer;}
+@media (max-width:640px) {
+  body {font-size:15px;line-height:1.72;}
+  .wrap {padding-inline:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right));}
+  .hero .wrap {padding-block:26px 22px;gap:16px;}
+  .hero h1 {font-size:clamp(1.7rem,7vw,2.35rem);}
+  .kpis {gap:8px;}
+  .kpi {padding:12px 10px;}
+  .kpi b {font-size:clamp(1.35rem,6vw,2rem);}
+  section.sec {padding-block:28px;scroll-margin-top:70px;}
+  .card,.fig,.party {padding:14px;}
+  .stack {gap:15px;}
+  .grid2,.grid3 {gap:12px;}
+  .sec .point {font-size:.98rem;margin-bottom:14px;}
+  .src-list {overflow-wrap:anywhere;}
+  .flow .step {flex-basis:auto;}
+  .btns button {min-height:42px;padding:9px 12px;}
+  .tl {padding-left:18px;}
+  .tl .ev:before {left:-18px;}
+  .picto-row .people svg {width:17px;}
+  .fig:has(#ch-ransom) #ch-ransom svg,
+  .fig:has(#ch-dumb) #ch-dumb svg,
+  .fig:has(#ch-cost) #ch-cost svg,
+  .fig:has(#map) #map svg {min-width:590px;}
+}
+@media (prefers-reduced-motion:reduce) {html {scroll-behavior:auto;}}
+@media print {
+  .nav,.skip-link,.backtop,.hero-actions,.footer-links {display:none!important;}
+  :root {color-scheme:light!important;}
+  body {background:#fff;color:#111;font-size:10pt;}
+  .wrap {max-width:none;}
+  section.sec {padding-block:12px;break-inside:auto;}
+  .card,.fig,.tbl {break-inside:avoid;}
+  .tbl {overflow:visible;}
+  table {min-width:0;font-size:8pt;}
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#summary">本文へ移動</a>
+
+<nav class="nav" aria-label="章"><div class="wrap">
+<a class="nav-home" href="https://sinobu13-bpei.github.io/medical-intelligence/" target="_blank" rel="noopener noreferrer">医療機器MKTへ</a>
+<a href="#summary">要約</a><a href="#oct2026">速報 PHP・GMO</a><a href="#threat">脅威と事例</a><a href="#structure">構造的課題</a><a href="#law">国内法制度</a><a href="#global">海外</a><a href="#device">医療機器</a><a href="#measures">対策</a><a href="#incident">事故時の流れ</a><a href="#roles">責任分界</a><a href="#support">支援策</a><a href="#cost">費用</a><a href="#dilemma">ジレンマ</a><a href="#stake">立場別</a><a href="#outlook">見通し</a><a href="#sources">出典</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <p class="eyebrow">MEDICAL CYBERSECURITY 2026 ｜ 中立・俯瞰版</p>
+  <h1>医療サイバーセキュリティ白書 2026</h1>
+  <p class="lead">病院・診療所、医療機器メーカー、販社・保守事業者、行政のそれぞれの立場から、脅威・法制度・対策・費用・論点を公開情報で整理した図解レポート。2026年10月のPHPの重大な脆弱性とGMOのクラウドサービス侵害も収録。</p>
+  <div class="hero-actions"><a class="action-link primary" href="#summary">要点から読む</a><a class="action-link" href="#sources">根拠・出典を確認</a><a class="action-link" href="https://sinobu13-bpei.github.io/medical-intelligence/" target="_blank" rel="noopener noreferrer">医療機器MKT ハブ</a></div>
+  <div class="kpis">
+    <div class="kpi al"><b class="num">123件</b><span>国内ランサムウェア被害（2026年上半期）。半期で過去最多</span></div>
+    <div class="kpi al"><b class="num">約5割</b><span>侵入口がVPN機器だった割合（同、被害組織への調査）</span></div>
+    <div class="kpi ac"><b class="num">約10%</b><span>二要素認証を導入済みの病院（2026年3〜4月、5,736施設）</span></div>
+    <div class="kpi ac"><b class="num">26%</b><span>情報システム部門の職員が0人の病院（同）</span></div>
+  </div>
+  <p class="meta">作成時点：2026年11月6日。公開情報に基づく一般的な整理で、法的助言ではありません。特定企業・製品の推奨は含みません。</p>
+</div></header>
+
+<main>
+
+<!-- 0 要約 -->
+<section class="sec" id="summary"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">00</span><h2>要約</h2></div>
+  <p class="point">医療のサイバーセキュリティの核心は、高度な技術より「外部接続点の管理」「認証」「契約での責任分界」「費用を誰が負うか」にある。</p>
+  <div class="grid3">
+    <div class="card"><h3><span class="tag t-al">脅威</span>既知の弱点を突かれる</h3><p>ランサムウェア被害は半期で過去最多。半田・大阪・岡山はいずれも保守用VPNと使い回しの管理者権限が入口と拡大の原因。</p></div>
+    <div class="card"><h3><span class="tag t-wa">構造</span>人・お金・時間が足りない</h3><p>病院の26%に情報システム職員がいない。公定価格で対策費を転嫁できず、24時間止められないためパッチも当てにくい。</p></div>
+    <div class="card"><h3><span class="tag t-ac">制度</span>2026年に一気に動いた</h3><p>ガイドライン第7.0版、VPN事務連絡、改正経済安保法、サイバー対処能力強化法が相次いだ。欧米は委託先を直接規制する方向。</p></div>
+    <div class="card"><h3><span class="tag t-ac">機器</span>レガシー機器が最大の宿題</h3><p>10年以上使う装置と、先に切れるOSのサポート。更新費用を誰が負うかは制度上決まっていない。</p></div>
+    <div class="card"><h3><span class="tag t-go">対策</span>備えは伸び、入口は横ばい</h3><p>BCP策定は1年で57%→75%。一方、二要素認証は約1割のまま。優先は費用のかからない接続点・権限・バックアップ・ログ・契約。</p></div>
+    <div class="card"><h3><span class="tag t-mu">見通し</span>2027年に期限が集中</h3><p>3月にチェックリスト、4月に二要素認証、12月までに基幹インフラ指定。論点は技術から「リスクと費用の配分」へ。</p></div>
+  </div>
+</div></section>
+
+<!-- 1 速報 -->
+<section class="sec" id="oct2026"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">01</span><h2>速報：2026年10月のPHP脆弱性とGMO事案</h2></div>
+  <p class="point">10月は、病院のホームページから院外のクラウドまで「外部とつながる部分」の弱さが一度に表面化した月だった。首相が深夜の対応を呼びかける異例の事態となった。</p>
+
+  <div class="stack">
+  <div class="grid2">
+    <div class="card alert">
+      <h3>PHPの重大な脆弱性（通称 PHP2Shell）</h3>
+      <ul class="dots">
+        <li><b>CVE-2026-109618／109619</b>。認証なしで外部からプログラムを実行される（リモートコード実行）</li>
+        <li>深刻度 <b class="num">CVSS v4.0で9.2</b>（NVDのv3.1では最大9.8）</li>
+        <li>PHPは世界のウェブサイトの約7割で使われるとされる</li>
+        <li>修正版：8.5.12／8.4.27／8.3.36／8.2.35。<b>8.1以前は修正なし</b>（サポート対象版への移行が必要）</li>
+        <li>10月21日夜、高市首相がXで「今夜に対応して頂きたい大至急のお願い」。国家サイバー統括室は、更新できない場合は<b>サイトの一時停止</b>も有効とした</li>
+      </ul>
+    </div>
+    <div class="card warn">
+      <h3>GMOのクラウドサービス侵害</h3>
+      <ul class="dots">
+        <li>対象は「お名前.com デスクトップクラウド」（クラウド上のWindows環境）</li>
+        <li>影響の可能性があるサーバー <b class="num">26,739件</b>（不正アクセス確認件数ではない）</li>
+        <li>不正アクセスと情報の持ち出しを確認。取引口座の不正操作の報告も</li>
+        <li>攻撃者とみられる者から<b>約80億円</b>を要求されたと公表（応じない方針）</li>
+        <li>グループ会社が<b>2024年に脆弱性を指摘</b>していたと報道。別の子会社では約4.5万人分の顧客情報が9年近く外部から取得可能だった</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fig">
+    <p class="ft">PHP2Shellの攻撃の流れ（JPCERT/CCの追加警告で報告された事例）</p>
+    <p class="fs">脆弱性は「ホームページ」だけでなく、PHPを組み込んだネットワーク機器にも及んだ</p>
+    <div class="flow">
+      <div class="step"><span class="n">1　探索</span><b>約19,000台</b><p>インターネットに公開されたファイアウォールを探索</p></div>
+      <div class="arrow" aria-hidden="true">▶</div>
+      <div class="step"><span class="n">2　選別</span><b>約240台</b><p>攻撃の標的として選定</p></div>
+      <div class="arrow" aria-hidden="true">▶</div>
+      <div class="step"><span class="n">3　侵入</span><b>PHP2件＋Linux</b><p>PHPの2件とLinuxカーネルの権限昇格（CVE-2026-46300）を組み合わせ、認証なしでroot権限</p></div>
+      <div class="arrow" aria-hidden="true">▶</div>
+      <div class="step hot"><span class="n">4　被害</span><b>25台が侵害</b><p>米国・日本・台湾・韓国。米政府関連組織ではActive Directoryの認証情報まで取得</p></div>
+    </div>
+    <p class="src">出典：<a href="https://news.mynavi.jp/techplus/article/20261029-5217835/" target="_blank" rel="noopener">マイナビニュース（JPCERT/CC 10月29日更新の注意喚起）</a>。悪用の観測は情報源により差がある（Amazonは公開4日前の10月17日に試行を確認、CISAとCrowdStrikeは成功した悪用は未観測と報道）。</p>
+  </div>
+
+  <div class="grid2">
+    <div class="fig">
+      <p class="ft">PHP：10月の動き</p>
+      <div class="tl">
+        <div class="ev"><span class="d">10月17日</span><span class="t">公開4日前、Amazonのハニーポットで悪用の試行を確認</span></div>
+        <div class="ev hot"><span class="d">10月21日</span><span class="t">国家サイバー統括室が注意喚起。夜に首相がXで「大至急」。23時に修正版公開</span></div>
+        <div class="ev"><span class="d">10月22日</span><span class="t">首相官邸で統括室長・警察庁が報告。各国で政府サイトの停止が相次ぐ。製薬・卸のサイト停止、薬剤師会のシステム停止</span></div>
+        <div class="ev"><span class="d">10月23日</span><span class="t">日本製薬団体連合会が政府の注意喚起を加盟団体に周知</span></div>
+        <div class="ev"><span class="d">10月26日</span><span class="t">セキュリティ企業がファイアウォール侵害の調査を公表</span></div>
+        <div class="ev hot"><span class="d">10月29日</span><span class="t">JPCERT/CCが追加警告（4か国25台の侵害）</span></div>
+      </div>
+    </div>
+    <div class="fig">
+      <p class="ft">GMO：10月〜11月の動き</p>
+      <div class="tl">
+        <div class="ev"><span class="d">10月19日</span><span class="t">利用者の問い合わせで調査開始</span></div>
+        <div class="ev"><span class="d">10月20日</span><span class="t">不正プログラムの設置を確認。新規申込と管理画面を停止</span></div>
+        <div class="ev hot"><span class="d">10月21日</span><span class="t">第1報。全プランのサーバーを順次停止。脅迫メールを受信</span></div>
+        <div class="ev"><span class="d">10月22日</span><span class="t">不正な取引操作の報告。警察に相談</span></div>
+        <div class="ev"><span class="d">10月24日</span><span class="t">不正アクセスと持ち出しを確認。見舞金一律5,000円、不正取引の実現損失を補償。利用者に二要素認証の設定を要請</span></div>
+        <div class="ev hot"><span class="d">10月27日</span><span class="t">攻撃者が予告した期限（正午）。個人情報の公開開始を宣言</span></div>
+        <div class="ev"><span class="d">10月31日〜11月1日</span><span class="t">2024年の脆弱性指摘、別子会社の約4.5万人分の情報が9年近く取得可能だったことが報道</span></div>
+        <div class="ev"><span class="d">11月2日</span><span class="t">代表が会見し謝罪。11月5日には総務省が業界団体にブロッキングを要請したと報道</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tbl"><table>
+    <tr><th>教訓</th><th>PHPの件から</th><th>GMOの件から</th><th>医療への置き換え</th></tr>
+    <tr><td>外部公開部分が入口</td><td>予約・問い合わせ・Web問診・採用ページはPHPで動くことが多い</td><td>クラウド上の利用者環境が侵害された</td><td>病院のホームページ、予約システム、オンライン診療、クラウドPACSなど「院外にある院内システム」の棚卸しが必要</td></tr>
+    <tr><td>サポート切れは直せない</td><td>8.1以前には公式の修正がない。サポート終了版で動くサイトは約23%とする報告も</td><td>—</td><td>OSのサポートが切れた医療機器と同じ構図（6章）</td></tr>
+    <tr><td>止める判断</td><td>政府が「サイトの一時停止」を推奨</td><td>全サーバーを順次停止</td><td>予約フォームを止めて電話受付へ切り替えるなど、止めても診療を続ける手順をBCPに入れておく</td></tr>
+    <tr><td>指摘の放置</td><td>—</td><td>2024年の脆弱性指摘を生かせなかった</td><td>MDS/SDSや外部調査の指摘を、誰がいつまでに直すか決めておく</td></tr>
+    <tr><td>委託先の被害</td><td>製薬・卸・薬剤師会のシステムも停止</td><td>利用者の資産に直結</td><td>委託先・クラウド事業者の事故で病院が止まる（Synnovisと同じ）。契約で通知期限と代替手段を決める</td></tr>
+    <tr><td>便乗・二次被害</td><td>「緊急アップデート」を装う詐欺メールへの注意喚起</td><td>個人情報の公開予告、口座の不正操作</td><td>患者向けに「病院はメールでパスワードを聞かない」と周知する</td></tr>
+  </table></div>
+  <p class="note">出典：<a href="https://news.denfaminicogamer.jp/news/2610213j" target="_blank" rel="noopener">電ファミ（10月21日）</a>、<a href="https://kumanichi.com/articles/2049509" target="_blank" rel="noopener">熊本日日新聞・共同（10月22日）</a>、<a href="https://nk.jiho.jp/article/306045" target="_blank" rel="noopener">日刊薬業（10月22日）</a>、<a href="https://nk.jiho.jp/article/306086" target="_blank" rel="noopener">日刊薬業（10月23日）</a>、<a href="https://www.yakuji.co.jp/?p=140932" target="_blank" rel="noopener">薬事日報</a>、<a href="https://cvejp.com/blog/post/cyberattack-roundup-2026-10" target="_blank" rel="noopener">CVEjp 10月まとめ</a>、<a href="https://medi-face.co.jp/security/php-vulnerability-medical/" target="_blank" rel="noopener">Medi Face（医療機関向け解説、サイト割合）</a>、<a href="https://www.tv-tokyo.co.jp/plus/external-pr/entry/286720.html" target="_blank" rel="noopener">日本男性看護師會・訪問看護支援協会のリリース</a>、<a href="https://risk.pakira-izu.co.jp/2026/10/27/gmo-onamae-desktop-cloud-cyberattack-2026/" target="_blank" rel="noopener">パキラ（GMO時系列）</a>、<a href="https://news.web.nhk/newsweb/na/nd-20261031de69024" target="_blank" rel="noopener">NHK（10月31日）</a>、<a href="https://news.web.nhk/newsweb/na/nd-20261101de69281" target="_blank" rel="noopener">NHK（11月1日）</a>、<a href="https://itmedia.co.jp/news/article/2611/02/2000002806/" target="_blank" rel="noopener">ITmedia（11月2日会見）</a>、<a href="https://itmedia.co.jp/news/article/2611/03/2000002829" target="_blank" rel="noopener">ITmedia（11月3日）</a>。GMO事案の全容・流出範囲は11月6日時点で確定していない。</p>
+  </div>
+</div></section>
+
+<!-- 2 脅威 -->
+<section class="sec" id="threat"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">02</span><h2>脅威の現状と事例</h2></div>
+  <p class="point">ランサムウェア被害は2022年以降、半期100件超の高止まりが続き、2026年上半期に123件で過去最多となった。医療・福祉は9件だが、1件ごとに数週間〜数か月の診療停止につながる。</p>
+  <div class="stack">
+  <div class="fig">
+    <p class="ft">ランサムウェア被害報告件数は2026年上半期に過去最多の123件</p>
+    <p class="fs">警察庁への被害報告件数（半期ごと）</p>
+    <div id="ch-ransom" class="scroll"></div>
+    <p class="src">出典：<a href="https://www.police.pref.osaka.lg.jp/seikatsu/saiba/cyber_shiryou/cybersecurity_tsushin/7/22469.html" target="_blank" rel="noopener">大阪府警（警察庁 令和7年上半期資料）</a>、<a href="https://scan.netsecurity.ne.jp/article/2026/03/24/54888.html" target="_blank" rel="noopener">ScanNetSecurity（2025年年間226件）</a>、<a href="https://www.npa.go.jp/publications/statistics/cybersecurity/data/R8kami/R08_kami_cyber_jousei.pdf" target="_blank" rel="noopener">警察庁 令和8年上半期</a>。2025年下半期の110件は年間226件から上半期116件を引いて算出。</p>
+  </div>
+  <div class="grid2">
+    <div class="fig">
+      <p class="ft">業種別：医療・福祉は9件（2026年上半期）</p>
+      <p class="fs">被害報告123件の内訳（件）</p>
+      <div id="ch-industry"></div>
+      <p class="src">出典：<a href="https://atmarkit.itmedia.co.jp/ait/articles/2609/17/news010.html" target="_blank" rel="noopener">@IT（警察庁統計）</a>。規模別は中小企業79・大企業31・団体等13。</p>
+    </div>
+    <div class="fig">
+      <p class="ft">被害の重さ（2026年上半期、全業種）</p>
+      <div class="picto-row"><span class="lab">侵入口がVPN機器</span><span class="val num">約5割</span><div class="people" data-p="5"></div></div>
+      <div class="picto-row"><span class="lab">復旧に総額1,000万円以上</span><span class="val num">約6割</span><div class="people" data-p="6"></div></div>
+      <div class="picto-row"><span class="lab">1か月未満で復旧できた</span><span class="val num">5割弱</span><div class="people" data-p="4.8"></div></div>
+      <p class="src">1アイコン＝被害組織の10%。出典：<a href="https://www.npa.go.jp/publications/statistics/cybersecurity/data/R8kami/R08_kami_cyber_jousei.pdf" target="_blank" rel="noopener">警察庁 令和8年上半期の脅威情勢</a></p>
+    </div>
+  </div>
+
+  <div class="fig">
+    <p class="ft">1,000万件以上の大規模漏えいは、2026年だけで14年分の2倍超</p>
+    <p class="fs">1件＝1つの漏えい事故（東京商工リサーチの集計、速報値）</p>
+    <div id="ch-leak"></div>
+    <p class="src">出典：<a href="https://cvejp.com/blog/post/cyberattack-roundup-2026-10" target="_blank" rel="noopener">CVEjp（東京商工リサーチの集計を引用）</a>。100万件以上の事故は2026年10月5日時点で10件（2025年は年間6件）。10月だけでも佐川急便（最大約5,323万件、重複含む）、ソースネクスト（約2,252万件の可能性）などの公表が続いた。</p>
+  </div>
+
+  <div class="grid2 gmap">
+    <div class="fig">
+      <p class="ft">国内の主な医療機関の事例（地図）</p>
+      <div class="btns" role="group" aria-label="地図の表示">
+        <button type="button" id="m-inc" aria-pressed="true">被害事例</button>
+        <button type="button" id="m-infra" aria-pressed="false">基幹インフラ指定の想定</button>
+      </div>
+      <div id="map" class="scroll"></div>
+      <div class="legend" id="map-legend"></div>
+    </div>
+    <div class="fig">
+      <p class="ft">海外の主な事例</p>
+      <div class="pins">
+        <div class="pin"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="s-al" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><div><b>米国・Change Healthcare（2024年2月）</b><p class="note">請求処理の大手がランサムウェア被害。約1億9,270万人の情報に影響、全米の請求・処方処理が滞った。</p></div></div>
+        <div class="pin"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="s-al" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><div><b>英国・Synnovis（2024年6月）</b><p class="note">ロンドンの病理検査の委託先が被害（Qilin）。予約・手術数千件が中止。2025年6月、患者1人の死亡に寄与したと病院が確認。侵入経路は特定できず、身代金は払っていない。</p></div></div>
+        <div class="pin"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="s-wa" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><div><b>EU全体</b><p class="note">2021〜2023年に分析された医療分野のインシデントの54%がランサムウェア。</p></div></div>
+      </div>
+      <p class="src">出典：<a href="https://www.beckershospitalreview.com/healthcare-information-technology/cybersecurity/change-healthcare-data-breach-toll-reaches-192-7-million" target="_blank" rel="noopener">Becker's</a>、<a href="https://www.theregister.com/2025/11/13/synnovis_qilin_investigation/" target="_blank" rel="noopener">The Register</a>、<a href="https://datamatters.sidley.com/2025/02/06/eu-commission-launches-cybersecurity-action-plan-for-hospitals-and-healthcare-providers/" target="_blank" rel="noopener">Sidley（EU行動計画）</a></p>
+    </div>
+  </div>
+
+  <div class="tbl"><table>
+    <tr><th>時期</th><th>組織</th><th>何が起きたか</th><th>影響</th><th>教訓</th></tr>
+    <tr><td>2026年4月</td><td><a href="https://www.city.nara.lg.jp/uploaded/attachment/216289.pdf" target="_blank" rel="noopener">市立奈良病院</a></td><td><span class="tag t-wa">誤検知</span>監視装置の自動更新後、通信を異常と誤判定し自動遮断が連鎖（攻撃の痕跡なし）</td><td>救急約53時間停止。外来約1,500件中約500件・予定手術56件中18件を延期。全面復旧は5月13日</td><td>守る仕組み自体が診療を止めうる。自動更新・自動遮断には確認と切り戻しの手順が要る</td></tr>
+    <tr><td>2024年6月</td><td>Synnovis（英国）</td><td><span class="tag t-al">攻撃</span>病理検査の委託先がランサムウェア被害</td><td>予約・手術数千件中止、患者1人の死亡に寄与</td><td>委託先の被害でも病院の診療が止まる</td></tr>
+    <tr><td>2024年5月</td><td><a href="https://rocket-boys.co.jp/?p=13164" target="_blank" rel="noopener">岡山県精神科医療センター</a></td><td><span class="tag t-al">攻撃</span>保守用SSL-VPN装置から侵入（推定）。2018年設置以降ファームウェア未更新、接続元IP制限なし</td><td>電子カルテ等が暗号化、最大約4万人分の患者情報が流出した可能性</td><td>「administrator/P@ssw0rd」相当の管理者パスワードを全端末で使い回し。ログは4MBで上書きされ経路を特定できず</td></tr>
+    <tr><td>2024年2月</td><td>Change Healthcare（米国）</td><td><span class="tag t-al">攻撃</span>ランサムウェア</td><td>約1億9,270万人に影響</td><td>1社のプラットフォーム依存が国全体のリスクになる</td></tr>
+    <tr><td>2022年10月</td><td><a href="https://www.gh.opho.jp/pdf/reportgaiyo_v01.pdf" target="_blank" rel="noopener">大阪急性期・総合医療センター</a></td><td><span class="tag t-al">攻撃</span>給食事業者の保守用VPNから侵入</td><td>全体復旧に73日。調査・復旧費は数億円以上、逸失利益は十数億円以上（見込み）</td><td>侵入口は取引先。責任分界が契約で曖昧だった</td></tr>
+    <tr><td>2021年10月</td><td><a href="https://scan.netsecurity.ne.jp/article/2024/10/31/51848.html" target="_blank" rel="noopener">つるぎ町立半田病院</a></td><td><span class="tag t-al">攻撃</span>VPN装置の脆弱性を突かれた</td><td>約2か月、病院機能が事実上停止（2022年1月4日に通常診療再開）</td><td>事業者は「脆弱性対応は保守契約にない」として責任を否定</td></tr>
+  </table></div>
+
+  <div class="fig">
+    <p class="ft">大阪の侵入経路：攻撃者は「出入り業者」から入ってきた</p>
+    <div class="flow">
+      <div class="step"><span class="n">1</span><b>給食事業者の保守用VPN機器</b><p>脆弱性が放置、漏えいしたIDの悪用</p></div>
+      <div class="arrow" aria-hidden="true">▶</div>
+      <div class="step"><span class="n">2</span><b>事業者側のサーバー</b><p>弱いパスワードで侵入、病院の認証情報を窃取</p></div>
+      <div class="arrow" aria-hidden="true">▶</div>
+      <div class="step"><span class="n">3</span><b>病院の給食サーバー</b><p>リモート接続で侵入、ウイルス対策ソフトを削除</p></div>
+      <div class="arrow" aria-hidden="true">▶</div>
+      <div class="step hot"><span class="n">4</span><b>電子カルテなど基幹系</b><p>共通パスワードで横に広がり暗号化</p></div>
+    </div>
+    <p class="src">国内3つの攻撃事例に共通するのは「外部との接続点（保守用VPN）」「使い回しの管理者権限」「曖昧な契約」の3点。攻撃手法は高度ではない。</p>
+  </div>
+  </div>
+</div></section>
+
+<!-- 3 構造 -->
+<section class="sec" id="structure"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">03</span><h2>なぜ医療は狙われ、守りにくいのか</h2></div>
+  <p class="point">医療が守りにくいのは意識より構造の問題。人がいない病院ほど保守を外部に頼り、外部接続が増え、契約で責任を決める力も弱い。</p>
+  <div class="grid2">
+    <div class="fig">
+      <p class="ft">全国の病院の体制（2026年3〜4月）</p>
+      <p class="fs">1アイコン＝病院の10%。厚労省調査、有効回答5,736施設（回答率70.8%）</p>
+      <div class="picto-row"><span class="lab">情報システム部門の職員が0人</span><span class="val num">26%</span><div class="people" data-p="2.6"></div></div>
+      <div class="picto-row"><span class="lab">安全管理責任者が情報処理系の資格を持つ（設置病院のうち）</span><span class="val num">16%</span><div class="people" data-p="1.6"></div></div>
+      <div class="picto-row"><span class="lab">CSIRT（事故対応チーム）を設置</span><span class="val num">44%</span><div class="people" data-p="4.4"></div></div>
+      <div class="picto-row"><span class="lab">契約時の役割分担確認表を「知らない」</span><span class="val num">44%</span><div class="people" data-p="4.4" data-c="al"></div></div>
+      <div class="picto-row"><span class="lab">安全管理責任者を設置</span><span class="val num">86%</span><div class="people" data-p="8.6"></div></div>
+      <p class="src">出典：<a href="https://www.mhlw.go.jp/content/10808000/001705951.pdf" target="_blank" rel="noopener">厚労省「病院における医療情報システムのサイバーセキュリティ対策に係る調査」（2026年5月29日）</a></p>
+    </div>
+    <div class="fig">
+      <p class="ft">二要素認証を入れない理由は「システム未対応」と「予算不足」がほぼ同数</p>
+      <p class="fs">未導入5,131施設の回答（施設数）</p>
+      <div id="ch-mfa"></div>
+      <p class="src">導入済みの病院の導入費用は1,000万〜3,000万円程度が最も多い。出典：同調査</p>
+    </div>
+  </div>
+  <div class="tbl" style="margin-top:16px"><table>
+    <tr><th>構造的な課題</th><th>何が起きているか</th></tr>
+    <tr><td>攻撃者にとって「払いそう」</td><td>診療は止められず、病歴は漏えいの脅しに使える。影響が大きいほど要求が通りやすいと見られる</td></tr>
+    <tr><td>止められないシステム</td><td>24時間稼働のため、パッチ適用や再起動の時間を取りにくい。サーバ・端末にパッチを適用している病院は約63%</td></tr>
+    <tr><td>多数のベンダーと外部接続</td><td>電子カルテ、部門システム、医療機器、給食、物流など、事業者ごとに保守用の接続がある。「閉域網だから安全」という前提は、この接続点で崩れている</td></tr>
+    <tr><td>長く使う医療機器</td><td>画像診断装置などは10年以上使われ、内部OSのサポートが先に切れる。認証済みの構成を病院が自由に変えられない</td></tr>
+    <tr><td>人材不足</td><td>情報システム部門0人の病院が26%（299床以下で多い）。責任者の資格保有は約16%</td></tr>
+    <tr><td>費用を賄う仕組みが弱い</td><td>診療報酬は公定価格で、対策費を価格に転嫁できない</td></tr>
+    <tr><td>契約と責任分界の曖昧さ</td><td>役割分担確認表を知らない病院が44%、使ったことがあるのは約9%。契約書・SLAに役割を明記している病院は51%（2025年調査）</td></tr>
+  </table></div>
+</div></section>
+
+<!-- 4 法制度 -->
+<section class="sec" id="law"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">04</span><h2>国内の法制度・指針</h2></div>
+  <p class="point">病院に直接かかる法的義務は「医療法施行規則14条2項」と「個人情報保護法」の2本。残りはガイドライン・チェックリスト・診療報酬を通じて効く。2026年は国家安全保障の法律が初めて医療に入ってきた。</p>
+  <div class="stack">
+  <div class="fig">
+    <p class="ft">病院の義務は「法律 → 省令 → 指針 → チェックリスト → 立入検査」の階層で効く</p>
+    <div class="layers">
+      <div class="layer"><b>法律</b><span>医療法（管理者の義務、立入検査の根拠）／個人情報保護法</span></div>
+      <div class="layer"><b>省令</b><span>医療法施行規則14条2項「サイバーセキュリティを確保するために必要な措置を講じなければならない」（2023年4月施行）</span></div>
+      <div class="layer"><b>指針</b><span>安全管理ガイドライン第7.0版＝「必要な措置」の中身（通知で参照を指示）</span></div>
+      <div class="layer"><b>チェックリスト</b><span>令和8年度版。医療機関用と事業者確認用。2027年3月末までに全項目「はい」か「対象外」</span></div>
+      <div class="layer"><b>確認</b><span>保健所の立入検査（項目2-19）。記入状況と連絡体制図の現物を確認。直接の罰則はなく指導が中心</span></div>
+    </div>
+  </div>
+  <div class="quote">医療法施行規則 第14条第2項：病院、診療所又は助産所の管理者は、医療の提供に著しい支障を及ぼすおそれがないように、サイバーセキュリティを確保するために必要な措置を講じなければならない。</div>
+
+  <div class="tbl"><table>
+    <tr><th>法令・指針</th><th>対象</th><th>性質</th><th>状態（2026年11月）</th></tr>
+    <tr><td><a href="https://www.mhlw.go.jp/content/10801000/001234598.pdf" target="_blank" rel="noopener">医療法施行規則14条2項</a></td><td>全病院・診療所・助産所（民間・公立とも）</td><td>義務。罰則なし、立入検査で確認</td><td>2023年4月施行</td></tr>
+    <tr><td><a href="https://www.wic-net.com/material/static/00024578/00024578.pdf" target="_blank" rel="noopener">安全管理ガイドライン第7.0版</a></td><td>医療機関</td><td>上記「必要な措置」の中身</td><td>2026年6月29日公表</td></tr>
+    <tr><td><a href="https://www.wic-net.com/material/static/00024587/00024587.pdf" target="_blank" rel="noopener">チェックリスト令和8年度版</a></td><td>医療機関・事業者</td><td>立入検査で記入を確認</td><td>2027年3月末が期限</td></tr>
+    <tr><td><a href="https://www.ppc.go.jp/personalinfo/legal/leakAction/" target="_blank" rel="noopener">個人情報保護法</a></td><td>全医療機関（公立も原則同じ規律）</td><td>安全管理措置（23条）・従業者監督（24条）・委託先監督（25条）・漏えい等報告</td><td>施行中。改正法2026年7月10日成立</td></tr>
+    <tr><td><a href="https://www.pmda.go.jp/files/000268921.pdf" target="_blank" rel="noopener">薬機法・基本要件基準12条3項</a></td><td>医療機器の製造販売業者</td><td>承認・認証の要件（JIS T 81001-5-1）</td><td>2024年4月から必須</td></tr>
+    <tr><td>薬機法施行規則（販売業者・貸与業者の遵守事項）</td><td>医療機器の販売業者・貸与業者</td><td>品質確保、苦情処理、回収協力、教育訓練、中古品販売時の製造販売業者への事前通知（170条）、不具合報告</td><td>施行中（サイバー専用規定ではない）</td></tr>
+    <tr><td><a href="https://www.soumu.go.jp/menu_news/s-news/01ryutsu06_02000427.html" target="_blank" rel="noopener">2省ガイドライン第2.0版</a></td><td>医療情報を扱うIT・クラウド事業者</td><td>指針（契約で事業者の義務になる）</td><td>2025年3月公表</td></tr>
+    <tr><td><a href="https://www.cao.go.jp/cybersecurity/pdf/01sanko01.pdf" target="_blank" rel="noopener">サイバー対処能力強化法</a></td><td>基幹インフラ事業者・ベンダー</td><td>重要システムの届出、事故報告、ベンダーへの措置要請</td><td>2026年10月1日本則施行。病院は現時点で対象外</td></tr>
+    <tr><td><a href="https://www.cao.go.jp/houan/pdf/221/221_1gaiyou.pdf" target="_blank" rel="noopener">改正経済安保推進法</a></td><td>指定病院・支払基金の後継法人</td><td>重要設備の導入・保守委託の事前届出と審査</td><td>2026年6月17日公布。医療部分は2027年12月までに施行</td></tr>
+    <tr><td><a href="https://scan.netsecurity.ne.jp/article/2026/04/06/54984.html" target="_blank" rel="noopener">地方自治法244条の6</a></td><td>自治体（公立病院を含む）</td><td>サイバーセキュリティ確保方針の策定・公表</td><td>2026年4月1日が期限</td></tr>
+    <tr><td><a href="https://www.jmedj.co.jp/blogs/product/product_28144" target="_blank" rel="noopener">診療報酬（2026年度改定）</a></td><td>入院医療を行う病院</td><td>電子的診療情報連携体制整備加算1・2（160点・80点）の施設基準</td><td>旧・診療録管理体制加算1から要件を移行</td></tr>
+    <tr><td>重要インフラ統一基準</td><td>医療を含む16分野</td><td>組織統治・識別・防御・検知・対応復旧・AI悪用への対応。「防ぎきれない前提」のレジリエンス</td><td>2026年7月31日決定、10月施行見込み</td></tr>
+  </table></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>安全管理ガイドライン第7.0版の主な変更</h3>
+      <ul class="dots">
+        <li><b>保守委託機関編</b>を新設：サーバのセキュリティ更新を（クラウド含め）委託している施設は、同編を守れば他の編も満たすとみなす</li>
+        <li>パスワード：使い回し禁止・アカウントロックを追加、<b>定期変更の要件は削除</b>。英数字混在8桁以上（二要素認証導入までは13桁以上）</li>
+        <li><b>二要素認証</b>：対象は端末とサーバ。2027年4月から遵守事項、困難なら次のシステム改修時まで猶予</li>
+        <li>医療機器への二要素認証は見送り、次の版（7.1）で再検討</li>
+        <li>サプライチェーンのリスク、事業者との役割分担を追記。クラウドの積極的な活用も明記</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>チェックリストの「事業者欄」3択</h3>
+      <div class="grid3" style="gap:8px;margin-top:6px">
+        <div class="card acc" style="padding:10px"><b>はい</b><p class="note">契約範囲内で事業者が対応済み</p></div>
+        <div class="card" style="padding:10px"><b>いいえ</b><p class="note">契約範囲内だが未対応。年度内の目標日を記入</p></div>
+        <div class="card warn" style="padding:10px"><b>対象外</b><p class="note">契約範囲外で病院が責任を負う。認識のずれを事業者側から必ず確認</p></div>
+      </div>
+      <p class="note" style="margin-top:8px">事業者確認用にはBCP策定の項目が追加された。</p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>漏えい等報告（個人情報保護法）</h3>
+      <p>報告義務の4類型：①要配慮個人情報 ②財産的被害のおそれ ③不正目的のおそれ ④1,000人超。<b>病歴は要配慮個人情報のため、医療機関では1件でも報告対象</b>。ランサムウェアは③にも当たる。</p>
+      <div class="flow" style="margin-top:10px">
+        <div class="step"><span class="n">発覚</span><p>個人情報保護委員会へ</p></div>
+        <div class="arrow" aria-hidden="true">▶</div>
+        <div class="step"><span class="n">速報</span><b class="num">3〜5日以内</b></div>
+        <div class="arrow" aria-hidden="true">▶</div>
+        <div class="step hot"><span class="n">確報</span><b class="num">30日以内</b><p>不正目的（ランサムウェア等）は60日以内</p></div>
+      </div>
+      <p class="note" style="margin-top:8px">公立病院も原則として民間と同じ規律（58条の特例）。条例で定める要配慮個人情報は68条で対応。</p>
+    </div>
+    <div class="card">
+      <h3>改正個人情報保護法（2026年7月10日成立）</h3>
+      <ul class="dots">
+        <li>原則施行は公布後2年以内（2028年4月ごろの見込み）。罰則の一部は公布後6か月</li>
+        <li>本人のリスクが小さい場合などの本人通知の省略（代替措置が必要）</li>
+        <li>目的外利用や同意のない第三者提供などに<b>課徴金</b></li>
+        <li>病院等を「学術研究機関等」に明示。統計作成・AI開発等で病歴を含むデータを同意なく提供できる特例（医師の守秘義務の違法性が直ちに否定されるわけではないとの答弁）</li>
+        <li>管理措置を破って個人情報を取得する行為に新設罪（1年以下の拘禁刑または100万円以下の罰金）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>サイバー対処能力強化法（能動的サイバー防御）</h3>
+      <ul class="dots">
+        <li>2026年10月1日に本則施行（報告・情報提供・協議会）</li>
+        <li>対象：特定社会基盤事業者（2026年7月時点で258者）のうち特定重要電子計算機を使う者</li>
+        <li>重要機器の例：インターネット接続口の機器（ファイアウォール、VPN等）、認証基盤、重要設備と同じ区画の機器</li>
+        <li>届出：導入から原則4か月以内（既存機器は2027年3月31日まで）</li>
+        <li>事故報告：速報はランサムウェア等で3〜5日以内（解説案）、詳報30日以内</li>
+        <li>罰則：是正命令違反で200万円以下、資料提出拒否で30万円以下の罰金</li>
+        <li>第42条：国は機器・ソフトの供給者に脆弱性情報を提供し、措置を要請できる。供給者には協力の努力義務（国外の供給者も対象）</li>
+        <li>病院は現時点で対象外。ただし経済安保法で指定されれば連動して対象になる見込み</li>
+      </ul>
+    </div>
+    <div class="fig">
+      <p class="ft">改正経済安保推進法：指定病院の重要設備は国の事前審査へ</p>
+      <div class="flow">
+        <div class="step"><span class="n">指定</span><b>特定機能病院から</b><p>施行時は各地方ブロック1病院以上、3年度目までに各都道府県1病院。病床数の大きい順</p></div>
+        <div class="arrow" aria-hidden="true">▶</div>
+        <div class="step"><span class="n">届出</span><b>導入・保守委託の前</b><p>重要設備の候補：電子カルテ、手術部門、集中治療部門に関連する設備</p></div>
+        <div class="arrow" aria-hidden="true">▶</div>
+        <div class="step hot"><span class="n">審査</span><b>原則30日</b><p>妨害のおそれが大きければ勧告・命令</p></div>
+      </div>
+      <p class="src">出典：<a href="https://www.mhlw.go.jp/content/10808000/001703605.pdf" target="_blank" rel="noopener">厚労省 医療部会資料</a>、<a href="https://gemmed.ghc-j.com/?p=69643" target="_blank" rel="noopener">GemMed</a>。構成部品が外部から供給される場合も届出が必要と明確化。具体的な設備の範囲は省令待ち。</p>
+    </div>
+  </div>
+  </div>
+</div></section>
+
+<!-- 5 海外 -->
+<section class="sec" id="global"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">05</span><h2>海外の制度と潮流</h2></div>
+  <p class="point">欧米は、病院だけでなく委託先や機器メーカーを直接規制する方向に動いている。きっかけはいずれも病院ではなく取引先の被害だった。</p>
+  <div class="tbl"><table>
+    <tr><th>国・地域</th><th>制度</th><th>中身</th><th>状態</th></tr>
+    <tr><td>米国</td><td><a href="https://www.pact-one.com/2026/09/hipaa-security-rule-2026-status/" target="_blank" rel="noopener">HIPAAセキュリティ規則の改正案</a></td><td>暗号化、多要素認証、ネットワーク分離、年次の資産台帳、脆弱性スキャン6か月ごと・侵入テスト12か月ごと、重大な脆弱性は15日以内（高リスクは30日以内）に対応、72時間以内の復旧体制、委託先の監督強化</td><td>2025年1月提案。100以上の医療団体が撤回を要請し、2026年9月時点で未確定。最終化は2027年7月ごろの見込み</td></tr>
+    <tr><td>米国</td><td><a href="https://www.govinfosecurity.com/fda-expands-premarket-medical-device-cyber-guidance-a-28850" target="_blank" rel="noopener">FDA・FD&amp;C法524B条</a></td><td>通信できる医療機器（デバッグポートや休眠中の無線も含む）の市販前申請にSBOM、市販後の脆弱性管理計画を必須化</td><td>2023年施行。2025年6月にガイダンス改訂</td></tr>
+    <tr><td>EU</td><td><a href="https://datamatters.sidley.com/2025/02/06/eu-commission-launches-cybersecurity-action-plan-for-hospitals-and-healthcare-providers/" target="_blank" rel="noopener">病院・医療提供者向け行動計画</a></td><td>予防・検知・対応・抑止の4本柱。支援センター、早期警戒、中小医療機関向けバウチャー、復号ツール、身代金支払いの報告義務化を提案</td><td>2025年1月公表、2025〜2026年に段階実施。計画自体に義務はない</td></tr>
+    <tr><td>EU</td><td>NIS2指令・サイバーレジリエンス法・欧州保健データ空間</td><td>NIS2は医療提供者を重要分野に指定。CRAはデジタル製品にSBOM等を課す（医療機器は主に医療機器規則の側で規律）</td><td>NIS2施行中、CRAは2027年12月に全面適用、EHDSは2025年1月採択</td></tr>
+    <tr><td>英国</td><td><a href="https://www.digitalhealth.net/?p=249589" target="_blank" rel="noopener">サイバーセキュリティ及びレジリエンス法案</a></td><td>保守事業者（MSP）や重要サプライヤーを規制対象に追加（約1,000事業者）。24時間以内に初報、72時間以内に詳報。大臣がNHSトラストに措置を指示できる</td><td>2025年11月に議会提出</td></tr>
+  </table></div>
+  <div class="grid3" style="margin-top:16px">
+    <div class="card"><h3>1 委託先への直接規制</h3><p>日本は「病院の義務＋契約で事業者に求める」形。英国は保守事業者そのものを法の対象にしようとしている。</p></div>
+    <div class="card"><h3>2 報告期限の短縮</h3><p>英国は24時間、日本の個人情報保護法の速報は3〜5日。日本も基幹インフラ向けで速報の仕組みが動き始めた。</p></div>
+    <div class="card"><h3>3 技術要件の数値化</h3><p>米国案は「72時間で復旧」「15日で修正」と数字で示す。ただし医療団体の反発で確定が遅れ、費用との引き合いは日本と同じ。</p></div>
+  </div>
+</div></section>
+
+<!-- 6 機器 -->
+<section class="sec" id="device"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">06</span><h2>医療機器のサイバーセキュリティ</h2></div>
+  <p class="point">課題は「出荷時の安全」から「使われ続ける10年以上の安全」に移った。日本では2024年4月から承認・認証の要件になり、2026年8月のSBOMガイドラインで市販後の管理まで広がった。</p>
+  <div class="fig">
+    <p class="ft">機器の一生と、メーカー・医療機関それぞれの役割</p>
+    <div class="flow">
+      <div class="step"><span class="n">設計・開発</span><b>メーカー</b><p>脆弱性前提の設計（基本要件基準12条3項、JIS T 81001-5-1）</p><b>医療機関</b><p>調達時にMDS/SDSで確認</p></div>
+      <div class="arrow" aria-hidden="true">▶</div>
+      <div class="step"><span class="n">導入</span><b>メーカー</b><p>MDS/SDS提示、初期設定の安全化、責任分界の明示</p><b>医療機関</b><p>台帳登録、接続方法の決定</p></div>
+      <div class="arrow" aria-hidden="true">▶</div>
+      <div class="step"><span class="n">運用</span><b>メーカー</b><p>脆弱性監視・パッチ提供、求めに応じSBOM提示、保守用VPN装置の点検</p><b>医療機関</b><p>パッチの時間を確保、指示なく構成を変えない</p></div>
+      <div class="arrow" aria-hidden="true">▶</div>
+      <div class="step hot"><span class="n">サポート終了</span><b>メーカー</b><p>EOL・EOSの事前の情報提供</p><b>医療機関</b><p>更新するか、切り離して使い続けるかを判断</p></div>
+    </div>
+    <p class="src">根拠：<a href="https://www.pmda.go.jp/files/000268921.pdf" target="_blank" rel="noopener">手引書第2版（2023年3月）</a>、<a href="https://www.mhlw.go.jp/content/11120000/001479077.pdf" target="_blank" rel="noopener">脆弱性管理通知（2024年3月）</a>、<a href="https://www.mhlw.go.jp/content/11120000/001677888.pdf" target="_blank" rel="noopener">VPN事務連絡・医薬局（2026年3月19日）</a>、<a href="https://www.mhlw.go.jp/content/11120000/001743442.pdf" target="_blank" rel="noopener">SBOM導入・運用ガイドライン第1版（2026年8月25日、現時点では推奨）</a></p>
+  </div>
+  <div class="grid3" style="margin-top:16px">
+    <div class="card alert"><h3>レガシー機器</h3><p>装置は10年以上使われるのに、内部OSはそれより先にサポートが切れる。例：組込み機器で使われたWindows 10 LTSB 2016は2026年10月に延長サポートが終了。更新費用を誰が負うかは制度上決まっていない。</p></div>
+    <div class="card"><h3>現場の実施状況</h3><p>MDS/SDSで点検している病院は約64%、ネットワーク接続の医療機器を一元台帳管理しているのは約67%。約3分の1は、どの機器がどこにつながっているか一覧できていない。</p></div>
+    <div class="card"><h3>PHPの件との共通点</h3><p>PHP 8.1以前には修正版が出なかった。サポートが切れたソフトは「直せない」。医療機器や院内システムでも、組み込まれたソフトの版をメーカーに確認する必要がある。</p></div>
+  </div>
+  <p class="note" style="margin-top:12px">業界の開示様式：MDS/SDS（JIRA・JAHIS、Ver.5.0は2024年9月、ガイドライン第6.0版対応。第7.0版対応版は今後）。米国は2023年からSBOMを市販前申請の必須要件にしており、日本は「推奨」だがグローバル販売のメーカーは事実上対応が必要。</p>
+</div></section>
+
+<!-- 7 対策 -->
+<section class="sec" id="measures"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">07</span><h2>対策の全体像</h2></div>
+  <p class="point">病院の対策は「備え」（バックアップ・BCP）では伸びたが、「入口を守る」（認証・パッチ）ではほとんど動いていない。</p>
+  <div class="fig">
+    <p class="ft">1年でBCP策定は57%から75%に伸びたが、二要素認証は約1割のまま</p>
+    <p class="fs">対策を実施している病院の割合（%）　○ 2025年1〜3月（5,842施設）　● 2026年3〜4月（5,736施設）</p>
+    <div id="ch-dumb" class="scroll"></div>
+    <p class="src">出典：<a href="https://www.mhlw.go.jp/content/10808000/001522779.pdf" target="_blank" rel="noopener">厚労省調査（2025年7月公表）</a>、<a href="https://www.mhlw.go.jp/content/10808000/001705951.pdf" target="_blank" rel="noopener">同（2026年5月公表）</a>。分母は一部異なる（2026年のオフラインバックアップは電子カルテ導入病院4,255施設中、他は件数から算出）。BCPを持つ病院のうち訓練を実施しているのは約43%。</p>
+  </div>
+  <h3 style="margin:24px 0 10px">事例から逆算した優先順位（費用のかからない順）</h3>
+  <ol class="prio">
+    <li><div><b>外部接続点の棚卸し</b><p class="note">保守用VPNを含む全接続点を一覧にし、不要なものを閉じる。接続元IP制限とファームウェア更新の担当者を決める</p></div><span class="cost tag t-go">運用で可能</span></li>
+    <li><div><b>管理者権限とパスワード</b><p class="note">初期パスワードの変更、使い回しの禁止、一般利用者からの管理者権限の剥奪。岡山と大阪はここで被害が院内全体に広がった</p></div><span class="cost tag t-go">運用で可能</span></li>
+    <li><div><b>復旧できるバックアップ</b><p class="note">ネットワークから切り離したバックアップを持ち、実際に戻せるか試す</p></div><span class="cost tag t-go">運用中心</span></li>
+    <li><div><b>ログの保存</b><p class="note">岡山ではログが上書きされ、侵入経路を特定できなかった。調査できなければ再発も防げない</p></div><span class="cost tag t-go">運用中心</span></li>
+    <li><div><b>紙運用を含むBCPと訓練</b><p class="note">予約フォームやサイトを止めた場合の代替（電話受付など）もPHPの件で必要性が明確になった</p></div><span class="cost tag t-wa">一部費用</span></li>
+    <li><div><b>契約での責任分界</b><p class="note">保守の対象にVPN装置などの付属機器を含むか、事故時に何時間以内に知らせるかを書く</p></div><span class="cost tag t-wa">交渉が必要</span></li>
+    <li><div><b>認証の強化と医療機器の分離</b><p class="note">二要素認証とネットワーク分離。効果は大きいが費用も大きく、システム更新に合わせるのが現実的</p></div><span class="cost tag t-al">投資が必要</span></li>
+  </ol>
+</div></section>
+
+<!-- 8 事故時 -->
+<section class="sec" id="incident"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">08</span><h2>事故が起きたときの流れ</h2></div>
+  <p class="point">初動で決まるのは「止め方」と「つなぎ方」。電源を切らずに切り離し、決めておいた連絡先に期限内につなぐ。</p>
+  <div class="fig">
+    <p class="ft">インシデント対応フローチャート（一般的な整理）</p>
+    <div class="fc">
+      <div class="box start"><b>異常に気づく</b><small>見慣れない画面、暗号化されたファイル、監視装置の警報、取引先や患者からの連絡</small></div>
+      <div class="down" aria-hidden="true">▼</div>
+      <div class="dec"><b>攻撃か、誤検知か</b><small>奈良の事例のように、守る仕組みの誤作動もありうる。判断できなければ攻撃として扱う</small></div>
+      <div class="down" aria-hidden="true">▼</div>
+      <div class="box"><b>ネットワークから切り離す</b><small>電源断・初期化・再インストールは指示があるまでしない（証拠が消える）</small></div>
+      <div class="down" aria-hidden="true">▼</div>
+      <div class="split">
+        <div class="box"><b>院内</b><small>CSIRT・安全管理責任者・管理者。紙運用へ切り替え</small></div>
+        <div class="box"><b>事業者</b><small>保守契約先のメーカー・販社・ITベンダー。通知期限は契約で（例：24時間以内）</small></div>
+        <div class="box"><b>行政</b><small>厚労省（初動対応支援の窓口）、所轄の警察</small></div>
+      </div>
+      <div class="down" aria-hidden="true">▼</div>
+      <div class="dec"><b>個人情報が漏れたおそれがあるか</b><small>病歴は1件でも対象</small></div>
+      <div class="down" aria-hidden="true">▼ はい</div>
+      <div class="box"><b>個人情報保護委員会へ報告</b><small>速報3〜5日以内、確報30日以内（不正目的は60日以内）。本人への通知</small></div>
+      <div class="down" aria-hidden="true">▼</div>
+      <div class="dec"><b>基幹インフラの指定病院か</b><small>経済安保法の指定後は、強化法による国への報告も見込まれる（速報3〜5日、詳報30日）</small></div>
+      <div class="down" aria-hidden="true">▼</div>
+      <div class="box end"><b>復旧と再発防止</b><small>オフラインバックアップから復旧、原因調査、報告書の公表（岡山は「忖度なしの報告書」を公開）</small></div>
+    </div>
+    <p class="src">身代金は支払わないのが基本。日本では支払いは法で禁止されていないが、制裁対象の犯罪集団への支払いになるリスクがあり、合理的な根拠なく応じれば経営者が過失を問われうる。</p>
+  </div>
+</div></section>
+
+<!-- 9 責任分界 -->
+<section class="sec" id="roles"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">09</span><h2>責任分界：病院・メーカー・販社/保守事業者</h2></div>
+  <p class="point">三者の義務は重なり合うため、最後は契約で決まる。半田・大阪・岡山のいずれも、ここが曖昧だった。</p>
+  <div class="parties">
+    <div class="party h"><h3>医療機関</h3><ul class="dots"><li>措置義務（施行規則14条2項）</li><li>安全管理責任者の設置、運用管理規程の策定・運用</li><li>リスクアセスメント、BCP</li><li>チェックリスト（医療機関確認用）</li><li>委託先の選定と監督（個人情報保護法25条）</li><li>国・警察・個人情報保護委員会への報告</li></ul></div>
+    <div class="party m"><h3>医療機器メーカー</h3><ul class="dots"><li>安全な設計（薬機法・基本要件基準）</li><li>脆弱性監視とパッチ提供</li><li>SBOM・サポート終了の情報提供</li><li>メーカー管理のVPN装置の点検</li><li>MDS/SDSと責任分界の提示</li><li>国の措置要請への協力（強化法42条）</li></ul></div>
+    <div class="party d"><h3>販社・保守事業者</h3><ul class="dots"><li>契約で引き受けた範囲の対策</li><li>チェックリスト事業者欄（契約範囲）の記入</li><li>メーカー情報を病院へ届ける</li><li>自社の接続・持ち込み機器の管理</li><li>異常を知ったら直ちにつなぐ</li><li>病院の規程・リスク評価の「材料」を出す</li></ul></div>
+  </div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="card">
+      <h3>販社・保守事業者の責務は3つの層で考える</h3>
+      <div class="layers">
+        <div class="layer" style="margin:0"><b>① 法令に基づく義務</b><span>薬機法の販売業者・貸与業者の遵守事項（施行規則164〜178条、中古品の事前通知など）、保守・修理を行うなら修理業の遵守事項、患者データを扱うなら個人情報保護法の安全管理措置、安全情報の提供への協力（68条の2、努力義務）</span></div>
+        <div class="layer" style="margin:0"><b>② 契約に基づく義務</b><span>保守契約で引き受けた範囲。事業者欄の記入、秘密保持、再委託の条件、契約に伴う善管注意義務（民法）</span></div>
+        <div class="layer" style="margin:0"><b>③ 推奨事項</b><span>法的義務はないが望ましいこと。自社接続の管理、情報の確実な伝達、サポート終了機器の更新提案、連絡ルールと教育</span></div>
+      </div>
+      <p class="note" style="margin-top:8px">病院の運用管理規程やリスク評価を事業者が「作る」責任はない。求められるのは判断材料を正確に出すこと。</p>
+    </div>
+    <div class="card">
+      <h3>保守契約で決めておきたい7項目</h3>
+      <div class="tbl" style="border:0"><table style="min-width:0">
+        <tr><th>項目</th><th>決めておく内容</th></tr>
+        <tr><td>保守の対象範囲</td><td>VPN装置など付属機器も含むか</td></tr>
+        <tr><td>パッチとサポート終了</td><td>誰が適用し、終了をどう知らせるか</td></tr>
+        <tr><td>リモート接続</td><td>方法、二要素認証、時間帯と記録</td></tr>
+        <tr><td>患者データ</td><td>触れる範囲、秘密保持、持ち出し禁止</td></tr>
+        <tr><td>再委託</td><td>有無と再委託先（指定病院は審査対象）</td></tr>
+        <tr><td>事故時の通知</td><td>期限（例：24時間以内）と連絡先</td></tr>
+        <tr><td>記録とログ</td><td>保存期間と提供方法</td></tr>
+      </table></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>民事・刑事の責任</h3>
+    <p>病院は診療契約上の善管注意義務と守秘義務、事業者は保守・委託契約上の善管注意義務と専門家としての説明義務を負い、民法415条（債務不履行）・709条（不法行為）で賠償を求められうる。医師の秘密漏示罪（刑法134条）は故意犯のため、過失による漏えいには通常当たらない。国内で病院のランサムウェア被害が判決に至った例は今回の調査では確認できず、現状は「ガイドライン準拠＝注意義務を果たした」と評価されやすい。</p>
+  </div>
+</div></section>
+
+<!-- 10 支援 -->
+<section class="sec" id="support"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">10</span><h2>支援策と情報共有</h2></div>
+  <p class="point">国の支援は「調べる」「計画を立てる」「事故時に駆けつける」にはあるが、機器を買う費用は対象外。</p>
+  <div class="tbl"><table>
+    <tr><th>支援・仕組み</th><th>運営</th><th>内容</th><th>注意点</th></tr>
+    <tr><td><a href="https://www.mhlw.go.jp/content/10808000/001546410.pdf" target="_blank" rel="noopener">外部ネットワーク接続の調査</a></td><td>厚労省（NTT東日本に委託）</td><td>電子カルテ系とつながる外部接続点の把握、現地調査、脆弱性診断、対策案を無償で提供</td><td>2025年度は都道府県経由で募集。基幹系につながらないネットワークは対象外</td></tr>
+    <tr><td>オフラインバックアップ整備の支援</td><td>厚労省</td><td>相談と計画策定の支援</td><td>機器の購入・構築・保守の費用は対象外</td></tr>
+    <tr><td>初動対応の支援</td><td>厚労省</td><td>事故時に支援チームを派遣。奈良では検知から約16時間後に到着</td><td>病院側に連絡体制図と初動手順があることが前提</td></tr>
+    <tr><td>契約時の役割分担確認表</td><td>厚労省</td><td>病院と事業者の役割を契約前に確認する様式</td><td>病院の44%が「知らない」</td></tr>
+    <tr><td>MDS/SDS</td><td>JIRA・JAHIS</td><td>製品・サービスのセキュリティ対応を標準様式で開示</td><td>第7.0版対応版は今後</td></tr>
+    <tr><td><a href="https://scan.netsecurity.ne.jp/article/2024/10/31/51848.html" target="_blank" rel="noopener">医療ISAC</a></td><td>一般社団法人</td><td>病院間の情報共有、保守契約書への追記例</td><td>病院とベンダーの対立ではなく協力を重視</td></tr>
+    <tr><td><a href="https://www.jami.jp/wp-content/uploads/2025/11/Press-Release-IPAJAMI.pdf" target="_blank" rel="noopener">日本医療情報学会とIPAの協定</a></td><td>学会・IPA</td><td>情報処理安全確保支援士と医療情報技師の連携で人材育成</td><td>2025年12月締結</td></tr>
+  </table></div>
+  <p class="note" style="margin-top:12px">空白は2点。<b>機器更新の費用</b>（EUは中小医療機関向けバウチャーを検討）と、<b>平時の監視</b>（<a href="https://www.iryoken.co.jp/contents/new/detail---id-3212.html" target="_blank" rel="noopener">日医総研</a>は地域別の監視拠点SOC、仕様書を点検する第三者機関、財源確保を提言）。</p>
+</div></section>
+
+<!-- 11 費用 -->
+<section class="sec" id="cost"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">11</span><h2>費用と投資の現実</h2></div>
+  <p class="point">予防の費用は重いが、被害の費用は桁違いに大きい。ただ予防費は確実に出ていき、被害は「起きるかもしれない」ため、公定価格の病院では後回しになりやすい。</p>
+  <div class="fig">
+    <p class="ft">予防と被害のコスト比較（対数目盛り、億円）</p>
+    <div id="ch-cost" class="scroll"></div>
+    <p class="src">二要素認証：<a href="https://www.mhlw.go.jp/content/10808000/001705951.pdf" target="_blank" rel="noopener">厚労省調査（最頻値の範囲）</a>。被害：<a href="https://www.npa.go.jp/publications/statistics/cybersecurity/data/R8kami/R08_kami_cyber_jousei.pdf" target="_blank" rel="noopener">警察庁（6割が1,000万円以上）</a>、<a href="https://www.gh.opho.jp/pdf/reportgaiyo_v01.pdf" target="_blank" rel="noopener">大阪急性期・総合医療センター報告書（数億円以上・十数億円以上）</a>。帯は下限〜目安の幅を示す。</p>
+  </div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="card"><h3>誰が負担しているか</h3><p>病院が自己資金と加算（160点・80点）で賄い、ベンダーは保守料や更新費用として病院に請求し、国は調査と相談を無償で提供している。結局の負担は価格転嫁できない病院に集まる。「予算不足」で二要素認証を入れない病院は1,352施設。</p></div>
+    <div class="card"><h3>現実的な進め方</h3><p>対策を単独の投資ではなく、電子カルテや機器の更新に合わせて組み込む。二要素認証の経過措置が「次のシステム改修時まで」なのもこの現実を踏まえたもの。リースや保守料への平準化も一時金を抑える手段になる。</p></div>
+  </div>
+</div></section>
+
+<!-- 12 ジレンマ -->
+<section class="sec" id="dilemma"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">12</span><h2>未解決の論点とジレンマ</h2></div>
+  <p class="point">どちらかが正解とは言えない論点が多い。これらは技術ではなく、リスクを誰が引き受け、費用を誰が払うかという配分の問題である。</p>
+  <div class="tbl"><table>
+    <tr><th>論点</th><th>一方の考え</th><th>もう一方の考え</th></tr>
+    <tr><td>安全と診療継続</td><td>異常があればすぐ遮断・停止すべき（PHPの件で政府も「サイトの一時停止」を推奨）</td><td>奈良では誤検知の自動遮断で救急が約53時間止まった。急性期では認証や遮断がそのまま患者リスクになる</td></tr>
+    <tr><td>閉域網とクラウド</td><td>外部とつながらなければ安全</td><td>実際は保守用の接続点が多数。第7.0版はクラウド活用を推進するが、Change HealthcareやGMOのように一箇所への集中が広域障害を生む</td></tr>
+    <tr><td>ベンダーの責任の範囲</td><td>専門知識を持つ事業者がより多くを担うべき</td><td>責任を広げるほど保守料は上がり、負担は病院に戻る。契約にないことは負えない</td></tr>
+    <tr><td>情報をどこまで開示するか</td><td>岡山のように報告書を公開し、他院が学べるようにすべき</td><td>SBOMや構成情報の公開は攻撃者にも地図を渡す</td></tr>
+    <tr><td>身代金を支払うか</td><td>支払いは攻撃を助長するので支払わない。EUは支払いの報告義務化を提案。GMOも拒否</td><td>日本では法で禁止されていない。患者の命を優先する場面で経営者が迫られる</td></tr>
+    <tr><td>規制の強化と現場の負担</td><td>数字で示した具体的な義務が必要（米国の改正案）</td><td>米国では100以上の医療団体が撤回を要請。日本も二要素認証に経過措置</td></tr>
+    <tr><td>レガシー機器の更新費</td><td>サポート切れの機器は更新すべき</td><td>まだ診断に使える機器を、OSの都合で入れ替える費用を誰が持つかは決まっていない</td></tr>
+  </table></div>
+</div></section>
+
+<!-- 13 立場別 -->
+<section class="sec" id="stake"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">13</span><h2>立場別の示唆</h2></div>
+  <p class="point">どの立場にも共通するのは、外部接続点と責任分界を、事故の前に文書で決めておくこと。</p>
+  <div class="tbl"><table>
+    <tr><th>立場</th><th>すぐにできること</th><th>中長期の課題</th></tr>
+    <tr><td>大規模病院・特定機能病院</td><td>CSIRTと初動手順、外部接続点の棚卸し、重要設備の台帳</td><td>経済安保法の指定と事前届出への備え、認証基盤の刷新</td></tr>
+    <tr><td>中小病院・診療所</td><td>チェックリストの記入、保守契約の範囲と「対象外」の確認、紙運用を含むBCP、ホームページ・予約フォームのPHP確認</td><td>保守委託先の選び方。任せるなら委託先の質がそのまま病院の安全になる</td></tr>
+    <tr><td>医療機器メーカー</td><td>MDS/SDSの第7.0版対応、保守用VPN装置の点検、サポート終了情報の早期提供、組込みソフトの版の確認</td><td>SBOMの運用、パッチ提供の速さ、レガシー機器の扱い</td></tr>
+    <tr><td>販社・保守事業者</td><td>自社の病院への接続と持ち込み機器の棚卸し、異常時の連絡ルール、中古・移設時の事前通知</td><td>契約に書く範囲と引き受けない範囲の線引き。英国のような直接規制も将来の論点</td></tr>
+    <tr><td>電子カルテ等のITベンダー</td><td>二要素認証への対応（「システムが未対応」が未導入理由の第1位）</td><td>2省ガイドラインへの準拠、クラウドの集中リスクへの備え</td></tr>
+    <tr><td>Web制作・ホスティング事業者</td><td>病院サイト・予約システムのPHP更新、サポート切れ版の移行</td><td>静的サイト化など、公開サーバーで動くプログラムを減らす設計</td></tr>
+    <tr><td>行政</td><td>役割分担確認表など既存の道具の周知</td><td>機器更新費の負担の仕組み、地域の監視拠点、報告期限の短縮</td></tr>
+  </table></div>
+</div></section>
+
+<!-- 14 見通し -->
+<section class="sec" id="outlook"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">14</span><h2>今後の見通し</h2></div>
+  <p class="point">2027年は国内の期限が集中する年になる。3月にチェックリスト、4月に二要素認証、12月までに基幹インフラ指定が始まる。</p>
+  <div class="grid2">
+    <div class="fig">
+      <p class="ft">これまでと、これからの期限</p>
+      <div class="tl">
+        <div class="ev"><span class="d">2023年4月</span><span class="t">医療法施行規則14条2項施行／医療機器の基本要件にサイバー項目</span></div>
+        <div class="ev"><span class="d">2024年4月</span><span class="t">医療機器のサイバー対応が必須に</span></div>
+        <div class="ev"><span class="d">2025年12月</span><span class="t">改正医療法公布（医療DX、支払基金の改組）</span></div>
+        <div class="ev"><span class="d">2026年3月19日</span><span class="t">VPN装置の対策を病院・メーカーに通知</span></div>
+        <div class="ev"><span class="d">2026年4月1日</span><span class="t">自治体（公立病院含む）の方針策定期限</span></div>
+        <div class="ev"><span class="d">2026年6月</span><span class="t">改正経済安保法公布（17日）／ガイドライン第7.0版（29日）</span></div>
+        <div class="ev"><span class="d">2026年7〜8月</span><span class="t">改正個人情報保護法成立（7/10）／統一基準決定（7/31）／SBOMガイドライン（8/25）</span></div>
+        <div class="ev hot"><span class="d">2026年10月</span><span class="t">強化法本則施行（1日）／PHP2Shell・GMO事案</span></div>
+        <div class="ev fut acc"><span class="d">2027年3月31日</span><span class="t">チェックリスト期限／強化法の既存機器届出期限</span></div>
+        <div class="ev fut acc"><span class="d">2027年4月1日</span><span class="t">二要素認証が遵守事項に／改正医療法の原則施行</span></div>
+        <div class="ev fut"><span class="d">2027年7月ごろ</span><span class="t">米HIPAA改正の最終化（見込み）</span></div>
+        <div class="ev fut"><span class="d">2027年12月</span><span class="t">EUサイバーレジリエンス法全面適用（11日）／経済安保法の医療部分の施行期限</span></div>
+        <div class="ev fut"><span class="d">2028年4月ごろ</span><span class="t">改正個人情報保護法の原則施行（予想）</span></div>
+      </div>
+    </div>
+    <div class="stack">
+      <div class="card"><h3>委託先の責任の明文化が進む</h3><p>第7.0版の保守委託機関編、経済安保法の委託先審査、英国の法案はいずれも同じ方向を向いている。</p></div>
+      <div class="card"><h3>医療機器は二要素認証とSBOMが次の論点</h3><p>第7.0版は医療機器への二要素認証を見送り、次の版で再検討する。SBOMも推奨から要件化へ進む可能性がある。</p></div>
+      <div class="card"><h3>攻撃の速さが上がる</h3><p>AIで脆弱性の発見と悪用が速くなった（政府は2026年5月に対策パッケージ「Project YATA-Shield」を公表し、重要インフラ事業者に注意喚起）。PHPの件では公開4日前に悪用の試行があった。「パッチを何日で当てられるか」が共通の課題になる。</p></div>
+      <div class="card"><h3>費用の議論は避けられない</h3><p>予算不足で二要素認証を入れない病院が1,352施設ある以上、診療報酬や補助での手当ては今後も議論の中心になる。</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 15 出典 -->
+<section class="sec" id="sources"><div class="wrap">
+  <div class="sec-head"><span class="sec-no">15</span><h2>出典</h2></div>
+  <ul class="src-list">
+    <li><a href="https://www.mhlw.go.jp/content/10808000/001705951.pdf" target="_blank" rel="noopener">厚労省：病院の対策調査（2026年5月）</a></li>
+    <li><a href="https://www.mhlw.go.jp/content/10808000/001522779.pdf" target="_blank" rel="noopener">厚労省：同 病床別分析（2025年7月）</a></li>
+    <li><a href="https://www.wic-net.com/material/static/00024578/00024578.pdf" target="_blank" rel="noopener">厚労省：安全管理ガイドライン改定資料（第7.0版）</a></li>
+    <li><a href="https://www.wic-net.com/material/static/00024587/00024587.pdf" target="_blank" rel="noopener">厚労省：令和8年度版チェックリスト（事業者確認用）</a></li>
+    <li><a href="https://www.mhlw.go.jp/content/10801000/001234598.pdf" target="_blank" rel="noopener">厚労省：チェックリストと立入検査</a></li>
+    <li><a href="https://www.mhlw.go.jp/content/10808000/001546410.pdf" target="_blank" rel="noopener">厚労省：サイバーセキュリティ確保事業 規約</a></li>
+    <li><a href="https://www.mhlw.go.jp/content/10808000/001679871.pdf" target="_blank" rel="noopener">厚労省：VPN事務連絡（医政局）</a></li>
+    <li><a href="https://www.mhlw.go.jp/content/11120000/001677888.pdf" target="_blank" rel="noopener">厚労省：VPN事務連絡（医薬局）</a></li>
+    <li><a href="https://www.mhlw.go.jp/content/11120000/001479077.pdf" target="_blank" rel="noopener">厚労省：医療機器の脆弱性管理等（2024年3月）</a></li>
+    <li><a href="https://www.mhlw.go.jp/content/11120000/001743442.pdf" target="_blank" rel="noopener">厚労省：SBOMガイドライン第1版 通知</a></li>
+    <li><a href="https://www.pmda.go.jp/files/000268921.pdf" target="_blank" rel="noopener">PMDA：医療機器サイバーセキュリティ手引書 第2版</a></li>
+    <li><a href="https://www.mhlw.go.jp/content/10808000/001703605.pdf" target="_blank" rel="noopener">厚労省：基幹インフラ制度への医療分野の追加</a></li>
+    <li><a href="https://www.mhlw.go.jp/content/10601000/000965383.pdf" target="_blank" rel="noopener">厚労省：公的病院への個人情報保護法の適用</a></li>
+    <li><a href="https://www.cao.go.jp/houan/pdf/221/221_1gaiyou.pdf" target="_blank" rel="noopener">内閣府：改正経済安保推進法の概要</a></li>
+    <li><a href="https://www.cao.go.jp/cybersecurity/pdf/01sanko01.pdf" target="_blank" rel="noopener">内閣府：サイバー対処能力強化法 参考資料</a></li>
+    <li><a href="https://www.miyake.gr.jp/wp-content/uploads/2026/08/能動的サイバー防御法.pdf" target="_blank" rel="noopener">三宅法律事務所：能動的サイバー防御法</a></li>
+    <li><a href="https://www.miyake.gr.jp/wp-content/uploads/2026/07/令和8年改正個人情報保護法_解説レジュメ_成立版.pdf" target="_blank" rel="noopener">三宅法律事務所：令和8年改正個人情報保護法（成立版）</a></li>
+    <li><a href="https://www.amt-law.com/asset/pdf/bulletins21_pdf/260904.pdf" target="_blank" rel="noopener">アンダーソン・毛利・友常：重要インフラ統一基準</a></li>
+    <li><a href="https://www.soumu.go.jp/menu_news/s-news/01ryutsu06_02000427.html" target="_blank" rel="noopener">総務省：2省ガイドライン第2.0版</a></li>
+    <li><a href="https://www.ppc.go.jp/personalinfo/legal/leakAction/" target="_blank" rel="noopener">個人情報保護委員会：漏えい等の対応</a></li>
+    <li><a href="https://www.npa.go.jp/publications/statistics/cybersecurity/data/R8kami/R08_kami_cyber_jousei.pdf" target="_blank" rel="noopener">警察庁：令和8年上半期の脅威情勢</a></li>
+    <li><a href="https://www.police.pref.osaka.lg.jp/seikatsu/saiba/cyber_shiryou/cybersecurity_tsushin/7/22469.html" target="_blank" rel="noopener">大阪府警：令和7年上半期の脅威情勢</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/03/24/54888.html" target="_blank" rel="noopener">ScanNetSecurity：令和7年の脅威情勢</a></li>
+    <li><a href="https://atmarkit.itmedia.co.jp/ait/articles/2609/17/news010.html" target="_blank" rel="noopener">@IT：2026年上半期のランサムウェア</a></li>
+    <li><a href="https://www.city.nara.lg.jp/uploaded/attachment/216289.pdf" target="_blank" rel="noopener">奈良市：市立奈良病院のシステム障害</a></li>
+    <li><a href="https://www.gh.opho.jp/pdf/reportgaiyo_v01.pdf" target="_blank" rel="noopener">大阪急性期・総合医療センター：調査報告書（概要）</a></li>
+    <li><a href="https://rocket-boys.co.jp/?p=13164" target="_blank" rel="noopener">Rocket Boys：岡山県精神科医療センター調査報告書</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2024/10/31/51848.html" target="_blank" rel="noopener">ScanNetSecurity：医療ISAC代表理事の講演</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/04/06/54984.html" target="_blank" rel="noopener">ScanNetSecurity：地方自治法に基づく方針</a></li>
+    <li><a href="https://www.jmedj.co.jp/blogs/product/product_28144" target="_blank" rel="noopener">日本医事新報：2026年度診療報酬改定</a></li>
+    <li><a href="https://www.iryoken.co.jp/contents/new/detail---id-3212.html" target="_blank" rel="noopener">日医総研：提言</a></li>
+    <li><a href="https://www.jami.jp/wp-content/uploads/2025/11/Press-Release-IPAJAMI.pdf" target="_blank" rel="noopener">日本医療情報学会・IPA：協定</a></li>
+    <li><a href="https://gemmed.ghc-j.com/?p=69643" target="_blank" rel="noopener">GemMed：医療の基幹インフラ追加</a></li>
+    <li><a href="https://news.mynavi.jp/techplus/article/20261029-5217835/" target="_blank" rel="noopener">マイナビ：JPCERT/CC追加警告（PHP）</a></li>
+    <li><a href="https://news.denfaminicogamer.jp/news/2610213j" target="_blank" rel="noopener">電ファミ：PHP脆弱性と政府の対応</a></li>
+    <li><a href="https://kumanichi.com/articles/2049509" target="_blank" rel="noopener">熊本日日新聞：政府の注意喚起</a></li>
+    <li><a href="https://nk.jiho.jp/article/306045" target="_blank" rel="noopener">日刊薬業：各国でサイト停止</a></li>
+    <li><a href="https://nk.jiho.jp/article/306086" target="_blank" rel="noopener">日刊薬業：日薬連が政府文書を周知</a></li>
+    <li><a href="https://www.yakuji.co.jp/?p=140932" target="_blank" rel="noopener">薬事日報：薬業界への影響</a></li>
+    <li><a href="https://medi-face.co.jp/security/php-vulnerability-medical/" target="_blank" rel="noopener">Medi Face：医療機関向けPHP解説</a></li>
+    <li><a href="https://www.tv-tokyo.co.jp/plus/external-pr/entry/286720.html" target="_blank" rel="noopener">看護系2団体：PHP緊急対応のリリース</a></li>
+    <li><a href="https://cvejp.com/blog/post/cyberattack-roundup-2026-10" target="_blank" rel="noopener">CVEjp：2026年10月のまとめ</a></li>
+    <li><a href="https://risk.pakira-izu.co.jp/2026/10/27/gmo-onamae-desktop-cloud-cyberattack-2026/" target="_blank" rel="noopener">パキラ：GMO事案の時系列</a></li>
+    <li><a href="https://news.web.nhk/newsweb/na/nd-20261031de69024" target="_blank" rel="noopener">NHK：GMO 2年前の脆弱性指摘</a></li>
+    <li><a href="https://news.web.nhk/newsweb/na/nd-20261101de69281" target="_blank" rel="noopener">NHK：GMO傘下 顧客情報漏えい</a></li>
+    <li><a href="https://itmedia.co.jp/news/article/2611/02/2000002806/" target="_blank" rel="noopener">ITmedia：GMO会見</a></li>
+    <li><a href="https://itmedia.co.jp/news/article/2611/03/2000002829" target="_blank" rel="noopener">ITmedia：GMO会見の続報</a></li>
+    <li><a href="https://www.pact-one.com/2026/09/hipaa-security-rule-2026-status/" target="_blank" rel="noopener">Pact-One：HIPAA改正の現状</a></li>
+    <li><a href="https://www.govinfosecurity.com/fda-expands-premarket-medical-device-cyber-guidance-a-28850" target="_blank" rel="noopener">GovInfoSecurity：FDAガイダンス改訂</a></li>
+    <li><a href="https://www.beckershospitalreview.com/healthcare-information-technology/cybersecurity/change-healthcare-data-breach-toll-reaches-192-7-million" target="_blank" rel="noopener">Becker's：Change Healthcare</a></li>
+    <li><a href="https://www.theregister.com/2025/11/13/synnovis_qilin_investigation/" target="_blank" rel="noopener">The Register：Synnovis</a></li>
+    <li><a href="https://www.digitalhealth.net/?p=249589" target="_blank" rel="noopener">Digital Health：英国法案</a></li>
+    <li><a href="https://datamatters.sidley.com/2025/02/06/eu-commission-launches-cybersecurity-action-plan-for-hospitals-and-healthcare-providers/" target="_blank" rel="noopener">Sidley：EU行動計画</a></li>
+  </ul>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="footer-links"><a class="action-link primary" href="https://sinobu13-bpei.github.io/medical-intelligence/" target="_blank" rel="noopener noreferrer">医療機器MKT トップへ戻る</a><a class="action-link" href="#summary">白書の先頭へ</a></div>
+  <p>2026年11月6日時点の公開情報に基づく一般的な整理であり、法的助言ではありません。数値の定義（「可能性」「最大」「確認」など）は出典ごとに異なります。個別の判断は専門家にご確認ください。</p>
+</div></footer>
+<button type="button" class="backtop" id="backtop" aria-label="ページ先頭に戻る">↑ 先頭</button>
+
+<script>
+(function(){
+  // Interactive controls and accessibility. Keep source data and report contents unchanged.
+  document.querySelectorAll('.tbl').forEach(function(t){t.setAttribute('tabindex','0');t.setAttribute('role','region');t.setAttribute('aria-label','横スクロール可能な比較表');});
+  var up=document.getElementById('backtop');
+  up.addEventListener('click',function(){window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});
+  if ('IntersectionObserver' in window) {
+    var navs=Array.from(document.querySelectorAll('.nav a[href^="#"]'));
+    var spy=new IntersectionObserver(function(entries){
+      entries.filter(function(x){return x.isIntersecting;}).sort(function(a,b){return b.intersectionRatio-a.intersectionRatio;}).slice(0,1).forEach(function(entry){
+        navs.forEach(function(a){a.removeAttribute('aria-current');});
+        var a=navs.find(function(x){return x.getAttribute('href')==='#'+entry.target.id;}); if(a)a.setAttribute('aria-current','location');
+      });
+    },{rootMargin:'-10% 0px -65% 0px'});
+    document.querySelectorAll('section.sec[id]').forEach(function(el){spy.observe(el);});
+  }
+  var NS='http://www.w3.org/2000/svg';
+  function svg(w,h,label,inner){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="'+label+'">'+inner+'</svg>';}
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function fmt(n){return n.toLocaleString('ja-JP');}
+
+  // ransomware columns
+  (function(){
+    var d=[['2020下',21],['2021上',61],['2021下',85],['2022上',114],['2022下',116],['2023上',103],['2023下',94],['2024上',114],['2024下',108],['2025上',116],['2025下',110,1],['2026上',123]];
+    var W=720,H=300,l=36,r=12,t=24,b=44,max=140,bw=(W-l-r)/d.length;
+    var y=function(v){return t+(H-t-b)*(1-v/max);}, s='';
+    [0,50,100].forEach(function(g){s+='<line class="l-grid" x1="'+l+'" x2="'+(W-r)+'" y1="'+y(g)+'" y2="'+y(g)+'"/><text class="s-mut" x="'+(l-6)+'" y="'+(y(g)+4)+'" font-size="11" text-anchor="end">'+g+'</text>';});
+    d.forEach(function(p,i){
+      var x=l+i*bw+bw*0.18,w=bw*0.64,last=i===d.length-1;
+      s+='<rect class="'+(last?'s-al':(p[2]?'s-bars':'s-bar'))+'" x="'+x+'" y="'+y(p[1])+'" width="'+w+'" height="'+(y(0)-y(p[1]))+'" rx="2"><title>'+p[0]+'：'+p[1]+'件'+(p[2]?'（年間から算出）':'')+'</title></rect>';
+      s+='<text class="'+(last?'s-ink':'s-mut')+'" x="'+(x+w/2)+'" y="'+(y(p[1])-6)+'" font-size="'+(last?13:11)+'" font-weight="'+(last?700:400)+'" text-anchor="middle">'+p[1]+'</text>';
+      s+='<text class="s-mut" x="'+(x+w/2)+'" y="'+(H-b+16)+'" font-size="10.5" text-anchor="middle">'+p[0]+'</text>';
+    });
+    s+='<text class="s-mut" x="'+(W-r)+'" y="'+(H-6)+'" font-size="10.5" text-anchor="end">年・半期（2025下は算出値）</text>';
+    document.getElementById('ch-ransom').innerHTML=svg(W,H,'ランサムウェア被害報告件数の推移',s);
+  })();
+
+  // horizontal bars helper
+  function hbars(id,data,max,accentIdx,unit,label,labW){
+    var W=460,rowH=36,t=8,l=labW||150,r=72,H=t+data.length*rowH+8,s='';
+    data.forEach(function(p,i){
+      var y=t+i*rowH, w=(W-l-r)*p[1]/max, ac=accentIdx.indexOf(i)>=0;
+      s+='<text class="s-ink" x="'+(l-10)+'" y="'+(y+rowH/2+4)+'" font-size="12.5" text-anchor="end" font-weight="'+(ac?700:400)+'">'+esc(p[0])+'</text>';
+      s+='<rect class="'+(ac?'s-acc':'s-bar')+'" x="'+l+'" y="'+(y+7)+'" width="'+Math.max(w,2)+'" height="'+(rowH-14)+'" rx="3"><title>'+esc(p[0])+'：'+fmt(p[1])+unit+'</title></rect>';
+      s+='<text class="'+(ac?'s-ink':'s-mut')+'" x="'+(l+w+8)+'" y="'+(y+rowH/2+4)+'" font-size="12.5" font-weight="'+(ac?700:400)+'">'+fmt(p[1])+unit+'</text>';
+    });
+    document.getElementById(id).innerHTML=svg(W,H,label,s);
+  }
+  hbars('ch-industry',[['製造業',37],['卸売・小売業',15],['情報通信業',9],['不動産・物品賃貸業',9],['医療・福祉',9],['建設業',8],['その他',36]],37,[4],'件','業種別のランサムウェア被害');
+  hbars('ch-mfa',[['システムが未対応',1389],['予算不足',1352],['R9年度までに導入予定',1238],['人員不足',283],['ベンダーが対応不可',56]],1389,[0,1],'施設','二要素認証を導入しない理由',172);
+
+  // leak pictogram
+  (function(){
+    var W=640,H=150,s='',sz=34,gap=8;
+    function row(y,n,cls,lab,sub){
+      s+='<text class="s-ink" x="0" y="'+(y+14)+'" font-size="13" font-weight="700">'+lab+'</text><text class="s-mut" x="0" y="'+(y+32)+'" font-size="11">'+sub+'</text>';
+      for(var i=0;i<n;i++){s+='<rect class="'+cls+'" x="'+(210+i*(sz+gap))+'" y="'+y+'" width="'+sz+'" height="'+sz+'" rx="5"/>';}
+      s+='<text class="s-ink" x="'+(210+n*(sz+gap)+6)+'" y="'+(y+24)+'" font-size="20" font-weight="700">'+n+'件</text>';
+    }
+    row(18,3,'s-bar','2012〜2025年の14年間','1,000万件以上の漏えい事故');
+    row(86,8,'s-al','2026年（10月23日時点）','同・速報値');
+    document.getElementById('ch-leak').innerHTML=svg(W,H,'1000万件以上の漏えい事故件数の比較',s);
+  })();
+
+  // dumbbell
+  (function(){
+    var d=[['オフラインバックアップ',64,77],['ネットワーク構成図の定期更新',74,75],['BCPの策定',57,75],['ネットワーク機器のパッチ',74,74],['MDS/SDSでの点検',59,64],['サーバ・端末のパッチ',61,63],['CSIRTの設置',42,44],['二要素認証',11,10.5]];
+    var W=720,l=220,r=110,t=30,rh=36,H=t+d.length*rh+10,X=function(v){return l+(W-l-r)*v/100;},s='';
+    [0,25,50,75,100].forEach(function(g){s+='<line class="l-grid" x1="'+X(g)+'" x2="'+X(g)+'" y1="'+(t-6)+'" y2="'+(H-6)+'"/><text class="s-mut" x="'+X(g)+'" y="'+(t-12)+'" font-size="11" text-anchor="middle">'+g+'%</text>';});
+    d.forEach(function(p,i){
+      var y=t+i*rh+rh/2,hot=p[0]==='二要素認証',ln=hot?'l-acc':'l-bar',fl=hot?'s-acc':'s-bar';
+      s+='<text class="s-ink" x="'+(l-12)+'" y="'+(y+4)+'" font-size="12.5" text-anchor="end" font-weight="'+(hot?700:400)+'">'+p[0]+'</text>';
+      s+='<line class="'+ln+'" x1="'+X(p[1])+'" x2="'+X(p[2])+'" y1="'+y+'" y2="'+y+'"/>';
+      s+='<circle class="s-surf" cx="'+X(p[1])+'" cy="'+y+'" r="5.5" stroke-width="2" style="stroke:var(--'+(hot?'accent':'bar')+')"><title>'+p[0]+' 2025年：'+p[1]+'%</title></circle>';
+      s+='<circle class="'+fl+'" cx="'+X(p[2])+'" cy="'+y+'" r="6"><title>'+p[0]+' 2026年：'+p[2]+'%</title></circle>';
+      s+='<text class="'+(hot?'s-ink':'s-mut')+'" x="'+(Math.max(X(p[1]),X(p[2]))+12)+'" y="'+(y+4)+'" font-size="12" font-weight="'+(hot?700:400)+'">'+p[1]+'% → '+p[2]+'%</text>';
+    });
+    document.getElementById('ch-dumb').innerHTML=svg(W,H,'病院の対策実施率 2025年と2026年',s);
+  })();
+
+  // cost log chart (億円)
+  (function(){
+    var d=[['予防：二要素認証の導入（1病院）',0.1,0.3,'s-acc'],['被害：復旧費（全業種、6割の組織が超える額）',0.1,null,'s-bar'],['被害：大阪 調査・復旧費（数億円以上）',2,5,'s-al'],['被害：大阪 逸失利益（十数億円以上、見込み）',10,20,'s-al']];
+    var W=720,l=300,r=60,t=34,rh=46,H=t+d.length*rh+12,lo=Math.log10(0.05),hi=Math.log10(30),X=function(v){return l+(W-l-r)*(Math.log10(v)-lo)/(hi-lo);},s='';
+    [[0.1,'1,000万円'],[1,'1億円'],[10,'10億円']].forEach(function(g){s+='<line class="l-grid" x1="'+X(g[0])+'" x2="'+X(g[0])+'" y1="'+(t-8)+'" y2="'+(H-6)+'"/><text class="s-mut" x="'+X(g[0])+'" y="'+(t-14)+'" font-size="11" text-anchor="middle">'+g[1]+'</text>';});
+    d.forEach(function(p,i){
+      var y=t+i*rh+rh/2;
+      s+='<text class="s-ink" x="'+(l-12)+'" y="'+(y+4)+'" font-size="12" text-anchor="end">'+p[0]+'</text>';
+      if(p[2]){s+='<rect class="'+p[3]+'" x="'+X(p[1])+'" y="'+(y-9)+'" width="'+(X(p[2])-X(p[1]))+'" height="18" rx="9"/>';}
+      else{s+='<rect class="'+p[3]+'" x="'+X(p[1])+'" y="'+(y-9)+'" width="'+(X(0.35)-X(p[1]))+'" height="18" rx="9" opacity="0.55"/><text class="s-mut" x="'+(X(0.35)+6)+'" y="'+(y+4)+'" font-size="11">以上</text>';}
+    });
+    document.getElementById('ch-cost').innerHTML=svg(W,H,'予防と被害のコスト比較',s);
+  })();
+
+  // people pictograms
+  var person='<svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="5" r="4" class="CL"/><path d="M3 23v-7a7 7 0 0 1 14 0v7z" class="CL"/></svg>';
+  document.querySelectorAll('.people').forEach(function(el){
+    var p=parseFloat(el.getAttribute('data-p')),hot=el.getAttribute('data-c')==='al'?'s-al':'s-acc',h='';
+    for(var i=0;i<10;i++){
+      var f=Math.max(0,Math.min(1,p-i));
+      if(f>=0.75)h+=person.replace(/CL/g,hot);
+      else if(f>=0.25)h+='<svg viewBox="0 0 20 24" aria-hidden="true"><circle cx="10" cy="5" r="4" class="s-bars"/><path d="M3 23v-7a7 7 0 0 1 14 0v7z" class="s-bars"/><g style="clip-path:inset(0 50% 0 0)"><circle cx="10" cy="5" r="4" class="'+hot+'"/><path d="M3 23v-7a7 7 0 0 1 14 0v7z" class="'+hot+'"/></g></svg>';
+      else h+=person.replace(/CL/g,'s-bars');
+    }
+    el.innerHTML=h;
+  });
+
+  // Japan tile map
+  var P=[["北海道",13,0],["青森",13,1],["秋田",12,2],["岩手",13,2],["石川",9,3],["富山",10,3],["新潟",11,3],["山形",12,3],["宮城",13,3],["福井",8,4],["岐阜",9,4],["長野",10,4],["群馬",11,4],["栃木",12,4],["福島",13,4],["島根",4,5],["鳥取",5,5],["兵庫",6,5],["京都",7,5],["滋賀",8,5],["愛知",9,5],["山梨",10,5],["埼玉",11,5],["茨城",12,5],["福岡",2,6],["山口",3,6],["広島",4,6],["岡山",5,6],["大阪",6,6],["奈良",7,6],["三重",8,6],["静岡",9,6],["神奈川",10,6],["東京",11,6],["千葉",12,6],["長崎",0,7],["佐賀",1,7],["熊本",2,7],["大分",3,7],["愛媛",4,7],["香川",5,7],["和歌山",7,7],["鹿児島",1,8],["宮崎",2,8],["高知",4,8],["徳島",5,8],["沖縄",0,9]];
+  var INC={"徳島":["s-al","2021年10月 半田病院（約2か月停止）"],"大阪":["s-al","2022年10月 大阪急性期・総合医療センター（73日）"],"岡山":["s-al","2024年5月 岡山県精神科医療センター（最大約4万人分）"],"奈良":["s-wa","2026年4月 市立奈良病院（誤検知、救急約53時間停止）"]};
+  function drawMap(mode){
+    var c=46,g=4,W=14*(c+g),H=10*(c+g),s='';
+    P.forEach(function(p){
+      var x=p[1]*(c+g),y=p[2]*(c+g),cls='s-bars',tc='s-ink',tip=p[0];
+      if(mode==='inc'&&INC[p[0]]){cls=INC[p[0]][0];tc='s-surf';tip+='：'+INC[p[0]][1];}
+      if(mode==='infra'){cls='s-acc';tc='s-surf';tip+='：施行3年度目までに1病院を指定する想定';}
+      s+='<g><rect class="'+cls+'" x="'+x+'" y="'+y+'" width="'+c+'" height="'+c+'" rx="6"><title>'+tip+'</title></rect><text class="'+tc+'" x="'+(x+c/2)+'" y="'+(y+c/2+4)+'" font-size="'+(p[0].length>2?10:12)+'" text-anchor="middle">'+p[0]+'</text></g>';
+    });
+    document.getElementById('map').innerHTML=svg(W,H,mode==='inc'?'国内の医療機関の主な事例の所在地':'基幹インフラ指定の想定',s);
+    document.getElementById('map-legend').innerHTML= mode==='inc'
+      ? '<span><i style="background:var(--alert)"></i>攻撃による被害（徳島・大阪・岡山）</span><span><i style="background:var(--warn)"></i>誤検知による停止（奈良）</span><span>タイルにカーソルを合わせると詳細</span>'
+      : '<span><i style="background:var(--accent)"></i>各都道府県1病院（施行から3年度目まで、病床数の大きい順）。施行時は各地方ブロック1病院以上</span>';
+  }
+  var bInc=document.getElementById('m-inc'),bInf=document.getElementById('m-infra');
+  bInc.addEventListener('click',function(){bInc.setAttribute('aria-pressed','true');bInf.setAttribute('aria-pressed','false');drawMap('inc');});
+  bInf.addEventListener('click',function(){bInf.setAttribute('aria-pressed','true');bInc.setAttribute('aria-pressed','false');drawMap('infra');});
+  drawMap('inc');
+})();
+</script>
+
+</body>
+</html>
