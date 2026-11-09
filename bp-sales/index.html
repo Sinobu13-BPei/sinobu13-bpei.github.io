@@ -56,6 +56,29 @@ body{font-size:15px;line-height:1.6;-webkit-text-size-adjust:100%}
 @media(max-width:355px){.pref-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.regions{grid-template-columns:repeat(2,1fr)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 @media print{.utility,.skip{display:none!important}.section{box-shadow:none;margin:6px 0;padding:14px}.accordion details{break-inside:avoid}}
+
+/* Rev.07 prefecture summary (historical aggregate only) */
+.pref-detail{margin-top:11px;padding:17px;background:linear-gradient(110deg,#fff,#f5f9fd);border:1px solid #cbddea;border-radius:12px}
+.pref-detail-head{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.pref-detail-head h3{font-size:clamp(19px,2.4vw,26px);margin:2px 0 8px;color:#103b61}
+.pref-map-link{font-weight:800;font-size:13px;color:#155781;text-decoration:underline;text-underline-offset:3px}
+.pref-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.pref-stat{padding:9px 12px;border:1px solid #e0e9f0;background:#fff;border-radius:9px;display:flex;flex-direction:column;gap:1px}
+.pref-stat b{font-size:clamp(25px,3.2vw,35px);line-height:1.1;color:#15527e;font-variant-numeric:tabular-nums}
+.pref-stat span{color:#4c687b;font-size:12px;font-weight:750}
+.pref-bar{margin-top:12px;display:flex;height:13px;border-radius:999px;background:#e5ecf1;overflow:hidden}
+.pref-bar-dyro{background:#236ba2;transition:width .15s ease}
+.pref-bar-jahid{background:#a7bbc9;transition:width .15s ease}
+.pref-legend{display:flex;flex-wrap:wrap;gap:7px 12px;align-items:center;margin:8px 0 0;font-size:11px;color:#42596d}
+.pref-dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:-7px}
+.dyro-dot{background:#236ba2}.jahid-dot{background:#a7bbc9}
+.pref-note,.pref-source-note{font-size:12px;color:#587184;line-height:1.55;margin:9px 0 0}
+.pref-source-note{font-size:11px}
+.pref-grid button{border:1px solid #d5e2ee;border-radius:6px;background:#fafcff;padding:8px 1px;min-height:37px;text-align:center;font-size:12px;font-weight:700;color:#07578f;cursor:pointer}
+.pref-grid button:hover{background:#e4f2fb}
+.pref-grid button[aria-pressed=true]{background:#165780;color:#fff;border-color:#165780}
+.pref-grid button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+@media(max-width:700px){.pref-detail{padding:13px}.pref-stats{gap:5px}.pref-stat{padding:8px}.pref-stat span{font-size:10px}.pref-detail-head{gap:4px}}
 </style></head><body>
 <a class="skip" href="#mission">本文へ移動</a><div id="gate"><div class="login"><div class="eyebrow" style="color:#35698a">BP SALES / VIEWER GATE</div><h1>BP営業部とは</h1><p>閲覧用パスワードを入力してください。</p><form id="login"><label for="pw">パスワード</label><input id="pw" type="password" autocomplete="current-password" required><label class="toggle-pw"><input type="checkbox" id="showpw">パスワードを表示</label><button type="submit">閲覧する</button><div id="err" class="error" aria-live="polite"></div></form><small class="note">この画面は簡易閲覧ゲートです。GitHub Pages上のファイルを保護する認証機構ではありません。</small></div></div>
 <div id="page" hidden>
@@ -73,9 +96,9 @@ body{font-size:15px;line-height:1.6;-webkit-text-size-adjust:100%}
 <section class="section" id="values"><div class="kicker">04 / THREE CUSTOMER VALUES</div><h2>臨床・運用・経営。3つの価値を対等に。</h2><p>医療機関によって優先する課題は異なります。3つの価値に優劣を付けず、必要な組み合わせを提案します。</p><div class="grid"><div class="card"><span class="sym">♡</span><strong>臨床価値</strong><p>適切な診療・検査の質、医療安全、患者への説明力を支援。</p></div><div class="card"><span class="sym">⚙</span><strong>運用価値</strong><p>院内業務・検査フローの効率化、稼働率、スタッフ負担の改善。</p></div><div class="card"><span class="sym">▥</span><strong>経営価値</strong><p>設備投資の合理性、TCO、継続的な運営、更新計画の検討。</p></div></div></section>
 <section class="section" id="partners"><div class="kicker">05 / PARTNERSHIP</div><h2>DyRO販社との強い協業</h2><p>1995年に始まったDyROは、強い信頼と結び付きによるパートナーシップを象徴する考え方です。地域に根差す特約店・取扱店と、情報提供、教育、同行活動、商機創出を通じた共創を進めます。</p><div class="grid two"><div class="card"><strong>特約店・取扱店</strong><p>地域医療機関との接点を持ち、案件発掘、情報共有、提案活動を担う重要なパートナー。両者の制度上の違いは契約に基づきます。</p></div><div class="card"><strong>JBP｜ダイヤモンド型の組織協業</strong><p>担当営業同士の個人接点だけでなく、経営・企画・技術・サービスなどの組織が連携し、共通目標を持って行動します。</p></div></div><div class="flow" style="margin-top:10px"><div class="step">地域情報</div><span class="arr">→</span><div class="step">戦略・共同計画</div><span class="arr">→</span><div class="step">販社・支社の実行</div><span class="arr">→</span><div class="step">顧客価値・改善</div></div></section>
 <section class="section" id="segments"><div class="kicker">06 / CUSTOMER SEGMENTS</div><h2>顧客の課題から考える。</h2><div class="grid"><div class="card"><strong>診療所・クリニック</strong><p>検査品質、外来効率、投資回収、開業支援</p></div><div class="card"><strong>地域一般病院・DPC対象外</strong><p>設備更新、共同利用、人材不足、TCO</p></div><div class="card"><strong>DPC対象病院・専門施設</strong><p>診療科横断の機能、投資判断、運用・情報連携</p></div></div><small class="note">施設分類は価値提案を説明するための概念整理であり、組織の正式な管轄区分そのものではありません。</small></section>
-<section class="section" id="map"><div class="kicker">07 / JAPAN MARKET</div><h2>47都道府県から地域を知る。</h2><p>地域の市場構造を確認するための入口です。各県を選択するとGoogleマップが開きます。販社の契約先情報・非公開の所在地や個人担当は掲載していません。</p><div class="pref-filter"><label for="pref" class="screen-only">都道府県名で検索</label><input id="pref" placeholder="都道府県を検索" autocomplete="off"></div><div id="prefstatus" class="pref-status" role="status" aria-live="polite"></div><div id="prefgrid" class="pref-grid"></div></section>
+<section class="section" id="map"><div class="kicker">07 / JAPAN MARKET</div><h2>47都道府県から地域を知る。</h2><p>地域の市場構造を確認するための入口です。各県を選択するとGoogleマップが開きます。販社の契約先情報・非公開の所在地や個人担当は掲載していません。</p><div class="pref-filter"><label for="pref" class="screen-only">都道府県名で検索</label><input id="pref" placeholder="都道府県を検索" autocomplete="off"></div><div id="prefstatus" class="pref-status" role="status" aria-live="polite"></div><div id="prefgrid" class="pref-grid" role="group" aria-label="都道府県を選択"></div><div id="prefdetail" class="pref-detail" aria-live="polite"><div class="pref-detail-head"><div><div class="kicker">PREFECTURE DATA / 旧統合マスター</div><h3 id="pref-title">都道府県を選択してください</h3></div><a id="pref-google" class="pref-map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%85%A8%E5%9B%BD" target="_blank" rel="noopener noreferrer">Googleマップで見る ↗</a></div><div class="pref-stats"><div class="pref-stat"><b id="pref-total">—</b><span>統合レコード</span></div><div class="pref-stat"><b id="pref-dyro">—</b><span>DyRO掲載を含む</span></div><div class="pref-stat"><b id="pref-jahid">—</b><span>JAHIDのみ</span></div></div><div class="pref-bar" role="img" id="pref-bar" aria-label="掲載区分の構成比"><div id="pref-bar-dyro" class="pref-bar-dyro"></div><div id="pref-bar-jahid" class="pref-bar-jahid"></div></div><p class="pref-legend"><span class="pref-dot dyro-dot"></span>DyRO掲載を含む <span class="pref-dot jahid-dot"></span>JAHIDのみ</p><p id="pref-note" class="pref-note"></p></div><p class="pref-source-note">集計元：旧Rev.05のJAHID・DyRO統合マスター（会社名ベース）。掲載区分の重複を整理した参考値で、現在の契約状態・全国全企業数を示すものではありません。鳥取県は未確認、所在地が複数・要確認の39レコードは都道府県別表示に含めていません。</p></section>
 <section class="section" id="sources"><div class="kicker">08 / KNOWLEDGE LINKS</div><h2>市場と流通を知る関連ページ</h2><p>公開情報から市場構造を理解するための参考リンクです。リンク先の記載内容とBP営の公式見解は同一ではありません。</p><div class="links"><a href="https://sinobu13-bpei.github.io/medical-intelligence/" target="_blank" rel="noopener">全国医療市場インテリジェンス ↗</a><a href="https://sinobu13-bpei.github.io/medical-intelligence/jahid/" target="_blank" rel="noopener">JAHID全国医療機器流通 ↗</a><a href="https://sinobu13-bpei.github.io/medical-intelligence/national-medical-distribution/" target="_blank" rel="noopener">国内医療流通マーケット ↗</a></div><small class="note">本ページは部署紹介の検討版であり、正式な社外広報物としての発信には社内所定の確認が必要です。</small></section>
-</main><footer class="wrap foot">編集者：プロジェクト営業統括センター　ビジネスパートナー営業部　高橋忍<br>業務分掌は公開用要約。制度上の取扱条件・取引情報は非掲載。最終更新：2026年11月9日（Rev.06 UI改善）。</footer>
+</main><footer class="wrap foot">編集者：プロジェクト営業統括センター　ビジネスパートナー営業部　高橋忍<br>業務分掌は公開用要約。制度上の取扱条件・取引情報は非掲載。最終更新：2026年11月9日（Rev.07 県別集計復元）。</footer>
 </div>
 <script>
 (function(){
@@ -88,10 +111,24 @@ body{font-size:15px;line-height:1.6;-webkit-text-size-adjust:100%}
  document.getElementById('login').addEventListener('submit',function(e){e.preventDefault();if(input.value==='cmscbp'){unlock(true)}else{err.textContent='パスワードが異なります。';input.value='';input.focus()}});
  document.getElementById('showpw').addEventListener('change',function(){input.type=this.checked?'text':'password'});
  document.getElementById('logout').addEventListener('click',lock);
+
+ const DATA=[["北海道",52,24,28],["青森県",21,3,18],["岩手県",7,3,4],["宮城県",37,9,28],["秋田県",15,5,10],["山形県",11,4,7],["福島県",22,7,15],["茨城県",14,8,6],["栃木県",21,9,12],["群馬県",24,6,18],["埼玉県",28,6,22],["千葉県",15,6,9],["東京都",193,31,162],["神奈川県",32,6,26],["新潟県",24,9,15],["富山県",16,0,16],["石川県",19,5,14],["福井県",8,2,6],["山梨県",9,3,6],["長野県",23,8,15],["岐阜県",13,1,12],["静岡県",17,9,8],["愛知県",56,16,40],["三重県",11,2,9],["滋賀県",3,3,0],["京都府",36,11,25],["大阪府",104,14,90],["兵庫県",28,10,18],["奈良県",1,1,0],["和歌山県",1,1,0],["島根県",9,2,7],["岡山県",31,9,22],["広島県",28,14,14],["山口県",12,5,7],["徳島県",11,6,5],["香川県",16,3,13],["愛媛県",17,6,11],["高知県",12,3,9],["福岡県",59,25,34],["佐賀県",6,0,6],["長崎県",18,4,14],["熊本県",20,3,17],["大分県",9,0,9],["宮崎県",11,2,9],["鹿児島県",20,5,15],["沖縄県",12,0,12]];
+ const stats=Object.fromEntries(DATA.map(r=>[r[0],{total:r[1],dyro:r[2],jahid:r[3]}]));
  const pref='北海道 青森県 岩手県 宮城県 秋田県 山形県 福島県 茨城県 栃木県 群馬県 埼玉県 千葉県 東京都 神奈川県 新潟県 富山県 石川県 福井県 山梨県 長野県 岐阜県 静岡県 愛知県 三重県 滋賀県 京都府 大阪府 兵庫県 奈良県 和歌山県 鳥取県 島根県 岡山県 広島県 山口県 徳島県 香川県 愛媛県 高知県 福岡県 佐賀県 長崎県 熊本県 大分県 宮崎県 鹿児島県 沖縄県'.split(' ');
  const grid=document.getElementById('prefgrid'),status=document.getElementById('prefstatus');
- function draw(q){let count=0;grid.replaceChildren();for(const p of pref){if(q&&!p.includes(q))continue;const a=document.createElement('a');a.textContent=p;a.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p);a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label',p+'をGoogleマップで開く');grid.appendChild(a);count++}status.textContent=count?count+'都道府県を表示中':'該当する都道府県はありません。別の名称で検索してください。'}
- draw('');document.getElementById('pref').addEventListener('input',e=>draw(e.target.value.trim()));
+ let selected='兵庫県';
+ function draw(q){let count=0;grid.replaceChildren();for(const p of pref){if(q&&!p.includes(q))continue;const b=document.createElement('button');b.type='button';b.textContent=p;b.setAttribute('aria-label',p+'の掲載件数を表示');b.setAttribute('aria-pressed',p===selected?'true':'false');b.addEventListener('click',()=>select(p));grid.appendChild(b);count++}status.textContent=count?count+'都道府県を表示中':'該当する都道府県はありません。別の名称で検索してください。'}
+ function select(name){selected=name;for(const b of grid.querySelectorAll('button'))b.setAttribute('aria-pressed',b.textContent===name?'true':'false');
+  const row=stats[name];document.getElementById('pref-title').textContent=name+'｜会社名ベース掲載';
+  for(const [id,num] of [['pref-total',row?.total],['pref-dyro',row?.dyro],['pref-jahid',row?.jahid]])document.getElementById(id).textContent=num===undefined?'要確認':num.toLocaleString('ja-JP');
+  const dyro=row?.total?row.dyro/row.total*100:0, jahid=row?.total?row.jahid/row.total*100:0;
+  document.getElementById('pref-bar-dyro').style.width=dyro+'%';
+  document.getElementById('pref-bar-jahid').style.width=jahid+'%';
+  document.getElementById('pref-bar').setAttribute('aria-label',name+'：DyRO掲載を含む'+(row?.dyro??'未確認')+'件、JAHIDのみ'+(row?.jahid??'未確認')+'件');
+  document.getElementById('pref-note').textContent=row?'旧統合マスターの掲載区分に基づく集計。DyRO特約店・取扱店の現在の契約数とは異なります。':'元資料で当該県の割当が確認できないため、件数は表示していません。';
+  document.getElementById('pref-google').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(name);
+ }
+ draw('');select(selected);document.getElementById('pref').addEventListener('input',e=>draw(e.target.value.trim()));
  const links=Array.from(document.querySelectorAll('.nav a[href^="#"]'));
  if('IntersectionObserver' in window){const obs=new IntersectionObserver(entries=>{for(const x of entries){if(x.isIntersecting){links.forEach(a=>a.removeAttribute('aria-current'));const a=links.find(a=>a.getAttribute('href')==='#'+x.target.id);if(a)a.setAttribute('aria-current','location')}}},{rootMargin:'-22% 0px -68% 0px',threshold:0});document.querySelectorAll('main section[id]').forEach(s=>obs.observe(s))}
 })();
