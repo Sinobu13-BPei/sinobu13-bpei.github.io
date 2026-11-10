@@ -123,6 +123,9 @@ check(doc2024.type.clinicOwner===878&&doc2024.type.clinicEmployees===493,'clinic
 check(doc2024.specialties.length===45&&doc2024.specialties.reduce((a,x)=>a+x[1],0)===4605,'45 specialties add up');
 check(doc2024.ages.length===14&&doc2024.ages.reduce((a,x)=>a+x[1],0)===4605,'14 ages add up');
 const priorCharts=charts;
+// Mock inputs default to 'all' in this test harness; real search input defaults to empty.
+get('doctorSpecialtySearch').value='';
+get('doctorSpecialtySort').value='count';
 vm.runInNewContext(docrender,{window,document,Chart,encodeURIComponent,console});
 check(charts===priorCharts+3,'workplace, specialty, age charts');
 check((get('doctorSpecialtyTable').tbody.innerHTML.match(/<tr>/g)||[]).length===45,'45 specialty table rows');
