@@ -702,7 +702,7 @@ html{scroll-behavior:smooth}
 @media print{.integrated-primer .strategy-steps a{min-height:0}.foundation-note:not([open]){display:none}.foundation-note>summary{display:none}.foundation-body{padding:0;border:0}}
 
 </style></head>
-<body data-site-type="handbook" data-last-updated="2026-10-25"><header id="site-header"></header><a class="skip-to-main" href="#main-content">本文へスキップ</a><div aria-label="本文の読了進捗" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="reading-progress" role="progressbar"><span id="readingProgressFill"></span></div>
+<body data-site-type="handbook" data-last-updated="2026-11-10"><header id="site-header"></header><a class="skip-to-main" href="#main-content">本文へスキップ</a><div aria-label="本文の読了進捗" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="reading-progress" role="progressbar"><span id="readingProgressFill"></span></div>
 
 
 
@@ -2541,6 +2541,8 @@ window.addEventListener('hashchange',()=>{setTimeout(updateActive,140)});
     document.querySelectorAll('img[src=""],source[src=""]').forEach(x=>x.removeAttribute('src'));
   }
   function structure(){
+    /* Original handbook already provides a complete chapter index. */
+    if(document.querySelector('.path'))return;
     const main=document.querySelector('main');
     if(!main)return;
     const h2=[...main.querySelectorAll('h2')].filter(h=>h.offsetParent!==null);
