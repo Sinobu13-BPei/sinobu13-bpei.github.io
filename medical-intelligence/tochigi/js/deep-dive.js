@@ -40,6 +40,7 @@ function renderAssoc(){
  '<h3>'+a(x.official,x.name)+'</h3><p class="address">'+esc(x.address)+'</p>'+
  '<p class="directory-contact">電話 '+esc(x.tel)+'　'+a(x.directory,'県医師会の公式名簿')+'</p>'+
  '<p class="directory-focus"><strong>医療圏の調査論点：</strong>'+esc(x.focus)+'</p>'+
+ (x.activity?'<div class="association-activity"><strong>公式サイトで確認できた活動：</strong><p>'+esc(x.activity.detail)+'</p>'+a(x.activity.url,x.activity.label)+'</div>':'')+
  '<p class="caption">'+esc(x.kind)+'</p>'+mapLinks(x.name,x.address,x.region)+'</article>';
  root.innerHTML=match.map(item).join('');
  if($('associationCount'))$('associationCount').textContent='表示：'+match.length+'団体／県医師会を含む13団体（県医師会は全エリアで表示）';
