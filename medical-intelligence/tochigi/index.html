@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script defer src="./data/tochigi.js"></script><script defer src="./data/research2026.js"></script><script defer src="./js/deep-dive.js"></script><script defer src="./js/app.js"></script><script defer src="https://sinobu13-bpei.github.io/medical-intelligence/assets/prefecture-ct-mri-2025.js"></script></head>
+<script defer src="./data/tochigi.js"></script><script defer src="./data/doctors2024.js"></script><script defer src="./js/doctors2024.js"></script><script defer src="./data/research2026.js"></script><script defer src="./js/deep-dive.js"></script><script defer src="./js/app.js"></script><script defer src="https://sinobu13-bpei.github.io/medical-intelligence/assets/prefecture-ct-mri-2025.js"></script></head>
 <body>
 <a class="skip" href="#main">本文へ</a>
 <header class="mast"><div class="shell"><div class="mast-top"><a class="home" href="../">全国医療市場調査</a><span class="edition">栃木県・公開統計による医療市場調査｜2026年11月10日</span></div>
@@ -18,7 +18,7 @@
 <span><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg> 大学・医師・病床</span>
 <span><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 16l6-7 5 4 7-9M3 20h18"/></svg> 医療機器需要</span>
 </div><div class="hero-links"><a href="#strategy">重点市場と価値提供の方針</a><a href="#areas">医療圏比較へ</a><a href="../">全国MKTに戻る</a></div></div></header>
-<nav class="page-nav" aria-label="ページ内メニュー"><div class="shell"><a href="#summary">サマリー</a><a href="#demography">人口・医療圏</a><a href="#area-intelligence">人口・医師数</a><a href="#hospitals">医療提供体制</a><a href="#institutions">大学・医師会・行政</a><a href="#med-association-deep">医師会詳細</a><a href="#equipment">機器市場</a><a href="#distribution">流通</a><a href="#company-public">県内卸・商社</a><a href="#environment">外部環境</a><a href="#strategy">戦略提言</a><a href="#sources">出典一覧</a></div></nav>
+<nav class="page-nav" aria-label="ページ内メニュー"><div class="shell"><a href="#summary">サマリー</a><a href="#demography">人口・医療圏</a><a href="#area-intelligence">人口・医師数</a><a href="#doctor-details">診療科別医師数</a><a href="#hospitals">医療提供体制</a><a href="#institutions">大学・医師会・行政</a><a href="#med-association-deep">医師会詳細</a><a href="#equipment">機器市場</a><a href="#distribution">流通</a><a href="#company-public">県内卸・商社</a><a href="#environment">外部環境</a><a href="#strategy">戦略提言</a><a href="#sources">出典一覧</a></div></nav>
 <main id="main" class="shell">
 <section id="summary" class="section"><div class="section-top"><span class="chapter">01 · 調査結果の要点</span><h2>重要指標と意思決定の論点</h2></div><div class="stats" id="statCards"></div>
 <div class="note"><strong>調査上の重要な区別：</strong>2025年国勢調査確報・2026年10月人口推計・2024年度病床機能報告・2025年必要病床数は母集団／基準時点／計算方法が異なります。病床数の差を直ちに「余剰・不足」と断定しません。各表に年次と出典を表示しています。</div>
@@ -46,6 +46,57 @@
 <div class="table-scroll"><table id="areaPeopleTable"><caption>6医療圏の人口（2025年確報）、医師・看護師（2024年）、医療施設の比較</caption>
 <thead><tr><th>医療圏</th><th>人口2025</th><th>医師2024</th><th>医師密度（公表値）</th><th>病院</th><th>一般診療所</th><th>看護師2024</th><th>地図</th></tr></thead><tbody></tbody></table></div>
 <div class="two"><div class="mini"><h3>医師数を見るときの注意点</h3><p>医師数は医療施設に従事する医師の実人数です。医師偏在指標とは別指標であり、地域の昼間人口・患者流出入や診療科構成を直接表すものではありません。医師密度は県資料が採用した2025年12月の人口を分母にした公表値です。</p></div><div class="mini"><h3>数値の出典</h3><p><a href="https://www.pref.tochigi.lg.jp/c04/houdou/documents/r7kakuhou.pdf" target="_blank" rel="noopener noreferrer">県2025年国勢調査確報</a>／<a href="https://www.pref.tochigi.lg.jp/e02/documents/20260323195452.pdf" target="_blank" rel="noopener noreferrer">県地域医療構想評価資料（医師・医療施設数）</a>。医療圏人口は25市町を合算した独自再集計です。</p></div></div></section>
+
+<section id="doctor-details" class="section">
+ <div class="section-top">
+  <span class="chapter">02B · 医師数・勤務先・診療科目</span>
+  <h2>栃木県の医師4,806人を勤務先・診療科別に詳しく分析</h2>
+ </div>
+ <p>厚生労働省「2024年 医師・歯科医師・薬剤師統計」と栃木県保健統計年報を基に、<strong>届出医師全員</strong>と<strong>病院・診療所で働く医師</strong>を区別します。2024年12月31日現在の実人数です。</p>
+ <div id="doctorKpis" class="fourfacts" aria-label="栃木県医師数の主要指標"></div>
+ <div class="two">
+  <div>
+   <h3>病院勤務と診療所勤務の割合</h3>
+   <div class="chartWrap"><canvas id="doctorWorkChart" aria-label="病院従事医師3234人・診療所従事医師1371人の比較"></canvas></div>
+   <p class="caption">分母は医療施設従事医師4,605人（2024年）。医療施設以外で働く等の201人を除きます。</p>
+  </div>
+  <div>
+   <h3>勤務先・開設者・勤務医の内訳</h3>
+   <div class="table-scroll"><table id="doctorWorkTable"><thead><tr><th>区分</th><th>人数</th><th>補足</th></tr></thead><tbody></tbody></table></div>
+   <p class="caption">開業医の把握には「診療所の開設者・法人代表者」878人が最も近い公的区分です。すべての院長・個人開業医の人数そのものではありません。</p>
+  </div>
+ </div>
+ <h3>主に従事する診療科別・45区分の医師数</h3>
+ <p>各医師が主に従事する診療科を<strong>1人につき1診療科</strong>で分類します。循環器内科・消化器内科等は「内科」とは別の数値です。複数標榜している科を単純に足した数ではありません。</p>
+ <div class="doctor-control">
+   <label for="doctorSpecialtySearch">診療科名から探す</label>
+   <input id="doctorSpecialtySearch" type="search" placeholder="例：内科、外科、放射線科" autocomplete="off">
+   <label for="doctorSpecialtySort">並べ方</label>
+   <select id="doctorSpecialtySort"><option value="count">人数の多い順</option><option value="original">公表の科目順</option><option value="name">診療科名の50音順</option></select>
+   <span id="doctorSpecialtyCount" aria-live="polite" class="caption"></span>
+ </div>
+ <div class="two">
+  <div>
+   <h4>人数の多い診療科 上位12区分</h4>
+   <div class="chartWrap tall"><canvas id="doctorSpecialtyChart" aria-label="栃木県の診療科別医師数上位12区分"></canvas></div>
+   <p class="caption">臨床研修医は診療科ではないため、ランキングの対象から除いています。</p>
+  </div>
+  <div>
+   <h4>全45区分一覧・人数と構成割合</h4>
+   <div class="table-scroll doctor-table-scroll"><table id="doctorSpecialtyTable"><thead><tr><th>診療科・区分</th><th>人数</th><th>全医療施設従事医師に占める割合</th></tr></thead><tbody></tbody></table></div>
+  </div>
+ </div>
+ <h3>年齢別の医師数（2024年・14区分）</h3>
+ <div class="two">
+   <div><div class="chartWrap tall"><canvas id="doctorAgeChart" aria-label="栃木県医療施設従事医師の5歳階級別人数"></canvas></div></div>
+   <div><div class="table-scroll doctor-table-scroll"><table id="doctorAgeTable"><thead><tr><th>年齢</th><th>人数</th><th>構成割合</th></tr></thead><tbody></tbody></table></div></div>
+ </div>
+ <h3>医療圏別に見る医師の地域的偏り</h3>
+ <p>県南に1,997人、宇都宮に1,034人が集積する一方、県東は198人です。<a href="#area-intelligence">6医療圏の人口・医師数・診療所数・医師密度の比較表</a>と併せてご覧ください。診療科別人数をさらに医療圏×病院・診療所へ細分化する場合は、政府統計e-Statの表25・表35を元に確認する必要があり、未照合の数値は掲載しません。</p>
+ <div class="note"><strong>データの読み分け：</strong>①届出医師4,806人は医療施設以外の201人を含む総数。②病院・診療所の従事医師は4,605人。③診療科45区分の合計は4,605人。④医療施設の開設者は区分の内数であり、別途加算しません。⑤開業医・院長と法令上の「開設者・法人代表者」は完全に同じ概念ではありません。</div>
+ <p class="caption">出典：<a href="https://www.pref.tochigi.lg.jp/e09/pref/toukei/sonota/documents/20260331095120.pdf" target="_blank" rel="noopener noreferrer">栃木県「2024年保健統計年報」医療関係者編・表12・13</a> ／ <a href="https://www.e-stat.go.jp/stat-search/files?cycle=7&tclass=000001234962&year=20240" target="_blank" rel="noopener noreferrer">政府統計e-Stat「2024年医師・歯科医師・薬剤師統計」表25・35ほか</a> ／ <a href="https://stats47.jp/areas/09000/healthcare" target="_blank" rel="noopener noreferrer">公開統計の診療科45区分・年代14区分の照合資料</a>。</p>
+</section>
+
 <section id="hospitals" class="section"><div class="section-top"><span class="chapter">03 · 医療提供体制</span><h2>医療提供体制と病院群</h2></div>
 <div class="two"><div><h3>医療提供体制の読み方</h3><p>大学病院・高度急性期の集積は県南、都市部の救急・紹介拠点は宇都宮に存在します。県北・県西・両毛では救急搬送時間と県境を越える受療が重要です。</p><p>特定機能病院、地域医療支援病院、がん診療連携拠点病院、救命救急センター、災害拠点病院、へき地医療拠点病院は、県保健医療計画・2026年機能別医療機関名簿で区分別に確認します。下記は主要施設の例示で、指定施設の全件リストではありません。</p><p class="caption">出典 <a href="#S06">[S06]</a> <a href="#S09">[S09]</a></div>
 <div><h3>医師偏在と地域連携</h3><div class="chartWrap"><canvas id="physChart" aria-label="二次医療圏別医師偏在指標"></canvas></div><p class="caption">公表2024年資料の新指標。全国255.6、栃木230.5、県北・県西・両毛が医師少数区域。指標は医師数の絶対的な充足を示しません。<a href="#S07">[S07]</a></p></div></div>
