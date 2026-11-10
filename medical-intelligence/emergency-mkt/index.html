@@ -151,7 +151,7 @@ const official={
 '帝国繊維':'https://www.teisen.co.jp/'
 };
 const terms=Object.keys(official).sort((a,b)=>b.length-a.length);
-const pattern=new RegExp(terms.map(x=>x.replace(/[.*+?^${}()|[\]\\]/g,'\\</body>')).join('|'),'g');
+const pattern=new RegExp(terms.map(x=>x.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'g');
 if(!terms.length)return;
 for(const section of document.querySelectorAll('section')){
  const walker=document.createTreeWalker(section,NodeFilter.SHOW_TEXT);
