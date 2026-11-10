@@ -224,3 +224,30 @@ footer a{color:#fff;font-weight:790}
 .facility-filters label{font-size:.84rem;font-weight:800;color:#2d5366}
 .facility-filters select{max-width:100%;min-width:140px}
 @media(max-width:560px){.facility-filters{display:grid;grid-template-columns:1fr 1fr;gap:7px}.facility-filters label{grid-column:1/-1}.facility-filters select{width:100%;min-width:0}}
+
+
+/* 医師2024詳細セクション・統一日本語UI */
+#doctor-details .fourfacts{grid-template-columns:repeat(3,minmax(0,1fr))}
+#doctor-details .factcard strong{font-variant-numeric:tabular-nums}
+#doctor-details .two{align-items:start}
+#doctor-details .chartWrap{min-width:0;min-height:265px}
+#doctor-details .chartWrap.tall{height:410px}
+#doctor-details .doctor-table-scroll{max-height:436px;overflow:auto;border:1px solid var(--line);scrollbar-width:thin}
+#doctor-details .doctor-table-scroll table{min-width:460px;width:100%}
+#doctor-details .doctor-table-scroll thead th{position:sticky;top:0;z-index:1}
+#doctor-details .doctor-control{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 18px;padding:12px 13px;border:1px solid #d8e6ec;border-radius:9px;background:#f7fbfd}
+#doctor-details .doctor-control label{font-weight:800;color:#2c5368;font-size:.83rem}
+#doctor-details .doctor-control input{height:43px;min-width:220px;flex:1 1 260px;max-width:420px;padding:8px 12px;border:1px solid #a9c3d1;border-radius:7px;background:#fff;font:inherit}
+#doctor-details .doctor-control select{height:43px;min-width:190px}
+#doctor-details .doctor-control .caption{margin:0}
+#doctorWorkTable{min-width:500px}
+#doctor-details .chartWrap canvas{max-height:100%}
+@media(max-width:900px){#doctor-details .fourfacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){
+ #doctor-details .doctor-control{display:grid;grid-template-columns:1fr;gap:6px}
+ #doctor-details .doctor-control input,#doctor-details .doctor-control select{width:100%;min-width:0;max-width:100%;flex:auto}
+ #doctor-details .chartWrap{height:285px}
+ #doctor-details .chartWrap.tall{height:370px}
+ #doctor-details .doctor-table-scroll{max-height:350px}
+ #doctor-details .fourfacts{gap:8px}
+}
