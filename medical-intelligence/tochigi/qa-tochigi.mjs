@@ -106,4 +106,34 @@ get('facilityRegion').value='県北';get('facilityRegion').events.change();
 check((get('facilityList').innerHTML.match(/class="facility"/g)||[]).length===data.locations.filter(x=>x[2]==='県北').length,'facilities region filter');
 get('facilityRegion').value='all';get('facilityRegion').events.change();
 
-console.log(JSON.stringify({result:'PASS',regions:6,cities:25,facilityCards:data.locations.length,sources:sources.length,associations:13,companies:6,charts,pins,leafletCSS:'LOCAL',fallbacks:'PASS',responsive:'PASS',dupeIds:0,privateContent:'EXCLUDED'},null,2));
+// 2024 physician stats: registered, clinical workforce, specialties and ages
+const docjs=rd('data/doctors2024.js'),docrender=rd('js/doctors2024.js');
+new vm.Script(docjs,{filename:'doctors2024.js'});
+new vm.Script(docrender,{filename:'doctors2024.js renderer'});
+check(html.includes('id="doctor-details"'),'doctor detail section');
+check(html.includes('src="./data/doctors2024.js"')&&html.includes('src="./js/doctors2024.js"'),'doctor source scripts');
+vm.runInNewContext(docjs,{window});
+const doc2024=window.TOCHIGI_DOCTORS_2024;
+check(doc2024.type.registered===4806,'registered doctor count');
+check(doc2024.type.medicalFacilities===4605,'clinical doctors total');
+check(doc2024.type.other===201,'non-clinical count');
+check(doc2024.type.hospital===3234&&doc2024.type.clinic===1371,'hospital and clinic counts');
+check(doc2024.type.hospitalOwner===67&&doc2024.type.hospitalEmployees===3167,'hospital opening/working status');
+check(doc2024.type.clinicOwner===878&&doc2024.type.clinicEmployees===493,'clinic opening/working status');
+check(doc2024.specialties.length===45&&doc2024.specialties.reduce((a,x)=>a+x[1],0)===4605,'45 specialties add up');
+check(doc2024.ages.length===14&&doc2024.ages.reduce((a,x)=>a+x[1],0)===4605,'14 ages add up');
+const priorCharts=charts;
+vm.runInNewContext(docrender,{window,document,Chart,encodeURIComponent,console});
+check(charts===priorCharts+3,'workplace, specialty, age charts');
+check((get('doctorSpecialtyTable').tbody.innerHTML.match(/<tr>/g)||[]).length===45,'45 specialty table rows');
+check((get('doctorAgeTable').tbody.innerHTML.match(/<tr>/g)||[]).length===14,'14 age group rows');
+check((get('doctorWorkTable').tbody.innerHTML.match(/<tr>/g)||[]).length>=9,'workplace detail table rows');
+check((get('doctorKpis').innerHTML.match(/class="factcard"/g)||[]).length===6,'doctor KPI cards');
+get('doctorSpecialtySearch').value='内科';
+get('doctorSpecialtySearch').events.input();
+check((get('doctorSpecialtyTable').tbody.innerHTML.match(/<tr>/g)||[]).length>=4,'medical-specialty free text search');
+get('doctorSpecialtySearch').value='';
+get('doctorSpecialtySearch').events.input();
+check((get('doctorSpecialtyTable').tbody.innerHTML.match(/<tr>/g)||[]).length===45,'full specialty table restores');
+
+console.log(JSON.stringify({result:'PASS',regions:6,cities:25,facilityCards:data.locations.length,sources:sources.length,associations:13,companies:6,doctorSpecialties:45,doctorAges:14,charts,pins,leafletCSS:'LOCAL',fallbacks:'PASS',responsive:'PASS',dupeIds:0,privateContent:'EXCLUDED'},null,2));
