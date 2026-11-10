@@ -187,7 +187,7 @@ window.buildMap=function(){
   svg.appendChild(make('path',{d:'M95 486 Q143 475 202 500',fill:'none',stroke:'#70a6ad','stroke-width':2,'stroke-dasharray':'3 5'}));
   const max=Math.max(1,...DATA.map(p=>Number(p[metric]||0)));
   for(const p of DATA){
-    const [x,y]=xy(p), value=Number(p[metric]||0);
+    const [x,y]=p.pref==='沖縄県'?[190,487]:xy(p), value=Number(p[metric]||0);
     const rad=5+Math.min(7,Math.sqrt(value/max)*6);
     const g=make('g',{'class':'jp-pref-marker','tabindex':0,'role':'button','aria-label':p.pref+' '+(metric==='S24'?'S評価':'救命救急センター')+' '+value+'施設'});
     g.dataset.name=p.pref;
@@ -198,7 +198,7 @@ window.buildMap=function(){
     svg.appendChild(g);
   }
   // Okinawa outside the Natural Earth low-res mainland layer is represented by a labelled marker.
-  svg.appendChild(make('text',{x:70,y:520,fill:'#567a8c','font-size':11},'47都道府県・県庁付近の代表点'));
+  svg.appendChild(make('text',{x:205,y:491,fill:'#315b73','font-size':12,'font-weight':700},'沖縄県'));svg.appendChild(make('text',{x:58,y:510,fill:'#567a8c','font-size':10},'離島の表示は位置・縮尺を簡略化'));
   svg.appendChild(make('text',{x:23,y:25,fill:'#315c72','font-size':17,'font-weight':700},'日本列島｜都道府県別の救急医療体制'));
   target.appendChild(svg);
   $('maplegend').textContent=(metric==='S24'?'丸の大きさ：S評価施設数':'丸の大きさ：救命救急センター数')+'（2024年実績）。Googleマップ・地理院地図のリンクは右側の県詳細から開けます。';
