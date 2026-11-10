@@ -134,7 +134,7 @@ body.jm-site .jm-footer p{margin:3px 0}
 
 
 /* Hub CTA and map links | consolidated from four obsolete inline style blocks */
-.hero-cta-layout .mkt-action-links{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:8px!important;width:100%;min-width:0}
+.hero-cta-layout .mkt-action-links{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-auto-flow:row!important;align-items:stretch!important;gap:8px 10px!important;width:100%;min-width:0}
 .hero-cta-layout .mkt-main-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;width:100%;min-width:0}
 .hero-cta-layout .mkt-util-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .hero-cta-layout .mkt-main-row>a{display:flex;align-items:center;justify-content:center;min-height:46px;width:100%;min-width:0;padding:9px 10px;font-size:12px;line-height:1.4;text-align:center;white-space:normal;overflow-wrap:anywhere;text-decoration:none}
@@ -197,3 +197,9 @@ body.jm-site :where(a,button,input,select):focus-visible{outline:3px solid #F0AD
   body.jm-site .hero .mkt-main-row>a{font-size:13px!important;min-height:45px!important;padding:9px 7px!important}
   body.jm-site #regionList .region-actions a{padding:7px 8px}
 }
+
+/* Official top hero menu: 2026-11-10 canonical 18 links, three columns. */
+body.jm-site .hero .hero-cta-layout nav.mkt-action-links, .hero .hero-cta-layout nav.mkt-action-links{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-auto-flow:row!important;grid-auto-rows:minmax(44px,auto)!important;gap:8px 10px!important;direction:ltr!important}
+body.jm-site .hero .hero-cta-layout nav.mkt-action-links>a{order:0!important;grid-column:auto!important;grid-row:auto!important;min-width:0!important;width:100%!important;max-width:100%!important}
+@media(max-width:700px){body.jm-site .hero .hero-cta-layout nav.mkt-action-links,.hero .hero-cta-layout nav.mkt-action-links{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:320px){body.jm-site .hero .hero-cta-layout nav.mkt-action-links,.hero .hero-cta-layout nav.mkt-action-links{grid-template-columns:minmax(0,1fr)!important}}
