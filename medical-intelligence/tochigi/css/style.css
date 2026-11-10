@@ -214,3 +214,13 @@ footer a{color:#fff;font-weight:790}
 @media(max-width:1100px){.association-cards,.company-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.fourfacts{grid-template-columns:repeat(2,minmax(0,1fr))}.association-cards,.company-cards{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:480px){.fourfacts{gap:8px}.factcard{padding:11px}.factcard strong{font-size:1.2rem}.directory-card{padding:14px}.geo-links a{min-height:38px}}
+
+
+.association-activity{border:1px solid #c8e3da;background:#f1f9f6;border-radius:8px;padding:10px 12px;margin:9px 0;font-size:.78rem}
+.association-activity strong{display:block;color:#126052;font-size:.77rem}
+.directory-card .association-activity p{margin:4px 0;color:#356055}
+.association-activity a{font-weight:800;color:#0f665d}
+.facility-filters{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:12px 0 15px}
+.facility-filters label{font-size:.84rem;font-weight:800;color:#2d5366}
+.facility-filters select{max-width:100%;min-width:140px}
+@media(max-width:560px){.facility-filters{display:grid;grid-template-columns:1fr 1fr;gap:7px}.facility-filters label{grid-column:1/-1}.facility-filters select{width:100%;min-width:0}}
