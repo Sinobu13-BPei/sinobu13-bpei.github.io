@@ -1,0 +1,32 @@
+name: Tochigi Public Market UI Quality Gate
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'medical-intelligence/tochigi/**'
+      - '.github/workflows/tochigi-public-market-qa.yml'
+permissions:
+  contents: read
+jobs:
+  tochigi:
+    name: Medical area data, physician associations and responsive browser
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate population, doctors, official links, maps, data and Javascript
+        run: node medical-intelligence/tochigi/qa-tochigi.mjs
+      - name: Test desktop, tablet, mobile layouts in Chrome
+        run: node medical-intelligence/tochigi/qa-tochigi-browser.mjs
+      - name: Keep Tochigi browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tochigi-public-ui-screenshots
+          path: medical-intelligence/tochigi/qa-artifacts/*.png
+          if-no-files-found: ignore
+          retention-days: 14
