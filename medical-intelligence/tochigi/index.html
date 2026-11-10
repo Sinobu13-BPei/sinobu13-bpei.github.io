@@ -58,7 +58,7 @@
 <tr><th>茨城県（隣接）</th><td>193.6</td><td>75.7%</td><td>栃木県より低い</td></tr>
 </tbody></table></div>
 <p class="caption">出典：栃木県医師偏在指標公表資料 <a href="#S07">[S07]</a>、同表の都道府県比較。隣接する福島県・埼玉県も含めた全件比較には原表再抽出が必要です。比率は表示数値からの独自計算です。</p>
-<label for="facilityFilter" class="fieldlabel">施設一覧の絞り込み</label><select id="facilityFilter"><option value="all">すべて</option><option value="病院">病院</option><option value="行政">行政</option><option value="医師会">医師会</option><option value="保健所">保健所</option></select>
+<div class="facility-filters"><label for="facilityFilter">施設の種類</label><select id="facilityFilter" aria-label="施設種類の絞り込み"><option value="all">すべて</option><option value="病院">病院</option><option value="行政">行政</option><option value="医師会">医師会</option><option value="保健所">保健所</option></select><label for="facilityRegion">二次医療圏</label><select id="facilityRegion" aria-label="施設を二次医療圏で絞り込み"><option value="all">すべての医療圏</option><option value="県北">県北</option><option value="県西">県西</option><option value="宇都宮">宇都宮</option><option value="県東">県東</option><option value="県南">県南</option><option value="両毛">両毛</option></select><span id="facilityCount" class="caption" aria-live="polite"></span></div>
 <div class="facility-grid" id="facilityList"></div>
 <p class="caption">Googleマップは施設名称＋所在地の検索。地理院地図リンクは掲載自治体周辺の概略中心へ移動するもので<strong>施設位置のピンポイント案内ではありません</strong>。各施設の公式住所・指定状況は <a href="#S09">[S09]</a> または各公式サイトで要確認。</p></section>
 <section id="institutions" class="section"><div class="section-top"><span class="chapter">04 · 大学・医師会・行政</span><h2>医学部・医師会・行政</h2></div>
