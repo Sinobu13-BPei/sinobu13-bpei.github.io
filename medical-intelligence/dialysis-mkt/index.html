@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light">
-<title>全国透析医療市場・施設法人連携DB｜Rev.3</title>
+<title>全国透析医療市場・施設法人連携DB｜Rev.4</title>
 <style>
 :root{--ink:#14253d;--muted:#566c7b;--bg:#eef3f7;--card:#fff;--line:#dce6ec;--blue:#23619b;--teal:#127a78;--accent:#1d598a;--soft:#e9f4f6;--warning:#7d5100}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,'Yu Gothic','Hiragino Kaku Gothic ProN',Meiryo,sans-serif;color:var(--ink);font-size:14px;line-height:1.52}
@@ -30,9 +30,12 @@ body{font-size:13px}main{max-width:1440px;padding:10px 10px 35px}.panel{margin:7
 @media print{.visual-hub{break-inside:auto}.vpanel{break-inside:avoid}.v-filters,.pagination,.pdf-import{display:none!important}}
 
 .icon-strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;margin:7px 0}.icon-strip button{border:1px solid var(--line);border-radius:8px;background:#fff;display:flex;gap:7px;align-items:center;padding:7px 8px;min-width:0;text-align:left;cursor:pointer}.icon-strip button:hover,.icon-strip button:focus-visible{background:#e9f4f7;outline:2px solid #8bbac8}.icon-strip svg{width:35px;height:35px;min-width:35px;fill:none;stroke:#236b80;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}.icon-strip b{font-size:12px;display:block;white-space:nowrap}.icon-strip small{font-size:10px;display:block;white-space:nowrap}@media(max-width:800px){.icon-strip{grid-template-columns:repeat(3,1fr)}}@media(max-width:450px){.icon-strip{grid-template-columns:repeat(2,1fr)}}
+</style><style id="clinical-analysis-styles-20261111">
+.cl-head{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:space-between;margin:3px 0 9px}.cl-head h2{margin:0!important;font-size:20px!important}.cl-sub{color:#577081;font-size:12px}.cl-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:10px 0}.cl-kpi{padding:11px;background:#eff6f8;border:1px solid #d6e7ea;border-radius:9px}.cl-kpi strong{display:block;font-size:24px;color:#116875;line-height:1.3}.cl-kpi small{display:block;font-size:11px}.cl-panelgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cl-panelgrid>.panel{margin:0}.cl-barlabel{display:flex;justify-content:space-between;gap:6px;align-items:center;margin-top:10px;font-size:12px}.cl-barlabel strong{white-space:nowrap;font-variant-numeric:tabular-nums}.cl-track{background:#e9eff3;display:flex;width:100%;height:17px;overflow:hidden;border-radius:6px;margin:5px 0}.cl-track>i{height:100%;display:block;min-width:1px}.cl-track i.cl-blue{background:#187991}.cl-track i.cl-teal{background:#36a79c}.cl-track i.cl-no{background:#d5dde3}.cl-track i.cl-gold{background:#d19b4d}.cl-track i.cl-purple{background:#8b7ec7}.cl-track i.cl-slate{background:#8194a8}.cl-track i.cl-red{background:#ba6c73}.cl-key{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:11px;color:#536b78;margin:7px 0}.cl-dot{width:9px;height:9px;border-radius:2px;display:inline-block;flex:none}.cl-chartnote{margin-top:8px!important;font-size:11px;color:#526c7a}.cl-control{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border:1px solid #d3e7e9;border-radius:8px;background:#f4fafb;padding:8px 10px;font-size:12px;margin:9px 0}.cl-control select{font:inherit;border:1px solid #bfd1da;border-radius:6px;background:#fff;padding:6px}.cl-pictos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.cl-picto{display:flex;gap:9px;border:1px solid #deeaed;border-radius:10px;padding:11px;background:#f8fcfd;align-items:flex-start}.cl-picto svg{flex:none;width:37px;height:37px;stroke:#15737c;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}.cl-picto b{display:block;font-size:13px}.cl-picto small{display:block;font-size:11px;line-height:1.5}.cl-caregrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.cl-care{border:1px solid #d7e7e9;border-radius:8px;padding:10px;background:#f8fcfd}.cl-care b{display:block;font-size:13px;margin-bottom:3px}.cl-care p{font-size:11px;margin:2px 0!important}.cl-care span{color:#147b81;font-weight:700}.cl-micro{font-size:10px;color:#657a85}.cl-ref{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}.cl-ref a{font-size:11px;font-weight:700;padding:5px 8px;border-radius:6px;border:1px solid #b9d8df;color:#165a77;background:#edf8fa;text-decoration:none}.cl-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.cl-flow>div{background:#eaf4f5;padding:10px;border-radius:8px;border-top:3px solid #338c99;font-size:12px}.cl-flow b{display:block;margin-bottom:3px}.cl-flow small{font-size:11px}.cl-note{background:#fff9ea;border-left:3px solid #bf963f;border-radius:6px;padding:10px;font-size:11px;margin-top:9px}.cl-label-compact{font-size:12px;font-weight:700}.cl-btn{border:1px solid #167381;background:#e3f4f5;color:#135969;font-weight:700;border-radius:7px;padding:7px 10px;cursor:pointer;font-size:12px}.cl-btn:hover{background:#cae8ea}.cl-sector{padding:9px 0;border-bottom:1px solid #e4edf0}.cl-sector:last-child{border:0}.cl-hbar{height:9px;background:#e9f0f3;border-radius:5px;overflow:hidden;margin:3px 0 1px}.cl-hbar i{display:block;height:100%;background:linear-gradient(90deg,#1a8290,#48b7ae)}.cl-smalltable{width:100%;min-width:670px}.cl-smalltable td,.cl-smalltable th{padding:7px 8px;font-size:12px}.cl-smalltable td:first-child{font-weight:700}.cl-chart-title{font-size:14px;font-weight:800;margin:0 0 7px;color:#224968}.cl-pie{width:130px;height:130px;flex:none;border-radius:50%;display:block;border:4px solid #fff;box-shadow:0 1px 7px #18313b16}.cl-piebox{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.cl-legend{display:grid;gap:6px;flex:1}.cl-legend div{font-size:11px;display:flex;gap:7px;align-items:center}.cl-flow .tag{font-size:9px;color:#577a83}.cl-source{font-size:11px;color:#667881;line-height:1.6}.cl-national{background:#e7f2f5;color:#276276;font-size:10px;padding:2px 6px;border-radius:4px;white-space:nowrap}.cl-linkout{margin:10px 0;display:flex;flex-wrap:wrap;gap:8px}.cl-linkout a{font-size:12px;text-decoration:underline;color:#176578}.cl-measure .cl-val{min-width:78px;text-align:right}
+@media(max-width:900px){.cl-panelgrid,.cl-caregrid{grid-template-columns:1fr}.cl-pictos{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.cl-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.cl-pictos,.cl-flow{grid-template-columns:1fr}.cl-head h2{font-size:17px!important}.cl-pie{width:112px;height:112px}.cl-piebox{gap:10px}.cl-kpi strong{font-size:20px}}@media print{.cl-kpis,.cl-panelgrid{break-inside:avoid}}
 </style></head><body>
-<div class="stateline"></div><header><p>JAPAN DIALYSIS MARKET INTELLIGENCE / 2026.11.11 / Rev.3</p><h1>全国透析医療市場｜施設・法人・学会・政策 インテリジェンスDB Rev.3</h1><nav id="hub-backlink-20261111" aria-label="関連リンク" style="margin:8px 0 10px;font-size:12px"><a href="../" style="color:#12617c;text-decoration:underline;font-weight:700">医療市場インテリジェンス・ハブへ戻る</a></nav><div id="data-export-20261111" style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:7px 0 12px;padding:8px 10px;background:#eef6f7;border:1px solid #b9d7da;border-radius:10px;font-size:12px"><strong>公開CSV:</strong><a download href="./data/facilities_sample_92.csv">施設名92件</a><a download href="./data/organizations_101.csv">学会・団体101件</a><a download href="./data/policies_20.csv">政策20件</a><a download href="./data/prefectures_47.csv">47都道府県</a><a download href="./data/corporate_groups_sample.csv">法人別サンプル</a><a download href="./data/facility_region_organization_reference.csv">地域団体参考リンク</a><small style="color:#506b70">※全国4,563施設は届出集計、個別実名の初期収録は92施設です</small></div><p>透析施設 × 法人名寄せ × 都道府県研究会 × 政策・補助金 × エコー・滅菌・経営コスト</p><span class="flag">公開情報をもとに作成｜オフラインで検索可能｜掲載条件・個別施設の状況は要確認</span></header>
-<nav id="nav"><button data-view="overview" class="active">市場サマリー</button><button data-view="facilities">施設・法人検索</button><button data-view="orgs">学会・医会・研究会</button><button data-view="regions">全国47都道府県</button><button data-view="policies">政策・補助金</button><button data-view="costs">設備・コスト</button><button data-view="method">原典・データ取込</button></nav>
+<div class="stateline"></div><header><p>JAPAN DIALYSIS MARKET INTELLIGENCE / 2026.11.11 / Rev.4</p><h1>全国透析医療市場｜施設・法人・学会・政策 インテリジェンスDB Rev.4</h1><nav id="hub-backlink-20261111" aria-label="関連リンク" style="margin:8px 0 10px;font-size:12px"><a href="../" style="color:#12617c;text-decoration:underline;font-weight:700">医療市場インテリジェンス・ハブへ戻る</a></nav><div id="data-export-20261111" style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:7px 0 12px;padding:8px 10px;background:#eef6f7;border:1px solid #b9d7da;border-radius:10px;font-size:12px"><strong>公開CSV:</strong><a download href="./data/facilities_sample_92.csv">施設名92件</a><a download href="./data/organizations_101.csv">学会・団体101件</a><a download href="./data/policies_20.csv">政策20件</a><a download href="./data/prefectures_47.csv">47都道府県</a><a download href="./data/corporate_groups_sample.csv">法人別サンプル</a><a download href="./data/facility_region_organization_reference.csv">地域団体参考リンク</a><small style="color:#506b70">※全国4,563施設は届出集計、個別実名の初期収録は92施設です</small></div><p>透析施設 × 法人名寄せ × 都道府県研究会 × 政策・補助金 × エコー・滅菌・経営コスト</p><span class="flag">公開情報をもとに作成｜オフラインで検索可能｜掲載条件・個別施設の状況は要確認</span></header>
+<nav id="nav"><button data-view="overview" class="active">市場サマリー</button><button data-view="ultrasound">エコー・検査分析</button><button data-view="facilities">施設・法人検索</button><button data-view="orgs">学会・医会・研究会</button><button data-view="regions">全国47都道府県</button><button data-view="policies">政策・補助金</button><button data-view="costs">設備・コスト</button><button data-view="method">原典・データ取込</button></nav>
 <main>
 <section class="view active" id="overview">
  <div class="cards"><div class="card"><small>届出ベース・全国施設数</small><div class="big" id="kpiTotal">4,563</div><small>2026年9〜10月の二次集計</small></div><div class="card"><small>施設名の収録数（現在）</small><div class="big" id="kpiSample">92</div><small>公式PDFを取り込むと拡張できます</small></div><div class="card"><small>学会・医会・研究会</small><div class="big" id="kpiOrgs">101</div><small>全国・地方の参照団体</small></div><div class="card"><small>政策・報酬・公募制度</small><div class="big" id="kpiPolicy">19</div><small>制度の適用可否は個別判定</small></div></div>
@@ -65,16 +68,120 @@ body{font-size:13px}main{max-width:1440px;padding:10px 10px 35px}.panel{margin:7
 </div>
 <p class="sub">「規模」はこの集計では県単位の届出施設数を意味します。個別施設の透析ベッド数・コンソール台数は未収録のため、規模を推定して分類していません。県のタイルマップは位置の模式図で、施設所在地のピン地図ではありません。</p>
 </div>
-<div class="two"><div class="panel"><h2>施設数の多い都道府県 TOP 12</h2><div id="topBars"></div><p class="sub">全国の人口・患者数・稼働率を補正した順位ではありません。</p></div><div class="panel"><h2>透析市場の構造変化</h2><div class="facts"><div class="fact"><small>慢性透析患者</small><b>337,414人</b><small>2024年末 JRDR</small></div><div class="fact"><small>透析コンソール</small><b>148,339台</b><small>2024年末 JRDR</small></div><div class="fact"><small>VAエコー活用</small><b>78.0%</b><small>機能・形態評価の回答施設</small></div></div><h3>戦略的に重要な区分</h3><p>①透析クリニック＝VAエコー・保守・穿刺支援／②有床・透析専門病院＝VAIVT・CT・合併症評価／③基幹病院＝滅菌・中央材料・血管撮影・災害／④多拠点法人＝標準機・教育・購買統括。</p><div class="good"><b>2026年改定の変化：</b>シャント拡張術の一部算定区分で血流量400mL/分以下またはRI 0.6以上が重要な臨床的根拠。単なる「装置販売」より「適切な評価体制」に着目します。</div></div></div>
+<div class="two"><div class="panel"><h2>施設数の多い都道府県 TOP 12</h2><div id="topBars"></div><p class="sub">全国の人口・患者数・稼働率を補正した順位ではありません。</p></div><div class="panel"><h2>透析市場の構造変化</h2><div class="facts"><div class="fact"><small>慢性透析患者</small><b>337,414人</b><small>2024年末 JRDR</small></div><div class="fact"><small>透析コンソール</small><b>148,339台</b><small>2024年末 JRDR</small></div><div class="fact"><small>VAエコー活用</small><b>78.0%</b><small>機能・形態評価の回答施設</small><button type="button" data-viewjump="ultrasound" class="cl-btn" style="margin-top:6px">活用実態・感染対策の詳細グラフ</button></div></div><h3>戦略的に重要な区分</h3><p>①透析クリニック＝VAエコー・保守・穿刺支援／②有床・透析専門病院＝VAIVT・CT・合併症評価／③基幹病院＝滅菌・中央材料・血管撮影・災害／④多拠点法人＝標準機・教育・購買統括。</p><div class="good"><b>2026年改定の変化：</b>シャント拡張術の一部算定区分で血流量400mL/分以下またはRI 0.6以上が重要な臨床的根拠。単なる「装置販売」より「適切な評価体制」に着目します。</div></div></div>
  <div class="icon-strip" aria-label="透析市場の関連テーマ">
 <button type="button" data-viewjump="facilities"><svg viewBox="0 0 48 48" role="img" aria-label="透析施設"><rect x="9" y="13" width="30" height="28" rx="3"/><path d="M24 13V6M18 9h12M17 23h14M24 16v14M16 34h5m6 0h5"/></svg><span><b>透析施設</b><small>施設・法人</small></span></button>
-<button type="button" data-viewjump="facilities"><svg viewBox="0 0 48 48" role="img" aria-label="血管エコー"><path d="M8 36l12-12 7 7-12 12zM21 23l6-6 6 6-6 6M34 11q9 13 0 26M39 9q12 15 0 30"/></svg><span><b>VAエコー</b><small>血流・穿刺</small></span></button>
+<button type="button" data-viewjump="facilities"><svg viewBox="0 0 48 48" role="img" aria-label="血管エコー"><path d="M8 36l12-12 7 7-12 12zM21 23l6-6 6 6-6 6M34 11q9 13 0 26M39 9q12 15 0 30"/></svg><span><b>VAエコー</b><small>活用率・血流・穿刺</small></span></button>
 <button type="button" data-viewjump="costs"><svg viewBox="0 0 48 48" role="img" aria-label="透析コンソール"><rect x="11" y="5" width="26" height="37" rx="3"/><rect x="16" y="11" width="16" height="11" rx="1"/><circle cx="19" cy="30" r="2"/><circle cx="29" cy="30" r="2"/><path d="M14 42v3m20-3v3"/></svg><span><b>透析設備</b><small>機器・水処理</small></span></button>
 <button type="button" data-viewjump="costs"><svg viewBox="0 0 48 48" role="img" aria-label="滅菌設備"><rect x="7" y="14" width="34" height="27" rx="4"/><rect x="12" y="20" width="24" height="13" rx="2"/><path d="M17 5q-5 5 0 9m7-9q-5 5 0 9m7-9q-5 5 0 9"/></svg><span><b>滅菌設備</b><small>再使用器材</small></span></button>
 <button type="button" data-viewjump="orgs"><svg viewBox="0 0 48 48" role="img" aria-label="学会研究会"><circle cx="16" cy="15" r="6"/><circle cx="33" cy="15" r="6"/><path d="M5 38c0-12 22-12 22 0M23 39c0-11 20-11 20 0"/></svg><span><b>学会・医会</b><small>教育・研究会</small></span></button>
 <button type="button" data-viewjump="policies"><svg viewBox="0 0 48 48" role="img" aria-label="政策と災害対策"><path d="M24 4l17 7v12c0 13-9 19-17 22C16 42 7 36 7 23V11zM24 14v19M14 24h20"/></svg><span><b>政策・BCP</b><small>災害・補助金</small></span></button>
 </div>
 <div class="panel"><h2>重点課題を装置提案に結び付けるフロー</h2><div class="three"><div class="fact"><b>01 地域を把握</b><small>都道府県 → 透析施設分布 → 患者・病院機能・BCP</small></div><div class="fact"><b>02 意思決定者</b><small>法人本部 → 腎臓内科医・VA医 → CE・看護師長 → 販社</small></div><div class="fact"><b>03 価値を検証</b><small>US・RO水質・滅菌の実要件 → 保険診療 → 補助制度 → TCO</small></div></div></div>
+</section>
+
+<section class="view" id="ultrasound" aria-labelledby="cl-title">
+<div class="panel">
+<div class="cl-head"><div><h2 id="cl-title">エコー・検査の活用実態｜VA評価・穿刺・合併症・感染対策</h2><div class="cl-sub">日本透析医学会 JRDR 2024年末の全国施設調査を中心に、2026年度保険診療・設備需要を統合して分析。</div></div><span class="cl-national">全国統計｜2024年末</span></div>
+<div class="notice"><b>集計上の注意：</b>この画面のエコー使用率は<strong>施設調査への有効回答ベース</strong>であり、2026年の人工腎臓届出施設4,563件とは母集団・時点が異なります。県別・地方別のエコー保有率は公表値から確認できないため、地域を選択しても全国率を地域率に置き換えません。</div>
+<div class="cl-kpis">
+<div class="cl-kpi"><small>VA機能・形態評価にエコーを使用</small><strong>78.0%</strong><small>3,445 / 4,414施設</small></div>
+<div class="cl-kpi"><small>VA穿刺時にエコーを使用</small><strong>60.9%</strong><small>2,694 / 4,424施設</small></div>
+<div class="cl-kpi"><small>エコー穿刺時・滅菌プローブカバー</small><strong>17.7%</strong><small>473 / 2,679施設</small></div>
+<div class="cl-kpi"><small>エコー穿刺後・消毒未実施</small><strong>4.6%</strong><small>124 / 2,674施設</small></div>
+</div>
+<div class="cl-control"><label for="clinicalDisplay"><b>グラフ数値表示</b></label><select id="clinicalDisplay"><option value="percent">割合（％）</option><option value="count">施設数（件）</option></select><span>対象：全国の施設調査／各設問の有効回答施設</span><button class="cl-btn" id="clinicalGoRegion" type="button">都道府県別施設分布へ</button></div>
+</div>
+
+<div class="cl-panelgrid">
+<div class="panel"><h3 class="cl-chart-title">① VAエコー使用状況｜2024年</h3>
+<div class="cl-measure"><div class="cl-barlabel"><span>VA機能・形態評価</span><strong class="cl-val" data-percent="78.0%" data-count="3,445件">78.0%</strong></div><div class="cl-track" role="img" aria-label="VAの機能や形態評価でエコーを使用する施設78.0%、未使用22.0%"><i class="cl-blue" style="width:78%"></i><i class="cl-no" style="width:22%"></i></div><div class="cl-micro">使用 3,445施設／未使用 969施設（n=4,414）</div></div>
+<div class="cl-measure"><div class="cl-barlabel"><span>VA穿刺で使用</span><strong class="cl-val" data-percent="60.9%" data-count="2,694件">60.9%</strong></div><div class="cl-track" role="img" aria-label="穿刺時にエコーを使用する施設60.9%、未使用39.1%"><i class="cl-teal" style="width:60.9%"></i><i class="cl-no" style="width:39.1%"></i></div><div class="cl-micro">使用 2,694施設／未使用 1,730施設（n=4,424）</div></div>
+<div class="cl-key"><i class="cl-dot" style="background:#187991"></i>評価に使用<i class="cl-dot" style="background:#36a79c"></i>穿刺に使用<i class="cl-dot" style="background:#d5dde3"></i>該当場面では未使用</div>
+<p class="cl-chartnote">設問ごとに回答施設数が異なるため、差の17.1ポイントを同一施設の「導入余地」とはみなせません。未使用は装置未保有と同義ではありません。</p></div>
+
+<div class="panel"><h3 class="cl-chart-title">② エコーガイド下穿刺時のプローブカバー</h3>
+<div class="cl-track" style="height:26px" role="img" aria-label="未滅菌カバー50.4%、カバーなし31.9%、滅菌カバー17.7%"><i class="cl-blue" style="width:50.4%"></i><i class="cl-slate" style="width:31.9%"></i><i class="cl-teal" style="width:17.7%"></i></div>
+<div class="cl-piebox"><div class="cl-pie" role="img" aria-label="カバー区分ドーナツ図" style="background:conic-gradient(#187991 0 50.4%,#8194a8 50.4% 82.3%,#36a79c 82.3% 100%)"></div><div class="cl-legend">
+<div><i class="cl-dot" style="background:#187991"></i><span>未滅菌カバー <strong class="cl-val" data-percent="50.4%" data-count="1,351件">50.4%</strong></span></div>
+<div><i class="cl-dot" style="background:#8194a8"></i><span>カバーなし <strong class="cl-val" data-percent="31.9%" data-count="855件">31.9%</strong></span></div>
+<div><i class="cl-dot" style="background:#36a79c"></i><span>滅菌カバー <strong class="cl-val" data-percent="17.7%" data-count="473件">17.7%</strong></span></div>
+</div></div>
+<p class="cl-chartnote">回答 2,679施設。カバー区分だけで感染対策の適否は判断できません。処置・患者への接触形態・プローブの再処理法を合わせて評価します。</p>
+</div>
+
+<div class="panel"><h3 class="cl-chart-title">③ エコーガイド下穿刺後のプローブ消毒</h3>
+<div class="cl-track" style="height:25px" role="img" aria-label="アルコール系34.5%、ペルオキソ一硫酸水素カリウム配合剤18.3%、第四級アンモニウム化合物12.1%、次亜塩素酸ナトリウム8.4%、消毒未実施4.6%、その他22.1%">
+<i class="cl-blue" style="width:34.5%"></i><i class="cl-teal" style="width:18.3%"></i><i class="cl-gold" style="width:12.1%"></i><i class="cl-purple" style="width:8.4%"></i><i class="cl-red" style="width:4.6%"></i><i class="cl-no" style="width:22.1%"></i></div>
+<div class="cl-sector"><div class="cl-barlabel"><span>アルコール系消毒薬</span><strong class="cl-val" data-percent="34.5%" data-count="923件">34.5%</strong></div><div class="cl-hbar"><i style="width:34.5%"></i></div></div>
+<div class="cl-sector"><div class="cl-barlabel"><span>ペルオキソ一硫酸水素カリウム配合剤</span><strong class="cl-val" data-percent="18.3%" data-count="490件">18.3%</strong></div><div class="cl-hbar"><i style="width:18.3%"></i></div></div>
+<div class="cl-sector"><div class="cl-barlabel"><span>第四級アンモニウム化合物</span><strong class="cl-val" data-percent="12.1%" data-count="323件">12.1%</strong></div><div class="cl-hbar"><i style="width:12.1%"></i></div></div>
+<div class="cl-sector"><div class="cl-barlabel"><span>次亜塩素酸ナトリウム</span><strong class="cl-val" data-percent="8.4%" data-count="224件">8.4%</strong></div><div class="cl-hbar"><i style="width:8.4%"></i></div></div>
+<div class="cl-sector"><div class="cl-barlabel"><span>消毒未実施</span><strong class="cl-val" data-percent="4.6%" data-count="124件">4.6%</strong></div><div class="cl-hbar"><i style="width:4.6%;background:#ba6c73"></i></div></div>
+<p class="cl-chartnote">回答 2,674施設。上記以外 590施設（22.1%）には、クロルヘキシジンや高水準消毒など複数の公表区分を合算。円グラフでの端数は四捨五入。</p>
+</div>
+
+<div class="panel"><h3 class="cl-chart-title">④ 透析治療形態｜患者数・2024年末</h3>
+<div class="cl-track" style="height:25px" role="img" aria-label="HDF 63.3%、HD 33.2%、PD3.2%、在宅HD0.2%、HF0.1%"><i class="cl-blue" style="width:63.3%"></i><i class="cl-teal" style="width:33.2%"></i><i class="cl-gold" style="width:3.2%"></i><i class="cl-purple" style="width:.2%"></i><i class="cl-no" style="width:.1%"></i></div>
+<div class="cl-sector"><div class="cl-barlabel"><span>HDF（血液透析濾過）</span><strong class="cl-val" data-percent="63.3%" data-count="213,721人">63.3%</strong></div><div class="cl-hbar"><i style="width:63.3%"></i></div></div>
+<div class="cl-sector"><div class="cl-barlabel"><span>HD（血液透析）</span><strong class="cl-val" data-percent="33.2%" data-count="111,918人">33.2%</strong></div><div class="cl-hbar"><i style="width:33.2%"></i></div></div>
+<div class="cl-sector"><div class="cl-barlabel"><span>PD（腹膜透析、併用含む）</span><strong class="cl-val" data-percent="3.2%" data-count="10,774人">3.2%</strong></div><div class="cl-hbar"><i style="width:3.2%"></i></div></div>
+<div class="cl-sector"><div class="cl-barlabel"><span>在宅HD / HF</span><strong class="cl-val" data-percent="0.3%" data-count="767人 / 234人">0.3%</strong></div><div class="cl-hbar"><i style="width:.3%"></i></div></div>
+<p class="cl-chartnote">合計337,414人。治療方式の患者構成であり、装置台数・施設普及率ではありません。</p></div>
+
+<div class="panel"><h3 class="cl-chart-title">⑤ 原疾患の構成｜透析患者の患者調査</h3>
+<div class="cl-piebox"><div class="cl-pie" role="img" aria-label="糖尿病性腎症39.2%、慢性糸球体腎炎23%、腎硬化症14.5%、その他23.3%" style="background:conic-gradient(#187991 0 39.2%,#36a79c 39.2% 62.2%,#d19b4d 62.2% 76.7%,#d5dde3 76.7% 100%)"></div><div class="cl-legend">
+<div><i class="cl-dot" style="background:#187991"></i>糖尿病性腎症 39.2%</div>
+<div><i class="cl-dot" style="background:#36a79c"></i>慢性糸球体腎炎 23.0%</div>
+<div><i class="cl-dot" style="background:#d19b4d"></i>腎硬化症 14.5%</div>
+<div><i class="cl-dot" style="background:#d5dde3"></i>その他 23.3%</div>
+</div></div>
+<p class="cl-chartnote">患者調査の原疾患構成。糖尿病・高血圧関連評価、動脈硬化・心血管疾患への多職種連携を考える基礎データです。</p></div>
+
+<div class="panel"><h3 class="cl-chart-title">⑥ 透析患者の主な死因｜2024年</h3>
+<div class="cl-sector"><div class="cl-barlabel"><span>感染症</span><strong>24.2%</strong></div><div class="cl-hbar"><i style="width:24.2%;background:#b77a6a"></i></div></div>
+<div class="cl-sector"><div class="cl-barlabel"><span>心不全</span><strong>19.0%</strong></div><div class="cl-hbar"><i style="width:19%"></i></div></div>
+<div class="cl-sector"><div class="cl-barlabel"><span>悪性腫瘍</span><strong>7.4%</strong></div><div class="cl-hbar"><i style="width:7.4%"></i></div></div>
+<p class="cl-chartnote">主要死因上位3区分のみ表示。その他の死因が存在します。感染対策と循環器評価の重要性を示しますが、機器導入による改善効果を直接証明するものではありません。</p></div>
+</div>
+
+<div class="panel"><h2>⑦ 透析施設で実施される検査・画像診断：適応と提案領域の対応</h2>
+<div class="cl-pictos">
+<div class="cl-picto"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 38L33 13l6 6-25 25zM29 10l9-5 5 5-5 9M27 22l5 5M35 12q5 12 0 24"/></svg><div><b>VAエコー</b><small>形態、血流量、RI、穿刺ガイド。透析施設で使用率の全国実測値あり。</small></div></div>
+<div class="cl-picto"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 25h8l5-10 7 22 6-14h5l4-9 5 11h2"/></svg><div><b>心エコー・循環器</b><small>心不全、弁膜症、循環動態。実施率の全国同一条件データは未確認。</small></div></div>
+<div class="cl-picto"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 11h34v26H7zM12 26h7l4-9 4 15 4-10h5"/></svg><div><b>下肢・血管エコー</b><small>末梢動脈疾患、足病変。VAとは別の臨床対象・保険適用。</small></div></div>
+<div class="cl-picto"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="11"/><path d="M24 13v22M13 24h22"/></svg><div><b>CT・血管撮影</b><small>合併症、VAIVT、血管石灰化等。専門病院・VAセンターでの適応を検討。</small></div></div>
+<div class="cl-picto"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 4v25a8 8 0 0016 0V4M13 4h24M14 29h22M18 40h14M25 40v4"/></svg><div><b>検体検査（CL）</b><small>BUN、Cr、Hb、Alb、Ca、P、PTH、CRP、脂質など。外注有無を施設別に調査。</small></div></div>
+<div class="cl-picto"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="6" width="24" height="35" rx="3"/><path d="M18 12h12M18 18h12M18 24h6M26 31l4 4 7-8"/></svg><div><b>感染・清浄化・滅菌</b><small>エコープローブ再処理、透析用水水質、手術器具滅菌は別の管理体系。</small></div></div>
+</div>
+<div class="datawrap" style="margin-top:10px"><table class="cl-smalltable"><thead><tr><th>検査・装置</th><th>主な目的・例</th><th>施設単位の確認項目</th><th>公表統計の扱い</th></tr></thead><tbody>
+<tr><td>VAエコー・穿刺ガイド</td><td>狭窄・閉塞の評価、血流量/RI、穿刺支援</td><td>装置保有、用途、CE/看護師の運用、消毒・教育</td><td><b>全国実測あり</b>（78.0%、60.9%）</td></tr>
+<tr><td>心臓・腹部・下肢血管エコー</td><td>心不全、肝腎・腹部、末梢血管・足病変</td><td>院内実施か紹介か、検査室、専門医、既存機種</td><td>透析施設別の全国使用率は未確認</td></tr>
+<tr><td>CT / MRI / 血管撮影 / XR</td><td>血管病変・石灰化・腫瘍、合併症、VAIVT</td><td>病院/診療所、手技件数、設備費、他院紹介</td><td>この調査では装置別保有率未確認</td></tr>
+<tr><td>血液・生化学・免疫検査</td><td>BUN、Cr、Alb、Hb、P、Ca、PTH、CRP、脂質</td><td>外注率、院内機器、検査頻度、試薬・保守</td><td>JRDRは患者検査項目を収集。施設のCL装置保有率ではない</td></tr>
+<tr><td>消毒・滅菌、水処理</td><td>プローブ再処理、手術器具滅菌、透析液清浄化</td><td>再使用器具の有無、手術室、RO、水質検査、感染対策</td><td>プローブカバー・消毒の全国集計のみ上記掲載</td></tr>
+</tbody></table></div>
+<div class="cl-note"><b>重要：</b>透析クリニックのすべてが滅菌機・CTを必要とするわけではありません。プローブ消毒と滅菌器の導入要否は別問題です。施設の診療機能・再使用器具・感染管理手順から個別に判断してください。</div>
+</div>
+
+<div class="panel"><h2>⑧ 保険診療・投資判断との接続</h2>
+<div class="cl-flow">
+<div><b>① 臨床ニーズ把握</b><small>VA評価・穿刺頻度・紹介体制・心血管合併症の診療範囲</small></div>
+<div><b>② 保険算定の要件</b><small>D215、K616-4、人工腎臓など。別算定・算定間隔・医学的根拠を確認</small></div>
+<div><b>③ 設備・運用コスト</b><small>プローブ、保守、教育、カバー・消毒材、必要なら手術器具の再処理</small></div>
+<div><b>④ 投資意思決定</b><small>病院・クリニック・法人本部のDMU、稼働率、紹介連携を踏まえて比較</small></div>
+</div>
+<div class="datawrap" style="margin-top:10px"><table class="cl-smalltable"><thead><tr><th>区分</th><th>参考点数</th><th>注意・関連性</th></tr></thead><tbody>
+<tr><td>D215 末梢血管等超音波</td><td>350点</td><td>シャント狭窄・閉塞の評価。医学的必要性と施設の算定状況を確認</td></tr>
+<tr><td>D215 下肢血管超音波</td><td>450点</td><td>末梢動脈疾患等の診断上の適応による</td></tr>
+<tr><td>D215 経胸壁心エコー</td><td>880点</td><td>心不全等の診療上の適応による</td></tr>
+<tr><td>K616-4 初回シャント拡張術・高度狭窄等</td><td>12,000点</td><td>2026年度の基準に血流量400mL/分以下／RI0.6以上等。手術に伴う画像検査の別算定は不可</td></tr>
+<tr><td>K616-4 初回シャント拡張術・その他</td><td>9,840点</td><td>診療内容・区分・条件に従う。単純な装置収益換算は不可</td></tr>
+</tbody></table></div>
+<div class="cl-linkout"><a href="../sterilization/" target="_blank" rel="noopener">滅菌機MKT</a><a href="../clinical-laboratory/" target="_blank" rel="noopener">検体検査MKT</a><a href="https://www.mhlw.go.jp/stf/newpage_67729.html" target="_blank" rel="noopener">2026年度診療報酬改定（厚労省）</a><a href="https://www.ssk.or.jp/shinryohoshu/sinsa_jirei/kikin_shinsa_atukai/shinsa_atukai_i/index.files/atukai_jirei_all_teikyo.pdf" target="_blank" rel="noopener">シャント関連の審査取扱い（支払基金）</a></div>
+</div>
+<div class="panel"><h2>調査原典・出典と検証範囲</h2><div class="cl-ref"><a href="https://docs.jsdt.or.jp/overview/file/2024/pdf/2024all.pdf#page=22" target="_blank" rel="noopener noreferrer">日本透析医学会 2024年末統計 第5章（VA・プローブ）</a><a href="https://docs.jsdt.or.jp/overview/index2025.html" target="_blank" rel="noopener noreferrer">JRDR 2024年統計 目次・補足表</a><a href="https://www.jstage.jst.go.jp/article/jsdt/58/12/58_524/_article/-char/ja" target="_blank" rel="noopener noreferrer">学会誌掲載論文（2025年）</a><a href="https://www.mhlw.go.jp/stf/newpage_67729.html" target="_blank" rel="noopener noreferrer">2026年診療報酬改定</a></div>
+<p class="cl-source">VA使用率、カバー使用、消毒方法はJRDR2024年末・施設調査の図33～36／補足表33～36。原疾患は患者調査、治療形態は施設調査。数値は全国集計です。県・法人・施設の個別エコー導入・稼働率を示すものではありません。画像診断機器の実際の使用目的、薬事承認範囲、保険請求、保守・感染管理は施設で確認してください。</p></div>
 </section>
 <section class="view" id="facilities">
  <div class="panel"><h2>透析施設・法人検索 <small id="facCount" class="count"></small></h2><div class="filterbar"><input id="facilityQ" type="search" placeholder="施設名、法人名、地域を検索"><select id="facilityArea"><option value="">全国・すべての地方</option></select><select id="facilityPref"><option value="">すべての都道府県</option></select><select id="facilityType"><option value="">病院・診療所すべて</option><option>病院</option><option>診療所</option></select><select id="facilityCorp"><option value="">すべての法人</option></select><select id="facilityScale"><option value="">法人規模：すべて（収録範囲）</option><option value="single">収録1拠点</option><option value="group">収録2拠点以上</option><option value="unconfirmed">法人未確認</option></select><select id="facilitySort"><option value="pref">都道府県順</option><option value="name">施設名順</option><option value="corp">法人名順</option></select><button class="btn ghost" id="clearFac">クリア</button><button class="btn" id="downloadFac">絞込結果CSV</button></div>
@@ -239,4 +346,10 @@ document.querySelectorAll('[data-viewjump]').forEach(b=>b.addEventListener('clic
 updateDash();renderFacilities();dashboard();
 })();
 
+</script><script id="clinical-analysis-script-20261111">
+(function(){
+ const v=document.getElementById('clinicalDisplay');
+ if(v){v.addEventListener('change',function(){const showCount=v.value==='count'; document.querySelectorAll('#ultrasound .cl-val').forEach(el=>{el.textContent=showCount?el.getAttribute('data-count'):el.getAttribute('data-percent')})})}
+ const go=document.getElementById('clinicalGoRegion');if(go)go.addEventListener('click',()=>{const b=document.querySelector('#nav button[data-view="overview"]');if(b)b.click(); const x=document.getElementById('dashArea');if(x)x.focus({preventScroll:true})});
+})();
 </script></body></html>
