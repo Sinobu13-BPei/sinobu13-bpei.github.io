@@ -72,4 +72,4 @@
  document.getElementById("srcGrid").innerHTML=D.sources.map(function(x){return '<div class="source"><b>'+e(x[0])+'</b>'+link(x[1],x[2])+'</div>'}).join("");
  document.getElementById("exportCSV").addEventListener("click",function(){var rows=[["医療圏","2025人口","2040推計人口","増減率%","基準病床","2025/4既存病床","2025必要病床","診療所参考2023要確認","病院参考2023要確認","構成地域","重点テーマ"]];A.forEach(function(a){rows.push([a.n,a.p,a.f,rate(a).toFixed(2),a.k,a.b,a.r,a.c,a.h,a.town,a.focus])});var csv="\uFEFF"+rows.map(function(row){return row.map(function(s){return '"'+String(s).replace(/"/g,'""')+'"'}).join(",")}).join("\r\n");var blob=new Blob([csv],{type:"text/csv;charset=utf-8"});var u=URL.createObjectURL(blob),l=document.createElement("a");l.href=u;l.download="kanagawa_medical_areas_2026_2040.csv";document.body.appendChild(l);l.click();l.remove();setTimeout(function(){URL.revokeObjectURL(u)},1000)});
 })();
-</script></body></html>
+</script><script defer src="https://sinobu13-bpei.github.io/medical-intelligence/assets/prefecture-link-r9.js?v=20261112"></script></body></html>
