@@ -8,11 +8,11 @@
 <script src="./data.js" defer></script><script src="./app.js" defer></script>
 <script defer src="https://sinobu13-bpei.github.io/medical-intelligence/assets/prefecture-ct-mri-2025.js"></script></head><body>
 <header class="mast"><div class="wrap">
-<div class="eyebrow">JAPAN MEDICAL MARKET INTELLIGENCE ／ HOKKAIDO EDITION</div>
+<div class="eyebrow">JAPAN MEDICAL MARKET INTELLIGENCE ／ HOKKAIDO EDITION ／ REV.9</div>
 <h1>北海道 医療機器市場<br>インテリジェンス 2026</h1>
 <p class="lead">人口減少・医師偏在・病院再編・高度画像診断・流通を統合し、21二次医療圏から「Where to Play」「How to Win」を導く地域医療市場研究。</p>
 <div class="tagline"><span>21二次医療圏</span><span>2024–2029 医療計画</span><span>2030 / 2040 / 2050</span><span>診療所・病院・在宅</span><span>一次情報優先</span></div>
-<p class="meta">最終更新：2026年10月26日 ／ 公開情報と明示的な分析仮説のみ掲載 ／ 非メーカー系列の中立的視点</p>
+<p class="meta">原データ基準：2026年10月26日 ／ リンク・UI改訂：2026年11月12日 ／ 医療MKT調査公開 Rev.9 ／ 公開情報と分析仮説を区別</p>
 <p class="meta" style="margin-top:8px;font-weight:800;color:#fff">編纂：イチロー・高橋</p>
 </div></header>
 <nav class="toc" aria-label="ページ内ナビゲーション"><div class="wrap">
@@ -41,7 +41,7 @@
 <div class="controlbar"><label for="areaSearch">医療圏・施設を検索</label><input id="areaSearch" type="search" placeholder="札幌、道東、救急、遠隔など"><label for="areaClass">医師偏在</label><select id="areaClass"><option value="">すべて</option><option value="多数">医師多数</option><option value="中間">医師中間</option><option value="少数">医師少数</option></select><button class="primary" id="exportCsv">21圏域CSV</button></div><p id="areaCount" class="caption" aria-live="polite">21医療圏</p>
 <div class="tablewrap"><table><thead><tr><th>医療圏・代表地点</th><th>医師偏在指標</th><th>分析スコア</th><th>需要ドライバー・課題</th><th>今後3～5年の機会（仮説）</th><th>注目施設例</th><th>地図</th></tr></thead><tbody id="areaRows"><tr><td colspan="7">医療圏データを読み込み中</td></tr></tbody></table></div><p class="caption" id="scoreMethod">独自スコア：需要集積35%、中核性25%、医師不足課題20%、地理・保守負荷20%。</p>
 <div class="vizgrid"><div><h3>21医療圏の医師偏在指標</h3><div class="chartframe tall"><canvas id="doctorChart" role="img" aria-label="北海道21医療圏の医師偏在指標棒グラフ"></canvas></div></div><div><h3>独自優先度スコア：上位10圏</h3><div class="chartframe tall"><canvas id="scoreChart" role="img" aria-label="北海道の優先度上位10医療圏の独自評価"></canvas></div></div></div>
-<h3>医療圏マップ（地理院タイル）</h3><div id="medicalMap" class="mapbox" role="region" aria-label="北海道医療圏と主要大学病院の地図"><div class="map-fallback">地理院タイルの地図を読み込んでいます。表示できない場合も下表の地図リンクから確認できます。</div></div><p class="mapnote">地図背景：国土地理院「地理院タイル」。丸印は二次医療圏の代表市町中心を示す模式的な点であり、医療圏境界・病院敷地の正確な位置を表さない。地理院地図施設リンクにも周辺参考座標を含む。</p>
+<div class="map-heading-row"><h3>医療圏マップ（地理院タイル）</h3><a class="map-direct" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8C%97%E6%B5%B7%E9%81%93%20%E7%97%85%E9%99%A2" target="_blank" rel="noopener noreferrer">北海道の病院をGoogleマップで探す ↗</a></div><div id="medicalMap" class="mapbox" role="region" aria-label="北海道医療圏と主要大学病院の地図"><div class="map-fallback">地理院タイルの地図を読み込んでいます。表示できない場合も下表の地図リンクから確認できます。</div></div><p class="mapnote">地図背景：国土地理院「地理院タイル」。丸印は二次医療圏の代表市町中心を示す模式的な点であり、医療圏境界・病院敷地の正確な位置を表さない。地理院地図施設リンクにも周辺参考座標を含む。</p>
 </section>
 <section id="providers" class="section"><h2>03｜医療提供体制・病床機能・主要病院</h2>
 <div class="grid2"><div class="soft blue"><h3>病床の4機能</h3><p><b>高度急性期：</b>高度な診療密度・集中治療。<br><b>急性期：</b>急性疾患の早期安定化。<br><b>回復期：</b>リハビリ・在宅復帰。<br><b>慢性期：</b>長期療養。</p><p>2024年度病床機能報告（R6確定版）と地域医療構想の2025年必要病床数は定義・時点が異なり、直接の超過不足判定は禁物。</p><a href="https://www.pref.hokkaido.lg.jp/hf/iyk/iry/imu/byousyoukinou.html">4機能現状の21圏域公式Excel</a></div>
@@ -52,7 +52,7 @@
 <div class="soft"><b>三大学・高度医療</b><p>北海道大学病院、札幌医科大学附属病院、旭川医科大学病院。医学教育・高度急性期・医局派遣・高度専門診療を担う。</p></div>
 <div class="soft"><b>地域がん・救命救急</b><p>北海道がんセンター、手稲渓仁会、函館市立、旭川赤十字、帯広厚生、市立釧路、北見赤十字など、国・道の指定名簿に基づき機能を確認する。</p></div>
 <div class="soft"><b>公立・公的・民間病院群</b><p>市立・道立、JA北海道厚生連、日赤、国立病院機構、医療法人・社会福祉法人が連携。個々の施設の建替・統合予定は各自治体の公表資料と議決状況を確認する。</p></div></div>
-<h3>主要病院・大学・行政・保健所：Google／地理院地図</h3><div class="controlbar"><label for="placeKind">施設区分</label><select id="placeKind"><option value="">全施設</option></select><span id="facilityCount" class="caption"></span></div><div id="placeList"><p>施設一覧を読み込み中です。</p></div>
+<h3>主要病院・大学・行政・保健所：公式サイト／Googleマップ</h3><p class="caption">病院・機関名をクリックすると公式ホームページへ、Googleマップをクリックすると所在地検索へ移動します。地理院地図の点は参考座標です。</p><div class="controlbar"><label for="placeKind">施設区分</label><select id="placeKind"><option value="">全施設</option></select><span id="facilityCount" class="caption"></span></div><div id="placeList"><p>施設一覧を読み込み中です。</p></div>
 </section>
 <section id="university" class="section"><h2>04｜大学・医師会・行政・医師確保</h2>
 <h3>医学部を持つ3大学と附属病院</h3><div class="grid3">
@@ -124,7 +124,7 @@
 <h3>方法と免責事項</h3><p>本ページは公開情報による独立調査・定性分析です。各資料の公開時点や集計定義は異なり、正確性・最新性・完全性を保証しません。独自優先度スコアは当サイトの分析仮説であり、公式格付け・推奨・施設の優劣・契約可能性を表すものではありません。登場する企業・公的機関の公式見解でもありません。</p>
 </section>
 </main>
-<footer class="foot"><div class="wrap"><p><b>北海道 医療機器市場インテリジェンス 2026</b> ／ 最終更新：2026年10月26日 ／ 公開情報に基づく独立研究</p>
+<footer class="foot"><div class="wrap"><p><b>北海道 医療機器市場インテリジェンス 2026</b> ／ データ基準：2026年10月26日／リンク更新：2026年11月12日（Rev.9） ／ 公開情報に基づく独立研究</p>
 <p><strong>編纂：イチロー・高橋</strong></p>
 <p>関連リンク：<a href="https://sinobu13-bpei.github.io/medical-intelligence/">日本医療政策・医療機器市場インテリジェンス（全国版）</a> ／ <a href="https://sinobu13-bpei.github.io/clinic-medical-device-market/">診療所MKT</a></p>
 <p>出典：「地理院タイル」（国土地理院）／ Chart.js ／ Leaflet。Google マップおよび地理院地図へのリンクは外部サイトを開きます。</p></div></footer>
