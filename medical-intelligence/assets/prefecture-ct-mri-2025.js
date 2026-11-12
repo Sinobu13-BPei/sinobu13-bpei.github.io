@@ -9,3 +9,5 @@ if(h.parentElement && h.parentElement !== main && h.parentElement.children.lengt
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',place,{once:true});else place();
 })();
+/* Rev.9 prefecture official-homepage and Google Maps navigation */
+(function(){'use strict';if(window.__prefLinkRev9Requested)return;window.__prefLinkRev9Requested=true;const script=document.createElement('script');script.src='https://sinobu13-bpei.github.io/medical-intelligence/assets/prefecture-link-r9.js?v=20261112';script.async=false;document.head.appendChild(script)})();
