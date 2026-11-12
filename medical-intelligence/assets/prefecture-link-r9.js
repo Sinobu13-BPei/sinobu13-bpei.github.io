@@ -14,7 +14,7 @@ if(!region)return;
 const safeUrl=u=>{try{const x=new URL(u,location.href);return ['https:','http:'].includes(x.protocol)?x.href:''}catch(_){return''}};
 const googleMap=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
 const googleOfficial=q=>'https://www.google.com/search?q='+encodeURIComponent(q+' 公式サイト');
-const isAllowedOfficial=u=>{const url=safeUrl(u);if(!url||url.endsWith('.pdf')||url.includes('google.')||url.includes('maps.gsi.go.jp')||url.includes('jmap.jp')||url.includes('scueldata')||url.includes('github.io')||url.includes('e-stat.go.jp')||url.includes('mhlw.go.jp')||url.includes('ipss.go.jp'))return false;return true};
+const isAllowedOfficial=u=>{const url=safeUrl(u);if(!url||/\.pdf(?:\?|$)|\/link\/?(?:\?|$)|\/association\/?(?:\?|$)/i.test(url)||url.includes('google.')||url.includes('maps.gsi.go.jp')||url.includes('jmap.jp')||url.includes('scueldata')||url.includes('github.io')||url.includes('e-stat.go.jp')||url.includes('mhlw.go.jp')||url.includes('ipss.go.jp'))return false;return true};
 function normalize(s){return String(s||'').replace(/[\s\u3000]*(?:↗|→)[\s\u3000]*$/g,'').trim()}
 function collectNames(){
  for(const a of document.querySelectorAll('main a[href],article a[href]')){
@@ -28,7 +28,7 @@ function collectNames(){
 function styleOnce(){
  if(document.getElementById('pref-link-r9-css'))return;
  const s=document.createElement('style');s.id='pref-link-r9-css';
- s.textContent='.pref-official-r9{color:#086b86!important;text-decoration:underline!important;text-decoration-color:#75b6c4!important;text-underline-offset:3px;font-weight:750!important;overflow-wrap:anywhere}.pref-official-r9:hover{color:#064b60!important;text-decoration-color:#064b60!important}.pref-map-r9,.pref-search-r9{display:inline-flex!important;align-items:center;justify-content:center;vertical-align:middle;gap:4px;padding:6px 10px;margin:5px 6px 5px 0;min-height:36px;border:1px solid #9bbdc9;border-radius:9px;background:#edf7f9;color:#155b72!important;font-size:12px!important;font-weight:750;text-decoration:none!important;line-height:1.4}.pref-map-r9:hover,.pref-search-r9:hover{background:#dceff4}.pref-map-r9:focus-visible,.pref-official-r9:focus-visible,.pref-search-r9:focus-visible{outline:3px solid #e7a93a;outline-offset:2px}.pref-map-r9-wrap{display:flex;justify-content:flex-end;flex-wrap:wrap;max-width:100%}.pref-search-r9{font-size:11px!important;min-height:30px;padding:3px 7px}.pref-map-r9-spacer{margin-left:7px}@media(max-width:600px){.pref-map-r9-wrap{justify-content:flex-start}.pref-map-r9{min-height:44px}}';
+ s.textContent='.pref-official-r9{color:#086b86!important;text-decoration:underline!important;text-decoration-color:#75b6c4!important;text-underline-offset:3px;font-weight:750!important;overflow-wrap:anywhere}.pref-official-r9:hover{color:#064b60!important;text-decoration-color:#064b60!important}.pref-map-r9,.pref-search-r9{display:inline-flex!important;align-items:center;justify-content:center;vertical-align:middle;gap:4px;padding:6px 10px;margin:5px 6px 5px 0;min-height:36px;border:1px solid #9bbdc9;border-radius:9px;background:#edf7f9;color:#155b72!important;font-size:12px!important;font-weight:750;text-decoration:none!important;line-height:1.4}.pref-map-r9:hover,.pref-search-r9:hover{background:#dceff4}.pref-map-r9:focus-visible,.pref-official-r9:focus-visible,.pref-search-r9:focus-visible{outline:3px solid #e7a93a;outline-offset:2px}.pref-map-r9-wrap{display:flex;justify-content:flex-end;flex-wrap:wrap;max-width:100%}.pref-search-r9{font-size:11px!important;min-height:30px;padding:3px 7px}.pref-map-r9-spacer{margin:1px 3px 1px 7px;min-height:30px;padding:3px 7px}@media(max-width:600px){.pref-map-r9-wrap{justify-content:flex-start}.pref-map-r9{min-height:44px}}';
  document.head.appendChild(s)
 }
 function createLink(text,url,cls,title){
@@ -83,6 +83,7 @@ function augmentGsi(root){
   if(++i>300)break;
   if(a.dataset.rev9GoogleAdded)return;
   a.dataset.rev9GoogleAdded='1';
+  if(a.parentElement&&a.parentElement.querySelector('a[href*="google.com/maps"],a[href*="google.co.jp/maps"]'))continue;
   const next=a.nextElementSibling;
   if(next?.classList.contains('pref-map-r9'))continue;
   const extra=createLink('Googleマップ',gsiSearch(a),'pref-map-r9 pref-map-r9-spacer','同じ地点をGoogleマップで確認');
@@ -95,7 +96,8 @@ function mapButtons(root){
  const targets=root.querySelectorAll(selectors);
  let shown=0;for(const el of targets){
   if(++shown>6)break;
-  if(el.dataset.rev9MapButton)return;
+  if(el.classList.contains('leaflet-container')&&el.closest('.mapbox'))continue;
+  if(el.dataset.rev9MapButton)continue;
   el.dataset.rev9MapButton='1';
   if(el.closest('a'))continue;
   const box=document.createElement('div');box.className='pref-map-r9-wrap';box.dataset.noLinkR9='1';
