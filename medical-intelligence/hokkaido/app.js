@@ -4,6 +4,32 @@ const d=window.HOKKAIDO_DATA;
 if(!d){document.getElementById('areaRows').innerHTML='<tr><td colspan="7">データ読み込みに失敗しました。</td></tr>';return}
 const f=(v)=>String(v),esc=(v)=>f(v).replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const g=(s)=>document.getElementById(s);
+const official=d.officialSites||{};
+const aliases={
+  '手稲渓仁会':'手稲渓仁会病院','函館市立':'市立函館病院','旭川赤十字':'旭川赤十字病院',
+  '帯広厚生':'帯広厚生病院','市立釧路':'市立釧路総合病院','北見赤十字':'北見赤十字病院',
+  '札幌医科大学 医学部／附属病院':'札幌医科大学附属病院',
+  '旭川医科大学 医学部／附属病院':'旭川医科大学病院'
+};
+const officialUrl=(name)=>official[aliases[name]||name]||'';
+const officialLink=(name)=>{const url=officialUrl(name);return url?'<a class="entity-official" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" title="公式ホームページを開く">'+esc(name)+'</a>':esc(name)};
+const facilityLinks=(value)=>String(value).split('・').map(name=>officialLink(name.trim())).join('・');
+function linkStaticMentions(root){
+  if(!root||!window.NodeFilter)return;
+  const terms=[...new Set([...Object.keys(official),...Object.keys(aliases)])].sort((a,b)=>b.length-a.length);
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  const nodes=[];let node;
+  while((node=walker.nextNode())){const p=node.parentElement;if(!p||!node.nodeValue.trim()||p.closest('a,button,script,style,select,textarea,option'))continue;if(terms.some(key=>node.nodeValue.includes(key)))nodes.push(node)}
+  for(const n of nodes){const raw=n.nodeValue;let pos=0,frag=document.createDocumentFragment(),changed=false;
+    while(pos<raw.length){let at=-1,term='';
+      for(const key of terms){let idx=raw.indexOf(key,pos);if(idx!==-1&&(at===-1||idx<at||(idx===at&&key.length>term.length))){at=idx;term=key}}
+      if(at===-1){frag.appendChild(document.createTextNode(raw.slice(pos)));break}
+      if(at>pos)frag.appendChild(document.createTextNode(raw.slice(pos,at)));
+      let url=officialUrl(term),el=document.createElement('a');el.textContent=term;el.href=url;el.target='_blank';el.rel='noopener noreferrer';el.className='entity-official';el.title='公式ホームページを開く';frag.appendChild(el);changed=true;pos=at+term.length
+    }
+    if(changed)n.parentNode.replaceChild(frag,n)
+  }
+}
 const google=(n)=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(n+' 北海道');
 const gsi=(a,b)=>'https://maps.gsi.go.jp/#15/'+a+'/'+b+'/';
 const score=(a)=>Math.round((35*a.demand+25*a.hub+20*a.shortage+20*a.logistics)/5);
@@ -12,7 +38,7 @@ function table(){
 let q=g('areaSearch').value.trim(),cl=g('areaClass').value;
 let list=arr.filter(a=>(!cl||a.doctorClass===cl)&&(!q||(a.name+a.city+a.driver+a.opportunity+a.facility).includes(q))).sort((a,b)=>b.score-a.score);
 g('areaCount').textContent=list.length+' / 21 二次医療圏';
-g('areaRows').innerHTML=list.map(a=>'<tr><td><b>'+esc(a.name)+'</b><br><small>'+esc(a.city)+'</small></td><td>'+esc(a.doctorClass)+'<br>'+a.physician+'</td><td><b>'+a.score+'</b>/100</td><td>'+esc(a.driver)+'</td><td>'+esc(a.opportunity)+'</td><td>'+esc(a.facility)+'</td><td><a target="_blank" rel="noopener" href="'+google(a.city)+'">Google</a> / <a target="_blank" rel="noopener" href="'+gsi(a.lat,a.lon)+'">地理院</a></td></tr>').join('')||'<tr><td colspan="7">該当なし</td></tr>';
+g('areaRows').innerHTML=list.map(a=>'<tr><td><b>'+esc(a.name)+'</b><br><small>'+esc(a.city)+'</small></td><td>'+esc(a.doctorClass)+'<br>'+a.physician+'</td><td><b>'+a.score+'</b>/100</td><td>'+esc(a.driver)+'</td><td>'+esc(a.opportunity)+'</td><td>'+facilityLinks(a.facility)+'</td><td><a target="_blank" rel="noopener" href="'+google(a.city)+'">Google</a> / <a target="_blank" rel="noopener" href="'+gsi(a.lat,a.lon)+'">地理院</a></td></tr>').join('')||'<tr><td colspan="7">該当なし</td></tr>';
 }table();g('areaSearch').addEventListener('input',table);g('areaClass').addEventListener('change',table);
 g('scoreMethod').textContent='独自分析スコア：需要の集積35%、地域中核性25%、医師不足課題20%、地理・保守負荷20%。各項目1～5点で100点換算。公的格付け・販売見込み・企業推奨ではありません。';
 g('exportCsv').addEventListener('click',()=>{
@@ -50,12 +76,12 @@ g('placeKind').innerHTML='<option value="">すべて</option>'+['大学','病院
 function showPlaces(){
 let cl=g('placeKind').value,p=places.filter(x=>!cl||x[4]===cl);
 g('facilityCount').textContent=p.length+'施設・機関';
-g('placeList').innerHTML=p.map(x=>'<div class="facility"><div><strong>'+esc(x[0])+'</strong><small>'+esc(x[1])+' ／ '+esc(x[4])+'</small></div><div class="loclinks"><a target="_blank" rel="noopener" href="'+google(x[0]+' '+x[1])+'">Google マップ</a><a title="周辺参考座標であり正確な敷地座標ではありません" target="_blank" rel="noopener" href="'+gsi(x[2],x[3])+'">地理院（周辺）</a></div></div>').join('');
+g('placeList').innerHTML=p.map(x=>'<div class="facility"><div><strong>'+officialLink(x[0])+'</strong><small>'+esc(x[1])+' ／ '+esc(x[4])+'</small></div><div class="loclinks"><a target="_blank" rel="noopener" href="'+google(x[0]+' '+x[1])+'">Google マップ</a><a title="周辺参考座標であり正確な敷地座標ではありません" target="_blank" rel="noopener" href="'+gsi(x[2],x[3])+'">地理院（周辺）</a></div></div>').join('');
 }g('placeKind').addEventListener('change',showPlaces);showPlaces();
 if(typeof L!=='undefined'){
 let map=L.map('medicalMap',{scrollWheelZoom:false}).setView([43.6,142.7],6);
 L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',{attribution:'出典：地理院タイル（国土地理院）',maxZoom:17}).addTo(map);
-arr.forEach(a=>L.circleMarker([a.lat,a.lon],{radius:5+a.hub*1.1,color:a.doctorClass==='少数'?'#bc6131':'#176b86',fillOpacity:.8}).addTo(map).bindPopup('<b>'+esc(a.name)+'</b>：'+esc(a.city)+'<br>医師偏在指標 '+a.physician+'<br><a target="_blank" href="'+google(a.city)+'">Google</a> / <a target="_blank" href="'+gsi(a.lat,a.lon)+'">地理院</a>'));
+arr.forEach(a=>L.circleMarker([a.lat,a.lon],{radius:5+a.hub*1.1,color:a.doctorClass==='少数'?'#bc6131':'#176b86',fillOpacity:.8}).addTo(map).bindPopup('<b>'+esc(a.name)+'</b>：'+esc(a.city)+'<br>医師偏在指標 '+a.physician+'<br>'+facilityLinks(a.facility)+'<br><a target="_blank" rel="noopener noreferrer" href="'+google(a.name+' '+a.city)+'">Google マップ</a> / <a target="_blank" rel="noopener noreferrer" href="'+gsi(a.lat,a.lon)+'">地理院</a>'));
 }else{g('medicalMap').textContent='地図機能の取得に失敗しました。各医療圏の地図リンクは表から開けます。'}
 if(typeof Chart!=='undefined'){
 let chart=(id,type,labels,values,options={})=>new Chart(g(id),{type,data:{labels,datasets:[{label:options.label||'値',data:values,borderColor:'#087d80',backgroundColor:type==='line'?'rgba(8,125,128,.18)':'#328e98',fill:type==='line',tension:.25}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:options.horizontal?'y':'x',plugins:{legend:{display:type==='line'}},scales:{x:options.horizontal?{beginAtZero:true}:{},y:options.horizontal?{ticks:{autoSkip:false,font:{size:10}}}:{beginAtZero:false}}}});
@@ -68,4 +94,6 @@ chart('scoreChart','bar',top.map(a=>a.name),top.map(a=>a.score),{horizontal:true
 const list=[
 ['北海道医療計画','2024–2029',d.sources.plan],['地域医療構想・2025必要病床数','2025基準',d.sources.vision],['4機能病床報告','2024年度',d.sources.beds],['21圏域患者受療動向','2024年度診療',d.sources.regions],['医師確保計画・偏在指標','2024–2026',d.sources.doctor],['重点医師偏在対策支援区域（予定）','2026年10月',d.sources.priority],['社人研人口推計','2023年推計',d.sources.ipss],['2025国勢調査人口速報','2025年調査',d.sources.census],['医療施設調査 CT/MRI','2023年設備原表',d.sources.estat],['医療施設調査概況','2024年',d.sources.clinic],['基金（医療分）','2026–2027',d.sources.fund],['北海道遠隔医療','2026年',d.sources.remote],['道内保健所一覧','2026年参照',d.sources.healthOffice],['北海道医師会','2026年参照',d.sources.medicalAssociation],['がん拠点病院一覧','2026年',d.sources.cancer],['救命救急センター','2026年4月',d.sources.emergency]];
 g('sourcesList').innerHTML=list.map((x,i)=>'<li>['+(i+1)+'] <a href="'+x[2]+'" target="_blank" rel="noopener">'+esc(x[0])+'</a> <span class="source-year">'+esc(x[1])+'</span></li>').join('');
+linkStaticMentions(document.querySelector('main'));
+document.querySelectorAll('#distribution a[href^="https://"],#distribution a[href^="http://"]').forEach(el=>{el.target='_blank';el.rel='noopener noreferrer';el.classList.add('entity-official')});
 });
