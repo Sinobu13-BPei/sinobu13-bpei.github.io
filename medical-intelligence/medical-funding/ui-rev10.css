@@ -1,0 +1,160 @@
+/* Rev.10 | National Healthcare Funding Intelligence | compact, contrast-safe and responsive */
+:root{--muted:#4e6577;--line:#d3e1e9;--teal:#08717b;--blue:#1a5d85;--radius:12px;--shadow:0 2px 12px rgba(13,44,67,.05)}
+html{scroll-padding-top:74px}
+body{font-size:13.5px;line-height:1.52;background:#f2f6f9;color:#173148}
+.head-inner,.wrap{max-width:1520px;padding-left:18px;padding-right:18px}
+.head-inner{padding-top:17px;padding-bottom:15px}
+.head-grid{grid-template-columns:minmax(0,1fr) 215px;gap:12px}
+.head-grid h1{font-size:clamp(24px,3.3vw,35px);line-height:1.23;margin:2px 0 7px}
+.head-grid p{font-size:12px;line-height:1.62}
+.hero-visual{max-width:210px;height:99px}
+.hero-micro{margin-top:10px;gap:5px}
+.hero-micro span{padding:3px 8px;font-size:10.5px}
+.funding-update-strip{margin:6px 0 10px;gap:4px 12px;padding:7px 10px;line-height:1.5}
+.topline{margin-bottom:5px}
+.editorial-author-top{padding:5px 12px!important;font-size:12px!important}
+.nav-inner{max-width:1520px;padding:0 18px;gap:8px}
+.nav a{padding:11px 10px;font-size:11.5px;min-height:43px;align-items:center}
+.nav small{font-size:10px;color:#4e6575}
+.wrap{padding-top:11px;padding-bottom:30px}
+#verified-20261112{max-width:1484px!important;margin:10px auto!important;padding:10px 13px!important}
+#verified-20261112 h2{margin:0 0 5px;font-size:15px}
+#verified-20261112 p{margin:5px 0;font-size:12px;line-height:1.5}
+#verified-20261112 ul{margin:5px 0;padding-left:19px;columns:2;column-gap:25px}
+#verified-20261112 li{break-inside:avoid;margin:0 0 4px;font-size:11.5px;line-height:1.48}
+.warning-compact{margin-bottom:9px;padding:8px 10px}
+.warning-compact summary,.warning-compact p{font-size:11.5px}
+.summary{gap:8px;margin:7px 0 13px}
+.metric{padding:10px 11px;border-radius:10px}
+.metric .label{font-size:10.5px;color:#455f71}
+.metric .n{font-size:clamp(21px,2.5vw,28px);line-height:1.25}
+.metric .tail{font-size:10px;color:#516d80;margin-top:3px}
+.layout{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:10px}
+.panel{padding:12px 13px;border-radius:11px}
+.panel-title{margin-bottom:9px;gap:8px}
+.panel-title h2{font-size:16px;line-height:1.4;color:#193d56}
+.panel-title p{font-size:11px;line-height:1.5}
+.section-title{margin:17px 0 8px}
+.section-title h2{font-size:19px;line-height:1.36;color:#183e58}
+.section-title p{font-size:11px;line-height:1.5}
+.tag{white-space:normal;line-height:1.4;font-size:10px;max-width:100%;color:#2d5974}
+#atlas .map-svg{width:100%;max-width:690px;max-height:465px}
+.map-wrap{border:1px solid #d8e6ec;border-radius:9px;background:#fbfdfd;min-width:0}
+.map-foot{font-size:10px;color:#4c6678;line-height:1.5;margin-top:5px}
+.map-legend{gap:7px 11px}
+.map-legend span{font-size:10px;color:#36546a}
+.pref-detail{margin-top:7px;min-height:0;padding:9px 11px}
+.pref-detail h3{margin-bottom:2px;font-size:13px}
+.pref-detail p{font-size:11px;line-height:1.47}
+.pref-actions{gap:6px 12px;margin-top:6px;font-size:11.5px}
+.pref-actions a{font-weight:750;color:#075a7a;text-decoration:underline;text-underline-offset:3px}
+.fchart{gap:6px}
+.fitem{padding:7px 6px;border-radius:8px}
+.fitem .nm{font-size:10px;color:#3f6676}
+.fitem .v{font-size:21px;line-height:1.3}
+.fitem .sub{font-size:9.5px;color:#4f6a7c}
+.stat-chart{gap:6px}
+.bar-row{grid-template-columns:118px minmax(0,1fr) 30px;gap:7px}
+.bar-row button{min-height:29px;font-size:11px;color:#25485c;text-align:left;font-weight:750}
+.bar-row button:focus-visible{outline-offset:1px}
+.bar-track{height:12px;background:#e2edf2}
+.bar-val{font-size:11px;color:#264d61}
+#atlas .panel h3{font-size:12px!important;margin:12px 0 6px!important}
+.filter-panel{padding:11px 12px}
+.filter-title{margin-bottom:7px}
+.filter-grid,.filter-grid.second{gap:7px 9px}
+.field label{font-size:10.8px;margin-bottom:3px;color:#345970}
+.field select,.field input{height:37px;font-size:12px}
+.quick-filters{gap:6px;margin-bottom:8px}
+.quick-filter{min-height:36px;padding:6px 10px;border-radius:8px}
+.advanced-filters{margin-top:8px;padding:5px 10px}
+.advanced-filters .filter-grid{margin-top:8px}
+.filter-actions{gap:6px;margin-top:9px}
+.active-filter-list{gap:5px;margin:4px 0 8px}
+.active-filter{padding:4px 9px}
+.btn{padding:7px 10px;line-height:1.4;min-height:37px;white-space:normal}
+.tools{gap:6px}
+.result-meta{margin-top:9px!important;margin-bottom:6px!important}
+.table-viewport{max-height:620px;border-radius:9px}
+.data-table{min-width:1170px}
+.data-table thead th{padding:8px 7px;font-size:10.8px;white-space:normal;line-height:1.4}
+.data-table td{padding:7px 7px;font-size:11.5px;line-height:1.42;vertical-align:middle}
+.row-title{font-size:11.5px;line-height:1.35;margin-bottom:3px}
+.row-sub{color:#4d6375;font-size:10px}
+.row-id{color:#566e81}
+.data-table .pill{font-size:9.5px;padding:2px 5px;line-height:1.5}
+.data-table td b,.data-table td strong{color:#193e56}
+.institution-link{font-weight:800;color:#07577a!important;text-decoration:underline;text-underline-offset:2px;text-decoration-color:#83c1cf}
+.institution-link:hover{text-decoration-color:#07577a}
+.institution-link:focus-visible{outline:3px solid #de9b26;outline-offset:2px}
+.institution-secondary{font-size:10.5px;margin-top:3px}
+.institution-secondary a{display:inline-block}
+.pref-map-link,.funding-google-link{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:7px 11px;min-height:38px;border-radius:8px;background:#dceff2;color:#075466!important;border:1px solid #9fced5;text-decoration:none!important;font-size:11.5px;font-weight:800;line-height:1.4}
+.pref-map-link:hover,.funding-google-link:hover{background:#cce4e9}
+.pref-map-link:focus-visible,.funding-google-link:focus-visible{outline:3px solid #dfaa50;outline-offset:2px}
+.map-title-actions{display:flex;flex-wrap:wrap;gap:5px 8px;align-items:flex-start;justify-content:flex-end}
+.map-title-actions .tag{align-self:center}
+.area-grid{gap:7px}
+.area-tile{padding:10px!important}
+.agency-grid{gap:7px}
+.agency-item{padding:9px;border-radius:8px}
+.agency-item b{font-size:11.5px;color:#16475d}
+.agency-item small{font-size:10px;color:#496679}
+.pref-contact-grid{max-height:370px;gap:6px}
+.pref-contact-item{padding:8px}
+.pref-contact-item small{color:#526879}
+.contact-help{margin-bottom:9px}
+.contact-directory-head{margin-bottom:7px}
+.deadline-list{gap:6px}
+.deadline-item{padding:9px!important;gap:8px}
+.timeline-key{margin:4px 0!important}
+#tokyo-sme{padding:12px!important;margin:12px 0!important}
+.tokyo-cards{gap:8px}
+.tokyo-card{padding:11px}
+.tokyo-tool{gap:6px}
+.detail{padding:17px 19px;max-height:92vh}
+.detail-grid{gap:7px}
+.detail-cell{padding:8px 10px}
+.detail-cell dt{font-size:10px;color:#486275}
+.detail-cell dd{font-size:11.5px;color:#193a52;line-height:1.5}
+.detail-block{padding-top:10px}
+.detail-links{margin-top:10px;gap:7px}
+.note-box{margin-top:9px}
+.footer{margin-top:18px;padding:14px 0;color:#526777}
+.footer a{color:#0c617f}
+[hidden]{display:none!important}
+@media(max-width:1180px){.layout{grid-template-columns:1fr}.head-grid{grid-template-columns:minmax(0,1fr) 170px}.summary{grid-template-columns:repeat(3,minmax(0,1fr))}.agency-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){
+ .head-inner,.wrap,.nav-inner{padding-left:12px;padding-right:12px}
+ .head-grid{grid-template-columns:1fr}
+ .hero-visual{display:none}
+ .head-grid h1{font-size:clamp(23px,6.2vw,31px)}
+ .funding-update-strip{gap:4px 10px;padding:6px 9px}
+ .nav a{min-height:43px;padding:9px 11px}
+ #verified-20261112{margin:8px 10px!important;padding:9px 11px!important}
+ #verified-20261112 ul{columns:1}
+ .wrap{padding-top:9px}
+ .summary{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+ .metric{padding:9px}
+ .metric .n{font-size:22px}
+ .panel{padding:10px}
+ #atlas .map-svg{width:670px;max-height:none;min-width:670px}
+ .map-wrap{overflow-x:auto}
+ .map-title-actions{justify-content:flex-start}
+ .quick-filter{min-height:40px}
+ .field select,.field input{min-height:44px;height:44px}
+ .pref-contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .agency-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .mobile-result-grid{gap:7px}
+ .mobile-card{padding:11px}
+ .mobile-facts{gap:4px}
+ .mobile-facts>div{padding-top:5px}
+ .mobile-card h3{margin:5px 0;font-size:14px}
+ .mobile-card-actions{gap:6px}
+ .mobile-card-actions .rowbtn,.mobile-card-actions a{min-height:44px}
+ #filters{order:1}
+ #overview{order:2}
+ #atlas{order:3}
+}
+@media(max-width:460px){.nav small{display:none}.section-title h2{font-size:17px}.panel-title h2{font-size:15px}.pref-contact-grid,.agency-grid{grid-template-columns:1fr}.map-title-actions a{min-width:100%}}
+@media print{.nav,.map-title-actions .funding-google-link,.filter-panel,.tools{display:none!important}.map-wrap{overflow:visible}#atlas .map-svg{width:100%;max-width:650px}.table-viewport{max-height:none}}
