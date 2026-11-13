@@ -57,7 +57,7 @@ function renderRows(){
  const lines=visible.map(r=>{
   const href=r.url,source=r.source||NINGEN;
   const nm=href?'<a class="nd6-name" href="'+esc(href)+'" target="_blank" rel="noopener noreferrer">'+esc(r.name)+' ↗</a>':'<b>'+esc(r.name)+'</b><small>個別公式HP未確認</small>';
-  return '<tr><td>'+esc(r.region)+'<small>'+esc(r.pref)+'</small></td><td>'+nm+'<small>'+esc(r.evidence)+'</small></td><td><span class="nd6-chip">'+esc(r.kind)+'</span><small>法人未確認</small></td><td>'+esc(r.services||'提供内容を個別確認')+'<small>'+esc(r.special||r.details||'')+'</small></td><td>'+esc(r.addr||'住所未確認')+'<small>'+anchor(mapUrl(r),'Googleマップで位置を確認','Googleマップ ↗')+'</small></td><td>'+anchor(source,'名称・掲載の根拠','出典 ↗')+'</td></tr>'
+  return '<tr><td>'+esc(r.region)+'<small>'+esc(r.pref)+'</small></td><td>'+nm+'<small>'+esc(r.evidence)+'</small></td><td><span class="nd6-chip">'+esc(r.kind)+'</span><small>'+(r.group?anchor(r.corpUrl||CORP_SITES[r.group]||'','法人・企業公式HP',r.group):'法人未確認')+'</small></td><td>'+esc(r.services||'提供内容を個別確認')+'<small>'+esc(r.special||r.details||'')+'</small></td><td>'+esc(r.addr||'住所未確認')+'<small>'+anchor(mapUrl(r),'Googleマップで位置を確認','Googleマップ ↗')+'</small></td><td>'+anchor(source,'名称・掲載の根拠','出典 ↗')+'</td></tr>'
  }).join('');
  E('nd6Rows').innerHTML=lines||'<tr><td colspan="6" class="nd6-empty">該当する収録レコードはありません。公式名簿もご確認ください。</td></tr>';
  E('nd6More').disabled=shown>=data.length;E('nd6More').textContent=shown>=data.length?'全件表示済み':'さらに60件表示（'+(data.length-visible.length)+'件）';
