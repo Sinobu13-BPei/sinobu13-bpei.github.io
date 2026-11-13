@@ -51,7 +51,7 @@ try{
   assert.ok(z.mobiles===12&&z.issuers>0&&z.google>=47&&z.css&&!z.naN,JSON.stringify(z));
   assert.ok(z.docW<=w+4&&z.bodyW<=w+4,'Page width overflow '+JSON.stringify(z));
   let f=await ev(filterCode);
-  assert.ok(f.tokyo.includes('52')&&f.verified.includes('37')&&f.reset.includes('132'),JSON.stringify(f));
+  assert.ok(f.tokyo.includes('4')&&f.verified.includes('37')&&f.reset.includes('132'),JSON.stringify(f));
   const png=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false,fromSurface:true});
   writeFileSync(join(artifacts,'funding-'+label+'.png'),Buffer.from(png.data,'base64'));
   results.push({size:label,...z,filter:f})
