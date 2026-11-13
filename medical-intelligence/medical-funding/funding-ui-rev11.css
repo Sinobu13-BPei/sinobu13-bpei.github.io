@@ -45,7 +45,7 @@ header .hub-home-rev11:hover,header .hub-home-rev11:focus-visible{background:rgb
 .section-title{margin:11px 0 8px}
 .tag{font-size:10px}
 .fchart{gap:6px}
-.fitem{min-width:0;padding:9px 6px;border-radius:8px;border:1px solid #d9e7ee;background:#f3f8fa;color:#19485d;text-align:center}
+.fitem{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:0;min-height:72px;padding:7px 6px;border-radius:8px;border:1px solid #d9e7ee;background:#f3f8fa;color:#19485d;text-align:center;white-space:normal;line-height:1.25}
 button.fitem{cursor:pointer;font:inherit}
 button.fitem:hover,button.fitem:focus-visible{background:#e1f2f5;border-color:#43a5b0}
 .fitem .nm{font-size:12px;font-weight:800;color:#235b79}
@@ -172,3 +172,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .tokyo-archive-rev11[open]>summary{border-bottom:1px solid #d4e5ec}
 .tokyo-archive-rev11>.tokyo-tool,.tokyo-archive-rev11>.tokyo-cards{margin:9px}
 @media(max-width:680px){.tokyo-archive-rev11>.tokyo-tool,.tokyo-archive-rev11>.tokyo-cards{margin:7px}.tokyo-archive-rev11>summary{padding:10px;font-size:12px}}
+
+.fitem .nm,.fitem .v,.fitem .sub{display:block;width:100%;line-height:1.25}
+.fitem .sub{font-size:10px;color:#526e7b;overflow-wrap:anywhere}
+@media(max-width:450px){.fitem{min-height:66px;padding:6px 3px}.fitem .sub{font-size:9px}}
