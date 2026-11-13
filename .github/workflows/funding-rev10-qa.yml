@@ -18,6 +18,13 @@ jobs:
           node-version: '22'
       - name: Verify Rev11 page JavaScript, 132 unique records and anchors
         run: node medical-intelligence/medical-funding/qa-funding-rev11.mjs
+      - name: Install Japanese fonts for accurate page screenshots
+        run: |
+          if ! fc-match -f '%{family}' 'Noto Sans CJK JP' | grep -q 'Noto Sans CJK'; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends fonts-noto-cjk
+          fi
+          fc-cache -f
       - name: Check desktop/tablet/phone sizes and interactive filters in Chrome
         run: node medical-intelligence/medical-funding/qa-funding-rev11.mjs --browser
       - name: Upload UI evidence screenshots
