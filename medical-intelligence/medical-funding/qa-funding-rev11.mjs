@@ -18,7 +18,7 @@ const body=html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,'');
 const ids=[...body.matchAll(/\bid=["']([^"']+)["']/g)].map(x=>x[1]);
 assert.equal(ids.length,new Set(ids).size,'Static ID duplication');
 for(const ref of body.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(ref[1]),'Missing anchor '+ref[1]);
-assert.ok(html.includes('funding-ui-rev11.css?v=20261113'));
+assert.ok(html.includes('funding-ui-rev11.css?v=20261113b'));
 console.log('FUNDING REV11 STATIC QA PASS: 132 unique records / 47 prefectures / links and JavaScript.');
 if(!process.argv.includes('--browser'))process.exit(0);
 const sleep=n=>new Promise(ok=>setTimeout(ok,n)),artifacts=join(dir,'qa-artifacts');
@@ -53,8 +53,12 @@ try{
   assert.ok(z.docW<=w+4&&z.bodyW<=w+4,'Page width overflow '+JSON.stringify(z));
   let f=await ev(filterCode);
   assert.ok(f.initialRows===40&&f.expandedRows===80&&f.tokyo.includes('4')&&f.verified.includes('37')&&f.reset.includes('132')&&/\d+/.test(f.ct),JSON.stringify(f));
+  await ev("window.scrollTo({top:0,behavior:'instant'});true");await sleep(200);
   const png=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false,fromSurface:true});
   writeFileSync(join(artifacts,'funding-'+label+'.png'),Buffer.from(png.data,'base64'));
+  await ev("document.getElementById('atlas').scrollIntoView({block:'start',behavior:'instant'});true");await sleep(200);
+  const chartPng=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false,fromSurface:true});
+  writeFileSync(join(artifacts,'funding-'+label+'-chart.png'),Buffer.from(chartPng.data,'base64'));
   results.push({size:label,...z,filter:f})
  }
  console.log('FUNDING REV11 BROWSER QA PASS\n'+JSON.stringify(results,null,2));
