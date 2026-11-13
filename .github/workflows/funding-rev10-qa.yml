@@ -1,0 +1,30 @@
+name: Funding Atlas Rev10 Browser QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'medical-intelligence/medical-funding/**'
+      - '.github/workflows/funding-rev10-qa.yml'
+permissions:
+  contents: read
+jobs:
+  funding-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify Rev10 page JavaScript, 132 unique records and anchors
+        run: node medical-intelligence/medical-funding/qa-funding-rev10.mjs
+      - name: Check desktop/tablet/phone sizes and interactive filters in Chrome
+        run: node medical-intelligence/medical-funding/qa-funding-rev10.mjs --browser
+      - name: Upload UI evidence screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: funding-rev10-qa-screenshots
+          path: medical-intelligence/medical-funding/qa-artifacts/*.png
+          retention-days: 7
+          if-no-files-found: ignore
