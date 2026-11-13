@@ -15,7 +15,7 @@ const E=tag=>document.getElementById(tag);
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s||'').normalize('NFKC').replace(/[\s\u3000（）()・\-–—]/g,'').replace(/(公益財団法人|一般財団法人|医療法人社団|社会医療法人財団|医療法人財団|医療法人|一般社団法人|公益社団法人|社会福祉法人)/g,'').toLowerCase();
 const mapUrl=(r)=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent([r.pref,r.name,r.addr].filter(Boolean).join(' '));
-const cleanUrl=u=>/^https:\/\/[^\s<>"']+$/.test(String(u||''))?String(u):'';
+const cleanUrl=u=>/^https?:\/\/[^\s<>"']+$/.test(String(u||''))?String(u):'';
 const anchor=(u,title,label)=>u?'<a class="nd6-minilink" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" title="'+esc(title)+'">'+esc(label)+'</a>':'<span class="nd6-note">未確認</span>';
 const regionMap=Object.fromEntries(DB.prefectures.map(x=>[x['都道府県'],x['地方']]));
 const rows=[];
