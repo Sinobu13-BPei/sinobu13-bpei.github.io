@@ -1,0 +1,167 @@
+/* National Healthcare Funding Intelligence | Rev.11, 2026-11-13
+   UI-only: keeps every source record and original policy statement. */
+:root{--fund11-focus:#e6a23b}
+html{scroll-padding-top:64px;-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+header .head-inner{padding-top:15px;padding-bottom:14px}
+header .topline{margin-bottom:5px}
+header .head-grid{grid-template-columns:minmax(0,1fr) 190px;gap:13px}
+header .head-grid h1{font-size:clamp(23px,2.7vw,34px);margin:3px 0 7px;letter-spacing:-.02em}
+header .head-grid p{font-size:12.5px;line-height:1.65;max-width:950px}
+header .hero-visual{max-width:175px;height:88px}
+header .hero-micro{gap:6px;margin-top:9px}
+header .hero-micro span{padding:3px 7px;font-size:10.5px}
+header .hero-cta{margin-top:10px;padding:8px 14px}
+header .funding-update-strip{gap:5px 10px;margin:5px 0 8px;padding:7px 11px;border-radius:9px}
+header .funding-update-strip span{font-size:11px}
+header .hub-home-rev11{display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:5px 10px;border-radius:7px;border:1px solid #9dc5d5;background:rgba(255,255,255,.12);color:#f4fdff!important;font-weight:750;font-size:11px;text-decoration:none}
+header .hub-home-rev11:hover,header .hub-home-rev11:focus-visible{background:rgba(255,255,255,.23);text-decoration:underline}
+.nav-inner{min-width:0}
+.nav-links{min-width:0;max-width:100%;scroll-behavior:smooth}
+.nav a{padding:10px 9px;border-bottom-width:2px;font-size:11.5px}
+.nav a[aria-current="location"]{border-bottom-color:#087d83;color:#086475}
+.wrap{padding-top:13px;padding-bottom:35px}
+.wrap>section,.wrap>.layout{scroll-margin-top:68px}
+.wrap>section{margin-bottom:15px}
+.warning-compact{margin-bottom:9px;padding:7px 12px}
+.warning-compact summary{font-size:11.5px;line-height:1.5}
+.funding-updates-rev11{width:100%;max-width:100%;margin:0 0 10px;background:#f5fafc;border:1px solid #d6e7ef;border-left:4px solid #2a8691;border-radius:10px;padding:0;box-shadow:none}
+.funding-updates-rev11 details summary{padding:9px 13px;cursor:pointer;color:#145a75;font-weight:800;font-size:12.5px}
+.funding-updates-rev11 details[open] summary{border-bottom:1px solid #dbe9ef}
+.funding-updates-rev11 .funding-updates-content{padding:10px 13px 12px;font-size:12px;line-height:1.65}
+.funding-updates-rev11 .funding-updates-content>p{margin:6px 0}
+.funding-updates-rev11 .funding-updates-content ul{margin:5px 0;padding-left:20px}
+.funding-updates-rev11 .funding-updates-content li{margin:3px 0}
+.summary{gap:7px;margin:8px 0 13px}
+.metric{padding:10px 11px;min-height:82px}
+.metric .label{font-size:10.5px;line-height:1.35}
+.metric .n{font-size:clamp(21px,2.3vw,28px);line-height:1.25}
+.metric .tail{font-size:10px;line-height:1.4;margin-top:3px}
+.layout{gap:10px;grid-template-columns:minmax(0,1.25fr) minmax(340px,.85fr)}
+.panel{padding:13px;border-radius:12px}
+.panel-title{margin-bottom:9px;gap:7px;flex-wrap:wrap}
+.panel-title h2,.section-title h2{font-size:17px;line-height:1.38}
+.panel-title p,.section-title p{margin-top:3px;font-size:11px;line-height:1.55}
+.section-title{margin:11px 0 8px}
+.tag{font-size:10px}
+.fchart{gap:6px}
+.fitem{min-width:0;padding:9px 6px;border-radius:8px;border:1px solid #d9e7ee;background:#f3f8fa;color:#19485d;text-align:center}
+button.fitem{cursor:pointer;font:inherit}
+button.fitem:hover,button.fitem:focus-visible{background:#e1f2f5;border-color:#43a5b0}
+.fitem .nm{font-size:12px;font-weight:800;color:#235b79}
+.fitem .v{font-size:19px;line-height:1.2}
+.fitem .sub{font-size:10px;line-height:1.35}
+.stat-chart{gap:6px}
+.bar-row{grid-template-columns:minmax(116px,36%) minmax(35px,1fr) 32px;gap:6px;font-size:11px}
+.bar-row>button{height:auto;min-height:30px;padding:4px 5px;white-space:normal!important;overflow-wrap:anywhere;text-align:left;line-height:1.25;font-size:11px}
+.bar-track{height:11px}
+.bar-fill{height:100%}
+.bar-val{text-align:right;font-variant-numeric:tabular-nums}
+.map-title-actions{gap:6px;align-items:center;flex-wrap:wrap}
+.map-wrap{background:#f9fbfc;border-radius:8px}
+.map-svg .cell:focus-visible{outline:none}
+.map-svg .cell:focus-visible rect{stroke:#de9435;stroke-width:4}
+.pref-detail{padding:9px 11px;min-height:0;margin-top:8px}
+.pref-detail p{margin:3px 0}
+.pref-actions{gap:7px}
+.pref-actions a,.funding-google-link,.funding-google-branch-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid #a3c8d2;border-radius:8px;min-height:33px;padding:6px 9px;font-size:11px;font-weight:750;background:#ecf7f9;color:#125c71!important;text-decoration:none}
+.pref-actions a:hover,.funding-google-link:hover,.funding-google-branch-link:hover{background:#d6f0f4}
+.map-foot,.map-swipe-note{font-size:10.5px;line-height:1.5}
+.map-legend{gap:7px}
+.filter-panel{padding:11px;border-radius:11px}
+.filter-title{margin-bottom:6px}
+.quick-filters{gap:6px}
+.quick-filter{min-height:36px;padding:5px 9px;font-size:11px}
+.filter-grid{gap:7px}
+.field label{font-size:10.5px;line-height:1.4}
+.field select,.field input{height:38px;font-size:12px}
+.advanced-filters{padding:6px 9px;margin-top:7px}
+.advanced-filters summary{font-size:11px}
+.filter-actions{margin-top:8px;gap:7px}
+.tools{gap:6px}
+.tools .btn,.btn{min-height:35px;padding:6px 10px;font-size:11.5px}
+.result-meta{margin:10px 0 6px}
+.result-meta .count{font-size:18px}
+.active-filter-list{gap:4px;margin-bottom:7px}
+.active-filter{padding:4px 9px}
+.table-viewport{max-height:580px;border-radius:9px}
+.data-table{min-width:1120px}
+.data-table thead th{padding:8px 8px;font-size:10.5px}
+.data-table td{padding:7px 8px;font-size:11px;line-height:1.45;vertical-align:top}
+.data-table tbody tr:nth-child(even){background:#f6fafc}
+.data-table tbody tr:hover{background:#eaf4f7}
+.data-table .row-title{font-size:12px;line-height:1.4}
+.data-table .row-sub{font-size:10px;line-height:1.45;margin-top:2px}
+.data-table .pill{font-size:9.5px;padding:2px 6px;margin:2px}
+.desktop-paging-rev11{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:7px 2px;font-size:11px;color:#567083}
+.desktop-paging-rev11 .btn{min-height:35px}
+.desktop-paging-rev11 button[hidden]{display:none}
+.agency-grid{gap:7px}
+.agency-item{padding:9px 10px;min-height:60px}
+.pref-contact-grid{gap:6px}
+.pref-contact-item{padding:9px}
+.area-grid{gap:7px}
+.area-tile{padding:8px;min-height:0}
+.area-tile .area-select-rev11{background:none;border:0;padding:0;text-align:left;width:100%;color:inherit;font:inherit;cursor:pointer}
+.area-tile .area-select-rev11:focus-visible{outline:3px solid #e5a347;outline-offset:3px}
+.area-tile .funding-google-branch-link{min-height:28px;font-size:10px;padding:4px 7px;margin-top:5px}
+.heat-btn-rev11{width:100%;border:1px solid transparent;padding:5px 2px;min-height:31px;cursor:pointer;font:inherit;font-size:11px;font-weight:750;border-radius:6px}
+.heat-btn-rev11:hover,.heat-btn-rev11:focus-visible{border-color:#268698;outline:2px solid #eab14e;outline-offset:1px}
+.tokyo-tool{gap:7px;margin:8px 0}
+.tokyo-cards{gap:8px}
+.tokyo-card{padding:10px}
+.tokyo-facts{gap:4px}
+.tokyo-note{padding:9px 11px;font-size:11px;line-height:1.55}
+.detail{padding:17px}
+.detail-grid{gap:7px}
+.detail-cell{padding:7px 9px}
+.detail-block{padding-top:11px}
+.detail-block h3{margin:0 0 5px}
+.detail-links{gap:6px}
+.detail-links .btn{max-width:100%;white-space:normal}
+a.institution-link{overflow-wrap:anywhere;text-underline-offset:2px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--fund11-focus);outline-offset:2px}
+@media(max-width:1050px){.layout{grid-template-columns:1fr}.panel{padding:12px}.head-grid{grid-template-columns:minmax(0,1fr) 130px}}
+@media(max-width:760px){
+ header .head-grid{display:block}
+ header .hero-visual{display:none}
+ header .hub-home-rev11{min-height:39px}
+ .wrap{padding-top:8px}
+ .wrap>.funding-updates-rev11{order:0}
+ .summary{margin:8px 0 10px}
+ .metric{min-height:76px;padding:9px}
+ .panel{padding:11px}
+ .nav a{padding:8px 11px;min-height:40px}
+ .map-swipe-note{display:block}
+ .map-svg{min-width:570px}
+ .bar-row{grid-template-columns:minmax(115px,35%) minmax(30px,1fr) 29px}
+ .filter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .field select,.field input{min-height:44px}
+ .quick-filter{min-height:42px}
+ .desktop-paging-rev11,.table-viewport{display:none}
+ .mobile-card{padding:11px}
+ .mobile-result-grid{gap:8px}
+ .mobile-facts{gap:5px;margin:7px 0}
+ .mobile-facts>div{padding-top:6px}
+ .agency-item{min-height:65px}
+ .detail{padding:14px 12px 28px}
+ .detail-grid{gap:6px}
+}
+@media(max-width:480px){
+ .head-inner,.wrap{padding-left:11px;padding-right:11px}
+ header .topline{align-items:flex-start}
+ header .funding-update-strip{padding:6px 8px}
+ .summary{gap:6px}
+ .metric .n{font-size:21px}
+ .filter-grid,.filter-grid.second{grid-template-columns:1fr!important}
+ .bar-row{grid-template-columns:minmax(92px,38%) minmax(25px,1fr) 25px;gap:4px}
+ .bar-row button{font-size:10px}
+ .agency-grid{grid-template-columns:1fr}
+}
+@media print{
+ .nav,.quick-filters,.filter-panel,.desktop-paging-rev11,.funding-google-link,.funding-google-branch-link{display:none!important}
+ .funding-updates-rev11 details{display:block}
+ .funding-updates-rev11 summary{display:none}
+ .funding-updates-rev11 .funding-updates-content{display:block}
+ .table-viewport{max-height:none;overflow:visible}
+}
