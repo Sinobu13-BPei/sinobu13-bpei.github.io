@@ -1,0 +1,95 @@
+/* National preventive health and Ningen Dock facility atlas, Rev6 - 2026-11-13 */
+(function(){'use strict';
+const doc=document.getElementById('nationalDirectory');if(!doc)return;
+const orig=document.getElementById('sourceData');if(!orig)return;
+let DB;try{DB=JSON.parse(orig.textContent)}catch(e){doc.querySelector('#nd6Count').textContent='元データ読込エラー';return}
+const EXTRAS=[["北海道","渓仁会円山クリニック","渓仁会","札幌市中央区大通西26丁目3-16","https://www.keijinkai.com/maruyama/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["茨城県","霞ヶ浦成人病研究事業団健診センター","霞ヶ浦成人病研究事業団","稲敷郡阿見町中央3-20-1","https://www.ksk-jigyoudan.or.jp/","健診・人間ドック","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["茨城県","つくば総合健診センター","筑波メディカルセンター","つくば市天久保1-2","https://www.tmch.or.jp/","健診・人間ドック","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["茨城県","日立健康管理センタ","日立製作所","日立市会瀬町4-3-16","https://www.hitachi.co.jp/","職域健診","企業運営の会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["茨城県","日立総合病院日立総合健診センター","日立製作所","日立市城南町2-1-1","https://www.hitachi.co.jp/","病院併設健診","企業運営の会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["茨城県","ひたちなか総合病院総合健診センター","日立製作所","ひたちなか市石川町20-1","https://www.hitachi.co.jp/","病院併設健診","企業運営の会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["千葉県","花輪クリニック","医療法人成春会","船橋市本町1-3-1","https://www.hanawa.or.jp/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["埼玉県","大宮共立病院 総合健診プログラム","医療法人財団新生会","さいたま市見沼区片柳1550","https://www.omiya-kyoritsu.or.jp/","病院併設健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["埼玉県","大宮シティクリニック","医療法人大宮シティクリニック","さいたま市大宮区桜木町1-7-5","https://www.omiyacityclinic.com/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","オリエンタル上野健診センター","オリエンタル労働衛生協会","台東区上野1-20-11","https://www.oriental-gr.com/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","春日クリニック","医療法人社団同友会","文京区小石川1-12-16","https://www.kasuga-clinic.com/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","こころとからだの元氣プラザ","医療法人社団こころとからだの元氣プラザ","千代田区神田神保町1-105","https://www.genkiplaza.or.jp/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","馬込中央診療所","医療法人社団松英会","大田区中馬込1-5-8","https://www.shoeikai.com/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","新赤坂クリニック青山","医療法人社団健松会","港区南青山2-2-3","https://www.sinakasaka.com/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","明治安田新宿健診センター","明治安田健康開発財団","渋谷区代々木3-22-7","https://www.my-health.or.jp/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","聖路加国際病院附属クリニック予防医療センター","聖路加国際病院","中央区明石町8-1","https://dock.luke.ac.jp/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","結核予防会 総合健診推進センター","公益財団法人結核予防会","千代田区神田三崎町1-3-12","https://www.ichiken.org/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","立川中央病院附属健康クリニック","医療法人財団立川中央病院","立川市柴崎町3-14-2","https://www.kenkou-clinic.jp/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","東京医科大学病院健診予防医学センター","東京医科大学病院","新宿区西新宿6-5-1","https://hospinfo.tokyo-med.ac.jp/","病院関連健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","富坂診療所","近藤記念医学財団","文京区本郷1-33-9","https://www.tomisaka.or.jp/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","楠樹記念クリニック","医療法人社団成山会","新宿区西新宿2-6-1","https://www.nanju.or.jp/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","野村病院予防医学センター","医療法人財団慈生会","三鷹市下連雀8-3-6","https://www.nomura.or.jp/","病院関連健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","フェニックスメディカルクリニック","医療法人社団鳳凰会","渋谷区千駄ヶ谷3-41-6","https://www.phoenix.gr.jp/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","芙蓉診療所成人病医学センター","医療法人社団敬昭会","新宿区新宿5-14-5","https://www.fuyodock.jp/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","牧田総合病院人間ドック健診センター","社会医療法人財団仁医会","大田区西蒲田8-20-1","https://www.makita-hosp.or.jp/","人間ドック・病院関連健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","三井記念病院総合健診センター","社会福祉法人三井記念病院","千代田区神田和泉町1","https://www.mitsuihosp.or.jp/","人間ドック・病院関連健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","三越総合健診センター","三越厚生事業団","新宿区西新宿1-24-1","https://www.mhwf.or.jp/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["東京都","日野原記念クリニック","ライフ・プランニング・センター","港区高輪4-10-8","https://www.lpc.or.jp/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["神奈川県","アルファメディック・クリニック","社会医療法人財団石心会","川崎市幸区堀川町580-16","https://www.alpha-medic.gr.jp/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["神奈川県","神奈川県厚生農業協同組合連合会保健福祉センター","JA神奈川県厚生連","厚木市酒井3132","https://www.kouseiren.net/","健診・人間ドック","厚生連運営の会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["神奈川県","神奈川県労働衛生福祉協会","一般財団法人神奈川県労働衛生福祉協会","横浜市保土ケ谷区天王町2-44-9","https://www.rfk.or.jp/","職域健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["神奈川県","上大岡総合健診センター","医療法人社団シュアネス","横浜市港南区上大岡西1-13-18","https://kamiooka-kenshin.com/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["神奈川県","コンフォート横浜健診センター","医療法人財団コンフォート","横浜市西区平沼2-8-25","https://www.transradial.org/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["神奈川県","健診ステーションさがみはら","医療法人社団相和会","相模原市南区古淵3-9-19","https://www.sowa-kai.jp/","人間ドック・健診","人間ドック健診協会会員施設","https://www.kenshin.gr.jp/information/shisetsu/"],["新潟県","新潟健診スクエア","新潟ウェルネス","新潟市西区北場1185-3","https://www.niwell.or.jp/dock/","人間ドック・健診","脳MRI・MRAオプション掲載","https://www.niwell.or.jp/dock/"],["新潟県","プラーカ健康増進センター","新潟ウェルネス","新潟市中央区天神1-1プラーカ3","https://www.niwell.or.jp/dock/","人間ドック・健診","公式の人間ドック施設一覧掲載","https://www.niwell.or.jp/dock/"],["新潟県","新津成人病検診センター","新潟ウェルネス","新潟市秋葉区程島2009","https://www.niwell.or.jp/dock/","人間ドック・健診","公式の人間ドック施設一覧掲載","https://www.niwell.or.jp/dock/"],["新潟県","岩室成人病検診センター","新潟ウェルネス","新潟市西蒲区橋本143-1","https://www.niwell.or.jp/dock/","人間ドック","公式の人間ドック施設一覧掲載","https://www.niwell.or.jp/dock/"],["新潟県","県央健診スクエア","新潟ウェルネス","三条市上須頃4-1","https://www.niwell.or.jp/dock/","人間ドック・健診","公式の人間ドック施設一覧掲載","https://www.niwell.or.jp/dock/"],["新潟県","アクアーレ長岡健康増進センター","新潟ウェルネス","長岡市新陽2-5-1","https://www.niwell.or.jp/dock/","人間ドック","公式の人間ドック施設一覧掲載","https://www.niwell.or.jp/dock/"],["新潟県","小出検診センター","新潟ウェルネス","魚沼市小出島1240-13","https://www.niwell.or.jp/dock/","人間ドック・健診","公式の人間ドック施設一覧掲載","https://www.niwell.or.jp/dock/"],["新潟県","十日町検診センター","新潟ウェルネス","十日町市春日町2-113","https://www.niwell.or.jp/dock/","人間ドック・健診","公式の人間ドック施設一覧掲載","https://www.niwell.or.jp/dock/"],["新潟県","佐渡検診センター","新潟ウェルネス","佐渡市真野536","https://www.niwell.or.jp/dock/","人間ドック・健診","公式の人間ドック施設一覧掲載","https://www.niwell.or.jp/dock/"],["東京都","ウェルビーイング毛利","日本予防医学協会","江東区毛利1-19-10","https://www.jpm1960.org/zaidan/gaiyou.html","人間ドック・健診","日本予防医学協会附属診療所","https://www.jpm1960.org/zaidan/gaiyou.html"],["愛知県","ウェルビーイング栄","日本予防医学協会","名古屋市中区新栄町1-3","https://www.jpm1960.org/zaidan/gaiyou.html","人間ドック・健診","日本予防医学協会附属診療所","https://www.jpm1960.org/zaidan/gaiyou.html"],["大阪府","ウェルビーイング大阪堂島","日本予防医学協会","大阪市北区堂島浜1-1-27","https://www.jpm1960.org/zaidan/gaiyou.html","人間ドック・健診","日本予防医学協会附属診療所","https://www.jpm1960.org/zaidan/gaiyou.html"],["福岡県","ウェルビーイング博多","日本予防医学協会","福岡市博多区博多駅前3-19-5","https://www.jpm1960.org/zaidan/gaiyou.html","人間ドック・健診","日本予防医学協会附属診療所","https://www.jpm1960.org/zaidan/gaiyou.html"]];
+const PROFILES=[{"pref":"岩手県","org":"岩手県予防医学協会","kind":"公益財団法人／県内健診・巡回","url":"https://www.aogiri.org/about/","map":"岩手県予防医学協会","staff":734,"staffNote":"2026年7月1日現在","doctors":31,"doctorNote":"医師31人（公表職員構成）","vehicles":52,"vehicleDate":"2026年7月現在","annual":"延べ約103万件（2024年度、検査・健診事業実績。実受診者数ではない）","tests":"胸部X線20台／胃部X線9台／循環器18台／超音波1台／婦人科2台／乳房X線2台。大腸CT関連認定施設。","note":"職員・医師・検診車は法人集計。各施設への配賦不可。"},{"pref":"新潟県","org":"新潟ウェルネス（新潟県労働衛生医学協会）","kind":"一般社団法人／県内複数施設","url":"https://www.niwell.or.jp/information/outline.html","map":"新潟ウェルネス","staff":1045,"staffNote":"2026年3月1日現在","doctors":66,"doctorNote":"常勤医師66人","vehicles":44,"vehicleDate":"公表概要・2026年","annual":"未公表・未確認","tests":"胸部XR18／胃部XR15／胸胃共用2／骨密度2／乳房XR2／子宮がん2／超音波2／多目的1。脳MRI・MRA等のオプションは施設別に要確認。","note":"職員・医師数は法人全体で施設単位ではない。"},{"pref":"静岡県","org":"聖隷 地域・企業健診センター","kind":"社会福祉法人聖隷福祉事業団／巡回健診","url":"https://www.seirei.or.jp/hoken/syuttyo-hamamatsu/outline/","map":"聖隷地域企業健診センター 浜松","staff":164,"staffNote":"2026年4月1日・常勤職員","doctors":null,"doctorNote":"センター別実人数未確認","vehicles":43,"vehicleDate":"センター概要・2026年4月","annual":"年間約40万人（2026年パンフレットの概数。年度別の実人数ではない）","tests":"胸部XR13／胃部XR12／乳房XR3／婦人科3／超音波4／胸胃2／骨密度2／多目的3／婦人科乳房1。蓄電池式検診車あり。","note":"43台はセンター概要の2026年公表値。2026年案内パンフの42台とは公表時点が異なる。"},{"pref":"静岡県","org":"聖隷予防検診センター","kind":"社会福祉法人聖隷福祉事業団／施設健診","url":"https://www.seirei.or.jp/hoken/yoken-center/outline/","map":"聖隷予防検診センター","staff":240,"staffNote":"2026年4月1日・常勤職員","doctors":null,"doctorNote":"公表確認できず","vehicles":null,"vehicleDate":"施設単位では未確認","annual":"未公表・未確認","tests":"人間ドック・各種予防健診。レディスフロア・内視鏡室等。","note":"巡回健診センターの43台を施設へ重複配賦しない。"},{"pref":"東京都","org":"日本予防医学協会","kind":"一般財団法人／全国ネットワーク","url":"https://www.jpm1960.org/zaidan/gaiyou.html","map":"東京都江東区毛利1-19-10","staff":1720,"staffNote":"2026年3月・非常勤含む","doctors":null,"doctorNote":"法人医師数の公表確認できず","vehicles":null,"vehicleDate":"未確認","annual":"2024年度事業収入156億8900万円（受診件数ではない）","tests":"事業所健診・附属診療所（東京・名古屋・大阪・福岡）。","note":"1,720人は法人全体の雇用者数。従属する施設別人数とは区別。"}];
+const PREFS=["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"];
+const KYOKA='https://www.kyoukaikenpo.or.jp/health_promotion/health_checkups/insured/002/index.html';
+const ASSOCIATION='https://www.kenshin.gr.jp/information/shisetsu/';
+const NINGEN='https://www.ningen-dock.jp/list_facility/';
+const JHEP='https://jhep.jp/jhep/sisetu/nst04.jsp';
+const E=tag=>document.getElementById(tag);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=s=>String(s||'').normalize('NFKC').replace(/[\s\u3000（）()・\-–—]/g,'').replace(/(公益財団法人|一般財団法人|医療法人社団|社会医療法人財団|医療法人財団|医療法人|一般社団法人|公益社団法人|社会福祉法人)/g,'').toLowerCase();
+const mapUrl=(r)=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent([r.pref,r.name,r.addr].filter(Boolean).join(' '));
+const cleanUrl=u=>/^https:\/\/[^\s<>"']+$/.test(String(u||''))?String(u):'';
+const anchor=(u,title,label)=>u?'<a class="nd6-minilink" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" title="'+esc(title)+'">'+esc(label)+'</a>':'<span class="nd6-note">未確認</span>';
+const regionMap=Object.fromEntries(DB.prefectures.map(x=>[x['都道府県'],x['地方']]));
+const rows=[];
+for(const x of DB.records){
+ const name=String(x['名称']||'').trim(), pref=x['都道府県'];
+ rows.push({pref,region:regionMap[pref]||x['地方']||'',name,addr:x['住所']||'',group:x['法人名']||'',kind:x['区分']==='個別健診施設'?'施設':x['区分']==='巡回健診事業者'?'巡回事業者':'団体・運営法人',services:x['事業内容']||'',special:'',url:cleanUrl(x['施設公式URL'])||cleanUrl(x['法人公式URL']),source:cleanUrl(x['出典URL']),evidence:'既存収録（原本2026-11-11）',details:x['確認状況']||'',originalId:x.id||''})
+}
+for(const a of EXTRAS){rows.push({pref:a[0],region:regionMap[a[0]]||'',name:a[1],group:a[2],addr:a[3],url:a[4],kind:'施設',services:a[5],special:a[6],source:a[7],evidence:'公式名簿・公式サイト（2026-11調査）',details:'法人・施設の名称とURLは一次資料を参照。検査項目・予約可否は要確認。',originalId:''})}
+const dedup=new Map();
+for(const r of rows){const key=r.pref+'|'+norm(r.name);if(!key.endsWith('|')&&!dedup.has(key))dedup.set(key,r);else if(dedup.has(key)){
+ const old=dedup.get(key);
+ if(!old.url&&r.url)old.url=r.url;
+ if(!old.addr&&r.addr)old.addr=r.addr;
+ if(old.kind!=='施設'&&r.kind==='施設'){old.kind='施設';old.services=r.services;old.special=r.special;old.group=r.group;old.source=r.source;old.evidence=r.evidence}
+ }}
+const unique=[...dedup.values()].sort((a,b)=>PREFS.indexOf(a.pref)-PREFS.indexOf(b.pref)||a.name.localeCompare(b.name,'ja'));
+let state={region:'',pref:'',kind:'',query:''},shown=60;
+const counts=(arr,prop)=>arr.reduce((acc,x)=>(acc[x[prop]]=(acc[x[prop]]||0)+1,acc),{});
+const prefCounts=counts(unique,'pref');
+const facilityCounts=counts(unique.filter(x=>x.kind==='施設'),'pref');
+const regions=[...new Set(DB.prefectures.map(x=>x['地方']))];
+const groupTotal=unique.filter(x=>x.kind!=='施設').length,sites=unique.filter(x=>x.kind==='施設').length;
+E('nd6Facilities').textContent=sites.toLocaleString('ja-JP');
+E('nd6Orgs').textContent=groupTotal.toLocaleString('ja-JP');
+E('nd6Covered').textContent=PREFS.filter(x=>prefCounts[x]>0).length+'/47';
+E('nd6Cases').textContent=PROFILES.length;
+function setOptions(){
+ for(const reg of regions){const el=document.createElement('option');el.value=reg;el.textContent=reg;E('nd6Region').appendChild(el)}
+ for(const pref of PREFS){const el=document.createElement('option');el.value=pref;el.textContent=pref;E('nd6Pref').appendChild(el)}
+}
+function byFilter(){
+ const query=state.query.normalize('NFKC').toLowerCase().trim();
+ return unique.filter(r=>(!state.region||r.region===state.region)&&(!state.pref||r.pref===state.pref)&&(!state.kind||r.kind===state.kind)&&(!query||[r.pref,r.region,r.name,r.addr,r.group,r.kind,r.services,r.special,r.details].join(' ').normalize('NFKC').toLowerCase().includes(query)))
+}
+function renderRows(){
+ const data=byFilter(),visible=data.slice(0,shown);
+ E('nd6Count').textContent=data.length.toLocaleString('ja-JP')+'件（掲載収録数・全国総施設数ではありません）';
+ const lines=visible.map(r=>{
+  const href=r.url,source=r.source||NINGEN;
+  const nm=href?'<a class="nd6-name" href="'+esc(href)+'" target="_blank" rel="noopener noreferrer">'+esc(r.name)+' ↗</a>':'<b>'+esc(r.name)+'</b><small>個別公式HP未確認</small>';
+  return '<tr><td>'+esc(r.region)+'<small>'+esc(r.pref)+'</small></td><td>'+nm+'<small>'+esc(r.evidence)+'</small></td><td><span class="nd6-chip">'+esc(r.kind)+'</span><small>'+esc(r.group)+'</small></td><td>'+esc(r.services||'提供内容を個別確認')+'<small>'+esc(r.special||r.details||'')+'</small></td><td>'+esc(r.addr||'住所未確認')+'<small>'+anchor(mapUrl(r),'Googleマップで位置を確認','Googleマップ ↗')+'</small></td><td>'+anchor(source,'名称・掲載の根拠','出典 ↗')+'</td></tr>'
+ }).join('');
+ E('nd6Rows').innerHTML=lines||'<tr><td colspan="6" class="nd6-empty">該当する収録レコードはありません。公式名簿もご確認ください。</td></tr>';
+ E('nd6More').disabled=shown>=data.length;E('nd6More').textContent=shown>=data.length?'全件表示済み':'さらに60件表示（'+(data.length-visible.length)+'件）';
+ renderBars(data);renderPrefButtons()
+}
+function renderBars(data){
+ const count=counts(data,'region'),max=Math.max(1,...Object.values(count));
+ E('nd6RegionBars').innerHTML=regions.map(region=>'<div class="nd6-bar"><span>'+esc(region)+'</span><div class="nd6-track"><div class="nd6-fill" style="width:'+Math.round(100*(count[region]||0)/max)+'%"></div></div><b style="text-align:right">'+(count[region]||0)+'</b></div>').join('')
+}
+function renderPrefButtons(){
+ E('nd6Prefs').innerHTML=PREFS.map(pref=>'<button type="button" data-pref="'+esc(pref)+'" aria-pressed="'+(state.pref===pref)+'">'+esc(pref)+'<b>'+Number(prefCounts[pref]||0)+'件（施設'+Number(facilityCounts[pref]||0)+'）</b></button>').join('');
+ for(const btn of E('nd6Prefs').querySelectorAll('[data-pref]'))btn.addEventListener('click',()=>{const pref=btn.dataset.pref;state.pref=state.pref===pref?'':pref;state.region=state.pref?'':state.region;E('nd6Region').value=state.region;E('nd6Pref').value=state.pref;shown=60;renderRows();E('nd6Table').scrollIntoView({behavior:'smooth',block:'start'})})
+}
+function renderProfiles(){
+ const fleet=PROFILES.filter(r=>Number.isFinite(r.vehicles)),sum=fleet.reduce((a,x)=>a+x.vehicles,0);
+ E('nd6FleetTotal').textContent=sum.toLocaleString('ja-JP');
+ E('nd6FleetGroupN').textContent=fleet.length;
+ E('nd6FleetMinNote').textContent='確認した'+fleet.length+'機関の公表台数合計。全国総車両数ではなく、公表時点も異なります。';
+ E('nd6FleetBoxes').innerHTML=fleet.map(x=>'<div class="nd6-fleetbox"><small>'+esc(x.pref)+'／'+esc(x.org)+'</small><b>'+x.vehicles+'台</b><small>'+esc(x.vehicleDate)+'</small></div>').join('');
+ E('nd6ProfileCards').innerHTML=PROFILES.map(x=>'<div class="nd6-featurecard"><h4>'+esc(x.org)+'</h4><p class="nd6-note">'+esc(x.pref)+' ／ '+esc(x.kind)+'</p><p><b>職員：</b>'+(x.staff!=null?x.staff.toLocaleString('ja-JP')+'名':'未確認')+'<small> '+esc(x.staffNote)+'</small></p><p><b>医師：</b>'+esc(x.doctorNote)+'</p><p><b>検診車：</b>'+(x.vehicles!=null?x.vehicles+'台':'未確認')+'</p><p><b>年間の受診・検査実績：</b>'+esc(x.annual)+'</p><p><b>特徴・車種：</b>'+esc(x.tests)+'</p><p class="nd6-note">'+esc(x.note)+'</p><div class="nd6-sources">'+anchor(x.url,'法人の公表資料','公式資料 ↗')+anchor('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(x.map),'Googleマップ','所在地 ↗')+'</div></div>').join('')
+}
+function exportCSV(){
+ const arr=byFilter(),headers=['地方','都道府県','区分','施設・団体','運営法人','所在地','健診・人間ドック','特徴・特別検査','公式HP','Googleマップ','出典URL','資料確認区分'];
+ const lines=[headers.join(',')];
+ const cell=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"';
+ for(const r of arr){lines.push([r.region,r.pref,r.kind,r.name,r.group,r.addr,r.services,r.special,r.url,mapUrl(r),r.source,r.evidence].map(cell).join(','))}
+ const blob=new Blob(['\ufeff'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='全国健診・人間ドック施設ディレクトリ_収録_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)
+}
+for(const [id,key] of [['nd6Region','region'],['nd6Pref','pref'],['nd6Kind','kind'],['nd6Search','query']]){
+ E(id).addEventListener(id==='nd6Search'?'input':'change',e=>{state[key]=e.target.value;if(key==='region'){state.pref='';E('nd6Pref').value=''}shown=60;renderRows()})
+}
+E('nd6Reset').onclick=()=>{state={region:'',pref:'',kind:'',query:''};for(const id of ['nd6Region','nd6Pref','nd6Kind','nd6Search'])E(id).value='';shown=60;renderRows()};
+E('nd6More').onclick=()=>{shown+=60;renderRows()};
+E('nd6Export').onclick=exportCSV;
+setOptions();renderProfiles();renderRows();
+if(location.hash==='#nationalDirectory'){const b=document.querySelector('[data-tab="nationalDirectory"]');if(b){b.click();setTimeout(()=>doc.scrollIntoView({block:'start'}),70)}}
+})();
