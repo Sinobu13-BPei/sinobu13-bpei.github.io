@@ -19,7 +19,7 @@ def soup(url):
     return BeautifulSoup(r.text,"html.parser")
 
 def clean(s):
-    return re.sub(r"\\s+"," ",s or "").strip()
+    return re.sub(r"\s+"," ",s or "").strip()
 
 def standings(s):
     for t in s.select("table"):
@@ -32,10 +32,10 @@ def standings(s):
             idx=next((i for i,x in enumerate(v) if any(z in x for z in ("イーグルス","ブルーレヴズ","スピアーズ","サンゴリアス","ワイルドナイツ","ブラックラムズ","D-Rocks","ヴェルブリッツ","ダイナボアーズ","ホンダヒート","スティーラーズ","ブレイブルーパス"))),None)
             if idx is None:continue
             nums=v[idx+1:]
-            if len(nums)<7 or not all(re.fullmatch(r"-?\\d+",x) for x in nums[:7]):continue
+            if len(nums)<7 or not all(re.fullmatch(r"-?\d+",x) for x in nums[:7]):continue
             rank=v[0]
             if rank!="-" and not rank.isdecimal():continue
-            records.append({"rank":rank,"team":v[idx],"played":int(nums[0]),"points":int(nums[1]),"wins":int(nums[2]),"draws":int(nums[3]),"losses":int(nums[4]),"diff":int(nums[7]) if len(nums)>7 and re.fullmatch(r"-?\\d+",nums[7]) else None})
+            records.append({"rank":rank,"team":v[idx],"played":int(nums[0]),"points":int(nums[1]),"wins":int(nums[2]),"draws":int(nums[3]),"losses":int(nums[4]),"diff":int(nums[7]) if len(nums)>7 and re.fullmatch(r"-?\d+",nums[7]) else None})
         if len(records)==12 and len({r["team"] for r in records})==12:return records
     return None
 
@@ -46,9 +46,9 @@ def scores(s):
     for card in s.select("article,.game-card,.game-card-wrapper,.match-card"):
         txt=clean(card.get_text(" ",strip=True))
         if "FULL TIME" not in txt or "横浜キヤノン" not in txt:continue
-        round_match=re.search(r"第\\s*(\\d{1,2})\\s*節",txt)
+        round_match=re.search(r"第\s*(\d{1,2})\s*節",txt)
         if not round_match:continue
-        score=re.search(r"(?<!\\d)(\\d{1,3})\\s*FULL\\s*TIME\\s*(\\d{1,3})(?!\\d)",txt,re.I)
+        score=re.search(r"(?<!\d)(\d{1,3})\s*FULL\s*TIME\s*(\d{1,3})(?!\d)",txt,re.I)
         if not score:continue
         # Score orientation is not proven by page text alone. Do not publish guesses.
         print("Round",round_match.group(1),"has a full-time score; manual orientation verification required")
@@ -75,6 +75,6 @@ def main():
     else:
         d["status"]="一部確認待ち：未確認データは公式リンクを参照してください"
     d["update_warnings"]=warnings
-    DATA.write_text(json.dumps(d,ensure_ascii=False,indent=2)+"\\n",encoding="utf-8")
+    DATA.write_text(json.dumps(d,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(d["status"],warnings,file=sys.stderr)
 if __name__=="__main__":main()
