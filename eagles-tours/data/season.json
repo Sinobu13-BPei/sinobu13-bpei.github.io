@@ -1,9 +1,13 @@
 {
   "season": "2026-27",
-  "updated_at": "2026-11-14",
-  "status": "開幕前：公式情報の確認待ち",
+  "updated_at": null,
+  "status": "開幕前のため、勝敗・順位は未確定です。公式リンクをご確認ください。",
   "source": "https://www.canon-eagles.jp/gameinfo/2026-2027/",
   "standings_source": "https://league-one.jp/standings/?t1=1&year=2026",
   "standings": [],
-  "scores": {}
+  "scores": {},
+  "last_checked_at": "2026-11-14",
+  "update_warnings": [
+    "試合結果および順位の確定値なし"
+  ]
 }
