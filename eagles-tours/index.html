@@ -63,7 +63,7 @@ section{padding-top:30px}.grid{gap:11px}.stars{grid-template-columns:repeat(6,mi
 .result-table td{padding:11px 10px;border-bottom:1px solid #eee;vertical-align:middle}
 .result-table tbody tr:nth-child(even){background:#fff7f6}
 .result-table tbody tr:hover{background:#ffedeb}
-.result-table td:nth-child(3){font-weight:800}
+.result-table td:nth-child(3){font-weight:800}.result-table tr[id]{scroll-margin-top:95px}
 .result-table a{font-weight:800;text-decoration:none}
 .teamshort{white-space:nowrap}
 .result-tag{font-weight:900;font-size:12px;border-radius:10px;padding:3px 7px;background:#ffe7e4;color:#950000}
@@ -226,6 +226,19 @@ $("showTable").addEventListener("click",()=>toggleView("table"));
 $("prevMonth").addEventListener("click",()=>{if(shownYear===2026&&shownMonth===10)return;shownMonth--;if(shownMonth<1){shownMonth=12;shownYear--}calendar()});
 $("nextMonth").addEventListener("click",()=>{if(shownYear===2027&&shownMonth===5)return;shownMonth++;if(shownMonth>12){shownMonth=1;shownYear++}calendar()});
 calendar();chart();toggleView("calendar");
+$("calendarGrid").addEventListener("click",event=>{
+ const link=event.target.closest("a.calfixture");
+ if(!link)return;
+ if(link.hash.startsWith("#round-")){
+   event.preventDefault();
+   mode="all";
+   document.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x.dataset.f==="all"));
+   draw();
+   toggleView("table");
+   requestAnimationFrame(()=>document.getElementById(link.hash.slice(1))?.scrollIntoView({behavior:"smooth",block:"center"}));
+ }
+});
+
 
 document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{mode=b.dataset.f;document.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x===b));draw()});draw();
 fetch("./data/season.json?v="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP"+r.status);return r.json()}).then(d=>{if(d&&typeof d==="object"&&d.scores){live=d;draw()}}).catch(()=>{$("dataStatus").textContent="順位・星取表は公式サイトで最新情報をご確認ください（自動更新データ未接続）"});
