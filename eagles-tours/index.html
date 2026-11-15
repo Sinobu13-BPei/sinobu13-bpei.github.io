@@ -634,6 +634,29 @@ main section{padding-top:16px}
  #messages .message-map{max-width:36%;padding:4px 3px;font-size:10px}
  #messages .message-fold{right:5px}
 }
+
+/* Audited five-season Eagles history */
+.history5-panel{margin:9px 0 17px;padding:10px;border:1px solid #c9dce2;background:#f6fafb;border-radius:13px}
+.history5-title h3{margin:0 0 4px;color:#20596b;font-size:17px}
+.history5-title p{font-size:12px;margin:3px 0;line-height:1.5}
+.history5-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.history5-panel .viz-box{padding:11px}
+.history5-panel .viz-box h3{font-size:15px;color:#235a69}
+.history5-bars{display:flex;flex-direction:column;gap:5px;margin-top:7px}
+.history5-row{display:grid;grid-template-columns:minmax(70px,100px) minmax(0,1fr) auto;gap:7px;align-items:center;min-height:28px}
+.history5-label{font-size:11px;font-weight:750;color:#5b4b4b;line-height:1.3}
+.history5-track{min-width:0;height:15px;border-radius:5px;background:#eee4e2;overflow:hidden}
+.history5-fill{display:block;background:#567f88;height:100%;border-radius:5px;min-width:1px}
+.history5-fill.recent{background:#c33636}
+.history5-value{font-weight:900;font-size:12px;white-space:nowrap;color:#3b444b;font-variant-numeric:tabular-nums}
+.history5-detail{margin-top:10px;border-top:1px solid #d7e4e7;padding-top:9px}
+.history5-detail>h3{margin:0;font-size:16px;color:#235a69}
+.history5-filter{display:flex;align-items:end;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:7px 0 10px}
+.history5-filter label{font-size:12px;font-weight:800;color:#65514a}
+.history5-filter select{display:block;min-width:190px;max-width:100%;height:42px;margin-top:4px;border:1px solid #d4c3bc;border-radius:8px;background:#fff;padding:5px 8px;font:inherit;color:#493536}
+.history5-blank{padding:14px 10px;background:#fff8f4;border-radius:9px;color:#855552;font-size:12px;line-height:1.5}
+.history5-panel .history5-sources{background:#fff;margin:10px 0 0}
+@media(max-width:720px){.history5-panel{padding:8px}.history5-grid{grid-template-columns:minmax(0,1fr);gap:7px}.history5-title h3{font-size:16px}.history5-row{grid-template-columns:76px minmax(0,1fr) auto}.history5-filter{align-items:start}.history5-filter select{width:100%}}
 </style></head><body>
 <header><div class="wrap top"><small>GO! GO! EAGLES! ♥ RUGBY</small>松尾武範と行く　イーグルス応援ツアー</div></header>
 <div class="hero"><div class="wrap"><div class="hero-layout"><div class="hero-copy"><div class="eyebrow">2026–2027 SEASON · GO! GO! EAGLES!</div><h1><span class="hero-headline-line">私、松尾と一緒に！</span><span class="hero-headline-line hero-headline-accent">イーグルス観戦！！</span></h1><p class="hero-intro"><span>仲間が好き！ラグビーが好き！イーグルスが大好き！</span><span>笑って、拍手して、最高の80分を楽しもう。</span><strong>ラグビー初めて観る方大歓迎！！</strong></p><div class="buttons"><a href="#practice">11/28 練習試合</a><a href="#schedule">日程カレンダー</a><a href="#matsuo">松尾団長のひとこと</a><a href="#visuals">グラフで見る</a><a href="#stars">星取表・順位</a><a href="#guide">観戦ガイド</a><a class="ghost" href="https://www.canon-eagles.jp/" target="_blank" rel="noopener">イーグルス公式</a><a class="ghost" href="https://rugbyfreaks.com/products/list?category_id=1000019" target="_blank" rel="noopener">応援グッズ</a></div><div class="stats"><div class="stat"><b>18</b><small>レギュラーシーズン</small></div><div class="stat"><b>9</b><small>ホストゲーム</small></div><div class="stat"><b id="winCount">—</b><small>今季の勝利</small></div><div class="stat"><b id="rankCount">—</b><small>リーグ順位</small></div></div></div><figure class="hero-photo"><a class="art-open" href="./assets/matsuo-pop.webp?v=20261114-hd2" target="_blank" rel="noopener" aria-label="松尾団長のイラストを高精細で開く"><img src="./assets/matsuo-pop.webp?v=20261114-hd2" alt="イーグルスのユニフォーム姿でガッツポーズする松尾団長のポップアート" width="1254" height="1254" decoding="async"></a><figcaption>応援団長 松尾 武範<br><small>GO! GO! EAGLES!</small></figcaption></figure></div></div></div>
@@ -654,7 +677,7 @@ main section{padding-top:16px}
 <section id="visuals" class="timeaxis-analysis">
 <h2>数字でも楽しめる！イーグルス！！</h2>
 <p class="science-mobile-hint">グラフは指で左右にスクロールできます。</p>
-<nav class="timeaxis-nav" aria-label="分析の時間軸"><a href="#current-analysis"><b>01 現在</b><small>2026–27 確定結果</small></a><a href="#future-analysis"><b>02 未来</b><small>仮定・シミュレーション</small></a><a href="#past-analysis"><b>03 過去</b><small>2025–26 前シーズン</small></a></nav>
+<nav class="timeaxis-nav" aria-label="分析の時間軸"><a href="#current-analysis"><b>01 現在</b><small>2026–27 確定結果</small></a><a href="#future-analysis"><b>02 未来</b><small>仮定・シミュレーション</small></a><a href="#past-analysis"><b>03 過去</b><small>直近5シーズン</small></a></nav>
 <div id="current-analysis" class="timeaxis-block timeaxis-current">
  <div class="timeaxis-head"><span class="timeaxis-step">01 / 現在</span><h3>現在｜2026–27シーズンの確定記録</h3><p>公式試合の結果・順位を確認できたものだけ反映。未確認の試合は結果を表示しません。10月の練習試合は参考データとして区別します。</p><span class="timeaxis-kind">確定実績・未確認の区別あり</span></div>
  <div class="live-insights">
@@ -710,8 +733,28 @@ main section{padding-top:16px}
 </div>
 </div>
 <div id="past-analysis" class="timeaxis-block timeaxis-past">
- <div class="timeaxis-head"><span class="timeaxis-step">03 / 過去</span><h3>過去｜2025–26シーズン実績と比較</h3><p>前シーズンの確定記録から、上位チームとの距離、攻守指標、勝点との関係を検証します。2024–25の対戦記録は相手別比較でのみ併用しています。</p><span class="timeaxis-kind">前シーズンの実績・記述統計</span></div>
- <div class="strategy-header">
+ <div class="timeaxis-head"><span class="timeaxis-step">03 / 過去</span><h3>過去｜公式5シーズンの戦績と傾向</h3><p>2021–22～2025–26の公式リーグ戦を対象に、シーズン別と直近の変化を比較します。ホーム／アウェー・月別は個別試合の公式照合完了後に表示します。</p><span class="timeaxis-kind">公式実績・5シーズン</span></div>
+ <div class="history5-panel" aria-label="イーグルス過去5年の公式戦分析">
+ <div class="history5-title"><h3>直近5シーズン・公式リーグ戦の勝敗分析</h3><p>公式クラブ記録に基づくシーズン別の成績。2021–22は16試合、2024–25以降は18試合なので、勝数より<strong>勝率</strong>を優先して比較します。</p><p id="history5Status" class="fine" aria-live="polite">公式のシーズン別記録を表示中。試合別の月・ホスト／ビジター分析を照合しています。</p></div>
+ <div id="history5Kpis" class="live-summary-grid"></div>
+ <div class="history5-grid">
+  <article class="viz-box"><h3>5年間の勝率の変化</h3><div id="history5SeasonBars" class="history5-bars"></div></article>
+  <article class="viz-box"><h3>前半3季と直近2季の比較</h3><div id="history5EraCompare" class="history5-bars"></div><p class="chart-footnote">選手・監督・対戦相手の変化があるため、勝率の差だけから原因を断定することはできません。</p></article>
+ </div>
+ <div class="history5-detail">
+   <h3>会場区分・月別・相手別に分析</h3>
+   <p class="chart-explain">各試合の公式記録を突き合わせた後に表示。中止試合、練習試合、プレーオフはリーグ戦の母数に含めません。</p>
+   <div class="history5-filter"><label>対象期間<select id="history5SeasonFilter"><option value="all">5シーズン合計</option><option value="early">前半3シーズン</option><option value="recent">直近2シーズン</option><option value="2021-22">2021–22</option><option value="2022-23">2022–23</option><option value="2023-24">2023–24</option><option value="2024-25">2024–25</option><option value="2025-26">2025–26</option></select></label><div id="history5Sample" class="fine">公式個別試合データの照合待ち</div></div>
+   <div class="history5-grid">
+     <article class="viz-box"><h3>ホスト／ビジターの勝率差</h3><div id="history5HomeAway" class="history5-bars"><p class="fine">個別試合の公式照合待ち</p></div><p class="chart-footnote">ホスト／ビジターはクラブ公式の第1・第2チーム表記。開催場所の地理的なホーム／アウェーとは異なる場合があります。</p></article>
+     <article class="viz-box"><h3>月別の勝率</h3><div id="history5Months" class="history5-bars"><p class="fine">個別試合の公式照合待ち</p></div><p class="chart-footnote">各月の勝率＝勝利した試合数÷その月の完了したリーグ戦試合数。試合数を併記し、少数試合の偏りに注意します。</p></article>
+     <article class="viz-box"><h3>1試合平均の得点・失点</h3><div id="history5Pace" class="history5-bars"><p class="fine">個別試合の公式照合待ち</p></div></article>
+     <article class="viz-box"><h3>5試合ごとの勝率推移</h3><div id="history5Rolling" class="history5-bars"><p class="fine">個別試合の公式照合待ち</p></div><p class="chart-footnote">時系列で直近5試合の勝利割合を算出。毎試合更新した移動平均ではなく、5試合単位の集計です。</p></article>
+   </div>
+   <details class="science-method history5-sources"><summary>各シーズンの公式記録・分析のルール</summary><div><p>対象：リーグワンのレギュラーシーズン2021–22、2022–23、2023–24、2024–25、2025–26。引き分けは勝利と数えず、勝率の分母には含めます。</p><p><a href="https://www.canon-eagles.jp/about/history.html" target="_blank" rel="noopener">クラブ公式ヒストリー ↗</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2021-2022/" target="_blank" rel="noopener">2021–22</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2022-2023/" target="_blank" rel="noopener">2022–23</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2023-2024/" target="_blank" rel="noopener">2023–24</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2024-2025/" target="_blank" rel="noopener">2024–25</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2025-2026/" target="_blank" rel="noopener">2025–26</a>。</p></div></details>
+ </div>
+</div>
+<div class="strategy-header">
   <h3>優勝をめざす！リーグ戦の数字を徹底比較</h3>
   <p>2025–26シーズンのディビジョン1・全12チームの公式記録を比較。新シーズンの結果とは混ぜていません。</p>
   <div class="stat-mini"><span><b>75</b> 勝点：前季リーグ1位</span><span><b>+294</b> 得失点差：前季リーグ1位</span><span><b>−143</b> 前季横浜E</span></div>
@@ -1178,5 +1221,77 @@ $("calendarGrid").addEventListener("click",event=>{
 
 
 document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{mode=b.dataset.f;document.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x===b));draw()});draw();
+
+const HIST5_BASE=[
+ {season:"2021-22",label:"2021–22",wins:10,draws:0,losses:6},
+ {season:"2022-23",label:"2022–23",wins:10,draws:2,losses:4},
+ {season:"2023-24",label:"2023–24",wins:10,draws:0,losses:6},
+ {season:"2024-25",label:"2024–25",wins:6,draws:0,losses:12},
+ {season:"2025-26",label:"2025–26",wins:6,draws:0,losses:12}
+];
+let historyFiveData={seasons:HIST5_BASE,games:[],verified_games:false};
+const hist5Rate=g=>g.length?100*g.filter(x=>x.scored>x.conceded).length/g.length:0;
+const hist5Rows=(group,denominator=100)=>group.map(x=>'<div class="history5-row"><span class="history5-label">'+esc(x.label)+'</span><span class="history5-track"><span class="history5-fill'+(x.recent?' recent':'')+'" style="width:'+Math.max(0,Math.min(100,x.value/denominator*100)).toFixed(1)+'%"></span></span><strong class="history5-value">'+x.result+'</strong></div>').join("");
+function refreshHistory5(){
+ const seasons=historyFiveData.seasons||HIST5_BASE;
+ const all=seasons.reduce((a,x)=>({w:a.w+x.wins,d:a.d+x.draws,l:a.l+x.losses}),{w:0,d:0,l:0});
+ const total=all.w+all.d+all.l,rate=(100*all.w/total).toFixed(1);
+ $("history5Kpis").innerHTML=[
+  metric("公式リーグ戦",total+"試合","5シーズン合計"),
+  metric("5年間の勝敗",all.w+"勝 "+all.d+"分 "+all.l+"敗","引分けは勝率の分母に含める"),
+  metric("5年間の勝率",rate+"%","勝利数÷総試合数"),
+  metric("直近2年の勝率",(100*12/36).toFixed(1)+"%","その前3年は "+(100*30/48).toFixed(1)+"%")
+ ].join("");
+ $("history5SeasonBars").innerHTML=hist5Rows(seasons.map((x,i)=>{
+  const n=x.wins+x.draws+x.losses;
+  return {label:x.label,value:100*x.wins/n,result:(100*x.wins/n).toFixed(1)+"% ("+n+"試合)",recent:i>=3};
+ }));
+ const first=seasons.slice(0,3).reduce((a,x)=>({w:a.w+x.wins,n:a.n+x.wins+x.draws+x.losses}),{w:0,n:0});
+ const recent=seasons.slice(3).reduce((a,x)=>({w:a.w+x.wins,n:a.n+x.wins+x.draws+x.losses}),{w:0,n:0});
+ $("history5EraCompare").innerHTML=hist5Rows([
+  {label:"前半3シーズン",value:100*first.w/first.n,result:(100*first.w/first.n).toFixed(1)+"% ("+first.n+"試合)"},
+  {label:"直近2シーズン",value:100*recent.w/recent.n,result:(100*recent.w/recent.n).toFixed(1)+"% ("+recent.n+"試合)",recent:true}
+ ]);
+ const valid=historyFiveData.verified_games===true&&Array.isArray(historyFiveData.games)&&historyFiveData.games.length===total;
+ $("history5Status").textContent=valid?"5シーズンのリーグ戦"+total+"試合を照合済み／月別・ホスト／ビジター別を分析できます。":"公式のシーズン別戦績は確認済み。個別試合の公式照合が完了するまで、月別・ホスト／ビジター別の数値は表示しません。";
+ renderHistory5Details();
+}
+function renderHistory5Details(){
+ const raw=historyFiveData.games||[],total=HIST5_BASE.reduce((a,x)=>a+x.wins+x.draws+x.losses,0);
+ const valid=historyFiveData.verified_games===true&&raw.length===total;
+ const ids=["history5HomeAway","history5Months","history5Pace","history5Rolling"];
+ if(!valid){
+  ids.forEach(id=>$(id).innerHTML='<p class="history5-blank">公式の各試合結果・開催日・ホスト／ビジターを照合中です。確定するまで勝率を推測して表示しません。</p>');
+  $("history5Sample").textContent="公式個別試合の照合待ち";
+  return;
+ }
+ const filter=$("history5SeasonFilter").value;
+ const games=raw.filter(g=>filter==="all"||filter==="early"&&["2021-22","2022-23","2023-24"].includes(g.season)||filter==="recent"&&["2024-25","2025-26"].includes(g.season)||g.season===filter);
+ $("history5Sample").textContent="分析対象 "+games.length+"試合（公式リーグ戦・中止等除外）";
+ const stats=a=>{
+  const w=a.filter(g=>g.scored>g.conceded).length,d=a.filter(g=>g.scored===g.conceded).length,n=a.length;
+  return {w,d,n,l:n-w-d,rate:n?w/n*100:0,scored:n?a.reduce((v,g)=>v+g.scored,0)/n:0,conceded:n?a.reduce((v,g)=>v+g.conceded,0)/n:0};
+ };
+ const rates=([label,arr])=>{const a=stats(arr);return {label,value:a.rate,result:a.n?(a.rate.toFixed(1)+"% ("+a.w+"勝/"+a.n+"試合)"):"対象なし"};};
+ $("history5HomeAway").innerHTML=hist5Rows([rates(["ホスト",games.filter(g=>g.role==="H")]),rates(["ビジター",games.filter(g=>g.role==="A")])]);
+ const months=[12,1,2,3,4,5,6].map(m=>rates([m+"月",games.filter(g=>Number(g.date.slice(5,7))===m)])).filter(x=>x.result!=="対象なし");
+ $("history5Months").innerHTML=months.length?hist5Rows(months):'<p class="history5-blank">対象となる試合がありません。</p>';
+ const h=stats(games.filter(g=>g.role==="H")),a=stats(games.filter(g=>g.role==="A")),all=stats(games);
+ const pace=[{label:"全試合 得点",value:all.scored,result:all.scored.toFixed(1)+"点"},{label:"全試合 失点",value:all.conceded,result:all.conceded.toFixed(1)+"点",recent:true},{label:"ホスト 得点",value:h.scored,result:h.n?h.scored.toFixed(1)+"点":"対象なし"},{label:"ビジター 得点",value:a.scored,result:a.n?a.scored.toFixed(1)+"点":"対象なし"}];
+ $("history5Pace").innerHTML=hist5Rows(pace,60);
+ const sorted=games.slice().sort((x,y)=>x.date.localeCompare(y.date));
+ const segments=[];
+ for(let i=0;i<sorted.length;i+=5){
+  const block=sorted.slice(i,i+5),win=block.filter(x=>x.scored>x.conceded).length;
+  segments.push({label:(i+1)+"～"+(i+block.length)+"試合",value:100*win/block.length,result:win+"勝/"+block.length+"試合"});
+ }
+ $("history5Rolling").innerHTML=segments.length?hist5Rows(segments):'<p class="history5-blank">集計対象がありません。</p>';
+}
+$("history5SeasonFilter").addEventListener("change",renderHistory5Details);
+refreshHistory5();
+fetch("./data/history5.json?v="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(data=>{
+ if(data&&Array.isArray(data.seasons)&&data.seasons.length===5){historyFiveData=data;refreshHistory5();}
+}).catch(()=>{$("history5Status").textContent="シーズン別の公式集計のみ表示しています。試合別データを取得できなかったため、月別等は未表示です。";});
+
 fetch("./data/season.json?v="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP"+r.status);return r.json()}).then(d=>{if(d&&typeof d==="object"&&d.scores){live=d;draw();renderLivePanel()}}).catch(()=>{$("dataStatus").textContent="順位・星取表は公式サイトで最新情報をご確認ください（自動更新データ未接続）"});
 </script></body></html>
