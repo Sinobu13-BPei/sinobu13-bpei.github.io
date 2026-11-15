@@ -831,12 +831,12 @@ function renderSeasonScenarios(){
  $("futureWinValue").textContent=wins+"勝";$("futureDrawValue").textContent=draws+"分";
  $("futureBonusValue").textContent=b.toFixed(1);$("futureDiffValue").textContent=(scoreSwing>=0?"+":"")+scoreSwing+"点";
  const pointsGain=4*wins+2*draws+n*b,base=m.officialPoints,projected=base===null?null:base+pointsGain;
- const historicalTop=[75,74,70],relative=m.diff+n*scoreSwing;
+ const baselineRate=m.rows.length?m.diff/m.rows.length:-143/18,relative=Math.round(m.diff+n*(baselineRate+scoreSwing));
  $("futureSummary").innerHTML=[
   metric("残り試合の仮想戦績",wins+"勝"+draws+"分"+losses+"敗","確定実績には影響しません"),
   metric("想定獲得勝点",pointsGain.toFixed(1)+"pt","追加ボーナスは仮定"),
   metric("想定最終勝点",projected===null?"算出保留":projected.toFixed(1)+"pt",base===null?"公式現在勝点の取得待ち":"現状の公式勝点 "+base+"ptを起点"),
-  metric("想定の得失点差",(relative>=0?"+":"")+relative+"点","未消化試合の得失点改善を仮定")
+  metric("想定の得失点差",(relative>=0?"+":"")+relative+"点",m.rows.length?"確定試合平均を基準に仮定":"前季の平均得失点差を基準に仮定")
  ].join("");
  const rows=[["前季リーグ1位",75],["前季リーグ2位",74],["前季リーグ3位",70]];
  if(projected!==null)rows.push(["今季の仮想最終勝点",projected]);
@@ -845,7 +845,7 @@ function renderSeasonScenarios(){
  rows.forEach((x,i)=>{const y=27+i*45;bars.push(visText(132,y+22,x[0],12,"end"),'<rect x="140" y="'+(y+4)+'" width="'+(X(x[1])-140)+'" height="24" rx="5" fill="'+(i===3?"#c00":"#54867f")+'"/>',visText(Math.min(533,X(x[1])+5),y+22,x[1].toFixed(i===3?1:0),13,"start"));});
  if(projected===null)bars.push(visText(210,225,"公式勝点取得後に今季想定値を表示",12));
  $("scenarioBenchmarkGraph").innerHTML=bars.join("");
- $("scenarioNote").textContent="2025–26の上位チーム実績は比較用であり、2026–27の順位・プレーオフ進出条件を確定する数字ではありません。残り"+n+"試合の想定："+wins+"勝"+draws+"分"+losses+"敗。追加勝点"+pointsGain.toFixed(1)+"（勝4pt・分2pt・追加ボーナス平均"+b.toFixed(1)+"ptの仮定）。"+"今季の正式な最終勝点は公式表と試合結果で確定します。";
+ $("scenarioNote").textContent="2025–26の上位チーム実績は比較用であり、2026–27の順位・プレーオフ進出条件を確定する数字ではありません。残り試合の得失点差は"+(m.rows.length?"今季確定試合平均":"前季横浜E平均")+"に改善幅を加えた仮説。残り"+n+"試合の想定："+wins+"勝"+draws+"分"+losses+"敗。追加勝点"+pointsGain.toFixed(1)+"（勝4pt・分2pt・追加ボーナス平均"+b.toFixed(1)+"ptの仮定）。"+"今季の正式な最終勝点は公式表と試合結果で確定します。";
 }
 function setupScenarios(){
  for(const id of ["futureWins","futureDraws","futureBonus","futureDiff"])$(id).addEventListener("input",renderSeasonScenarios);
