@@ -102,7 +102,7 @@ def extract_season(season_data):
     draws = sum(g["scored"] == g["conceded"] for g in result)
     losses = sum(g["scored"] < g["conceded"] for g in result)
     actual = (len(result), wins, draws, losses)
-    target = (season_data["expected"], season_data["wins"], season_data["draws"], season_data["losses"])
+    target = (season_data.get("played_expected", season_data["expected"]), season_data["wins"] - season_data.get("awarded_wins", 0), season_data["draws"], season_data["losses"])
     if actual != target:
         raise ValueError(f"{season}: did not pass official history cross-check, got={actual}, expected={target}; no unverified data published")
     return result
@@ -118,7 +118,7 @@ def main():
             print(f"verified {season['season']}: {len(games)} league games")
         except Exception as exc:
             warnings.append(str(exc))
-    expected = sum(s["expected"] for s in state["seasons"])
+    expected = sum(s.get("played_expected", s["expected"]) for s in state["seasons"])
     if warnings or len(all_games) != expected:
         print("Historical detail not published until all five seasons pass validation.")
         print("\n".join(warnings))
@@ -133,7 +133,7 @@ def main():
     state["games"] = all_games
     state["warnings"] = []
     state["updated_at"] = datetime.datetime.now(JST).date().isoformat()
-    state["status"] = "公式5シーズンの全リーグ戦84試合を照合済み（練習試合・プレーオフ・中止を除外）。"
+    state["status"] = "5シーズンの実際に行われたリーグ戦83試合を照合済み。2021–22の不戦勝1は勝敗の公式集計にのみ含め、会場・月別の集計から除外。"
     DATA.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("Verified all", len(all_games), "league games.")
 
