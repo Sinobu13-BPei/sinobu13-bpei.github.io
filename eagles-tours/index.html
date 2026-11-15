@@ -596,6 +596,44 @@ main section{padding-top:16px}
 #venues .venue-topline h3{font-size:12px}
 #venues .venue-actions a{font-size:10px;padding:6px 5px;min-height:40px}
 }
+
+/* One-line compact 18-round cheering list; each venue links to Google Maps */
+#messages{display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
+#messages .message-compact{margin:0;min-width:0;border-radius:10px}
+#messages .message-compact>summary{position:relative;display:flex;flex-wrap:nowrap;align-items:center;gap:9px;min-height:43px;padding:7px 33px 7px 10px;line-height:1.3;font-size:13px;white-space:nowrap;overflow:hidden}
+#messages .message-compact>summary:after{content:none!important}
+#messages .message-match{display:flex;align-items:center;gap:7px;min-width:0;flex:1 1 auto;overflow:hidden}
+#messages .message-round,#messages .message-day,#messages .message-versus{flex:0 0 auto}
+#messages .message-opponent{min-width:0;overflow:hidden;text-overflow:ellipsis;font-weight:850}
+#messages .message-full{display:inline}
+#messages .message-short{display:none}
+#messages .message-map{display:inline-flex;align-items:center;gap:4px;min-height:36px;max-width:42%;flex:0 1 auto;min-width:0;overflow:hidden;color:#9b2020;background:#fff1eb;border:1px solid #f1d9d1;border-radius:7px;text-decoration:none;font-size:12px;font-weight:800;padding:5px 8px}
+#messages .message-map-full,#messages .message-map-short{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#messages .message-map-short{display:none}
+#messages .message-map:hover,#messages .message-map:focus-visible{background:#ffe4d9;border-color:#d4978b}
+#messages .message-fold{position:absolute;right:9px;top:50%;transform:translateY(-50%);font-size:17px;color:#b30000;font-weight:900}
+#messages .message-fold:after{content:"＋"}
+#messages .message-compact[open] .message-fold:after{content:"−"}
+#messages .message-compact[open]>summary{background:#fff6f3}
+#messages .message-compact .body{padding:2px 12px 10px;font-size:12px}
+#messages .message-compact .body p{margin:5px 0}
+#matsuo>.matsuo{padding:11px}
+#matsuo>.matsuo>p{margin:0 0 8px;font-size:13px;line-height:1.45}
+@media(max-width:760px){
+ #messages .message-compact>summary{min-height:43px;padding:5px 31px 5px 8px;gap:5px;font-size:12px}
+ #messages .message-match{gap:4px}
+ #messages .message-full,#messages .message-map-full{display:none}
+ #messages .message-short,#messages .message-map-short{display:inline}
+ #messages .message-map{max-width:39%;min-height:36px;padding:4px 5px;font-size:11px;gap:2px}
+ #messages .message-day{font-size:11px;font-variant-numeric:tabular-nums}
+ #messages .message-round{font-size:11px}
+}
+@media(max-width:390px){
+ #messages .message-compact>summary{font-size:11px;gap:3px;padding-left:6px;padding-right:25px}
+ #messages .message-match{gap:3px}
+ #messages .message-map{max-width:36%;padding:4px 3px;font-size:10px}
+ #messages .message-fold{right:5px}
+}
 </style></head><body>
 <header><div class="wrap top"><small>GO! GO! EAGLES! ♥ RUGBY</small>松尾武範と行く　イーグルス応援ツアー</div></header>
 <div class="hero"><div class="wrap"><div class="hero-layout"><div class="hero-copy"><div class="eyebrow">2026–2027 SEASON · GO! GO! EAGLES!</div><h1><span class="hero-headline-line">私、松尾と一緒に！</span><span class="hero-headline-line hero-headline-accent">イーグルス観戦！！</span></h1><p class="hero-intro"><span>仲間が好き！ラグビーが好き！イーグルスが大好き！</span><span>笑って、拍手して、最高の80分を楽しもう。</span><strong>ラグビー初めて観る方大歓迎！！</strong></p><div class="buttons"><a href="#practice">11/28 練習試合</a><a href="#schedule">日程カレンダー</a><a href="#matsuo">松尾団長のひとこと</a><a href="#visuals">グラフで見る</a><a href="#stars">星取表・順位</a><a href="#guide">観戦ガイド</a><a class="ghost" href="https://www.canon-eagles.jp/" target="_blank" rel="noopener">イーグルス公式</a><a class="ghost" href="https://rugbyfreaks.com/products/list?category_id=1000019" target="_blank" rel="noopener">応援グッズ</a></div><div class="stats"><div class="stat"><b>18</b><small>レギュラーシーズン</small></div><div class="stat"><b>9</b><small>ホストゲーム</small></div><div class="stat"><b id="winCount">—</b><small>今季の勝利</small></div><div class="stat"><b id="rankCount">—</b><small>リーグ順位</small></div></div></div><figure class="hero-photo"><a class="art-open" href="./assets/matsuo-pop.webp?v=20261114-hd2" target="_blank" rel="noopener" aria-label="松尾団長のイラストを高精細で開く"><img src="./assets/matsuo-pop.webp?v=20261114-hd2" alt="イーグルスのユニフォーム姿でガッツポーズする松尾団長のポップアート" width="1254" height="1254" decoding="async"></a><figcaption>応援団長 松尾 武範<br><small>GO! GO! EAGLES!</small></figcaption></figure></div></div></div>
@@ -735,7 +773,11 @@ $("games").innerHTML='<table class="result-table match-history-table"><thead><tr
 }).join("")+'</tbody></table>';
 $("messages").innerHTML=F.map((g,i)=>{
 const p=result(g),post=p?(p.a>p.b?"イーグルスの素敵なプレーに大きな拍手！最高の笑顔をありがとう！":p.a===p.b?"チーム一丸となった素晴らしい80分！今日のプレーに拍手、次戦も楽しみ！":"熱いプレーに感動をありがとう！仲間と一緒に、次の試合もイーグルスを応援しよう！"):"";
-return '<details class="message-panel"'+(i===currentIndex?' open':'')+'><summary>第'+g.round+'節 · '+g.date+'　vs '+esc(g.opp)+'<span class="message-venue">📍 '+esc(g.venue)+'</span></summary><div class="body"><p><b>開催場所：</b><a href="'+map(g.venue)+'" target="_blank" rel="noopener noreferrer">'+esc(g.venue)+'（Googleマップ ↗）</a></p><p><b>🏉 試合前のエール：</b>'+esc(M[i])+'</p>'+(post?'<p><b>👏 試合後のエール：</b>'+esc(post)+'</p>':'<p class="fine">試合後のメッセージは結果が確認され次第表示します。</p>')+'</div></details>';
+const opponentShort={
+ "三菱重工相模原ダイナボアーズ":"相模原DB","東京サントリーサンゴリアス":"東京SG","栃木ホンダヒート":"栃木H","静岡ブルーレヴズ":"静岡BR","コベルコ神戸スティーラーズ":"神戸S","トヨタヴェルブリッツ":"トヨタV","クボタスピアーズ船橋・東京ベイ":"クボタS","リコーブラックラムズ東京":"BR東京","埼玉パナソニックワイルドナイツ":"埼玉WK","東芝ブレイブルーパス東京":"東芝BL","浦安D-Rocks":"浦安DR"
+};
+const venueShort={"相模原ギオンスタジアム":"相模原ギオン","日産スタジアム":"日産スタジアム","ホンダヒート・グリーンスタジアム":"ホンダHスタジアム","ニッパツ三ツ沢球技場":"三ツ沢球技場","ノエビアスタジアム神戸":"ノエビア神戸","スピアーズえどりくフィールド":"えどりく","秩父宮ラグビー場":"秩父宮","熊谷スポーツ文化公園ラグビー場":"熊谷","クラサスドーム大分":"クラサス大分","ヤマハスタジアム":"ヤマハ","東京都内・詳細未定":"会場未定"};
+return '<details class="message-panel message-compact"'+(i===currentIndex?' open':'')+'><summary title="第'+g.round+'節 '+esc(g.date)+' vs '+esc(g.opp)+' ／ '+esc(g.venue)+'"><span class="message-match"><b class="message-round">第'+g.round+'節</b><time class="message-day" datetime="'+g.date.replaceAll("/","-")+'">'+g.date.slice(5)+'</time><span class="message-versus">vs</span><span class="message-opponent"><span class="message-full">'+esc(g.opp)+'</span><span class="message-short">'+esc(opponentShort[g.opp]||g.opp)+'</span></span></span><a class="message-map" href="'+map(g.venue)+'" target="_blank" rel="noopener noreferrer" title="'+esc(g.venue)+'のGoogleマップを開く" aria-label="'+esc(g.venue)+'のGoogleマップを開く"><span aria-hidden="true">📍</span><span class="message-map-full">'+esc(g.venue)+'</span><span class="message-map-short">'+esc(venueShort[g.venue]||g.venue)+'</span><span aria-hidden="true">↗</span></a><span class="message-fold" aria-hidden="true"></span></summary><div class="body"><p><b>対戦相手：</b>'+esc(g.opp)+'　<b>会場：</b><a href="'+map(g.venue)+'" target="_blank" rel="noopener noreferrer">'+esc(g.venue)+'（Googleマップ ↗）</a></p><p><b>🏉 試合前のエール：</b>'+esc(M[i])+'</p>'+(post?'<p><b>👏 試合後のエール：</b>'+esc(post)+'</p>':'<p class="fine">試合後のメッセージは結果が確認され次第表示します。</p>')+'</div></details>';
 }).join("");
 let w=0,l=0,d=0;
 $("starGrid").innerHTML=F.map(g=>{
@@ -1120,6 +1162,7 @@ $("showTable").addEventListener("click",()=>toggleView("table"));
 $("prevMonth").addEventListener("click",()=>{if(shownYear===2026&&shownMonth===10)return;shownMonth--;if(shownMonth<1){shownMonth=12;shownYear--}calendar()});
 $("nextMonth").addEventListener("click",()=>{if(shownYear===2027&&shownMonth===5)return;shownMonth++;if(shownMonth>12){shownMonth=1;shownYear++}calendar()});
 calendar();chart();toggleView("calendar");
+$("messages").addEventListener("click",event=>{if(event.target.closest("a.message-map"))event.stopPropagation()});
 $("calendarGrid").addEventListener("click",event=>{
  const link=event.target.closest("a.calfixture");
  if(!link)return;
