@@ -572,6 +572,30 @@ main section{padding-top:16px}
  .history-details>summary{padding-right:74px!important;font-size:11px}
  .history-details>summary:after{font-size:9px;padding:3px 5px}
 }
+
+/* Stadium cards: venue and directions on one row, retain all travel descriptions */
+#venues .grid{gap:8px}
+#venues .venue-compact{min-width:0;padding:12px 14px;border-radius:14px;display:flex;flex-direction:column;justify-content:center;gap:5px;box-shadow:none}
+#venues .venue-topline{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0}
+#venues .venue-topline h3{flex:1 1 auto;min-width:0;margin:0;color:#4c2929;font-size:clamp(14px,1.45vw,18px);line-height:1.32;font-weight:850}
+#venues .venue-actions{display:flex;flex:0 0 auto;align-items:center;gap:5px}
+#venues .venue-actions a{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;text-decoration:none;font-size:12px;font-weight:800;line-height:1.2;color:#a70000;background:#fff0ec;border:1px solid #f7e5df;border-radius:8px;min-height:38px;padding:7px 9px}
+#venues .venue-actions a:hover,#venues .venue-actions a:focus-visible{background:#ffe4dc;border-color:#dc9b90}
+#venues .venue-access{margin:0;color:#6c5555;font-size:12px;line-height:1.4;overflow-wrap:anywhere}
+@media(max-width:720px){
+#venues .grid{grid-template-columns:minmax(0,1fr);gap:6px}
+#venues .venue-compact{padding:10px;gap:4px}
+#venues .venue-topline{gap:6px}
+#venues .venue-topline h3{font-size:clamp(13px,3.8vw,16px)}
+#venues .venue-actions{gap:4px}
+#venues .venue-actions a{min-height:42px;padding:6px 7px;font-size:11px}
+#venues .venue-access{font-size:11px}
+}
+@media(max-width:360px){
+#venues .venue-compact{padding:9px 7px}
+#venues .venue-topline h3{font-size:12px}
+#venues .venue-actions a{font-size:10px;padding:6px 5px;min-height:40px}
+}
 </style></head><body>
 <header><div class="wrap top"><small>GO! GO! EAGLES! ♥ RUGBY</small>松尾武範と行く　イーグルス応援ツアー</div></header>
 <div class="hero"><div class="wrap"><div class="hero-layout"><div class="hero-copy"><div class="eyebrow">2026–2027 SEASON · GO! GO! EAGLES!</div><h1><span class="hero-headline-line">私、松尾と一緒に！</span><span class="hero-headline-line hero-headline-accent">イーグルス観戦！！</span></h1><p class="hero-intro"><span>仲間が好き！ラグビーが好き！イーグルスが大好き！</span><span>笑って、拍手して、最高の80分を楽しもう。</span><strong>ラグビー初めて観る方大歓迎！！</strong></p><div class="buttons"><a href="#practice">11/28 練習試合</a><a href="#schedule">日程カレンダー</a><a href="#matsuo">松尾団長のひとこと</a><a href="#visuals">グラフで見る</a><a href="#stars">星取表・順位</a><a href="#guide">観戦ガイド</a><a class="ghost" href="https://www.canon-eagles.jp/" target="_blank" rel="noopener">イーグルス公式</a><a class="ghost" href="https://rugbyfreaks.com/products/list?category_id=1000019" target="_blank" rel="noopener">応援グッズ</a></div><div class="stats"><div class="stat"><b>18</b><small>レギュラーシーズン</small></div><div class="stat"><b>9</b><small>ホストゲーム</small></div><div class="stat"><b id="winCount">—</b><small>今季の勝利</small></div><div class="stat"><b id="rankCount">—</b><small>リーグ順位</small></div></div></div><figure class="hero-photo"><a class="art-open" href="./assets/matsuo-pop.webp?v=20261114-hd2" target="_blank" rel="noopener" aria-label="松尾団長のイラストを高精細で開く"><img src="./assets/matsuo-pop.webp?v=20261114-hd2" alt="イーグルスのユニフォーム姿でガッツポーズする松尾団長のポップアート" width="1254" height="1254" decoding="async"></a><figcaption>応援団長 松尾 武範<br><small>GO! GO! EAGLES!</small></figcaption></figure></div></div></div>
@@ -736,7 +760,7 @@ if(n){
 }
 }
 $("venuesGrid").innerHTML=Object.entries(places).map(([v,a])=>
- '<article class="card"><h3>'+esc(v)+'</h3><p>'+esc(a[0])+'</p><div class="links"><a href="'+map(v)+'" target="_blank" rel="noopener">Googleマップ</a><a href="'+route(v)+'" target="_blank" rel="noopener">経路案内</a></div></article>'
+ '<article class="card venue-compact"><div class="venue-topline"><h3>'+esc(v)+'</h3><div class="venue-actions"><a href="'+map(v)+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(v)+'をGoogleマップで見る">Googleマップ</a><a href="'+route(v)+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(v)+'への経路案内を開く">経路案内</a></div></div><p class="venue-access">'+esc(a[0])+'</p></article>'
 ).join("");
 
 
