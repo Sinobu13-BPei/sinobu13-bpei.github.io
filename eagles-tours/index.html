@@ -444,6 +444,39 @@ button{font-family:inherit}
  #contact .contact-tap span:last-child{display:none}
  #visuals .adv-stat strong{font-size:21px}
 }
+
+/* Season-aware official score tracking and compact scenario laboratory */
+.live-insights{margin-top:13px;min-width:0}
+.live-insights-head{background:#fff0eb;border-left:4px solid #c00;padding:11px 13px;border-radius:0 13px 13px 0}
+.live-insights-head h3{font-size:19px;color:#a60000;margin:0 0 4px}
+.live-insights-head p{font-size:12px;line-height:1.5;margin:4px 0}
+.live-tag{display:inline-block;background:white;border:1px solid #e6bbb4;border-radius:18px;padding:4px 9px!important;color:#9b2020;font-weight:800}
+.live-summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:10px 0}
+.live-metric{background:#fff;border:1px solid #ead0cb;border-radius:11px;padding:9px;min-width:0}
+.live-metric small{display:block;font-size:11px;color:#6b5d5d;line-height:1.4}
+.live-metric strong{display:block;color:#a50000;font-size:clamp(18px,2.5vw,26px);line-height:1.4;font-variant-numeric:tabular-nums}
+.live-metric em{display:block;color:#7d6b6b;font-size:10px;font-style:normal;line-height:1.4}
+.live-chart-grid{margin:8px 0}
+.live-splits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.live-split{border:1px solid #e9d9d5;border-radius:11px;padding:10px;background:#fff9f7}
+.live-split b{color:#a50000}
+.live-split span{display:block;font-size:12px;margin-top:3px}
+.live-split strong{display:block;font-size:20px}
+.live-simulator{margin:10px 0;border:1px solid #e7caca;border-radius:13px;background:#fff;padding:12px 14px}
+.live-simulator>summary{cursor:pointer;color:#a00000;font-size:16px;font-weight:900;min-height:42px;display:flex;align-items:center;line-height:1.35}
+.live-simulator[open]>summary{border-bottom:1px solid #f3e1de;padding-bottom:6px;margin-bottom:9px}
+.scenario-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.scenario-controls label,.match-sim-controls label{display:block;min-width:0;background:#fff5f2;border:1px solid #f1d9d2;border-radius:10px;padding:10px;font-size:12px;font-weight:800}
+.scenario-controls b,.match-sim-controls b{color:#af0000;margin-left:4px}
+.scenario-controls input,.match-sim-controls input{display:block;width:100%;accent-color:#c00;min-height:24px;margin-top:7px}
+.match-sim-controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px}
+.match-sim-controls select{display:block;width:100%;margin-top:7px;height:40px;border:1px solid #dbbcb7;border-radius:7px;background:white;font-size:12px;color:#493333}
+.scenario-presets{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.scenario-presets button{border:1px solid #c8948c;border-radius:19px;background:#fff6f4;padding:8px 12px;font-size:12px;font-weight:800;color:#9e1414;min-height:42px}
+.scenario-presets button:hover,.scenario-presets button:focus-visible{background:#ffe4dd}
+.live-svg-scroll{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.live-svg-scroll svg{display:block;min-width:500px;width:100%;height:auto}
+@media(max-width:720px){.live-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.live-metric{padding:8px}.live-metric strong{font-size:21px}.live-simulator{padding:10px}.scenario-controls,.match-sim-controls{grid-template-columns:1fr}.live-splits{gap:6px}.live-insights-head h3{font-size:17px}.live-simulator>summary{font-size:14px}.live-svg-scroll svg{min-width:500px}}
 </style></head><body>
 <header><div class="wrap top"><small>GO! GO! EAGLES! ♥ RUGBY</small>松尾武範と行く　イーグルス応援ツアー</div></header>
 <div class="hero"><div class="wrap"><div class="hero-layout"><div class="hero-copy"><div class="eyebrow">2026–2027 SEASON · GO! GO! EAGLES!</div><h1><span class="hero-headline-line">私、松尾と一緒に！</span><span class="hero-headline-line hero-headline-accent">イーグルス観戦！！</span></h1><p class="hero-intro"><span>仲間が好き！ラグビーが好き！イーグルスが大好き！</span><span>笑って、拍手して、最高の80分を楽しもう。</span><strong>ラグビー初めて観る方大歓迎！！</strong></p><div class="buttons"><a href="#practice">11/28 練習試合</a><a href="#schedule">日程カレンダー</a><a href="#matsuo">松尾団長のひとこと</a><a href="#visuals">グラフで見る</a><a href="#stars">星取表・順位</a><a href="#guide">観戦ガイド</a><a class="ghost" href="https://www.canon-eagles.jp/" target="_blank" rel="noopener">イーグルス公式</a><a class="ghost" href="https://rugbyfreaks.com/products/list?category_id=1000019" target="_blank" rel="noopener">応援グッズ</a></div><div class="stats"><div class="stat"><b>18</b><small>レギュラーシーズン</small></div><div class="stat"><b>9</b><small>ホストゲーム</small></div><div class="stat"><b id="winCount">—</b><small>今季の勝利</small></div><div class="stat"><b id="rankCount">—</b><small>リーグ順位</small></div></div></div><figure class="hero-photo"><a class="art-open" href="./assets/matsuo-pop.webp?v=20261114-hd2" target="_blank" rel="noopener" aria-label="松尾団長のイラストを高精細で開く"><img src="./assets/matsuo-pop.webp?v=20261114-hd2" alt="イーグルスのユニフォーム姿でガッツポーズする松尾団長のポップアート" width="1254" height="1254" decoding="async"></a><figcaption>応援団長 松尾 武範<br><small>GO! GO! EAGLES!</small></figcaption></figure></div></div></div>
@@ -494,6 +527,39 @@ button{font-family:inherit}
  <article class="viz-box"><h3>⑦ 実際の勝率と得失点モデルの比較</h3><p class="chart-explain">参考モデル：得点²÷(得点²＋失点²)。実勝率とのズレから、単純な得失点モデルの限界も見られます。</p><svg id="expectedWinGraph" viewBox="0 0 540 348" role="img" aria-label="全12チームの実際の勝率と得失点モデル参考値の比較"></svg><p class="chart-footnote">係数2は説明用に設定した仮説です。リーグワンで最適化・検証した予測式ではありません。勝点・引き分け・ボーナスポイントを直接反映しません。</p></article>
  <article class="viz-box"><h3>⑧ 1試合平均得点・失点の比較</h3><p class="chart-explain">横浜Eと前季リーグ戦上位3チーム平均の差を、1試合（80分）あたりで表示。</p><svg id="paceGraph" viewBox="0 0 540 252" role="img" aria-label="横浜イーグルスと上位3チームの1試合あたり得点・失点比較"></svg><p id="paceNote" class="chart-footnote"></p></article>
  <article class="viz-box"><h3>⑨ 対戦相手別・勝率の不確実性</h3><p class="chart-explain">過去2シーズンの対戦結果から勝率を計算。試合数が少ないため95% Wilson区間も示します。</p><label class="science-label" for="scienceOpponent">対戦相手を選ぶ</label><select id="scienceOpponent" aria-label="比較する対戦相手"></select><svg id="opponentConfidenceGraph" viewBox="0 0 540 168" role="img" aria-label="対戦相手との勝率と不確実性区間"></svg><p id="opponentConfidenceNote" class="chart-footnote"></p><p class="chart-footnote">Wilson区間は二項分布を仮定した統計区間であり、次戦の勝率予測や勝敗保証ではありません。引き分けは勝利に含めません。</p></article>
+</div>
+
+<div class="live-insights">
+ <div class="live-insights-head"><h3>⑩ 開幕後に進化する！結果追跡＆未来シミュレーション</h3><p>2026–27公式リーグ戦の確定スコアと順位を取得したら自動反映。開幕前は仮説シナリオのみ使用できます。試合結果を手入力する必要はありません。</p><p id="liveInsightState" class="live-tag" aria-live="polite">公式結果の取得待ち（0/18試合）</p></div>
+ <div class="live-summary-grid" id="liveSummary" aria-label="公式戦進捗・現状の成績"></div>
+ <div class="analysis-grid live-chart-grid">
+  <article class="viz-box"><h3>⑪ 得失点差の推移・直近3試合平均</h3><p class="chart-explain">試合終了ごとの累積得失点差と、各試合の得失点差の移動平均。未確認の試合は線でつなぎません。</p><div class="live-svg-scroll"><svg id="liveTrendGraph" viewBox="0 0 560 260" role="img" aria-label="今シーズン確定試合の得失点差推移"></svg></div></article>
+  <article class="viz-box"><h3>⑫ ホスト／ビジター別・攻守</h3><p class="chart-explain">ホームとアウェーの勝敗、平均得点・平均失点を比較。対戦数が少ないうちは慎重に解釈してください。</p><div id="homeAwayLive" class="live-splits"></div></article>
+ </div>
+ <details class="live-simulator" open><summary>⑬ 残り試合の勝敗・勝点シミュレーター</summary>
+ <p class="chart-explain">残りの試合数に対して「勝ち・引き分け・敗け」の想定数を設定。勝点は説明用に勝ち4、引分け2、敗け0、追加ボーナスは1試合平均の想定値で計算します。<strong>実際の勝点は公式順位表が取得できた場合のみ使用</strong>します。</p>
+ <div class="scenario-controls">
+  <label>残り試合の勝利数 <b id="futureWinValue">0勝</b><input type="range" id="futureWins" min="0" max="18" step="1" value="9"></label>
+  <label>残り試合の引き分け数 <b id="futureDrawValue">0分</b><input type="range" id="futureDraws" min="0" max="18" step="1" value="0"></label>
+  <label>追加ボーナス勝点（1試合平均の仮定） <b id="futureBonusValue">0.5</b><input type="range" id="futureBonus" min="0" max="1" step="0.1" value="0.5"></label>
+  <label>得失点差の改善（残り1試合平均） <b id="futureDiffValue">+0点</b><input type="range" id="futureDiff" min="-25" max="35" step="1" value="0"></label>
+ </div>
+ <div class="live-summary-grid" id="futureSummary"></div>
+ <div class="live-svg-scroll"><svg id="scenarioBenchmarkGraph" viewBox="0 0 560 250" role="img" aria-label="想定勝点と前シーズン上位3チーム実績の比較"></svg></div>
+ <p id="scenarioNote" class="chart-footnote"></p>
+ <div class="scenario-presets"><button type="button" data-plan="cautious">慎重シナリオ</button><button type="button" data-plan="standard">標準シナリオ</button><button type="button" data-plan="ambitious">上位挑戦</button><button type="button" data-plan="allwins">全勝したら？</button></div>
+ </details>
+ <details class="live-simulator"><summary>⑭ 対戦相手別・勝つための作戦シミュレーター</summary>
+ <p class="chart-explain">相手ごとの過去2季の直接対戦記録を表示。希望する得点・失点を動かし、どのくらいの得失点差が必要か試せます。仮想スコアは公式結果には保存されません。</p>
+ <div class="match-sim-controls"><label>試合を選択<select id="matchSimOpponent" aria-label="シミュレーション対象の試合"></select></label><label>想定得点 <b id="matchSimForLabel">28</b><input id="matchSimFor" type="range" min="0" max="80" step="1" value="28"></label><label>想定失点 <b id="matchSimAgainstLabel">24</b><input id="matchSimAgainst" type="range" min="0" max="80" step="1" value="24"></label></div>
+ <div class="live-summary-grid" id="matchSimSummary"></div><p id="matchSimHistory" class="chart-footnote"></p>
+ </details>
+ <details class="live-simulator"><summary>⑮ 勝率感度・上位への到達条件モデル</summary>
+ <p class="chart-explain">残り各試合で同じ勝率を仮定した二項分布モデルです。「少なくとも何勝する確率か」を数学的に示します。実際のチーム力・対戦相手・ボーナス・引分けを反映した優勝確率ではありません。</p>
+ <div class="scenario-controls"><label>各試合の仮定勝率 <b id="chancePValue">50%</b><input id="chanceP" type="range" min="5" max="95" value="50" step="5"></label><label>残り試合の目標勝利数 <b id="chanceTargetValue">9勝</b><input id="chanceTarget" type="range" min="0" max="18" value="9" step="1"></label></div>
+ <div class="live-summary-grid" id="chanceSummary"></div><div class="live-svg-scroll"><svg id="winChanceGraph" viewBox="0 0 560 205" role="img" aria-label="仮定勝率から計算する勝利数の二項分布"></svg></div><p class="chart-footnote">独立・同確率の仮定に基づく感度計算です。選手のコンディション、相手、ホーム・アウェーなどは未考慮。現実の勝率や年間王者の予測ではありません。</p>
+ </details>
+ <p class="chart-footnote">自動取得の元データ：<a href="https://www.canon-eagles.jp/gameinfo/2026-2027/" target="_blank" rel="noopener">横浜キヤノンイーグルス公式試合結果</a> ／ <a href="https://league-one.jp/standings/?t1=1&amp;year=2026" target="_blank" rel="noopener">リーグワン公式順位</a>。確定したスコアのみ実績として掲載します。2025–26の実績基準は別表示です。</p>
 </div>
 <details class="science-method"><summary>計算式・データの扱い・注意事項を見る</summary><div><p><strong>攻撃効率</strong>＝得点÷18試合、<strong>守備失点ペース</strong>＝失点÷18試合、<strong>得失点比</strong>＝得点÷失点（1を超えると得点超過）。<strong>Zスコア</strong>＝リーグ平均からの差÷リーグ12チームの標準偏差。</p><p><strong>得失点モデルの期待勝率（説明用）</strong>＝得点²÷(得点²＋失点²)。勝率とは直接一致しません。<strong>Wilson区間</strong>は対戦相手との勝利数、試合数、z＝1.96を使用します。サンプルが2～4試合程度と少なく推定は不安定です。</p><p>リーグ比較は2025–26ディビジョン1のレギュラーシーズン18試合のチーム別確定記録を使用。対戦相手別は2024–25／2025–26のリーグ戦のみを使用。練習試合・プレーオフは除外。仮説モデルは公式見解ではありません。</p></div></details>
 <p class="chart-source">出典：<a href="https://league-one.jp/standings/?t1=0&amp;year=2025" target="_blank" rel="noopener">リーグワン公式 2025–26ディビジョン1最終記録</a>。2026–27シーズンの公式結果・順位は上部の星取表で別表示しています。</p>
@@ -707,6 +773,142 @@ function scienceCharts(){
 scienceCharts();
 
 
+
+const metric=(name,value,note="")=>'<div class="live-metric"><small>'+name+'</small><strong>'+value+'</strong>'+(note?'<em>'+note+'</em>':'')+'</div>';
+function confirmedRounds(){
+ return F.map(g=>({g,p:result(g)})).filter(x=>x.p!==null);
+}
+function seasonMetrics(){
+ const rows=confirmedRounds(),forPts=rows.reduce((a,x)=>a+x.p.a,0),against=rows.reduce((a,x)=>a+x.p.b,0);
+ const wins=rows.filter(x=>x.p.a>x.p.b).length,draws=rows.filter(x=>x.p.a===x.p.b).length,losses=rows.length-wins-draws;
+ const official=Array.isArray(live.standings)?live.standings.find(x=>String(x.team||"").includes("横浜キヤノン")):null;
+ const officialPoints=official&&Number.isFinite(+official.points)?+official.points:null;
+ return {rows,wins,draws,losses,forPts,against,diff:forPts-against,remaining:F.length-rows.length,official,officialPoints};
+}
+function renderLivePanel(){
+ const m=seasonMetrics();
+ $("liveInsightState").textContent=m.rows.length?m.rows.length+"試合の確定結果を反映 ／ 最終確認："+(live.updated_at||live.last_checked_at||"日時未確認"):"開幕前・結果未確認（0/18試合）／ 以下はシナリオ検討用";
+ $("liveSummary").innerHTML=[
+  metric("確定した公式戦",m.rows.length+" / 18","未確認 "+m.remaining+"試合"),
+  metric("勝・分・敗",m.wins+"・"+m.draws+"・"+m.losses,"確定した試合のみ"),
+  metric("累積得失点差",(m.diff>0?"+":"")+m.diff+"点","得点 "+m.forPts+"／失点 "+m.against),
+  metric("公式勝点",m.officialPoints===null?"未取得":String(m.officialPoints),m.official?"公式順位 "+m.official.rank+"位":"公式順位表の確認待ち")
+ ].join("");
+ const rows=m.rows.slice().sort((a,b)=>a.g.round-b.g.round);
+ let svg=['<line x1="43" y1="214" x2="530" y2="214" stroke="#999"/>',visText(42,17,"累積得失点差",12)];
+ if(!rows.length){
+  svg.push(visText(280,123,"試合結果の確定後、折れ線グラフを自動表示",15,"middle","#877b7b"));
+ }else{
+  let cumulative=0;const points=rows.map(x=>{cumulative+=x.p.a-x.p.b;return {r:x.g.round,d:x.p.a-x.p.b,c:cumulative}});
+  const min=Math.min(0,...points.map(x=>x.c))-10,max=Math.max(0,...points.map(x=>x.c))+10;
+  const y=v=>210-(v-min)/(max-min)*170,xx=r=>43+(r-1)*26.8;
+  svg.push('<line x1="43" y1="'+y(0)+'" x2="530" y2="'+y(0)+'" stroke="#d2c1bb" stroke-dasharray="4 4"/>');
+  points.forEach((p,i)=>{
+   if(i){const q=points[i-1];if(p.r===q.r+1)svg.push('<line x1="'+xx(q.r)+'" y1="'+y(q.c)+'" x2="'+xx(p.r)+'" y2="'+y(p.c)+'" stroke="#c40000" stroke-width="3"/>');}
+   svg.push('<circle cx="'+xx(p.r)+'" cy="'+y(p.c)+'" r="4.8" fill="#c40000"><title>第'+p.r+'節 累積 '+p.c+'</title></circle>',visText(xx(p.r),233,p.r,10,"middle"));
+  });
+  svg.push(visText(300,253,"試合節（確定結果のみ）",12,"middle"));
+  const last3=points.slice(-3);
+  svg.push(visText(508,22,"直近"+last3.length+"試合：平均得失点差 "+(last3.reduce((a,p)=>a+p.d,0)/last3.length).toFixed(1),12,"end","#a50000"));
+ }
+ $("liveTrendGraph").innerHTML=svg.join("");
+ $("homeAwayLive").innerHTML=[["H","ホスト"],["A","ビジター"]].map(([kind,name])=>{
+  const a=rows.filter(x=>x.g.kind===kind),w=a.filter(x=>x.p.a>x.p.b).length,n=a.length;
+  const f=n?(a.reduce((v,x)=>v+x.p.a,0)/n).toFixed(1):"—";
+  const d=n?(a.reduce((v,x)=>v+x.p.b,0)/n).toFixed(1):"—";
+  return '<div class="live-split"><b>'+name+'</b><strong>'+w+'勝 / '+n+'試合</strong><span>平均得点：'+f+'</span><span>平均失点：'+d+'</span></div>';
+ }).join("");
+ renderSeasonScenarios();renderMatchScoreScenario();renderWinChance();
+}
+function clampNum(n,lo,hi){return Math.min(hi,Math.max(lo,n))}
+function renderSeasonScenarios(){
+ const m=seasonMetrics(),n=m.remaining;
+ const w=$("futureWins"),d=$("futureDraws"),bonus=$("futureBonus"),swing=$("futureDiff");
+ w.max=String(n);d.max=String(n);
+ if(+w.value>n)w.value=String(n);
+ if(+d.value>n- +w.value)d.value=String(n- +w.value);
+ const wins=+w.value,draws=+d.value,losses=n-wins-draws,b=+bonus.value,scoreSwing=+swing.value;
+ $("futureWinValue").textContent=wins+"勝";$("futureDrawValue").textContent=draws+"分";
+ $("futureBonusValue").textContent=b.toFixed(1);$("futureDiffValue").textContent=(scoreSwing>=0?"+":"")+scoreSwing+"点";
+ const pointsGain=4*wins+2*draws+n*b,base=m.officialPoints,projected=base===null?null:base+pointsGain;
+ const historicalTop=[75,74,70],relative=m.diff+n*scoreSwing;
+ $("futureSummary").innerHTML=[
+  metric("残り試合の仮想戦績",wins+"勝"+draws+"分"+losses+"敗","確定実績には影響しません"),
+  metric("想定獲得勝点",pointsGain.toFixed(1)+"pt","追加ボーナスは仮定"),
+  metric("想定最終勝点",projected===null?"算出保留":projected.toFixed(1)+"pt",base===null?"公式現在勝点の取得待ち":"現状の公式勝点 "+base+"ptを起点"),
+  metric("想定の得失点差",(relative>=0?"+":"")+relative+"点","未消化試合の得失点改善を仮定")
+ ].join("");
+ const rows=[["前季リーグ1位",75],["前季リーグ2位",74],["前季リーグ3位",70]];
+ if(projected!==null)rows.push(["今季の仮想最終勝点",projected]);
+ const xmax=Math.max(90,projected===null?0:projected+8),X=v=>140+Math.max(0,v)/xmax*395;
+ let bars=[visText(145,16,"勝点比較（2025–26実績 vs 今季仮定）",12)];
+ rows.forEach((x,i)=>{const y=27+i*45;bars.push(visText(132,y+22,x[0],12,"end"),'<rect x="140" y="'+(y+4)+'" width="'+(X(x[1])-140)+'" height="24" rx="5" fill="'+(i===3?"#c00":"#54867f")+'"/>',visText(Math.min(533,X(x[1])+5),y+22,x[1].toFixed(i===3?1:0),13,"start"));});
+ if(projected===null)bars.push(visText(210,225,"公式勝点取得後に今季想定値を表示",12));
+ $("scenarioBenchmarkGraph").innerHTML=bars.join("");
+ $("scenarioNote").textContent="2025–26の上位チーム実績は比較用であり、2026–27の順位・プレーオフ進出条件を確定する数字ではありません。残り"+n+"試合の想定："+wins+"勝"+draws+"分"+losses+"敗。追加勝点"+pointsGain.toFixed(1)+"（勝4pt・分2pt・追加ボーナス平均"+b.toFixed(1)+"ptの仮定）。"+"今季の正式な最終勝点は公式表と試合結果で確定します。";
+}
+function setupScenarios(){
+ for(const id of ["futureWins","futureDraws","futureBonus","futureDiff"])$(id).addEventListener("input",renderSeasonScenarios);
+ document.querySelectorAll("[data-plan]").forEach(button=>button.addEventListener("click",()=>{
+  const n=seasonMetrics().remaining,p=button.dataset.plan;
+  const factor=p==="cautious"?.25:p==="standard"?.5:p==="ambitious"?.75:1;
+  $("futureWins").value=String(Math.round(n*factor));
+  $("futureDraws").value="0";
+  $("futureBonus").value=p==="allwins"?"0.7":p==="ambitious"?"0.6":p==="standard"?"0.4":"0.2";
+  $("futureDiff").value=p==="allwins"?"18":p==="ambitious"?"10":p==="standard"?"0":"-8";
+  renderSeasonScenarios();
+ }));
+}
+function renderMatchScoreScenario(){
+ const g=F[+ $("matchSimOpponent").value]||F[0],a=+$("matchSimFor").value,b=+$("matchSimAgainst").value;
+ $("matchSimForLabel").textContent=a+"点";$("matchSimAgainstLabel").textContent=b+"点";
+ const known=result(g),stat=matchSummary(g),outcome=a>b?"仮想勝利":a===b?"仮想引分け":"仮想敗戦";
+ $("matchSimSummary").innerHTML=[
+  metric("仮想スコア",a+" – "+b,"横浜E – "+esc(g.opp)),
+  metric("仮想得失点差",(a-b>0?"+":"")+(a-b),"想定結果："+outcome),
+  metric("直近2季 対戦実績",stat.win+"勝"+stat.draw+"分"+stat.loss+"敗","勝率 "+stat.pct+"%"),
+  metric("実際の公式結果",known?known.a+" – "+known.b:"未確認","仮想スコアと区別")
+ ].join("");
+ $("matchSimHistory").textContent="第"+g.round+"節 "+g.date+"：過去2季の直接対戦"+stat.total+"試合を参考表示。仮想スコアは自動取得データを変更しません。";
+}
+function setupMatchScenario(){
+ const selector=$("matchSimOpponent");
+ selector.innerHTML=F.map((g,i)=>'<option value="'+i+'">第'+g.round+'節 '+esc(g.opp)+'</option>').join("");
+ selector.value="0";
+ for(const id of ["matchSimOpponent","matchSimFor","matchSimAgainst"])$(id).addEventListener("input",renderMatchScoreScenario);
+}
+function renderWinChance(){
+ const n=seasonMetrics().remaining,P=+$("chanceP").value/100,target=$("chanceTarget");
+ target.max=String(n);target.value=String(clampNum(+target.value,0,n));
+ const k=+target.value;$("chancePValue").textContent=Math.round(P*100)+"%";$("chanceTargetValue").textContent=k+"勝";
+ let probs=[1];
+ for(let i=0;i<n;i++){
+  const next=Array(i+2).fill(0);
+  for(let j=0;j<probs.length;j++){next[j]+=probs[j]*(1-P);next[j+1]+=probs[j]*P;}
+  probs=next;
+ }
+ const atLeast=probs.slice(k).reduce((a,v)=>a+v,0),expected=n*P;
+ $("chanceSummary").innerHTML=[
+  metric("残り試合",n+"試合","確定スコアに連動"),
+  metric("モデル期待勝利数",expected.toFixed(1)+"勝","1試合勝率 "+Math.round(P*100)+"%の仮定"),
+  metric(k+"勝以上となる計算値",(atLeast*100).toFixed(1)+"%","二項分布の数学的計算"),
+  metric("現時点の確定勝利数",seasonMetrics().wins+"勝","公式スコアから集計")
+ ].join("");
+ const y=v=>171-v/Math.max(.08,...probs)*132,x=i=>45+(n?i/n:0)*470;
+ let svg=['<line x1="40" y1="171" x2="525" y2="171" stroke="#aaa"/>'];
+ probs.forEach((prob,i)=>{
+  const xx=x(i),height=171-y(prob),width=Math.max(5,450/(n+1)-5);
+  svg.push('<rect x="'+(xx-width/2)+'" y="'+y(prob)+'" width="'+width+'" height="'+height+'" rx="2" fill="'+(i>=k?"#c00":"#95a3a8")+'"><title>'+i+'勝：'+(prob*100).toFixed(1)+'%</title></rect>');
+  if(i===0||i===n||i%Math.max(1,Math.ceil(n/9))===0)svg.push(visText(xx,192,i,10,"middle"));
+ });
+ svg.push(visText(280,204,"残り試合で勝利する回数",12,"middle"));
+ $("winChanceGraph").innerHTML=svg.join("");
+}
+function setupWinChance(){
+ for(const id of ["chanceP","chanceTarget"])$(id).addEventListener("input",renderWinChance);
+}
+setupScenarios();setupMatchScenario();setupWinChance();renderLivePanel();
+
 const preMatches=[
 {date:"2026/10/10",home:"埼玉パナソニックワイルドナイツ",a:42,b:29},
 {date:"2026/10/17",home:"栃木ホンダヒート",a:21,b:40},
@@ -796,5 +998,5 @@ $("calendarGrid").addEventListener("click",event=>{
 
 
 document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{mode=b.dataset.f;document.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x===b));draw()});draw();
-fetch("./data/season.json?v="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP"+r.status);return r.json()}).then(d=>{if(d&&typeof d==="object"&&d.scores){live=d;draw()}}).catch(()=>{$("dataStatus").textContent="順位・星取表は公式サイトで最新情報をご確認ください（自動更新データ未接続）"});
+fetch("./data/season.json?v="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP"+r.status);return r.json()}).then(d=>{if(d&&typeof d==="object"&&d.scores){live=d;draw();renderLivePanel()}}).catch(()=>{$("dataStatus").textContent="順位・星取表は公式サイトで最新情報をご確認ください（自動更新データ未接続）"});
 </script></body></html>
