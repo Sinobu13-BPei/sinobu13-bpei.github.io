@@ -335,7 +335,7 @@ main section{padding-top:18px}
 .science-method summary{cursor:pointer;color:#9c1313;font-weight:900;font-size:13px}
 .science-method p{margin:8px 0 0;font-size:12px;line-height:1.65}
 @media(max-width:700px){.advanced-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.advanced-intro h3{font-size:17px}.adv-stat{padding:9px 7px}}
-</style></head><body>
+.advanced-grid .viz-box svg{max-height:348px}.advanced-stats strong{overflow-wrap:anywhere}</style></head><body>
 <header><div class="wrap top"><small>GO! GO! EAGLES! ♥ RUGBY</small>松尾武範と行く　イーグルス応援ツアー</div></header>
 <div class="hero"><div class="wrap"><div class="hero-layout"><div class="hero-copy"><div class="eyebrow">2026–2027 SEASON · GO! GO! EAGLES!</div><h1><span class="hero-headline-line">私、松尾と一緒に！</span><span class="hero-headline-line hero-headline-accent">イーグルス観戦！！</span></h1><p class="hero-intro"><span>仲間が好き！ラグビーが好き！イーグルスが大好き！</span><span>笑って、拍手して、最高の80分を楽しもう。</span><strong>ラグビー初めて観る方大歓迎！！</strong></p><div class="buttons"><a href="#practice">11/28 練習試合</a><a href="#schedule">日程カレンダー</a><a href="#matsuo">松尾団長のひとこと</a><a href="#visuals">グラフで見る</a><a href="#stars">星取表・順位</a><a href="#guide">観戦ガイド</a><a class="ghost" href="https://www.canon-eagles.jp/" target="_blank" rel="noopener">イーグルス公式</a><a class="ghost" href="https://rugbyfreaks.com/products/list?category_id=1000019" target="_blank" rel="noopener">応援グッズ</a></div><div class="stats"><div class="stat"><b>18</b><small>レギュラーシーズン</small></div><div class="stat"><b>9</b><small>ホストゲーム</small></div><div class="stat"><b id="winCount">—</b><small>今季の勝利</small></div><div class="stat"><b id="rankCount">—</b><small>リーグ順位</small></div></div></div><figure class="hero-photo"><a class="art-open" href="./assets/matsuo-pop.webp?v=20261114-hd2" target="_blank" rel="noopener" aria-label="松尾団長のイラストを高精細で開く"><img src="./assets/matsuo-pop.webp?v=20261114-hd2" alt="イーグルスのユニフォーム姿でガッツポーズする松尾団長のポップアート" width="1254" height="1254" decoding="async"></a><figcaption>応援団長 松尾 武範<br><small>GO! GO! EAGLES!</small></figcaption></figure></div></div></div>
 <main class="wrap"><section id="eagles-spirits" class="eagles-banner" aria-label="GO! GO! EAGLES! 応援イラスト"><figure class="eagles-banner-figure"><img src="./assets/eagles-cheer-banner.webp?v=20261115" alt="翼を大きく広げたイーグルと、赤いユニフォーム姿のサポーターたち。GO! GO! EAGLES! の応援イラスト" width="1408" height="768" decoding="async" loading="eager"><figcaption>GO! GO! EAGLES!　みんなでスタンドを盛り上げよう！</figcaption></figure></section><section id="next"><h2>次のイーグルス戦</h2><div class="card" id="nextGame">試合情報を読み込み中</div></section>
@@ -480,7 +480,7 @@ function renderHistorical(){
  parts.unshift('<line x1="295" y1="27" x2="295" y2="345" stroke="#9b9191" stroke-width="1"/>');
  diffSvg.innerHTML=parts.join("");
  // Offensive/defensive positioning; higher y means better defense.
- const svg=$("offenseDefenseGraph"), xx=v=>58+(v-380)/400*440, yy=v=>315-(v-320)/430*260;
+ const svg=$("offenseDefenseGraph"), xx=v=>58+(v-380)/400*440, yy=v=>35+(v-320)/430*260;
  let p=['<line x1="52" y1="315" x2="510" y2="315" stroke="#aaa"/><line x1="52" y1="315" x2="52" y2="28" stroke="#aaa"/>',visText(279,349,"シーズン得点 →",14,"middle"),visText(58,20,"失点が少ない ↑",13)];
  [400,500,600,700].forEach(v=>{const x=xx(v);p.push('<line x1="'+x+'" y1="34" x2="'+x+'" y2="315" stroke="#eee"/>',visText(x,329,v,11,"middle"));});
  [350,450,550,650,750].forEach(v=>{const y=yy(v);p.push('<line x1="52" y1="'+y+'" x2="510" y2="'+y+'" stroke="#eee"/>',visText(45,y+4,v,11,"end"));});
