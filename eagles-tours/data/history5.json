@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "coverage": "リーグワン ディビジョン1 2021–22〜2025–26",
+  "updated_at": "2026-11-15",
+  "status": "シーズン別戦績は公式クラブヒストリー確認済み。月別・ホスト/ビジター別は個別公式試合の抽出・照合待ち。",
+  "verified_games": false,
+  "games": [],
+  "seasons": [
+    {
+      "season": "2021-22",
+      "label": "2021–22",
+      "wins": 10,
+      "draws": 0,
+      "losses": 6,
+      "expected": 16,
+      "source": "https://www.canon-eagles.jp/about/history.html",
+      "fixture": "https://www.canon-eagles.jp/gameinfo/2021-2022/"
+    },
+    {
+      "season": "2022-23",
+      "label": "2022–23",
+      "wins": 10,
+      "draws": 2,
+      "losses": 4,
+      "expected": 16,
+      "source": "https://www.canon-eagles.jp/about/history.html",
+      "fixture": "https://www.canon-eagles.jp/gameinfo/2022-2023/"
+    },
+    {
+      "season": "2023-24",
+      "label": "2023–24",
+      "wins": 10,
+      "draws": 0,
+      "losses": 6,
+      "expected": 16,
+      "source": "https://www.canon-eagles.jp/about/history.html",
+      "fixture": "https://www.canon-eagles.jp/gameinfo/2023-2024/"
+    },
+    {
+      "season": "2024-25",
+      "label": "2024–25",
+      "wins": 6,
+      "draws": 0,
+      "losses": 12,
+      "expected": 18,
+      "source": "https://www.canon-eagles.jp/about/history.html",
+      "fixture": "https://www.canon-eagles.jp/gameinfo/2024-2025/"
+    },
+    {
+      "season": "2025-26",
+      "label": "2025–26",
+      "wins": 6,
+      "draws": 0,
+      "losses": 12,
+      "expected": 18,
+      "source": "https://www.canon-eagles.jp/about/history.html",
+      "fixture": "https://www.canon-eagles.jp/gameinfo/2025-2026/"
+    }
+  ],
+  "methodology": "勝率＝勝利数÷(勝・引分・敗)。ホストは公式掲載の左側（第1チーム）として扱い、ホーム所在地とは区別。公式リーグ戦のみ。本データは各シーズンの公式結果が全試合分確認された時点で詳細分類が有効。"
+}
