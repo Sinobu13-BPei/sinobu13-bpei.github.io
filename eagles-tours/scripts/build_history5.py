@@ -43,6 +43,7 @@ def extract_season(season_data):
     url = season_data["fixture"]
     response = requests.get(url, headers=UA, timeout=35)
     response.raise_for_status()
+    response.encoding = "utf-8"  # Official Japanese page sends UTF-8 without reliable charset header.
     page = BeautifulSoup(response.text, "html.parser")
     text = normalize(page.get_text(" ", strip=True))
     print(f"DIAG {season}: page chars={len(text)}, score_tokens={len(SCORE.findall(text))}, full_times={text.count('FULL TIME')}, rounds={len(re.findall(r'第\\s*\\d+\\s*節', text))}, sample={text[100:250]!r}")
