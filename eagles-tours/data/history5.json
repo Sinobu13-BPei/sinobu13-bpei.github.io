@@ -2,7 +2,7 @@
   "schema_version": 1,
   "coverage": "リーグワン ディビジョン1 2021–22〜2025–26",
   "updated_at": "2026-11-15",
-  "status": "シーズン別戦績は公式クラブヒストリー確認済み。月別・ホスト/ビジター別は個別公式試合の抽出・照合待ち。",
+  "status": "シーズン別の公式集計は確認済み。個別試合の精査中（ホーム／アウェー・月別は暫定値を出しません）。",
   "verified_games": false,
   "games": [],
   "seasons": [
@@ -57,5 +57,12 @@
       "fixture": "https://www.canon-eagles.jp/gameinfo/2025-2026/"
     }
   ],
-  "methodology": "勝率＝勝利数÷(勝・引分・敗)。ホストは公式掲載の左側（第1チーム）として扱い、ホーム所在地とは区別。公式リーグ戦のみ。本データは各シーズンの公式結果が全試合分確認された時点で詳細分類が有効。"
+  "methodology": "勝率＝勝利数÷(勝・引分・敗)。ホストは公式掲載の左側（第1チーム）として扱い、ホーム所在地とは区別。公式リーグ戦のみ。本データは各シーズンの公式結果が全試合分確認された時点で詳細分類が有効。",
+  "warnings": [
+    "2021-22: did not pass official history cross-check, got=(0, 0, 0, 0), expected=(16, 10, 0, 6); no unverified data published",
+    "2022-23: did not pass official history cross-check, got=(0, 0, 0, 0), expected=(16, 10, 2, 4); no unverified data published",
+    "2023-24: did not pass official history cross-check, got=(0, 0, 0, 0), expected=(16, 10, 0, 6); no unverified data published",
+    "2024-25: did not pass official history cross-check, got=(0, 0, 0, 0), expected=(18, 6, 0, 12); no unverified data published",
+    "2025-26: did not pass official history cross-check, got=(0, 0, 0, 0), expected=(18, 6, 0, 12); no unverified data published"
+  ]
 }
