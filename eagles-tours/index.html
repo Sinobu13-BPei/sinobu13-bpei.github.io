@@ -513,6 +513,65 @@ button{font-family:inherit}
 .timeaxis-support{margin-top:8px}
 .timeaxis-block .chart-source{margin-bottom:0}
 @media(max-width:720px){.timeaxis-nav{gap:5px}.timeaxis-nav a{padding:8px 5px;min-height:62px}.timeaxis-nav b{font-size:12px}.timeaxis-nav small{font-size:10px}.timeaxis-block{padding:9px;margin:10px 0 14px;border-radius:12px}.timeaxis-head{padding:10px 11px;margin-bottom:10px}.timeaxis-head h3{font-size:17px}.timeaxis-head p{font-size:11px}.timeaxis-step{font-size:11px}.timeaxis-kind{font-size:10px}}
+
+/* 2026-11-15: clear Japanese headings, obvious accordions and compact iPhone layout */
+#visuals .timeaxis-nav{margin:8px 0 10px}
+#visuals .timeaxis-block{margin:9px 0 12px;padding:10px}
+#visuals .timeaxis-head{padding:9px 11px;margin-bottom:8px}
+#visuals .timeaxis-head p{margin:3px 0 5px}
+#visuals .timeaxis-block .viz-box{padding:10px 11px}
+#visuals .timeaxis-block .viz-box h3{font-size:clamp(14px,2.5vw,17px);line-height:1.42;margin:0 0 5px}
+#visuals .timeaxis-block .chart-explain,#visuals .timeaxis-block .chart-footnote{margin:3px 0 7px;line-height:1.45}
+#visuals .timeaxis-block .advanced-intro{margin:8px 0}
+#visuals .timeaxis-block .advanced-intro h3{font-size:16px}
+#visuals .timeaxis-block .advanced-stats{margin:7px 0}
+#visuals .timeaxis-block .strategy-header{margin:7px 0;padding:10px}
+#visuals .live-insights-head{padding:8px 11px}
+#visuals .live-insights-head h3{font-size:15px}
+#visuals .fold-hint{font-size:12px;color:#754d22;background:#fff8e9;border:1px solid #efdfbf;border-radius:9px;padding:7px 9px;margin:8px 0;line-height:1.4}
+#visuals details.live-simulator,#visuals details.science-method{margin:7px 0;padding:0;border:1px solid #e4c8c1;border-radius:11px;background:#fff;overflow:hidden}
+#visuals details.live-simulator>summary,#visuals details.science-method>summary{display:flex;align-items:center;gap:8px;cursor:pointer;min-height:48px;padding:10px 12px;margin:0!important;border:0;list-style:none;color:#8c1616;font-size:clamp(13px,2.5vw,16px);line-height:1.4;white-space:normal}
+#visuals details.live-simulator>summary::-webkit-details-marker,#visuals details.science-method>summary::-webkit-details-marker{display:none}
+#visuals details.live-simulator>summary:before,#visuals details.science-method>summary:before{content:"＋";display:inline-flex;align-items:center;justify-content:center;flex:none;width:24px;height:24px;border-radius:50%;background:#a60000;color:#fff;font-size:18px;line-height:1;font-weight:800}
+#visuals details.live-simulator[open]>summary:before,#visuals details.science-method[open]>summary:before{content:"−"}
+#visuals details.live-simulator>summary:after,#visuals details.science-method>summary:after{content:"詳しく見る";display:block;white-space:nowrap;margin-left:auto;color:#7f5c58;font-size:11px;font-weight:750;background:#fff1ed;border-radius:14px;padding:4px 8px}
+#visuals details.live-simulator[open]>summary:after,#visuals details.science-method[open]>summary:after{content:"閉じる"}
+#visuals details.live-simulator[open],#visuals details.science-method[open]{padding-bottom:10px}
+#visuals details.live-simulator[open]>summary,#visuals details.science-method[open]>summary{border-bottom:1px solid #f1d7d1;margin-bottom:8px!important;background:#fff8f6}
+#visuals details.live-simulator>summary~*,#visuals details.science-method>summary~*{margin-left:12px;margin-right:12px}
+#visuals details.live-simulator .scenario-controls{margin-top:7px}
+#visuals details.live-simulator .scenario-presets{margin-bottom:0}
+#visuals .timeaxis-support{margin-top:5px}
+.message-panel summary{position:relative;padding-right:34px}
+.message-panel summary:after{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:20px}
+.message-panel[open] summary{background:#fff4f0}
+.history-details>summary{position:relative;padding-right:88px!important;cursor:pointer}
+.history-details>summary:after{content:"開く ▼";position:absolute;right:6px;top:50%;transform:translateY(-50%);border-radius:14px;background:#fff0ec;color:#9b1111;font-weight:800;font-size:10px;padding:4px 7px}
+.history-details[open]>summary:after{content:"閉じる ▲"}
+.finished-details>summary{cursor:pointer}
+.finished-details:not([open])>summary .finished-expand{display:inline}
+#contact .contact{margin-top:0}
+#visuals .simulation-card{padding:11px}
+section>h2{margin-bottom:7px}
+main section{padding-top:16px}
+.sub{margin-bottom:7px}
+@media(max-width:720px){
+ #visuals .timeaxis-block{padding:8px;margin:8px 0 11px}
+ #visuals .timeaxis-head{padding:8px 9px}
+ #visuals .timeaxis-head h3{font-size:16px}
+ #visuals .timeaxis-head p{font-size:11px}
+ #visuals .timeaxis-nav a{min-height:55px}
+ #visuals .live-summary-grid{margin:7px 0}
+ #visuals .fold-hint{font-size:11px;padding:7px}
+ #visuals details.live-simulator>summary,#visuals details.science-method>summary{padding:9px 8px;gap:6px;font-size:12px}
+ #visuals details.live-simulator>summary:before,#visuals details.science-method>summary:before{width:22px;height:22px}
+ #visuals details.live-simulator>summary:after,#visuals details.science-method>summary:after{font-size:10px;padding:3px 5px}
+ #visuals details.live-simulator>summary~*,#visuals details.science-method>summary~*{margin-left:8px;margin-right:8px}
+ .message-panel{margin:5px 0}
+ .message-panel summary{padding:10px 32px 10px 10px}
+ .history-details>summary{padding-right:74px!important;font-size:11px}
+ .history-details>summary:after{font-size:9px;padding:3px 5px}
+}
 </style></head><body>
 <header><div class="wrap top"><small>GO! GO! EAGLES! ♥ RUGBY</small>松尾武範と行く　イーグルス応援ツアー</div></header>
 <div class="hero"><div class="wrap"><div class="hero-layout"><div class="hero-copy"><div class="eyebrow">2026–2027 SEASON · GO! GO! EAGLES!</div><h1><span class="hero-headline-line">私、松尾と一緒に！</span><span class="hero-headline-line hero-headline-accent">イーグルス観戦！！</span></h1><p class="hero-intro"><span>仲間が好き！ラグビーが好き！イーグルスが大好き！</span><span>笑って、拍手して、最高の80分を楽しもう。</span><strong>ラグビー初めて観る方大歓迎！！</strong></p><div class="buttons"><a href="#practice">11/28 練習試合</a><a href="#schedule">日程カレンダー</a><a href="#matsuo">松尾団長のひとこと</a><a href="#visuals">グラフで見る</a><a href="#stars">星取表・順位</a><a href="#guide">観戦ガイド</a><a class="ghost" href="https://www.canon-eagles.jp/" target="_blank" rel="noopener">イーグルス公式</a><a class="ghost" href="https://rugbyfreaks.com/products/list?category_id=1000019" target="_blank" rel="noopener">応援グッズ</a></div><div class="stats"><div class="stat"><b>18</b><small>レギュラーシーズン</small></div><div class="stat"><b>9</b><small>ホストゲーム</small></div><div class="stat"><b id="winCount">—</b><small>今季の勝利</small></div><div class="stat"><b id="rankCount">—</b><small>リーグ順位</small></div></div></div><figure class="hero-photo"><a class="art-open" href="./assets/matsuo-pop.webp?v=20261114-hd2" target="_blank" rel="noopener" aria-label="松尾団長のイラストを高精細で開く"><img src="./assets/matsuo-pop.webp?v=20261114-hd2" alt="イーグルスのユニフォーム姿でガッツポーズする松尾団長のポップアート" width="1254" height="1254" decoding="async"></a><figcaption>応援団長 松尾 武範<br><small>GO! GO! EAGLES!</small></figcaption></figure></div></div></div>
@@ -527,6 +586,8 @@ button{font-family:inherit}
 <div class="picto"><svg viewBox="0 0 32 32"><path d="M10 27V12c0-3 3-3 3 0V6c0-3 3-3 3 0v6-5c0-3 3-3 3 0v5-3c0-3 3-3 3 0v7c4-3 6 1 3 5l-5 6z"/></svg>手袋・カイロ</div>
 <div class="picto"><svg viewBox="0 0 32 32"><path d="M6 8h20v17H6zM11 8V5h10v3M11 14h10m-10 5h10"/></svg>チケット</div></div><div class="rugby-tips"><div class="tip"><b>🏉 トライ</b><p>相手インゴールにボールを押さえると5点！</p></div><div class="tip"><b>🥅 コンバージョン</b><p>トライ後のキック成功でさらに2点！</p></div><div class="tip"><b>🎯 ペナルティゴール</b><p>反則からのキック成功で3点！</p></div></div><div class="grid"><div class="card"><h3>冬のラグビーは防寒が勝負！</h3><ul class="check"><li>☐ 厚手のコート・ダウン</li><li>☐ マフラー・ニット帽</li><li>☐ 手袋・カイロ</li><li>☐ あたたかい靴下</li><li>☐ 膝掛け・座布団</li><li>☐ 雨具・ポンチョ</li><li>☐ スマホ充電</li><li>☐ チケット・集合案内</li></ul><p class="fine">風の強いスタジアムでは体感温度が下がるよ。寒さが苦手な人は一枚多めに！</p></div><div class="card"><h3>気持ちよく応援しよう！</h3><p>選手もレフェリーも相手チームもリスペクト！プレーには大きな拍手を。周りの方の観戦を妨げないよう、立ち上がるタイミングや旗・応援グッズには気を配ろう。</p><p>キックオフの30〜45分前には現地へ。試合は前後半40分ずつ、ハーフタイムを含めて約2時間を目安にしよう。</p><p class="note">飲食物、持ち込み禁止物、再入場、雨天対応は会場・試合ごとに違うため、公式案内を見てね！</p></div></div></section>
 
+<section><h2>イーグルス愛のリンク集</h2><div class="card links"><a href="https://www.canon-eagles.jp/" target="_blank" rel="noopener">イーグルス公式HP</a><a href="https://www.canon-eagles.jp/gameinfo/2026-2027/" target="_blank" rel="noopener">試合日程・結果</a><a href="https://www.canon-eagles.jp/tickets/" target="_blank" rel="noopener">チケット</a><a href="https://www.canon-eagles.jp/member/" target="_blank" rel="noopener">選手紹介</a><a href="https://rugbyfreaks.com/products/list?category_id=1000019" target="_blank" rel="noopener">応援グッズ</a><a href="https://league-one.jp/" target="_blank" rel="noopener">リーグワン公式</a><a class="eagles-youtube-link" href="https://www.youtube.com/@yokohama_canon_eagles" target="_blank" rel="noopener noreferrer" aria-label="横浜キヤノンイーグルスのYouTubeチャンネルを開く"><span aria-hidden="true">▶</span> イーグルス YouTube公式チャンネル <span aria-hidden="true">↗</span></a></div></section>
+<p class="fine">私設応援サイトです。横浜キヤノンイーグルス・リーグワンの公式サービスではありません。公開されている連絡先への営業目的の連絡はお控えください。</p>
 <section id="contact"><h2>団長に連絡しよう！</h2><div class="contact contact-layout"><a class="art-open contact-art-link" href="./assets/matsuo-message.webp?v=20261114-hd2" target="_blank" rel="noopener" aria-label="松尾団長の応援イラストを拡大"><img class="contact-photo" src="./assets/matsuo-message.webp?v=20261114-hd2" alt="イーグルスの応援を呼びかける松尾団長のイラスト" loading="lazy" width="1254" height="1254"></a><div class="contact-text"><span>🏉 イーグルス応援ツアー団長（私設）</span><h3>松尾 武範</h3><p class="contact-invite"><span>観戦のこと、待ち合わせのこと、</span><span>なんでもお気軽に！</span></p><div class="contact-actions"><a class="contact-tap contact-mail" href="mailto:takenori.matsuo@medical.canon?subject=%E3%82%A4%E3%83%BC%E3%82%B0%E3%83%AB%E3%82%B9%E5%BF%9C%E6%8F%B4%E3%83%84%E3%82%A2%E3%83%BC%E5%8F%82%E5%8A%A0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" aria-label="松尾団長にメールを送る"><span aria-hidden="true">✉</span><span>メールを送る</span><span aria-hidden="true">↗</span></a><a class="contact-tap contact-phone" href="tel:08055014276" aria-label="松尾団長に電話をかける（080-5501-4276）"><span aria-hidden="true">☎</span><span>当日のお電話</span><span aria-hidden="true">↗</span></a></div></div></div></section>
 <section id="visuals" class="timeaxis-analysis">
 <h2>数字でも楽しめる！イーグルス！！</h2>
@@ -535,17 +596,18 @@ button{font-family:inherit}
 <div id="current-analysis" class="timeaxis-block timeaxis-current">
  <div class="timeaxis-head"><span class="timeaxis-step">01 / 現在</span><h3>現在｜2026–27シーズンの確定記録</h3><p>公式試合の結果・順位を確認できたものだけ反映。未確認の試合は結果を表示しません。10月の練習試合は参考データとして区別します。</p><span class="timeaxis-kind">確定実績・未確認の区別あり</span></div>
  <div class="live-insights">
- <div class="live-insights-head"><h3>undefined</h3><p>2026–27公式リーグ戦の確定スコアと順位を取得したら自動反映。開幕前は仮説シナリオのみ使用できます。試合結果を手入力する必要はありません。</p><p id="liveInsightState" class="live-tag" aria-live="polite">公式結果の取得待ち（0/18試合）</p></div>
+ <div class="live-insights-head"><h3>今季の試合結果と現在の成績</h3><p id="liveInsightState" class="live-tag" aria-live="polite">公式結果の取得待ち（0/18試合）</p></div>
  <div class="live-summary-grid" id="liveSummary" aria-label="公式戦進捗・現状の成績"></div>
  <div class="analysis-grid live-chart-grid">
-  <article class="viz-box"><h3>undefined</h3><p class="chart-explain">試合終了ごとの累積得失点差と、各試合の得失点差の移動平均。未確認の試合は線でつなぎません。</p><div class="live-svg-scroll"><svg id="liveTrendGraph" viewBox="0 0 560 260" role="img" aria-label="今シーズン確定試合の得失点差推移"></svg></div></article>
-  <article class="viz-box"><h3>undefined</h3><p class="chart-explain">ホームとアウェーの勝敗、平均得点・平均失点を比較。対戦数が少ないうちは慎重に解釈してください。</p><div id="homeAwayLive" class="live-splits"></div></article>
+  <article class="viz-box"><h3>得失点差はどう変わった？（試合ごとの推移）</h3><p class="chart-explain">試合終了ごとの累積得失点差と、各試合の得失点差の移動平均。未確認の試合は線でつなぎません。</p><div class="live-svg-scroll"><svg id="liveTrendGraph" viewBox="0 0 560 260" role="img" aria-label="今シーズン確定試合の得失点差推移"></svg></div></article>
+  <article class="viz-box"><h3>ホームとアウェーで成績は違う？</h3><p class="chart-explain">ホームとアウェーの勝敗、平均得点・平均失点を比較。対戦数が少ないうちは慎重に解釈してください。</p><div id="homeAwayLive" class="live-splits"></div></article>
  </div></div>
  <div class="timeaxis-support"><div class="viz-grid"><div class="viz-box"><h3>🏉 練習試合の得点グラフ</h3><svg id="preGraph" viewBox="0 0 520 255" role="img" aria-label="2026年10月の練習試合3試合の得点比較"></svg><div class="legend-line"><span><i class="legend-swatch" style="background:#cc0000"></i>横浜E</span><span><i class="legend-swatch" style="background:#6f7783"></i>対戦相手</span></div><p class="fine">公式発表：10/10 埼玉WK 42–29、10/17 栃木H 21–40、10/30 九州V 54–7。公式戦の成績には含めません。</p></div><div class="viz-box"><h3>🏆 公式戦の星取チャート</h3><div id="donut" class="donut"><div class="donut-inner"><b id="donutText">0/18</b><small>結果確認</small></div></div><div id="breakdown" class="legend-line" style="justify-content:center;margin-top:18px"></div><p class="fine">2026–27公式リーグ戦の確認済み結果だけを反映。未確定試合は集計しません。</p></div></div></div>
 </div>
 <div id="future-analysis" class="timeaxis-block timeaxis-future">
  <div class="timeaxis-head"><span class="timeaxis-step">02 / 未来</span><h3>未来｜自分で試せるシミュレーション</h3><p>スライダーで勝敗・得失点・ボーナス勝点・仮定勝率を変更。公式記録の書き換えや優勝確率の断定はしません。</p><span class="timeaxis-kind">仮定・予測ではなく試算</span></div>
- <details class="live-simulator" open><summary>undefined</summary>
+ <p class="fold-hint"><span aria-hidden="true">☝</span> 見たい項目をタップすると、詳しい説明やシミュレーターが開きます。</p>
+<details class="live-simulator"><summary>残り試合で何勝できる？ 勝点シミュレーション</summary>
  <p class="chart-explain">残りの試合数に対して「勝ち・引き分け・敗け」の想定数を設定。勝点は説明用に勝ち4、引分け2、敗け0、追加ボーナスは1試合平均の想定値で計算します。<strong>実際の勝点は公式順位表が取得できた場合のみ使用</strong>します。</p>
  <div class="scenario-controls">
   <label>残り試合の勝利数 <b id="futureWinValue">0勝</b><input type="range" id="futureWins" min="0" max="18" step="1" value="9"></label>
@@ -558,19 +620,19 @@ button{font-family:inherit}
  <p id="scenarioNote" class="chart-footnote"></p>
  <div class="scenario-presets"><button type="button" data-plan="cautious">慎重シナリオ</button><button type="button" data-plan="standard">標準シナリオ</button><button type="button" data-plan="ambitious">上位挑戦</button><button type="button" data-plan="allwins">全勝したら？</button></div>
  </details>
- <details class="live-simulator"><summary>undefined</summary>
+ <details class="live-simulator"><summary>対戦相手を選んで、得点を予想してみよう</summary>
  <p class="chart-explain">相手ごとの過去2季の直接対戦記録を表示。希望する得点・失点を動かし、どのくらいの得失点差が必要か試せます。仮想スコアは公式結果には保存されません。</p>
  <div class="match-sim-controls"><label>試合を選択<select id="matchSimOpponent" aria-label="シミュレーション対象の試合"></select></label><label>想定得点 <b id="matchSimForLabel">28</b><input id="matchSimFor" type="range" min="0" max="80" step="1" value="28"></label><label>想定失点 <b id="matchSimAgainstLabel">24</b><input id="matchSimAgainst" type="range" min="0" max="80" step="1" value="24"></label></div>
  <div class="live-summary-grid" id="matchSimSummary"></div><p id="matchSimHistory" class="chart-footnote"></p>
  </details>
- <details class="live-simulator"><summary>undefined</summary>
+ <details class="live-simulator"><summary>これから何勝できそう？ 勝率別シミュレーション</summary>
  <p class="chart-explain">残り各試合で同じ勝率を仮定した二項分布モデルです。「少なくとも何勝する確率か」を数学的に示します。実際のチーム力・対戦相手・ボーナス・引分けを反映した優勝確率ではありません。</p>
  <div class="scenario-controls"><label>各試合の仮定勝率 <b id="chancePValue">50%</b><input id="chanceP" type="range" min="5" max="95" value="50" step="5"></label><label>残り試合の目標勝利数 <b id="chanceTargetValue">9勝</b><input id="chanceTarget" type="range" min="0" max="18" value="9" step="1"></label></div>
  <div class="live-summary-grid" id="chanceSummary"></div><div class="live-svg-scroll"><svg id="winChanceGraph" viewBox="0 0 560 205" role="img" aria-label="仮定勝率から計算する勝利数の二項分布"></svg></div><p class="chart-footnote">独立・同確率の仮定に基づく感度計算です。選手のコンディション、相手、ホーム・アウェーなどは未考慮。現実の勝率や年間王者の予測ではありません。</p>
  </details>
  <p class="chart-footnote">自動取得の元データ：<a href="https://www.canon-eagles.jp/gameinfo/2026-2027/" target="_blank" rel="noopener">横浜キヤノンイーグルス公式試合結果</a> ／ <a href="https://league-one.jp/standings/?t1=1&amp;year=2026" target="_blank" rel="noopener">リーグワン公式順位</a>。確定したスコアのみ実績として掲載します。2025–26の実績基準は別表示です。</p>
  <div class="simulation-card">
- <div><h3>undefined</h3><p>2025–26シーズン横浜Eの得点454・失点597を出発点とした仮説。攻撃力と守備力をそれぞれ1試合平均何点改善できるか、動かしてみよう！</p></div>
+ <div><h3>攻撃と守備を改善したら？ 得失点差シミュレーション</h3><p>2025–26シーズン横浜Eの得点454・失点597を出発点とした仮説。攻撃力と守備力をそれぞれ1試合平均何点改善できるか、動かしてみよう！</p></div>
  <div class="simulation-controls">
    <label>攻撃：1試合平均の得点を増やす <strong id="attackVal">+10点</strong><input id="attackSlider" type="range" min="0" max="35" value="10" step="1"></label>
    <label>守備：1試合平均の失点を減らす <strong id="defenseVal">−10点</strong><input id="defenseSlider" type="range" min="0" max="30" value="10" step="1"></label>
@@ -593,25 +655,25 @@ button{font-family:inherit}
   <div class="stat-mini"><span><b>75</b> 勝点：前季リーグ1位</span><span><b>+294</b> 得失点差：前季リーグ1位</span><span><b>−143</b> 前季横浜E</span></div>
 </div>
 <div class="analysis-grid">
-  <article class="viz-box"><h3>undefined</h3><p class="chart-explain">プラスほど得点が失点を上回ったチーム。赤はイーグルス。</p><svg id="allDiffGraph" viewBox="0 0 540 358" role="img" aria-label="2025-26リーグワン全12チーム得失点差の比較"></svg></article>
-  <article class="viz-box"><h3>undefined</h3><p class="chart-explain">右ほど攻撃で多く得点、上ほど失点を抑えられたチーム。</p><svg id="offenseDefenseGraph" viewBox="0 0 540 358" role="img" aria-label="2025-26各チームの得点数と失点数の散布図"></svg></article>
-  <article class="viz-box"><h3>undefined</h3><p class="chart-explain">勝点と得失点差の関係。相関があっても、得失点差だけで順位は決まりません。</p><svg id="pointsDiffGraph" viewBox="0 0 540 358" role="img" aria-label="2025-26勝点と得失点差の散布図と回帰直線"></svg><p id="correlationNote" class="chart-footnote"></p></article>
-  <article class="viz-box"><h3>undefined</h3><p class="chart-explain">各順位のチームが実際に残した記録。優勝・準優勝を保証する基準値ではありません。</p><div id="benchmarkTable" class="tablewrap"></div></article>
+  <article class="viz-box"><h3>12チームの得失点差を比較</h3><p class="chart-explain">プラスほど得点が失点を上回ったチーム。赤はイーグルス。</p><svg id="allDiffGraph" viewBox="0 0 540 358" role="img" aria-label="2025-26リーグワン全12チーム得失点差の比較"></svg></article>
+  <article class="viz-box"><h3>得点力と守備力を12チームで比較</h3><p class="chart-explain">右ほど攻撃で多く得点、上ほど失点を抑えられたチーム。</p><svg id="offenseDefenseGraph" viewBox="0 0 540 358" role="img" aria-label="2025-26各チームの得点数と失点数の散布図"></svg></article>
+  <article class="viz-box"><h3>勝点と得失点差はどのくらい関係する？</h3><p class="chart-explain">勝点と得失点差の関係。相関があっても、得失点差だけで順位は決まりません。</p><svg id="pointsDiffGraph" viewBox="0 0 540 358" role="img" aria-label="2025-26勝点と得失点差の散布図と回帰直線"></svg><p id="correlationNote" class="chart-footnote"></p></article>
+  <article class="viz-box"><h3>昨季の上位3チームとの差を確認</h3><p class="chart-explain">各順位のチームが実際に残した記録。優勝・準優勝を保証する基準値ではありません。</p><div id="benchmarkTable" class="tablewrap"></div></article>
 </div>
- <div class="advanced-intro"><h3>もう一歩深く！ スポーツ・データサイエンス</h3><p>以下は、公式記録を計算した<strong>記述統計</strong>と、仮定を置く<strong>参考モデル</strong>です。将来の勝敗や優勝確率を断定するものではありません。</p></div>
+ <div class="advanced-intro"><h3>過去の記録をもう少し詳しく分析</h3><p>公式記録から計算した数値と参考モデルを分けて掲載しています。</p></div>
 <div class="advanced-stats" id="scienceKpis" aria-label="攻守の科学指標"></div>
 <div class="analysis-grid advanced-grid">
- <article class="viz-box"><h3>undefined</h3><p class="chart-explain">12チーム平均を0として比較。右側ほど良好。守備は失点が少ないほど高評価です。</p><svg id="zScoreGraph" viewBox="0 0 540 215" role="img" aria-label="得点と守備の標準化したリーグ平均との差"></svg><p class="chart-footnote">Z = (自チームの数値−リーグ平均) ÷ 母標準偏差。守備のみ符号を逆転します。統計的な有意差を示すものではありません。</p></article>
- <article class="viz-box"><h3>undefined</h3><p class="chart-explain">参考モデル：得点²÷(得点²＋失点²)。実勝率とのズレから、単純な得失点モデルの限界も見られます。</p><svg id="expectedWinGraph" viewBox="0 0 540 348" role="img" aria-label="全12チームの実際の勝率と得失点モデル参考値の比較"></svg><p class="chart-footnote">係数2は説明用に設定した仮説です。リーグワンで最適化・検証した予測式ではありません。勝点・引き分け・ボーナスポイントを直接反映しません。</p></article>
- <article class="viz-box"><h3>undefined</h3><p class="chart-explain">横浜Eと前季リーグ戦上位3チーム平均の差を、1試合（80分）あたりで表示。</p><svg id="paceGraph" viewBox="0 0 540 252" role="img" aria-label="横浜イーグルスと上位3チームの1試合あたり得点・失点比較"></svg><p id="paceNote" class="chart-footnote"></p></article>
- <article class="viz-box"><h3>undefined</h3><p class="chart-explain">過去2シーズンの対戦結果から勝率を計算。試合数が少ないため95% Wilson区間も示します。</p><label class="science-label" for="scienceOpponent">対戦相手を選ぶ</label><select id="scienceOpponent" aria-label="比較する対戦相手"></select><svg id="opponentConfidenceGraph" viewBox="0 0 540 168" role="img" aria-label="対戦相手との勝率と不確実性区間"></svg><p id="opponentConfidenceNote" class="chart-footnote"></p><p class="chart-footnote">Wilson区間は二項分布を仮定した統計区間であり、次戦の勝率予測や勝敗保証ではありません。引き分けは勝利に含めません。</p></article>
+ <article class="viz-box"><h3>得点力・守備力はリーグ平均より上？</h3><p class="chart-explain">12チーム平均を0として比較。右側ほど良好。守備は失点が少ないほど高評価です。</p><svg id="zScoreGraph" viewBox="0 0 540 215" role="img" aria-label="得点と守備の標準化したリーグ平均との差"></svg><p class="chart-footnote">Z = (自チームの数値−リーグ平均) ÷ 母標準偏差。守備のみ符号を逆転します。統計的な有意差を示すものではありません。</p></article>
+ <article class="viz-box"><h3>実際の勝率と、得失点から計算した参考値</h3><p class="chart-explain">参考モデル：得点²÷(得点²＋失点²)。実勝率とのズレから、単純な得失点モデルの限界も見られます。</p><svg id="expectedWinGraph" viewBox="0 0 540 348" role="img" aria-label="全12チームの実際の勝率と得失点モデル参考値の比較"></svg><p class="chart-footnote">係数2は説明用に設定した仮説です。リーグワンで最適化・検証した予測式ではありません。勝点・引き分け・ボーナスポイントを直接反映しません。</p></article>
+ <article class="viz-box"><h3>1試合あたりの得点・失点を比較</h3><p class="chart-explain">横浜Eと前季リーグ戦上位3チーム平均の差を、1試合（80分）あたりで表示。</p><svg id="paceGraph" viewBox="0 0 540 252" role="img" aria-label="横浜イーグルスと上位3チームの1試合あたり得点・失点比較"></svg><p id="paceNote" class="chart-footnote"></p></article>
+ <article class="viz-box"><h3>過去の対戦から見る勝率の幅</h3><p class="chart-explain">過去2シーズンの対戦結果から勝率を計算。試合数が少ないため95% Wilson区間も示します。</p><label class="science-label" for="scienceOpponent">対戦相手を選ぶ</label><select id="scienceOpponent" aria-label="比較する対戦相手"></select><svg id="opponentConfidenceGraph" viewBox="0 0 540 168" role="img" aria-label="対戦相手との勝率と不確実性区間"></svg><p id="opponentConfidenceNote" class="chart-footnote"></p><p class="chart-footnote">Wilson区間は二項分布を仮定した統計区間であり、次戦の勝率予測や勝敗保証ではありません。引き分けは勝利に含めません。</p></article>
 </div>
- <details class="science-method"><summary>計算式・データの扱い・注意事項を見る</summary><div><p><strong>攻撃効率</strong>＝得点÷18試合、<strong>守備失点ペース</strong>＝失点÷18試合、<strong>得失点比</strong>＝得点÷失点（1を超えると得点超過）。<strong>Zスコア</strong>＝リーグ平均からの差÷リーグ12チームの標準偏差。</p><p><strong>得失点モデルの期待勝率（説明用）</strong>＝得点²÷(得点²＋失点²)。勝率とは直接一致しません。<strong>Wilson区間</strong>は対戦相手との勝利数、試合数、z＝1.96を使用します。サンプルが2～4試合程度と少なく推定は不安定です。</p><p>リーグ比較は2025–26ディビジョン1のレギュラーシーズン18試合のチーム別確定記録を使用。対戦相手別は2024–25／2025–26のリーグ戦のみを使用。練習試合・プレーオフは除外。仮説モデルは公式見解ではありません。</p></div></details>
+ <details class="science-method"><summary>計算方法やデータの注意点</summary><div><p><strong>攻撃効率</strong>＝得点÷18試合、<strong>守備失点ペース</strong>＝失点÷18試合、<strong>得失点比</strong>＝得点÷失点（1を超えると得点超過）。<strong>Zスコア</strong>＝リーグ平均からの差÷リーグ12チームの標準偏差。</p><p><strong>得失点モデルの期待勝率（説明用）</strong>＝得点²÷(得点²＋失点²)。勝率とは直接一致しません。<strong>Wilson区間</strong>は対戦相手との勝利数、試合数、z＝1.96を使用します。サンプルが2～4試合程度と少なく推定は不安定です。</p><p>リーグ比較は2025–26ディビジョン1のレギュラーシーズン18試合のチーム別確定記録を使用。対戦相手別は2024–25／2025–26のリーグ戦のみを使用。練習試合・プレーオフは除外。仮説モデルは公式見解ではありません。</p></div></details>
 <p class="chart-source">出典：<a href="https://league-one.jp/standings/?t1=0&amp;year=2025" target="_blank" rel="noopener">リーグワン公式 2025–26ディビジョン1最終記録</a>。2026–27シーズンの公式結果・順位は上部の星取表で別表示しています。</p>
 </div>
 </section>
 
-<section><h2>イーグルス愛のリンク集</h2><div class="card links"><a href="https://www.canon-eagles.jp/" target="_blank" rel="noopener">イーグルス公式HP</a><a href="https://www.canon-eagles.jp/gameinfo/2026-2027/" target="_blank" rel="noopener">試合日程・結果</a><a href="https://www.canon-eagles.jp/tickets/" target="_blank" rel="noopener">チケット</a><a href="https://www.canon-eagles.jp/member/" target="_blank" rel="noopener">選手紹介</a><a href="https://rugbyfreaks.com/products/list?category_id=1000019" target="_blank" rel="noopener">応援グッズ</a><a href="https://league-one.jp/" target="_blank" rel="noopener">リーグワン公式</a><a class="eagles-youtube-link" href="https://www.youtube.com/@yokohama_canon_eagles" target="_blank" rel="noopener noreferrer" aria-label="横浜キヤノンイーグルスのYouTubeチャンネルを開く"><span aria-hidden="true">▶</span> イーグルス YouTube公式チャンネル <span aria-hidden="true">↗</span></a></div></section><p class="fine">私設応援サイトです。横浜キヤノンイーグルス・リーグワンの公式サービスではありません。公開されている連絡先への営業目的の連絡はお控えください。</p><section id="qrcodes" aria-label="メール・電話・サイトのQRコード"><h2>松尾団長のQRコード</h2><div class="qr-section"><h3>QRコードでかんたんアクセス！</h3><p>スマートフォンのカメラで読み取ってください。画面を開いている端末からは、下のリンクをそのままタップできます。</p><div class="qr-grid"><article class="qr-card"><h3>✉ メール問合せ</h3><img src="./assets/matsuo-mail-attached.svg?v=20261115-attached" alt="メール用QRコード" width="260" height="260" loading="lazy" decoding="async" referrerpolicy="no-referrer"><p>添付のQR（中継リンク形式）</p><a class="qr-link" href="mailto:takenori.matsuo@medical.canon?subject=%E3%82%A4%E3%83%BC%E3%82%B0%E3%83%AB%E3%82%B9%E5%BF%9C%E6%8F%B4%E3%83%84%E3%82%A2%E3%83%BC%E5%8F%82%E5%8A%A0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">タップして開く</a></article><article class="qr-card"><h3>☎ 電話をかける</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=16&format=png&data=tel%3A08055014276" alt="電話用QRコード" width="260" height="260" loading="lazy" decoding="async" referrerpolicy="no-referrer"><p>電話発信画面を開く</p><a class="qr-link" href="tel:08055014276">タップして開く</a></article><article class="qr-card"><h3>🏉 WebページのQR</h3><img src="./assets/eagles-website-user-qr.svg?v=20261115-thumb" alt="添付いただいた赤いサムズアップ付き応援ツアーWebサイト用QRコード" width="260" height="260" loading="lazy" decoding="async" referrerpolicy="no-referrer"><p>このページを見る</p><a class="qr-link" href="https://sinobu13-bpei.github.io/eagles-tours/" target="_blank" rel="noopener">タップして開く</a></article></div><p class="qr-note">メール用QRはご提供の図柄を使用しており、外部の中継URLへ接続します。直接メールを作成する場合は「タップして開く」をご利用ください。電話は発信確認画面、Webサイトは応援ツアーのページが開きます。端末の設定により動作が異なる場合があります。</p></div></section></main>
+<section id="qrcodes" aria-label="メール・電話・サイトのQRコード"><h2>松尾団長のQRコード</h2><div class="qr-section"><h3>QRコードでかんたんアクセス！</h3><p>スマートフォンのカメラで読み取ってください。画面を開いている端末からは、下のリンクをそのままタップできます。</p><div class="qr-grid"><article class="qr-card"><h3>✉ メール問合せ</h3><img src="./assets/matsuo-mail-attached.svg?v=20261115-attached" alt="メール用QRコード" width="260" height="260" loading="lazy" decoding="async" referrerpolicy="no-referrer"><p>添付のQR（中継リンク形式）</p><a class="qr-link" href="mailto:takenori.matsuo@medical.canon?subject=%E3%82%A4%E3%83%BC%E3%82%B0%E3%83%AB%E3%82%B9%E5%BF%9C%E6%8F%B4%E3%83%84%E3%82%A2%E3%83%BC%E5%8F%82%E5%8A%A0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">タップして開く</a></article><article class="qr-card"><h3>☎ 電話をかける</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=16&format=png&data=tel%3A08055014276" alt="電話用QRコード" width="260" height="260" loading="lazy" decoding="async" referrerpolicy="no-referrer"><p>電話発信画面を開く</p><a class="qr-link" href="tel:08055014276">タップして開く</a></article><article class="qr-card"><h3>🏉 WebページのQR</h3><img src="./assets/eagles-website-user-qr.svg?v=20261115-thumb" alt="添付いただいた赤いサムズアップ付き応援ツアーWebサイト用QRコード" width="260" height="260" loading="lazy" decoding="async" referrerpolicy="no-referrer"><p>このページを見る</p><a class="qr-link" href="https://sinobu13-bpei.github.io/eagles-tours/" target="_blank" rel="noopener">タップして開く</a></article></div><p class="qr-note">メール用QRはご提供の図柄を使用しており、外部の中継URLへ接続します。直接メールを作成する場合は「タップして開く」をご利用ください。電話は発信確認画面、Webサイトは応援ツアーのページが開きます。端末の設定により動作が異なる場合があります。</p></div></section></main>
 <footer class="footer"><div class="wrap"><b>松尾武範と行く　イーグルス応援ツアー</b><p>GO! GO! EAGLES! 🏉 ずっとイーグルスを応援しよう！</p><p>制作編纂：松尾 武範</p><nav class="quiet-footer-links" aria-label="関連サイト"><a href="https://sinobu13-bpei.github.io/medical-intelligence/?utm_source=chatgpt.com" target="_blank" rel="noopener">国内医療MKT</a><a href="https://sinobu13-bpei.github.io/dining-guide/" target="_blank" rel="noopener">お食事Map</a><a href="https://sinobu13-bpei.github.io/maioka/" target="_blank" rel="noopener">読書散策場所</a></nav></div></footer>
 <script>
 const F=[{"round":1,"date":"2026/12/13","time":"13:40","kind":"A","opp":"三菱重工相模原ダイナボアーズ","venue":"相模原ギオンスタジアム"},{"round":2,"date":"2026/12/20","time":"14:30","kind":"H","opp":"東京サントリーサンゴリアス","venue":"日産スタジアム"},{"round":3,"date":"2026/12/27","time":"14:30","kind":"A","opp":"栃木ホンダヒート","venue":"ホンダヒート・グリーンスタジアム"},{"round":4,"date":"2027/01/09","time":"14:30","kind":"H","opp":"静岡ブルーレヴズ","venue":"ニッパツ三ツ沢球技場"},{"round":5,"date":"2027/01/16","time":"12:05","kind":"A","opp":"コベルコ神戸スティーラーズ","venue":"ノエビアスタジアム神戸"},{"round":6,"date":"2027/01/23","time":"14:30","kind":"H","opp":"トヨタヴェルブリッツ","venue":"ニッパツ三ツ沢球技場"},{"round":7,"date":"2027/02/06","time":"14:30","kind":"A","opp":"クボタスピアーズ船橋・東京ベイ","venue":"スピアーズえどりくフィールド"},{"round":8,"date":"2027/02/13","time":"12:00","kind":"H","opp":"リコーブラックラムズ東京","venue":"秩父宮ラグビー場"},{"round":9,"date":"2027/02/20","time":"14:30","kind":"A","opp":"埼玉パナソニックワイルドナイツ","venue":"熊谷スポーツ文化公園ラグビー場"},{"round":10,"date":"2027/02/28","time":"未定","kind":"H","opp":"東芝ブレイブルーパス東京","venue":"クラサスドーム大分"},{"round":11,"date":"2027/03/12","time":"未定","kind":"A","opp":"浦安D-Rocks","venue":"秩父宮ラグビー場"},{"round":12,"date":"2027/03/20","time":"未定","kind":"H","opp":"クボタスピアーズ船橋・東京ベイ","venue":"秩父宮ラグビー場"},{"round":13,"date":"2027/03/28","time":"未定","kind":"A","opp":"リコーブラックラムズ東京","venue":"秩父宮ラグビー場"},{"round":14,"date":"2027/04/04","time":"未定","kind":"H","opp":"三菱重工相模原ダイナボアーズ","venue":"日産スタジアム"},{"round":15,"date":"2027/04/17","time":"未定","kind":"A","opp":"静岡ブルーレヴズ","venue":"ヤマハスタジアム"},{"round":16,"date":"2027/04/24","time":"未定","kind":"H","opp":"栃木ホンダヒート","venue":"東京都内・詳細未定"},{"round":17,"date":"2027/05/01","time":"未定","kind":"A","opp":"東京サントリーサンゴリアス","venue":"東京都内・詳細未定"},{"round":18,"date":"2027/05/09","time":"未定","kind":"H","opp":"埼玉パナソニックワイルドナイツ","venue":"東京都内・詳細未定"}], M=["いよいよ開幕！みんなで赤い想いを届けよう。今年もイーグルスと一緒にラグビーを楽しもう！","日産スタジアムに赤い歓声を！仲間と一緒に最高のキックオフを迎えよう！","年末もラグビー愛は全開！ひたむきなプレーに拍手を送ろう！","冬の三ツ沢はラグビーの魅力がすぐ目の前！熱い声援を届けよう！","神戸の舞台でも思いはひとつ！イーグルスの挑戦を楽しみにしています！","迫力満点の80分が待っている！仲間と一緒にスタンドからエールを！","走って、つないで、前へ！一つひとつのプレーをみんなで楽しもう！","秩父宮をイーグルスの赤で盛り上げよう！今日も思いきり応援！","どこにいても気持ちは同じ！全選手に大きな拍手を届けよう！","東芝は故郷なので、なおさら負けられない！ 大分にもイーグルス愛を！仲間と一緒に全力で応援しましょう！","平日のラグビーも最高！頑張る選手たちへ心からエールを！","ワクワクするプレーをみんなで楽しもう！大きな声でイーグルス！","秩父宮で仲間と声を合わせよう！今日もラグビーの素晴らしさを満喫！","地元・神奈川の特別な一戦！スタンドから元気いっぱい後押ししよう！","春のラグビーを満喫！チームの絆に注目して楽しもう！","新しい景色へ進むイーグルスを応援！笑顔と拍手でいっぱいの一日に！","シーズンの一つひとつの瞬間を大切に！一緒に声援を届けましょう！","最終節、感謝を込めて！選手のみなさんに最高の拍手を贈ろう！"];
@@ -635,7 +697,7 @@ function matchHistoryHTML(g){
  const stat=matchSummary(g),count=stat.total;
  const title='<div class="history-overview"><span class="history-rank">2025–26最終 '+stat.rank+'位</span><span class="history-score">過去2季 '+stat.win+'勝'+stat.draw+'分'+stat.loss+'敗</span><b class="history-rate">横浜E勝率 '+(stat.pct===null?'未集計':stat.pct+'%')+'</b></div>';
  const rows=stat.rows.map(x=>'<tr><td>'+x[0]+'</td><td>'+x[4]+'</td><td class="'+(x[2]>x[3]?'hist-won':'')+'">'+x[2]+'–'+x[3]+'</td><td>'+(x[2]>x[3]?'○':x[2]===x[3]?'△':'●')+'</td></tr>').join('');
- return title+'<details class="history-details"><summary>過去2シーズンの対戦結果を見る（'+count+'試合）</summary><div class="tablewrap"><table class="hist-table"><thead><tr><th>シーズン</th><th>日付</th><th>横浜E–相手</th><th>結果</th></tr></thead><tbody>'+rows+'</tbody></table></div><p class="history-source">出典：<a href="'+HIST_URLS['24-25']+'" target="_blank" rel="noopener">2024–25</a> ／ <a href="'+HIST_URLS['25-26']+'" target="_blank" rel="noopener">2025–26</a>（公式リーグ戦のみ）</p></details>';
+ return title+'<details class="history-details"><summary>過去2年の対戦履歴（'+count+'試合）</summary><div class="tablewrap"><table class="hist-table"><thead><tr><th>シーズン</th><th>日付</th><th>横浜E–相手</th><th>結果</th></tr></thead><tbody>'+rows+'</tbody></table></div><p class="history-source">出典：<a href="'+HIST_URLS['24-25']+'" target="_blank" rel="noopener">2024–25</a> ／ <a href="'+HIST_URLS['25-26']+'" target="_blank" rel="noopener">2025–26</a>（公式リーグ戦のみ）</p></details>';
 }
 function draw(){
 const filtered=F.filter(g=>mode==="all"||g.kind===mode);
