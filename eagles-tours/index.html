@@ -335,11 +335,120 @@ main section{padding-top:18px}
 .science-method summary{cursor:pointer;color:#9c1313;font-weight:900;font-size:13px}
 .science-method p{margin:8px 0 0;font-size:12px;line-height:1.65}
 @media(max-width:700px){.advanced-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.advanced-intro h3{font-size:17px}.adv-stat{padding:9px 7px}}
-.advanced-grid .viz-box svg{max-height:348px}.advanced-stats strong{overflow-wrap:anywhere}.message-panel summary .message-venue{display:inline-flex;margin-left:10px;color:#7b4d4d;font-size:clamp(11px,1.5vw,13px);font-weight:650;line-height:1.4;overflow-wrap:anywhere}.message-panel .body a{color:#a40000;font-weight:800;text-decoration:underline;text-underline-offset:3px}@media(max-width:540px){.message-panel summary .message-venue{display:block;margin-left:0;margin-top:3px}}</style></head><body>
+.advanced-grid .viz-box svg{max-height:348px}.advanced-stats strong{overflow-wrap:anywhere}.message-panel summary .message-venue{display:inline-flex;margin-left:10px;color:#7b4d4d;font-size:clamp(11px,1.5vw,13px);font-weight:650;line-height:1.4;overflow-wrap:anywhere}.message-panel .body a{color:#a40000;font-weight:800;text-decoration:underline;text-underline-offset:3px}@media(max-width:540px){.message-panel summary .message-venue{display:block;margin-left:0;margin-top:3px}}
+/* iPhone-first consolidated UI corrections, Nov 15 2026 */
+html{-webkit-text-size-adjust:100%}
+body{overflow-x:clip}
+main,.wrap,section,.grid,.viz-grid,.analysis-grid,.contact-layout,.contact-text{min-width:0}
+main section{padding-top:18px}
+main section:first-child{padding-top:14px}
+section>h2,section>.section-head h2{line-height:1.35;overflow-wrap:normal;word-break:normal}
+a,button,summary{touch-action:manipulation}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #d27420;outline-offset:2px}
+img{max-width:100%;height:auto}
+button{font-family:inherit}
+#visuals .science-mobile-hint{display:none;font-size:12px;margin:0 0 8px;color:#706365}
+#visuals .viz-box,.analysis-grid .viz-box{max-width:100%}
+#visuals .chart-footnote,#visuals .chart-explain{overflow-wrap:anywhere}
+#visuals .viz-box svg{display:block}
+#visuals .advanced-stats{min-width:0}
+#visuals .adv-stat{min-width:0}
+#visuals .adv-stat strong{word-break:normal;overflow-wrap:anywhere}
+#visuals .advanced-grid .viz-box h3{line-height:1.35}
+.message-panel summary{min-height:46px;flex-wrap:wrap;justify-content:flex-start;align-items:baseline;line-height:1.45}
+.message-panel summary:after{margin-left:auto;align-self:center}
+.message-panel summary .message-venue{flex:1 1 100%;margin-left:0;color:#745656}
+#contact .contact-invite{overflow-wrap:normal}
+#contact .contact-actions{min-width:0}
+#contact .contact-tap{min-width:0}
+#contact .contact-tap span:nth-child(2){white-space:nowrap}
+#qrcodes .qr-card img{object-fit:contain}
+.quiet-footer-links{padding-bottom:4px}
+@media(max-width:720px){
+  .wrap{padding-inline:12px}
+  body{font-size:15px;line-height:1.55}
+  main section{padding-top:16px}
+  section h2{font-size:clamp(20px,5.4vw,26px)}
+  .section-head{align-items:center;gap:8px;margin-bottom:7px}
+  .section-head .section-art-link{flex-shrink:0}
+  .card{padding:12px;border-radius:13px}
+  .grid,.analysis-grid,.viz-grid{grid-template-columns:minmax(0,1fr)}
+  #visuals .science-mobile-hint{display:block}
+  #visuals .viz-box{padding:11px;overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain;scrollbar-width:thin}
+  #visuals .analysis-grid .viz-box>svg,#visuals .advanced-grid .viz-box>svg{min-width:440px;width:440px;max-width:none;max-height:none}
+  #visuals .viz-grid .viz-box>svg{min-width:395px;width:395px;max-width:none;max-height:none}
+  #visuals .viz-box h3{font-size:16px;line-height:1.4}
+  #visuals .strategy-header{padding:11px}
+  #visuals .projection-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #visuals .projection-tile strong{font-size:clamp(19px,5.5vw,24px)}
+  #visuals .projection-tile span{font-size:11px}
+  #visuals .simulation-card{padding:11px}
+  #visuals .simulation-card>svg{min-width:440px;width:440px;max-width:none}
+  #visuals .simulation-card{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  #visuals .simulation-controls{min-width:0}
+  #visuals .simulation-controls label{min-width:0}
+  #games.tablewrap{overflow:visible}
+  #games .match-history-table{display:block;width:100%;min-width:0;border:0}
+  #games .match-history-table thead{display:none}
+  #games .match-history-table tbody{display:block;width:100%}
+  #games .match-history-table tr.upcoming-fixture{display:grid;grid-template-columns:1fr 1fr;column-gap:10px;row-gap:4px;margin:0 0 10px;padding:11px;border:1px solid #ebceca;border-radius:13px;background:#fff}
+  #games .match-history-table .upcoming-fixture td{display:block!important;min-width:0;width:auto;max-width:none;padding:4px 2px;border:none;white-space:normal;font-size:13px}
+  #games .upcoming-fixture td:nth-child(1){grid-column:1;grid-row:1;color:#a40000}
+  #games .upcoming-fixture td:nth-child(1)::before{content:"第"}
+  #games .upcoming-fixture td:nth-child(1)::after{content:"節"}
+  #games .upcoming-fixture td:nth-child(2){grid-column:2;grid-row:1;text-align:right;font-variant-numeric:tabular-nums}
+  #games .upcoming-fixture td:nth-child(2) small{display:inline-block;margin-left:6px}
+  #games .upcoming-fixture td:nth-child(3){grid-column:1/-1;grid-row:2;padding:7px 0 5px!important;border-top:1px solid #f4e0dc}
+  #games .upcoming-fixture td:nth-child(4){grid-column:1;grid-row:3}
+  #games .upcoming-fixture td:nth-child(5){grid-column:2;grid-row:3;text-align:right}
+  #games .upcoming-fixture td:nth-child(5) b{display:none}
+  #games .upcoming-fixture td:nth-child(5)::before{content:"開催前";color:#746565;font-size:12px}
+  #games .upcoming-fixture td:nth-child(6){grid-column:1/-1;grid-row:4;border-top:1px dashed #e9d2d0;padding-top:7px}
+  #games .upcoming-fixture td:nth-child(6) a{font-size:12px;overflow-wrap:anywhere}
+  #games .upcoming-fixture .opponent-name{font-size:15px;line-height:1.4}
+  #games .history-overview{gap:5px;margin-top:6px}
+  #games .history-details{margin-top:5px}
+  #games .history-details>summary{min-height:44px;display:block;white-space:normal;font-size:12px}
+  #games .finished-fixture{display:block;margin:0 0 7px}
+  #games .finished-fixture td{display:block;width:100%;padding:0!important;border:0}
+  #games .finished-details{width:100%;max-width:100%}
+  #games .finished-details>summary{display:grid;grid-template-columns:auto 1fr auto;gap:3px 8px;padding:10px;align-items:center}
+  #games .finished-round{grid-column:1;grid-row:1}
+  #games .finished-date{grid-column:2;grid-row:1}
+  #games .finished-details>summary strong{grid-column:1/3;grid-row:2;min-width:0;font-size:13px;overflow-wrap:anywhere}
+  #games .finished-score{grid-column:3;grid-row:1;font-size:18px}
+  #games .finished-mark{grid-column:3;grid-row:2;text-align:right;font-size:18px}
+  #games .finished-body{padding:5px 10px 10px}
+  #contact .contact{padding:10px}
+  #contact .contact-text>span{font-size:11px}
+  #contact .contact-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #contact .contact .contact-tap{min-height:44px;font-size:clamp(10px,2.9vw,13px);gap:3px;padding:8px 4px}
+  .message-panel{margin:6px 0;border-radius:11px}
+  .message-panel summary{font-size:13px;padding:10px 12px;gap:3px 7px}
+  .message-panel summary .message-venue{font-size:11px}
+  .message-panel .body{padding:0 11px 12px;font-size:13px}
+  .calgrid{gap:2px}
+  .calday{padding:3px 2px;gap:3px;min-height:70px}
+  .calday .daynum{font-size:11px}
+  .calendar-holiday,.calendar-medical{font-size:9px;line-height:1.25;padding:3px 2px}
+  .calfixture{font-size:9px;line-height:1.25;padding:3px 2px}
+  .calweek{font-size:11px}
+  .callegend{gap:6px 10px}
+}
+@media(max-width:380px){
+ #contact .contact-layout{grid-template-columns:68px minmax(0,1fr);gap:7px}
+ #contact .contact-photo{width:68px;height:88px}
+ #contact .contact h3{font-size:17px}
+ #contact .contact-invite{font-size:10px}
+ #contact .contact .contact-tap{font-size:10px}
+ #contact .contact-tap span:last-child{display:none}
+ #visuals .adv-stat strong{font-size:21px}
+}
+</style></head><body>
 <header><div class="wrap top"><small>GO! GO! EAGLES! ♥ RUGBY</small>松尾武範と行く　イーグルス応援ツアー</div></header>
 <div class="hero"><div class="wrap"><div class="hero-layout"><div class="hero-copy"><div class="eyebrow">2026–2027 SEASON · GO! GO! EAGLES!</div><h1><span class="hero-headline-line">私、松尾と一緒に！</span><span class="hero-headline-line hero-headline-accent">イーグルス観戦！！</span></h1><p class="hero-intro"><span>仲間が好き！ラグビーが好き！イーグルスが大好き！</span><span>笑って、拍手して、最高の80分を楽しもう。</span><strong>ラグビー初めて観る方大歓迎！！</strong></p><div class="buttons"><a href="#practice">11/28 練習試合</a><a href="#schedule">日程カレンダー</a><a href="#matsuo">松尾団長のひとこと</a><a href="#visuals">グラフで見る</a><a href="#stars">星取表・順位</a><a href="#guide">観戦ガイド</a><a class="ghost" href="https://www.canon-eagles.jp/" target="_blank" rel="noopener">イーグルス公式</a><a class="ghost" href="https://rugbyfreaks.com/products/list?category_id=1000019" target="_blank" rel="noopener">応援グッズ</a></div><div class="stats"><div class="stat"><b>18</b><small>レギュラーシーズン</small></div><div class="stat"><b>9</b><small>ホストゲーム</small></div><div class="stat"><b id="winCount">—</b><small>今季の勝利</small></div><div class="stat"><b id="rankCount">—</b><small>リーグ順位</small></div></div></div><figure class="hero-photo"><a class="art-open" href="./assets/matsuo-pop.webp?v=20261114-hd2" target="_blank" rel="noopener" aria-label="松尾団長のイラストを高精細で開く"><img src="./assets/matsuo-pop.webp?v=20261114-hd2" alt="イーグルスのユニフォーム姿でガッツポーズする松尾団長のポップアート" width="1254" height="1254" decoding="async"></a><figcaption>応援団長 松尾 武範<br><small>GO! GO! EAGLES!</small></figcaption></figure></div></div></div>
 <main class="wrap"><section id="eagles-spirits" class="eagles-banner" aria-label="GO! GO! EAGLES! 応援イラスト"><figure class="eagles-banner-figure"><img src="./assets/eagles-cheer-banner.webp?v=20261115" alt="翼を大きく広げたイーグルと、赤いユニフォーム姿のサポーターたち。GO! GO! EAGLES! の応援イラスト" width="1408" height="768" decoding="async" loading="eager"><figcaption>GO! GO! EAGLES!　みんなでスタンドを盛り上げよう！</figcaption></figure></section><section id="next"><h2>次のイーグルス戦</h2><div class="card" id="nextGame">試合情報を読み込み中</div></section>
-<section id="practice"><h2>11月28日 練習試合も応援！</h2><p class="sub">リーグ開幕前のワクワクを、みんなで一緒に！公式戦18試合とは別の特別観戦案内です。</p><article class="card matsuo"><span class="chip">🏉 プレシーズン・練習試合</span><h3 style="font-size:clamp(21px,5vw,27px);color:#970000;margin:10px 0">2026年11月28日（土）13:00 キックオフ</h3><p><b>横浜キヤノンイーグルス vs 三菱重工相模原ダイナボアーズ</b></p><p>📍 会場：<b>キヤノンスポーツパーク</b></p><div class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%A4%E3%83%8E%E3%83%B3%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%83%91%E3%83%BC%E3%82%AF" target="_blank" rel="noopener">会場マップ</a><a href="https://www.google.com/maps/dir/?api=1&destination=%E3%82%AD%E3%83%A4%E3%83%8E%E3%83%B3%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%83%91%E3%83%BC%E3%82%AF" target="_blank" rel="noopener">経路案内</a></div><h3 style="color:#9b0000">松尾団長の試合前メッセージ（編集文）</h3><p>「開幕前からイーグルスと一緒に盛り上がろう！選手たちのチャレンジを間近で見られる特別な一日。どんなプレーにも大きな拍手を届けて、最高のラグビー時間を楽しみましょう！」</p><p class="fine">※メッセージは団長本人の発言を引用したものではありません。</p></article></section><section id="schedule"><div class="section-head"><div><h2>試合カレンダー・全18試合</h2><p class="sub">月別カレンダーと一覧表、どちらも見やすく！</p></div><a class="section-art-link" href="./assets/matsuo-pop.webp?v=20261114-hd2" target="_blank" rel="noopener" title="イラストを拡大表示"><img class="icon-art" src="./assets/matsuo-pop.webp?v=20261114-hd2" alt="松尾団長のカラーイラスト" width="1254" height="1254" loading="lazy"></a></div><div class="modebar"><button type="button" id="showCalendar" aria-pressed="true">📅 月別カレンダー</button><button type="button" id="showTable" aria-pressed="false">📋 全試合一覧</button></div><div class="calendar-panel" id="calendarPanel"><div class="monthnav"><button type="button" id="prevMonth" aria-label="前の月">◀ 前月</button><strong id="monthTitle">2026年11月</strong><button type="button" id="nextMonth" aria-label="次の月">翌月 ▶</button></div><div id="calendarGrid" class="calgrid"></div><div class="callegend"><span><i class="dot"></i>ホスト</span><span><i class="dot away"></i>ビジター</span><span><i class="dot pre"></i>練習試合</span><span class="cal-legend-holiday">㊗ 国民の祝日・休日</span><span class="cal-legend-medical">＋ 医学会・講習会（開催初日）</span></div><p class="calendar-datanote">祝日・休日：<a href="https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html" target="_blank" rel="noopener">内閣府公式</a>。医学会：公式日程を確認した主な学術集会・講習会を開催初日に表示（全件ではありません）。学会名から公式サイトへ移動します。変更がある場合は各学会の最新案内が優先です。</p></div><div id="tablePanel" hidden><p class="sub">2026年12月〜2027年5月。試合会場はタップでGoogleマップへ。日時・会場の最新情報は必ず公式サイトで確認してね。</p><div class="filter"><button class="on" data-f="all">全18試合</button><button data-f="H">ホスト9試合</button><button data-f="A">ビジター9試合</button></div><div id="games" class="tablewrap"></div></div><p class="fine">対戦データ：2024–25・2025–26公式リーグ戦（全36試合）／勝率＝横浜Eの勝利数÷その相手との試合数。2025–26順位はプレーオフ終了後の最終順位です。終了した試合は結果だけの1行表示になり、タップで対戦履歴を開けます。日時・会場は公式発表が優先です。</p></section>
+<section id="practice"><h2>11月28日 練習試合も応援！</h2><p class="sub">リーグ開幕前のワクワクを、みんなで一緒に！公式戦18試合とは別の特別観戦案内です。</p><article class="card matsuo"><span class="chip">🏉 プレシーズン・練習試合</span><h3 style="font-size:clamp(21px,5vw,27px);color:#970000;margin:10px 0">2026年11月28日（土）13:00 キックオフ</h3><p><b>横浜キヤノンイーグルス vs 三菱重工相模原ダイナボアーズ</b></p><p>📍 会場：<b>キヤノンスポーツパーク</b></p><div class="links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%A4%E3%83%8E%E3%83%B3%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%83%91%E3%83%BC%E3%82%AF" target="_blank" rel="noopener">会場マップ</a><a href="https://www.google.com/maps/dir/?api=1&destination=%E3%82%AD%E3%83%A4%E3%83%8E%E3%83%B3%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%83%91%E3%83%BC%E3%82%AF" target="_blank" rel="noopener">経路案内</a></div><h3 style="color:#9b0000">松尾団長の試合前メッセージ（編集文）</h3><p>「開幕前からイーグルスと一緒に盛り上がろう！選手たちのチャレンジを間近で見られる特別な一日。どんなプレーにも大きな拍手を届けて、最高のラグビー時間を楽しみましょう！」</p><p class="fine">※メッセージは団長本人の発言を引用したものではありません。</p></article></section><section id="schedule"><div class="section-head"><div><h2>試合カレンダー・全18試合</h2><p class="sub">月別カレンダーと一覧表、どちらも見やすく！</p></div><a class="section-art-link" href="./assets/matsuo-pop.webp?v=20261114-hd2" target="_blank" rel="noopener" title="イラストを拡大表示"><img class="icon-art" src="./assets/matsuo-pop.webp?v=20261114-hd2" alt="松尾団長のカラーイラスト" width="1254" height="1254" loading="lazy"></a></div><div class="modebar"><button type="button" id="showCalendar" aria-pressed="true">📅 月別カレンダー</button><button type="button" id="showTable" aria-pressed="false">📋 全試合一覧</button></div><div class="calendar-panel" id="calendarPanel" role="region" aria-label="試合カレンダー"><div class="monthnav"><button type="button" id="prevMonth" aria-label="前の月">◀ 前月</button><strong id="monthTitle">2026年11月</strong><button type="button" id="nextMonth" aria-label="次の月">翌月 ▶</button></div><div id="calendarGrid" class="calgrid" aria-label="月曜日始まりの試合・祝日・学会カレンダー"></div><div class="callegend"><span><i class="dot"></i>ホスト</span><span><i class="dot away"></i>ビジター</span><span><i class="dot pre"></i>練習試合</span><span class="cal-legend-holiday">㊗ 国民の祝日・休日</span><span class="cal-legend-medical">＋ 医学会・講習会（開催初日）</span></div><p class="calendar-datanote">祝日・休日：<a href="https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html" target="_blank" rel="noopener">内閣府公式</a>。医学会：公式日程を確認した主な学術集会・講習会を開催初日に表示（全件ではありません）。学会名から公式サイトへ移動します。変更がある場合は各学会の最新案内が優先です。</p></div><div id="tablePanel" hidden role="region" aria-label="試合一覧"><p class="sub">2026年12月〜2027年5月。試合会場はタップでGoogleマップへ。日時・会場の最新情報は必ず公式サイトで確認してね。</p><div class="filter"><button class="on" data-f="all">全18試合</button><button data-f="H">ホスト9試合</button><button data-f="A">ビジター9試合</button></div><div id="games" class="tablewrap" aria-label="全18試合・対戦相手の履歴"></div></div><p class="fine">対戦データ：2024–25・2025–26公式リーグ戦（全36試合）／勝率＝横浜Eの勝利数÷その相手との試合数。2025–26順位はプレーオフ終了後の最終順位です。終了した試合は結果だけの1行表示になり、タップで対戦履歴を開けます。日時・会場は公式発表が優先です。</p></section>
 <section id="matsuo"><div class="section-head"><h2>松尾団長の熱烈応援メッセージ</h2><a class="section-art-link" href="./assets/matsuo-message.webp?v=20261114-hd2" target="_blank" rel="noopener" title="イラストを拡大表示"><img class="icon-art" src="./assets/matsuo-message.webp?v=20261114-hd2" alt="松尾団長の応援メッセージ付きイラスト" width="1254" height="1254" loading="lazy"></a></div><p class="sub">どんな結果の日も、全選手にリスペクトと拍手！イーグルス愛を込めて毎試合の見どころをお届け。</p><div class="card matsuo"><p style="margin-top:0">毎試合へのひとことはタップして開けます。<b>選手にも相手チームにも感謝と拍手を！</b></p><div id="messages"></div></div><p class="fine">※応援メッセージは松尾団長の雰囲気を表現した編集文であり、ご本人の逐語的な発言ではありません。</p></section>
 <section id="stars"><h2>星取表・最新順位</h2><div class="result-stats"><div class="mini"><strong id="finishedCount">0</strong>公式戦・結果確認済</div><div class="mini"><strong id="homeCount">9</strong>ホストゲーム</div><div class="mini"><strong id="remainingCount">18</strong>残り／未確認</div></div><p class="sub" id="dataStatus">開幕前の初期データを表示中。結果・順位の更新状況は下記をご確認ください。</p><div class="card"><div class="stars" id="starGrid"></div><p id="record" style="font-weight:800"></p><div class="links"><a href="https://league-one.jp/standings/?t1=1&year=2026" target="_blank" rel="noopener">リーグワン公式順位を見る</a><a href="https://www.canon-eagles.jp/gameinfo/2026-2027/" target="_blank" rel="noopener">公式試合結果を見る</a></div></div><div class="card" style="margin-top:12px"><div class="tablewrap"><table class="table"><thead><tr><th>順位</th><th>チーム</th><th>試合</th><th>勝点</th><th>勝</th><th>分</th><th>敗</th></tr></thead><tbody id="standings"><tr><td colspan="7">公式順位表の更新待ち</td></tr></tbody></table></div></div></section>
 <section id="venues"><h2>会場まで迷わずGO!</h2><div class="grid" id="venuesGrid"></div></section>
@@ -350,7 +459,7 @@ main section{padding-top:18px}
 <div class="picto"><svg viewBox="0 0 32 32"><path d="M6 8h20v17H6zM11 8V5h10v3M11 14h10m-10 5h10"/></svg>チケット</div></div><div class="rugby-tips"><div class="tip"><b>🏉 トライ</b><p>相手インゴールにボールを押さえると5点！</p></div><div class="tip"><b>🥅 コンバージョン</b><p>トライ後のキック成功でさらに2点！</p></div><div class="tip"><b>🎯 ペナルティゴール</b><p>反則からのキック成功で3点！</p></div></div><div class="grid"><div class="card"><h3>冬のラグビーは防寒が勝負！</h3><ul class="check"><li>☐ 厚手のコート・ダウン</li><li>☐ マフラー・ニット帽</li><li>☐ 手袋・カイロ</li><li>☐ あたたかい靴下</li><li>☐ 膝掛け・座布団</li><li>☐ 雨具・ポンチョ</li><li>☐ スマホ充電</li><li>☐ チケット・集合案内</li></ul><p class="fine">風の強いスタジアムでは体感温度が下がるよ。寒さが苦手な人は一枚多めに！</p></div><div class="card"><h3>気持ちよく応援しよう！</h3><p>選手もレフェリーも相手チームもリスペクト！プレーには大きな拍手を。周りの方の観戦を妨げないよう、立ち上がるタイミングや旗・応援グッズには気を配ろう。</p><p>キックオフの30〜45分前には現地へ。試合は前後半40分ずつ、ハーフタイムを含めて約2時間を目安にしよう。</p><p class="note">飲食物、持ち込み禁止物、再入場、雨天対応は会場・試合ごとに違うため、公式案内を見てね！</p></div></div></section>
 
 <section id="contact"><h2>団長に連絡しよう！</h2><div class="contact contact-layout"><a class="art-open contact-art-link" href="./assets/matsuo-message.webp?v=20261114-hd2" target="_blank" rel="noopener" aria-label="松尾団長の応援イラストを拡大"><img class="contact-photo" src="./assets/matsuo-message.webp?v=20261114-hd2" alt="イーグルスの応援を呼びかける松尾団長のイラスト" loading="lazy" width="1254" height="1254"></a><div class="contact-text"><span>🏉 イーグルス応援ツアー団長（私設）</span><h3>松尾 武範</h3><p class="contact-invite"><span>観戦のこと、待ち合わせのこと、</span><span>なんでもお気軽に！</span></p><div class="contact-actions"><a class="contact-tap contact-mail" href="mailto:takenori.matsuo@medical.canon?subject=%E3%82%A4%E3%83%BC%E3%82%B0%E3%83%AB%E3%82%B9%E5%BF%9C%E6%8F%B4%E3%83%84%E3%82%A2%E3%83%BC%E5%8F%82%E5%8A%A0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" aria-label="松尾団長にメールを送る"><span aria-hidden="true">✉</span><span>メールを送る</span><span aria-hidden="true">↗</span></a><a class="contact-tap contact-phone" href="tel:08055014276" aria-label="松尾団長に電話をかける（080-5501-4276）"><span aria-hidden="true">☎</span><span>当日のお電話</span><span aria-hidden="true">↗</span></a></div></div></div></section>
-<section id="visuals"><h2>数字でも楽しむ、イーグルス！</h2><p class="sub">確定したスコアだけをグラフ化。練習試合とリーグ戦は分けて表示しています。</p><div class="viz-grid"><div class="viz-box"><h3>🏉 練習試合の得点グラフ</h3><svg id="preGraph" viewBox="0 0 520 255" role="img" aria-label="2026年10月の練習試合3試合の得点比較"></svg><div class="legend-line"><span><i class="legend-swatch" style="background:#cc0000"></i>横浜E</span><span><i class="legend-swatch" style="background:#6f7783"></i>対戦相手</span></div><p class="fine">公式発表：10/10 埼玉WK 42–29、10/17 栃木H 21–40、10/30 九州V 54–7。公式戦の成績には含めません。</p></div><div class="viz-box"><h3>🏆 公式戦の星取チャート</h3><div id="donut" class="donut"><div class="donut-inner"><b id="donutText">0/18</b><small>結果確認</small></div></div><div id="breakdown" class="legend-line" style="justify-content:center;margin-top:18px"></div><p class="fine">開幕前の結果は表示しません。公式データの確認が取れ次第、数値が反映されます。</p></div></div>
+<section id="visuals"><h2>数字でも楽しめる！イーグルス！！</h2><p class="science-mobile-hint">グラフは指で左右にスクロールできます。</p><p class="sub">確定したスコアだけをグラフ化。練習試合とリーグ戦は分けて表示しています。</p><div class="viz-grid"><div class="viz-box"><h3>🏉 練習試合の得点グラフ</h3><svg id="preGraph" viewBox="0 0 520 255" role="img" aria-label="2026年10月の練習試合3試合の得点比較"></svg><div class="legend-line"><span><i class="legend-swatch" style="background:#cc0000"></i>横浜E</span><span><i class="legend-swatch" style="background:#6f7783"></i>対戦相手</span></div><p class="fine">公式発表：10/10 埼玉WK 42–29、10/17 栃木H 21–40、10/30 九州V 54–7。公式戦の成績には含めません。</p></div><div class="viz-box"><h3>🏆 公式戦の星取チャート</h3><div id="donut" class="donut"><div class="donut-inner"><b id="donutText">0/18</b><small>結果確認</small></div></div><div id="breakdown" class="legend-line" style="justify-content:center;margin-top:18px"></div><p class="fine">開幕前の結果は表示しません。公式データの確認が取れ次第、数値が反映されます。</p></div></div>
 <div class="strategy-header">
   <h3>優勝をめざす！リーグ戦の数字を徹底比較</h3>
   <p>2025–26シーズンのディビジョン1・全12チームの公式記録を比較。新シーズンの結果とは混ぜていません。</p>
