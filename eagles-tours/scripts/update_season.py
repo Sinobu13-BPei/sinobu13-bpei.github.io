@@ -34,6 +34,7 @@ def clean(s):
 def soup(url):
     response = requests.get(url, headers=UA, timeout=35)
     response.raise_for_status()
+    response.encoding = "utf-8"
     return BeautifulSoup(response.text, "html.parser")
 
 def to_date_token(s):
