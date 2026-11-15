@@ -735,7 +735,7 @@ main section{padding-top:16px}
 <div id="past-analysis" class="timeaxis-block timeaxis-past">
  <div class="timeaxis-head"><span class="timeaxis-step">03 / 過去</span><h3>過去｜公式5シーズンの戦績と傾向</h3><p>2021–22～2025–26の公式リーグ戦を対象に、シーズン別と直近の変化を比較します。ホーム／アウェー・月別は個別試合の公式照合完了後に表示します。</p><span class="timeaxis-kind">公式実績・5シーズン</span></div>
  <div class="history5-panel" aria-label="イーグルス過去5年の公式戦分析">
- <div class="history5-title"><h3>直近5シーズン・公式リーグ戦の勝敗分析</h3><p>公式クラブ記録に基づくシーズン別の成績。2021–22は16試合、2024–25以降は18試合なので、勝数より<strong>勝率</strong>を優先して比較します。</p><p id="history5Status" class="fine" aria-live="polite">公式のシーズン別記録を表示中。試合別の月・ホスト／ビジター分析を照合しています。</p></div>
+ <div class="history5-title"><h3>直近5シーズン・公式リーグ戦の勝敗分析</h3><p>公式クラブ記録に基づくシーズン別の成績。2021–22の公式10勝には<strong>中止による不戦勝1</strong>が含まれます。月別・会場別は実際に行われた試合のみ分析します。</p><p id="history5Status" class="fine" aria-live="polite">公式のシーズン別記録を表示中。試合別の月・ホスト／ビジター分析を照合しています。</p></div>
  <div id="history5Kpis" class="live-summary-grid"></div>
  <div class="history5-grid">
   <article class="viz-box"><h3>5年間の勝率の変化</h3><div id="history5SeasonBars" class="history5-bars"></div></article>
@@ -747,11 +747,11 @@ main section{padding-top:16px}
    <div class="history5-filter"><label>対象期間<select id="history5SeasonFilter"><option value="all">5シーズン合計</option><option value="early">前半3シーズン</option><option value="recent">直近2シーズン</option><option value="2021-22">2021–22</option><option value="2022-23">2022–23</option><option value="2023-24">2023–24</option><option value="2024-25">2024–25</option><option value="2025-26">2025–26</option></select></label><div id="history5Sample" class="fine">公式個別試合データの照合待ち</div></div>
    <div class="history5-grid">
      <article class="viz-box"><h3>ホスト／ビジターの勝率差</h3><div id="history5HomeAway" class="history5-bars"><p class="fine">個別試合の公式照合待ち</p></div><p class="chart-footnote">ホスト／ビジターはクラブ公式の第1・第2チーム表記。開催場所の地理的なホーム／アウェーとは異なる場合があります。</p></article>
-     <article class="viz-box"><h3>月別の勝率</h3><div id="history5Months" class="history5-bars"><p class="fine">個別試合の公式照合待ち</p></div><p class="chart-footnote">各月の勝率＝勝利した試合数÷その月の完了したリーグ戦試合数。試合数を併記し、少数試合の偏りに注意します。</p></article>
+     <article class="viz-box"><h3>月別の勝率</h3><div id="history5Months" class="history5-bars"><p class="fine">個別試合の公式照合待ち</p></div><p class="chart-footnote">各月の勝率＝実際に勝利した試合数÷その月の完了したリーグ戦試合数。試合数を併記し、少数試合の偏りに注意します。</p></article>
      <article class="viz-box"><h3>1試合平均の得点・失点</h3><div id="history5Pace" class="history5-bars"><p class="fine">個別試合の公式照合待ち</p></div></article>
      <article class="viz-box"><h3>5試合ごとの勝率推移</h3><div id="history5Rolling" class="history5-bars"><p class="fine">個別試合の公式照合待ち</p></div><p class="chart-footnote">時系列で直近5試合の勝利割合を算出。毎試合更新した移動平均ではなく、5試合単位の集計です。</p></article>
    </div>
-   <details class="science-method history5-sources"><summary>各シーズンの公式記録・分析のルール</summary><div><p>対象：リーグワンのレギュラーシーズン2021–22、2022–23、2023–24、2024–25、2025–26。引き分けは勝利と数えず、勝率の分母には含めます。</p><p><a href="https://www.canon-eagles.jp/about/history.html" target="_blank" rel="noopener">クラブ公式ヒストリー ↗</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2021-2022/" target="_blank" rel="noopener">2021–22</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2022-2023/" target="_blank" rel="noopener">2022–23</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2023-2024/" target="_blank" rel="noopener">2023–24</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2024-2025/" target="_blank" rel="noopener">2024–25</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2025-2026/" target="_blank" rel="noopener">2025–26</a>。</p></div></details>
+   <details class="science-method history5-sources"><summary>各シーズンの公式記録・分析のルール</summary><div><p>対象：リーグワンのレギュラーシーズン2021–22、2022–23、2023–24、2024–25、2025–26。公式順位の戦績は合計42勝2分40敗（不戦勝1を含む）、実試合だけでは41勝2分40敗・83試合。月別／会場別の勝率は後者で算出し、中止試合を母数に含めません。引き分けは勝利と数えず、勝率の分母には含めます。</p><p><a href="https://www.canon-eagles.jp/about/history.html" target="_blank" rel="noopener">クラブ公式ヒストリー ↗</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2021-2022/" target="_blank" rel="noopener">2021–22</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2022-2023/" target="_blank" rel="noopener">2022–23</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2023-2024/" target="_blank" rel="noopener">2023–24</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2024-2025/" target="_blank" rel="noopener">2024–25</a> ／ <a href="https://www.canon-eagles.jp/gameinfo/2025-2026/" target="_blank" rel="noopener">2025–26</a>。</p></div></details>
  </div>
 </div>
 <div class="strategy-header">
@@ -1223,7 +1223,7 @@ $("calendarGrid").addEventListener("click",event=>{
 document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{mode=b.dataset.f;document.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x===b));draw()});draw();
 
 const HIST5_BASE=[
- {season:"2021-22",label:"2021–22",wins:10,draws:0,losses:6},
+ {season:"2021-22",label:"2021–22",wins:10,draws:0,losses:6,played_expected:15,awarded_wins:1},
  {season:"2022-23",label:"2022–23",wins:10,draws:2,losses:4},
  {season:"2023-24",label:"2023–24",wins:10,draws:0,losses:6},
  {season:"2024-25",label:"2024–25",wins:6,draws:0,losses:12},
@@ -1237,7 +1237,7 @@ function refreshHistory5(){
  const all=seasons.reduce((a,x)=>({w:a.w+x.wins,d:a.d+x.draws,l:a.l+x.losses}),{w:0,d:0,l:0});
  const total=all.w+all.d+all.l,rate=(100*all.w/total).toFixed(1);
  $("history5Kpis").innerHTML=[
-  metric("公式リーグ戦",total+"試合","5シーズン合計"),
+  metric("公式戦績",total+"試合相当","実試合83＋不戦勝1"),
   metric("5年間の勝敗",all.w+"勝 "+all.d+"分 "+all.l+"敗","引分けは勝率の分母に含める"),
   metric("5年間の勝率",rate+"%","勝利数÷総試合数"),
   metric("直近2年の勝率",(100*12/36).toFixed(1)+"%","その前3年は "+(100*30/48).toFixed(1)+"%")
@@ -1252,12 +1252,13 @@ function refreshHistory5(){
   {label:"前半3シーズン",value:100*first.w/first.n,result:(100*first.w/first.n).toFixed(1)+"% ("+first.n+"試合)"},
   {label:"直近2シーズン",value:100*recent.w/recent.n,result:(100*recent.w/recent.n).toFixed(1)+"% ("+recent.n+"試合)",recent:true}
  ]);
- const valid=historyFiveData.verified_games===true&&Array.isArray(historyFiveData.games)&&historyFiveData.games.length===total;
- $("history5Status").textContent=valid?"5シーズンのリーグ戦"+total+"試合を照合済み／月別・ホスト／ビジター別を分析できます。":"公式のシーズン別戦績は確認済み。個別試合の公式照合が完了するまで、月別・ホスト／ビジター別の数値は表示しません。";
+ const playedExpected=seasons.reduce((n,x)=>n+(x.played_expected??(x.wins+x.draws+x.losses)),0);
+ const valid=historyFiveData.verified_games===true&&Array.isArray(historyFiveData.games)&&historyFiveData.games.length===playedExpected;
+ $("history5Status").textContent=valid?"5シーズンの実試合"+playedExpected+"件を照合済み（公式戦績上の不戦勝1件を別管理）／月別・ホスト／ビジター別を分析できます。":"公式のシーズン別戦績は確認済み。不戦勝1試合を除く実試合83件の照合が完了するまで、月別・ホスト／ビジター別の数値は表示しません。";
  renderHistory5Details();
 }
 function renderHistory5Details(){
- const raw=historyFiveData.games||[],total=HIST5_BASE.reduce((a,x)=>a+x.wins+x.draws+x.losses,0);
+ const raw=historyFiveData.games||[],total=HIST5_BASE.reduce((a,x)=>a+(x.played_expected??(x.wins+x.draws+x.losses)),0);
  const valid=historyFiveData.verified_games===true&&raw.length===total;
  const ids=["history5HomeAway","history5Months","history5Pace","history5Rolling"];
  if(!valid){
