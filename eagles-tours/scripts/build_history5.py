@@ -45,6 +45,7 @@ def extract_season(season_data):
     response.raise_for_status()
     page = BeautifulSoup(response.text, "html.parser")
     text = normalize(page.get_text(" ", strip=True))
+    print(f"DIAG {season}: page chars={len(text)}, score_tokens={len(SCORE.findall(text))}, full_times={text.count('FULL TIME')}, rounds={len(re.findall(r'第\\s*\\d+\\s*節', text))}, sample={text[100:250]!r}")
     hits = {}
     for score in SCORE.finditer(text):
         before = text[max(0, score.start() - 370):score.start()]
