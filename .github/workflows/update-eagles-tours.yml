@@ -1,5 +1,9 @@
 name: Eagles results - Sunday night and Monday follow-up
 on:
+  push:
+    paths:
+      - 'eagles-tours/index.html'
+      - 'eagles-tours/scripts/build_history5.py'
   schedule:
     - cron: '50 14 * * 0' # Sunday 23:50 JST
     - cron: '30 15 * * 0' # Monday 00:30 JST
@@ -22,11 +26,13 @@ jobs:
         run: pip install requests beautifulsoup4
       - name: Check official completed match results and standings
         run: python eagles-tours/scripts/update_season.py
+      - name: Verify five years of official league fixtures
+        run: python eagles-tours/scripts/build_history5.py
       - name: Commit changes to published scoreboard
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add eagles-tours/data/season.json
+          git add eagles-tours/data/season.json eagles-tours/data/history5.json
           if ! git diff --cached --quiet; then
             git commit -m "chore: refresh Eagles scores and standings from official sites"
             git pull --rebase
