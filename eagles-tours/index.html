@@ -486,8 +486,8 @@ function calendar(){
  $("monthTitle").textContent=shownYear+"年"+shownMonth+"月";
  $("prevMonth").disabled=shownYear===2026&&shownMonth===10;
  $("nextMonth").disabled=shownYear===2027&&shownMonth===5;
- let html=["日","月","火","水","木","金","土"].map(w=>'<div class="calweek">'+w+'</div>').join("");
- for(let i=0;i<start.getDay();i++)html+='<div class="calday empty" aria-hidden="true"></div>';
+ let html=["月","火","水","木","金","土","日"].map(w=>'<div class="calweek">'+w+'</div>').join("");
+ for(let i=0;i<(start.getDay()+6)%7;i++)html+='<div class="calday empty" aria-hidden="true"></div>';
  for(let day=1;day<=days;day++){
  const iso=shownYear+"/"+String(shownMonth).padStart(2,"0")+"/"+String(day).padStart(2,"0");
  const dow=new Date(shownYear,shownMonth-1,day).getDay();
