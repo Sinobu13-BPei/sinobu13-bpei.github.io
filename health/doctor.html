@@ -1,0 +1,13 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b4f6c"><title>診察用健康サマリー</title><link rel="stylesheet" href="./styles.css"><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./config.js"></script></head><body>
+<header class="hero"><div class="hero-inner"><div><div class="eyebrow">READ ONLY CLINIC VIEW</div><h1 id="doctorTitle">診察用健康サマリー</h1><p>本人が発行した期限付き共有リンクによる読み取り専用表示です。</p><div class="chips"><span>🔒 読み取り専用</span><span id="expiryChip">期限確認中</span><span>📄 印刷/PDF対応</span></div></div></div></header>
+<main class="shell" style="margin-top:-42px"><section id="shareStatus" class="statusbar warn"><b>読み込み中</b><span>共有権限を確認しています。</span></section>
+<section id="clinicContent" class="hidden">
+<div class="section-title"><div><span>SUMMARY</span><h2>診察時に最初に見る項目</h2></div><button class="btn secondary" onclick="window.print()">印刷/PDF</button></div>
+<div id="docKpis" class="kpi-grid"></div>
+<div class="grid2"><article class="card"><h3>⚖️ 直近の体重推移</h3><canvas id="docWeight"></canvas></article><article class="card"><h3>🧪 健診重点指標の長期推移</h3><select id="docMetric"></select><canvas id="docCheck"></canvas></article></div>
+<div class="grid2"><article class="card"><h3>📋 最新健診と注意フラグ</h3><div id="docLatest"></div></article><article class="card"><h3>🍽️ 生活記録サマリー</h3><div id="docLifestyle"></div></article></div>
+<article class="card"><h3>🩻 所見履歴</h3><div id="docFindings" class="timeline"></div></article>
+<article class="card"><h3>📑 人間ドック数値一覧</h3><div class="tablewrap"><table id="docTable"></table></div></article>
+<div class="grid2 provider-grid"><article class="card provider"><div class="provider-icon">🏥</div><h3>主治医</h3><div id="docProvider"></div></article><article class="card provider"><div class="provider-icon">🧬</div><h3>健診機関</h3><div id="docCheckProvider"></div></article></div>
+<p class="note">本ページは本人記録と健診結果の整理表示です。診断・治療方針を示すものではありません。</p>
+</section></main><footer><span>Personal Health Intelligence｜Clinic View</span><span>共有リンクは本人が失効できます。</span></footer><script src="./doctor.js"></script></body></html>
