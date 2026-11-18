@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b4f6c">
+<title>Personal Health Intelligence</title>
+<link rel="stylesheet" href="./styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./config.js"></script>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">PERSONAL HEALTH INTELLIGENCE</div>
+      <h1 id="heroName">健康管理ダッシュボード</h1>
+      <p>人間ドックの長期履歴と、毎日の体重・食事・欠食・飲酒・睡眠・活動を一つの時間軸で管理します。</p>
+      <div class="chips"><span>🔒 健康データは非公開DB</span><span>📱📱💻 3台同期</span><span>👨‍⚕️ 診察用ビュー対応</span></div>
+    </div>
+    <div class="hero-mark" aria-hidden="true">
+      <svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="72" fill="none" stroke="currentColor" stroke-width="7" opacity=".25"/><path d="M20 85h28l10-28 18 57 13-39 12 10h39" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M80 35c17-18 46-7 46 18 0 26-46 57-46 57S34 79 34 53c0-25 29-36 46-18z" fill="none" stroke="currentColor" stroke-width="5" opacity=".32"/></svg>
+    </div>
+  </div>
+</header>
+
+<main class="shell">
+<section id="statusBar" class="statusbar warn"><b>接続確認中</b><span>ログイン前は編集できません。</span></section>
+
+<nav class="tabs" aria-label="メインメニュー">
+  <button class="on" data-pane="dashboard">概要</button>
+  <button data-pane="daily">毎日入力</button>
+  <button data-pane="checkups">人間ドック</button>
+  <button data-pane="analysis">多角分析</button>
+  <button data-pane="doctor">診察用</button>
+  <button data-pane="settings">設定</button>
+</nav>
+
+<section id="dashboard" class="pane on">
+  <div class="section-title"><div><span>OVERVIEW</span><h2>今の状態を一画面で</h2></div><div class="rangebar"><button data-range="7">7日</button><button data-range="30" class="on">30日</button><button data-range="90">90日</button><button data-range="365">1年</button></div></div>
+  <div class="kpi-grid" id="kpis"></div>
+  <div class="grid2">
+    <article class="card"><div class="card-head"><h3>⚖️ 日々の体重と7日移動平均</h3><span id="weightTrend"></span></div><canvas id="dailyWeightChart"></canvas></article>
+    <article class="card"><div class="card-head"><h3>🌙 睡眠・🚶 歩数・🍺 飲酒</h3><span>生活要因</span></div><canvas id="lifestyleChart"></canvas></article>
+  </div>
+  <div class="grid2">
+    <article class="card"><div class="card-head"><h3>🧪 健診の長期トレンド</h3><select id="overviewMetric"></select></div><canvas id="overviewCheckupChart"></canvas></article>
+    <article class="card"><div class="card-head"><h3>🧭 主治医へ確認したい項目</h3><span>最新健診＋履歴</span></div><div id="priorityList" class="priority-list"></div></article>
+  </div>
+  <article class="card"><div class="card-head"><h3>📅 最近30日の生活カレンダー</h3><span>体重・欠食・飲酒を色分け</span></div><div id="heatmap" class="heatmap"></div></article>
+</section>
+
+<section id="daily" class="pane">
+  <div class="section-title"><div><span>DAILY LOG</span><h2>毎日の入力</h2></div><p>入力は1日1回でも、食事ごとでも構いません。</p></div>
+  <div class="grid2 input-grid">
+    <article class="card">
+      <h3>📍 基本・活動</h3>
+      <div class="fields two">
+        <label>日付<input id="dDate" type="date"></label>
+        <label>体重 kg<input id="dWeight" type="number" step="0.1" inputmode="decimal"></label>
+        <label>腹囲 cm<input id="dWaist" type="number" step="0.1" inputmode="decimal"></label>
+        <label>睡眠 時間<input id="dSleep" type="number" step="0.1" min="0" max="24"></label>
+        <label>歩数<input id="dSteps" type="number" step="100"></label>
+        <label>水分 ml<input id="dWater" type="number" step="100"></label>
+      </div>
+    </article>
+    <article class="card">
+      <h3>🍽️ 食べた／食べなかった</h3>
+      <div class="meal-status-grid">
+        <label>朝食<select id="dBreakfast"><option value="unknown">未入力</option><option value="eaten">食べた</option><option value="skipped">抜いた</option></select></label>
+        <label>昼食<select id="dLunch"><option value="unknown">未入力</option><option value="eaten">食べた</option><option value="skipped">抜いた</option></select></label>
+        <label>夕食<select id="dDinner"><option value="unknown">未入力</option><option value="eaten">食べた</option><option value="skipped">抜いた</option></select></label>
+      </div>
+      <div class="fields two topgap">
+        <label>1日推定 kcal<input id="dCalories" type="number" step="10"></label>
+        <label>純アルコール g<input id="dAlcohol" type="number" step="1" min="0"></label>
+      </div>
+      <label>飲酒メモ<input id="dAlcoholNote" placeholder="例：ビール500ml＋焼酎1杯"></label>
+    </article>
+  </div>
+  <article class="card">
+    <div class="card-head"><h3>📷 食事・飲み物ログ</h3><button id="openPhoto" class="btn">写真を追加</button></div>
+    <div class="meal-entry-row">
+      <input id="mealTime" type="time"><select id="mealKind"><option>朝食</option><option>昼食</option><option>夕食</option><option>間食</option><option>飲み物</option><option>お酒</option></select><input id="mealText" placeholder="内容"><input id="mealKcal" type="number" placeholder="kcal"><button id="addMeal" class="btn secondary">手入力追加</button>
+    </div>
+    <input id="mealPhoto" type="file" accept="image/*" capture="environment" hidden>
+    <div id="mealList" class="rows"></div>
+  </article>
+  <article class="card">
+    <h3>📝 メモ</h3>
+    <textarea id="dMemo" rows="4" placeholder="会食、出張、体調、空腹感、薬、運動など"></textarea>
+    <div class="actions"><span id="dailySaveState"></span><button id="saveDaily" class="btn primary">今日の記録を保存</button></div>
+  </article>
+</section>
+
+<section id="checkups" class="pane">
+  <div class="section-title"><div><span>CHECKUP HISTORY</span><h2>人間ドック 2009–2026</h2></div><p>添付資料の確認できた16回分。欠測年は埋めません。</p></div>
+  <div class="toolbar card compact">
+    <label>表示項目<select id="checkMetric"></select></label>
+    <label>開始年<select id="checkFrom"></select></label>
+    <label>終了年<select id="checkTo"></select></label>
+    <label>所見カテゴリ<select id="findingFilter"><option value="all">すべて</option></select></label>
+  </div>
+  <div class="grid2">
+    <article class="card"><h3 id="checkChartTitle">長期推移</h3><canvas id="checkupChart"></canvas></article>
+    <article class="card"><h3>📈 最新値と長期変化</h3><div id="checkSummary" class="summary-cards"></div></article>
+  </div>
+  <article class="card"><div class="card-head"><h3>📋 数値一覧</h3><button id="exportCheckups" class="btn secondary">CSV書き出し</button></div><div class="tablewrap"><table id="checkupTable"></table></div></article>
+  <article class="card"><h3>🩻 画像・所見タイムライン</h3><div id="findingTimeline" class="timeline"></div></article>
+</section>
+
+<section id="analysis" class="pane">
+  <div class="section-title"><div><span>ANALYTICS</span><h2>多角的に見る</h2></div><p>相関は因果関係ではありません。相談のきっかけとして使います。</p></div>
+  <div class="toolbar card compact">
+    <label>期間<select id="analysisDays"><option value="30">30日</option><option value="90" selected>90日</option><option value="180">180日</option><option value="365">1年</option><option value="99999">全期間</option></select></label>
+    <label>X軸<select id="scatterX"></select></label><label>Y軸<select id="scatterY"></select></label>
+  </div>
+  <div class="grid2">
+    <article class="card"><h3>🔬 健診指標どうしの関係</h3><canvas id="scatterChart"></canvas><div id="corrText" class="note"></div></article>
+    <article class="card"><h3>🕸️ 最新健診プロファイル</h3><canvas id="radarChart"></canvas><p class="note">各項目を独自の表示スケールに正規化した相対表示。診断基準ではありません。</p></article>
+  </div>
+  <div class="grid3">
+    <article class="card"><h3>🍺 飲酒日 vs 非飲酒日</h3><div id="alcoholCompare" class="big-stat"></div></article>
+    <article class="card"><h3>🍽️ 欠食と摂取量</h3><div id="skipCompare" class="big-stat"></div></article>
+    <article class="card"><h3>🌙 睡眠と体重</h3><div id="sleepCompare" class="big-stat"></div></article>
+  </div>
+  <article class="card"><h3>📊 日次データを自由に重ねる</h3><div class="metric-pills" id="dailyMetricPills"></div><canvas id="multiDailyChart"></canvas></article>
+</section>
+
+<section id="doctor" class="pane">
+  <div class="section-title"><div><span>CLINIC VIEW</span><h2>主治医に見せる画面</h2></div><p>診察室ではこのページだけ見せれば要点が伝わる構成です。</p></div>
+  <article class="card doctor-summary"><div class="card-head"><h3>👨‍⚕️ 診察用サマリー</h3><button id="printDoctor" class="btn secondary">印刷/PDF</button></div><div id="doctorSummary"></div></article>
+  <div class="grid2">
+    <article class="card"><h3>直近90日の体重</h3><canvas id="doctorWeightChart"></canvas></article>
+    <article class="card"><h3>人間ドック重点5指標</h3><canvas id="doctorCheckChart"></canvas></article>
+  </div>
+  <article class="card">
+    <h3>🔗 川口先生向け・読み取り専用リンク</h3>
+    <p>リンクを知っている人だけが閲覧できます。30日で失効し、いつでも無効化できます。</p>
+    <div class="share-controls"><input id="shareLabel" value="川口浩人先生・瀬谷医院"><select id="shareDays"><option value="7">7日</option><option value="30" selected>30日</option><option value="90">90日</option></select><button id="createShare" class="btn primary">共有リンク発行</button></div>
+    <div id="shareResult"></div><div id="shareList" class="rows"></div>
+  </article>
+  <div class="grid2 provider-grid">
+    <article class="card provider"><div class="provider-icon">🏥</div><h3>主治医：瀬谷医院</h3><div id="doctorProvider"></div><iframe title="瀬谷医院地図" loading="lazy" src="https://www.google.com/maps?q=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E6%A8%AA%E6%B5%9C%E5%B8%82%E7%80%AC%E8%B0%B7%E5%8C%BA%E7%80%AC%E8%B0%B74-8-8&output=embed"></iframe></article>
+    <article class="card provider"><div class="provider-icon">🧬</div><h3>健診：新赤坂クリニック</h3><div id="checkProvider"></div><div class="branch-links"><a target="_blank" rel="noopener" href="https://www.sinakasaka.com/">公式サイト</a><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E8%B5%A4%E5%9D%82%E3%82%AF%E3%83%AA%E3%83%8B%E3%83%83%E3%82%AF%E9%9D%92%E5%B1%B1">青山Map</a><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E8%B5%A4%E5%9D%82%E3%82%AF%E3%83%AA%E3%83%8B%E3%83%83%E3%82%AF%E9%8A%80%E5%BA%A7">銀座Map</a><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E8%B5%A4%E5%9D%82%E3%82%AF%E3%83%AA%E3%83%8B%E3%83%83%E3%82%AF%E6%A8%AA%E6%B5%9C">横浜Map</a></div></article>
+  </div>
+</section>
+
+<section id="settings" class="pane">
+  <div class="section-title"><div><span>SETTINGS</span><h2>ログインと初期設定</h2></div></div>
+  <div class="grid2">
+    <article class="card"><h3>🔐 Supabaseログイン</h3><label>メール<input id="authEmail" type="email" autocomplete="email"></label><label>パスワード<input id="authPass" type="password" minlength="8" autocomplete="current-password"></label><div class="actions"><button id="signUp" class="btn secondary">初回登録</button><button id="signIn" class="btn primary">ログイン</button><button id="signOut" class="btn danger hidden">ログアウト</button></div><p id="authMessage" class="note"></p></article>
+    <article class="card"><h3>📦 人間ドック履歴の初回取込</h3><p>添付された人間ドック履歴は非公開DBに準備します。ログイン後、一度だけセットアップコードを入力して本人アカウントへ紐付けます。</p><label>セットアップコード<input id="claimCode" placeholder="一度だけ入力"></label><button id="claimHistory" class="btn primary">履歴を取り込む</button><p id="claimMessage" class="note"></p></article>
+  </div>
+  <article class="card"><h3>🧹 データ管理</h3><div class="actions"><button id="exportJson" class="btn secondary">自分のデータをJSON保存</button><button id="syncNow" class="btn secondary">クラウド再読込</button></div><p class="note">公開GitHubには健康データ・共有トークン・秘密鍵を保存しません。</p></article>
+</section>
+</main>
+
+<footer><span>Personal Health Intelligence</span><span>健診・生活記録の整理支援。診断・治療判断は医療機関へ。</span></footer>
+
+<div id="photoModal" class="modal hidden"><div class="modalbox"><button id="closePhoto" class="x">×</button><h3>食事・飲み物の写真</h3><img id="photoPreview" alt="写真プレビュー"><div class="fields two"><label>種類<select id="photoKind"><option>朝食</option><option>昼食</option><option>夕食</option><option>間食</option><option>飲み物</option><option>お酒</option></select></label><label>時刻<input id="photoTime" type="time"></label><label>内容<input id="photoText"></label><label>推定 kcal<input id="photoKcal" type="number"></label></div><div class="actions"><button id="photoAi" class="btn secondary">AI推定</button><button id="savePhoto" class="btn primary">保存</button></div><div id="photoAiOut" class="note"></div></div></div>
+<script src="./app.js"></script>
+</body>
+</html>
