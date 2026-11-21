@@ -1,0 +1,644 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>富士フイルム 医療事業 徹底解剖</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout concept: editorial intelligence dossier — fixed left rail of section tabs on wide screens,
+   single scroll column of "plates" (data panels) with a restrained ink/paper palette and one
+   signal-green accent borrowed from Fujifilm's own green, plus semantic alert tones. */
+:root{
+  --paper:#f4f2ec; --ink:#16181c; --ink-soft:#4a4e57; --line:#d9d5ca;
+  --panel:#ffffff; --panel-2:#faf8f2;
+  --accent:#00843d;        /* Fujifilm green */
+  --accent-soft:#e2efe4;
+  --signal:#b5472d;        /* alert / decline */
+  --amber:#b8860b;
+  --blue:#2b5f8c;
+  --shadow:0 1px 2px rgba(20,24,28,.06),0 8px 24px rgba(20,24,28,.05);
+  --f-disp:"Space Grotesk",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+  --f-num:"Space Grotesk",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#101317; --ink:#eceef2; --ink-soft:#a2a8b4; --line:#2a2f37;
+  --panel:#171b21; --panel-2:#13161b; --accent:#3ab26a; --accent-soft:#17301f;
+  --signal:#e2765c; --amber:#d8a93a; --blue:#6ea6d8;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.35); color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#101317; --ink:#eceef2; --ink-soft:#a2a8b4; --line:#2a2f37;
+  --panel:#171b21; --panel-2:#13161b; --accent:#3ab26a; --accent-soft:#17301f;
+  --signal:#e2765c; --amber:#d8a93a; --blue:#6ea6d8;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.35); color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);line-height:1.6;
+  font-size:15px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));}
+h1,h2,h3{font-family:var(--f-disp);text-wrap:balance;line-height:1.15;margin:0}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+a{color:var(--accent)}
+
+/* hero */
+.hero{margin-top:calc(-1*env(safe-area-inset-top,0px));
+  padding-top:calc(env(safe-area-inset-top,0px) + 3rem);padding-bottom:2.4rem;
+  background:linear-gradient(160deg,#0c3b24,#083018 60%,#06130c);color:#f4f2ec;position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:2}
+.hero .eyebrow{font-family:var(--f-disp);letter-spacing:.22em;text-transform:uppercase;
+  font-size:.7rem;color:#8fd0a6;font-weight:600}
+.hero h1{font-size:clamp(2rem,6vw,3.4rem);font-weight:700;margin:.5rem 0 .4rem;color:#fff}
+.hero p{max-width:60ch;color:#cfe7d6;margin:.2rem 0 0}
+.hero .meta{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:1.3rem;font-size:.8rem;color:#9fc7ac}
+.hero .meta b{color:#fff;font-weight:600}
+.scrim{position:absolute;inset:0;z-index:1;opacity:.14;
+  background:radial-gradient(circle at 82% 20%,#38c172 0,transparent 42%),
+  radial-gradient(circle at 12% 90%,#2b7a4b 0,transparent 40%)}
+
+/* big KPI strip */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:1.6rem 0}
+.kpi{background:var(--panel);padding:1rem 1.1rem}
+.kpi .l{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.kpi .v{font-family:var(--f-num);font-size:1.7rem;font-weight:700;margin-top:.25rem;line-height:1}
+.kpi .d{font-size:.72rem;color:var(--ink-soft);margin-top:.3rem}
+.kpi .up{color:var(--accent)} .kpi .dn{color:var(--signal)}
+
+/* section */
+section{padding:2.4rem 0 .6rem;scroll-margin-top:70px}
+.sec-head{display:flex;align-items:baseline;gap:.8rem;margin-bottom:.3rem;flex-wrap:wrap}
+.sec-head .no{font-family:var(--f-num);color:var(--accent);font-weight:700;font-size:.95rem}
+.sec-head h2{font-size:clamp(1.3rem,3.6vw,1.9rem);font-weight:700}
+.sec-sub{color:var(--ink-soft);max-width:72ch;margin:.1rem 0 1.3rem;font-size:.94rem}
+
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.25rem;
+  box-shadow:var(--shadow);margin-bottom:1.1rem}
+.panel h3{font-size:1.02rem;margin-bottom:.1rem}
+.panel .cap{font-size:.76rem;color:var(--ink-soft);margin-bottom:.9rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+@media(max-width:780px){.grid2,.grid3{grid-template-columns:1fr}}
+
+table{width:100%;border-collapse:collapse;font-size:.84rem}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-disp);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:600;white-space:nowrap}
+td.n{font-family:var(--f-num);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.me{background:var(--accent-soft)}
+.me td:first-child{font-weight:700}
+
+.tag{display:inline-block;font-family:var(--f-disp);font-size:.64rem;font-weight:600;letter-spacing:.05em;
+  padding:.12rem .5rem;border-radius:999px;text-transform:uppercase}
+.t-win{background:var(--accent-soft);color:var(--accent)}
+.t-no{background:rgba(181,71,45,.12);color:var(--signal)}
+.t-mid{background:rgba(184,134,11,.14);color:var(--amber)}
+
+ul.lean{margin:.3rem 0 0;padding-left:1.1rem} ul.lean li{margin:.25rem 0}
+.src{font-size:.68rem;color:var(--ink-soft);margin-top:.5rem;font-style:italic}
+
+/* bars */
+.bar-row{display:grid;grid-template-columns:130px 1fr 64px;gap:.6rem;align-items:center;margin:.35rem 0;font-size:.82rem}
+.bar-row .lab{color:var(--ink-soft)}
+.bar-track{background:var(--line);height:16px;border-radius:5px;overflow:hidden}
+.bar-fill{height:100%;border-radius:5px}
+.bar-row .val{font-family:var(--f-num);text-align:right;font-weight:600}
+@media(max-width:520px){.bar-row{grid-template-columns:96px 1fr 52px}}
+
+/* segment donut legend */
+.seg{display:flex;gap:1.3rem;align-items:center;flex-wrap:wrap}
+.seg-legend{display:flex;flex-direction:column;gap:.35rem;font-size:.82rem;min-width:200px;flex:1}
+.seg-legend .it{display:flex;align-items:center;gap:.55rem}
+.sw{width:11px;height:11px;border-radius:3px;flex:none}
+.seg-legend .it b{font-family:var(--f-num)}
+.seg-legend .it span{color:var(--ink-soft);margin-left:auto}
+
+.callout{border-left:3px solid var(--accent);background:var(--panel-2);padding:.8rem 1rem;border-radius:0 10px 10px 0;margin:.9rem 0;font-size:.9rem}
+.callout.warn{border-color:var(--signal)}
+.callout.warn b{color:var(--signal)}
+.callout b{color:var(--accent)}
+
+/* org chart */
+.org{font-size:.8rem}
+.org .lvl{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin:.5rem 0}
+.node{border:1px solid var(--line);border-radius:10px;padding:.5rem .8rem;background:var(--panel-2);text-align:center;min-width:120px}
+.node.top{background:#0c3b24;color:#fff;border-color:#0c3b24}
+.node.hc{background:var(--accent-soft);border-color:var(--accent)}
+.node .r{font-family:var(--f-disp);font-weight:600;font-size:.85rem}
+.node .s{font-size:.68rem;color:var(--ink-soft)}
+.node.top .s{color:#9fc7ac}
+.connector{height:16px;width:1px;background:var(--line);margin:0 auto}
+
+/* pictogram row */
+.pics{display:grep;display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:.7rem}
+.pic{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:.9rem .7rem;text-align:center}
+.pic svg{width:34px;height:34px;display:block;margin:0 auto .4rem}
+.pic .pv{font-family:var(--f-num);font-weight:700;font-size:1.25rem}
+.pic .pl{font-size:.68rem;color:var(--ink-soft);line-height:1.3;margin-top:.15rem}
+.pic .pr{font-size:.62rem;font-weight:600;color:var(--accent);margin-top:.25rem;letter-spacing:.03em;text-transform:uppercase}
+
+/* nav rail */
+nav.rail{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.rail .wrap{display:flex;gap:.2rem;overflow-x:auto;padding-top:.5rem;padding-bottom:.5rem;-webkit-overflow-scrolling:touch}
+nav.rail a{font-family:var(--f-disp);font-size:.74rem;font-weight:600;color:var(--ink-soft);text-decoration:none;
+  padding:.3rem .6rem;border-radius:7px;white-space:nowrap}
+nav.rail a:hover{color:var(--accent);background:var(--accent-soft)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
+
+.map-wrap{overflow-x:auto}
+footer{border-top:1px solid var(--line);margin-top:2rem;padding:1.4rem 0 2.4rem;color:var(--ink-soft);font-size:.78rem}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.lead{font-size:1.02rem;color:var(--ink)}
+.two-col{columns:2;column-gap:1.6rem}
+@media(max-width:680px){.two-col{columns:1}}
+.pill{display:inline-block;padding:.1rem .45rem;border-radius:6px;background:var(--panel-2);border:1px solid var(--line);font-size:.72rem;font-family:var(--f-num)}
+.stripe{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--blue),var(--amber),var(--signal));margin:.2rem 0 0}
+</style>
+
+<div class="hero">
+  <div class="scrim"></div>
+  <div class="wrap">
+    <div class="eyebrow">Competitive Intelligence Dossier · 2026</div>
+    <h1>富士フイルム 医療事業 徹底解剖</h1>
+    <p>キヤノンメディカルシステムズ BP営業部の視座で読む、最大の「隣接巨人」——持株構造・IR・組織・製品ライン・採用・薬事・グローバル網を1枚に。</p>
+    <div class="meta">
+      <span>証券コード <b>4901</b>（東証プライム・化学）</span>
+      <span>連結売上 <b>3兆3,570億円</b></span>
+      <span>ヘルスケア <b>1兆989億円</b></span>
+      <span>連結従業員 <b>73,526名</b></span>
+      <span>作成 <b>2026-11-21</b></span>
+    </div>
+  </div>
+</div>
+
+<nav class="rail"><div class="wrap">
+  <a href="#overview">① 全体像</a>
+  <a href="#ir">② IR・財務</a>
+  <a href="#stock">③ 株価</a>
+  <a href="#segment">④ ヘルスケア内訳</a>
+  <a href="#org">⑤ 組織・BU</a>
+  <a href="#lineup">⑥ 製品ライン</a>
+  <a href="#share">⑦ シェア地図</a>
+  <a href="#global">⑧ グローバル網</a>
+  <a href="#hr">⑨ 採用・初任給</a>
+  <a href="#reg">⑩ 薬事・PMDA・商標</a>
+  <a href="#takeaway">⑪ キヤノンへの含意</a>
+</div></nav>
+
+<div class="wrap">
+
+<!-- 1 OVERVIEW -->
+<section id="overview">
+  <div class="sec-head"><span class="no">01</span><h2>まず全体像 — 「写真の会社」から「医療の会社」へ、ただし未完</h2></div>
+<p class="sec-sub">富士フイルムHDは4セグメント体制。ヘルスケアは売上で全社の約33%を占める最大級の柱だが、営業利益では様相が一変する（後述）。キヤノンにとっては「CT/MRI/内視鏡/US/IVD/医療IT/MG」を一社で揃える唯一の総合競合。</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="l">連結売上高 FY2026</div><div class="v">3.36<span style="font-size:.9rem">兆円</span></div><div class="d up">前期比 +5.0% / 4期連続最高</div></div>
+    <div class="kpi"><div class="l">連結営業利益</div><div class="v">3,502<span style="font-size:.9rem">億</span></div><div class="d up">+6.1% / 5期連続最高</div></div>
+    <div class="kpi"><div class="l">ヘルスケア売上</div><div class="v">1.10<span style="font-size:.9rem">兆円</span></div><div class="d up">+4.9%</div></div>
+    <div class="kpi"><div class="l">ヘルスケア営業益</div><div class="v">636<span style="font-size:.9rem">億</span></div><div class="d dn">▲20.3%（投資先行）</div></div>
+    <div class="kpi"><div class="l">連結従業員</div><div class="v">73,526</div><div class="d">258社 / 平均年収1,086万(単体)</div></div>
+    <div class="kpi"><div class="l">時価総額</div><div class="v">4.57<span style="font-size:.9rem">兆円</span></div><div class="d">PER 15.8倍 / 配当2.0%</div></div>
+  </div>
+
+  <div class="panel">
+    <h3>セグメント構成（FY2026売上 3兆3,570億円）</h3>
+    <div class="cap">売上はヘルスケアが最大、しかし利益の柱は別。</div>
+    <div class="seg">
+      <svg viewBox="0 0 200 200" width="168" height="168" role="img" aria-label="セグメント別売上構成">
+        <!-- donut: ヘルスケア32.7, BI35.0, イメージング19.3(14,463/33570≈? use given: イメージング19%), エレキ13.6 -->
+        <g transform="translate(100,100)">
+          <circle r="78" fill="none" stroke="var(--line)" stroke-width="30"/>
+          <!-- segments via stroke-dasharray, circumference=490.1 -->
+          <circle r="78" fill="none" stroke="#00843d" stroke-width="30" stroke-dasharray="160.3 329.8" transform="rotate(-90)"/>
+          <circle r="78" fill="none" stroke="#2b5f8c" stroke-width="30" stroke-dasharray="171.5 318.6" transform="rotate(27.6)"/>
+          <circle r="78" fill="none" stroke="#b8860b" stroke-width="30" stroke-dasharray="94.6 395.5" transform="rotate(153.5)"/>
+          <circle r="78" fill="none" stroke="#9aa0ac" stroke-width="30" stroke-dasharray="63.7 426.4" transform="rotate(223.0)"/>
+          <text x="0" y="-4" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="20" fill="var(--ink)">3.36</text>
+          <text x="0" y="14" text-anchor="middle" font-size="9" fill="var(--ink-soft)">兆円</text>
+        </g>
+      </svg>
+      <div class="seg-legend">
+        <div class="it"><span class="sw" style="background:#00843d"></span>ヘルスケア <b>1兆989億</b><span>32.7%</span></div>
+        <div class="it"><span class="sw" style="background:#2b5f8c"></span>ビジネスイノベーション <b>1兆1,748億</b><span>35.0%</span></div>
+        <div class="it"><span class="sw" style="background:#b8860b"></span>イメージング <b>約6,470億</b><span>19.3%</span></div>
+        <div class="it"><span class="sw" style="background:#9aa0ac"></span>エレクトロニクス <b>4,562億</b><span>13.6%</span></div>
+      </div>
+    </div>
+    <p class="src">出典：富士フイルムHD 2026年3月期 決算短信・有価証券報告書（2026/5/12, 6/24）。※イメージングはBIとの合算提示があり概算。</p>
+  </div>
+
+  <div class="callout warn"><b>最初の読み筋：</b> 売上では「医療の会社」。だが営業利益の内訳を開くと、ヘルスケアの利益率は<b>5.8%</b>にとどまり、全社利益の大半はイメージング（instax/デジカメ）とエレクトロニクス（半導体材料）が稼ぐ。富士の医療は「規模は巨大・利益はこれから」。キヤノンが戦う相手は「稼いでいる医療部門」ではなく「売上を取りに来ている医療部門」である。</div>
+</section>
+
+<!-- 2 IR -->
+<section id="ir">
+  <div class="sec-head"><span class="no">02</span><h2>IR・財務を読み解く — 増収、しかしヘルスケアは減益</h2></div>
+  <p class="sec-sub">FY2026（2026年3月期）はバイオCDMOの新工場（デンマーク・米NC州）立ち上げの固定費が重く、ヘルスケアは増収減益。会社は「2027年度にバイオCDMOのFCFをプラス転換」と明言、医療は投資回収フェーズ。</p>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>全社 売上・営業利益 推移</h3>
+      <div class="cap">単位：兆円 / 営業利益率は右目盛イメージ</div>
+      <svg viewBox="0 0 440 220" width="100%" role="img" aria-label="売上と営業利益の推移">
+        <g font-family="Inter" font-size="10" fill="var(--ink-soft)">
+          <line x1="40" y1="180" x2="420" y2="180" stroke="var(--line)"/>
+          <line x1="40" y1="20" x2="40" y2="180" stroke="var(--line)"/>
+          <!-- bars: FY24 3.20, FY25 3.20, FY26 3.36, FY27e 3.47 ; scale 0..3.6 -> 160px -->
+          <g>
+            <rect x="60"  y="38"  width="52" height="142" rx="3" fill="#cdd6ce"/>
+            <rect x="150" y="38"  width="52" height="142" rx="3" fill="#cdd6ce"/>
+            <rect x="240" y="31"  width="52" height="149" rx="3" fill="#00843d"/>
+            <rect x="330" y="26"  width="52" height="154" rx="3" fill="#8fd0a6"/>
+          </g>
+          <!-- OP line (right scale 0..3700 -> baseline 180..40) points -->
+          <polyline fill="none" stroke="#b5472d" stroke-width="2.5"
+            points="86,98 176,96 266,91 356,89"/>
+          <g fill="#b5472d" font-weight="600">
+            <circle cx="86" cy="98" r="3"/><circle cx="176" cy="96" r="3"/><circle cx="266" cy="91" r="3"/><circle cx="356" cy="89" r="3"/>
+          </g>
+          <g fill="var(--ink)" font-family="Space Grotesk" font-weight="700" font-size="11" text-anchor="middle">
+            <text x="86" y="32">3.19</text><text x="176" y="32">3.20</text><text x="266" y="25">3.36</text><text x="356" y="20">3.47</text>
+          </g>
+          <g text-anchor="middle" font-size="10">
+            <text x="86" y="196">FY24</text><text x="176" y="196">FY25</text><text x="266" y="196">FY26</text><text x="356" y="196">FY27e</text>
+          </g>
+          <g fill="#b5472d" font-size="9" text-anchor="middle">
+            <text x="86" y="112">3,232</text><text x="176" y="110">3,302</text><text x="266" y="105">3,502</text><text x="356" y="80">3,650</text>
+          </g>
+          <text x="40" y="14" fill="#b5472d" font-size="9">— 営業利益(億円)</text>
+        </g>
+      </svg>
+      <p class="src">出典：FY2026決算短信、FY2027会社予想（2026/8時点 修正含む）。</p>
+    </div>
+
+    <div class="panel">
+      <h3>ヘルスケア：増収 × 減益のワナ</h3>
+      <div class="cap">売上(億円) / 営業利益(億円)・利益率</div>
+      <div class="bar-row"><div class="lab">売上 FY25</div><div class="bar-track"><div class="bar-fill" style="width:95%;background:#cdd6ce"></div></div><div class="val">10,478</div></div>
+      <div class="bar-row"><div class="lab">売上 FY26</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#00843d"></div></div><div class="val">10,989</div></div>
+      <div style="height:.6rem"></div>
+      <div class="bar-row"><div class="lab">営業益 FY25</div><div class="bar-track"><div class="bar-fill" style="width:62%;background:#d8a93a"></div></div><div class="val">799</div></div>
+      <div class="bar-row"><div class="lab">営業益 FY26</div><div class="bar-track"><div class="bar-fill" style="width:49%;background:#b5472d"></div></div><div class="val">636</div></div>
+      <div class="callout" style="margin-bottom:0">売上は過去最高・<b>+4.9%</b>。だが営業利益は<b>▲20.3%</b>。理由はメディカルシステムではなく<b>バイオCDMOの先行投資</b>（米NC州 20,000L培養タンク8基稼働開始・固定費増）と中国の医療材料需要減。<br><b>メディカルシステム単体は日米欧で販売好調＝「装置は伸びている」。</b></div>
+      <p class="src">出典：有価証券報告書（2026/6/24）MD&A、第2四半期決算説明会。</p>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>中期経営計画「VISION 2030」目標値（会社公表）</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>指標</th><th>FY2024実績</th><th>FY2025実績</th><th>FY2026実績</th><th>FY2027予想</th><th>方向</th></tr></thead>
+      <tbody>
+        <tr><td>連結売上高</td><td class="n">3兆1,958億</td><td class="n">3兆1,958億</td><td class="n">3兆3,570億</td><td class="n">3兆4,700億</td><td><span class="tag t-win">成長</span></td></tr>
+        <tr><td>営業利益</td><td class="n">3,302億</td><td class="n">3,302億</td><td class="n">3,502億</td><td class="n">3,650億</td><td><span class="tag t-win">最高更新</span></td></tr>
+        <tr><td>当期純利益</td><td class="n">2,610億</td><td class="n">2,610億</td><td class="n">2,767億</td><td class="n">2,800億</td><td><span class="tag t-win">最高更新</span></td></tr>
+        <tr><td>ROE</td><td class="n">8.0%</td><td class="n">7.7%</td><td class="n">約7.3%</td><td class="n">8%台</td><td><span class="tag t-mid">横ばい</span></td></tr>
+        <tr><td>設備投資（うち84%がヘルスケア）</td><td class="n">—</td><td class="n">4,484億</td><td class="n">5,069億</td><td class="n">—</td><td><span class="tag t-mid">医療集中</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="src">出典：VISION2030公表値、有報。設備投資の約84%・R&D費の多くをヘルスケアに集中投下。</p>
+  </div>
+</section>
+
+<!-- 3 STOCK -->
+<section id="stock">
+  <div class="sec-head"><span class="no">03</span><h2>株価 — 時価総額4.5兆円、東証化学で信越化学に次ぐ2位</h2></div>
+  <p class="sec-sub">三井グループ。発行済株式 約12.3億株。11月決算（中間）後に持ち直し、2026/11時点で3,700円前後。バリュエーションは割安寄り（PBR約1.1倍）。</p>
+  <div class="grid3">
+    <div class="panel" style="margin-bottom:0"><div class="kpi" style="padding:0"><div class="l">株価(2026/11/19)</div><div class="v num" style="color:var(--accent)">3,713<span style="font-size:.8rem">円</span></div><div class="d up">前日比 +2.48%</div></div></div>
+    <div class="panel" style="margin-bottom:0"><div class="kpi" style="padding:0"><div class="l">時価総額</div><div class="v num">4.57<span style="font-size:.8rem">兆円</span></div><div class="d">発行済 12.34億株</div></div></div>
+    <div class="panel" style="margin-bottom:0"><div class="kpi" style="padding:0"><div class="l">PER(予) / PBR</div><div class="v num">15.8 / 1.1</div><div class="d">配当利回り 2.0%（予75円）</div></div></div>
+  </div>
+  <div class="panel">
+    <h3>株価レンジと指標（FY2026）</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>項目</th><th>値</th><th>項目</th><th>値</th></tr></thead>
+      <tbody>
+        <tr><td>年初来高値</td><td class="n">3,787円 (9/26)</td><td>年初来安値</td><td class="n">2,516円 (4/7)</td></tr>
+        <tr><td>EPS(実)</td><td class="n">229.65円</td><td>1株配当(予)</td><td class="n">75.0円</td></tr>
+        <tr><td>ROE(実)</td><td class="n">7.7%</td><td>自己資本比率</td><td class="n">63.4%</td></tr>
+        <tr><td>配当性向</td><td class="n">約30.5%</td><td>純資産(連結)</td><td class="n">3兆8,444億</td></tr>
+      </tbody>
+    </table></div>
+    <p class="src">出典：マネックス銘柄スカウター、Yahoo!ファイナンス、kabutan、irbank（いずれも2026/11）。株価は変動するため参考値。</p>
+  </div>
+</section>
+
+<!-- 4 SEGMENT -->
+<section id="segment">
+  <div class="sec-head"><span class="no">04</span><h2>ヘルスケア1.1兆円の中身 — 3本柱</h2></div>
+  <p class="sec-sub">ヘルスケアは「メディカルシステム（画像診断＋医療IT＋内視鏡＋US＋IVD）」「バイオCDMO」「LSソリューション（ライフサイエンス・医薬品・CHC・CRO）」で構成。キヤノンが直接ぶつかるのは<b>メディカルシステムだけ</b>——が、それが全体の約64%。</p>
+
+  <div class="panel">
+    <h3>ヘルスケア部門 事業別売上（FY2026, 概算構成）</h3>
+    <div class="cap">会社資料の構成比・直近四半期開示から推計</div>
+    <div class="bar-row"><div class="lab">メディカルシステム</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#00843d"></div></div><div class="val">約7,016億</div></div>
+    <div class="bar-row"><div class="lab">バイオCDMO</div><div class="bar-track"><div class="bar-fill" style="width:36%;background:#2b5f8c"></div></div><div class="val">約2,541億</div></div>
+    <div class="bar-row"><div class="lab">LSソリューション</div><div class="bar-track"><div class="bar-fill" style="width:20%;background:#b8860b"></div></div><div class="val">約1,432億</div></div>
+    <p class="src">出典：富士フイルムグループ事業概要（2025/7, 2024/12）、決算説明会。構成比は年度で組替あり（ケミカル試薬をエレキ→ヘルスケアに移管）。</p>
+  </div>
+
+  <div class="grid3">
+    <div class="panel"><h3 style="color:var(--accent)">メディカルシステム</h3><div class="cap">キヤノンの直接戦場</div>
+      <ul class="lean" style="font-size:.84rem">
+        <li>画像診断（CT/MRI/X線/MG/US）</li><li>医療IT（SYNAPSE）</li><li>内視鏡（ELUXEO）</li><li>IVD（富士ドライケム）</li>
+        <li><b>日米欧で販売好調（FY26）</b></li>
+      </ul></div>
+    <div class="panel"><h3 style="color:var(--blue)">バイオCDMO</h3><div class="cap">成長ドライバー / 投資先行</div>
+      <ul class="lean" style="font-size:.84rem">
+        <li>抗体医薬の受託製造</li><li>デンマーク・米NC州・英・富山</li><li>市場 年率+13%(会社推定)</li>
+        <li>FY27にFCFプラス化計画</li><li>EBITDAマージン →約40%目標</li>
+      </ul></div>
+    <div class="panel"><h3 style="color:var(--amber)">LSソリューション</h3><div class="cap">予防・治療・創薬</div>
+      <ul class="lean" style="font-size:.84rem">
+        <li>ライフサイエンス（試薬・培地）</li><li>医薬品（富山化学系）</li><li>コンシューマーヘルスケア（化粧品ASTALIFT等）</li><li>CRO</li>
+      </ul></div>
+  </div>
+  <div class="callout"><b>示唆：</b> 富士の「医療の会社」物語は、実は<b>バイオCDMO</b>が牽引している。装置（メディカルシステム）は安定成長の“キャッシュ基盤”に近い。キヤノンがMG/CT/MRIで競っても、富士の全社戦略の主戦場はそこではない——<b>富士の装置部門は「ITとAIで束ねて付加価値を上げる」方針</b>（単品値引き競争を嫌う）という読みが立つ。</div>
+</section>
+
+<!-- 5 ORG -->
+<section id="org">
+  <div class="sec-head"><span class="no">05</span><h2>組織・BU構成 — 持株会社の下の“医療連邦”</h2></div>
+  <p class="sec-sub">富士フイルムHD（持株）→ 富士フイルム㈱（事業会社）→ その中のヘルスケア部門。販売・サービスは富士フイルムメディカル㈱が担い、2026年7月にグループ2社を統合して国内販社を一元化する。</p>
+
+  <div class="panel org">
+    <h3>医療事業の統治構造</h3>
+    <div class="cap">主要法人と役割（2026年時点）</div>
+    <div class="lvl"><div class="node top"><div class="r">富士フイルムHD</div><div class="s">持株会社 / 4901 / 従業員1,198(単体)</div></div></div>
+    <div class="connector"></div>
+    <div class="lvl"><div class="node"><div class="r">富士フイルム㈱</div><div class="s">事業会社（ヘルスケア・エレキ・イメージング）</div></div></div>
+    <div class="connector"></div>
+    <div class="lvl">
+      <div class="node hc"><div class="r">ヘルスケア部門</div><div class="s">22,772名（連結セグメント）</div></div>
+    </div>
+    <div class="connector"></div>
+    <div class="lvl">
+      <div class="node"><div class="r">メディカルシステム事業部</div><div class="s">開発・製造（MS事業部）</div></div>
+      <div class="node"><div class="r">富士フイルムメディカル㈱</div><div class="s">国内 販売・保守サービス</div></div>
+      <div class="node"><div class="r">(旧)富士フイルムヘルスケア</div><div class="s">日立由来 CT/MRI/US・2024統合済</div></div>
+      <div class="node"><div class="r">バイオCDMO各社</div><div class="s">Diosynth 等 グローバル</div></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>セグメント別 従業員数（連結・2026/3/31）</h3>
+      <div class="bar-row"><div class="lab">BI</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#2b5f8c"></div></div><div class="val">33,916</div></div>
+      <div class="bar-row"><div class="lab">ヘルスケア</div><div class="bar-track"><div class="bar-fill" style="width:67%;background:#00843d"></div></div><div class="val">22,772</div></div>
+      <div class="bar-row"><div class="lab">イメージング</div><div class="bar-track"><div class="bar-fill" style="width:20%;background:#b8860b"></div></div><div class="val">6,780</div></div>
+      <div class="bar-row"><div class="lab">エレキ</div><div class="bar-track"><div class="bar-fill" style="width:18%;background:#9aa0ac"></div></div><div class="val">5,948</div></div>
+      <div class="bar-row"><div class="lab">全社共通</div><div class="bar-track"><div class="bar-fill" style="width:12%;background:#c9b07a"></div></div><div class="val">4,110</div></div>
+      <p class="src">出典：有価証券報告書 第130期（2026/6/24）。合計73,526名・連結子会社258社。</p>
+    </div>
+    <div class="panel">
+      <h3>日立 画像診断事業買収 — CT/MRIの“出自”</h3>
+      <div class="cap">2021/3/31 取得完了。PACS世界1位の富士がハードを獲得した転換点</div>
+      <ul class="lean" style="font-size:.85rem">
+        <li><b>買収額 1,790億円</b>（事業価値）、対象事業売上 1,432億円</li>
+        <li>日立メディコ系の <b>CT・MRI・X線・超音波・電子カルテ</b> を承継</li>
+        <li>新設の「富士フイルムヘルスケア㈱」を100%子会社化 → 後に統合</li>
+        <li>狙い：<b>SYNAPSE（PACS世界1位）＋ハード＋AI</b>でGE/Philips/Siemensを追う</li>
+        <li>拠点：千葉県柏（旧日立メディコ）</li>
+      </ul>
+      <p class="src">出典：日立・富士フイルム プレスリリース（2019/12, 2021/2）、innervision。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 LINEUP -->
+<section id="lineup">
+  <div class="sec-head"><span class="no">06</span><h2>製品ライン総覧 — モダリティ別に“全部入り”</h2></div>
+  <p class="sec-sub">日立買収でCT/MRIが加わり、富士は「ほぼ全モダリティ＋医療IT＋AI」を自社ブランドで揃える数少ない企業に。キヤノンと重なる領域／重ならない領域を色分けで整理。</p>
+
+  <div class="tbl-wrap panel">
+    <table>
+      <thead><tr><th>分野</th><th>主力ブランド / 製品</th><th>ポジション</th><th>キヤノンとの競合</th></tr></thead>
+      <tbody>
+        <tr><td>医療IT（PACS）</td><td>SYNAPSE / SYNAPSE SAI viewer</td><td>約6,200施設・<b>世界シェア1位</b></td><td><span class="tag t-no">富士が圧倒的</span></td></tr>
+        <tr><td>内視鏡</td><td>ELUXEO 8000 / EG-860R / CAD EYE</td><td>消化器 <b>世界2位（2割強）</b>。1位オリンパス</td><td><span class="tag t-mid">キヤノン非参入</span></td></tr>
+        <tr><td>X線・DR</td><td>CALNEO AQRO/CROSS, FDR</td><td>CR世界1位 / DRパネル国内1位</td><td><span class="tag t-win">直接競合</span></td></tr>
+        <tr><td>マンモグラフィ</td><td>AMULET SOPHINITY / ELITE / Innovality</td><td>DBT＋S-View＋生検＋INNOMUSE</td><td><span class="tag t-win">激戦（本件）</span></td></tr>
+        <tr><td>CT</td><td>SCENARIA View / FCT iStream</td><td>日立由来・AI画質</td><td><span class="tag t-win">直接競合</span></td></tr>
+        <tr><td>MRI</td><td>ECHELON Smart ZeroHelium / APERTO Lucent</td><td>液体ヘリウムゼロを前面</td><td><span class="tag t-win">直接競合</span></td></tr>
+        <tr><td>超音波(US)</td><td>ARIETTA / 携帯型 iViz air</td><td>据置〜携帯、<b>国内トップシェア級</b></td><td><span class="tag t-win">直接競合</span></td></tr>
+        <tr><td>IVD（体外診断）</td><td>富士ドライケム / イムノAG</td><td>POCT 国内1位・世界3位(携帯1位)</td><td><span class="tag t-mid">領域限定</span></td></tr>
+        <tr><td>AIブランド</td><td>REiLI / CXR-AID / SYNAPSE SAI</td><td>PMDA AI承認<b>国内最多級（10品目）</b></td><td><span class="tag t-win">AI総力戦</span></td></tr>
+      </tbody>
+    </table>
+    <p class="src">出典：メディカルシステム事業説明会(2023/10)、事業概要(2025/7)、各製品サイト、techgym医療AI 2026集計。</p>
+  </div>
+
+  <div class="panel">
+    <h3>主要モダリティの“ひと目”スペック感</h3>
+    <div class="cap">キヤノンが戦う4領域の富士フラッグシップ</div>
+    <div class="pics">
+      <div class="pic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="4" x2="12" y2="2"/></svg>
+        <div class="pv">50μm</div><div class="pl">AMULET SOPHINITY<br>MG画素 / DBT 15°/40°</div><div class="pr">MG</div>
+      </div>
+      <div class="pic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.6"><rect x="3" y="7" width="18" height="10" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>
+        <div class="pv">0 He</div><div class="pl">ECHELON Smart<br>ZeroHelium MRI</div><div class="pr">MRI</div>
+      </div>
+      <div class="pic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>
+        <div class="pv">AI</div><div class="pl">SCENARIA View<br>AI画質CT</div><div class="pr">CT</div>
+      </div>
+      <div class="pic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.6"><path d="M4 14c3-6 13-6 16 0"/><path d="M8 14v4M12 14v5M16 14v4"/></svg>
+        <div class="pv">携帯〜据置</div><div class="pl">ARIETTA / iViz air<br>超音波</div><div class="pr">US</div>
+      </div>
+      <div class="pic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6"><path d="M12 3c4 2 4 7 0 9s-4 7 0 9"/><circle cx="12" cy="12" r="1.3"/></svg>
+        <div class="pv">世界2位</div><div class="pl">ELUXEO 8000<br>内視鏡＋CAD EYE</div><div class="pr">Endo</div>
+      </div>
+      <div class="pic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+        <div class="pv">世界1位</div><div class="pl">SYNAPSE<br>PACS 約6,200施設</div><div class="pr">IT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 SHARE -->
+<section id="share">
+  <div class="sec-head"><span class="no">07</span><h2>シェア地図 — 富士が“強い所”と“弱い所”</h2></div>
+  <p class="sec-sub">富士の強みは医療IT・内視鏡・US・X線。CT/MRIは日立由来で後発。キヤノンが有利／不利を一枚で。</p>
+  <div class="panel">
+    <h3>領域別ポジション（◎=トップ級 ○=上位 △=後発/限定）</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>領域</th><th>富士フイルム</th><th>キヤノンメディカル</th><th>この領域の勝者</th></tr></thead>
+      <tbody>
+        <tr><td>医療IT / PACS</td><td>◎ 世界1位</td><td>△</td><td><span class="tag t-no">富士</span></td></tr>
+        <tr><td>内視鏡（消化器）</td><td>◎ 世界2位</td><td>— 非参入</td><td><span class="tag t-no">富士(vsオリンパス)</span></td></tr>
+        <tr><td>X線 / CR / DR</td><td>◎ CR世界1位</td><td>○</td><td><span class="tag t-no">富士</span></td></tr>
+        <tr class="me"><td>マンモグラフィ</td><td>○ DBT・S-View・生検</td><td>○ Pe･ru･ru(車載◎)</td><td><span class="tag t-mid">係争中（本件）</span></td></tr>
+        <tr><td>CT</td><td>△ 日立由来・後発</td><td>◎ 国産PCCT Ultimion</td><td><span class="tag t-win">キヤノン</span></td></tr>
+        <tr><td>MRI</td><td>○ ZeroHelium訴求</td><td>◎ Vantageシリーズ</td><td><span class="tag t-win">キヤノン優位</span></td></tr>
+        <tr><td>超音波(US)</td><td>◎ 国内トップ級</td><td>◎ Aplio</td><td><span class="tag t-mid">互角</span></td></tr>
+        <tr><td>医療AI(PMDA承認数)</td><td>◎ 国内最多級10品目</td><td>○</td><td><span class="tag t-no">富士</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="src">出典：各社IR・日経・innervision・techgym(2026)。◎○△は公開シェア言及に基づく相対評価。</p>
+  </div>
+  <div class="callout warn"><b>キヤノン視点の核心：</b> 富士の本当の強みは<b>「IT（SYNAPSE）を軸に全モダリティを束ねる」</b>力。個別装置（MG・CT）の性能競争より、<b>病院のデータ基盤を握って装置を引き込む</b>戦い方が脅威。キヤノンはCT/MRI/USで装置優位を保ちつつ、<b>Abierto（IT/AI基盤）での巻き返し</b>が対抗軸になる。</div>
+</section>
+
+<!-- 8 GLOBAL -->
+<section id="global">
+  <div class="sec-head"><span class="no">08</span><h2>グローバル網 — 「装置を売る前に健診文化を輸出する」</h2></div>
+  <p class="sec-sub">連結子会社258社。医療機器は1970年代から新興国展開。健診施設ブランド<b>NURA</b>をインド・東南アジア・中東に展開し、「健診→画像診断装置販売」の動線を自前で作る独自モデル。FY2031までに世界100拠点構想。</p>
+
+  <div class="panel">
+    <h3>NURA 健診拠点の展開（装置販売のための“入口”）</h3>
+    <div class="map-wrap">
+    <svg viewBox="0 0 760 300" width="100%" role="img" aria-label="富士フイルムNURAと医療拠点の世界展開">
+      <rect x="0" y="0" width="760" height="300" fill="var(--panel-2)" rx="10"/>
+      <!-- stylized continents as soft blobs -->
+      <g fill="var(--line)" opacity="0.9">
+        <path d="M60,70 q40,-20 90,-6 q30,30 10,60 q-40,30 -80,10 q-30,-30 -20,-64z"/>
+        <path d="M150,150 q30,-10 50,20 q10,40 -20,70 q-30,10 -40,-30 q-10,-40 10,-60z"/>
+        <path d="M340,60 q50,-18 90,0 q20,30 -4,54 q-40,20 -80,6 q-26,-30 -6,-60z"/>
+        <path d="M360,130 q40,-6 54,30 q6,50 -30,76 q-34,6 -40,-40 q-6,-44 16,-66z"/>
+        <path d="M470,90 q80,-26 150,-6 q50,30 30,80 q-70,40 -150,16 q-50,-40 -30,-90z"/>
+        <path d="M560,190 q40,-10 60,16 q8,30 -22,44 q-36,6 -44,-26 q-6,-24 6,-34z"/>
+      </g>
+      <!-- markers -->
+      <g font-family="Space Grotesk" font-size="10" font-weight="600">
+        <!-- India (hub) -->
+        <circle cx="520" cy="150" r="9" fill="var(--accent)"/><circle cx="520" cy="150" r="16" fill="none" stroke="var(--accent)" stroke-width="1.4" opacity=".5"/>
+        <text x="520" y="178" text-anchor="middle" fill="var(--ink)">インド(5拠点·HUB)</text>
+        <!-- SE Asia -->
+        <circle cx="585" cy="188" r="6" fill="var(--blue)"/><text x="585" y="210" text-anchor="middle" fill="var(--ink)">タイ/越/比/マ</text>
+        <!-- Mongolia/Vietnam/UAE small -->
+        <circle cx="470" cy="128" r="5" fill="var(--amber)"/><text x="470" y="118" text-anchor="middle" fill="var(--ink)">UAE</text>
+        <circle cx="560" cy="120" r="4" fill="var(--amber)"/><text x="560" y="110" text-anchor="middle" fill="var(--ink)">モンゴル</text>
+        <!-- Japan -->
+        <circle cx="648" cy="120" r="7" fill="var(--signal)"/><text x="648" y="104" text-anchor="middle" fill="var(--ink)">日本(本社)</text>
+        <!-- Africa/MEA endoscopy -->
+        <circle cx="400" cy="170" r="5" fill="var(--blue)"/><text x="400" y="192" text-anchor="middle" fill="var(--ink)">中東·アフリカ</text>
+        <!-- US / Europe R&D + BioCDMO -->
+        <circle cx="150" cy="105" r="6" fill="#9aa0ac"/><text x="150" y="92" text-anchor="middle" fill="var(--ink)">米(NC州/テキサス)</text>
+        <circle cx="360" cy="95" r="6" fill="#9aa0ac"/><text x="360" y="82" text-anchor="middle" fill="var(--ink)">欧州(デンマーク/英)</text>
+      </g>
+      <text x="20" y="286" font-size="9" fill="var(--ink-soft)">●緑=NURA健診HUB ●青=新興国販売 ●灰=バイオCDMO/研究 ●赤=本社 — 模式図（正確な地理図ではない）</text>
+    </svg>
+    </div>
+    <ul class="lean" style="font-size:.85rem;margin-top:.8rem">
+      <li><b>NURA</b>：2021年インド初号機 → タイ・ベトナム・フィリピン・マレーシアに新設、<b>計16拠点体制</b>へ。<b>2031年3月期までに世界100拠点</b>構想。</li>
+      <li>狙い：日本式の定期健診文化を新興国に根付かせ、<b>CT等 画像診断装置の販売機会を創出</b>。</li>
+      <li>中東・アフリカ：1970年代から展開。ドバイ現法＋モロッコ拠点で内視鏡・IVDを拡販。</li>
+      <li>バイオCDMO：デンマーク・米NC州・英・富山に大型製造拠点（別軸の投資）。</li>
+    </ul>
+    <p class="src">出典：日本経済新聞(2025/10)、事業概要(2025/7)、日化協SDGs事例。</p>
+  </div>
+</section>
+
+<!-- 9 HR -->
+<section id="hr">
+  <div class="sec-head"><span class="no">09</span><h2>採用・初任給・年収 — “高待遇で人を採る会社”</h2></div>
+  <p class="sec-sub">富士フイルム㈱本体は業界トップクラスの初任給。販社の富士フイルムメディカルは別体系だが、30歳平均600万円以上・平均年収685万円水準。キヤノンメディカル(約673万)とほぼ同水準で人材を奪い合う関係。</p>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>初任給（月給）比較 — 2025〜2026</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>区分</th><th>大卒</th><th>修士了</th><th>博士了</th></tr></thead>
+        <tbody>
+          <tr><td>富士フイルム㈱（技術/事務）</td><td class="n">296,000〜</td><td class="n">323,900</td><td class="n">347,900</td></tr>
+          <tr class="me"><td>富士フイルムメディカル㈱</td><td class="n">264,700</td><td class="n">282,300</td><td class="n">—</td></tr>
+          <tr><td>（参考）全国大卒平均</td><td class="n">約252,000</td><td class="n">—</td><td class="n">—</td></tr>
+        </tbody>
+      </table></div>
+      <p class="src">出典：リクナビ/マイナビ2026-27、各社採用サイト、厚労省 令和6年賃金構造基本統計。年度・改定で変動。</p>
+    </div>
+    <div class="panel">
+      <h3>平均年収ポジション（2026）</h3>
+      <div class="bar-row"><div class="lab">富士HD(単体)</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#00843d"></div></div><div class="val">1,086万</div></div>
+      <div class="bar-row"><div class="lab">富士メディカル</div><div class="bar-track"><div class="bar-fill" style="width:63%;background:#2b5f8c"></div></div><div class="val">685万</div></div>
+      <div class="bar-row"><div class="lab">キヤノンメディカル</div><div class="bar-track"><div class="bar-fill" style="width:62%;background:#b8860b"></div></div><div class="val">673万</div></div>
+      <p class="src">出典：有報(単体 平均年収1,085.5万・平均43.3歳)、OpenMoney/口コミ集計(2026)。HD単体は管理職中心のため高め。</p>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>人的資本スナップショット（富士フイルムHD 単体・2026/3/31）</h3>
+    <div class="pics">
+      <div class="pic"><div class="pv num">43.3<span style="font-size:.7rem">歳</span></div><div class="pl">平均年齢</div></div>
+      <div class="pic"><div class="pv num">17.2<span style="font-size:.7rem">年</span></div><div class="pl">平均勤続</div></div>
+      <div class="pic"><div class="pv num">73,526</div><div class="pl">連結従業員</div></div>
+      <div class="pic"><div class="pv num">258</div><div class="pl">連結子会社</div></div>
+      <div class="pic"><div class="pv num">172</div><div class="pl">新卒採用(2024)</div></div>
+      <div class="pic"><div class="pv num">~178<span style="font-size:.7rem">倍</span></div><div class="pl">採用倍率(推計)</div></div>
+    </div>
+    <p class="src">キャリア採用も通年実施（技術・営業・サービス・DX）。販社は「資格取得支援・借上社宅・時短」など福利厚生を前面に採用。出典：有報、ut-board集計。</p>
+  </div>
+</section>
+
+<!-- 10 REG -->
+<section id="reg">
+  <div class="sec-head"><span class="no">10</span><h2>薬事・PMDA・商標 — AI承認で国内最多級</h2></div>
+  <p class="sec-sub">富士はプログラム医療機器（AI）のPMDA承認で申請者別<b>最多級（10品目）</b>。「日本初」の実績も複数。商標はモダリティごとにブランド体系化。キヤノンがAI承認競争で後れると、ここが効いてくる。</p>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>主なPMDA承認・薬事マイルストーン</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>製品 / 販売名</th><th>承認番号・区分</th><th>意義</th></tr></thead>
+        <tbody>
+          <tr><td>CAD EYE 下部消化管 EW10-EC02</td><td class="n">2020 発売</td><td>内視鏡AIの先駆</td></tr>
+          <tr class="me"><td>CAD EYE 上部消化管 EW10-EG01</td><td class="n">30400BZX00217000</td><td><b>上部消化管AIで日本初承認(2022)</b></td></tr>
+          <tr><td>X線WS用プログラム FS-AI699型</td><td class="n">30700BZX00231000</td><td>2025/9 承認</td></tr>
+          <tr><td>CXR-AID（胸部X線病変検出）</td><td class="n">REiLIブランド</td><td>胸部AI</td></tr>
+          <tr><td>AMULET SOPHINITY（MG）</td><td class="n">304ABBZX00020000</td><td>FDR MS-4000（DBT最上位）</td></tr>
+          <tr><td>SOPHINITY バイオプシーユニット</td><td class="n">同付属品(2023/12)</td><td>トモ生検</td></tr>
+        </tbody>
+      </table></div>
+      <p class="src">出典：各社プレス、PMDAプログラム医療機器承認品目一覧(2026/3/31時点187品目)、techgym(2026)。</p>
+    </div>
+    <div class="panel">
+      <h3>ブランド / 商標の体系</h3>
+      <div class="cap">モダリティ横断でブランドを“資産化”</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem">
+        <span class="pill">SYNAPSE（PACS）</span><span class="pill">REiLI（医療AI）</span>
+        <span class="pill">AMULET（MG）</span><span class="pill">INNOMUSE（女性医療）</span>
+        <span class="pill">ELUXEO / CAD EYE（内視鏡）</span><span class="pill">CALNEO（X線DR）</span>
+        <span class="pill">SCENARIA / ECHELON / APERTO（CT·MRI）</span><span class="pill">ARIETTA / iViz air（US）</span>
+        <span class="pill">富士ドライケム（IVD）</span><span class="pill">NURA（健診）</span>
+      </div>
+      <div class="callout" style="margin-bottom:0"><b>読み：</b> 富士は「REiLI」でAIを、「INNOMUSE」で女性医療（MG→産婦人科→骨密度）を横串ブランド化。<b>MG単品ではなくWomen's Healthの“面”で囲い込む</b>のが商標戦略の狙い。キヤノンのMGが単品で対峙すると、ブランドの“文脈”で押される。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 TAKEAWAY -->
+<section id="takeaway">
+  <div class="sec-head"><span class="no">11</span><h2>キヤノンへの含意 — どこで勝ち、どこを避けるか</h2></div>
+  <div class="stripe"></div>
+  <div class="panel" style="margin-top:1rem">
+    <div class="two-col" style="font-size:.92rem">
+      <p class="lead" style="margin-top:0">結論：富士の脅威は「装置の性能」ではなく<b>「SYNAPSEを核にした面の支配」と「バイオCDMOを稼ぎ頭にした体力」</b>。装置単体の値引き競争に富士を引きずり込めれば、むしろキヤノンのCT/MRI/USの実力が活きる。</p>
+      <p><b>避けるべき戦い</b><br>①医療IT（PACS）での正面対決——世界1位・スイッチングコスト高。②内視鏡——富士の主戦場、キヤノン非参入領域に引き込まれない。</p>
+      <p><b>勝てる/守れる戦い</b><br>①<b>CT/MRI</b>：国産PCCT Ultimion等、装置優位を前面に。②<b>MG車載</b>：恒温器特許・空冷・使用時通電など“富士にない運用優位”＋AiCE。③<b>US</b>：互角、コニカミノルタ協業で領域拡大。</p>
+      <p><b>警戒すべき動き</b><br>①2026/7 富士の国内販社統合＝提案の束ねが強化。②NURA型「健診→装置」動線の国内外展開。③REiLI/INNOMUSEのブランド囲い込み。④バイオCDMOがFCFプラス化（FY27）すると、医療への再投資余力が跳ねる。</p>
+      <p><b>打ち手の方向</b><br>Abierto（IT/AI基盤）でPACS以外のデータ接点を取る／CMF・オリックスとの“検診車まるごとリース”で初期投資の壁を崩す／卸（メディパル・スズケン・アルフレッサ・東邦）経由で巡回検診パッケージを面展開。</p>
+    </div>
+  </div>
+  <div class="callout warn"><b>一言で：</b> 富士は「医療の総合商社化」を、IT基盤＋ブランド＋ファイナンス（グループ）で進めている。キヤノンが同じ土俵（面の支配）で戦うには、<b>Abierto＋CMF/オリックス＋協業連合（日本光電・オリンパス・コニカミノルタ・メディパル）</b>を“連邦”として束ねる構想力が要る。装置が強いだけでは、面では負け得る。</div>
+</section>
+
+</div>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div><b style="color:var(--ink)">本レポートについて</b><br>キヤノンメディカルシステムズ BP営業部・高橋忍様向け 競合インテリジェンス資料。公開情報（IR・有報・各社プレス・就職サイト・業界誌）に基づく推計を含みます。数値は年度・改定・株価変動で変化します。</div>
+    <div><b style="color:var(--ink)">主要出典</b><br>富士フイルムHD 決算短信/有価証券報告書 第130期、決算説明会資料、事業概要(2025/7·9)、日経、innervision、PMDA承認品目一覧(2026/3/31)、techgym医療AI(2026)、各社採用サイト。</div>
+    <div><b style="color:var(--ink)">次アクション候補</b><br>①本資料をPPT/PDF化し部内共有 ②FDR MS-4000車載薬事の一次確認 ③Abierto×SYNAPSE対抗の論点整理 ④卸別 巡回検診パッケージ企画。<br>— いずれもご指示あれば即作成します。</div>
+  </div>
+</div></footer>
+
+</body></html>
