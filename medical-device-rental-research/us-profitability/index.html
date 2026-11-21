@@ -207,12 +207,12 @@ function getResults(){
  const margin=income-supply-travel-laborVar;
  const avg=total>0?margin/total:0;
  const base={
-  buy:{months:Math.max(1,n("buyMonths")),asset:(n("buyPrice")+n("buyInitial")-Math.min(n("buyResidual"),n("buyPrice")+n("buyInitial")))/Math.max(1,n("buyMonths"))+n("buyMaint"),initial:n("buyPrice")+n("buyInitial"),monthlyCashAsset:n("buyMaint"),terminal:n("buyResidual")},
+  buy:{months:Math.max(1,n("buyMonths")),asset:(n("buyPrice")+n("buyInitial")-Math.min(n("buyResidual"),n("buyPrice")+n("buyInitial")))/Math.max(1,n("buyMonths"))+n("buyMaint"),initial:n("buyPrice")+n("buyInitial"),monthlyCashAsset:n("buyMaint"),terminal:Math.min(n("buyResidual"),n("buyPrice")+n("buyInitial"))},
   rent:{months:Math.max(1,n("rentMonths")),asset:n("rentFee")+n("rentOther")+(n("rentInitial")+n("rentReturn"))/Math.max(1,n("rentMonths")),initial:n("rentInitial"),monthlyCashAsset:n("rentFee")+n("rentOther"),terminal:-n("rentReturn")},
   lease:{months:Math.max(1,n("leaseMonths")),asset:n("leaseFee")+n("leaseOther")+n("leaseInitial")/Math.max(1,n("leaseMonths")),initial:n("leaseInitial"),monthlyCashAsset:n("leaseFee")+n("leaseOther"),terminal:0}
  };
  for(const key of Object.keys(base)){
-  const b=base[key];b.fixed=commonFixed+b.asset;b.profit=margin-b.fixed;b.annual=b.profit*12;b.bep=(avg>0?Math.ceil(b.fixed/avg-1e-10):Infinity);b.perDay=b.bep/n("days");b.cashMonthly=margin-commonFixed-b.monthlyCashAsset;b.costTotal=income-b.profit;
+  const b=base[key];b.fixed=commonFixed+b.asset;b.profit=margin-b.fixed;b.annual=b.profit*12;b.bep=(avg>0?Math.ceil(b.fixed/avg-1e-10):Infinity);b.perDay=b.bep/Math.max(1,n("days"));b.cashMonthly=margin-commonFixed-b.monthlyCashAsset;b.costTotal=income-b.profit;
   b.cashSeries=[-b.initial];let payback=b.initial===0&&b.cashMonthly>=0?0:null;
   for(let i=1;i<=Math.min(240,b.months);i++){
    const terminal=i===b.months?b.terminal:0;
@@ -347,7 +347,7 @@ $("exam-list").addEventListener("input",e=>{
  const el=e.target.closest(".exam-row");if(!el)return;
  const r=rows.find(x=>x.id===Number(el.dataset.id));if(!r)return;
  const key=e.target.dataset.key;if(!key)return;
- if(key==="label"||key==="group"){r[key]=String(e.target.value);}else{r[key]=num(e.target.value);}
+ if(key==="label"||key==="group"){r[key]=String(e.target.value);}else{r[key]=key==="qty"?Math.floor(num(e.target.value)):num(e.target.value); }
  if(key==="label"){el.querySelector(".exam-title strong").textContent=r.label;}
  renderOutput();queueSave();
 });
