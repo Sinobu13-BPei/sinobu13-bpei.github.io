@@ -370,14 +370,14 @@ function load(){
 }
 function downloadCSV(){
  const d=getResults(),b=d.base[mode];
- const lines=[["超音波装置採算性試算","2026-11-21"],["選択方式",labels[mode]],["機種",$("#machine").selectedOptions[0].textContent],["月間検査件数",d.total],["診療報酬収入 円/月",Math.round(d.income)],["変動費 円/月",Math.round(d.supply+d.travel+d.laborVar)],["共通固定費 円/月",Math.round(d.commonFixed)],["装置月額換算 円/月",Math.round(b.asset)],["月次利益 円",Math.round(b.profit)],["年間利益 円",Math.round(b.annual)],["損益分岐点 件/月",Number.isFinite(b.bep)?b.bep:"算出不可"],["単純回収月",b.payback===null?"期間内未回収":b.payback],[],["検査名","区分","点数","月件数","時間分","移動分","消耗品円/件","移動費円/件"]];
+ const lines=[["超音波装置採算性試算","2026-11-21"],["選択方式",labels[mode]],["機種",$("machine").selectedOptions[0].textContent],["月間検査件数",d.total],["診療報酬収入 円/月",Math.round(d.income)],["変動費 円/月",Math.round(d.supply+d.travel+d.laborVar)],["共通固定費 円/月",Math.round(d.commonFixed)],["装置月額換算 円/月",Math.round(b.asset)],["月次利益 円",Math.round(b.profit)],["年間利益 円",Math.round(b.annual)],["損益分岐点 件/月",Number.isFinite(b.bep)?b.bep:"算出不可"],["単純回収月",b.payback===null?"期間内未回収":b.payback],[],["検査名","区分","点数","月件数","時間分","移動分","消耗品円/件","移動費円/件"]];
  rows.forEach(r=>lines.push([r.label,r.group,r.points,r.qty,r.minutes,r.travelMin,r.supply,r.travelYen]));
  const csv="\ufeff"+lines.map(row=>row.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\r\n");
  const u=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"})),a=document.createElement("a");a.href=u;a.download="超音波採算試算_"+new Date().toISOString().slice(0,10)+".csv";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),500);
 }
 document.querySelectorAll(".mode-btn").forEach(b=>b.addEventListener("click",()=>setMode(b.dataset.mode)));
 $("compare-cards").addEventListener("click",e=>{const b=e.target.closest("[data-choose]");if(b){setMode(b.dataset.choose);$("contract").scrollIntoView({behavior:"smooth",block:"start"});}});
-document.querySelectorAll("input,select").forEach(el=>{if(el.closest("#exam-list"))return;el.addEventListener("input",()=>{renderOutput();queueSave()});el.addEventListener("change",()=>{renderOutput();queueSave()});});
+document.querySelectorAll("input,select").forEach(el=>{if(el.closest("#exam-list"))return;el.addEventListener("input",()=>{renderOutput();queueSave()});el.addEventListener("change",()=>{if(el.type==="number"){const v=Number(el.value);if(Number.isFinite(v)){if(el.max!==""&&Number.isFinite(Number(el.max))&&v>Number(el.max))el.value=el.max;if(el.min!==""&&Number.isFinite(Number(el.min))&&v<Number(el.min))el.value=el.min;}}renderOutput();queueSave()});});
 $("exam-list").addEventListener("input",e=>{
  const el=e.target.closest(".exam-row");if(!el)return;
  const r=rows.find(x=>x.id===Number(el.dataset.id));if(!r)return;
@@ -388,7 +388,7 @@ $("exam-list").addEventListener("input",e=>{
 });
 $("exam-list").addEventListener("change",e=>{
  const el=e.target.closest(".exam-row");if(!el)return;const r=rows.find(x=>x.id===Number(el.dataset.id));if(!r)return;
- if(e.target.dataset.key==="group"){r.group=e.target.value;renderOutput();queueSave();}
+ if(e.target.dataset.key==="group"){r.group=e.target.value;renderOutput();queueSave();}if(e.target.dataset.key==="qty"){e.target.value=String(Math.min(100000,Math.max(0,Math.floor(num(r.qty)))));}
 });
 $("exam-list").addEventListener("click",e=>{
  const row=e.target.closest(".exam-row");if(!row)return;
