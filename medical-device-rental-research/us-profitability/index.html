@@ -1,117 +1,374 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="超音波診断装置のレンタル費用と外来・訪問診療・往診で実施する超音波検査の診療報酬を用いた月次・年次採算シミュレーター。">
-<title>USレンタル 採算・収益性シミュレーター｜高橋勇</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#143b54">
+<meta name="description" content="超音波診断装置の購入・リース・レンタル採算を、令和8年度診療報酬、検査件数、技師人件費、PACS、電気代、在宅診療まで含めて試算。損益分岐点とキャッシュフローを視覚化。">
+<title>超音波診断装置 採算性シミュレーター｜購入・レンタル・リース</title>
 <style>
-:root{--navy:#123149;--blue:#176d98;--green:#187554;--orange:#b37126;--ink:#173045;--muted:#536a7b;--bg:#f3f7fa;--line:#d4e1e9;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font:15px/1.65 -apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;color:var(--ink)}a{color:#086b9b}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #67a5d1;outline-offset:2px}.wrap{max-width:1120px;margin:auto;padding:0 16px}
-header{background:linear-gradient(114deg,#102b42,#1a5576);color:#fff;padding:22px 0 18px}header h1{font-size:clamp(25px,3.1vw,36px);line-height:1.29;margin:6px 0 8px;letter-spacing:-.03em}header p{max-width:900px;margin:5px 0;color:#e0eff7;font-size:14px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.12em;color:#aadce8}.meta{font-size:11px;color:#bcd7e5;margin-top:8px}.breadcrumb{display:flex;gap:8px;flex-wrap:wrap;font-size:12px}.breadcrumb a{color:#d1edfc;text-decoration:none}.breadcrumb a:hover{text-decoration:underline}
-nav{position:sticky;top:0;z-index:9;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 12px #0a1d3209}nav .wrap{display:flex;gap:6px;overflow:auto;white-space:nowrap;padding-top:7px;padding-bottom:7px}nav a{display:inline-block;background:#f1f7fa;text-decoration:none;color:#244f6d;border-radius:9px;padding:6px 10px;font-size:12px;font-weight:700}
-main{padding-top:12px;padding-bottom:36px}section{margin:12px 0;border:1px solid var(--line);border-radius:13px;background:#fff;padding:18px 20px;box-shadow:0 3px 12px #15365108;scroll-margin-top:65px}section h2{margin:0 0 9px;font-size:21px;line-height:1.4;color:#123b55}h3{font-size:17px;margin:11px 0 6px;color:#145272}p{margin:5px 0 9px}.sub{color:var(--muted);font-size:12px}.alert{background:#fff8ed;border-left:4px solid #d49b4c;padding:9px 12px;border-radius:3px 8px 8px 3px;font-size:13px;margin:10px 0}.info{background:#edf8fd;border-left:4px solid #2694bc;padding:9px 12px;border-radius:3px 8px 8px 3px;font-size:13px;margin:10px 0}.badge{font-size:11px;font-weight:800;border-radius:20px;background:#eaf4f9;color:#1b648b;padding:3px 8px;white-space:nowrap}
-.controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}.controls label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:#385366;font-weight:800}.controls input,.controls select{width:100%;min-width:0;border:1px solid #bfd1dc;border-radius:8px;min-height:42px;padding:9px 10px;font-size:16px;background:#fff;color:var(--ink)}.controls .wide{grid-column:span 2}.button-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.action{border:1px solid #a9c4d8;padding:9px 13px;background:#f3f9fc;color:#205a7c;border-radius:9px;font-weight:800;font-size:13px;min-height:41px}.action.primary{background:#176d98;color:white;border-color:#176d98}.action:hover{filter:brightness(.95)}
-.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}.kpi{background:#eff7fb;border:1px solid #d1e4ee;border-radius:12px;padding:12px;min-width:0}.kpi .label{font-size:12px;font-weight:700;color:#526d80}.kpi .val{font-size:clamp(17px,2.3vw,29px);line-height:1.3;font-weight:900;color:#174d6d;font-variant-numeric:tabular-nums;margin:6px 0 3px}.kpi .note{font-size:11px;color:#586c7a}.kpi.green .val{color:#147150}.kpi.red .val{color:#ae3d35}
-.menu-group{margin:12px 0;border:1px solid #d9e6ec;border-radius:11px;overflow:hidden}.menu-head{background:#eef6fa;padding:9px 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.menu-head h3{margin:0;font-size:16px}.menu-head p{margin:0;flex:1;font-size:12px;color:#506779}.menu-head .groupSum{font-size:13px;font-weight:800;color:#185d84}.menu-group[data-group="home"] .menu-head{background:#eef8f2}.menu-group[data-group="visit"] .menu-head{background:#fff6ed}.exam-list{padding:4px 12px 9px}.exam-head,.exam-row{display:grid;grid-template-columns:minmax(0,1fr) 83px 89px 43px;gap:8px;align-items:center}.exam-head{font-size:11px;font-weight:800;color:#647d8c;border-bottom:1px solid #e4edf1;padding:3px 0}.exam-row{padding:7px 0;border-bottom:1px solid #edf1f4}.exam-row:last-child{border-bottom:0}.exam-name{font-size:13px;line-height:1.45}.exam-name small{display:block;font-size:11px;color:#607689}.exam-row input{width:100%;min-width:0;border:1px solid #c7d9e4;border-radius:7px;padding:7px;font-size:15px;text-align:right;height:37px;color:#153a53;background:#fff}.exam-row input[type="text"]{text-align:left}.exam-row .remove{border:0;border-radius:7px;background:#f6e8e8;color:#993b3b;min-height:34px}.exam-row .remove:disabled{opacity:.26;cursor:default}.rowtools{display:flex;gap:7px;margin:8px 12px 10px}.rowtools button{border:1px solid #bed6e5;background:#fff;color:#1f6b94;font-size:12px;border-radius:8px;padding:7px 11px;font-weight:800}
-.charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.plot{border:1px solid #dbe6ed;border-radius:11px;padding:12px;min-width:0}.plot.full{grid-column:1/-1}.plot h3{font-size:15px;margin:0 0 3px}.plot svg{width:100%;height:auto;display:block;max-height:320px}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:#45647a;margin:7px 0}.legend i{display:inline-block;width:12px;height:5px;vertical-align:middle;border-radius:2px;margin-right:4px}.break-text{font-size:13px;color:#466478}.tabular{width:100%;border-collapse:collapse;font-size:13px;margin:7px 0}.tabular th,.tabular td{padding:7px 9px;text-align:right;border-bottom:1px solid #e4edf2}.tabular th:first-child,.tabular td:first-child{text-align:left}.tabular th{background:#eaf2f7;color:#295675}.table-scroll{overflow-x:auto}.muted{color:var(--muted)}.explain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.explain-grid>div{padding:10px;border:1px solid #dce9ef;border-radius:10px;background:#f8fbfd;font-size:13px}.explain-grid b{display:block;color:#145173;font-size:14px;margin-bottom:4px}footer{background:#132e43;color:#d2e7f2;padding:18px 0;font-size:12px}footer a{color:#b5e6ff}
-@media(max-width:850px){.controls{grid-template-columns:repeat(2,minmax(0,1fr))}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.charts{grid-template-columns:1fr}.explain-grid{grid-template-columns:1fr}}
-@media(max-width:510px){.wrap{padding:0 12px}header{padding:17px 0 15px}header h1{font-size:26px}section{padding:13px 12px;margin:8px 0}section h2{font-size:19px}.controls{gap:8px}.controls label{font-size:11px}.controls input,.controls select{font-size:16px;min-height:43px}.kpis{gap:7px}.kpi{padding:10px}.kpi .val{font-size:20px}.exam-list{padding:3px 9px 8px}.exam-head,.exam-row{grid-template-columns:minmax(0,1fr) 65px 68px 32px;gap:4px}.exam-row input{padding:5px;font-size:14px}.exam-name{font-size:12px}.exam-name small{font-size:10px}.menu-head{padding:7px 9px}.menu-head h3{font-size:14px}.menu-head p{flex-basis:100%}.exam-head{font-size:10px}.plot{padding:9px}.plot h3{font-size:14px}.action{flex:1;min-width:120px}}
-@media print{nav,.button-row,.rowtools,.remove{display:none!important}body{background:white}section{break-inside:avoid;box-shadow:none}.plot{break-inside:avoid}header{background:white;color:#123149;border-bottom:2px solid #123149}header p,.eyebrow,.meta,header a{color:#183d58!important}@page{size:A4 portrait;margin:11mm}}
+:root{--navy:#15374f;--navy2:#245b78;--blue:#1e70ad;--orange:#cb7835;--purple:#7855b4;--green:#168463;--red:#ba4348;--ink:#142838;--muted:#617687;--bg:#f3f7fa;--white:#fff;--line:#d9e4ec;--soft:#edf4f8;--shadow:0 5px 22px rgba(23,55,79,.055)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-size:15px;line-height:1.58;color:var(--ink)}button,input,select{font:inherit}input,select{color:var(--ink)}button{cursor:pointer}a{color:#12639a}a:hover{text-decoration:none}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #58a9dd;outline-offset:2px}
+.wrap{max-width:1190px;margin:0 auto;padding:0 17px}.hero{background:linear-gradient(115deg,#102e43 0%,#1a526d 74%,#287f92 100%);color:white}.hero-inner{display:flex;align-items:center;gap:22px;padding:25px 0 22px}.hero-visual{flex:0 0 134px}.hero h1{margin:4px 0 8px;font-size:clamp(24px,3.3vw,36px);letter-spacing:-.03em;line-height:1.3}.hero p{margin:0;color:#dbedf4;font-size:13px}.eyebrow{font-weight:800;font-size:11px;letter-spacing:.12em;color:#a8ddeb}.hero-meta{margin-top:11px;display:flex;gap:8px;flex-wrap:wrap}.hero-meta span{font-size:11px;border:1px solid #ffffff45;border-radius:20px;padding:3px 8px;color:#e4f4fa}
+.nav{position:sticky;top:0;z-index:40;background:#fff;box-shadow:0 3px 14px #10384e12;border-bottom:1px solid var(--line)}.nav-inner{display:flex;align-items:center;gap:6px;padding-top:7px;padding-bottom:7px;overflow-x:auto;scrollbar-width:thin;white-space:nowrap}.nav-inner a{font-size:12px;font-weight:750;text-decoration:none;color:#325d74;padding:8px 11px;border-radius:10px;background:#eff5f8}.nav-inner a:hover{background:#dcecf5}
+main{padding-top:13px;padding-bottom:42px}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow);scroll-margin-top:68px}.panel h2{font-size:19px;margin:0 0 9px;color:var(--navy);line-height:1.4}.panel h3{font-size:15px;margin:15px 0 7px;color:var(--navy)}.sub{color:var(--muted);font-size:12px}.sectionhead{display:flex;justify-content:space-between;align-items:start;gap:12px}.kicker{color:#23789d;font-weight:800;font-size:10px;letter-spacing:.08em}.intro{margin:3px 0 9px;color:var(--muted);font-size:13px}.info{background:#eef7fb;border-left:3px solid #2d88b6;padding:10px 12px;border-radius:5px 9px 9px 5px;font-size:12px}.warning{background:#fff8ec;border-left:3px solid #d8943f;padding:10px 12px;border-radius:5px 9px 9px 5px;font-size:12px}.muted{color:var(--muted)}
+.mode-toggle{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:13px 0 6px}.mode-btn{border:1.5px solid var(--line);background:#fff;padding:14px 8px;min-height:67px;border-radius:13px;font-weight:800;color:#39566b;line-height:1.36}.mode-btn small{display:block;font-size:11px;font-weight:600;color:#61798a}.mode-btn[aria-pressed=true]{background:#eaf3fb;border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue);color:#15598f}.mode-btn[data-mode=rent][aria-pressed=true]{background:#fff4ea;color:#a25421;border-color:var(--orange);box-shadow:inset 0 0 0 1px var(--orange)}.mode-btn[data-mode=lease][aria-pressed=true]{background:#f6f0fc;color:#674297;border-color:var(--purple);box-shadow:inset 0 0 0 1px var(--purple)}
+.fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}.field{min-width:0}.field>label{display:block;font-size:12px;color:#365366;font-weight:750;margin-bottom:4px}.field input,.field select{display:block;width:100%;min-width:0;border:1px solid #c7d8e3;background:#fff;border-radius:10px;padding:10px 10px;min-height:45px;font-size:16px;box-shadow:inset 0 1px 2px #17394a05}.field .hint{font-size:10px;color:var(--muted);margin-top:3px}.field input[type=number]{font-variant-numeric:tabular-nums}.full{grid-column:1/-1}.span2{grid-column:span 2}.modefields{display:none;padding:14px;border-radius:12px;border:1px solid var(--line);background:#f8fbfd;margin-top:9px}.modefields.active{display:block}.modefields h3{margin:0 0 10px}.pill{display:inline-block;font-size:10px;color:#496174;background:#ebf2f7;border-radius:30px;padding:3px 7px;font-weight:750}
+.summary-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.kpi{border:1px solid var(--line);border-radius:12px;padding:12px;min-width:0;background:#fbfdff}.kpi .caption{color:#667a89;font-size:11px;font-weight:750}.kpi .value{font-size:clamp(18px,2.1vw,26px);font-weight:850;color:var(--navy);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.025em;margin-top:3px}.kpi .note{font-size:10px;color:var(--muted);margin-top:3px}.kpi .value.positive{color:#087f60}.kpi .value.negative{color:var(--red)}.summary-txt{padding:10px 12px;border-radius:9px;margin-top:10px;background:#f2f7fa;font-size:13px}.summary-txt strong{color:var(--navy)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.compare{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:12px}.compare-card{border:1px solid var(--line);border-radius:12px;padding:11px;min-width:0;background:#fff;text-align:left}.compare-card.active{background:#eff7fc;border-color:var(--blue)}.compare-card[data-mode=rent].active{background:#fff6ee;border-color:var(--orange)}.compare-card[data-mode=lease].active{background:#f8f4fd;border-color:var(--purple)}.compare-card .title{font-size:12px;font-weight:850}.compare-card .num{font-size:18px;font-weight:850;letter-spacing:-.02em}.compare-card .explain{color:var(--muted);font-size:10px}.compare-card button{background:none;border:0;color:#1d6495;text-decoration:underline;font-size:11px;font-weight:750;padding:7px 0 0}
+.form-note{margin:7px 0 0;color:var(--muted);font-size:12px}.exam-list{display:grid;gap:8px}.exam-row{border:1px solid #dae5ed;border-radius:12px;padding:10px 12px;background:#fff}.exam-row-head{display:flex;justify-content:space-between;align-items:center;gap:9px}.exam-title{min-width:0;flex:1}.exam-title strong{display:block;font-size:14px;color:#173d57}.exam-title span{font-size:10px;color:#607687}.exam-count{display:flex;align-items:center;gap:5px;flex:0 0 auto}.stepper{border:1px solid #bed0dc;border-radius:9px;min-width:37px;min-height:40px;background:#f1f7fb;font-size:19px;line-height:1;color:#205b7c;font-weight:650}.count-input{width:65px;text-align:center;min-height:42px;border:1px solid #c4d5df;border-radius:9px;font-size:17px;font-weight:800}.exam-bottom{display:grid;grid-template-columns:1fr auto;align-items:center;gap:9px;margin-top:5px;color:#5f7684;font-size:11px}.exam-bottom b{color:#234e68;font-size:13px}.exam-advanced{margin-top:8px}.exam-advanced summary{font-size:11px;font-weight:700;color:#236d97;cursor:pointer;padding:5px 0}.exam-advanced .fields{margin-top:6px;grid-template-columns:repeat(4,minmax(0,1fr))}.exam-advanced .field input,.exam-advanced .field select{min-height:41px;padding:8px;font-size:14px}.exam-add{border:1px dashed #81a8bd;background:#f6fafc;color:#235f80;border-radius:11px;min-height:44px;padding:10px 14px;font-weight:800;width:100%}.exam-remove{border:0;background:#fff0f0;color:#ab333a;border-radius:8px;padding:7px 12px;font-size:12px;margin-top:7px}
+.fold{border:1px solid var(--line);border-radius:12px;margin-top:10px;overflow:hidden}.fold summary{padding:10px 13px;font-size:13px;font-weight:750;background:#f5f9fc;cursor:pointer;min-height:44px}.fold-body{padding:13px}.fold summary::marker{color:#217197}.tiny{font-size:11px;color:var(--muted)}
+.chart-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:15px}.chart-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;min-width:0}.chart-box h3{margin:0 0 4px;font-size:14px}.chart-box svg{width:100%;height:auto;display:block}.chart-box .sub{margin:5px 0}.legend{display:flex;flex-wrap:wrap;gap:7px 12px;margin-top:7px;font-size:11px}.legend span{display:flex;align-items:center;gap:5px}.legend i{width:13px;height:4px;border-radius:5px;display:inline-block}.bep-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.bep-item{border:1px solid var(--line);border-radius:10px;padding:8px 10px;text-align:center}.bep-item .name{font-size:10px;color:#647887}.bep-item strong{font-size:19px;display:block;font-weight:850}.bep-item small{display:block;font-size:10px;color:#607585}
+.bar-group{margin:9px 0}.bar-top{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;gap:8px}.bar-track{height:12px;border-radius:30px;background:#ebf1f6;overflow:hidden;margin-top:4px}.bar-fill{height:100%;border-radius:30px;max-width:100%}.chart-annotations{padding:9px 10px;border-radius:9px;background:#f1f7fa;color:#385f72;font-size:12px;margin-top:10px}
+.footer{margin-top:20px;font-size:11px;color:#617788;text-align:center}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.action{border:1px solid #c7d7e3;border-radius:10px;min-height:44px;background:#fff;padding:10px 14px;font-size:12px;font-weight:800;color:#295d79}.action.primary{background:#1d668f;color:white;border-color:#1d668f}.action.danger{color:#aa4444}.sources a{word-break:break-word}.sources li{margin:5px 0}.shareline{margin:8px 0;font-size:12px}.target-strip{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}.target-strip .field{width:140px;max-width:100%}.target-strip strong{font-size:13px}
+@media(max-width:850px){.fields{grid-template-columns:repeat(2,minmax(0,1fr))}.chart-layout{grid-template-columns:1fr}.summary-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2{grid-template-columns:1fr}.hero-visual{flex-basis:110px}}
+@media(max-width:550px){.wrap{padding:0 12px}.hero-inner{padding:16px 0;gap:8px}.hero-visual{display:none}.hero h1{font-size:24px}.hero p{font-size:12px}.hero-meta{gap:5px}.hero-meta span{font-size:10px;padding:2px 7px}.panel{padding:13px 12px;border-radius:12px;margin-bottom:10px}.panel h2{font-size:18px}.nav-inner a{font-size:12px;padding:7px 10px}.mode-toggle{gap:5px}.mode-btn{padding:10px 2px;min-height:65px;font-size:14px}.mode-btn small{font-size:10px}.fields,.exam-advanced .fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.field>label{font-size:11px}.field input,.field select{padding:9px 8px}.span2{grid-column:span 2}.kpi{padding:10px}.kpi .value{font-size:21px}.compare{gap:5px}.compare-card{padding:9px 5px}.compare-card .num{font-size:15px}.compare-card .title{font-size:11px}.compare-card .explain{font-size:9px}.exam-row{padding:9px 8px}.exam-title strong{font-size:13px}.exam-title span{font-size:9px}.exam-count{gap:3px}.stepper{min-width:35px}.count-input{width:55px}.bep-list{gap:5px}.bep-item{padding:6px 3px}.bep-item strong{font-size:16px}.bep-item small{font-size:9px}}
+@media print{body{background:#fff;font-size:12px}.hero{background:#fff;color:#152e43;border-bottom:2px solid #152e43}.hero p,.hero-meta,.hero-visual,.nav,.actions,.exam-add,.exam-remove,.stepper,.fold summary,.exam-advanced summary{display:none!important}.panel,.chart-box{box-shadow:none;break-inside:avoid}.panel{margin:8px 0;padding:10px;border-color:#ccc}.hero-inner{padding:6px 0}.modefields:not(.active){display:none}.mode-btn:not([aria-pressed=true]){display:none}.mode-toggle{grid-template-columns:1fr}.fold[open] .fold-body,.exam-advanced[open] .fields{display:block!important}.summary-kpis{grid-template-columns:repeat(4,1fr)}}
 </style>
-<style id="sim-crosslink-style">.sim-quick-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.sim-quick-links a{display:inline-flex;min-height:44px;padding:9px 15px;align-items:center;justify-content:center;border-radius:9px;text-decoration:none;font-size:14px;font-weight:800}.sim-quick-primary{background:#e1f4fc;color:#14506f!important}.sim-quick-secondary{border:1px solid #95c7da;background:rgba(255,255,255,.08);color:#fff!important}nav a.nav-return{background:#def1f8;color:#124966;font-weight:800}@media(max-width:520px){.sim-quick-links{display:grid;grid-template-columns:1fr 1fr;gap:7px}.sim-quick-links a{font-size:12px;padding:9px 5px;text-align:center}}</style></head>
+</head>
 <body>
-<header><div class="wrap"><div class="breadcrumb"><a href="../">医療機器レンタル研究</a><span>／</span><a href="https://sinobu13-bpei.github.io/medical-intelligence/">医療MKTハブ</a></div><div class="eyebrow">ULTRASOUND BUSINESS SIMULATOR · 2026</div><h1>超音波（US）レンタルの<br>採算・収益性シミュレーター</h1><p>「購入」だけでなく、医療機関をBuyerからUserへ。外来・在宅訪問診療・臨時往診の検査メニューと件数から、月額レンタル料・損益分岐・年間採算を検証します。</p><div class="meta">調査・制作：高橋勇　｜　2026年11月21日　｜　公開情報を用いた教育・研究用モデル</div><div class="sim-quick-links" aria-label="関連ページ"><a href="../" class="sim-quick-primary">レンタル研究ページに戻る ↗</a><a href="https://sinobu13-bpei.github.io/medical-intelligence/" class="sim-quick-secondary">医療MKTハブ ↗</a></div></div></header>
-<nav aria-label="ページ内ナビ"><div class="wrap"><a href="../" class="nav-return">レンタル研究 ↗</a><a href="https://sinobu13-bpei.github.io/medical-intelligence/" class="nav-return">医療MKTハブ ↗</a><a href="#assumptions">料金・費用</a><a href="#exams">検査メニュー</a><a href="#results">月間・年間採算</a><a href="#graphs">グラフ</a><a href="#guide">算定・注意点</a></div></nav>
+<header class="hero">
+ <div class="wrap hero-inner">
+  <svg class="hero-visual" viewBox="0 0 136 120" fill="none" aria-hidden="true"><rect x="11" y="12" width="112" height="81" rx="13" fill="#ffffff1b" stroke="#a8e1f1" stroke-width="2"/><rect x="19" y="21" width="96" height="58" rx="5" fill="#092f42"/><path d="M29 66 Q68 12 106 66 M37 67 Q68 31 99 67 M46 67 Q68 46 90 67" stroke="#80d6c3" stroke-width="1.8" opacity=".9"/><ellipse cx="67" cy="48" rx="20" ry="10" fill="#72c5d0" opacity=".18"/><circle cx="68" cy="46" r="5" stroke="#b8eff0" stroke-width="2"/><path d="M55 96 V106 M79 96 V106 M41 107 H94" stroke="#b2e8f5" stroke-width="4" stroke-linecap="round"/><path d="M108 105 Q127 98 130 85" stroke="#9ad6e3" stroke-width="2"/></svg>
+  <div><div class="eyebrow">ULTRASOUND ECONOMICS · REV.2026.11</div><h1>超音波診断装置<br>採算・収益性シミュレーター</h1><p>購入・レンタル・リースをワンタップで切替。診療報酬、検査件数、人件費、在宅・往診、電気代を反映します。</p><div class="hero-meta"><span>令和8年度点数を参考</span><span>損益分岐点を可視化</span><span>iPhone対応・自動保存</span></div></div>
+ </div>
+</header>
+<nav class="nav" aria-label="ページ内メニュー"><div class="wrap nav-inner"><a href="#overview">採算結果</a><a href="#contract">導入方法</a><a href="#exams">検査件数</a><a href="#cost">人件費・経費</a><a href="#graphs">グラフ</a><a href="#sources">出典・注意</a></div></nav>
 <main class="wrap">
-<section id="assumptions"><h2>1｜機種・レンタル費用・運営条件</h2><p class="sub">月額料金はオリックス・レンテックのキヤノン製機種の公開例。契約期間を選択すると参考料金を自動入力します。すべて税別・実際の見積で上書き可能です。</p><div class="controls">
-<label>レンタル機種<select id="machine"><option value="air">Aplio air（在宅・往診向け）</option><option value="go">Aplio go</option><option value="me">Aplio me</option><option value="beyond">Aplio beyond</option></select></label>
-<label>契約期間<select id="period"></select></label>
-<label>月額レンタル料（円・税別）<input id="rent" type="number" min="0" step="1000" value="35000"></label>
-<label>月間診療日数<input id="days" type="number" min="1" max="31" value="20"></label>
-<label>診療報酬の実現率（%）<input id="realization" type="number" min="0" max="100" value="95"></label>
-<label>US検査1件当たり追加費用（円）<input id="variable" type="number" min="0" step="50" value="350"></label>
-<label>在宅・往診1件当たり追加移動費（円）<input id="travel" type="number" min="0" step="100" value="700"></label>
-<label>その他月額固定費（円）<input id="fixed" type="number" min="0" step="1000" value="12000"></label>
-<label>追加人件費（月額・円）<input id="labor" type="number" min="0" step="1000" value="0"></label>
-<label>搬入・返却等の期間総額（円）<input id="initial" type="number" min="0" step="1000" value="0"></label>
-<label>年間稼働月数<input id="activeMonths" type="number" min="1" max="12" value="12"></label>
-<label>月間目標利益（円）<input id="target" type="number" min="0" step="1000" value="5000"></label>
-</div>
-<div class="button-row"><button type="button" class="action" id="save">入力をこの端末に保存</button><button type="button" class="action" id="load">保存入力を読み込む</button><button type="button" class="action" id="reset">初期値へ戻す</button><button type="button" class="action" id="print">印刷・PDF</button><button type="button" class="action" id="csv">CSV出力</button></div><p id="status" class="sub" aria-live="polite"></p>
-<div class="alert"><b>Aplio airの公式価格に資料間差があります。</b>2026年11月21日の公式商品Webには12か月 <b>35,000円/月</b>、公式申込PDFには <b>45,000円/月</b> の記載があります。本試算はWeb記載額を初期値とし、正式見積を優先してください。<a href="https://www.orixrentec.jp/med/rental/aplioair.html" target="_blank" rel="noopener">商品Web</a>／<a href="https://www.orixrentec.jp/med/pdf/aplioair.pdf" target="_blank" rel="noopener">申込PDF</a></div>
-</section>
-<section id="exams"><h2>2｜「何の検査を、月何件」実施するか</h2><p class="sub">外来・定期訪問診療・臨時往診を分けて入力します。点数は2026年度の参考値で、右欄から修正可能です。件数は<b>適法に算定できる見込みの検査回数</b>を入力してください。</p><div id="exam-groups"></div><div class="info">訪問診療時400点は、C001／C001-2を算定した同日に患家等で実施する対象の断層撮影法に対応し、月1回限りです。<b>臨時往診では一律400点を使用しません。</b> また同じ検査を部位別に重複カウントしないでください。残尿測定等にも別途算定上限があります。</div></section>
-<section id="results"><h2>3｜月次・年次の採算結果</h2><div class="kpis">
-<div class="kpi"><div class="label">検査実施見込み</div><div class="val" id="kCount">—</div><div class="note" id="kDaily">—</div></div>
-<div class="kpi"><div class="label">月間US検査収入見込み</div><div class="val" id="kRevenue">—</div><div class="note">2026年度点数×10円×算定実現率</div></div>
-<div class="kpi"><div class="label">月間総追加費用</div><div class="val" id="kExpense">—</div><div class="note">レンタル・人件費・移動・消耗品等</div></div>
-<div class="kpi" id="profitCard"><div class="label">月間増分利益</div><div class="val" id="kProfit">—</div><div class="note">既存診療に追加した収支の概算</div></div>
-<div class="kpi"><div class="label">年間US検査収入</div><div class="val" id="kAnnualRevenue">—</div><div class="note">年間稼働月数で計算</div></div>
-<div class="kpi" id="annualCard"><div class="label">年間増分利益</div><div class="val" id="kAnnualProfit">—</div><div class="note">レンタル・固定費12か月分、変動費は稼働月分</div></div>
-<div class="kpi"><div class="label">損益分岐件数（月間）</div><div class="val" id="kBreak">—</div><div class="note" id="breakHint">検査メニュー比率が同じ想定</div></div>
-<div class="kpi"><div class="label">目標利益達成件数（月間）</div><div class="val" id="kTarget">—</div><div class="note">設定した月間目標利益の達成目安</div></div>
-</div><div class="info" id="verdict" aria-live="polite"></div><div class="table-scroll"><table class="tabular"><thead><tr><th>診療形態</th><th>検査件数/月</th><th>収入見込み/月</th><th>変動費・移動費/月</th><th>増分貢献額/月</th></tr></thead><tbody id="groupSummary"></tbody></table></div><p class="sub">年間損益はレンタル・固定費を12か月分、変動費と検査収入を年間稼働月数分として試算しています。契約が12か月未満の場合は同条件での継続を仮定した年間換算です。上記は診療所全体の純利益ではありません。既存の訪問診療料／往診料、薬剤・他の検査収入、税、設備機会費用、一般管理費、患者の算定制限は個別確認が必要です。</p></section>
-<section id="graphs"><h2>4｜グラフで損益を見える化</h2><div class="charts"><div class="plot full"><h3>月間検査件数と収入・費用の損益分岐</h3><svg id="volumeChart" viewBox="0 0 700 300" role="img" aria-label="月間検査件数別の収入と費用"></svg><div class="legend"><span><i style="background:#0d7597"></i>検査収入</span><span><i style="background:#c78330"></i>レンタル・追加費用</span><span><i style="background:#27966d"></i>現在件数</span></div><p class="break-text" id="volumeNote"></p></div><div class="plot"><h3>月額レンタル料と必要検査件数</h3><svg id="rentChart" viewBox="0 0 650 290" role="img" aria-label="月額レンタル料別の必要検査件数"></svg><p class="sub">検査メニュー構成比と変動費が同じ条件で試算。</p></div><div class="plot"><h3>月間費用の内訳</h3><svg id="costChart" viewBox="0 0 650 290" role="img" aria-label="月間費用の内訳"></svg><p class="sub">固定費、レンタル料、移動費、検査変動費の構成。</p></div><div class="plot full"><h3>月間検査数のケース別・年間利益</h3><svg id="annualChart" viewBox="0 0 700 270" role="img" aria-label="検査件数別年間利益の棒グラフ"></svg><p class="sub">現在のメニュー構成を固定したシナリオで比較。初期費用は契約期間に按分しています。</p></div></div></section>
-<section id="guide"><h2>5｜計算方法・算定条件・検証資料</h2><div class="explain-grid"><div><b>収入</b>検査ごとに「点数 × 10円 × 月間算定見込み件数 × 実現率」で集計。通常のC001・C000等は含めません。</div><div><b>費用</b>レンタル料＋月額固定費＋追加人件費＋検査件数×変動費＋訪問・往診件数×追加移動費＋初期費用月割り。</div><div><b>必要件数</b>現状の検査種類の割合を維持した場合の1件当たり増分貢献額から、損益分岐と目標利益件数を計算。</div></div><h3>2026年度診療報酬（代表例）</h3><div class="table-scroll"><table class="tabular"><thead><tr><th>算定区分</th><th>点数</th><th>注意</th></tr></thead><tbody><tr><td>D215 2イ 定期訪問診療時の断層撮影</td><td>400点</td><td>条件適合・月1回限り</td></tr><tr><td>D215 2ロ 胸腹部</td><td>530点</td><td>その他の場合。臨時往診はこの区分を検討</td></tr><tr><td>D215 2ロ 下肢血管</td><td>450点</td><td>対象部位・病態・要件を確認</td></tr><tr><td>D215 2ロ その他（体表等）</td><td>350点</td><td>頭頸部・四肢・体表等</td></tr><tr><td>D215 3イ 経胸壁心エコー</td><td>880点</td><td>利用機種・プローブ・適応に注意</td></tr><tr><td>D216-2 残尿測定（超音波）</td><td>55点</td><td>患者月2回までなど要件あり</td></tr></tbody></table></div><div class="alert"><b>注意：</b>定期訪問診療での400点を、同じ日の胸腹部530点・体表350点へ重複請求する前提にしていません。往診での部位別算定は、実際の診療行為や算定要件に合致する場合のみ。パルスドプラ等の加算は初期状態では一切自動付与していません。Aplio airで実施できる臨床検査は、プローブ・アプリ・承認範囲・画像品質等を別途確認してください。</div><p class="sub">公表されている料金は見積・契約条件によって変動します。Aplio airのスマートフォン・タブレット等はレンタル構成を確認してください。試算結果は収益保証・保険算定承認・医療的推奨ではありません。</p><h3>一次情報・公式リンク</h3><ul><li><a href="https://www.mhlw.go.jp/web/t_doc?dataId=84aa9729&dataType=0&pageNo=10" target="_blank" rel="noopener">厚生労働省｜医科診療報酬点数表（D215／D216-2）</a></li><li><a href="https://www.mhlw.go.jp/stf/newpage_67729.html" target="_blank" rel="noopener">厚生労働省｜令和8年度診療報酬改定</a></li><li><a href="https://www.orixrentec.jp/med/rental/aplioair.html" target="_blank" rel="noopener">オリックス・レンテック｜Aplio airの公式レンタル料金</a></li><li><a href="https://www.orixrentec.jp/med/rental/apliogo.html" target="_blank" rel="noopener">オリックス・レンテック｜Aplio goの公式レンタル料金</a></li><li><a href="https://jp.medical.canon/products/ultrasound/products/aplio-air/" target="_blank" rel="noopener">キヤノン｜Aplio air 製品情報</a></li></ul></section>
-</main><footer><div class="wrap">調査・制作：高橋勇　｜　USレンタル採算・収益性シミュレーター<br><a href="../">医療機器レンタル・サブスクに関して</a>　｜　<a href="https://sinobu13-bpei.github.io/medical-intelligence/">医療MKTハブ</a></div></footer>
+ <section class="panel" id="overview">
+  <div class="sectionhead"><div><div class="kicker">DASHBOARD</div><h2>採算結果 <span id="current-mode-title" class="pill">レンタル</span></h2></div><span class="sub" id="saved-status" role="status" aria-live="polite">入力を自動保存</span></div>
+  <div class="summary-kpis" aria-live="polite">
+   <div class="kpi"><div class="caption">月間検査収入</div><div class="value" id="k-revenue">—</div><div class="note" id="k-revenue-sub">診療報酬から計算</div></div>
+   <div class="kpi"><div class="caption">月次利益（経営比較）</div><div class="value" id="k-profit">—</div><div class="note">装置費・人件費を含む</div></div>
+   <div class="kpi"><div class="caption">年間利益（12か月換算）</div><div class="value" id="k-annual">—</div><div class="note">同じ検査量が継続する場合</div></div>
+   <div class="kpi"><div class="caption">月次損益分岐点</div><div class="value" id="k-bep">—</div><div class="note" id="k-bep-day">必要件数／月</div></div>
+  </div>
+  <div class="summary-txt" id="recommendation">計算しています。</div>
+  <div class="compare" id="compare-cards" aria-label="購入レンタルリース比較"></div>
+  <p class="form-note">※結果は入力条件に基づく概算です。月次利益（費用按分）と投資回収（現金収支）は別々に評価します。</p>
+ </section>
+ <section class="panel" id="contract">
+  <div class="kicker">STEP 01</div><h2>導入方法を選ぶ</h2>
+  <p class="intro">購入・レンタル・リースを切替えてください。3方式の費用はそれぞれ保持され、比較グラフに反映されます。</p>
+  <div class="mode-toggle" role="group" aria-label="導入方法の選択">
+   <button type="button" class="mode-btn" data-mode="buy" aria-pressed="false">購入<small>設備投資・償却</small></button>
+   <button type="button" class="mode-btn" data-mode="rent" aria-pressed="true">レンタル<small>月額利用・返却</small></button>
+   <button type="button" class="mode-btn" data-mode="lease" aria-pressed="false">リース<small>月額・契約年数</small></button>
+  </div>
+  <div class="fields" style="margin-top:12px">
+   <div class="field span2"><label for="machine">想定機種・構成</label><select id="machine"><option value="generic">一般的な超音波装置（例示）</option><option value="air">Aplio air</option><option value="go">Aplio go / LE</option><option value="flex">Aplio flex</option><option value="me">Aplio me / meX</option><option value="beyond">Aplio beyond</option><option value="other">その他・個別見積</option></select></div>
+   <div class="field"><label for="days">月間診療日数（日）</label><input id="days" type="number" inputmode="numeric" min="1" max="31" value="20"></div>
+   <div class="field"><label for="realization">診療報酬実現率（%）</label><input id="realization" type="number" inputmode="decimal" min="0" max="100" value="100"></div>
+  </div>
+  <p class="tiny">機種は識別用です。選択だけで価格・保険算定・プローブ適合性は変わりません。実際の見積と使用可能な検査範囲をご確認ください。</p>
+  <div class="modefields" id="fields-buy">
+   <h3>購入の条件 <span class="pill">例示値／自由に編集可能</span></h3>
+   <div class="fields">
+    <div class="field"><label for="buyPrice">装置購入額（円）</label><input id="buyPrice" type="number" inputmode="numeric" min="0" step="10000" value="6000000"></div>
+    <div class="field"><label for="buyInitial">設置・初期費（円）</label><input id="buyInitial" type="number" inputmode="numeric" min="0" step="1000" value="0"></div>
+    <div class="field"><label for="buyMonths">経営上の使用期間（月）</label><input id="buyMonths" type="number" inputmode="numeric" min="1" max="240" value="72"></div>
+    <div class="field"><label for="buyResidual">期間末残価（円）</label><input id="buyResidual" type="number" inputmode="numeric" min="0" value="0"></div>
+    <div class="field"><label for="buyMaint">保守・修理予備費（円/月）</label><input id="buyMaint" type="number" inputmode="numeric" min="0" value="30000"></div>
+   </div>
+  </div>
+  <div class="modefields active" id="fields-rent">
+   <h3>レンタルの条件 <span class="pill">例示値／自由に編集可能</span></h3>
+   <div class="fields">
+    <div class="field"><label for="rentFee">月額レンタル料（円）</label><input id="rentFee" type="number" inputmode="numeric" min="0" step="1000" value="150000"></div>
+    <div class="field"><label for="rentOther">保守・オプション（円/月）</label><input id="rentOther" type="number" inputmode="numeric" min="0" value="0"></div>
+    <div class="field"><label for="rentMonths">契約・比較期間（月）</label><input id="rentMonths" type="number" inputmode="numeric" min="1" max="240" value="36"></div>
+    <div class="field"><label for="rentInitial">搬入・設置費（円）</label><input id="rentInitial" type="number" inputmode="numeric" min="0" value="0"></div>
+    <div class="field"><label for="rentReturn">返却・撤去費（円）</label><input id="rentReturn" type="number" inputmode="numeric" min="0" value="0"></div>
+   </div>
+   <div class="target-strip"><span class="tiny">公開料金を参考にする場合：</span><button type="button" class="action" id="air-example">Aplio air 1か月・公開基準料を適用</button></div>
+   <p class="tiny">Aplio airの1か月基準レンタル料55,000円（税別）を60,500円（税込相当）に換算して入力。送料・プローブ構成・条件は別途確認。通常の15万円初期値はモデル比較用の仮定です。</p>
+  </div>
+  <div class="modefields" id="fields-lease">
+   <h3>リースの条件 <span class="pill">例示値／自由に編集可能</span></h3>
+   <div class="fields">
+    <div class="field"><label for="leaseFee">月額リース料（円）</label><input id="leaseFee" type="number" inputmode="numeric" min="0" value="125000"></div>
+    <div class="field"><label for="leaseOther">保守・別途費用（円/月）</label><input id="leaseOther" type="number" inputmode="numeric" min="0" value="30000"></div>
+    <div class="field"><label for="leaseMonths">契約期間（月）</label><input id="leaseMonths" type="number" inputmode="numeric" min="1" max="240" value="60"></div>
+    <div class="field"><label for="leaseInitial">初期費用（円）</label><input id="leaseInitial" type="number" inputmode="numeric" min="0" value="0"></div>
+   </div>
+   <p class="tiny">リースの保守込み・別途、再リース、途中解約、物件返却等の条件は契約書に従って個別に反映してください。</p>
+  </div>
+ </section>
+ <section class="panel" id="exams">
+  <div class="sectionhead"><div><div class="kicker">STEP 02</div><h2>何の検査を、月に何件？</h2></div><span class="pill" id="exam-total">50件/月</span></div>
+  <p class="intro">件数を「−／＋」または数字で変更。検査ごとの点数・時間・追加交通費も変更できます。</p>
+  <div id="exam-list" class="exam-list"></div>
+  <button type="button" class="exam-add" id="add-row">＋ 検査項目を追加する</button>
+  <p class="tiny">在宅訪問診療の断層撮影法400点は適用条件を満たす場合の例です。臨時往診には400点を自動適用せず、通常の該当区分を仮設定しています。診療報酬の二重算定や同一月・同一日の制限に注意してください。</p>
+ </section>
+ <section class="panel" id="cost">
+  <div class="kicker">STEP 03</div><h2>検査技師・人件費・経費</h2>
+  <div class="fields">
+   <div class="field span2"><label for="staffMode">人件費の考え方</label><select id="staffMode"><option value="variable">検査時間に比例（都度・追加稼働）</option><option value="fixed">専任者を新規雇用（月額固定）</option><option value="none">既存職員の余力で対応（追加支出なし）</option></select></div>
+   <div class="field"><label for="hourly">スタッフ時間単価（円/時）</label><input id="hourly" type="number" inputmode="numeric" min="0" value="3000"></div>
+   <div class="field"><label for="monthlySalary">新規雇用総人件費（円/月）</label><input id="monthlySalary" type="number" inputmode="numeric" min="0" value="480000"></div>
+   <div class="field"><label for="pacs">PACS・画像保管（円/月）</label><input id="pacs" type="number" inputmode="numeric" min="0" value="10000"></div>
+   <div class="field"><label for="otherFixed">その他固定費（円/月）</label><input id="otherFixed" type="number" inputmode="numeric" min="0" value="0"></div>
+   <div class="field"><label for="powerKw">平均消費電力（kW）</label><input id="powerKw" type="number" inputmode="decimal" min="0" step=".1" value="0.5"></div>
+   <div class="field"><label for="powerHours">月間通電時間（時間）</label><input id="powerHours" type="number" inputmode="decimal" min="0" value="100"></div>
+   <div class="field"><label for="powerYen">電気単価（円/kWh）</label><input id="powerYen" type="number" inputmode="decimal" min="0" value="30"></div>
+  </div>
+  <p class="form-note" id="cost-note"></p>
+  <div class="warning" style="margin-top:10px">「既存職員の余力」は追加の現金支出を0円とする条件です。業務を圧迫する機会費用まで0円という意味ではありません。新規雇用では検査時間比例の人件費を二重計上しません。</div>
+  <details class="fold"><summary>経営分析の条件・計算式</summary><div class="fold-body"><p class="tiny">検査収入＝Σ（件数×点数×10円）×診療報酬実現率。限界利益＝検査収入－消耗品－訪問移動実費－時間比例の人件費。固定費＝PACS・電気・その他・専任固定人件費＋方式別装置月額換算費。月次利益＝限界利益－固定費。</p><p class="tiny">損益分岐点＝固定費÷1件当たり平均限界利益（入力中の検査構成比を維持）。購入時装置費＝（購入額＋設置費－残価）÷使用月数＋保守費。レンタル時＝月額費＋（搬入・返却費）÷契約月数。リース時＝月額費＋初期費÷契約月数。これらは経営比較上の費用按分であり、税務会計・税法上の償却額と一致しません。</p><p class="tiny">累積キャッシュフローでは購入額・初期費を開始時に支出し、月々は現金の営業収支を加算します。期間終了時の残価（購入）・返却費（レンタル）を最終月に反映。資金調達利息、税金、補助金は未計上です。</p></div></details>
+ </section>
+ <section class="panel" id="graphs">
+  <div class="kicker">STEP 04</div><h2>損益分岐点・累積回収を見える化</h2>
+  <p class="intro">3方式の損益分岐点を色と数値で表示。縦の点線は損益が0円になる検査件数です。</p>
+  <div class="chart-layout">
+   <div class="chart-box"><h3>① 月間検査件数と月次利益</h3><div id="profit-chart" role="img" aria-label="検査件数別の月次利益と各方式の損益分岐点"></div><div id="profit-legend" class="legend"></div><p class="sub">同じ検査構成比・算定実現率・1件当たり費用を保った場合の試算です。</p></div>
+   <div class="chart-box"><h3>② 累積キャッシュフロー</h3><div id="cash-chart" role="img" aria-label="選択中の方式の月別累積キャッシュフロー"></div><p class="sub" id="cash-caption"></p><div id="payback-note" class="chart-annotations"></div></div>
+  </div>
+  <div class="bep-list" id="bep-list"></div>
+  <div class="target-strip"><label class="field" for="targetProfit"><span class="tiny">目標月次利益（円）</span><input id="targetProfit" type="number" min="0" inputmode="numeric" value="50000"></label><strong id="target-count"></strong></div>
+  <div class="grid2" style="margin-top:13px">
+   <div class="chart-box"><h3>③ 収入・費用構成（月額）</h3><div id="cost-bars"></div></div>
+   <div class="chart-box"><h3>④ 導入判断のチェック</h3>
+    <div class="info">損益分岐は固定費回収の最低条件です。投資採算には、検査需要、検査枠、機器性能、診断品質、現金支出を別途確認します。</div>
+    <div id="decision-lines" style="margin-top:10px;font-size:13px"></div>
+   </div>
+  </div>
+  <div class="actions"><button type="button" class="action primary" id="print">印刷・PDF保存</button><button type="button" class="action" id="csv">試算結果CSV</button><button type="button" class="action" id="save">ブラウザに保存</button><button type="button" class="action danger" id="reset">初期設定に戻す</button></div>
+ </section>
+ <section class="panel sources" id="sources">
+  <h2>出典・利用上の注意</h2>
+  <ul>
+   <li><a href="https://www.mhlw.go.jp/web/t_doc?dataId=84aa9729&dataType=0&pageNo=10" target="_blank" rel="noopener noreferrer">厚生労働省 医科診療報酬点数表（D215ほか）</a> — 令和8年度改定の点数と算定条件を参照してください。</li>
+   <li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000196352_00012.html" target="_blank" rel="noopener noreferrer">厚生労働省 令和8年度診療報酬改定関連情報</a> — 告示・通知・疑義解釈・訂正を確認してください。</li>
+   <li><a href="https://www.orixrentec.jp/med/rental/aplioair.html" target="_blank" rel="noopener noreferrer">オリックス・レンテック Aplio air 公開レンタル情報</a> — 公開基準価格と実際の見積は異なる場合があります。</li>
+   <li><a href="https://sinobu13-bpei.github.io/medical-intelligence/" target="_blank" rel="noopener noreferrer">国内医療機器MKT参考</a></li>
+   <li><a href="https://sinobu13-bpei.github.io/medical-device-rental-research/" target="_blank" rel="noopener noreferrer">医療機器レンタル研究のトップへ</a></li>
+  </ul>
+  <div class="warning">本ページは医療機関の事業計画用の概算モデルであり、診療報酬請求・税務処理・法律上の適合性を保証しません。点数・適用条件・必要プローブ・医療機器の承認認証・在宅診療の算定条件は個別確認が必要です。初期値（購入600万円・レンタル15万円など）は個社の見積ではありません。消費税については非課税保険診療と課税仕入の関係を含め、実際の施設負担額で入力してください。</div>
+  <div class="shareline">個人情報・施設データをサーバー送信する機能はありません。入力はこの端末のブラウザ内にのみ保存されます。共用端末では利用後に初期化してください。</div>
+ </section>
+ <footer class="footer">超音波診断装置 採算性研究 | Rev. 2026.11.21 | PC・iPhone対応</footer>
+</main>
 <script>
-'use strict';
-(()=>{
-const $=id=>document.getElementById(id), money=v=>Math.round(v).toLocaleString('ja-JP')+'円',fmt=v=>Math.round(v).toLocaleString('ja-JP');
-const PRICE={air:[[1,45000],[12,35000],[24,28000],[36,25000],[60,20000]],go:[[3,200000],[6,150000],[12,100000]],me:[[3,400000],[6,300000],[12,200000]],beyond:[[3,750000],[6,550000],[12,350000]]};
-const GROUPS=[['out','外来','通常の外来診療で実施する検査'],['home','定期訪問診療','C001／C001-2と同日の対象検査（断層400点）'],['visit','臨時往診','C000の臨時往診。400点を自動適用しない']];
-const PRESETS=[
-{id:1,g:'out',name:'胸腹部エコー',code:'D215 2ロ(1)',pts:530,qty:5},
-{id:2,g:'out',name:'体表・甲状腺等',code:'D215 2ロ(3)',pts:350,qty:3},
-{id:3,g:'out',name:'下肢血管エコー',code:'D215 2ロ(2)',pts:450,qty:0},
-{id:4,g:'out',name:'経胸壁心エコー（対応構成時）',code:'D215 3イ',pts:880,qty:0},
-{id:5,g:'out',name:'超音波による残尿測定',code:'D216-2 1',pts:55,qty:0},
-{id:6,g:'home',name:'訪問診療時の断層撮影（腹部・体表等）',code:'D215 2イ／月1回限り',pts:400,qty:7},
-{id:7,g:'home',name:'経胸壁心エコー（対応構成時）',code:'D215 3イ',pts:880,qty:0},
-{id:8,g:'home',name:'超音波による残尿測定',code:'D216-2 1',pts:55,qty:0},
-{id:9,g:'visit',name:'往診時・胸腹部エコー',code:'D215 2ロ(1)',pts:530,qty:0},
-{id:10,g:'visit',name:'往診時・体表等エコー',code:'D215 2ロ(3)',pts:350,qty:0},
-{id:11,g:'visit',name:'往診時・下肢血管エコー',code:'D215 2ロ(2)',pts:450,qty:0},
-{id:12,g:'visit',name:'往診時・経胸壁心エコー（対応構成時）',code:'D215 3イ',pts:880,qty:0},
-{id:13,g:'visit',name:'往診時・超音波による残尿測定',code:'D216-2 1',pts:55,qty:0}
+"use strict";
+(function(){
+const $=id=>document.getElementById(id);
+const colors={buy:"#1e70ad",rent:"#cb7835",lease:"#7855b4"};
+const labels={buy:"購入",rent:"レンタル",lease:"リース"};
+const fields=["machine","days","realization","buyPrice","buyInitial","buyMonths","buyResidual","buyMaint","rentFee","rentOther","rentMonths","rentInitial","rentReturn","leaseFee","leaseOther","leaseMonths","leaseInitial","staffMode","hourly","monthlySalary","pacs","otherFixed","powerKw","powerHours","powerYen","targetProfit"];
+const presets=[
+{id:1,label:"胸腹部エコー",group:"外来",code:"D215 2ロ(1)",points:530,qty:30,minutes:30,travelMin:0,travelYen:0,supply:300},
+{id:2,label:"甲状腺・体表エコー",group:"外来",code:"D215 2ロ(3)",points:350,qty:15,minutes:30,travelMin:0,travelYen:0,supply:300},
+{id:3,label:"経胸壁心エコー",group:"外来",code:"D215 3イ",points:880,qty:5,minutes:30,travelMin:0,travelYen:0,supply:300},
+{id:4,label:"下肢血管エコー",group:"外来",code:"D215 2ロ(2)",points:450,qty:0,minutes:35,travelMin:0,travelYen:0,supply:300},
+{id:5,label:"超音波による残尿測定",group:"外来",code:"D216-2（要確認）",points:55,qty:0,minutes:10,travelMin:0,travelYen:0,supply:120},
+{id:6,label:"訪問診療時の断層撮影法",group:"定期訪問",code:"D215 2イ（条件あり）",points:400,qty:0,minutes:35,travelMin:30,travelYen:500,supply:300},
+{id:7,label:"訪問先での経胸壁心エコー",group:"定期訪問",code:"D215 3イ（要確認）",points:880,qty:0,minutes:40,travelMin:30,travelYen:500,supply:300},
+{id:8,label:"臨時往診時の胸腹部エコー",group:"臨時往診",code:"D215 2ロ(1)（要確認）",points:530,qty:0,minutes:35,travelMin:30,travelYen:500,supply:300}
 ];
-let rows=PRESETS.map(x=>({...x})),nextId=20,rendering=false;
-const controls=['rent','days','realization','variable','travel','fixed','labor','initial','activeMonths','target'];
-const num=id=>Math.max(0,Number($(id).value)||0),max=(v,a,b)=>Math.min(b,Math.max(a,v));
-function tariff(){const options=PRICE[$('machine').value],sel=$('period'),prev=sel.value;sel.replaceChildren(...options.map(([months,price])=>{const option=document.createElement('option');option.value=months;option.textContent=months+'か月';return option}));sel.value=options.find(x=>String(x[0])===prev)?prev:String(options.find(x=>x[0]===12)?.[0]||options[0][0]);selectTariff();}
-function selectTariff(){const item=PRICE[$('machine').value].find(x=>String(x[0])===$('period').value);$('rent').value=item?item[1]:0;calculate();}
-function add(tag,cls,txt,parent){const el=document.createElement(tag);if(cls)el.className=cls;if(txt!==undefined)el.textContent=txt;if(parent)parent.append(el);return el;}
-function inputRow(row,root){const div=add('div','exam-row',undefined,root);div.dataset.id=row.id;
-const col=add('div','exam-name',undefined,div);
-if(row.custom){const name=document.createElement('input');name.type='text';name.value=row.name;name.maxLength=70;name.dataset.id=row.id;name.dataset.field='name';name.setAttribute('aria-label','任意の検査名');col.append(name)} else col.append(document.createTextNode(row.name));
-add('small','',row.code||'任意入力・算定要件確認',col);
-for(const [field,label] of [['qty','月間検査件数'],['pts','診療報酬点数']]){const inp=document.createElement('input');inp.type='number';inp.min=0;inp.max=field==='qty'?10000:100000;inp.step=1;inp.value=row[field];inp.dataset.id=row.id;inp.dataset.field=field;inp.setAttribute('aria-label',row.name+'の'+label);div.append(inp)}
-const button=add('button','remove','×',div);button.type='button';button.dataset.id=row.id;button.dataset.delete='true';button.disabled=!row.custom;button.setAttribute('aria-label',row.name+'を削除');}
-function renderMenus(){const holder=$('exam-groups');holder.replaceChildren();for(const [g,label,desc] of GROUPS){const group=add('div','menu-group',undefined,holder);group.dataset.group=g;const head=add('div','menu-head',undefined,group);add('h3','',label,head);add('p','',desc,head);const sum=add('span','groupSum','—',head);sum.id='sum_'+g;const cols=add('div','exam-list',undefined,group);const titles=add('div','exam-head',undefined,cols);['検査名・算定区分','件数/月','点数','削除'].forEach(x=>add('span','',x,titles));rows.filter(x=>x.g===g).forEach(x=>inputRow(x,cols));const tools=add('div','rowtools',undefined,group);const btn=add('button','','＋ 検査項目を追加',tools);btn.type='button';btn.dataset.add=g;}}
-function calc(){const rate=max(num('realization')/100,0,1), v=num('variable'), travel=num('travel'), fixed=num('fixed')+num('labor')+num('rent')+num('initial')/Math.max(1,Number($('period').value)||12);
-const stats={out:{qty:0,revenue:0,cost:0},home:{qty:0,revenue:0,cost:0},visit:{qty:0,revenue:0,cost:0}};
-rows.forEach(x=>{const qty=max(Math.floor(Number(x.qty)||0),0,10000),pts=max(Number(x.pts)||0,0,100000),c=qty*(v+(x.g==='out'?0:travel));stats[x.g].qty+=qty;stats[x.g].revenue+=qty*pts*10*rate;stats[x.g].cost+=c;});
-const quantity=Object.values(stats).reduce((a,b)=>a+b.qty,0),revenue=Object.values(stats).reduce((a,b)=>a+b.revenue,0),varcost=Object.values(stats).reduce((a,b)=>a+b.cost,0),expense=fixed+varcost,profit=revenue-expense,contribution=(revenue-varcost)/(quantity||1),breakEven=quantity>0&&contribution>0?Math.ceil((fixed-1e-8)/contribution):null,goal=quantity>0&&contribution>0?Math.ceil((fixed+num('target')-1e-8)/contribution):null;
-return{stats,quantity,revenue,varcost,fixed,expense,profit,contribution,breakEven,goal,months:Math.floor(max(num('activeMonths'),1,12)),rent:num('rent'),variable:v,travel,rate};}
-function drawSVG(id,viewW,viewH,draw){const svg=$(id);svg.replaceChildren();svg.setAttribute('viewBox','0 0 '+viewW+' '+viewH);draw(svg,(tag,attrs={},txt)=>{const el=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,val] of Object.entries(attrs))el.setAttribute(k,String(val));if(txt!==undefined)el.textContent=String(txt);svg.append(el);return el;});}
-function plotVolume(m){const end=Math.min(1000,Math.max(35,Math.ceil(Math.max((m.breakEven||0)*1.5,m.quantity+12)/10)*10)),lm=45,r=686,top=25,bottom=258,scale=m.quantity>0?1/m.quantity:0;const mx=Math.max(end*m.revenue*scale,end*m.varcost*scale+m.fixed,m.expense,1)*1.12;drawSVG('volumeChart',700,300,(svg,d)=>{for(let i=0;i<=4;i++){const y=bottom-(bottom-top)*i/4;d('line',{x1:lm,y1:y,x2:r,y2:y,stroke:'#d8e8f0'});d('text',{x:lm-5,y:y+4,'text-anchor':'end',fill:'#526b7d','font-size':11},fmt(mx*i/4));}const x=n=>lm+(r-lm)*n/end,y=n=>bottom-(bottom-top)*n/mx;const rev=n=>n*m.revenue*scale,cost=n=>m.fixed+n*m.varcost*scale;for(const [fn,col] of [[rev,'#0d7597'],[cost,'#c78330']])d('path',{d:Array.from({length:61},(_,i)=>(i?'L':'M')+x(end*i/60).toFixed(2)+' '+y(fn(end*i/60)).toFixed(2)).join(' '),fill:'none',stroke:col,'stroke-width':3});if(m.quantity>0&&m.quantity<=end){d('line',{x1:x(m.quantity),y1:top,x2:x(m.quantity),y2:bottom,stroke:'#27966d','stroke-dasharray':'5 4','stroke-width':2});d('circle',{cx:x(m.quantity),cy:y(m.revenue),r:5,fill:'#0d7597'});}for(let i=0;i<=4;i++)d('text',{x:x(end*i/4),y:bottom+18,'text-anchor':'middle',fill:'#526b7d','font-size':11},fmt(end*i/4)+'件');d('text',{x:lm,y:13,fill:'#4f6a80','font-size':11},'月間金額（円）');});$('volumeNote').textContent=m.breakEven===null?'検査件数が0件または1件当たり貢献額が0円以下のため分岐点は算定できません。':'現在の構成比が一定なら約'+m.breakEven+'件/月で費用回収。現在'+m.quantity+'件/月・増分利益'+money(m.profit)+'。';}
-function plotRent(m){const lim=Math.max(130000,Math.ceil(m.rent*2/20000)*20000),maxY=m.contribution>0?Math.min(300,Math.ceil((lim+num('fixed')+num('labor')+num('initial')/Math.max(1,Number($('period').value)))/m.contribution/10)*10):100;drawSVG('rentChart',650,290,(svg,d)=>{const L=47,R=632,T=25,B=248;for(let i=0;i<=4;i++){const yy=B-(B-T)*i/4;d('line',{x1:L,y1:yy,x2:R,y2:yy,stroke:'#d9e8f0'});d('text',{x:L-8,y:yy+4,'text-anchor':'end','font-size':11,fill:'#536d7f'},fmt(maxY*i/4));d('text',{x:L+(R-L)*i/4,y:B+20,'text-anchor':'middle','font-size':11,fill:'#536d7f'},fmt(lim*i/4/10000)+'万');}if(m.contribution<=0)return;const other=m.fixed-m.rent,pts=[];for(let i=0;i<=35;i++){const rent=lim*i/35,req=(rent+other)/m.contribution,xx=L+(R-L)*rent/lim,yy=B-(B-T)*Math.min(req,maxY)/maxY;pts.push((i?'L':'M')+xx.toFixed(1)+' '+yy.toFixed(1));}d('path',{d:pts.join(' '),fill:'none',stroke:'#0d7597','stroke-width':3});const x=L+(R-L)*m.rent/lim,y=B-(B-T)*Math.min((m.fixed)/m.contribution,maxY)/maxY;d('circle',{cx:x,cy:y,r:6,fill:'#c78330'});d('text',{x:L,y:12,'font-size':11,fill:'#536d7f'},'必要検査件数/月（件）');});}
-function plotCost(m){const items=[['レンタル',m.rent,'#176d98'],['その他固定・人件費',num('fixed')+num('labor'),'#6b78a5'],['初期・返却費の月割',num('initial')/Math.max(1,Number($('period').value)),'#a081b6'],['検査変動費',m.quantity*m.variable,'#d49b4b'],['在宅・往診移動費',(m.stats.home.qty+m.stats.visit.qty)*m.travel,'#55a18a']],mx=Math.max(...items.map(x=>x[1]),1)*1.1;drawSVG('costChart',650,290,(svg,d)=>{items.forEach(([name,v,col],i)=>{const y=23+i*52;d('text',{x:8,y:y+12,'font-size':12,fill:'#36566f'},name);d('rect',{x:205,y,width:350,height:19,rx:4,fill:'#edf2f5'});d('rect',{x:205,y,width:350*Math.max(0,v)/mx,height:19,rx:4,fill:col});d('text',{x:560,y:y+14,'font-size':11,fill:'#36566f'},fmt(v)+'円');});});}
-function plotAnnual(m){const base=Math.max(m.quantity,10),samples=[.5,.75,1,1.25,1.5].map(scale=>({n:Math.round(base*scale),profit:(m.quantity>0?(m.revenue-m.varcost)/m.quantity*Math.round(base*scale):0) - m.fixed}));const vals=samples.map(x=>(x.profit+m.fixed)*m.months-m.fixed*12),mx=Math.max(...vals.map(Math.abs),1)*1.15;drawSVG('annualChart',700,270,(svg,d)=>{const L=40,R=692,T=20,B=228;for(let i=0;i<=4;i++){const v=-mx+2*mx*i/4,y=B-(v+mx)/(2*mx)*(B-T);d('line',{x1:L,y1:y,x2:R,y2:y,stroke:v===0?'#849fb0':'#dbe8f0','stroke-width':v===0?2:1});d('text',{x:L-5,y:y+4,'text-anchor':'end','font-size':11,fill:'#456378'},fmt(v/10000)+'万');}samples.forEach((z,i)=>{const val=vals[i],x=90+i*127,y0=B-(mx)/(2*mx)*(B-T),y=B-(val+mx)/(2*mx)*(B-T),a=Math.min(y,y0),h=Math.abs(y-y0);d('rect',{x,y:a,width:57,height:Math.max(1,h),fill:val>=0?'#197d6d':'#c57741',rx:3});d('text',{x:x+28,y:B+21,'text-anchor':'middle',fill:'#456378','font-size':12},z.n+'件');d('text',{x:x+28,y:(val>=0?a-5:a+h+13),'text-anchor':'middle',fill:'#395b6e','font-size':11},fmt(val/10000)+'万');});});}
-function calculate(){if(rendering)return;const m=calc();$('kCount').textContent=fmt(m.quantity)+'件／月';$('kDaily').textContent=(m.quantity/Math.max(num('days'),1)).toFixed(2)+'件／診療日';$('kRevenue').textContent=money(m.revenue);$('kExpense').textContent=money(m.expense);$('kProfit').textContent=(m.profit>=0?'+':'')+money(m.profit);$('kAnnualRevenue').textContent=money(m.revenue*m.months);const annualProfit=(m.revenue-m.varcost)*m.months-m.fixed*12;$('kAnnualProfit').textContent=(annualProfit>=0?'+':'')+money(annualProfit);$('kBreak').textContent=m.breakEven===null?'算定不可':fmt(m.breakEven)+'件／月';$('kTarget').textContent=m.goal===null?'算定不可':fmt(m.goal)+'件／月';$('breakHint').textContent=m.breakEven===null?'算定可能な検査件数を入力':'1日平均'+(m.breakEven/Math.max(num('days'),1)).toFixed(2)+'件';$('profitCard').className='kpi '+(m.profit>=0?'green':'red');$('annualCard').className='kpi '+(annualProfit>=0?'green':'red');$('verdict').textContent=m.quantity===0?'検査件数が入力されていません。初期値は「少し黒字」の例です。':(m.profit>=0?'現状の検査メニューでは月間'+money(m.profit)+'の増分黒字です。':'現状の検査メニューでは月間'+money(-m.profit)+'の増分赤字です。')+' 実際に算定可能な検査件数・追加費用で判断してください。';
-const tbody=$('groupSummary');tbody.replaceChildren();for(const [g,label] of GROUPS){const v=m.stats[g],tr=document.createElement('tr');[label,fmt(v.qty)+'件',money(v.revenue),money(v.cost),money(v.revenue-v.cost)].forEach(t=>{const td=add('td','',t,tr)});tbody.append(tr);$('sum_'+g).textContent=fmt(v.qty)+'件・'+money(v.revenue);}
-plotVolume(m);plotRent(m);plotCost(m);plotAnnual(m);}
-$('exam-groups').addEventListener('input',ev=>{const id=Number(ev.target.dataset.id),field=ev.target.dataset.field;if(!id||!field)return;const item=rows.find(x=>x.id===id);if(!item)return;if(field==='name'){item.name=ev.target.value}else{item[field]=Math.max(0,Number(ev.target.value)||0)}calculate();});
-$('exam-groups').addEventListener('click',ev=>{const button=ev.target.closest('button');if(!button)return;if(button.dataset.add){rows.push({id:nextId++,g:button.dataset.add,name:'新しい検査項目（算定可否要確認）',code:'任意入力',pts:0,qty:0,custom:true});renderMenus();calculate();}else if(button.dataset.delete){rows=rows.filter(x=>x.id!==Number(button.dataset.id));renderMenus();calculate();}});
-$('machine').addEventListener('change',tariff);$('period').addEventListener('change',selectTariff);controls.forEach(id=>$(id).addEventListener('input',calculate));
-const KEY='us-rental-profit-simulator-v20261121';
-function values(){return{machine:$('machine').value,period:$('period').value,form:Object.fromEntries(controls.map(id=>[id,$(id).value])),rows:rows.map(x=>({...x}))}};
-function restore(data){if(!data||!PRICE[data.machine]||!Array.isArray(data.rows))throw Error('保存形式が一致しません');rendering=true;$('machine').value=data.machine;tariff();$('period').value=data.period;for(const id of controls){if(data.form&&data.form[id]!==undefined)$(id).value=data.form[id]};rows=data.rows.filter(x=>['out','home','visit'].includes(x.g)).map(x=>({...x,id:Number(x.id),qty:Number(x.qty)||0,pts:Number(x.pts)||0}));nextId=Math.max(20,...rows.map(x=>x.id+1));rendering=false;renderMenus();calculate();}
-$('save').addEventListener('click',()=>{try{localStorage.setItem(KEY,JSON.stringify(values()));$('status').textContent='このブラウザ内に保存しました。患者情報は入力しないでください。'}catch(e){$('status').textContent='保存できませんでした。ブラウザ設定を確認してください。'}});
-$('load').addEventListener('click',()=>{try{const s=localStorage.getItem(KEY);if(!s){$('status').textContent='保存済みデータがありません。';return;}restore(JSON.parse(s));$('status').textContent='保存データを読み込みました。'}catch(e){$('status').textContent='保存内容を読み込めませんでした。';rendering=false;}});
-$('reset').addEventListener('click',()=>{rows=PRESETS.map(x=>({...x}));nextId=20;$('machine').value='air';tariff();const vals={days:20,realization:95,variable:350,travel:700,fixed:12000,labor:0,initial:0,activeMonths:12,target:5000};for(const [k,v] of Object.entries(vals))$(k).value=v;renderMenus();calculate();$('status').textContent='少し黒字の初期設定に戻しました。'});
-$('print').addEventListener('click',()=>window.print());
-$('csv').addEventListener('click',()=>{const m=calc(),cell=x=>'"'+String(x).replace(/"/g,'""')+'"';const head=[['モダリティ','US'],['機種',$('machine').selectedOptions[0].text],['契約月数',$('period').value],['レンタル月額',m.rent],['月間検査件数',m.quantity],['月間検査収入',m.revenue],['月間費用',m.expense],['月間増分利益',m.profit],['年間増分利益',(m.revenue-m.varcost)*m.months-m.fixed*12],[],['区分','検査名','点数','月件数'],...rows.map(x=>[x.g,x.name,x.pts,x.qty])];const text=head.map(row=>row.map(cell).join(',')).join('\r\n');const blob=new Blob(['\ufeff'+text],{type:'text/csv;charset=utf-8;'});const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='USレンタル採算試算.csv';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000);});
-rendering=true;$('machine').value='air';tariff();rendering=false;renderMenus();calculate();
+let rows=presets.map(x=>({...x}));let mode="rent";let nextId=100;let saveTimer=null;
+const money=x=>(Math.round(x)||0).toLocaleString("ja-JP")+"円";
+const signed=x=>(x<0?"−":"＋")+money(Math.abs(x));
+const fmt=x=>Math.round(x).toLocaleString("ja-JP");
+const n=id=>{const el=$(id);return el?Math.max(0,Number(el.value)||0):0};
+const num=x=>Math.max(0,Number(x)||0);
+const esc=x=>String(x).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+function renderRows(){
+ const parent=$("exam-list");parent.textContent="";
+ rows.forEach(r=>{
+  const el=document.createElement("div");el.className="exam-row";el.dataset.id=r.id;
+  el.innerHTML='<div class="exam-row-head"><div class="exam-title"><strong>'+esc(r.label)+'</strong><span>'+esc(r.group)+' · '+esc(r.code)+'</span></div><div class="exam-count"><button type="button" class="stepper" data-step="-1" aria-label="'+esc(r.label)+'の件数を減らす">−</button><input class="count-input" aria-label="'+esc(r.label)+'の月間件数" type="number" inputmode="numeric" min="0" max="100000" data-key="qty" value="'+num(r.qty)+'"><button type="button" class="stepper" data-step="1" aria-label="'+esc(r.label)+'の件数を増やす">＋</button></div></div>'+
+  '<div class="exam-bottom"><span>点数 '+fmt(r.points)+'点 · 検査 '+fmt(r.minutes)+'分/件</span><b class="exam-revenue">'+money(r.qty*r.points*10)+'/月</b></div>'+
+  '<details class="exam-advanced"><summary>点数・時間・消耗品・移動費を編集</summary><div class="fields">'+
+  '<div class="field"><label>診療報酬（点）</label><input type="number" inputmode="numeric" min="0" data-key="points" value="'+num(r.points)+'"></div>'+
+  '<div class="field"><label>検査・報告（分）</label><input type="number" inputmode="numeric" min="0" data-key="minutes" value="'+num(r.minutes)+'"></div>'+
+  '<div class="field"><label>移動・待機（分/件）</label><input type="number" inputmode="numeric" min="0" data-key="travelMin" value="'+num(r.travelMin)+'"></div>'+
+  '<div class="field"><label>交通費・消耗品以外（円/件）</label><input type="number" inputmode="numeric" min="0" data-key="travelYen" value="'+num(r.travelYen)+'"></div>'+
+  '<div class="field"><label>消耗品（円/件）</label><input type="number" inputmode="numeric" min="0" data-key="supply" value="'+num(r.supply)+'"></div>'+
+  (r.id>=100?'<div class="field span2"><label>検査名</label><input type="text" data-key="label" maxlength="80" value="'+esc(r.label)+'"></div><div class="field span2"><label>診療区分</label><select data-key="group"><option '+(r.group==="外来"?"selected":"")+'>外来</option><option '+(r.group==="定期訪問"?"selected":"")+'>定期訪問</option><option '+(r.group==="臨時往診"?"selected":"")+'>臨時往診</option><option '+(r.group==="自由診療"?"selected":"")+'>自由診療</option></select></div></div><button type="button" class="exam-remove">この追加行を削除</button>':'</div>')+
+  '</details>';
+  parent.appendChild(el);
+ });
+}
+function getResults(){
+ const realization=Math.min(100,n("realization"))/100;
+ const hourly=n("hourly");
+ const staff=$("staffMode").value;
+ const total=rows.reduce((s,r)=>s+num(r.qty),0);
+ const raw=rows.reduce((s,r)=>s+r.qty*r.points*10,0);
+ const income=raw*realization;
+ const supply=rows.reduce((s,r)=>s+r.qty*r.supply,0);
+ const travel=rows.reduce((s,r)=>s+r.qty*r.travelYen,0);
+ const hours=rows.reduce((s,r)=>s+r.qty*(r.minutes+r.travelMin)/60,0);
+ const laborVar=staff==="variable"?hours*hourly:0;
+ const laborFixed=staff==="fixed"?n("monthlySalary"):0;
+ const power=n("powerKw")*n("powerHours")*n("powerYen");
+ const commonFixed=n("pacs")+n("otherFixed")+power+laborFixed;
+ const margin=income-supply-travel-laborVar;
+ const avg=total>0?margin/total:0;
+ const base={
+  buy:{months:Math.max(1,n("buyMonths")),asset:(n("buyPrice")+n("buyInitial")-Math.min(n("buyResidual"),n("buyPrice")+n("buyInitial")))/Math.max(1,n("buyMonths"))+n("buyMaint"),initial:n("buyPrice")+n("buyInitial"),monthlyCashAsset:n("buyMaint"),terminal:n("buyResidual")},
+  rent:{months:Math.max(1,n("rentMonths")),asset:n("rentFee")+n("rentOther")+(n("rentInitial")+n("rentReturn"))/Math.max(1,n("rentMonths")),initial:n("rentInitial"),monthlyCashAsset:n("rentFee")+n("rentOther"),terminal:-n("rentReturn")},
+  lease:{months:Math.max(1,n("leaseMonths")),asset:n("leaseFee")+n("leaseOther")+n("leaseInitial")/Math.max(1,n("leaseMonths")),initial:n("leaseInitial"),monthlyCashAsset:n("leaseFee")+n("leaseOther"),terminal:0}
+ };
+ for(const key of Object.keys(base)){
+  const b=base[key];b.fixed=commonFixed+b.asset;b.profit=margin-b.fixed;b.annual=b.profit*12;b.bep=(avg>0?Math.ceil(b.fixed/avg-1e-10):Infinity);b.perDay=b.bep/n("days");b.cashMonthly=margin-commonFixed-b.monthlyCashAsset;b.costTotal=income-b.profit;
+  b.cashSeries=[-b.initial];let payback=b.initial===0&&b.cashMonthly>=0?0:null;
+  for(let i=1;i<=Math.min(240,b.months);i++){
+   const terminal=i===b.months?b.terminal:0;
+   const v=b.cashSeries[i-1]+b.cashMonthly+terminal;b.cashSeries.push(v);
+   if(payback===null&&v>=0)payback=i;
+  }
+  b.payback=payback;
+ }
+ return {total,income,raw,supply,travel,hours,laborVar,laborFixed,power,commonFixed,margin,avg,base,staff,realization};
+}
+function setMode(m){
+ if(!labels[m])return;
+ mode=m;
+ document.querySelectorAll(".mode-btn").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.mode===m)));
+ Object.keys(labels).forEach(k=>{$("fields-"+k).classList.toggle("active",k===m)});
+ $("current-mode-title").textContent=labels[m];
+ renderOutput();queueSave();
+}
+function renderOutput(){
+ const d=getResults(),b=d.base[mode];
+ $("exam-total").textContent=fmt(d.total)+"件/月";
+ $("k-revenue").textContent=money(d.income);
+ $("k-revenue-sub").textContent="請求実現率 "+fmt(d.realization*100)+"%";
+ const p=$("k-profit");p.textContent=signed(b.profit);p.className="value "+(b.profit>=0?"positive":"negative");
+ const a=$("k-annual");a.textContent=signed(b.annual);a.className="value "+(b.annual>=0?"positive":"negative");
+ $("k-bep").textContent=Number.isFinite(b.bep)?fmt(b.bep)+"件":"算出不可";
+ $("k-bep-day").textContent=Number.isFinite(b.bep)?("1日あたり約 "+b.perDay.toFixed(1)+"件"):"1件当たり限界利益が0以下";
+ const comparison=d.total>0?(d.total>=b.bep?"損益分岐をクリアしています。":"損益分岐まであと "+fmt(Math.max(0,b.bep-d.total))+"件/月です。"):"検査件数を入力してください。";
+ $("recommendation").innerHTML="<strong>"+esc(labels[mode])+"の評価：</strong> "+esc(comparison)+" 平均限界利益は"+money(d.avg)+"/件、選択方式の固定費は"+money(b.fixed)+"/月です。";
+ const compare=$("compare-cards");compare.textContent="";
+ ["buy","rent","lease"].forEach(m=>{
+  const v=d.base[m];const div=document.createElement("div");div.className="compare-card"+(m===mode?" active":"");div.dataset.mode=m;
+  div.innerHTML='<div class="title" style="color:'+colors[m]+'">'+labels[m]+'</div><div class="num" style="color:'+(v.profit>=0?"#117b5d":"#b54449")+'">'+signed(v.profit)+'</div><div class="explain">月次利益 / 分岐 '+(Number.isFinite(v.bep)?fmt(v.bep)+"件":"不可")+'</div><button type="button" data-choose="'+m+'">この方式を表示</button>';
+  compare.appendChild(div);
+ });
+ document.querySelectorAll(".exam-row").forEach(el=>{
+  const r=rows.find(x=>x.id===Number(el.dataset.id));if(r)el.querySelector(".exam-revenue").textContent=money(r.qty*r.points*10*d.realization)+"/月";
+ });
+ $("cost-note").textContent="月間電気代 "+money(d.power)+"（"+n("powerKw")+"kW×"+n("powerHours")+"時間×"+n("powerYen")+"円/kWh）／対象スタッフ稼働 "+d.hours.toFixed(1)+"時間/月";
+ $("bep-list").innerHTML=["buy","rent","lease"].map(m=>'<div class="bep-item"><div class="name">'+labels[m]+'の分岐点</div><strong style="color:'+colors[m]+'">'+(Number.isFinite(d.base[m].bep)?fmt(d.base[m].bep)+"件":"算出不可")+'</strong><small>'+(Number.isFinite(d.base[m].bep)?(d.base[m].perDay.toFixed(1)+"件/日"):"限界利益不足")+'</small></div>').join("");
+ const t=n("targetProfit");
+ $("target-count").textContent=d.avg>0?("選択中の方式で月 "+money(t)+"の利益には "+fmt(Math.ceil((b.fixed+t)/d.avg))+"件/月が必要"):"1件当たり限界利益をプラスにしてください";
+ profitChart(d);cashChart(d);costBars(d);decision(d);
+}
+function svg(s){return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 304" role="presentation">'+s+'</svg>'}
+function profitChart(d){
+ const W=420,H=304,L=51,R=13,T=30,B=39;const w=W-L-R,h=H-T-B;
+ const bes=Object.values(d.base).map(x=>x.bep).filter(Number.isFinite);
+ const maxX=Math.min(1000,Math.max(100,Math.ceil(d.total*1.7/10)*10,Math.ceil((bes.length?Math.max(...bes):100)*1.23/10)*10));
+ const all=Object.values(d.base);
+ const minY=Math.min(0,...all.map(z=>-z.fixed));
+ const maxY=Math.max(0,...all.map(z=>d.avg*maxX-z.fixed));
+ const pad=Math.max(8000,(maxY-minY)*.08);const low=minY-pad,high=maxY+pad;
+ const x=v=>L+v/maxX*w, y=v=>T+(high-v)/(high-low)*h;
+ let s='';
+ if(low<0&&high>0){s+='<rect x="'+L+'" y="'+y(0)+'" width="'+w+'" height="'+(T+h-y(0))+'" fill="#c95e633a" opacity=".23"/><rect x="'+L+'" y="'+T+'" width="'+w+'" height="'+(y(0)-T)+'" fill="#7ac3a226" opacity=".25"/>';}
+ for(let i=0;i<=4;i++){const val=low+(high-low)*i/4;const yy=y(val);s+='<line x1="'+L+'" y1="'+yy+'" x2="'+(L+w)+'" y2="'+yy+'" stroke="#dce6ed" stroke-dasharray="3 4"/><text x="'+(L-5)+'" y="'+(yy+4)+'" text-anchor="end" font-size="11" fill="#647787">'+(val/10000).toFixed(0)+'</text>';}
+ for(let i=0;i<=4;i++){const val=maxX*i/4;const xx=x(val);s+='<text x="'+xx+'" y="'+(H-16)+'" font-size="11" fill="#647787" text-anchor="middle">'+fmt(val)+'</text>';}
+ s+='<line x1="'+L+'" y1="'+y(0)+'" x2="'+(L+w)+'" y2="'+y(0)+'" stroke="#667887" stroke-width="1.5"/>';
+ s+='<text x="12" y="15" font-size="11" fill="#5e7281">利益（万円/月）</text><text x="404" y="'+(H-1)+'" font-size="11" fill="#5e7281" text-anchor="end">検査件数/月</text>';
+ ["buy","rent","lease"].forEach(m=>{const z=d.base[m],c=colors[m];s+='<path d="M'+x(0).toFixed(1)+' '+y(-z.fixed).toFixed(1)+' L'+x(maxX).toFixed(1)+' '+y(d.avg*maxX-z.fixed).toFixed(1)+'" fill="none" stroke="'+c+'" stroke-width="'+(m===mode?3.5:2.1)+'" stroke-opacity="'+(m===mode?1:.65)+'"/>';});
+ if(d.avg>0){
+  ["buy","rent","lease"].forEach((m,i)=>{
+   const z=d.base[m];if(!Number.isFinite(z.bep)||z.bep>maxX)return;
+   const xx=x(z.fixed/d.avg),yy=y(0),c=colors[m];
+   s+='<line x1="'+xx+'" y1="'+T+'" x2="'+xx+'" y2="'+(T+h)+'" stroke="'+c+'" stroke-dasharray="4 4" stroke-width="1.3" opacity=".9"/><circle cx="'+xx+'" cy="'+yy+'" r="'+(m===mode?5.5:4.1)+'" fill="'+c+'" stroke="white" stroke-width="1.4"/>';
+   const off=[-34,22,-60][i];const bx=Math.max(50,Math.min(W-73,xx-26));
+   s+='<rect x="'+bx+'" y="'+(yy+off)+'" rx="5" width="55" height="20" fill="'+c+'"/><text x="'+(bx+27.5)+'" y="'+(yy+off+14)+'" font-size="10.2" font-weight="700" fill="white" text-anchor="middle">'+labels[m]+fmt(z.bep)+'</text>';
+  });
+ }
+ $("profit-chart").innerHTML=svg(s);
+ $("profit-legend").innerHTML=["buy","rent","lease"].map(m=>'<span><i style="background:'+colors[m]+'"></i>'+labels[m]+' '+(Number.isFinite(d.base[m].bep)?fmt(d.base[m].bep)+"件":"算出不可")+'</span>').join("");
+}
+function cashChart(d){
+ const z=d.base[mode],a=z.cashSeries;const W=420,H=304,L=51,R=13,T=30,B=39,w=W-L-R,h=H-T-B;
+ const mn=Math.min(0,...a),mx=Math.max(0,...a),pad=Math.max(30000,(mx-mn)*.08);const lo=mn-pad,hi=mx+pad;const xx=i=>L+i/(a.length-1||1)*w, yy=v=>T+(hi-v)/(hi-lo)*h;
+ let s='';
+ for(let i=0;i<=4;i++){const v=lo+(hi-lo)*i/4,y=yy(v);s+='<line x1="'+L+'" y1="'+y+'" x2="'+(L+w)+'" y2="'+y+'" stroke="#dce6ed" stroke-dasharray="3 4"/><text x="'+(L-4)+'" y="'+(y+4)+'" fill="#647787" text-anchor="end" font-size="11">'+(v/10000).toFixed(0)+'</text>';}
+ for(let i=0;i<=4;i++){let m=Math.round((a.length-1)*i/4);s+='<text x="'+xx(m)+'" y="'+(H-16)+'" text-anchor="middle" fill="#647787" font-size="11">'+m+'</text>';}
+ s+='<line x1="'+L+'" x2="'+(L+w)+'" y1="'+yy(0)+'" y2="'+yy(0)+'" stroke="#5b7384" stroke-width="1.8"/><text x="12" y="15" font-size="11" fill="#647787">累積額（万円）</text><text x="405" y="'+(H-1)+'" font-size="11" text-anchor="end" fill="#647787">経過月数</text>';
+ s+='<path d="'+a.map((v,i)=>(i===0?"M":"L")+xx(i).toFixed(1)+" "+yy(v).toFixed(1)).join(" ")+'" fill="none" stroke="'+colors[mode]+'" stroke-width="3.3" stroke-linejoin="round" stroke-linecap="round"/>';
+ s+='<circle cx="'+xx(a.length-1)+'" cy="'+yy(a[a.length-1])+'" r="4" fill="'+colors[mode]+'"/>';
+ if(z.payback!==null&&z.payback>0){const m=z.payback;s+='<line x1="'+xx(m)+'" y1="'+T+'" x2="'+xx(m)+'" y2="'+(T+h)+'" stroke="#168463" stroke-dasharray="4 4"/><circle cx="'+xx(m)+'" cy="'+yy(a[m])+'" r="5" fill="#168463" stroke="#fff" stroke-width="2"/><text x="'+Math.max(L+35,Math.min(W-35,xx(m)))+'" y="'+(T+13)+'" font-size="11" text-anchor="middle" fill="#087a57" font-weight="800">'+m+'か月</text>';}
+ $("cash-chart").innerHTML=svg(s);
+ $("cash-caption").textContent=labels[mode]+"・"+z.months+"か月の累積現金収支。月次利益と異なり初期支出を一括反映。";
+ const note=z.payback===null?"契約・使用期間内に初期支出を回収できない試算です。":z.payback===0?"初期投資の一括支出なし（黒字の月次現金収支）。":("初期支出の単純回収は "+z.payback+"か月目。");
+ $("payback-note").textContent=note+" 期間末累積額："+signed(a[a.length-1])+"。";
+}
+function costBars(d){
+ const z=d.base[mode],items=[["検査収入",d.income,"#168463"],["消耗品・交通実費",d.supply+d.travel,"#7794aa"],["検査に応じた技師人件費",d.laborVar,"#4b9bb0"],["新規雇用の固定人件費",d.laborFixed,"#799bc0"],["電気・PACS・その他",d.commonFixed-d.laborFixed,"#a285b7"],["装置関連月額費",z.asset,colors[mode]]];
+ const max=Math.max(1,...items.map(x=>x[1]));$("cost-bars").innerHTML=items.map(a=>'<div class="bar-group"><div class="bar-top"><span>'+a[0]+'</span><b>'+money(a[1])+'</b></div><div class="bar-track"><div class="bar-fill" style="width:'+Math.max(0,a[1]/max*100)+'%;background:'+a[2]+'"></div></div></div>').join("");
+}
+function decision(d){
+ const z=d.base[mode],demand=d.total,days=Math.max(1,n("days"));
+ const y1=d.total>=z.bep?"○":"△";const y2=d.hours<=days*8?"○":"△";
+ const arr=[
+  [y1+" 検査件数：月"+fmt(demand)+"件（分岐"+(Number.isFinite(z.bep)?fmt(z.bep):"算出不可")+"件）"],
+  [y2+" 検査担当時間："+d.hours.toFixed(1)+"時間/月（診療日数×8時間を目安）"],
+  ["・技師新規採用時は固定給に切替えて再試算"],
+  ["・装置のプローブ構成・算定要件を別途確認"],
+  ["・装置更新の場合は既存検査収入との差額で評価"]
+ ];
+ $("decision-lines").innerHTML=arr.map(v=>'<p style="margin:7px 0;border-bottom:1px solid #e8eef3;padding-bottom:7px">'+esc(v[0])+'</p>').join("");
+}
+function queueSave(){
+ if(saveTimer)clearTimeout(saveTimer);
+ saveTimer=setTimeout(()=>save(true),220);
+}
+function save(silent){
+ const obj={version:3,mode,rows,values:{}};
+ fields.forEach(k=>obj.values[k]=$(k).value);
+ try{localStorage.setItem("us-profitability-v3",JSON.stringify(obj));$("saved-status").textContent=silent?"この端末に自動保存":"保存しました";}catch(e){$("saved-status").textContent="保存不可（閲覧中のみ有効）";}
+}
+function load(){
+ try{const raw=localStorage.getItem("us-profitability-v3");if(!raw)return;const o=JSON.parse(raw);if(o.version!==3)return;
+  fields.forEach(k=>{if(o.values&&Object.prototype.hasOwnProperty.call(o.values,k)&&$(k))$(k).value=o.values[k]});
+  if(Array.isArray(o.rows)&&o.rows.length&&o.rows.length<=50){const valid=o.rows.filter(r=>r&&Number.isFinite(Number(r.id))&&typeof r.label==="string"&&r.label.length<=100).map(r=>({id:Number(r.id),label:r.label,group:String(r.group||"外来"),code:String(r.code||"個別確認"),qty:Math.max(0,Number(r.qty)||0),points:Math.max(0,Number(r.points)||0),minutes:Math.max(0,Number(r.minutes)||0),travelMin:Math.max(0,Number(r.travelMin)||0),travelYen:Math.max(0,Number(r.travelYen)||0),supply:Math.max(0,Number(r.supply)||0)}));if(valid.length)rows=valid;}
+  mode=labels[o.mode]?o.mode:"rent";nextId=Math.max(100,...rows.map(r=>r.id+1));
+ }catch(e){}
+}
+function downloadCSV(){
+ const d=getResults(),b=d.base[mode];
+ const lines=[["超音波装置採算性試算","2026-11-21"],["選択方式",labels[mode]],["機種",$("#machine").selectedOptions[0].textContent],["月間検査件数",d.total],["診療報酬収入 円/月",Math.round(d.income)],["変動費 円/月",Math.round(d.supply+d.travel+d.laborVar)],["共通固定費 円/月",Math.round(d.commonFixed)],["装置月額換算 円/月",Math.round(b.asset)],["月次利益 円",Math.round(b.profit)],["年間利益 円",Math.round(b.annual)],["損益分岐点 件/月",Number.isFinite(b.bep)?b.bep:"算出不可"],["単純回収月",b.payback===null?"期間内未回収":b.payback],[],["検査名","区分","点数","月件数","時間分","移動分","消耗品円/件","移動費円/件"]];
+ rows.forEach(r=>lines.push([r.label,r.group,r.points,r.qty,r.minutes,r.travelMin,r.supply,r.travelYen]));
+ const csv="\ufeff"+lines.map(row=>row.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\r\n");
+ const u=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"})),a=document.createElement("a");a.href=u;a.download="超音波採算試算_"+new Date().toISOString().slice(0,10)+".csv";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),500);
+}
+document.querySelectorAll(".mode-btn").forEach(b=>b.addEventListener("click",()=>setMode(b.dataset.mode)));
+$("compare-cards").addEventListener("click",e=>{const b=e.target.closest("[data-choose]");if(b){setMode(b.dataset.choose);$("contract").scrollIntoView({behavior:"smooth",block:"start"});}});
+document.querySelectorAll("input,select").forEach(el=>{if(el.closest("#exam-list"))return;el.addEventListener("input",()=>{renderOutput();queueSave()});el.addEventListener("change",()=>{renderOutput();queueSave()});});
+$("exam-list").addEventListener("input",e=>{
+ const el=e.target.closest(".exam-row");if(!el)return;
+ const r=rows.find(x=>x.id===Number(el.dataset.id));if(!r)return;
+ const key=e.target.dataset.key;if(!key)return;
+ if(key==="label"||key==="group"){r[key]=String(e.target.value);}else{r[key]=num(e.target.value);}
+ if(key==="label"){el.querySelector(".exam-title strong").textContent=r.label;}
+ renderOutput();queueSave();
+});
+$("exam-list").addEventListener("change",e=>{
+ const el=e.target.closest(".exam-row");if(!el)return;const r=rows.find(x=>x.id===Number(el.dataset.id));if(!r)return;
+ if(e.target.dataset.key==="group"){r.group=e.target.value;renderOutput();queueSave();}
+});
+$("exam-list").addEventListener("click",e=>{
+ const row=e.target.closest(".exam-row");if(!row)return;
+ const r=rows.find(x=>x.id===Number(row.dataset.id));if(!r)return;
+ if(e.target.matches(".stepper")){r.qty=Math.max(0,(num(r.qty)+Number(e.target.dataset.step)));row.querySelector("[data-key=qty]").value=r.qty;renderOutput();queueSave();}
+ if(e.target.matches(".exam-remove")){rows=rows.filter(x=>x.id!==r.id);renderRows();renderOutput();queueSave();}
+});
+$("add-row").addEventListener("click",()=>{rows.push({id:nextId++,label:"追加検査",group:"外来",code:"点数・算定要件を確認",points:0,qty:0,minutes:30,travelMin:0,travelYen:0,supply:300});renderRows();renderOutput();queueSave();const tail=$("exam-list").lastElementChild;tail.querySelector("details").open=true;tail.scrollIntoView({behavior:"smooth",block:"center"});});
+$("air-example").addEventListener("click",()=>{$("machine").value="air";$("rentMonths").value="1";$("rentFee").value="60500";renderOutput();queueSave();});
+$("print").addEventListener("click",()=>window.print());
+$("csv").addEventListener("click",downloadCSV);
+$("save").addEventListener("click",()=>save(false));
+$("reset").addEventListener("click",()=>{if(!confirm("保存した入力を初期化します。よろしいですか？"))return;try{localStorage.removeItem("us-profitability-v3")}catch(e){}location.reload();});
+load();renderRows();setMode(mode);
 })();
-</script></body></html>
+</script>
+</body>
+</html>
