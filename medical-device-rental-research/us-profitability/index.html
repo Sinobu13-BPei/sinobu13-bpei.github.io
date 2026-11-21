@@ -154,7 +154,7 @@ main{padding-top:13px;padding-bottom:42px}.panel{background:white;border:1px sol
   <div class="kicker">STEP 04</div><h2>損益分岐点・累積回収を見える化</h2>
   <p class="intro">3方式の損益分岐点を色と数値で表示。縦の点線は損益が0円になる検査件数です。</p>
   <div class="chart-layout">
-   <div class="chart-box"><h3>① 月間検査件数と月次利益</h3><div id="profit-chart" role="img" aria-label="検査件数別の月次利益と各方式の損益分岐点"></div><div id="profit-legend" class="legend"></div><p class="sub">同じ検査構成比・算定実現率・1件当たり費用を保った場合の試算です。</p></div>
+   <div class="chart-box"><h3>① 月間検査件数と月次利益</h3><div id="profit-chart" role="img" aria-label="検査件数別の月次利益と各方式の損益分岐点"></div><div id="profit-legend" class="legend"></div><p class="sub">同じ検査構成比・算定実現率・1件当たり費用を保った場合の試算です。 太い破線は現在の月間検査件数を示します。</p></div>
    <div class="chart-box"><h3>② 累積キャッシュフロー</h3><div id="cash-chart" role="img" aria-label="選択中の方式の月別累積キャッシュフロー"></div><p class="sub" id="cash-caption"></p><div id="payback-note" class="chart-annotations"></div></div>
   </div>
   <div class="bep-list" id="bep-list"></div>
@@ -203,8 +203,9 @@ let rows=presets.map(x=>({...x}));let mode="rent";let nextId=100;let saveTimer=n
 const money=x=>(Math.round(x)||0).toLocaleString("ja-JP")+"円";
 const signed=x=>(x<0?"−":"＋")+money(Math.abs(x));
 const fmt=x=>Math.round(x).toLocaleString("ja-JP");
-const n=id=>{const el=$(id);return el?Math.max(0,Number(el.value)||0):0};
-const num=x=>Math.max(0,Number(x)||0);
+const num=x=>{const v=Number(x);return Number.isFinite(v)?Math.max(0,Math.min(v,1e12)):0};
+const n=id=>{const el=$(id);return el?num(el.value):0};
+const months=id=>Math.max(1,Math.min(240,n(id)));
 const esc=x=>String(x).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 function renderRows(){
  const parent=$("exam-list");parent.textContent="";
@@ -240,9 +241,9 @@ function getResults(){
  const margin=income-supply-travel-laborVar;
  const avg=total>0?margin/total:0;
  const base={
-  buy:{months:Math.max(1,n("buyMonths")),asset:(n("buyPrice")+n("buyInitial")-Math.min(n("buyResidual"),n("buyPrice")+n("buyInitial")))/Math.max(1,n("buyMonths"))+n("buyMaint"),initial:n("buyPrice")+n("buyInitial"),monthlyCashAsset:n("buyMaint"),terminal:Math.min(n("buyResidual"),n("buyPrice")+n("buyInitial"))},
-  rent:{months:Math.max(1,n("rentMonths")),asset:n("rentFee")+n("rentOther")+(n("rentInitial")+n("rentReturn"))/Math.max(1,n("rentMonths")),initial:n("rentInitial"),monthlyCashAsset:n("rentFee")+n("rentOther"),terminal:-n("rentReturn")},
-  lease:{months:Math.max(1,n("leaseMonths")),asset:n("leaseFee")+n("leaseOther")+n("leaseInitial")/Math.max(1,n("leaseMonths")),initial:n("leaseInitial"),monthlyCashAsset:n("leaseFee")+n("leaseOther"),terminal:0}
+  buy:{months:months("buyMonths"),asset:(n("buyPrice")+n("buyInitial")-Math.min(n("buyResidual"),n("buyPrice")+n("buyInitial")))/months("buyMonths")+n("buyMaint"),initial:n("buyPrice")+n("buyInitial"),monthlyCashAsset:n("buyMaint"),terminal:Math.min(n("buyResidual"),n("buyPrice")+n("buyInitial"))},
+  rent:{months:months("rentMonths"),asset:n("rentFee")+n("rentOther")+(n("rentInitial")+n("rentReturn"))/months("rentMonths"),initial:n("rentInitial"),monthlyCashAsset:n("rentFee")+n("rentOther"),terminal:-n("rentReturn")},
+  lease:{months:months("leaseMonths"),asset:n("leaseFee")+n("leaseOther")+n("leaseInitial")/months("leaseMonths"),initial:n("leaseInitial"),monthlyCashAsset:n("leaseFee")+n("leaseOther"),terminal:0}
  };
  for(const key of Object.keys(base)){
   const b=base[key];b.fixed=commonFixed+b.asset;b.profit=margin-b.fixed;b.annual=b.profit*12;b.bep=(avg>0?Math.ceil(b.fixed/avg-1e-10):Infinity);b.perDay=b.bep/Math.max(1,n("days"));b.cashMonthly=margin-commonFixed-b.monthlyCashAsset;b.costTotal=income-b.profit;
@@ -307,6 +308,7 @@ function profitChart(d){
  s+='<line x1="'+L+'" y1="'+y(0)+'" x2="'+(L+w)+'" y2="'+y(0)+'" stroke="#667887" stroke-width="1.5"/>';
  s+='<text x="12" y="15" font-size="11" fill="#5e7281">利益（万円/月）</text><text x="404" y="'+(H-1)+'" font-size="11" fill="#5e7281" text-anchor="end">検査件数/月</text>';
  ["buy","rent","lease"].forEach(m=>{const z=d.base[m],c=colors[m];s+='<path d="M'+x(0).toFixed(1)+' '+y(-z.fixed).toFixed(1)+' L'+x(maxX).toFixed(1)+' '+y(d.avg*maxX-z.fixed).toFixed(1)+'" fill="none" stroke="'+c+'" stroke-width="'+(m===mode?3.5:2.1)+'" stroke-opacity="'+(m===mode?1:.65)+'"/>';});
+ if(d.total>0){const nowX=x(Math.min(maxX,d.total)),nowY=y(d.avg*Math.min(maxX,d.total)-d.base[mode].fixed);s+='<line x1="'+nowX+'" y1="'+T+'" x2="'+nowX+'" y2="'+(T+h)+'" stroke="#253d51" stroke-width="2" stroke-dasharray="6 5"/><circle cx="'+nowX+'" cy="'+nowY+'" r="5" fill="#173e59" stroke="#fff" stroke-width="1.8"/><text x="'+Math.max(L+36,Math.min(W-60,nowX))+'" y="'+(T+13)+'" fill="#18364a" font-size="11" font-weight="800" text-anchor="middle">現在 '+fmt(d.total)+'件</text>';}
  if(d.avg>0){
   ["buy","rent","lease"].forEach((m,i)=>{
    const z=d.base[m];if(!Number.isFinite(z.bep)||z.bep>maxX)return;
@@ -362,7 +364,7 @@ function save(silent){
 function load(){
  try{const raw=localStorage.getItem("us-profitability-v3");if(!raw)return;const o=JSON.parse(raw);if(o.version!==3)return;
   fields.forEach(k=>{if(o.values&&Object.prototype.hasOwnProperty.call(o.values,k)&&$(k))$(k).value=o.values[k]});
-  if(Array.isArray(o.rows)&&o.rows.length&&o.rows.length<=50){const valid=o.rows.filter(r=>r&&Number.isFinite(Number(r.id))&&typeof r.label==="string"&&r.label.length<=100).map(r=>({id:Number(r.id),label:r.label,group:String(r.group||"外来"),code:String(r.code||"個別確認"),qty:Math.max(0,Number(r.qty)||0),points:Math.max(0,Number(r.points)||0),minutes:Math.max(0,Number(r.minutes)||0),travelMin:Math.max(0,Number(r.travelMin)||0),travelYen:Math.max(0,Number(r.travelYen)||0),supply:Math.max(0,Number(r.supply)||0)}));if(valid.length)rows=valid;}
+  if(Array.isArray(o.rows)&&o.rows.length&&o.rows.length<=50){const valid=o.rows.filter(r=>r&&Number.isFinite(Number(r.id))&&typeof r.label==="string"&&r.label.length<=100).map(r=>({id:Number(r.id),label:r.label,group:String(r.group||"外来"),code:String(r.code||"個別確認"),qty:Math.min(100000,num(r.qty)),points:Math.max(0,Number(r.points)||0),minutes:Math.max(0,Number(r.minutes)||0),travelMin:Math.max(0,Number(r.travelMin)||0),travelYen:Math.max(0,Number(r.travelYen)||0),supply:Math.max(0,Number(r.supply)||0)}));if(valid.length)rows=valid;}
   mode=labels[o.mode]?o.mode:"rent";nextId=Math.max(100,...rows.map(r=>r.id+1));
  }catch(e){}
 }
@@ -380,7 +382,7 @@ $("exam-list").addEventListener("input",e=>{
  const el=e.target.closest(".exam-row");if(!el)return;
  const r=rows.find(x=>x.id===Number(el.dataset.id));if(!r)return;
  const key=e.target.dataset.key;if(!key)return;
- if(key==="label"||key==="group"){r[key]=String(e.target.value);}else{r[key]=key==="qty"?Math.floor(num(e.target.value)):num(e.target.value); }
+ if(key==="label"||key==="group"){r[key]=String(e.target.value);}else{r[key]=key==="qty"?Math.min(100000,Math.floor(num(e.target.value))):num(e.target.value); }
  if(key==="label"){el.querySelector(".exam-title strong").textContent=r.label;}
  renderOutput();queueSave();
 });
@@ -391,7 +393,7 @@ $("exam-list").addEventListener("change",e=>{
 $("exam-list").addEventListener("click",e=>{
  const row=e.target.closest(".exam-row");if(!row)return;
  const r=rows.find(x=>x.id===Number(row.dataset.id));if(!r)return;
- if(e.target.matches(".stepper")){r.qty=Math.max(0,(num(r.qty)+Number(e.target.dataset.step)));row.querySelector("[data-key=qty]").value=r.qty;renderOutput();queueSave();}
+ if(e.target.matches(".stepper")){r.qty=Math.max(0,Math.min(100000,(num(r.qty)+Number(e.target.dataset.step))));row.querySelector("[data-key=qty]").value=r.qty;renderOutput();queueSave();}
  if(e.target.matches(".exam-remove")){rows=rows.filter(x=>x.id!==r.id);renderRows();renderOutput();queueSave();}
 });
 $("add-row").addEventListener("click",()=>{rows.push({id:nextId++,label:"追加検査",group:"外来",code:"点数・算定要件を確認",points:0,qty:0,minutes:30,travelMin:0,travelYen:0,supply:300});renderRows();renderOutput();queueSave();const tail=$("exam-list").lastElementChild;tail.querySelector("details").open=true;tail.scrollIntoView({behavior:"smooth",block:"center"});});
