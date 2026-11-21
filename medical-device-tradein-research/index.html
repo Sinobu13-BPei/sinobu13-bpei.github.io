@@ -43,8 +43,59 @@ a{overflow-wrap:anywhere}a:focus-visible,button:focus-visible,input:focus-visibl
 @media(max-width:570px){body{font-size:13px}.wrap{padding:0 10px}.hero{padding:19px 0 15px}.hero h1{font-size:clamp(13px,3.62vw,19px);letter-spacing:-.055em;white-space:nowrap}.hero p{font-size:12px}.hero-pills{margin-top:7px}main>section{margin-top:10px;padding:12px 10px;border-radius:10px}h2{font-size:19px;line-height:1.34}h3{font-size:15px}.kicker{font-size:10px}.card{padding:11px}.lead{font-size:13px}.nav a{font-size:11px}table{min-width:635px}td,th{padding:7px 8px}.flow{gap:6px}}
 @media(max-width:360px){.hero h1{font-size:12px;letter-spacing:-.06em}}
 
+
+/* Rev.5 compact editorial layout; all 11 sections retained */
+.hero{padding:14px 0 13px}.hero:after{opacity:.5}.hero .eyebrow{font-size:10px;line-height:1.25;letter-spacing:.08em}
+.hero h1{font-size:clamp(20px,3vw,33px);margin:4px 0;line-height:1.14;letter-spacing:-.035em}
+.hero p{font-size:12.5px;line-height:1.38;margin:3px 0;max-width:none}
+.hero p[style*="margin-top:14px"]{font-size:12px;margin:4px 14px 0 0!important;display:inline-block}
+.hero p[style*="font-size:.88rem"]{font-size:11.5px!important;display:inline-block;max-width:100%;margin:2px 0 0!important}
+.hero-pills{gap:4px;margin-top:6px}.hero-pills span{padding:2px 7px;font-size:10px;line-height:1.35}
+.nav{gap:4px;padding:4px 0}.nav a{font-size:11px;padding:5px 8px;line-height:1.25}
+main{padding-top:6px;padding-bottom:22px}main>section{margin-top:9px;padding:12px 14px 11px;border-radius:10px}
+.kicker{font-size:10px;letter-spacing:.05em;margin-bottom:2px;line-height:1.25}
+h2{font-size:clamp(19px,2.05vw,25px);margin:0 0 5px;line-height:1.28}
+h3{font-size:15px;line-height:1.32;margin:0 0 4px}p{line-height:1.43;margin:3px 0}
+.lead{font-size:13px;line-height:1.44;margin:3px 0 6px}
+.grid,.grid2,.lawlist,.companycards,.simgrid,.twoway{gap:6px}
+.card{padding:9px 11px;border-radius:9px}.card .metric{font-size:29px;line-height:1.02;margin:3px 0}
+.card .minihead{line-height:1.25}.muted{font-size:11.5px;line-height:1.33}.card p.muted{margin:3px 0 0}
+.note{padding:7px 10px;margin:6px 0 0;line-height:1.35}
+.flow{gap:6px}.step{padding:9px}.step strong{margin:2px 0}.step small{line-height:1.35}
+.tablebox{border-radius:9px}td,th{padding:6px 8px;line-height:1.34}
+.company{padding:9px}.company p{margin:3px 0;line-height:1.38}
+.law{padding:8px}.law p{margin:3px 0}.links{margin-top:4px}
+.controls{margin:6px 0;gap:5px}.controls input,.controls select{padding:6px 8px}
+.maparea{padding:9px}.mapgrid{gap:8px}.maplocations{gap:4px}.maplocations a{padding:6px 8px}
+.checklist{gap:3px}.checklist label{padding:4px 7px}
+.output{padding:9px}.sectionfoot{margin-top:5px}.sources{gap:5px}.sources a{padding:6px}
+.riskrow{padding:3px 0}
+@media(max-width:800px){main>section{padding:11px 10px}.hero h1{font-size:clamp(18px,3.4vw,27px)}}
+@media(max-width:570px){
+.hero{padding:12px 0 11px}.hero .eyebrow{font-size:9px}
+.hero h1{font-size:clamp(13px,3.55vw,18px);letter-spacing:-.04em;margin:4px 0 5px;white-space:nowrap}
+.hero p{font-size:11.5px;line-height:1.36}
+.hero p[style*="margin-top:14px"]{font-size:11px;margin-right:6px!important}
+.hero p[style*="font-size:.88rem"]{font-size:10.5px!important;line-height:1.33}
+.hero-pills{margin-top:5px;gap:3px}.hero-pills span{font-size:9px;padding:2px 5px}
+.nav{padding:4px 0}.nav a{font-size:10px;padding:4px 7px}
+main>section{margin-top:7px;padding:10px 9px}.kicker{font-size:9px}
+h2{font-size:18px;margin-bottom:5px}h3{font-size:14px}.lead{font-size:12px;line-height:1.45}
+.grid{gap:5px}.grid2{gap:6px}.card{padding:8px}.card .metric{font-size:24px}
+.card .muted{font-size:10.5px}.note{padding:7px 8px;font-size:11.5px}
+.step{padding:7px}.step strong{font-size:11.5px}.step small{font-size:10px}
+.tablebox table{min-width:610px}td,th{padding:6px 7px}
+}
+@media (min-width:360px) and (max-width:570px){
+#summary .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+#summary .grid .card{padding:7px 6px;min-width:0}
+#summary .grid .card .minihead{font-size:10px;line-height:1.3}
+#summary .grid .card .metric{font-size:23px;margin:3px 0}
+#summary .grid .card .muted{font-size:10px;line-height:1.36;overflow-wrap:anywhere}
+}
+@media(max-width:350px){.hero h1{font-size:12.2px}}
 </style></head><body>
-<header class="hero"><div class="wrap"><div class="eyebrow">MEDICAL DEVICE SECONDARY MARKET · RESEARCH 2026</div><h1>医療機器の下取・２次流通に関して</h1><p>日本の医療機器の価値は、いつ、誰から誰へ移り、どのように再利用されるのか。法令・安全・契約・税務・環境・競争政策・事業者を横断する、メーカー中立の調査ダッシュボード。</p><p style="margin-top:14px;font-weight:700;letter-spacing:.02em">作成：高橋勇（南舞岡）</p><p style="font-size:.88rem;opacity:.9">個人による独立した研究資料｜公表・公開情報に基づく調査・分析。特定の企業・団体の公式見解、推奨、保証を示すものではありません。</p><div class="hero-pills"><span>調査基準 2026.11.21</span><span>中立・業界横断</span><span>法令と自主基準を区別</span><span>関連企業の横断比較</span><span>Rev.4</span></div></div></header>
+<header class="hero"><div class="wrap"><div class="eyebrow">MEDICAL DEVICE SECONDARY MARKET · RESEARCH 2026</div><h1>医療機器の下取・２次流通に関して</h1><p>日本の医療機器の価値は、いつ、誰から誰へ移り、どのように再利用されるのか。法令・安全・契約・税務・環境・競争政策・事業者を横断する、メーカー中立の調査ダッシュボード。</p><p style="margin-top:14px;font-weight:700;letter-spacing:.02em">作成：高橋勇（南舞岡）</p><p style="font-size:.88rem;opacity:.9">個人による独立した研究資料｜公表・公開情報に基づく調査・分析。特定の企業・団体の公式見解、推奨、保証を示すものではありません。</p><div class="hero-pills"><span>調査基準 2026.11.21</span><span>中立・業界横断</span><span>法令と自主基準を区別</span><span>関連企業の横断比較</span><span>Rev.5</span></div></div></header>
 <div class="topbar"><div class="wrap nav"><a href="#summary">総論</a><a href="#flows">取引構造</a><a href="#laws">関連法規</a><a href="#cases">論点・判定</a><a href="#vendors">企業一覧</a><a href="#maps">事業者マップ</a><a href="#simulate">査定シミュレーター</a><a href="#risk">リスク</a><a href="#documents">実務書類</a><a href="#strategy">事業構造</a><a href="#references">根拠資料</a></div></div>
 <main class="wrap">
 <section id="summary"><div class="kicker">01 / EXECUTIVE OVERVIEW</div><h2>下取とは「買替値引き」ではなく、独立した資産取引でもある</h2><p class="lead">医療機器の「下取」「買取」「中古再販」「再整備」「部品流通」「再資源化」「廃棄」は同義ではない。所有権と品質責任の移転地点を可視化することが分析の起点となる。</p><div class="grid"><div class="card"><div class="minihead">必要な区分</div><div class="metric">6</div><p class="muted">下取／直接買取／中古再販／再整備／部品流通／廃棄</p></div><div class="card"><div class="minihead">関連法令・規範マスター</div><div class="metric" id="lawCount">—</div><p class="muted">法律・施行規則・行政通知・業界指針。適用は取引ごとに判定。</p></div><div class="card"><div class="minihead">添付一覧を起点とした事業者等</div><div class="metric" id="vendorCount">—</div><p class="muted">社名重複や確認不能名は整理。レンタル専業・海外OEMも区別。</p></div></div><div class="note"><b>調査の立場：</b>特定のメーカー・買取会社を推奨するための資料ではない。取扱能力と法令順守体制の公開情報から比較し、公式サイト記載と自社評価を混同しない。許可や連絡先は必ず契約直前に更新確認する。</div></section>
