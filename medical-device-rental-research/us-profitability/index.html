@@ -24,16 +24,49 @@ main{padding-top:13px;padding-bottom:42px}.panel{background:white;border:1px sol
 @media(max-width:850px){.fields{grid-template-columns:repeat(2,minmax(0,1fr))}.chart-layout{grid-template-columns:1fr}.summary-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2{grid-template-columns:1fr}.hero-visual{flex-basis:110px}}
 @media(max-width:550px){.wrap{padding:0 12px}.hero-inner{padding:16px 0;gap:8px}.hero-visual{display:none}.hero h1{font-size:24px}.hero p{font-size:12px}.hero-meta{gap:5px}.hero-meta span{font-size:10px;padding:2px 7px}.panel{padding:13px 12px;border-radius:12px;margin-bottom:10px}.panel h2{font-size:18px}.nav-inner a{font-size:12px;padding:7px 10px}.mode-toggle{gap:5px}.mode-btn{padding:10px 2px;min-height:65px;font-size:14px}.mode-btn small{font-size:10px}.fields,.exam-advanced .fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.field>label{font-size:11px}.field input,.field select{padding:9px 8px}.span2{grid-column:span 2}.kpi{padding:10px}.kpi .value{font-size:21px}.compare{gap:5px}.compare-card{padding:9px 5px}.compare-card .num{font-size:15px}.compare-card .title{font-size:11px}.compare-card .explain{font-size:9px}.exam-row{padding:9px 8px}.exam-title strong{font-size:13px}.exam-title span{font-size:9px}.exam-count{gap:3px}.stepper{min-width:35px}.count-input{width:55px}.bep-list{gap:5px}.bep-item{padding:6px 3px}.bep-item strong{font-size:16px}.bep-item small{font-size:9px}}
 @media print{body{background:#fff;font-size:12px}.hero{background:#fff;color:#152e43;border-bottom:2px solid #152e43}.hero p,.hero-meta,.hero-visual,.nav,.actions,.exam-add,.exam-remove,.stepper,.fold summary,.exam-advanced summary{display:none!important}.panel,.chart-box{box-shadow:none;break-inside:avoid}.panel{margin:8px 0;padding:10px;border-color:#ccc}.hero-inner{padding:6px 0}.modefields:not(.active){display:none}.mode-btn:not([aria-pressed=true]){display:none}.mode-toggle{grid-template-columns:1fr}.fold[open] .fold-body,.exam-advanced[open] .fields{display:block!important}.summary-kpis{grid-template-columns:repeat(4,1fr)}}
+
+/* 2026.11 mobile UX refinement, no data removed */
+.us-crosslinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.us-crosslinks a{display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:9px 15px;border-radius:9px;border:1px solid #94c6da;background:#e0f3fc;color:#124f6b;text-decoration:none;font-size:14px;font-weight:850}
+.us-crosslinks a+a{color:#fff;background:#1c607f;border-color:#7aafc7}
+.nav-inner .us-nav-back{background:#e4f4fa;color:#134963;font-weight:850}
+.mode-toggle .mode-btn:focus-visible,.exam-row .stepper:focus-visible{outline:3px solid #64a9d0;outline-offset:2px}
+.exam-row input[type=number]{font-variant-numeric:tabular-nums}
+#profit-chart svg,#cash-chart svg{max-height:290px}
+#bep-list{scroll-margin-top:72px}
+#target-count{line-height:1.55}
+@media(max-width:700px){
+ .nav-inner{scrollbar-width:thin}
+ .hero{padding-top:5px}
+ .summary-kpis{gap:7px}
+ .compare-card .num{overflow-wrap:anywhere}
+ .exam-row-head{align-items:flex-start}
+ .exam-title span{font-size:11px}
+ .exam-advanced summary{min-height:37px}
+ .chart-box{padding:10px}
+ #profit-chart svg,#cash-chart svg{max-height:245px}
+}
+@media(max-width:390px){
+ .us-crosslinks{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+ .us-crosslinks a{font-size:12px;padding:8px 5px;line-height:1.3}
+ .exam-title strong{font-size:12px;line-height:1.4}
+ .exam-row-head{gap:5px}
+ .exam-count{gap:2px}
+ .stepper{min-width:33px;min-height:44px}
+ .count-input{width:52px;min-height:44px;font-size:16px}
+ .compare-card{padding:9px 4px}
+}
+@media print{.us-crosslinks{display:none}}
 </style>
 </head>
 <body>
 <header class="hero">
  <div class="wrap hero-inner">
   <svg class="hero-visual" viewBox="0 0 136 120" fill="none" aria-hidden="true"><rect x="11" y="12" width="112" height="81" rx="13" fill="#ffffff1b" stroke="#a8e1f1" stroke-width="2"/><rect x="19" y="21" width="96" height="58" rx="5" fill="#092f42"/><path d="M29 66 Q68 12 106 66 M37 67 Q68 31 99 67 M46 67 Q68 46 90 67" stroke="#80d6c3" stroke-width="1.8" opacity=".9"/><ellipse cx="67" cy="48" rx="20" ry="10" fill="#72c5d0" opacity=".18"/><circle cx="68" cy="46" r="5" stroke="#b8eff0" stroke-width="2"/><path d="M55 96 V106 M79 96 V106 M41 107 H94" stroke="#b2e8f5" stroke-width="4" stroke-linecap="round"/><path d="M108 105 Q127 98 130 85" stroke="#9ad6e3" stroke-width="2"/></svg>
-  <div><div class="eyebrow">ULTRASOUND ECONOMICS · REV.2026.11</div><h1>超音波診断装置<br>採算・収益性シミュレーター</h1><p>購入・レンタル・リースをワンタップで切替。診療報酬、検査件数、人件費、在宅・往診、電気代を反映します。</p><div class="hero-meta"><span>令和8年度点数を参考</span><span>損益分岐点を可視化</span><span>iPhone対応・自動保存</span></div></div>
+  <div><div class="eyebrow">ULTRASOUND ECONOMICS · REV.2026.11</div><h1>超音波診断装置<br>採算・収益性シミュレーター</h1><p>購入・レンタル・リースをワンタップで切替。診療報酬、検査件数、人件費、在宅・往診、電気代を反映します。</p><div class="hero-meta"><span>令和8年度点数を参考</span><span>損益分岐点を可視化</span><span>iPhone対応・自動保存</span></div><div class="us-crosslinks" aria-label="関連研究へのリンク"><a href="../">レンタル研究に戻る ↗</a><a href="https://sinobu13-bpei.github.io/medical-intelligence/">医療MKTハブ ↗</a></div></div>
  </div>
 </header>
-<nav class="nav" aria-label="ページ内メニュー"><div class="wrap nav-inner"><a href="#overview">採算結果</a><a href="#contract">導入方法</a><a href="#exams">検査件数</a><a href="#cost">人件費・経費</a><a href="#graphs">グラフ</a><a href="#sources">出典・注意</a></div></nav>
+<nav class="nav" aria-label="ページ内メニュー"><div class="wrap nav-inner"><a class="us-nav-back" href="../">研究トップ ↗</a><a class="us-nav-back" href="https://sinobu13-bpei.github.io/medical-intelligence/">医療MKTハブ ↗</a><a href="#overview">採算結果</a><a href="#contract">導入方法</a><a href="#exams">検査件数</a><a href="#cost">人件費・経費</a><a href="#graphs">グラフ</a><a href="#sources">出典・注意</a></div></nav>
 <main class="wrap">
  <section class="panel" id="overview">
   <div class="sectionhead"><div><div class="kicker">DASHBOARD</div><h2>採算結果 <span id="current-mode-title" class="pill">レンタル</span></h2></div><span class="sub" id="saved-status" role="status" aria-live="polite">入力を自動保存</span></div>
@@ -45,7 +78,7 @@ main{padding-top:13px;padding-bottom:42px}.panel{background:white;border:1px sol
   </div>
   <div class="summary-txt" id="recommendation">計算しています。</div>
   <div class="compare" id="compare-cards" aria-label="購入レンタルリース比較"></div>
-  <p class="form-note">※結果は入力条件に基づく概算です。月次利益（費用按分）と投資回収（現金収支）は別々に評価します。</p>
+  <p class="form-note">※月次・年間利益は診療所全体の純利益ではなく、当該検査の増分損益を示します。購入の資産費用は経営用の按分額で、実際の税務償却やキャッシュフローとは異なります。</p>
  </section>
  <section class="panel" id="contract">
   <div class="kicker">STEP 01</div><h2>導入方法を選ぶ</h2>
@@ -80,8 +113,8 @@ main{padding-top:13px;padding-bottom:42px}.panel{background:white;border:1px sol
     <div class="field"><label for="rentInitial">搬入・設置費（円）</label><input id="rentInitial" type="number" inputmode="numeric" min="0" value="0"></div>
     <div class="field"><label for="rentReturn">返却・撤去費（円）</label><input id="rentReturn" type="number" inputmode="numeric" min="0" value="0"></div>
    </div>
-   <div class="target-strip"><span class="tiny">公開料金を参考にする場合：</span><button type="button" class="action" id="air-example">Aplio air 1か月・公開基準料を適用</button></div>
-   <p class="tiny">Aplio airの1か月基準レンタル料55,000円（税別）を60,500円（税込相当）に換算して入力。送料・プローブ構成・条件は別途確認。通常の15万円初期値はモデル比較用の仮定です。</p>
+   <div class="target-strip"><span class="tiny">公開料金を参考にする場合：</span><button type="button" class="action" id="air-example">Aplio air 12か月・月額35,000円（税別）を適用</button></div>
+   <p class="tiny">Aplio airの12か月契約・月額35,000円（税別）は2026年11月確認の公式Web掲載値です。別の公式PDFには45,000円と記載された資料もあり、必ず見積で確認してください。ボタンは税別35,000円を入力します。医療機関の実際の税負担・送料・保守・プローブ構成に応じて金額を上書きしてください。通常の月額15万円は比較用の仮定値です。</p>
   </div>
   <div class="modefields" id="fields-lease">
    <h3>リースの条件 <span class="pill">例示値／自由に編集可能</span></h3>
@@ -298,7 +331,7 @@ function cashChart(d){
  if(z.payback!==null&&z.payback>0){const m=z.payback;s+='<line x1="'+xx(m)+'" y1="'+T+'" x2="'+xx(m)+'" y2="'+(T+h)+'" stroke="#168463" stroke-dasharray="4 4"/><circle cx="'+xx(m)+'" cy="'+yy(a[m])+'" r="5" fill="#168463" stroke="#fff" stroke-width="2"/><text x="'+Math.max(L+35,Math.min(W-35,xx(m)))+'" y="'+(T+13)+'" font-size="11" text-anchor="middle" fill="#087a57" font-weight="800">'+m+'か月</text>';}
  $("cash-chart").innerHTML=svg(s);
  $("cash-caption").textContent=labels[mode]+"・"+z.months+"か月の累積現金収支。月次利益と異なり初期支出を一括反映。";
- const note=z.payback===null?"契約・使用期間内に初期支出を回収できない試算です。":z.payback===0?"初期投資の一括支出なし（黒字の月次現金収支）。":("初期支出の単純回収は "+z.payback+"か月目。");
+ const note=z.payback===null?"契約・使用期間内に初期支出を回収できない試算です。":z.payback===0?"初期投資の一括支出なし（黒字の月次現金収支）。":("累積現金収支が初めてプラスになるのは "+z.payback+"か月目。");
  $("payback-note").textContent=note+" 期間末累積額："+signed(a[a.length-1])+"。";
 }
 function costBars(d){
@@ -362,7 +395,7 @@ $("exam-list").addEventListener("click",e=>{
  if(e.target.matches(".exam-remove")){rows=rows.filter(x=>x.id!==r.id);renderRows();renderOutput();queueSave();}
 });
 $("add-row").addEventListener("click",()=>{rows.push({id:nextId++,label:"追加検査",group:"外来",code:"点数・算定要件を確認",points:0,qty:0,minutes:30,travelMin:0,travelYen:0,supply:300});renderRows();renderOutput();queueSave();const tail=$("exam-list").lastElementChild;tail.querySelector("details").open=true;tail.scrollIntoView({behavior:"smooth",block:"center"});});
-$("air-example").addEventListener("click",()=>{$("machine").value="air";$("rentMonths").value="1";$("rentFee").value="60500";renderOutput();queueSave();});
+$("air-example").addEventListener("click",()=>{$("machine").value="air";$("rentMonths").value="12";$("rentFee").value="35000";setMode("rent");renderOutput();queueSave();});
 $("print").addEventListener("click",()=>window.print());
 $("csv").addEventListener("click",downloadCSV);
 $("save").addEventListener("click",()=>save(false));
