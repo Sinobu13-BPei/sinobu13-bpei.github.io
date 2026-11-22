@@ -133,6 +133,43 @@ if(process.argv.includes("--browser")){
   assert.ok(legacyState.legend,"Source and live-status disclaimer missing");
   const sample=await evalJS('(()=>{const a=document.querySelector("tr[data-text] td:nth-child(3) a[data-navi-web]");return a?{text:a.textContent,url:a.href,target:a.target,rel:a.rel}:null})()');
   assert.ok(sample?.text&&(sample.url.startsWith("http://")||sample.url.startsWith("https://"))&&sample.target==="_blank"&&sample.rel.includes("noopener"),"Unsafe original hospital link");
+  // Real pagination regression: the source page keeps only 100 original rows
+  // attached to the DOM, while the 8,019-row dataset remains in memory.
+  const bridgeCSV=readFileSync(join(dir,"data/legacy-official-site-links-20260601.csv"),"utf8");
+  const linkedOriginalRows=bridgeCSV.replace(/^\uFEFF/,"").split(/\r?\n/).slice(1).map(s=>Number(s.match(/^LEG-[^,]+,(\d+),/)?.[1]||0)).filter(Boolean);
+  assert.equal(linkedOriginalRows.length,3098,"Safe legacy bridge row-number index was not parsed");
+  const expectedFirst=linkedOriginalRows.filter(i=>i>=1&&i<=100).length;
+  const expectedSecond=linkedOriginalRows.filter(i=>i>=101&&i<=200).length;
+  assert.equal(legacyState.links,expectedFirst,"First page must link exactly the expected source records");
+  const searchUnverified=await evalJS('(()=>{const all=[...document.querySelectorAll("#detailTable a.hi-hospital-name")];return {all:all.length,unverified:all.filter(a=>!a.dataset.naviWeb).length,firstMap:!!document.querySelector("#detailTable a.smalllink"),hasSearch:all.some(a=>!a.dataset.naviWeb&&a.href.includes("google.com/search"))}})()');
+  assert.ok(searchUnverified.unverified>0&&searchUnverified.firstMap&&searchUnverified.hasSearch,"The unverified hospital search and Map links were changed or lost");
+  await evalJS('document.querySelector("#nextPage").click()');
+  let secondPage;
+  for(let i=0;i<65;i++){
+    secondPage=await evalJS('(()=>({page:document.querySelector("#pageLabel")?.textContent||"",rows:document.querySelectorAll("#detailTable tbody tr").length,links:document.querySelectorAll("#detailTable a[data-navi-web]").length,unverified:document.querySelectorAll("#detailTable a.hi-hospital-name:not([data-navi-web])").length}))()');
+    if(secondPage.page.startsWith("2 /")&&secondPage.links===expectedSecond)break;
+    await sleep(120);
+  }
+  assert.ok(secondPage.page.startsWith("2 /")&&secondPage.rows===100&&secondPage.links===expectedSecond,"Second-page hospital links were not restored: "+JSON.stringify(secondPage)+" expected="+expectedSecond);
+  // Search for a known source-confirmed hospital and verify the name points
+  // to its Navi-reported URL, not the original Google search shortcut.
+  await evalJS('(()=>{const q=document.querySelector("#q");q.value="函館渡辺病院";q.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  let filteredLegacy;
+  for(let i=0;i<65;i++){
+    filteredLegacy=await evalJS('(()=>({count:document.querySelector("#count")?.textContent||"",rows:document.querySelectorAll("#detailTable tbody tr").length,links:[...document.querySelectorAll("#detailTable a[data-navi-web]")].map(a=>({name:a.textContent,href:a.href})),mapLinks:document.querySelectorAll("#detailTable a.smalllink").length}))()');
+    if(filteredLegacy.count.includes("1施設")&&filteredLegacy.links.length===1)break;
+    await sleep(120);
+  }
+  assert.ok(filteredLegacy.count.includes("1施設")&&filteredLegacy.rows===1&&filteredLegacy.links.length===1&&filteredLegacy.links[0].name.includes("函館渡辺病院")&&filteredLegacy.mapLinks>=1,"Confirmed hospital search / mapping failed: "+JSON.stringify(filteredLegacy));
+  await evalJS('document.querySelector("#clearFilters").click()');
+  let cleared;
+  for(let i=0;i<30;i++){
+    cleared=await evalJS('(()=>({count:document.querySelector("#count")?.textContent||"",rows:document.querySelectorAll("#detailTable tbody tr").length,links:document.querySelectorAll("#detailTable a[data-navi-web]").length}))()');
+    if(cleared.count.includes("8,019")&&cleared.rows===100&&cleared.links===expectedFirst)break;
+    await sleep(120);
+  }
+  assert.ok(cleared.count.includes("8,019")&&cleared.rows===100&&cleared.links===expectedFirst,"Reset filters failed to restore legacy links: "+JSON.stringify(cleared));
+  console.log("REV12 LEGACY PAGINATION AND SEARCH QA PASS",JSON.stringify({firstPage:expectedFirst,secondPage:expectedSecond,filteredLegacy,cleared}));
   console.log("REV12 LEGACY OFFICIAL WEBSITE BROWSER QA PASS",JSON.stringify(legacyState));
 
  }finally{ws?.close();browser.kill("SIGTERM");await new Promise(done=>{if(browser.exitCode!==null)return done();browser.once("exit",done);setTimeout(done,1500)});server.close();try{rmSync(profile,{recursive:true,force:true,maxRetries:10,retryDelay:200})}catch(e){if(["ENOTEMPTY","EBUSY","EPERM","EACCES"].includes(e?.code)){console.warn("CHROME PROFILE CLEANUP WARN",e.code)}else throw e}}
