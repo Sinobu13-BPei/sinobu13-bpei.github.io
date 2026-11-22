@@ -13,11 +13,13 @@ const html=readFileSync(join(dir,"index.html"),"utf8");
 const script=html.match(/<script>([\s\S]*?)<\/script>/)?.[1];
 assert.ok(script,"inline controller is present");
 new vm.Script(script,{filename:"facility-master/index.html"});
+new vm.Script(readFileSync(join(dir,"identity-ui.js"),"utf8"),{filename:"facility-master/identity-ui.js"});
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 assert.equal(new Set(ids).size,ids.length,"duplicate HTML ids");
 for(const id of ["q","pref","clear","records","previous","next","n","page","k-all","k-prefs"])assert.ok(ids.includes(id),"missing "+id);
 assert.ok(html.includes("legacy-hospitals-20261122.csv"));
 assert.ok(html.includes("公式照合前の暫定マスター"));
+for(const id of ["im-confirmed","im-review","im-unmatched","im-rate","im-q","im-status","im-pref","im-rows","im-count","im-clear"])assert.ok(ids.includes(id),"Missing Navi UI "+id);
 console.log("STAGE1 STATIC QA PASS");
 if(process.argv.includes("--browser")){
  const server=createServer((req,res)=>{try{
@@ -65,7 +67,18 @@ if(process.argv.includes("--browser")){
     assert.ok(filtered.rows>=1&&filtered.rows<50&&filtered.text.includes("北海道大学"),"Search did not filter "+JSON.stringify(filtered));
     const restored=await evalJS('(()=>{document.querySelector("#clear").click();return document.querySelector("#n").textContent})()');
     assert.ok(restored.includes("8,019"),"Clear did not restore 8019");
-    console.log("STAGE1 BROWSER QA PASS",width,JSON.stringify(state));
+    let matchState;
+    for(let i=0;i<80;i++){
+      matchState=await evalJS('(()=>({confirmed:document.querySelector("#im-confirmed")?.textContent,review:document.querySelector("#im-review")?.textContent,unmatched:document.querySelector("#im-unmatched")?.textContent,rows:document.querySelectorAll("#im-rows tr").length,error:document.querySelector("#im-count")?.textContent}))()');
+      if(matchState.confirmed==="3,453"&&matchState.rows===35)break;
+      await sleep(200);
+    }
+    assert.equal(matchState.confirmed,"3,453","Official match status failed "+JSON.stringify(matchState));
+    assert.equal(matchState.review,"3,435");assert.equal(matchState.unmatched,"1,131");
+    const reviewView=await evalJS('(()=>{const f=document.querySelector("#im-status");f.value="要確認";f.dispatchEvent(new Event("change",{bubbles:true}));return {count:document.querySelector("#im-count").textContent,rows:document.querySelectorAll("#im-rows tr").length}})()');
+    assert.ok(reviewView.count.includes("3,435")&&reviewView.rows===35,"Review filter failed "+JSON.stringify(reviewView));
+    await evalJS('document.querySelector("#im-clear").click()');
+    console.log("STAGE1 BROWSER QA PASS",width,JSON.stringify(state),JSON.stringify(matchState));
   }
  }finally{ws?.close();browser.kill("SIGTERM");server.close();rmSync(profile,{recursive:true,force:true})}
 }
