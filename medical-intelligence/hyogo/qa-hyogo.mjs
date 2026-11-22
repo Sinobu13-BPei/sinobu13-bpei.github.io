@@ -86,5 +86,22 @@ try{
  const filtered=await ev('(()=>{const f=document.querySelector("#association-filter");f.value="阪神";f.dispatchEvent(new Event("change",{bubbles:true}));return {rows:document.querySelectorAll("#medical-association-rows tr").length,label:document.querySelector("#association-results").textContent}})()');
  assert.ok(filtered.rows>0&&filtered.rows<44,"Filter broken "+JSON.stringify(filtered));
  console.log("HYOGO BROWSER QA PASS: breakpoints, all 8 regions, 44 associations, scrolling, map and filter.");
-}finally{ws?.close();chrome.kill("SIGTERM");srv.close();await sleep(300);rmSync(profile,{recursive:true,force:true})}
+}finally{
+ try{ws?.close()}catch(e){console.warn("HYOGO CDP CLOSE WARN",e.message)}
+ try{chrome.kill("SIGTERM")}catch(e){console.warn("HYOGO CHROME STOP WARN",e.message)}
+ await new Promise(done=>{
+   if(chrome.exitCode!==null||chrome.signalCode!==null)return done();
+   const limit=setTimeout(done,3500);
+   chrome.once("exit",()=>{clearTimeout(limit);done()});
+ });
+ await new Promise(done=>srv.close(done));
+ try{
+   rmSync(profile,{recursive:true,force:true,maxRetries:12,retryDelay:200});
+ }catch(e){
+   if(["ENOTEMPTY","EBUSY","EPERM","EACCES"].includes(e?.code)){
+     console.warn("HYOGO CHROME PROFILE CLEANUP WARN",e.code,
+       "Browser tests have completed; temporary profile cleanup is best effort");
+   }else throw e;
+ }
+}
 }
