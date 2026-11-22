@@ -1,6 +1,6 @@
 {
-  "audit_version": "stage1b-risk-audit-v1",
-  "checked_at_utc": "2026-11-22T03:03:34.853193+00:00",
+  "audit_version": "stage1b-risk-audit-v2",
+  "checked_at_utc": "2026-11-22T03:23:31.196074+00:00",
   "original_legacy_records": 8019,
   "official_navi_records": 7715,
   "match_counts": {
@@ -40,5 +40,10 @@
   "raw_address_similarity_is_diagnostic_only": true,
   "confirmed_flags_requiring_human_review": 5,
   "triage_rows": 3435,
+  "conflict_review_rows": 7,
+  "conflict_queue_is_subset_of_review": true,
+  "unmatched_triage_rows": 1131,
+  "unmatched_does_not_mean_closed": true,
+  "preserved_records": 8019,
   "note": "Candidate conflicts and low raw-name similarities require manual checks; raw-address similarity is diagnostic only because formatting differs by prefecture. No matching status is auto-changed."
 }
