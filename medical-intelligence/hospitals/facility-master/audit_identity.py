@@ -166,6 +166,28 @@ def main():
         "preserved_records":len(legacy),
         "note":"Candidate conflicts and low raw-name similarities require manual checks; raw-address similarity is diagnostic only because formatting differs by prefecture. No matching status is auto-changed."
     }
+    # Read-only hourly QA must detect stale or truncated published CSVs.
+    # Derived exports are immutable snapshots; human decisions belong in a
+    # separate ledger rather than editing auto-generated review queues.
+    if a.check_only:
+        generated={
+            "identity-review-triage-20260601.csv":triage,
+            "identity-confirmed-caution-20260601.csv":flags,
+            "identity-conflict-review-20260601.csv":conflict_rows,
+            "identity-unmatched-triage-20260601.csv":unmatched_rows,
+        }
+        for name, expected in generated.items():
+            current=read_csv(DATA/name)
+            clean=expected.fillna("").astype(str)
+            require(list(current.columns)==list(clean.columns),"Saved CSV schema differs: "+name)
+            require(len(current)==len(clean),"Saved CSV row count differs: "+name)
+            require(current.equals(clean),"Saved CSV content differs from source-derived audit: "+name)
+        saved=json.loads((DATA/"identity-risk-audit-20260601.json").read_text(encoding="utf-8"))
+        for key in ("audit_version","source_zip_sha256","match_counts",
+                    "conflict_review_rows","unmatched_triage_rows",
+                    "candidate_also_used_by_confirmed_rows",
+                    "candidate_shared_by_multiple_review_rows"):
+            require(saved.get(key)==report.get(key),"Saved audit JSON differs: "+key)
     a.out_dir.mkdir(parents=True,exist_ok=True)
     (a.out_dir/"identity-risk-audit-20260601.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     if not a.check_only:
