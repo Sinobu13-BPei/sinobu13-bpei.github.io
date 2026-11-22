@@ -1,0 +1,97 @@
+name: Rev12 build legacy hospital website links and 4921-site review queue
+on:
+  push:
+    branches: [rev12-legacy-links-and-4921-triage-20261122]
+    paths:
+      - '.github/workflows/rev12-build-legacy-website-bridge.yml'
+      - 'medical-intelligence/hospitals/facility-master/build_legacy_site_bridge.py'
+      - 'medical-intelligence/hospitals/facility-master/inject_legacy_website_overlay.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: rev12-website-bridge
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install source processing dependencies
+        run: python -m pip install 'pandas>=2.2,<3' 'rapidfuzz>=3.0,<4'
+      - name: Create read-only derived review queue from official pinned ZIP
+        run: python medical-intelligence/hospitals/facility-master/build_legacy_site_bridge.py
+      - name: Insert exactly two website asset references in original HTML
+        run: python medical-intelligence/hospitals/facility-master/inject_legacy_website_overlay.py --apply
+      - name: Audit 8,019 original rows and validate generated records
+        run: |
+          python medical-intelligence/hospitals/facility-master/inject_legacy_website_overlay.py --check
+          python medical-intelligence/hospitals/facility-master/build_master.py --check --report reports/master-rev12.json
+          python medical-intelligence/hospitals/facility-master/validate_official_websites.py
+          node medical-intelligence/hospitals/qa-hospitals-rev6.mjs
+          node --check medical-intelligence/hospitals/assets/legacy-official-websites-rev12.js
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import pandas as pd
+          p=Path('medical-intelligence/hospitals/facility-master/data')
+          review=pd.read_csv(p/'remaining-website-review-20260601.csv',encoding='utf-8-sig',dtype=str,keep_default_na=False)
+          bridge=pd.read_csv(p/'legacy-official-site-links-20260601.csv',encoding='utf-8-sig',dtype=str,keep_default_na=False)
+          master=pd.read_csv(p/'legacy-hospitals-20261122.csv',encoding='utf-8-sig',dtype=str,keep_default_na=False)
+          info=json.loads((p/'remaining-website-review-audit-20260601.json').read_text(encoding='utf-8'))
+          assert len(master)==8019 and len(bridge)==3098 and len(review)==4921
+          assert set(bridge.facility_uid).isdisjoint(set(review.facility_uid))
+          assert set(bridge.facility_uid)|set(review.facility_uid)==set(master.facility_uid)
+          assert info['pending_with_syntactically_valid_source_url']>=3000
+          assert all(x=='未検証・自動リンク禁止' for x in review.review_status)
+          print('REV12_ROW_PARTITION_PASS',len(bridge),len(review))
+          print('REV12_REVIEW_BUCKETS',info['review_by_bucket'])
+          PY
+      - name: Push generated CSV and 2-tag HTML patch to review branch only
+        if: github.ref_name == 'rev12-legacy-links-and-4921-triage-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add medical-intelligence/hospitals/index.html
+          git add medical-intelligence/hospitals/facility-master/data/legacy-official-site-links-20260601.csv
+          git add medical-intelligence/hospitals/facility-master/data/remaining-website-review-20260601.csv
+          git add medical-intelligence/hospitals/facility-master/data/remaining-website-review-audit-20260601.json
+          if git diff --cached --quiet; then
+            echo NO_CHANGES
+          else
+            git commit -m "Rev.12: add source-preserving legacy hospital website links and remaining review queue"
+            for attempt in 1 2 3; do
+              git fetch origin rev12-legacy-links-and-4921-triage-20261122
+              if ! git rebase origin/rev12-legacy-links-and-4921-triage-20261122; then
+                git rebase --abort || true
+                echo "::error::Concurrent change conflict. Original source untouched."
+                exit 1
+              fi
+              if git push origin HEAD:rev12-legacy-links-and-4921-triage-20261122; then
+                echo "REV12_REVIEW_BRANCH_PUSHED"
+                exit 0
+              fi
+              sleep $((attempt*2))
+            done
+            exit 1
+          fi
+      - name: Archive generated review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rev12-legacy-hospital-website-evidence
+          path: |
+            medical-intelligence/hospitals/facility-master/data/legacy-official-site-links-20260601.csv
+            medical-intelligence/hospitals/facility-master/data/remaining-website-review-20260601.csv
+            medical-intelligence/hospitals/facility-master/data/remaining-website-review-audit-20260601.json
+          retention-days: 30
+          if-no-files-found: warn

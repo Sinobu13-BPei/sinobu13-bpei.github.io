@@ -1,0 +1,6 @@
+/* Rev.12: hospital-name links only; existing layout, chart and filters stay unchanged. */
+.rev12-hospital-official-link{color:#075d82;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.4px;font-weight:650;overflow-wrap:anywhere}
+.rev12-hospital-official-link::after{content:" ↗";white-space:nowrap;font-size:.82em}
+.rev12-hospital-official-link:focus-visible{outline:2px solid #087c9e;outline-offset:2px;border-radius:3px}
+.rev12-hospital-site-legend{margin:8px 0 10px;padding:9px 11px;border-left:3px solid #1d8ca4;border-radius:4px;background:#ecf5f8;color:#174056;font-size:12px;line-height:1.6}
+@media(max-width:700px){.rev12-hospital-official-link{line-height:1.5}.rev12-hospital-site-legend{font-size:11px;padding:7px 8px}}
