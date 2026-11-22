@@ -65,7 +65,7 @@ function initialize(map){
   let displayed=0,linked=0;
   const rows=[...document.querySelectorAll("tr[data-text]")];
   for(const tr of rows){
-   if(tr.cells.length!==7)continue;
+   if(tr.cells.length<7)continue;
    displayed++;
    const p=tr.cells[0].textContent.trim(),n=tr.cells[2].textContent.trim(),
          a=tr.cells[3].textContent.trim(),found=map.get(key(p,n,a));
