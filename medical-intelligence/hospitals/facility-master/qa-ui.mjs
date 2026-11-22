@@ -25,8 +25,8 @@ if(process.argv.includes("--browser")){
   if(!file.startsWith(root+sep))throw Error("forbidden");
   if(existsSync(file)&&spawnSync("test",["-d",file]).status===0)file=join(file,"index.html");
   const mime={".html":"text/html",".csv":"text/csv",".js":"text/javascript",".json":"application/json"}[extname(file)]||"text/plain";
-  res.writeHead(200,{"Content-Type":mime+"; charset=utf-8"});res.end(readFileSync(file));
- }catch{res.writeHead(404);res.end("Not found")}});
+  const bytes=readFileSync(file);res.writeHead(200,{"Content-Type":mime+"; charset=utf-8"});res.end(bytes);
+ }catch{if(!res.headersSent)res.writeHead(404);res.end("Not found")}});
  await new Promise(done=>server.listen(0,"127.0.0.1",done));
  const bin=["google-chrome","google-chrome-stable","chromium","chromium-browser"].map(x=>{const r=spawnSync("which",[x],{encoding:"utf8"});return r.status===0?r.stdout.trim():null}).find(Boolean);
  assert.ok(bin,"Headless Chrome is not installed");
