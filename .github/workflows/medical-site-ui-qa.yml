@@ -1,6 +1,28 @@
 name: Medical Market Site UI QA
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'medical-intelligence/**'
+      - 'clinic-medical-device-market/**'
+      - 'ct-market-atlas/**'
+      - 'medical-device-strategy-handbook/**'
+      - 'strategy-handbook/**'
+      - 'meeting-compliance/**'
+      - 'research-atlas/**'
+      - 'akita-medical-mkt/**'
+      - 'yamagata-medical-mkt/**'
+      - 'tohoku-medical-mkt/**'
+      - 'shiga-medical-mkt/**'
+      - 'nagano-medical-mkt/**'
+      - 'niigata-medical-mkt/**'
+      - 'yamanashi-medical-mkt/**'
+      - 'shizuoka-medical-atlas/**'
+      - 'shizuoka-medical-market-2026/**'
+      - 'medical-congress-2027/**'
+      - 'mri_market_atlas_2025.html'
+      - 'okinawa_medical_device_market_neutral_2026.html'
+      - '.github/workflows/medical-site-ui-qa.yml'
   push:
     branches: [main]
     paths:
