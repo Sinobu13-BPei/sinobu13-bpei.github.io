@@ -40,6 +40,16 @@ jobs:
         run: python medical-intelligence/hospitals/facility-master/audit_identity.py --check-only --out-dir reports
       - name: Check local files and counts
         run: python medical-intelligence/hospitals/facility-master/hourly_monitor.py --report reports/hourly-local.json
+      - name: Cross-check published baseline on data-preserving PRs
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch --no-tags origin main --depth=1
+          if git diff --quiet origin/main HEAD -- medical-intelligence/hospitals/facility-master/data/ medical-intelligence/hospitals/facility-master/identity-ui.js; then
+            echo "Frozen CSV/JSON/JS unaffected by PR; verify current published bytes and SHA-256."
+            python medical-intelligence/hospitals/facility-master/hourly_monitor.py --public --report reports/hourly-public-pr.json
+          else
+            echo "PR changes published data; defer live baseline comparison until deployment."
+          fi
       - name: Check actual public URLs
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python medical-intelligence/hospitals/facility-master/hourly_monitor.py --public --report reports/hourly-public.json
