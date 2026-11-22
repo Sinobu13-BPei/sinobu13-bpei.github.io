@@ -130,7 +130,7 @@ if(process.argv.includes("--browser")){
   assert.equal(legacyState.status.detail.unlinked,4921,"Other 4,921 hospitals must remain unlinked");
   assert.ok(legacyState.legend,"Source and live-status disclaimer missing");
   const sample=await evalJS('(()=>{const a=document.querySelector("tr[data-text] td:nth-child(3) a[data-navi-web]");return a?{text:a.textContent,url:a.href,target:a.target,rel:a.rel}:null})()');
-  assert.ok(sample?.text&&/^https?:\\/\\//.test(sample.url)&&sample.target==="_blank"&&sample.rel.includes("noopener"),"Unsafe original hospital link");
+  assert.ok(sample?.text&&(sample.url.startsWith("http://")||sample.url.startsWith("https://"))&&sample.target==="_blank"&&sample.rel.includes("noopener"),"Unsafe original hospital link");
   console.log("REV12 LEGACY OFFICIAL WEBSITE BROWSER QA PASS",JSON.stringify(legacyState));
 
  }finally{ws?.close();browser.kill("SIGTERM");await new Promise(done=>{if(browser.exitCode!==null)return done();browser.once("exit",done);setTimeout(done,1500)});server.close();try{rmSync(profile,{recursive:true,force:true,maxRetries:10,retryDelay:200})}catch(e){if(["ENOTEMPTY","EBUSY","EPERM","EACCES"].includes(e?.code)){console.warn("CHROME PROFILE CLEANUP WARN",e.code)}else throw e}}
