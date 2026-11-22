@@ -112,6 +112,21 @@ def main():
     triage["human_review_completed"]="未実施"
     triage["human_verified_official_source_url"]=""
     triage=triage.sort_values(["review_priority","legacy_prefecture","legacy_name","facility_uid"],kind="stable")
+    # Separate explicit ID collisions from the general review queue.
+    # They are not evidence of wrongful assignment, only possible ambiguity.
+    conflict_mask=(triage["candidate_already_assigned_to_confirmed"].ne("") |
+                   triage["candidate_shared_by_other_review"].ne(""))
+    conflict_rows=triage.loc[conflict_mask].copy()
+    conflict_rows["needs_human_identity_check"]="要確認・自動確定禁止"
+    unmatched_rows=unmatched.copy()
+    unmatched_rows["manual_review_status"]="未実施"
+    unmatched_rows["interpretation_note"]="未一致は候補条件を満たさなかったことを示す。閉院・不存在と同義ではない"
+    require(len(conflict_rows)<=len(triage),"Conflict count is greater than total review")
+    require(len(unmatched_rows)==counts["unmatched"],"Unmatched extract is incomplete")
+    require(conflict_rows.facility_uid.is_unique and unmatched_rows.facility_uid.is_unique,
+            "Duplicate facility UID in supplemental review queues")
+    require(not set(conflict_rows.facility_uid)&set(unmatched_rows.facility_uid),
+            "Review and unmatched queues must be disjoint")
     raw_name=confirmed.apply(lambda x:simil(x.legacy_name,x.navi_name_candidate),axis=1)
     raw_address=confirmed.apply(lambda x:simil(x.legacy_address,x.navi_address_candidate),axis=1)
     suspicious=confirmed[raw_name<70].copy()
@@ -122,7 +137,7 @@ def main():
                      "raw_name_similarity_pct","raw_address_similarity_pct"]].copy()
     flags["audit_flag"]="名称の元表記に大きな差があるため任意の目視確認を推奨。既存判定は自動変更しない"
     report={
-        "audit_version":"stage1b-risk-audit-v1",
+        "audit_version":"stage1b-risk-audit-v2",
         "checked_at_utc":datetime.now(timezone.utc).isoformat(),
         "original_legacy_records":len(legacy),
         "official_navi_records":summary["official_navi_hospitals"],
@@ -144,6 +159,11 @@ def main():
         "raw_address_similarity_is_diagnostic_only":True,
         "confirmed_flags_requiring_human_review":len(flags),
         "triage_rows":len(triage),
+        "conflict_review_rows":len(conflict_rows),
+        "conflict_queue_is_subset_of_review":True,
+        "unmatched_triage_rows":len(unmatched_rows),
+        "unmatched_does_not_mean_closed":True,
+        "preserved_records":len(legacy),
         "note":"Candidate conflicts and low raw-name similarities require manual checks; raw-address similarity is diagnostic only because formatting differs by prefecture. No matching status is auto-changed."
     }
     a.out_dir.mkdir(parents=True,exist_ok=True)
@@ -151,6 +171,8 @@ def main():
     if not a.check_only:
         triage.to_csv(a.out_dir/"identity-review-triage-20260601.csv",index=False,encoding="utf-8-sig")
         flags.to_csv(a.out_dir/"identity-confirmed-caution-20260601.csv",index=False,encoding="utf-8-sig")
+        conflict_rows.to_csv(a.out_dir/"identity-conflict-review-20260601.csv",index=False,encoding="utf-8-sig")
+        unmatched_rows.to_csv(a.out_dir/"identity-unmatched-triage-20260601.csv",index=False,encoding="utf-8-sig")
     print(json.dumps({k:report[k] for k in ("match_counts","candidate_also_used_by_confirmed_rows","candidate_shared_by_multiple_review_rows","confirmed_flags_requiring_human_review","hard_checks_passed")},ensure_ascii=False))
 if __name__=="__main__":
     main()

@@ -28,6 +28,8 @@ jobs:
           git add medical-intelligence/hospitals/facility-master/data/identity-risk-audit-20260601.json
           git add medical-intelligence/hospitals/facility-master/data/identity-review-triage-20260601.csv
           git add medical-intelligence/hospitals/facility-master/data/identity-confirmed-caution-20260601.csv
+          git add medical-intelligence/hospitals/facility-master/data/identity-conflict-review-20260601.csv
+          git add medical-intelligence/hospitals/facility-master/data/identity-unmatched-triage-20260601.csv
           if git diff --cached --quiet; then echo "No changes"; else
             git commit -m "Rev.10: record non-mutating Navi match risk audit and manual review priority"
             git push origin HEAD:main
