@@ -1,0 +1,56 @@
+name: Rev13 verify and attach 13 independently reviewed hospital site links
+on:
+  push:
+    branches: [rev13-manual-official-websites-first13-20261122]
+    paths:
+      - '.github/workflows/rev13-inject-approved-hospital-links.yml'
+      - 'medical-intelligence/hospitals/facility-master/inject_legacy_website_overlay.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: rev13-inject-manually-reviewed-hospital-websites
+  cancel-in-progress: false
+jobs:
+  inject:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Insert exactly one verified website layer without altering any of 8019 source rows
+        run: |
+          python medical-intelligence/hospitals/facility-master/inject_legacy_website_overlay.py --apply
+          python medical-intelligence/hospitals/facility-master/inject_legacy_website_overlay.py --check
+          node medical-intelligence/hospitals/qa-hospitals-rev6.mjs
+          node --check medical-intelligence/hospitals/facility-master/independently-reviewed-websites.js
+      - name: Commit only the append-only legacy external script reference
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add medical-intelligence/hospitals/index.html
+          if git diff --cached --quiet; then
+            echo NO_CHANGES
+          else
+            git commit -m "Rev.13: add official website review layer to unchanged 8019-row legacy page"
+            for n in 1 2 3; do
+              git fetch origin rev13-manual-official-websites-first13-20261122
+              if ! git rebase origin/rev13-manual-official-websites-first13-20261122; then
+                git rebase --abort || true
+                exit 1
+              fi
+              if git push origin HEAD:rev13-manual-official-websites-first13-20261122; then
+                echo REV13_INJECT_PUBLISHED_TO_FEATURE_BRANCH
+                exit 0
+              fi
+              sleep $((n*2))
+            done
+            exit 1
+          fi
