@@ -120,7 +120,7 @@ if(process.argv.includes("--browser")){
   await send("Page.navigate",{url:"http://127.0.0.1:"+server.address().port+"/medical-intelligence/hospitals/"});
   let legacyState;
   for(let i=0;i<140;i++){
-    legacyState=await evalJS('(()=>({status:window.__legacyOfficialWebsites||null,rows:document.querySelectorAll("tr[data-text]").length,links:document.querySelectorAll("tr[data-text] td:nth-child(3) a[data-navi-web]").length,legend:!!document.querySelector(".rev12-hospital-site-legend"),width:document.documentElement.scrollWidth,view:innerWidth}))()');
+    legacyState=await evalJS('(()=>({status:window.__legacyOfficialWebsites||null,rows:document.querySelectorAll("tr[data-text]").length,links:document.querySelectorAll("tr[data-text] td:nth-child(3) a[data-navi-web]").length,legend:!!document.querySelector(".rev12-hospital-site-legend"),width:document.documentElement?.scrollWidth||0,view:innerWidth}))()');
     if(legacyState.status?.state==="ready"||legacyState.status?.state==="error")break;
     await sleep(250);
   }
