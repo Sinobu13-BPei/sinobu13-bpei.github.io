@@ -1,0 +1,31 @@
+{
+  "stage": "rev12-remaining-hospital-web-review-v1",
+  "official_source_as_of": "2026-06-01",
+  "official_source_sha256": "b416472ec52a151455e1c91438e0dec5b471e19eafe70e3e2ee1bb22544efe87",
+  "legacy_original_rows": 8019,
+  "linked_exact_match_rows": 3098,
+  "unlinked_review_queue_rows": 4921,
+  "remaining_match_status": {
+    "要確認": 3435,
+    "未一致": 1131,
+    "確定一致": 355
+  },
+  "pending_with_syntactically_valid_source_url": 3037,
+  "review_by_bucket": {
+    "住所一致・名称差あり（別施設リスク確認）": 2173,
+    "名称一致・住所差あり（移転・同一施設確認）": 1199,
+    "公式スナップショット未一致（閉院とは限らない）": 1131,
+    "URL形式不備（http・https候補の安全確認）": 198,
+    "医療情報ネットにURL未記載": 99,
+    "名称住所の類似候補（原典照合）": 53,
+    "複数病院で同一URL（個別ページ確認）": 46,
+    "候補複数（原典照合）": 10,
+    "ID競合・名称差あり（施設同一性確認）": 8,
+    "ホスト形式不備": 4
+  },
+  "source_row_no_unique_bridge": true,
+  "review_candidate_urls_not_clickable": true,
+  "not_assumed_closed": true,
+  "verified_official_website_live_or_ownership": false,
+  "note": "Public reported homepage fields are candidates only until hospital identity and current domain ownership are reviewed."
+}
