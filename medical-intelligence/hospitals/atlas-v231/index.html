@@ -1033,7 +1033,7 @@ RENDER.market = q => {
       ${isDev ? `<div class="card"><h2>${ic('target')} 供給 × 稼働マトリクス</h2><p class="sub">横＝装置台数／人口10万人、縦＝1台当たり算定回数。破線＝全国値。点をタップで地域カルテへ。</p>
         ${scatter(D.prefs.map(p => ({n: p.n, x: p.m[mod][2] / p.pop * 1e5, y: p.m[mod][2] ? p.m[mod][0] / p.m[mod][2] : 0, go: href('region', {c: p.c}), lab: true, r: 4 + Math.sqrt(p.pop / 1e6) * 2.2, c: p.m[mod][2] / p.pop * 1e5 > n[2] / D.nat.pop * 1e5 ? '#1c4377' : '#0b8f8a'})), {xl: '台数／10万人', yl: '1台当たり回数', ax: n[2] / D.nat.pop * 1e5, ay: n[0] / n[2]})}</div>` : ''}
       ${mod === '超音波' ? `<div class="card"><h2>${ic('us')} 超音波（D215）部位別の全国構成</h2>${donut(Object.entries(us).map(([k, v], i) => ({n: k.replace('D215', ''), v, c: ['#0b8f8a', '#ee7d1b', '#1c4377', '#6a56c8', '#2f8f4e', '#9aa8b8'][i]})), {center: 'D215', total: fmtK(Object.values(us).reduce((s, v) => s + v, 0))})}</div>` : ''}
-      ${Object.keys(mk).length ? `<div class="card"><h2>${ic('layers')} ${esc(mod)} メーカー構成（施設DB・全国）</h2><p class="sub">現存施設の掲載台数。キヤノン＝CMSC。</p>${stack(Object.entries(mk).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({n: makerName(k), v, c: makerCol(k)})))}</div>` : ''}
+      ${Object.keys(mk).length ? `<div class="card"><h2>${ic('layers')} ${esc(mod)} メーカー構成（施設DB・全国）</h2><p class="sub">現存施設の掲載台数。メーカー名は「キヤノン」と表示。</p>${stack(Object.entries(mk).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({n: makerName(k), v, c: makerCol(k)})))}</div>` : ''}
       <div class="card"><h2>${ic('map')} 地図で見る</h2><div class="mapbox" id="mkMap"></div><div id="mkLeg"></div></div>
     </div>
   </div>

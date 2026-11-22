@@ -902,7 +902,7 @@ $('#roiForm').addEventListener('input',drawROI);$('#roiForm').addEventListener('
 document.querySelectorAll('.cl-card').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.search;['ag','ty','tg','st'].forEach(g=>F[g].clear());F.c=0;document.querySelectorAll('.filters .fchip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.v==='0'?'true':'false'));F.q=k;$('#q').value=k;apply();$('#db').scrollIntoView({behavior:'smooth'});}));
 function csvCell(v){return '"'+String(v==null?'':v).replace(/"/g,'""')+'"';}
 $('#downloadCsv').addEventListener('click',()=>{
- const headers=['制度','所管','詳細所管','支援形態','受け手','上限（文字）','補助率','募集状況（参考）','期日','時期','次回','CMSC関連度','医療用途・注意点','出典URL'];
+ const headers=['制度','所管','詳細所管','支援形態','受け手','上限（文字）','補助率','募集状況（参考）','期日','時期','次回','キヤノン関連度','医療用途・注意点','出典URL'];
  const rows=filtered().map(d=>[d.n,d.ag,d.sub,d.ty,d.tg.join('・'),d.amtT,d.rate,d.st,d.dl||'',d.per,d.next||'',d.c,d.cn,d.u]);
  const csv='\uFEFF'+[headers,...rows].map(row=>row.map(csvCell).join(',')).join('\r\n');
  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='medical-ai-grants-2026-filtered.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
