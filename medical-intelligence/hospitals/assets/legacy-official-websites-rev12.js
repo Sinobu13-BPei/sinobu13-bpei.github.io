@@ -69,12 +69,14 @@ function initialize(map){
  // Use the immutable source record, NEVER the decorated cell's textContent,
  // which also contains "Map", evidence badges and link labels.
  const sourceRows=new WeakMap(),seen=new Set();
- for(const x of source){
-  if(!x||!x.row||!Array.isArray(x.cells)||x.cells.length<7)throw Error("元の病院行データ形式が変更されています");
-  const k=key(x.pref,x.cells[2],x.cells[3]),hit=map.get(k);
-  if(!hit)continue;
-  if(seen.has(k))throw Error("原票に同名・同住所のリンク対応候補が複数あります");
-  seen.add(k);
+ for(const [k,hit] of map){
+  const sourceIndex=Number(hit.row.source_row_no)-1;
+  const x=source[sourceIndex];
+  if(!x||!x.row||!Array.isArray(x.cells)||x.cells.length<7||
+     key(x.pref,x.cells[2],x.cells[3])!==k)
+   throw Error("原票行番号と病院名・所在地の組み合わせが一致しません");
+  if(seen.has(x.row))throw Error("複数のWebリンクが同じ原票行を指しています");
+  seen.add(x.row);
   sourceRows.set(x.row,{...hit,originalName:x.cells[2]});
  }
  if(seen.size!==3098)throw Error("原票と確定URL3,098件の対応関係が崩れています");
