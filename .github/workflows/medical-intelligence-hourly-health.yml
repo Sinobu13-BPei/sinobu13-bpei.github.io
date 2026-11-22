@@ -62,6 +62,7 @@ jobs:
             medical-intelligence/hospitals/facility-master/index.html \
             medical-intelligence/hospitals/facility-master/identity-ui.js \
             medical-intelligence/hospitals/facility-master/official-website-links.js \
+            medical-intelligence/hospitals/facility-master/independently-reviewed-websites.js \
             medical-intelligence/hospitals/facility-master/official-websites.css \
             medical-intelligence/hospitals/facility-master/data/; then
             echo "Monitored HTML/JS/CSS/data unaffected by PR; verify published bytes and SHA-256."
