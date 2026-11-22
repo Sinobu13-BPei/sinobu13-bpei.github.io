@@ -119,8 +119,8 @@ if(process.argv.includes("--browser")){
   await send("Emulation.setDeviceMetricsOverride",{width:390,height:850,deviceScaleFactor:1,mobile:true});
   await send("Page.navigate",{url:"http://127.0.0.1:"+server.address().port+"/medical-intelligence/hospitals/"});
   let legacyState;
-  for(let i=0;i<140;i++){
-    legacyState=await evalJS('(()=>({status:window.__legacyOfficialWebsites||null,rows:document.querySelectorAll("tr[data-text]").length,links:document.querySelectorAll("tr[data-text] td:nth-child(3) a[data-navi-web]").length,legend:!!document.querySelector(".rev12-hospital-site-legend"),width:document.documentElement?.scrollWidth||0,view:innerWidth}))()');
+  for(let i=0;i<70;i++){
+    legacyState=await evalJS('(()=>({status:window.__legacyOfficialWebsites||null,rows:document.querySelectorAll("tr[data-text]").length,links:document.querySelectorAll("tr[data-text] td:nth-child(3) a[data-navi-web]").length,legend:!!document.querySelector(".rev12-hospital-site-legend"),sample:[...document.querySelectorAll("tr[data-text]")].slice(0,2).map(tr=>[...tr.cells].slice(0,6).map(td=>td.textContent.slice(0,80))),width:document.documentElement?.scrollWidth||0,view:innerWidth}))()');
     if(legacyState.status?.state==="error"||(legacyState.status?.state==="ready"&&legacyState.links>0))break;
     await sleep(250);
   }
