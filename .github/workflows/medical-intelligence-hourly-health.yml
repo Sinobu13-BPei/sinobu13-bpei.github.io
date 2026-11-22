@@ -1,0 +1,40 @@
+name: Medical Intelligence Hourly Health Check
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'medical-intelligence/hospitals/facility-master/**'
+      - '.github/workflows/medical-intelligence-hourly-health.yml'
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pandas
+        run: python -m pip install 'pandas>=2.2,<3'
+      - name: Check original 8019 hospitals and JavaScript syntax
+        run: node medical-intelligence/hospitals/qa-hospitals-rev6.mjs
+      - name: Check facility identity baseline against source
+        run: python medical-intelligence/hospitals/facility-master/build_master.py --check --report reports/master-qa.json
+      - name: Check local files and counts
+        run: python medical-intelligence/hospitals/facility-master/hourly_monitor.py --report reports/hourly-local.json
+      - name: Check actual public URLs
+        if: github.event_name != 'push'
+        run: python medical-intelligence/hospitals/facility-master/hourly_monitor.py --public --report reports/hourly-public.json
+      - name: Upload per-run QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: medical-intelligence-hourly-health
+          path: reports/*.json
+          retention-days: 30
+          if-no-files-found: warn
