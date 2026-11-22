@@ -80,5 +80,5 @@ if(process.argv.includes("--browser")){
     await evalJS('document.querySelector("#im-clear").click()');
     console.log("STAGE1 BROWSER QA PASS",width,JSON.stringify(state),JSON.stringify(matchState));
   }
- }finally{ws?.close();browser.kill("SIGTERM");server.close();rmSync(profile,{recursive:true,force:true})}
+ }finally{ws?.close();browser.kill("SIGTERM");await new Promise(done=>{if(browser.exitCode!==null)return done();browser.once("exit",done);setTimeout(done,1500)});server.close();rmSync(profile,{recursive:true,force:true,maxRetries:10,retryDelay:200})}
 }
