@@ -21,6 +21,11 @@ jobs:
           python-version: '3.12'
       - name: Install pandas
         run: python -m pip install 'pandas>=2.2,<3'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate facility master UI including Chrome at desktop and mobile widths
+        run: node medical-intelligence/hospitals/facility-master/qa-ui.mjs --browser
       - name: Check original 8019 hospitals and JavaScript syntax
         run: node medical-intelligence/hospitals/qa-hospitals-rev6.mjs
       - name: Check facility identity baseline against source
