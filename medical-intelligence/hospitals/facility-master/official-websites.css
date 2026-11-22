@@ -1,0 +1,6 @@
+/* Navi-reported facility website affordance; compact on iPhone. */
+.official-site-name-link{color:#075f88;text-decoration:underline;text-underline-offset:3px;font-weight:700;overflow-wrap:anywhere}
+.official-site-name-link::after{content:" ↗";font-weight:600;white-space:nowrap}
+.official-site-name-link:hover,.official-site-name-link:focus-visible{color:#064d6d;background:#e7f6fa;outline-offset:3px}
+#official-site-summary{margin:6px 0 0;font-size:13px;line-height:1.6;color:#405a6a}
+@media(max-width:700px){#official-site-summary{font-size:12px}.official-site-name-link{line-height:1.6}}

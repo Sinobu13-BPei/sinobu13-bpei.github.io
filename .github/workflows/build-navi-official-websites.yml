@@ -1,0 +1,81 @@
+name: Build Navi-reported hospital website links (source-pinned)
+on:
+  push:
+    branches: [rev11-official-website-links-20261122]
+    paths:
+      - 'medical-intelligence/hospitals/facility-master/build_official_websites.py'
+      - '.github/workflows/build-navi-official-websites.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: navi-websites-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install source processing dependencies
+        run: python -m pip install 'pandas>=2.2,<3' 'rapidfuzz>=3.0,<4'
+      - name: Read official SHA-256-pinned 2026-06-01 facility ZIP and build link overlay
+        run: python medical-intelligence/hospitals/facility-master/build_official_websites.py
+      - name: Verify output and prevent ambiguous links
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import pandas as pd
+          d=Path('medical-intelligence/hospitals/facility-master/data')
+          s=pd.read_csv(d/'official-websites-navi-20260601.csv',dtype=str,keep_default_na=False,encoding='utf-8-sig')
+          r=json.loads((d/'official-websites-audit-20260601.json').read_text(encoding='utf-8'))
+          assert len(s)==r['website_rows_published'] and len(s)>=1000
+          assert s.facility_uid.is_unique and s.navi_facility_id_confirmed.is_unique
+          assert r['confirmed_identity_rows_unchanged']==3453
+          assert r['original_hospital_records_preserved']==8019
+          assert r['unmatched_and_review_rows_not_linked']
+          print('NAVI_OFFICIAL_SITE_EXPORT_PASS',len(s),r['excluded'])
+          PY
+      - name: Safely commit only the new derived website overlay to this feature branch
+        if: github.ref_name == 'rev11-official-website-links-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add medical-intelligence/hospitals/facility-master/data/official-websites-navi-20260601.csv
+          git add medical-intelligence/hospitals/facility-master/data/official-websites-audit-20260601.json
+          if git diff --cached --quiet; then
+            echo 'NO_DATA_DELTA'
+          else
+            git commit -m "Rev.11: add source-pinned Navi hospital homepage overlay"
+            for attempt in 1 2 3; do
+              git fetch origin rev11-official-website-links-20261122
+              if ! git rebase origin/rev11-official-website-links-20261122; then
+                echo "::error::Rebase conflict; do not force push"
+                git rebase --abort || true
+                exit 1
+              fi
+              if git push origin HEAD:rev11-official-website-links-20261122; then
+                echo "Published overlay on feature branch"
+                exit 0
+              fi
+              sleep $((attempt*2))
+            done
+            echo "::error::Could not push overlay safely"
+            exit 1
+          fi
+      - name: Store website build evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-pinned-hospital-official-website-overlay
+          path: |
+            medical-intelligence/hospitals/facility-master/data/official-websites-navi-20260601.csv
+            medical-intelligence/hospitals/facility-master/data/official-websites-audit-20260601.json
+          retention-days: 30
+          if-no-files-found: warn

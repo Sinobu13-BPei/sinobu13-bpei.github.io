@@ -25,6 +25,8 @@ PAGES = (
 )
 ASSETS = (
     REL + "identity-ui.js",
+    REL + "official-website-links.js",
+    REL + "official-websites.css",
     REL + "data/legacy-hospitals-20261122.csv",
     REL + "data/quality-baseline.json",
     REL + "data/identity-summary-20260601.json",
@@ -37,6 +39,8 @@ ASSETS = (
     REL + "data/identity-confirmed-caution-20260601.csv",
     REL + "data/identity-unmatched-triage-20260601.csv",
     REL + "data/identity-crosswalk.csv",
+    REL + "data/official-websites-navi-20260601.csv",
+    REL + "data/official-websites-audit-20260601.json",
 )
 FILES = PAGES + ASSETS
 

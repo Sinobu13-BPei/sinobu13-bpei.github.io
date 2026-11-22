@@ -1,0 +1,22 @@
+{
+  "stage": "facility-website-overlay-v1",
+  "source_data_as_of": "2026-06-01",
+  "source_zip_sha256": "b416472ec52a151455e1c91438e0dec5b471e19eafe70e3e2ee1bb22544efe87",
+  "source_url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/newpage_43373.html",
+  "source_homepage_column": "案内用ホームページアドレス",
+  "official_records": 7715,
+  "official_homepages_nonblank": 7425,
+  "original_hospital_records_preserved": 8019,
+  "confirmed_identity_rows_unchanged": 3453,
+  "website_rows_published": 3098,
+  "excluded": {
+    "empty": 99,
+    "identity_caution_or_conflict": 8,
+    "invalid_host": 4,
+    "invalid_scheme": 198,
+    "shared_url_manual_review": 46
+  },
+  "verification_level": "Navi published address and exact hospital identity; destination ownership/live status NOT independently verified",
+  "unmatched_and_review_rows_not_linked": true,
+  "site_urls_not_copied_into_legacy_master": true
+}
