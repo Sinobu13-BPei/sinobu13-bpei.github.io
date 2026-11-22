@@ -1,0 +1,43 @@
+{
+  "audit_version": "stage1b-risk-audit-v1",
+  "checked_at_utc": "2026-11-22T03:02:32.461743+00:00",
+  "original_legacy_records": 8019,
+  "official_navi_records": 7715,
+  "match_counts": {
+    "confirmed": 3453,
+    "review": 3435,
+    "unmatched": 1131
+  },
+  "source_as_of": "2026-06-01",
+  "source_zip_sha256": "b416472ec52a151455e1c91438e0dec5b471e19eafe70e3e2ee1bb22544efe87",
+  "source_reference": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/newpage_43373.html",
+  "hard_checks_passed": true,
+  "confirmed_duplicate_navi_ids": 0,
+  "confirmed_id_length_distribution": {
+    "13": 3064,
+    "12": 125,
+    "10": 109,
+    "9": 59,
+    "8": 46,
+    "11": 33,
+    "5": 15,
+    "6": 1,
+    "7": 1
+  },
+  "confirmed_ids_containing_letters": 99,
+  "confirmed_with_no_evidence": 0,
+  "review_method_breakdown": {
+    "県・住所完全一致": 2173,
+    "県・名称完全一致": 1199,
+    "県内名称・住所類似": 53,
+    "複数候補": 10
+  },
+  "candidate_id_present": 3425,
+  "candidate_also_used_by_confirmed_rows": 3,
+  "candidate_shared_by_multiple_review_rows": 4,
+  "confirmed_raw_name_similarity_below_70pct": 5,
+  "confirmed_raw_address_similarity_below_65pct": 3203,
+  "confirmed_flags_requiring_human_review": 3203,
+  "triage_rows": 3435,
+  "note": "Candidate conflicts and unstandardized raw-string differences are review indicators, not proof of wrong matching. No status was changed."
+}
