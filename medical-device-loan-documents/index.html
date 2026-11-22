@@ -998,3 +998,580 @@ function bindLinks(){
   $("f4Link").addEventListener("change",()=>{ document.body.classList.toggle("unlinked",!linkOn()); if(linkOn()) syncLinksAll(); syncAuto(); refresh(); });
 }
 function syncLinksAll(){ if(!linkOn())return; LINKS.forEach(([a,b])=>{ if($(a).value) $(b).value=$(a).value; else if($(b).value) $(a).value=$(b).value; }); syncSel("deptH"); syncSel("f4DeptH"); }
+
+/* ========== 拠点（支社・支店） ========== */
+function fillBranches(){
+  const k=$("company").value, sel=$("branch"), list=BRANCHES[k];
+  if(!list){ sel.innerHTML= k? `<option value="">（拠点未登録の会社：右欄に直接入力）</option>` : `<option value="">（先に会社を選択）</option>`; sel.disabled=true;
+    $("branchNote").textContent = k? "この会社は拠点マスタ未登録です（登録済み：キヤノンメディカルシステムズ／日本光電／コニカミノルタジャパン／オリンパスマーケティング）。住所・電話番号は直接入力してください。":""; return; }
+  sel.disabled=false;
+  const groups=[...new Set(list.map(r=>r[0]))];
+  sel.innerHTML=`<option value="">拠点を選択</option>`+groups.map(g=>`<optgroup label="${esc(g)}">`+list.map((r,i)=>r[0]===g?`<option value="${i}">${esc(r[1])}${r[3]?"":"（住所未登録）"}</option>`:"").join("")+`</optgroup>`).join("")+`<option value="free">（一覧にない：直接入力）</option>`;
+  $("branchNote").textContent = k==="kmj" ? "拠点の住所は同社公式「販売拠点一覧」（2026年11月確認）より。電話・FAXは各地域の業務センター総合受付です。選択後も編集できます。" : "拠点の住所・電話番号は各社公式サイト（2026年11月確認）より。選択後も編集できます。";
+}
+function applyBranch(){
+  const k=$("company").value, v=$("branch").value, list=BRANCHES[k];
+  if(!list||v===""||v==="free"){ if(v==="free") $("dept").focus(); refresh(); return; }
+  const [g,name,zip,addr,tel,fax]=list[+v];
+  $("dept").value=name; $("lenderZip").value=zip; $("lenderAddr").value=addr; $("staffTel").value=tel; $("staffFax").value=fax;
+  syncAuto(); refresh();
+}
+
+/* ========== 自動入力 ========== */
+let autoFlags = {};
+function setAuto(id,val){ const el=$(id); if(!el) return; if(!el.value || autoFlags[id]===el.value){ el.value=val; autoFlags[id]=val; } }
+function syncAuto(){
+  const s=collect();
+  if($("f4Link").checked){ const dv=s.items.map(i=>i.name).filter(Boolean).join("、"); if(document.activeElement!==$("f4Device")) $("f4Device").value=dv; }
+  setAuto("trDelPlace", [s.hosp, s.place].filter(Boolean).join(" "));
+  setAuto("trDelDate", s.dStart); setAuto("trRetDate", s.dEnd);
+  if(s.purpose==="trial"){ const c=document.querySelector('#f4Purpose input[value="4"]'); if(c && !c.dataset.touched){ c.checked=true; } }
+}
+
+/* ========== 収集 ========== */
+function val(id){ const e=$(id); return e? (e.type==="checkbox"? e.checked : e.value.trim()) : ""; }
+function collect(){
+  const items=[...document.querySelectorAll("#itemsTbl tr.item")].map(tr=>{
+    const m=tr.querySelector(".i-mod").value;
+    return { mod: tr.querySelector(".i-modfree").value.trim(),
+             gen: tr.querySelector(".i-gen").value,
+             name: tr.querySelector(".i-name").value.trim(),
+             sn: tr.querySelector(".i-sn").value.trim(),
+             qty: tr.querySelector(".i-qty").value.trim() };
+  });
+  const pr=document.querySelector('input[name="purpose"]:checked');
+  const costs=COSTS.map((c,i)=>{const r=document.querySelector(`input[name="cost${i}"]:checked`);return r?r.value:"";});
+  const f4p=[...document.querySelectorAll('input[name="f4p"]:checked')].map(x=>+x.value);
+  const recs=[0,1,2,3].map(i=>({d:val(`rec${i}d`),s:val(`rec${i}s`),e:val(`rec${i}e`),n:val(`rec${i}n`)}));
+  const ids=["company","companyName","branch","lenderZip","staffFax","dept","staff","staffTel","lenderAddr","dealer","hosp","deptH","hospType","hospAddr","hospZip","mgrTitle","mgrName","hospContact","user","place","acc","purposeOther","docDate","dStart","dEnd","cases","dReturn","budget","owned","repeat","costOther",
+    "useF4","f4Link","f4Hosp","f4DeptH","f4Zip","f4Addr","f4Mgr","f4Device","f4Proc","f4Count","f4From","f4To","f4Biz","f4IC","f4Rule","useTr","trCarrier","trCarrierTel","trDir","trPickDate","trPickTime","trPickPlace","trPickTel","trDelDate","trDelTime","trDelPlace","trDelTel","trRetDate","trPkgs","trWeight","trSize","trInstall","trIns","trPay","trNote","ctrlNo","approver","deal","memo","cEcg","cDicom","cPrinter","cMonitor","cMedia","cWifi","cUps","cFoot","cCart","ecgDetail","prnDetail","dcWay","dcHospIT","dcVendor","dcLocal","dcRemote","dcApprDate","dcTestDate","dcErase"];
+  const o={}; ids.forEach(i=>o[i]=val(i));
+  o.items=items; o.purpose=pr?pr.value:""; o.costs=costs; o.f4p=f4p; o.recs=recs;
+  o.trc=[...document.querySelectorAll('input[name="trc"]:checked')].map(x=>x.value);
+  o.chk=[...document.querySelectorAll('input[name="chk"]:checked')].map(x=>+x.value);
+  o.dcTo=[...document.querySelectorAll('input[name="dcTo"]:checked')].map(x=>x.value);
+  o.dcChk=[...document.querySelectorAll('input[name="dcChk"]:checked')].map(x=>+x.value);
+  o.comps=COMPS.filter(c=>o[c[0]]).map(c=>c[1]);
+  if(!o.ctrlNo){ o.ctrlNoAuto = "LN-"+(o.docDate||today()).replace(/-/g,"")+"-"+(o.hosp? hash(o.hosp+o.dStart):"0000"); }
+  return o;
+}
+function hash(s){let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;return String(h%10000).padStart(4,"0");}
+
+/* ========== 必須表示・進捗 ========== */
+function refreshReq(){
+  const f4on=$("useF4").checked, tron=$("useTr").checked;
+  $("f4body").classList.toggle("disabled-sec",!f4on);
+  $("trbody").classList.toggle("disabled-sec",!tron);
+  let total=0,done=0;
+  document.querySelectorAll(".req").forEach(el=>{
+    const off=(el.classList.contains("f4req")&&!f4on)||(el.classList.contains("trreq")&&!tron)||el.offsetParent===null&&!el.closest("tr.item");
+    el.classList.remove("is-empty","is-filled");
+    if(off) return;
+    const filled = el.value.trim()!=="";
+    el.classList.add(filled?"is-filled":"is-empty"); total++; if(filled) done++;
+  });
+  document.querySelectorAll(".req-group").forEach(g=>{
+    g.classList.remove("is-empty","is-filled");
+    if(g.classList.contains("f4grp")&&!f4on) return;
+    if(g.offsetParent===null && g.tagName!=="TR") return;
+    const any=g.querySelector("input:checked");
+    g.classList.add(any?"is-filled":"is-empty"); total++; if(any) done++;
+    if(g.tagName==="TR"){ g.querySelectorAll("td").forEach(td=>td.style.background= any?"var(--ok-bg)":"var(--req-bg)"); }
+  });
+  const pct= total?Math.round(done/total*100):0;
+  $("pbar").style.width=pct+"%"; $("ptext").textContent=`必須 ${done} / ${total} 項目 入力済み（${pct}%）`;
+  return {total,done};
+}
+
+/* ========== 判定 ========== */
+function judge(s){
+  const out=[]; const P=PURPOSES.find(p=>p.k===s.purpose);
+  if(!P){ out.push(["info","貸出目的を選択すると、基準上の上限期間と注意点を表示します。"]); }
+  else{
+    out.push(["info",`目的「${P.short||P.t}」の上限：${P.note}`]);
+    if(s.dStart&&s.dEnd){
+      if(s.dEnd<s.dStart) out.push(["ng","終了日が開始日より前になっています。"]);
+      else if(P.lim){ const lim=addMonths(s.dStart,P.lim); const end=new Date(s.dEnd+"T00:00:00");
+        if(end>lim) out.push(["ng",`貸出期間が上限（${P.lim}か月）を超えています。上限日：${lim.getFullYear()}/${lim.getMonth()+1}/${lim.getDate()}`]);
+        else out.push(["ok","貸出期間は目的別の上限内です。目的を達した時点で期間内でも返却します。"]); }
+    }
+    if(s.purpose==="other") out.push(["warn","「その他」目的は、都度、公取協へ事前相談が必要です。"]);
+    if(s.purpose==="acc") out.push(["warn","無償代替機は「保証事項の故障」または「法規対応（不具合・回収）」に限ります。事業者に責任のない故障や保証期間後は原則有償です。"]);
+    if(s.purpose==="train") out.push(["warn","医療機関や医療担当者個人が自ら企画する研修・勉強会への貸出しは制限されます（公益目的団体の研修に限る）。"]);
+    if(s.purpose==="res") out.push(["warn","研究目的は契約書（委託・共同研究）を締結。治験該当性、臨床研究法・透明性GLの扱いを確認してください。"]);
+  }
+  if(s.budget==="none" && !["demo","trial","emer","acc","delay"].includes(s.purpose) && s.purpose) out.push(["ng","予算未計上段階での貸出しは「費用の肩代わり」として制限されます（デモ・試用の範囲内を除く）。"]);
+  if(s.budget==="contracted" && s.purpose && s.purpose!=="delay") out.push(["warn","売買契約済みの場合、使える目的は原則「納期遅延対応」（契約品の納入まで）です。"]);
+  if(s.owned==="yes" && !["acc","emer"].includes(s.purpose)) out.push(["ng","既に購入・使用している同一機器（同カタログ番号）の貸出しは制限されます（事故・故障、緊急時を除く）。"]);
+  if(s.repeat==="yes") out.push(["ng","同一医療機関の同一診療科へ同一機器を繰り返し貸し出すことは制限されます。"]);
+  const lenderCost=s.costs.filter(c=>c==="lender").length;
+  if(lenderCost>=4) out.push(["warn","費用の大半が貸出元負担です。「費用の肩代わり」と見られないか確認してください。"]);
+  if(/国立|公立/.test(s.hospType)) out.push(["warn","国公立：職員個人への無償貸付は倫理規程上できません。機関名義（病院長決裁・使用貸借契約）で手続きします。"]);
+  if(s.cDicom){
+    const miss=DCCHK.filter((t,i)=>!s.dcChk.includes(i));
+    if(!s.dcApprDate || !s.dcChk.includes(0)) out.push(["ng","DICOM接続：病院情報システム部門の承認（承認日・承認の記録）が確認できていません。承認前に院内ネットワークへ接続しないでください。"]);
+    if(!s.dcTo.length||!s.dcWay||!s.dcHospIT||!s.dcTestDate||!s.dcErase) out.push(["warn","DICOM接続：接続先・方式・病院側担当・テスト日・返却時のデータ消去方法を入力してください。"]);
+    if(miss.length) out.push(["warn","DICOM接続：未確認の項目 → "+miss.join("、")]);
+    else if(s.dcApprDate&&s.dcTo.length) out.push(["ok","DICOM接続：確認項目はすべてチェック済みです（接続先："+s.dcTo.join("・")+"）。"]);
+  }
+  if(s.cEcg) out.push(["info","心電図：ECG同期・生体モニタ連携は、患者装着部の電気的安全（漏れ電流）と併用機器の添付文書を確認してください。"]);
+  if(s.cPrinter) out.push(["info","プリンター類：感熱紙・インク等の消耗品の費用負担を様式3の「4．消耗品等」に反映してください。"]);
+  // モダリティ別
+  const mods=s.items.map(i=>(i.mod||"")+" "+(i.name||"")).join(" ");
+  if(/\bCT\b|CT$|PET-CT|PET\/CT|X線|アンギオ|血管撮影|透視|回診|マンモ|Cアーム|DR|Aero|Radrex|Mobirex|Zexira|Astorex|Ultimax|Alphenix|Aquilion|Revolution|Photonova|OEC|Definium|AMX|Allia|Senographe|Cartesion|Omni Legend|Discovery CT|Optima CT/.test(mods)) out.push(["info","X線装置：臨床使用する場合、病院の管理者が備付後10日以内に保健所へ備付届、撤去後10日以内に廃止届を出します（医療法施行規則24条の2等）。書類準備を支援してください。"]);
+  if(/MRI|Vantage|SIGNA|Discovery MR|Optima MR/.test(mods)) out.push(["info","MRI：電波法100条の高周波利用設備の許可（設置前）・磁場管理が必要です。貸出しデモは現実的でないため、見学・画像評価での代替を検討してください。"]);
+  if(/内視鏡|EVIS|GIF-|CF-|BF-|EU-ME|VISERA|CYF|ENDOEYE/.test(mods)) out.push(["info","内視鏡：貸出前・返却後の洗浄・消毒・滅菌（再生処理）の記録と、誰が再処理するかを確認書に明記してください。"]);
+  if(/テレメータ|送信機|セントラルモニタ|CNS-/.test(mods)) out.push(["info","医用テレメータ：院内の既設チャネルとの干渉を事前に確認してください。"]);
+  if(!s.cDicom && /超音波|\bCT\b|CT$|MRI|内視鏡|モニタ|ワークステーション|Vitrea|CS-7|DR|PET|Aplio|Aquilion|Vantage|SONIMAGE|LOGIQ|Vivid|Voluson|EVIS|ライフスコープ/.test(mods)) out.push(["info","返却時に装置内の患者データ（画像・氏名・ID）を消去し、消去記録を取得してください。院内ネットワークへ接続する場合は「DICOM接続」にチェックして確認してください。"]);
+  if(s.items.some(i=>i.gen==="prev")) out.push(["info","一世代前の機種（中古品扱いになり得る）の貸出しでは、製造販売業者への中古品事前通知（または包括取り決め）を確認してください（薬機法施行規則170条）。"]);
+  if(!out.some(x=>x[0]==="ng") && P) out.push(["ok","基準上の重大な制限事由は検出されていません。様式3の確認書を受領してから貸し出してください。"]);
+  return out;
+}
+
+/* ========== 帳票HTML ========== */
+const ck = b => `<span class="bx">${b?"✓":""}</span>`;
+function itemRows(s,n){ const rows=[]; for(let i=0;i<n;i++){ const it=s.items[i]; rows.push(it&&it.name? it : null);} return rows; }
+function periodStr(s){ return (s.dStart||s.dEnd)? `${sdate(s.dStart)} ～ ${sdate(s.dEnd)}`:""; }
+function renderF3(s){
+  const P=s.purpose; const user=[s.user,s.place].filter(Boolean).join(" ／ ");
+  const ct=compText(s); let used=false;
+  const rows=itemRows(s,5).map((it,i)=>{ if(!it && ct && !used){ used=true; return `<tr><td colspan="5" style="font-size:8.6pt">付属品・構成品：${esc(ct)}</td></tr>`; } return `<tr><td>${it?esc(it.name)+(s.companyName?`<br><span style="font-size:8.5pt">${esc(s.companyName)}${it.sn?"　S/N："+esc(it.sn):""}</span>`:""):""}</td><td style="text-align:center">${it?esc(it.qty):""}</td><td>${it&&i===0?esc(user):""}</td><td style="text-align:center">${it&&i===0?esc(periodStr(s)):""}</td><td style="text-align:center">${it&&i===0?esc(s.cases):""}</td></tr>`; }).join("");
+  const costRows=COSTS.map((c,i)=>`<div style="padding-left:6mm">${c.replace("．","．&nbsp;")}${i===4&&s.costOther?`（${esc(s.costOther)}）`:""}</div><div class="mk">${s.costs[i]==="lender"?"○":""}</div><div class="mk">${s.costs[i]==="borrower"?"○":""}</div>`).join("");
+  const pb=(k,t)=>`<div>${ck(P===k)}${t}</div>`;
+  return `<div class="sheet land f3" data-f="f3">
+  <div style="font-size:10pt">（様式3）</div>
+  <div class="frame">
+    <div class="ttl">医療機器の貸出しに関する確認書</div>
+    <div class="date">${jdate(s.docDate)}</div>
+    <div class="parties">
+      <div><div><span class="k">貸出元</span>${esc(s.companyName)}</div><div style="margin-top:1mm"><span class="k">所在地</span><span style="font-size:9.5pt">${s.lenderZip?"〒"+esc(s.lenderZip)+" ":""}${esc(s.lenderAddr)}</span></div>${s.dept||s.staff?`<div style="font-size:9pt;margin-top:2mm">${esc(s.dept)}　${esc(s.staff)}</div>`:""}</div>
+      <div><div><span class="k">貸出先</span>${esc(s.hosp)}${s.deptH?"　"+esc(s.deptH):""}</div><div style="margin-top:2mm"><span class="k">所在地</span><span style="font-size:9.5pt">${s.hospZip?"〒"+esc(s.hospZip)+" ":""}${esc(s.hospAddr)}</span></div><div style="margin-top:2mm"><span class="k">管理責任者</span>${esc(s.mgrTitle)}</div><div style="margin-top:2mm;display:flex"><span class="k">氏　名</span><span style="flex:1">${esc(s.mgrName)}</span><span style="margin-right:20mm">印</span></div></div>
+      <div><span>返却確認日</span>　${jdate(s.dReturn)}</div>
+    </div>
+    <div class="purp">
+      <div>${ck(P==="demo")}デモ</div><div>${ck(P==="trial")}臨床試用（有効性・安全性、操作性等の確認）</div><div>${ck(P==="emer")}緊急時・災害時対応</div><div>${ck(P==="acc")}事故・故障対応</div>
+      <div>${ck(P==="train")}研修</div><div>${ck(P==="res")}研究目的・公益的研究活動</div><div>${ck(P==="delay")}納期遅延対応</div><div>${ck(P==="other")}その他${P==="other"&&s.purposeOther?`（${esc(s.purposeOther)}）`:""}</div>
+    </div>
+    <table class="items"><thead><tr><th style="width:30%">品名・メーカー名・規格形式</th><th style="width:9%">数　量</th><th style="width:21%">使用者名／設置場所</th><th style="width:22%">期　　間</th><th>症例数</th></tr></thead><tbody>${rows}</tbody></table>
+    <div class="cost"><div>●貸出期間中の費用負担：</div><div class="hd">貸出元負担</div><div class="hd">貸出先負担</div>${costRows}</div>
+    <div class="bottom"><div>●貸出期間が満了した当該医療機器は、速やかに貸出元に返却する。</div><div class="org">医療機器業公正取引協議会</div></div>
+  </div></div>`;
+}
+function renderF4(s){
+  const p=i=>`<div>${ck(s.f4p.includes(i))}${esc(F4P[i])}</div>`;
+  const recs=s.recs.map(r=>`<tr><td>・実施日：<span class="ul" style="min-width:32mm">${r.d?jdate(r.d):"　　年　　月　　日"}</span></td><td>実施時間：<span class="ul" style="min-width:30mm">${esc(r.s)}　～　${esc(r.e)}</span></td><td>担当者名：<span class="ul" style="min-width:34mm">${esc(r.n)}</span></td></tr>`).join("");
+  return `<div class="sheet port f4" data-f="f4">
+  <div style="text-align:right;font-size:10pt">（様式４）</div>
+  <div class="ttl">立会い実施確認書</div>
+  <div class="secl">■ 医療機関等記入欄</div>
+  <div class="box">
+    <div class="row" style="display:grid;grid-template-columns:1fr 1fr;gap:4mm"><div>１．対象医療機器名：${esc(s.f4Device)}</div><div>２．手技名：${esc(s.f4Proc)}</div></div>
+    <div class="row">３．立会い目的<span style="font-size:8.5pt">（下記の該当する立会いについて、□内にチェックをお願いいたします。）</span>
+      <div class="two">${p(0)}${p(1)}${p(2)}${p(3)}${p(4)}${p(5)}${p(6)}${p(7)}</div><div style="margin-top:1mm">${p(8)}</div></div>
+    <div class="row">４．回数及び予定期間：　<span class="ul" style="min-width:12mm;text-align:center">${esc(s.f4Count)}</span> 回　　${jdate(s.f4From)}から　${jdate(s.f4To)}まで</div>
+    <div class="row">５．事業者が立会いを行うことの患者へのインフォームドコンセントの実施：　${ck(s.f4IC)}確認済</div>
+    <div style="padding:3mm 0 1mm 52mm;line-height:2.1">
+      <div>${jdate(s.docDate)}</div>
+      <div>医療機関名：<span class="ul" style="min-width:80mm">${esc(s.f4Hosp)}</span></div>
+      <div>診療科名：<span class="ul" style="min-width:83mm">${esc(s.f4DeptH)}</span></div>
+      <div>住　　所：<span class="ul" style="min-width:84mm;font-size:9pt">${s.f4Zip?"〒"+esc(s.f4Zip)+" ":""}${esc(s.f4Addr)}</span></div>
+      <div>管理責任者名：<span class="ul" style="min-width:58mm">${esc(s.f4Mgr)}</span><span style="font-size:8.5pt">（記名捺印又は署名）</span></div>
+    </div>
+  </div>
+  <div class="secl" style="margin-top:4mm">■ 事業者記入欄</div>
+  <div class="box">
+    <div class="row">１．院内規則の遵守　　${ck(s.f4Rule)}弊社及び弊社担当者は、貴院の院内規則を遵守いたします。</div>
+    <div class="row">２．立会い実施日、実施時間、実施担当者の記録<table class="rec" style="margin-top:1mm">${recs}</table>
+      <div style="text-align:right;margin-top:2mm">実施事業者名：<span class="ul" style="min-width:70mm">${esc(s.f4Biz)}</span></div></div>
+  </div>
+  <div style="margin-top:5mm;text-align:center;font-size:10pt">立会い終了時の担当医師による記名捺印又は署名：<span style="display:inline-block;border:1px solid #000;width:45mm;height:9mm;vertical-align:middle"></span></div>
+  <div style="position:absolute;right:14mm;bottom:12mm;font-family:'Yu Gothic','Meiryo',sans-serif;font-weight:700;font-size:12pt">医療機器業公正取引協議会</div>
+  </div>`;
+}
+function kv(rows){ return `<table class="kv"><colgroup><col style="width:30mm"><col><col style="width:30mm"><col></colgroup>${rows.map(r=>r.length===2?`<tr><th>${r[0]}</th><td colspan="3">${r[1]}</td></tr>`:`<tr><th>${r[0]}</th><td>${r[1]}</td><th>${r[2]}</th><td>${r[3]}</td></tr>`).join("")}</table>`; }
+function itemList(s,withGen){ return s.items.filter(i=>i.name).map((i,n)=>`${n+1}. ${esc(i.name)}${i.mod?`［${esc(i.mod)}${withGen?"・"+(i.gen==="prev"?"一世代前":"現行"):""}］`:""}　数量：${esc(i.qty)}${i.sn?"　S/N："+esc(i.sn):""}`).join("<br>"); }
+function renderTR(s){
+  return `<div class="sheet port gen" data-f="tr">
+  <div class="meta"><span>管理番号：${esc(s.ctrlNo||s.ctrlNoAuto)}</span><span>依頼日：${jdate(s.docDate)}</span></div>
+  <div class="ttl">医療機器 輸送依頼書</div>
+  <div style="display:flex;justify-content:space-between;font-size:10pt;margin-bottom:3mm"><div>${esc(s.trCarrier)}　御中<br><span style="font-size:8.5pt">${esc(s.trCarrierTel)}</span></div>
+   <div style="text-align:right">依頼元：${esc(s.companyName)}<br>${esc(s.dept)}　${esc(s.staff)}<br><span style="font-size:8.5pt">TEL：${esc(s.staffTel)}${s.staffFax?"　FAX："+esc(s.staffFax):""}</span></div></div>
+  <div style="font-size:9.5pt;margin-bottom:2mm">下記のとおり医療機器の輸送をお願いいたします。精密医療機器のため、取扱いには十分ご注意ください。</div>
+  <div class="cap">輸送区分・品目</div>
+  ${kv([["輸送区分",esc(s.trDir),"貸出目的",esc((PURPOSES.find(p=>p.k===s.purpose)||{}).short||(PURPOSES.find(p=>p.k===s.purpose)||{}).t||"")],["品目",itemList(s)||"&nbsp;"],["付属品・構成品",esc(compText(s))||"&nbsp;"],["梱包数",esc(s.trPkgs),"総重量",s.trWeight?esc(s.trWeight)+" kg":""],["最大寸法",esc(s.trSize),"開梱・据付",esc(s.trInstall)]])}
+  <div class="cap">集荷</div>
+  ${kv([["集荷日時",`${jdate(s.trPickDate,"")} ${esc(s.trPickTime)}`,"担当・TEL",esc(s.trPickTel)],["集荷場所",esc(s.trPickPlace)||"&nbsp;"]])}
+  <div class="cap">搬入（お届け先）</div>
+  ${kv([["搬入日時",`${jdate(s.trDelDate,"")} ${esc(s.trDelTime)}`,"立会者・TEL",esc(s.trDelTel)],["搬入先",esc(s.trDelPlace)||"&nbsp;"],["所在地",(s.hospZip?"〒"+esc(s.hospZip)+" ":"")+esc(s.hospAddr)||"&nbsp;"],["病院窓口",esc(s.hospContact)||"&nbsp;"]])}
+  <div class="cap">返却（復路）</div>
+  ${kv([["返却集荷予定日",jdate(s.trRetDate,""),"返却先",esc(s.trPickPlace)]])}
+  <div class="cap">取扱い条件・費用</div>
+  ${kv([["取扱い条件",TRCOND.map(c=>ck(s.trc.includes(c))+esc(c)).join("　")],["運送保険",esc(s.trIns),"運賃負担",esc(s.trPay)],["備考",(esc(s.trNote)||"&nbsp;").replace(/\n/g,"<br>")]])}
+  <div class="small" style="margin-top:3mm">※本機器は貸出元の所有物です（所有権表示あり）。破損・事故時は直ちに依頼元へ連絡してください。附帯作業（開梱・搬入・据付等）は本書に記載した範囲で依頼します。</div>
+  <div class="stamps"><div><span>依頼者</span><i></i></div><div><span>承認</span><i></i></div><div><span>受付（業者）</span><i></i></div></div>
+  </div>`;
+}
+function renderCT(s){
+  const P=PURPOSES.find(p=>p.k===s.purpose)||{};
+  const j=judge(s).filter(x=>x[0]==="ng"||x[0]==="warn");
+  const costs=COSTS.map((c,i)=>`${c.slice(2)}：${s.costs[i]==="lender"?"貸出元":s.costs[i]==="borrower"?"貸出先":"―"}`).join("／");
+  return `<div class="sheet port gen" data-f="ct">
+  <div class="meta"><span>管理番号：${esc(s.ctrlNo||s.ctrlNoAuto)}</span><span>作成日：${jdate(s.docDate)}</span></div>
+  <div class="ttl" style="letter-spacing:.1em">医療機器貸出し 控え書<span style="font-size:10pt;letter-spacing:0">（社内ファイル用）</span></div>
+  <div class="cap">貸出元・貸出先</div>
+  ${kv([["貸出元",esc(s.companyName),"支社・支店・部署／担当",`${esc(s.dept)} ${esc(s.staff)}`],["貸出元所在地",`${s.lenderZip?"〒"+esc(s.lenderZip)+" ":""}${esc(s.lenderAddr)}`,"TEL／FAX",`${esc(s.staffTel)}${s.staffFax?" ／ "+esc(s.staffFax):""}`],["経由販売店",esc(s.dealer)||"―","商談番号",esc(s.deal)||"―"],["貸出先",`${esc(s.hosp)} ${esc(s.deptH)}`,"設置主体",esc(s.hospType)||"―"],["所在地",(s.hospZip?"〒"+esc(s.hospZip)+" ":"")+esc(s.hospAddr)],["管理責任者",`${esc(s.mgrTitle)} ${esc(s.mgrName)}`,"病院窓口",esc(s.hospContact)],["使用者",esc(s.user),"設置場所",esc(s.place)]])}
+  <div class="cap">機器・目的・期間（様式3）</div>
+  ${kv([["機器",itemList(s,true)||"&nbsp;"],["付属品",esc(s.acc)||"―"],["目的",esc(P.t||"")+(s.purpose==="other"&&s.purposeOther?`（${esc(s.purposeOther)}）`:""),"基準上限",esc(P.note||"")],["貸出期間",esc(periodStr(s)),"症例数",esc(s.cases)],["予算状況",esc({planned:"計上済（契約前）",none:"未計上",na:"該当なし",contracted:"契約済"}[s.budget]||""),"返却確認日",jdate(s.dReturn,"未返却")],["既購入/反復",`同一機器既購入：${s.owned==="yes"?"あり":"なし"}／同一科過去貸出：${s.repeat==="yes"?"あり":"なし"}`],["費用負担",esc(costs)+(s.costOther?`<br>その他：${esc(s.costOther)}`:"")]])}
+  <div class="cap">付属品・構成品・接続</div>
+  ${kv([["付属品",esc(s.acc)||"―"],["構成",esc(s.comps.join("・"))||"―"],...(s.cEcg?[["心電図",esc(s.ecgDetail)||"未入力"]]:[]),...(s.cPrinter?[["プリンター類",esc(s.prnDetail)||"未入力"]]:[]),
+     ...(s.cDicom?[["DICOM接続先",esc(s.dcTo.join("・"))||"未選択","接続方式",esc(s.dcWay)||"未選択"],["病院側担当",esc(s.dcHospIT)||"未入力","PACS等",esc(s.dcVendor)||"―"],["装置側設定",esc(s.dcLocal)||"―","接続先設定",esc(s.dcRemote)||"―"],["承認日",sdate(s.dcApprDate)||"<b>未承認</b>","接続テスト",sdate(s.dcTestDate)||"未定"],["返却時消去",esc(s.dcErase)||"未選択"],["DICOM確認",DCCHK.map((t,i)=>ck(s.dcChk.includes(i))+esc(t)).join("　")]]:[])])}
+  <div class="cap">立会い（様式4）・輸送</div>
+  ${kv([["立会い",s.useF4?`${esc(s.f4Proc)}／${s.f4p.map(i=>esc(F4P[i])).join("、")||"目的未選択"}／${esc(s.f4Count)}回／${sdate(s.f4From)}～${sdate(s.f4To)}／IC確認：${s.f4IC?"済":"未"}`:"作成しない"],["実施記録",s.recs.filter(r=>r.d).map(r=>`${sdate(r.d)} ${esc(r.s)}-${esc(r.e)} ${esc(r.n)}`).join("<br>")||"―"],["輸送",s.useTr?`${esc(s.trCarrier)}／${esc(s.trDir)}／集荷 ${sdate(s.trPickDate)}・搬入 ${sdate(s.trDelDate)}・返却集荷 ${sdate(s.trRetDate)}／運賃：${esc(s.trPay)}`:"作成しない"]])}
+  <div class="cap">コンプライアンス確認</div>
+  <table class="kv"><tr><td><div class="chk2">${CHECKS.map((c,i)=>ck(s.chk.includes(i))+esc(c)).join("<br>")}</div></td></tr></table>
+  <div class="cap">自動チェックで検出された注意・制限事項</div>
+  <table class="kv"><tr><td style="font-size:8.6pt">${j.length? j.map(x=>(x[0]==="ng"?"【制限】":"【注意】")+esc(x[1])).join("<br>") : "なし"}</td></tr></table>
+  ${s.memo?`<div class="cap">社内メモ</div><table class="kv"><tr><td style="font-size:9pt">${esc(s.memo).replace(/\n/g,"<br>")}</td></tr></table>`:""}
+  <div class="stamps"><div><span>担当</span><i>${""}</i></div><div><span>上長${s.approver?"<br>"+esc(s.approver):""}</span><i></i></div><div><span>管理部門</span><i></i></div></div>
+  <div class="small" style="margin-top:2mm">保存期間：5年以上（確認書・立会い実施確認書と共に保管）</div>
+  </div>`;
+}
+const RENDER={f3:renderF3,f4:renderF4,tr:renderTR,ct:renderCT};
+const FORMNAME={f3:"確認書（様式3）",f4:"立会い実施確認書（様式4）",tr:"輸送依頼書",ct:"控え書"};
+
+/* ========== プレビュー ========== */
+let pvSel="f3";
+function renderPreview(s){
+  const tabs=$("pvTabs"); tabs.innerHTML="";
+  Object.keys(RENDER).forEach(k=>{ const b=document.createElement("button"); b.textContent=FORMNAME[k]; if(k===pvSel)b.className="on"; b.onclick=()=>{pvSel=k;renderPreview(collect());}; tabs.appendChild(b);});
+  const box=$("previewBox"); box.innerHTML=`<div class="pvwrap">${RENDER[pvSel](s)}</div>`;
+  const wrap=box.querySelector(".pvwrap"), sh=wrap.querySelector(".sheet");
+  const cs=getComputedStyle(box); const avail=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+  const pxw=sh.offsetWidth, pxh=sh.offsetHeight, sc=Math.min(1,avail/pxw);
+  sh.style.transform=`scale(${sc})`; wrap.style.width=(pxw*sc)+"px"; wrap.style.height=(pxh*sc)+"px";
+}
+
+/* ========== 全体更新 ========== */
+function refresh(){
+  const s=collect();
+  $("otherPurposeWrap").style.display = s.purpose==="other"?"flex":"none";
+  $("ecgPanel").style.display=s.cEcg?"flex":"none"; $("prnPanel").style.display=s.cPrinter?"flex":"none"; $("dicomPanel").style.display=s.cDicom?"block":"none";
+  refreshReq();
+  updRec();
+  const J=judge(s);
+  $("judge").innerHTML=J.map(([c,t])=>`<li class="${c}">${esc(t)}</li>`).join("");
+  const ng=J.filter(x=>x[0]==="ng").length, wn=J.filter(x=>x[0]==="warn").length;
+  $("ngCount").textContent = ng? `制限${ng}` : (wn? `注意${wn}`:"");
+  $("ngCount").style.background = ng? "var(--ng)" : "var(--warn)";
+  const P=PURPOSES.find(p=>p.k===s.purpose); $("purposeNote").textContent = P? `上限：${P.note}`:"";
+  if(s.cDicom && s.dcApprDate && s.dcChk.includes(0)){ const c6=document.querySelector('input[name="chk"][value="6"]'); if(c6&&!c6.checked&&!c6.dataset.touched){ c6.checked=true; } }
+  renderPreview(s);
+}
+
+/* ========== PDF（印刷） ========== */
+function doPrint(which){
+  const s=collect();
+  const keys = which==="all"? ["f3"].concat(s.useF4?["f4"]:[],s.useTr?["tr"]:[],["ct"]) : [which];
+  $("printArea").innerHTML = keys.map(k=>RENDER[k](s)).join("");
+  let st=$("dynPage"); if(!st){st=document.createElement("style");st.id="dynPage";document.head.appendChild(st);}
+  st.textContent = which==="all" ? "" : `@page{size:A4 ${which==="f3"?"landscape":"portrait"};margin:0}`;
+  const old=document.title; document.title = `${which==="all"?"貸出書類一式":FORMNAME[which]}_${s.hosp||"未入力"}_${(s.docDate||today()).replace(/-/g,"")}`;
+  setTimeout(()=>{ window.print(); document.title=old; },60);
+}
+
+/* ========== Excel（xlsx：外部ライブラリなしで生成） ========== */
+const CRC_T=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+function crc32(u){let c=0xFFFFFFFF;for(let i=0;i<u.length;i++)c=CRC_T[(c^u[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function zip(files){
+  const enc=new TextEncoder(); const parts=[]; const cen=[]; let off=0;
+  const u16=n=>[n&255,(n>>>8)&255], u32=n=>[n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255];
+  for(const f of files){
+    const name=enc.encode(f.name), data=typeof f.data==="string"?enc.encode(f.data):f.data, crc=crc32(data);
+    const lh=new Uint8Array([...u32(0x04034b50),...u16(20),...u16(0x0800),...u16(0),...u16(0),...u16(0x21),...u32(crc),...u32(data.length),...u32(data.length),...u16(name.length),...u16(0)]);
+    parts.push(lh,name,data);
+    cen.push(new Uint8Array([...u32(0x02014b50),...u16(20),...u16(20),...u16(0x0800),...u16(0),...u16(0),...u16(0x21),...u32(crc),...u32(data.length),...u32(data.length),...u16(name.length),...u16(0),...u16(0),...u16(0),...u16(0),...u32(0),...u32(off)]),name);
+    off+=lh.length+name.length+data.length;
+  }
+  const cenSize=cen.reduce((a,b)=>a+b.length,0);
+  const end=new Uint8Array([...u32(0x06054b50),...u16(0),...u16(0),...u16(files.length),...u16(files.length),...u32(cenSize),...u32(off),...u16(0)]);
+  return new Blob([...parts,...cen,end],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+}
+const XE=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])).replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g,"");
+const colL=c=>{let s="";while(c>0){const m=(c-1)%26;s=String.fromCharCode(65+m)+s;c=Math.floor((c-1)/26);}return s;};
+// スタイル番号：0標準 1表題 2見出し枠(灰) 3値枠 4本文 5小 6中央枠 7太字 8右 9太字右 10表見出し 11中央 12本文(大)
+class XSheet{
+  constructor(name,orient,widths){this.name=name;this.orient=orient;this.widths=widths;this.cells={};this.merges=[];this.h={};}
+  set(r,c,v,s=4){this.cells[r+","+c]={v,s};}
+  box(r1,c1,r2,c2,v,s=3){for(let r=r1;r<=r2;r++)for(let c=c1;c<=c2;c++)this.set(r,c,(r===r1&&c===c1)?v:"",s); if(r1!==r2||c1!==c2)this.merges.push(colL(c1)+r1+":"+colL(c2)+r2);}
+  ht(r,h){this.h[r]=h;}
+  area(){ let maxR=1,maxC=this.widths.length; Object.keys(this.cells).forEach(k=>{const [r,c]=k.split(",").map(Number);maxR=Math.max(maxR,r);maxC=Math.max(maxC,c);}); return `$A$1:$${colL(maxC)}$${maxR}`; }
+  xml(){
+    let maxR=0,maxC=this.widths.length; Object.keys(this.cells).forEach(k=>{const [r,c]=k.split(",").map(Number);maxR=Math.max(maxR,r);maxC=Math.max(maxC,c);});
+    let rows=""; for(let r=1;r<=maxR;r++){ let cs=""; for(let c=1;c<=maxC;c++){ const x=this.cells[r+","+c]; if(!x)continue; const ref=colL(c)+r;
+        cs+= (x.v===""||x.v==null)? `<c r="${ref}" s="${x.s}"/>` : (typeof x.v==="number"? `<c r="${ref}" s="${x.s}"><v>${x.v}</v></c>` : `<c r="${ref}" s="${x.s}" t="inlineStr"><is><t xml:space="preserve">${XE(x.v)}</t></is></c>`); }
+      rows+=`<row r="${r}"${this.h[r]?` ht="${this.h[r]}" customHeight="1"`:""}>${cs}</row>`; }
+    const cols=this.widths.map((w,i)=>`<col min="${i+1}" max="${i+1}" width="${w}" customWidth="1"/>`).join("");
+    return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheetPr><pageSetUpPr fitToPage="1"/></sheetPr><sheetViews><sheetView workbookViewId="0" showGridLines="0" view="pageLayout"/></sheetViews><sheetFormatPr defaultRowHeight="18"/><cols>${cols}</cols><sheetData>${rows}</sheetData>${this.merges.length?`<mergeCells count="${this.merges.length}">${this.merges.map(m=>`<mergeCell ref="${m}"/>`).join("")}</mergeCells>`:""}<printOptions horizontalCentered="1" verticalCentered="0"/><pageMargins left="0.4" right="0.4" top="0.45" bottom="0.45" header="0.2" footer="0.2"/><pageSetup paperSize="9" orientation="${this.orient}" fitToWidth="1" fitToHeight="1"/></worksheet>`;
+  }
+}
+function stylesXml(){
+  const F=`<font><sz val="10"/><name val="Yu Gothic"/><family val="3"/><charset val="128"/></font>`;
+  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+<fonts count="6">${F}<font><b/><sz val="17"/><name val="Yu Mincho"/><family val="1"/><charset val="128"/></font><font><b/><sz val="11"/><name val="Yu Gothic"/><family val="3"/><charset val="128"/></font><font><sz val="8"/><name val="Yu Gothic"/><family val="3"/><charset val="128"/></font><font><b/><sz val="10"/><name val="Yu Gothic"/><family val="3"/><charset val="128"/></font><font><sz val="11"/><name val="Yu Gothic"/><family val="3"/><charset val="128"/></font></fonts>
+<fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FFF0F0F0"/><bgColor indexed="64"/></patternFill></fill></fills>
+<borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left style="thin"><color auto="1"/></left><right style="thin"><color auto="1"/></right><top style="thin"><color auto="1"/></top><bottom style="thin"><color auto="1"/></bottom><diagonal/></border></borders>
+<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>
+<cellXfs count="13">
+<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>
+<xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>
+<xf numFmtId="0" fontId="4" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="3" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="left" vertical="center"/></xf>
+<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyAlignment="1"><alignment horizontal="right" vertical="center"/></xf>
+<xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="right" vertical="center"/></xf>
+<xf numFmtId="0" fontId="4" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>
+<xf numFmtId="0" fontId="5" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf>
+</cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`;
+}
+const B=b=>b?"■":"□";
+const plain=h=>String(h).replace(/<br\s*\/?>/g,"\n").replace(/<[^>]+>/g,"").replace(/&nbsp;/g," ").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&#39;/g,"'");
+function xF3(s){
+  const x=new XSheet("様式3_確認書","landscape",[11,11,11,11,10,11,11,11,11,11,9,9]); const P=s.purpose;
+  x.set(1,1,"（様式3）",4);
+  x.box(2,1,2,12,"医療機器の貸出しに関する確認書",1); x.ht(2,32);
+  x.box(3,9,3,12,jdate(s.docDate),8);
+  x.set(4,1,"貸出元",4); x.box(4,2,4,4,s.companyName,4); x.set(4,5,"貸出先",4); x.box(4,6,4,8,`${s.hosp} ${s.deptH}`.trim(),4); x.set(4,9,"返却確認日",8); x.box(4,10,4,12,jdate(s.dReturn),4); x.ht(4,30);
+  x.set(5,1,"所在地",4); x.box(5,2,6,4,(s.lenderZip?"〒"+s.lenderZip+" ":"")+s.lenderAddr,4); x.set(5,5,"所在地",4); x.box(5,6,5,8,(s.hospZip?"〒"+s.hospZip+" ":"")+s.hospAddr,4); x.ht(5,30);
+  x.set(6,5,"管理責任者",4); x.box(6,6,6,8,s.mgrTitle,4); x.ht(6,22);
+  x.box(7,2,7,4,`${s.dept} ${s.staff}`.trim(),5); x.set(7,5,"氏　名",4); x.box(7,6,7,8,s.mgrName,4); x.set(7,9,"印",11);
+  x.ht(8,8);
+  x.set(9,1,B(P==="demo")+" デモ",4); x.box(9,2,9,5,B(P==="trial")+" 臨床試用（有効性・安全性、操作性等の確認）",4); x.box(9,6,9,8,B(P==="emer")+" 緊急時・災害時対応",4); x.box(9,9,9,10,B(P==="acc")+" 事故・故障対応",4);
+  x.set(10,1,B(P==="train")+" 研修",4); x.box(10,2,10,5,B(P==="res")+" 研究目的・公益的研究活動",4); x.box(10,6,10,8,B(P==="delay")+" 納期遅延対応",4); x.box(10,9,10,12,B(P==="other")+" その他"+(P==="other"&&s.purposeOther?`（${s.purposeOther}）`:""),4);
+  x.ht(11,8);
+  x.box(12,1,12,4,"品名・メーカー名・規格形式",10); x.set(12,5,"数　量",10); x.box(12,6,12,8,"使用者名／設置場所",10); x.box(12,9,12,10,"期　間",10); x.box(12,11,12,12,"症例数",10);
+  const its=itemRows(s,5);
+  const ct=compText(s); let used=false;
+  its.forEach((it,i)=>{ const r=13+i; x.ht(r,it?44:26);
+    if(!it && ct && !used){ used=true; x.box(r,1,r,12,"付属品・構成品："+ct,3); return; }
+    x.box(r,1,r,4,it?`${it.name}\n${s.companyName}${it.sn?"　S/N："+it.sn:""}`:"",3); x.set(r,5,it?it.qty:"",6);
+    x.box(r,6,r,8,it&&i===0?[s.user,s.place].filter(Boolean).join(" ／ "):"",3); x.box(r,9,r,10,it&&i===0?periodStr(s):"",6); x.box(r,11,r,12,it&&i===0?s.cases:"",6); });
+  x.ht(18,8);
+  x.box(19,1,19,3,"●貸出期間中の費用負担：",4); x.box(19,4,19,5,"貸出元負担",10); x.box(19,6,19,7,"貸出先負担",10);
+  COSTS.forEach((c,i)=>{ const r=20+i; x.box(r,1,r,3,"　"+c+(i===4&&s.costOther?`（${s.costOther}）`:""),4); x.box(r,4,r,5,s.costs[i]==="lender"?"○":"",6); x.box(r,6,r,7,s.costs[i]==="borrower"?"○":"",6); });
+  x.ht(25,10);
+  x.box(26,1,26,8,"●貸出期間が満了した当該医療機器は、速やかに貸出元に返却する。",4); x.box(26,9,26,12,"医療機器業公正取引協議会",9);
+  return x;
+}
+function xF4(s){
+  const x=new XSheet("様式4_立会い","portrait",[12,12,12,12,12,12,12,12]); let r=1;
+  x.box(r,7,r,8,"（様式４）",8); r++;
+  x.box(r,1,r,8,"立会い実施確認書",1); x.ht(r,34); r++;
+  x.box(r,1,r,8,"■ 医療機関等記入欄",7); r++;
+  x.box(r,1,r,4,"１．対象医療機器名："+s.f4Device,3); x.box(r,5,r,8,"２．手技名："+s.f4Proc,3); x.ht(r,30); r++;
+  x.box(r,1,r,8,"３．立会い目的（下記の該当する立会いについて、□内にチェックをお願いいたします。）",3); r++;
+  for(let i=0;i<8;i+=2){ x.box(r,1,r,4,"　"+B(s.f4p.includes(i))+" "+F4P[i],3); x.box(r,5,r,8,B(s.f4p.includes(i+1))+" "+F4P[i+1],3); r++; }
+  x.box(r,1,r,8,"　"+B(s.f4p.includes(8))+" "+F4P[8],3); r++;
+  x.box(r,1,r,8,`４．回数及び予定期間：　${s.f4Count||"　"} 回　　${jdate(s.f4From)}から　${jdate(s.f4To)}まで`,3); x.ht(r,24); r++;
+  x.box(r,1,r,8,`５．事業者が立会いを行うことの患者へのインフォームドコンセントの実施：　${B(s.f4IC)}確認済`,3); x.ht(r,24); r++;
+  x.box(r,4,r,8,jdate(s.docDate),4); r++;
+  [["医療機関名：",s.f4Hosp],["診療科名：",s.f4DeptH],["住　　所：",(s.f4Zip?"〒"+s.f4Zip+" ":"")+s.f4Addr],["管理責任者名：",s.f4Mgr+"　　　（記名捺印又は署名）"]].forEach(([k,v])=>{ x.box(r,3,r,4,k,8); x.box(r,5,r,8,v,4); x.ht(r,22); r++; });
+  r++;
+  x.box(r,1,r,8,"■ 事業者記入欄",7); r++;
+  x.box(r,1,r,8,`１．院内規則の遵守　　${B(s.f4Rule)}弊社及び弊社担当者は、貴院の院内規則を遵守いたします。`,3); x.ht(r,24); r++;
+  x.box(r,1,r,8,"２．立会い実施日、実施時間、実施担当者の記録",3); r++;
+  s.recs.forEach(rc=>{ x.box(r,1,r,3,"・実施日："+(rc.d?jdate(rc.d):"　　年　　月　　日"),3); x.box(r,4,r,5,"実施時間："+(rc.s||"")+" ～ "+(rc.e||""),3); x.box(r,6,r,8,"担当者名："+rc.n,3); x.ht(r,22); r++; });
+  x.box(r,4,r,5,"実施事業者名：",8); x.box(r,6,r,8,s.f4Biz,3); x.ht(r,22); r++;
+  r++;
+  x.box(r,1,r,5,"立会い終了時の担当医師による記名捺印又は署名：",8); x.box(r,6,r,8,"",3); x.ht(r,30); r+=2;
+  x.box(r,5,r,8,"医療機器業公正取引協議会",9);
+  return x;
+}
+function xKV(name,title,s,sections,stampLabels){
+  const x=new XSheet(name,"portrait",[16,20,14,20,16,14]); let r=1;
+  x.box(r,1,r,3,"管理番号："+(s.ctrlNo||s.ctrlNoAuto),4); x.box(r,4,r,6,(name.includes("輸送")?"依頼日：":"作成日：")+jdate(s.docDate),8); r++;
+  x.box(r,1,r,6,title,1); x.ht(r,32); r++;
+  sections.forEach(sec=>{
+    if(sec.text){ x.box(r,1,r,6,sec.text,sec.style||4); if(sec.h)x.ht(r,sec.h); r++; return; }
+    x.box(r,1,r,6,"■ "+sec.cap,7); r++;
+    sec.rows.forEach(row=>{
+      if(row.length===2){ x.set(r,1,row[0],2); x.box(r,2,r,6,plain(row[1]),3); }
+      else { x.set(r,1,row[0],2); x.box(r,2,r,3,plain(row[1]),3); x.set(r,4,row[2],2); x.box(r,5,r,6,plain(row[3]),3); }
+      const est=(t,w)=>plain(t).split("\n").reduce((a,l)=>a+Math.max(1,Math.ceil(l.length/w)),0);
+      const lines=row.length===2? est(row[1],40) : Math.max(est(row[1],16),est(row[3],16));
+      x.ht(r,Math.min(260,15*lines+5)); r++;
+    });
+  });
+  r++; const sc=6-stampLabels.length+1; stampLabels.forEach((l,i)=>{ x.set(r,sc+i,l,10); x.set(r+1,sc+i,"",6); }); x.ht(r+1,48);
+  return x;
+}
+function xTR(s){
+  const pur=(PURPOSES.find(p=>p.k===s.purpose)||{}); const tc=TRCOND.map(c=>B(s.trc.includes(c))+c).join("　");
+  return xKV("輸送依頼","医療機器 輸送依頼書",s,[
+    {text:`${s.trCarrier}　御中　${s.trCarrierTel}`,style:7},
+    {text:`依頼元：${s.companyName}　${s.dept} ${s.staff}　TEL：${s.staffTel}${s.staffFax?"　FAX："+s.staffFax:""}`},
+    {text:"下記のとおり医療機器の輸送をお願いいたします。精密医療機器のため、取扱いには十分ご注意ください。",style:5},
+    {cap:"輸送区分・品目",rows:[["輸送区分",s.trDir,"貸出目的",pur.short||pur.t||""],["品目",itemList(s)],["付属品・構成品",compText(s)],["梱包数",s.trPkgs,"総重量",s.trWeight?s.trWeight+" kg":""],["最大寸法",s.trSize,"開梱・据付",s.trInstall]]},
+    {cap:"集荷",rows:[["集荷日時",`${jdate(s.trPickDate,"")} ${s.trPickTime}`,"担当・TEL",s.trPickTel],["集荷場所",s.trPickPlace]]},
+    {cap:"搬入（お届け先）",rows:[["搬入日時",`${jdate(s.trDelDate,"")} ${s.trDelTime}`,"立会者・TEL",s.trDelTel],["搬入先",s.trDelPlace],["所在地",(s.hospZip?"〒"+s.hospZip+" ":"")+s.hospAddr],["病院窓口",s.hospContact]]},
+    {cap:"返却（復路）",rows:[["返却集荷予定日",jdate(s.trRetDate,""),"返却先",s.trPickPlace]]},
+    {cap:"取扱い条件・費用",rows:[["取扱い条件",tc],["運送保険",s.trIns,"運賃負担",s.trPay],["備考",s.trNote]]},
+    {text:"※本機器は貸出元の所有物です（所有権表示あり）。破損・事故時は直ちに依頼元へ連絡してください。",style:5,h:26}
+  ],["依頼者","承認","受付（業者）"]);
+}
+function xCT(s){
+  const html=renderCT(s); const d=document.createElement("div"); d.innerHTML=html;
+  const secs=[]; let cur=null;
+  d.querySelectorAll(".cap, table.kv").forEach(el=>{
+    if(el.classList.contains("cap")){ cur={cap:el.textContent,rows:[]}; secs.push(cur); return; }
+    el.querySelectorAll("tr").forEach(tr=>{ const cells=[...tr.children].map(c=>c.innerHTML.replace(/<span class="bx">✓<\/span>/g,"■").replace(/<span class="bx"><\/span>/g,"□"));
+      if(cells.length===1) cur.rows.push(["内容",cells[0].replace(/<span class="bx">✓<\/span>/g,"■ ").replace(/<span class="bx"><\/span>/g,"□ ")]);
+      else cur.rows.push(cells.length===2?[plain(cells[0]),cells[1]]:[plain(cells[0]),cells[1],plain(cells[2]),cells[3]]); });
+  });
+  secs.push({text:"保存期間：5年以上（確認書・立会い実施確認書と共に保管）",style:5});
+  return xKV("控え書","医療機器貸出し 控え書（社内ファイル用）",s,secs,["担当","上長","管理部門"]);
+}
+const XBUILD={f3:xF3,f4:xF4,tr:xTR,ct:xCT};
+function doExcel(which){
+  const s=collect();
+  const keys = which==="all"? ["f3"].concat(s.useF4?["f4"]:[],s.useTr?["tr"]:[],["ct"]) : [which];
+  const sheets=keys.map(k=>XBUILD[k](s));
+  const files=[
+    {name:"[Content_Types].xml",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>${sheets.map((_,i)=>`<Override PartName="/xl/worksheets/sheet${i+1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join("")}</Types>`},
+    {name:"_rels/.rels",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`},
+    {name:"xl/workbook.xml",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>${sheets.map((sh,i)=>`<sheet name="${XE(sh.name)}" sheetId="${i+1}" r:id="rId${i+1}"/>`).join("")}</sheets><definedNames>${sheets.map((sh,i)=>`<definedName name="_xlnm.Print_Area" localSheetId="${i}">'${XE(sh.name)}'!${sh.area()}</definedName>`).join("")}</definedNames></workbook>`},
+    {name:"xl/_rels/workbook.xml.rels",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${sheets.map((_,i)=>`<Relationship Id="rId${i+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i+1}.xml"/>`).join("")}<Relationship Id="rId${sheets.length+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`},
+    {name:"xl/styles.xml",data:stylesXml()},
+    ...sheets.map((sh,i)=>({name:`xl/worksheets/sheet${i+1}.xml`,data:sh.xml()}))
+  ];
+  const blob=zip(files);
+  const fn=`${which==="all"?"貸出書類一式":FORMNAME[which]}_${s.hosp||"未入力"}_${(s.docDate||today()).replace(/-/g,"")}.xlsx`.replace(/[\\/:*?"<>|]/g,"_");
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=fn; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);
+  return blob;
+}
+
+/* ========== 保存・読込 ========== */
+function snapshot(){
+  const data={v:1,fields:{},radios:{},checks:{},items:[]};
+  document.querySelectorAll("main input[id],main select[id],main textarea[id]").forEach(e=>{ if(e.type==="file")return; data.fields[e.id]= e.type==="checkbox"?e.checked:e.value; });
+  document.querySelectorAll('main input[type=radio]:checked').forEach(e=>data.radios[e.name]=e.value);
+  ["f4p","trc","chk","dcTo","dcChk"].forEach(n=>data.checks[n]=[...document.querySelectorAll(`input[name="${n}"]:checked`)].map(x=>x.value));
+  document.querySelectorAll("#itemsTbl tr.item").forEach(tr=>data.items.push({mod:tr.querySelector(".i-mod").value,modfree:tr.querySelector(".i-modfree").value,gen:tr.querySelector(".i-gen").value,model:tr.querySelector(".i-model").value,name:tr.querySelector(".i-name").value,sn:tr.querySelector(".i-sn").value,qty:tr.querySelector(".i-qty").value}));
+  return data;
+}
+function clearAll(){
+  document.querySelectorAll("main input, main select, main textarea").forEach(e=>{
+    if(e.type==="file") return;
+    if(e.type==="checkbox"||e.type==="radio"){ e.checked=false; delete e.dataset.touched; }
+    else if(e.tagName==="SELECT") e.selectedIndex=0;
+    else e.value="";
+  });
+  $("itemsTbl").querySelector("tbody").innerHTML="";
+  $("recTbl").querySelectorAll("tbody tr").forEach(tr=>{ delete tr.dataset.shown; });
+  ["useF4","useTr","f4Rule","f4Link"].forEach(i=>$(i).checked=true);
+  $("docDate").value=today(); autoFlags={};
+  fillBranches(); refreshModOptions();
+}
+function restore(d){
+  clearAll();
+  if(d.fields&&d.fields.company!==undefined){ $("company").value=d.fields.company; fillBranches(); refreshModOptions(); }
+  Object.entries(d.fields||{}).forEach(([k,v])=>{const e=$(k); if(!e)return; if(e.type==="checkbox")e.checked=v; else e.value=v;});
+  refreshModOptions();
+  document.querySelectorAll('main input[type=radio]').forEach(e=>e.checked = d.radios && d.radios[e.name]===e.value);
+  ["f4p","trc","chk","dcTo","dcChk"].forEach(n=>document.querySelectorAll(`input[name="${n}"]`).forEach(x=>x.checked=(d.checks?.[n]||[]).includes(x.value)));
+  const tb=$("itemsTbl").querySelector("tbody"); tb.innerHTML="";
+  (d.items&&d.items.length?d.items:[{}]).forEach(it=>{ addItemRow(); const tr=tb.lastElementChild;
+    tr.querySelector(".i-gen").value=it.gen||"cur"; tr.querySelector(".i-modfree").value=it.modfree||it.mod||""; tr.querySelector(".i-modfree").dispatchEvent(new Event("input")); tr.querySelector(".i-model").value=it.model||""; tr.querySelector(".i-name").value=it.name||""; tr.querySelector(".i-sn").value=it.sn||""; tr.querySelector(".i-qty").value=it.qty||"1"; });
+  autoFlags={}; document.body.classList.toggle("unlinked",!linkOn()); syncLinksAll(); syncSel("deptH"); syncSel("f4DeptH"); syncAuto(); refresh();
+}
+
+/* ========== イベント ========== */
+function bind(){
+  bindLinks();
+  $("branch").addEventListener("change",()=>applyBranch());
+  $("company").addEventListener("change",()=>{
+    const k=$("company").value, nm=DB[k]?.name||"";
+    $("companyName").value=nm;
+    ["dept","lenderZip","lenderAddr","staffTel","staffFax","staff"].forEach(id=>$(id).value="");
+    fillBranches();
+    if(linkOn()) $("f4Biz").value=nm;
+    refreshModOptions(true); syncAuto(); refresh();
+  });
+  $("addItem").addEventListener("click",()=>{addItemRow();refresh();});
+  document.querySelector("main").addEventListener("input",e=>{ if(e.target.closest("#itemsTbl"))return; syncAuto(); refresh(); });
+  document.querySelector("main").addEventListener("change",e=>{ if(e.target.name==="f4p"||e.target.name==="chk") e.target.dataset.touched="1"; syncAuto(); refresh(); });
+  document.querySelectorAll("[data-pdf]").forEach(b=>b.addEventListener("click",()=>doPrint(b.dataset.pdf)));
+  document.querySelectorAll("[data-xls]").forEach(b=>b.addEventListener("click",()=>doExcel(b.dataset.xls)));
+  $("btnSave").addEventListener("click",()=>{ const s=collect(); const blob=new Blob([JSON.stringify(snapshot(),null,1)],{type:"application/json"});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`貸出入力_${s.hosp||"未入力"}_${(s.docDate||today()).replace(/-/g,"")}.json`; a.click(); });
+  $("fileLoad").addEventListener("change",e=>{ const f=e.target.files[0]; if(!f)return; f.text().then(t=>{ try{restore(JSON.parse(t));}catch(err){alert("読込に失敗しました："+err.message);} }); e.target.value=""; });
+  $("btnClear").addEventListener("click",()=>{ if(confirm("入力内容をすべてクリアしますか？（保存していない内容は消えます）")) restore({}); window.scrollTo({top:0,behavior:"smooth"}); });
+  let rt; window.addEventListener("resize",()=>{ clearTimeout(rt); rt=setTimeout(()=>renderPreview(collect()),150); });
+}
+
+/* ========== ルール・法規（画面下部） ========== */
+function renderRules(){
+  const rows=PURPOSES.map(p=>`<tr><td>${esc(p.t)}</td><td>${esc(p.note)}</td></tr>`).join("");
+  $("rulesBox").innerHTML=`
+<details class="rules" open><summary>① 公取協「医療機器の貸出しに関する基準」の要点</summary><div class="body">
+<p>無償貸出しは、医療機器の無償提供と同様に不当な取引誘引の手段になり得るため、原則として制限されています。目的別の期間内に限り認められます（2001年8月実施、在宅医療向けにも適用）。</p>
+<table><tr><th style="width:38%">目的（様式3の区分）</th><th>期間等の上限</th></tr>${rows}</table>
+<p><b>原則として制限される貸出し（4類型）</b></p>
+<ol><li>医療機関等の費用の肩代わりになる貸出し（予算未計上・契約前の段階。ただしデモ・試用の範囲内は除く。医療機関が自ら行うべき研修会・勉強会への貸出し）</li>
+<li>医療材料の販売を目的とした貸出し</li><li>既に購入・使用している同一医療機器（カタログ番号が同一）の貸出し（事故・故障、緊急時を除く）</li><li>自社の取り扱う医療機器と直接関連のない医療機器の貸出し</li></ol>
+<ul><li>期間は上限です。目的を達したら期間内でも速やかに返却します。</li><li>同一医療機関の同一診療科へ同一機器を反復して貸し出すことは制限されます。</li>
+<li>貸出し前に医療機関から <b>様式3「医療機器の貸出しに関する確認書」</b> を受領します。受領できない場合は貸し出せません。</li>
+<li>貸出機器の本体または包装に <b>「所有権が事業者にある」</b> 旨を表示します。</li>
+<li>代替機は原則同一機種。事業者に責任のない故障への無償代替、保証期間経過後の無償代替は原則制限されます。</li>
+<li>相応の対価を伴うレンタル・リース（有償貸出し）は本基準の制限対象外です。</li></ul>
+<p class="hint">※公取協は運用基準15本＋1ルールを全面見直し中です（2026年秋〜冬に消費者庁へ届出予定、その後確認期間・経過措置あり）。改定後は本ツールの期間設定を更新してください。</p>
+<details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://www.jftc-mdi.jp/" target="_blank" rel="noopener">医療機器業公正取引協議会（公式サイト） ↗</a></li><li><a href="https://www.jfftc.org/kiyaku/pdf/l04_K_iryokiki.pdf" target="_blank" rel="noopener">医療機器業公正競争規約・施行規則（全国公正取引協議会連合会） ↗</a></li><li><a href="https://www.wam.go.jp/gyoseiShiryou-files/documents/2009/15090/20090216_6shiryou4_3.pdf" target="_blank" rel="noopener">公取協「医療機器の貸出しについて」（流通改善懇談会 資料4-3, 2009年） ↗</a></li><li><a href="https://www.mhlw.go.jp/shingi/2009/06/dl/s0604-8f_0002.pdf" target="_blank" rel="noopener">公取協「公正競争規約、貸出し・立会い基準の概要」（厚労省資料, 2009年） ↗</a></li><li><a href="https://www.h.u-tokyo.ac.jp/jigyousha/pdf/mousiawase2022.pdf" target="_blank" rel="noopener">東京大学医学部附属病院「物品の借入れの基準及び手続き」（医療機関側の運用例） ↗</a></li><li><a href="https://www.yakuji.co.jp/entry131102.html" target="_blank" rel="noopener">薬事日報「医療機器公取協 運用基準見直しを消費者庁に届出へ」（2026年3月） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/337AC0000000134" target="_blank" rel="noopener">不当景品類及び不当表示防止法（e-Gov） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>② 立会い基準（様式4）</summary><div class="body">
+<ul><li>販売を目的とした立会い、医療機関の費用の肩代わりになる立会いは制限されます。</li>
+<li>適正使用確保の立会い（新規納入・バージョンアップ・試用のための貸出し・医療担当者の交代・緊急/災害時）：1手技につき1診療科に対し4回まで。期間は事由発生から4か月以内（試用は貸出しで取り決めた期間、緊急・災害は事態解消まで）。</li>
+<li>安全使用確保の立会い：新規納入後の保証期間内（最長12か月）は月1回まで／故障修理後1回／保守点検後1回。</li>
+<li>様式4「立会い実施確認書」を医療機関から入手し、<b>5年間保存</b>。院内規則の遵守と、患者へのインフォームドコンセント実施の確認が必要です。</li>
+<li>有資格社員による医療行為の補助は、医師法・保助看法・臨床工学技士法・労働者派遣法に抵触するおそれがあります。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://www.mhlw.go.jp/shingi/2007/11/dl/s1130-9c.pdf" target="_blank" rel="noopener">厚労省 医政経発第1110001号「医療機関等における医療機器の立会いに関する基準」 ↗</a></li><li><a href="https://www.jftc-mdi.jp/" target="_blank" rel="noopener">医療機器業公正取引協議会（様式4・立会い基準） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>③ 薬機法（厚生労働省）</summary><div class="body"><ul>
+<li><b>貸与業</b>：2014年11月施行の改正で無償貸与も「貸与業」の規制対象。特定保守管理医療機器（CT・MRI・超音波・内視鏡・生体情報モニタ等）を扱う営業所は高度管理医療機器等販売業・貸与業の許可と営業所管理者が必要。臨床使用しない研修・展示・デモ専用は貸与業許可不要、将来の販売を前提とした無償貸与は販売業許可で可（厚労省Q&A 2014年11月21日）。</li>
+<li><b>中古品の事前通知</b>（施行規則170条）：返却されたデモ機を別の医療機関に貸す・売る場合は中古品扱い。製造販売業者へ事前通知し、指示に従います。製造販売業者と販売業者で運用を取り決めれば、同一機器の頻回の貸与や非臨床デモは都度通知不要（医薬機審発0328第6号、2024年3月28日）。</li>
+<li>品質の確保（165条）、苦情処理（166条）、回収（167条）、教育訓練（169条）、不具合等の製造販売業者への報告（171条）、設置管理医療機器の設置管理（179条）。</li>
+<li>未承認医療機器の販売・授与・貸与は不可。承認申請のための臨床データ収集は「治験」の手続きが必要。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://laws.e-gov.go.jp/law/335AC0000000145" target="_blank" rel="noopener">医薬品医療機器等法（e-Gov） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/336M50000100001" target="_blank" rel="noopener">医薬品医療機器等法施行規則（e-Gov） ↗</a></li><li><a href="https://www.pmda.go.jp/files/000160361.pdf" target="_blank" rel="noopener">厚労省「医療機器の貸与業の取扱いに関する質疑応答集（Q&amp;A）」2014年11月 ↗</a></li><li><a href="https://www.pref.nara.jp/secure/307355/06032.pdf" target="_blank" rel="noopener">医薬機審発0328第6号「中古医療機器の販売等に関する個別事案の取扱い」2024年3月 ↗</a></li><li><a href="https://www.hokeniryo.metro.tokyo.lg.jp/anzen/iyaku/sonota/sale_leas/sonsyujikou.html" target="_blank" rel="noopener">東京都「販売業者・貸与業者の遵守事項」 ↗</a></li><li><a href="https://www.jira-net.or.jp/event/files/item2025/item2025_1-02_advertising_regulations.pdf" target="_blank" rel="noopener">JIRA「医療機器の広告規制・未承認医療機器の展示」（ITEM2025） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>④ 医療法・医療安全（厚生労働省・保健所）</summary><div class="body"><ul>
+<li><b>X線装置</b>：病院・診療所の管理者が、備付後10日以内に備付届、廃止後10日以内に廃止届を保健所に提出（医療法15条3項、施行規則24条の2等）。添付として平面図・漏えい線量測定結果を求める自治体があります。</li>
+<li><b>医療機器安全管理</b>（施行規則1条の11）：貸し出された医療機器も対象。使用経験のない新しい機器は導入時研修が必要。</li>
+<li>大学病院等では、借用申請（開始の2週間前目安）・病院長決裁・使用貸借契約・研修後に使用開始、といった院内手続きがあります。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://laws.e-gov.go.jp/law/323AC0000000205" target="_blank" rel="noopener">医療法（e-Gov） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/323M40000100050" target="_blank" rel="noopener">医療法施行規則（e-Gov） ↗</a></li><li><a href="https://www.pref.chiba.lg.jp/iryou/tetsuzuki/200/13080-new17.html" target="_blank" rel="noopener">千葉県「診療用エックス線装置備付届」（手続例） ↗</a></li><li><a href="https://www.mhlw.go.jp/topics/bukyoku/isei/i-anzen/hourei/dl/180612-1.pdf" target="_blank" rel="noopener">厚労省「医療機器に係る安全管理のための体制確保に係る運用上の留意点」 ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>⑤ 電波法・地方税（総務省）</summary><div class="body"><ul>
+<li><b>高周波利用設備</b>（電波法100条）：10kHz以上の高周波電流を利用する医療用設備は、一定出力以上で設置前に総務大臣の許可が必要（MRIが典型。無許可運用は罰則）。電気手術器等は型式指定・型式確認の有無を確認。</li>
+<li>医用テレメータ・ワイヤレスFPD・無線プローブは技適と院内チャネル管理を確認。</li>
+<li><b>償却資産</b>（地方税法383条）：所有者は毎年1月1日現在の所在地の市町村へ申告。年をまたいで病院に置くデモ機の扱いは各社経理で確認してください。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://laws.e-gov.go.jp/law/325AC0000000131" target="_blank" rel="noopener">電波法（e-Gov） ↗</a></li><li><a href="https://www.soumu.go.jp/soutsu/kinki/dempa/koushuharyou/index.html" target="_blank" rel="noopener">総務省 近畿総合通信局「高周波利用設備」 ↗</a></li><li><a href="https://www.tele.soumu.go.jp/j/sys/others/highfre/set/index.htm" target="_blank" rel="noopener">総務省 電波利用ポータル「高周波利用設備」 ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/325AC0000000226" target="_blank" rel="noopener">地方税法（e-Gov） ↗</a></li><li><a href="https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000052/52941/R8tebiki2.pdf" target="_blank" rel="noopener">京都市「償却資産申告の手引き」（申告者の考え方の例） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>⑥ 公務員倫理・独占禁止法・景品表示法（人事院・公正取引委員会・消費者庁）</summary><div class="body"><ul>
+<li>国家公務員倫理規程3条：利害関係者から無償で物品の貸付けを受けることは禁止。職員個人ではなく、機関（病院）名義の契約で貸し出します。国立大学法人等の職員にはみなし公務員規定があります。</li>
+<li>独占禁止法（不当な利益による顧客誘引）・景品表示法・公取委告示第54号：公取協の非会員にも適用されます。</li>
+<li>中古デモ機を新品と誤認させる表示は不当表示のおそれ。デモ使用歴を明示します。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://laws.e-gov.go.jp/law/412CO0000000101" target="_blank" rel="noopener">国家公務員倫理規程（e-Gov） ↗</a></li><li><a href="https://www.jinji.go.jp/rinri/qa.html" target="_blank" rel="noopener">人事院 国家公務員倫理審査会「倫理法・倫理規程Q&amp;A」 ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/322AC0000000054" target="_blank" rel="noopener">私的独占の禁止及び公正取引の確保に関する法律（e-Gov） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/337AC0000000134" target="_blank" rel="noopener">不当景品類及び不当表示防止法（e-Gov） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>⑦ 税務・会社法・民法</summary><div class="body"><ul>
+<li>法人税：基準内のデモ・試用は販売促進（見本品に類する費用）として通常は損金。基準を外れた長期・費用肩代わり・特定先優遇は寄附金（法人税法37条）・交際費（措置法61条の4）と認定されるリスクがあります。消費税：無償貸付は不課税。</li>
+<li>会社法：内部統制（362条4項6号）の観点から、デモ機の実在・所在・回収を台帳で管理します。</li>
+<li>民法（無償＝使用貸借 593〜600条）：用法遵守・転貸禁止（594条）、通常の必要費は借主負担（595条）、期間満了で終了（597条）、原状回復（599条）。<b>損害賠償・費用償還の請求は返還から1年以内</b>（600条）のため、返却時の点検記録を残します。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://laws.e-gov.go.jp/law/340AC0000000034" target="_blank" rel="noopener">法人税法（e-Gov） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/332AC0000000026" target="_blank" rel="noopener">租税特別措置法（e-Gov） ↗</a></li><li><a href="https://www.nta.go.jp/law/tsutatsu/kobetsu/hojin/sochiho/750214/08/08_61_4a.htm" target="_blank" rel="noopener">国税庁 措置法通達 第61条の4（交際費等の意義・寄附金との区分） ↗</a></li><li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5260.htm" target="_blank" rel="noopener">国税庁 タックスアンサー No.5260 交際費等の範囲と損金不算入額の計算 ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/417AC0000000086" target="_blank" rel="noopener">会社法（e-Gov） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/129AC0000000089" target="_blank" rel="noopener">民法（e-Gov） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>⑧ 個人情報・サイバーセキュリティ・透明性</summary><div class="body"><ul>
+<li>返却機に患者画像・氏名・IDが残らないよう、病院立会いで消去し消去記録を取得（個人情報保護法、医療情報システムの安全管理に関するガイドライン第6.0版、3省2ガイドライン）。</li>
+<li>院内ネットワーク（PACS・電子カルテ）への接続は病院の情報システム部門の承認が前提。</li>
+<li>研究目的の貸出しは、医機連「透明性ガイドライン」（2025年5月改定）での公開対象・臨床研究法上の扱いを確認。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://laws.e-gov.go.jp/law/415AC0000000057" target="_blank" rel="noopener">個人情報の保護に関する法律（e-Gov） ↗</a></li><li><a href="https://www.mhlw.go.jp/content/10808000/001102570.pdf" target="_blank" rel="noopener">厚労省「医療情報システムの安全管理に関するガイドライン 第6.0版」 ↗</a></li><li><a href="https://www.jfmda.gr.jp/wp/wp-content/uploads/2025/05/%E2%91%A0%E9%80%8F%E6%98%8E%E6%80%A7%E3%82%AC%E3%82%A4%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3-%E3%80%902025.5.31-%E6%94%B9%E5%AE%9A%E3%80%91.pdf" target="_blank" rel="noopener">医機連「医療機器業界における医療機関等との透明性ガイドライン」2025年5月改定 ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>⑨ 物流（取適法）・商社との関係</summary><div class="body"><ul>
+<li>2026年1月施行の取適法で、荷主から運送事業者への運送委託が「特定運送委託」として新たに規制対象。書面での明示、60日以内の支払、附帯作業（開梱・据付・荷待ち）の無償強要禁止に留意（貸出品の運送が対象類型に入るかは要確認）。</li>
+<li>メーカーから販売店へのデモ費用・人員の一方的な押し付けは優越的地位の濫用のおそれ。費用分担は書面で合意します。</li>
+<li>メーカー所有機を販売店経由で貸す場合は、確認書の「貸出元」と所有権表示を一致させます。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://www.mlit.go.jp/jidosha/content/002027767.pdf" target="_blank" rel="noopener">国土交通省「取適法・物流関連の執行状況」資料 ↗</a></li><li><a href="https://biz.moneyforward.com/contract/basic/23241/" target="_blank" rel="noopener">取適法の特定運送委託の解説（マネーフォワード） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/322AC0000000054" target="_blank" rel="noopener">私的独占の禁止及び公正取引の確保に関する法律（優越的地位の濫用）（e-Gov） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>⑩ ラインナップの更新方法・免責</summary><div class="body">
+<p>機種リストは各社の公開情報（2026年11月時点）を基にした参考情報です。正式な販売名・型式は添付文書・各社カタログで確認してください。更新は、このHTMLファイルをテキストエディタで開き、<code>const DB = {</code> 以下の該当会社・モダリティの <code>cur</code>（現行）／<code>prev</code>（一世代前）を書き換えて保存します。</p>
+<p>拠点マスタ（支社・支店・営業所の住所・電話番号）は <code>const BRANCHES = {</code> 以下に「[地域, 拠点名, 郵便番号, 住所, TEL, FAX]」の形で登録しています。移転・新設時はここを書き換えてください。</p>
+<p>本ツールは業界ルールの理解と書類作成を補助するもので、法的助言ではありません。個別の判断は各社コンプライアンス部門、医療機器業公正取引協議会（連絡先は同協議会の公式サイトで最新のものを確認）、所管行政にご確認ください。</p>
+<details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://jp.medical.canon/about/japan/" target="_blank" rel="noopener">キヤノンメディカルシステムズ 国内ネットワーク（拠点一覧） ↗</a></li><li><a href="https://www.nihonkohden.co.jp/information/company/office/sales08.html" target="_blank" rel="noopener">日本光電 国内販売拠点（例：関西支社） ↗</a></li><li><a href="https://www.konicaminolta.jp/healthcare/about/facility/sales.html" target="_blank" rel="noopener">コニカミノルタジャパン ヘルスケア 販売拠点一覧 ↗</a></li><li><a href="https://www.olympus-marketing.co.jp/company/location/" target="_blank" rel="noopener">オリンパスマーケティング 拠点一覧 ↗</a></li><li><a href="https://sinobu13-bpei.github.io/medical-device-rental-research/" target="_blank" rel="noopener">研究資料サイト（作成者） ↗</a></li></ul></details></div></details>`;
+}
+
+init();
+</script>
+</body>
+</html>
