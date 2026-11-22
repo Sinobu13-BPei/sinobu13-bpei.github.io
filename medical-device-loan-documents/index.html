@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>医療機器 貸出し書類作成ツール</title>
+<style>
+:root{
+  --ink:#1f2933; --sub:#52606d; --line:#d3dae3; --bg:#f4f6f9; --card:#fff;
+  --navy:#243b53; --accent:#2f6fb2;
+  --req-bg:#ffe1e1; --req-bd:#e06666;
+  --ok-bg:#e1edff; --ok-bd:#4a86e8;
+  --warn:#b7791f; --ng:#c53030; --good:#2f855a;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Yu Gothic UI","Yu Gothic","Hiragino Kaku Gothic ProN","Hiragino Sans","Meiryo",sans-serif;color:var(--ink);background:var(--bg);font-size:14px;line-height:1.5}
+a{color:inherit}
+/* ヘッダー */
+header.app{background:var(--navy);color:#fff;padding:14px 24px 12px;display:flex;flex-direction:column;gap:8px}
+header.app h1{font-size:clamp(22px,3.2vw,34px);margin:0;font-weight:800;letter-spacing:.05em;line-height:1.2}
+.toprow{display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap}
+.ghbtn{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--navy)!important;text-decoration:none;font-weight:700;font-size:13px;padding:7px 14px;border-radius:20px;border:2px solid #fff;white-space:nowrap}
+.ghbtn:hover{background:#e7f0fb}
+.ghbtn.dark{background:var(--navy);color:#fff!important;border-color:var(--navy)}
+.ghbtn.dark:hover{background:#1b2d40}
+.author{font-size:12.5px;background:rgba(255,255,255,.12);border-left:4px solid #f6c344;padding:5px 10px;border-radius:4px;line-height:1.55}
+.author b{color:#ffd76a}
+/* ツールバー（上部固定） */
+.toolbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--line);box-shadow:0 1px 6px rgba(0,0,0,.05)}
+.tb-in{max-width:1360px;margin:0 auto;padding:7px 20px;display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap}
+.tb-prog{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);min-width:200px}
+.tb-prog .progress{width:120px;margin:0}
+.legend{display:flex;gap:12px;font-size:12px;color:var(--sub);align-items:center}
+.sw{display:inline-block;width:15px;height:11px;border-radius:3px;vertical-align:middle;margin-right:4px;border:1.5px solid}
+.tb-btns{margin-left:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.only-narrow{display:none!important}
+#ngCount:not(:empty){display:inline-block;background:var(--ng);color:#fff;border-radius:9px;padding:0 6px;font-size:11px;margin-left:3px}
+/* レイアウト */
+.wrap{max-width:1360px;margin:0 auto;padding:14px 20px 0;display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px}
+.wide{max-width:1360px;margin:0 auto;padding:0 20px 10px}
+.side{position:sticky;top:58px;align-self:start;max-height:calc(100vh - 70px);overflow:auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px;scroll-margin-top:64px}
+.card h2{font-size:15px;margin:0 0 10px;display:flex;align-items:center;gap:8px;color:var(--navy);flex-wrap:wrap}
+.card h2 .no{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;align-items:center;justify-content:center;flex:none}
+.card h2 .toggle,.card h2>.lk{margin-left:auto}
+.card h2 .toggle{font-size:12.5px;font-weight:600;color:var(--navy);display:flex;align-items:center;gap:5px;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:9px 12px}
+.f{display:flex;flex-direction:column;gap:3px;min-width:0}
+.f>label,.lbl{font-size:12px;color:var(--sub);font-weight:600}
+.r{color:var(--ng);margin-left:2px}
+.c2{grid-column:span 2}.c3{grid-column:span 3}.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}.c9{grid-column:span 9}.c12{grid-column:span 12}
+input[type=text],input[type=date],input[type=time],input[type=number],input[type=tel],select,textarea{
+  width:100%;min-width:0;padding:7px 9px;border:1.5px solid #c7ced8;border-radius:6px;font:inherit;background:#fff;color:var(--ink);min-height:36px}
+select{-webkit-appearance:menulist}
+textarea{resize:vertical}
+input[type=checkbox],input[type=radio]{width:16px;height:16px;margin:0;flex:none;accent-color:var(--accent)}
+input:focus,select:focus,textarea:focus{outline:2px solid #9cc3f5;outline-offset:1px}
+.req.is-empty{background:var(--req-bg);border-color:var(--req-bd)}
+.req.is-filled{background:var(--ok-bg);border-color:var(--ok-bd)}
+.rgroup{border:1.5px solid #c7ced8;border-radius:6px;padding:6px 10px;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:4px 14px;background:#fff}
+.rgroup.cols2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rgroup.cols3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.rgroup.cols4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.rgroup.cols5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.rgroup.col1{grid-template-columns:1fr}
+.rgroup.plain{border:none;padding:0;background:none}
+.rgroup.is-empty{background:var(--req-bg);border-color:var(--req-bd)}
+.rgroup.is-filled{background:var(--ok-bg);border-color:var(--ok-bd)}
+.rgroup label{font-size:13px;color:var(--ink);font-weight:400;display:flex;align-items:flex-start;gap:6px;cursor:pointer;padding:3px 0;line-height:1.4}
+.rgroup label input{margin-top:1px}
+.hint{font-size:11.5px;color:var(--sub);font-weight:400}
+.note{margin:8px 0 0}
+.lk{font-size:10.5px;font-weight:600;color:#2f6fb2;background:#e7f0fb;border-radius:8px;padding:0 6px}
+body.unlinked .lk{display:none}
+.pick{display:flex;gap:6px}
+.pick select{flex:0 0 46%}
+.pick input{flex:1}
+@media (max-width:640px){.pick{flex-direction:column}.pick select{flex:auto}}
+.subpanel{background:#f7f9fc;border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.subpanel.dicom{background:#fffaf0;border:2px solid #e0a800;padding:10px 12px}
+.subpanel .dhead{font-weight:700;color:#7a4b00;margin-bottom:8px}
+.linkbar{background:#f1f6fd;border:1px dashed #9cc3f5;border-radius:8px;padding:7px 10px}
+.linkbar label{font-size:13px;color:var(--navy);display:flex;gap:6px;align-items:center;flex-wrap:wrap;cursor:pointer}
+.rowbar{margin-top:8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+table.items{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}
+table.items th{background:#eef2f7;color:var(--navy);font-weight:600;font-size:12px;padding:6px;border:1px solid var(--line);text-align:left}
+table.items th.ctr,table.items td.ctr{text-align:center}
+tr.hid{display:none!important}
+table.items td{border:1px solid var(--line);padding:5px;vertical-align:top}
+table.items td label{display:inline-flex;gap:6px;align-items:center;cursor:pointer;justify-content:center;width:100%;min-height:28px}
+table.items .i-modfree{margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:4px;border:none;border-radius:7px;padding:8px 14px;font:inherit;font-weight:600;cursor:pointer;background:var(--accent);color:#fff;text-decoration:none;white-space:nowrap;min-height:34px}
+.btn.sub{background:#e4ebf3;color:var(--navy)}
+.btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--navy)}
+.btn.sm{padding:5px 11px;font-size:12.5px;min-height:30px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.outrow{display:grid;grid-template-columns:1fr auto auto;gap:6px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--line);font-size:13px;line-height:1.35}
+.outall{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.outcard{background:linear-gradient(180deg,#eaf2fc 0%,#f3f8fe 100%);border:1.5px solid #bcd3ee}
+.outcard h2{color:#1d4f86}
+.outcard .outrow{border-bottom-color:#c9dcf2}
+.outcard .btn.sub{background:#fff;border:1.5px solid #bcd3ee;color:var(--navy)}
+.outcard .btn.sub:hover{background:#f6f9fd}
+.outcard .hint{color:#4a5d73}
+.judge{font-size:12.5px;padding:0;margin:0 0 6px;list-style:none}
+.judge li{padding:6px 9px;border-radius:6px;margin-bottom:5px;border-left:4px solid;line-height:1.45}
+.judge .ng{background:#fdecec;border-color:var(--ng)}
+.judge .warn{background:#fff6e5;border-color:var(--warn)}
+.judge .ok{background:#e9f7ef;border-color:var(--good)}
+.judge .info{background:#eef4fb;border-color:var(--accent)}
+.progress{height:8px;background:#e7ecf2;border-radius:6px;overflow:hidden}
+.progress>div{height:100%;background:var(--accent);width:0;transition:width .2s}
+.disabled-sec{opacity:.45;pointer-events:none}
+.section-title{font-size:16px;color:var(--navy);margin:16px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--navy)}
+.tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.tabs button{border:1.5px solid var(--line);background:#fff;border-radius:16px;padding:5px 12px;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink)}
+.tabs button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+#previewBox{background:#c9ced6;border-radius:10px;padding:12px;overflow:hidden;max-height:80vh;overflow-y:auto}
+#previewBox .pvwrap{overflow:hidden;margin:0 auto;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+#previewBox .sheet{transform-origin:top left}
+details.rules{background:#fff;border:1px solid var(--line);border-radius:10px;padding:0 16px;margin-bottom:8px}
+details.rules summary{cursor:pointer;padding:11px 0;font-weight:700;color:var(--navy)}
+details.rules .body{padding:0 0 12px;font-size:13px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:0 18px;align-items:start}
+details.rules .body>*:not(.src){grid-column:1}
+details.rules .body>.src{grid-column:2;grid-row:1 / span 60}
+details.rules p,details.rules ul,details.rules ol{margin:6px 0}
+details.rules table{border-collapse:collapse;width:100%;font-size:12.5px;margin:6px 0}
+details.rules th,details.rules td{border:1px solid var(--line);padding:5px 7px;text-align:left;vertical-align:top}
+details.rules th{background:#eef2f7}
+.src{margin:0;padding:8px 10px;background:#f7f9fc;border:1px solid var(--line);border-radius:8px;font-size:11.5px;line-height:1.45;max-height:340px;overflow:auto}
+.src summary{cursor:pointer;font-weight:700;color:var(--navy);font-size:12px}
+.src ul{margin:6px 0 0;padding-left:16px}
+.src li{margin-bottom:4px}
+.src a{color:#1d5fa8;text-decoration:none}
+.src a:hover{text-decoration:underline}
+.footbox{max-width:1320px;margin:6px auto 10px;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:10px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.footbox .author{background:#fff8e6;color:#5a4300;border-left-color:#e0a800}
+.footbox .author b{color:#a35c00}
+.foot{font-size:11.5px;color:var(--sub);text-align:center;padding:4px 20px 24px}
+
+/* ===== タブレット（iPad等） ===== */
+@media (max-width:1100px){
+  .wrap{grid-template-columns:minmax(0,1fr)}
+  .side{position:static;max-height:none;overflow:visible;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .side .card{margin-bottom:0}
+  .only-narrow{display:inline-flex!important}
+  details.rules .body{grid-template-columns:1fr}
+  details.rules .body>.src{grid-column:1;grid-row:auto;margin-top:8px}
+  .rgroup.cols5{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .rgroup.cols4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wrap,.wide,.tb-in{padding-left:14px;padding-right:14px}
+}
+@media (max-width:820px){
+  .side{grid-template-columns:1fr}
+  .legend{display:none}
+  .rgroup.cols3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+/* ===== スマートフォン（iPhone等） ===== */
+@media (max-width:640px){
+  body{font-size:15px}
+  input[type=text],input[type=date],input[type=time],input[type=number],input[type=tel],select,textarea{font-size:16px;min-height:42px}
+  header.app{padding:12px 14px 10px}
+  .ghbtn{font-size:12.5px;padding:6px 12px}
+  .author{font-size:12px}
+  .tb-in{padding:6px 10px;gap:6px}
+  .tb-prog{min-width:0;flex:1 1 100%}
+  .tb-prog .progress{flex:1;width:auto}
+  .tb-btns{margin-left:0;width:100%;display:grid;grid-template-columns:repeat(5,1fr)}
+  .tb-btns .btn{padding:5px 4px;font-size:12px}
+  .wrap,.wide{padding-left:8px;padding-right:8px}
+  .card{padding:12px 11px;border-radius:9px}
+  .c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9{grid-column:span 12}
+  .f.h{grid-column:span 6}
+  .rec-more{display:flex}
+  .grid{gap:8px}
+  .rgroup,.rgroup.cols2,.rgroup.cols3,.rgroup.cols4,.rgroup.cols5{grid-template-columns:1fr}
+  .rgroup.cols4#purposeGroup,.rgroup#trCond,.rgroup#compGroup,.rgroup#dcTo{grid-template-columns:1fr 1fr}
+  .rgroup label{font-size:14px;padding:5px 0}
+  input[type=checkbox],input[type=radio]{width:20px;height:20px}
+  /* 表をカード表示に */
+  table.rtable,table.rtable tbody,table.rtable tr,table.rtable td{display:block;width:100%!important}
+  table.rtable thead{display:none}
+  table.rtable tr{border:1px solid var(--line);border-radius:8px;padding:8px;margin-bottom:8px;display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#fbfcfe;position:relative}
+  table.rtable td{border:none;padding:0}
+  table.rtable td::before{content:attr(data-label);display:block;font-size:11.5px;color:var(--sub);font-weight:600;margin-bottom:2px}
+  table.rtable td.full{grid-column:1 / -1}
+  table.rtable td.del{position:absolute;top:6px;right:6px;width:auto!important}
+  table.rtable td.del::before{display:none}
+  #costTbl th:first-child{width:auto}
+  #costTbl td label{font-size:13px}
+  .outrow{grid-template-columns:1fr auto auto}
+  .footbox{margin:6px 8px 10px}
+  #previewBox{padding:8px;max-height:70vh}
+}
+
+/* ====== 帳票（印刷・プレビュー共通） ====== */
+.sheet{background:#fff;color:#000;font-family:"Yu Mincho","Hiragino Mincho ProN","MS Mincho",serif;position:relative;overflow:hidden}
+.sheet.land{width:297mm;height:210mm;padding:10mm 12mm}
+.sheet.port{width:210mm;height:297mm;padding:12mm 14mm}
+.sheet .g{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Meiryo",sans-serif}
+.sheet table{border-collapse:collapse;width:100%}
+.sheet .bx{display:inline-block;width:13px;height:13px;border:1px solid #000;vertical-align:-2px;text-align:center;line-height:11px;font-size:11px;margin-right:4px}
+.sheet .bx.big{width:24px;height:22px;line-height:20px;font-size:15px;vertical-align:-6px}
+.ul{border-bottom:1px solid #000;display:inline-block;min-width:40mm;padding:0 2px}
+/* 様式3 */
+.f3 .frame{border:1px solid #000;height:182mm;padding:4mm 7mm 4mm;position:relative;display:flex;flex-direction:column}
+.f3 .ttl{text-align:center;font-size:21pt;letter-spacing:.05em;margin:1mm 0 2mm}
+.f3 .date{position:absolute;right:9mm;top:14mm;font-size:11pt}
+.f3 .parties{display:grid;grid-template-columns:82mm 1fr 60mm;gap:4mm;font-size:10.5pt;margin-top:5mm;line-height:1.45}
+.f3 .parties .k{display:inline-block;width:20mm}
+.f3 .purp{display:grid;grid-template-columns:22mm 105mm 52mm 1fr;gap:2.2mm 2mm;font-size:10.5pt;margin:4mm 0 3mm}
+.f3 .items th{border:1px solid #000;font-weight:400;font-size:10pt;padding:1.2mm}
+.f3 .items td{border:1px solid #000;font-size:9.5pt;padding:.8mm 1.5mm;vertical-align:top;height:8mm;line-height:1.35}
+.f3 .cost{display:grid;grid-template-columns:62mm 32mm 32mm;gap:0;font-size:9.5pt;margin-top:3mm;align-items:center;line-height:1.3}
+.f3 .cost .hd{border:1px solid #000;text-align:center;padding:.6mm 0;margin:0 3mm}
+.f3 .cost .mk{text-align:center;font-size:11pt}
+.f3 .bottom{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;font-size:10pt}
+.f3 .org{font-family:"Yu Gothic","Meiryo",sans-serif;font-weight:700;font-size:13pt}
+/* 様式4 */
+.f4 .ttl{text-align:center;font-size:19pt;letter-spacing:.3em;margin:4mm 0 3mm}
+.f4 .secl{font-size:10pt;font-weight:700;margin:2mm 0 1mm}
+.f4 .box{border:1px solid #000;padding:2.5mm 4mm;font-size:10pt}
+.f4 .row{padding:2mm 0;border-bottom:1px dotted #777}
+.f4 .row:last-child{border-bottom:none}
+.f4 .two{display:grid;grid-template-columns:1fr 1fr;gap:1mm 6mm;margin-top:1.5mm}
+.f4 .rec td{padding:1.6mm 1mm;font-size:10pt}
+/* 汎用（輸送依頼・控え書） */
+.sheet table.items th{background:none;color:#000;font-family:inherit}
+.sheet.gen{height:auto;min-height:297mm;overflow:visible;padding:9mm 14mm}
+.gen table.kv{table-layout:fixed}
+.gen .chk2{columns:2;column-gap:6mm;font-size:8.6pt;line-height:1.65}
+.gen .ttl{text-align:center;font-size:18pt;letter-spacing:.2em;margin:1mm 0 3mm;font-family:"Yu Gothic","Meiryo",sans-serif;font-weight:700}
+.gen table.kv th,.gen table.kv td{border:1px solid #000;font-size:9pt;padding:.9mm 2mm;line-height:1.4;text-align:left;vertical-align:top}
+.gen table.kv th{background:#f0f0f0;font-weight:600;width:33mm;font-family:"Yu Gothic","Meiryo",sans-serif}
+.gen .cap{font-family:"Yu Gothic","Meiryo",sans-serif;font-weight:700;font-size:10pt;margin:2.2mm 0 .8mm;border-left:3mm solid #444;padding-left:2mm}
+.gen .meta{display:flex;justify-content:space-between;font-size:9.5pt;margin-bottom:2mm}
+.stamps{display:flex;justify-content:flex-end;gap:0;margin-top:2mm}
+.stamps div{border:1px solid #000;width:22mm;text-align:center;font-size:8.5pt}
+.stamps div span{display:block;border-bottom:1px solid #000;padding:.5mm}
+.stamps div i{display:block;height:14mm}
+.small{font-size:8pt}
+
+/* ====== 印刷 ====== */
+@page land{size:A4 landscape;margin:0}
+@page port{size:A4 portrait;margin:0}
+.sheet.land{page:land}
+.sheet.port{page:port}
+#printArea{display:none}
+@media print{
+  body{background:#fff}
+  body>*:not(#printArea){display:none!important}
+  #printArea{display:block}
+  #printArea .sheet{box-shadow:none;margin:0;break-after:page;page-break-after:always}
+  #printArea .sheet:last-child{break-after:auto;page-break-after:auto}
+  #printArea .sheet.hide{display:none}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<header class="app">
+  <div class="toprow"><h1>医療機器 貸出し書類作成ツール</h1>
+    <a class="ghbtn" href="https://sinobu13-bpei.github.io/medical-device-rental-research/" target="_blank" rel="noopener">📘 研究資料サイト（医療機器の貸出しルール）↗</a></div>
+  <div class="author">作成者：高橋勇　<b>＊注意＊</b>この資料は私的に研究用に作成したもので、必ず規定、関連法規、社内規定は確認してください。</div>
+</header>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-in">
+    <div class="tb-prog" title="必須項目の入力状況"><div class="progress"><div id="pbar"></div></div><span id="ptext"></span></div>
+    <div class="legend">
+      <span><span class="sw" style="background:var(--req-bg);border-color:var(--req-bd)"></span>必須・未入力</span>
+      <span><span class="sw" style="background:var(--ok-bg);border-color:var(--ok-bd)"></span>入力済み</span>
+    </div>
+    <div class="tb-btns">
+      <a class="btn sub sm only-narrow" href="#judgeCard" id="jumpJudge">チェック <b id="ngCount"></b></a>
+      <a class="btn sm only-narrow" href="#outCard">出力</a>
+      <button class="btn ghost sm" id="btnSave" title="入力内容をファイルに保存">保存</button>
+      <label class="btn ghost sm" title="保存したファイルを読み込む">読込<input type="file" id="fileLoad" accept=".json,application/json" hidden></label>
+      <button class="btn ghost sm" id="btnClear">クリア</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<main>
+  <!-- 1 貸出元 -->
+  <section class="card">
+    <h2><span class="no">1</span>貸出元（事業者）</h2>
+    <div class="grid">
+      <div class="f c4"><label>会社<span class="r">*</span></label>
+        <select id="company" class="req"><option value="">選択してください</option></select></div>
+      <div class="f c8"><label>会社名（正式名称・自由入力可）<span class="r">*</span></label>
+        <input type="text" id="companyName" class="req" placeholder="会社を選ぶと自動入力（商社・その他は直接入力）"></div>
+      <div class="f c5"><label>支社・支店・営業所 <span class="hint">選ぶと住所・電話を自動入力</span></label>
+        <select id="branch"><option value="">（会社を選択してください）</option></select></div>
+      <div class="f c7"><label>支社名・支店名・部署名<span class="r">*</span></label><input type="text" id="dept" class="req" placeholder="例：関西支社 大阪第一支店 営業一課"></div>
+      <div class="f c3 h"><label>郵便番号<span class="r">*</span></label><input type="text" id="lenderZip" class="req" inputmode="numeric" placeholder="000-0000"></div>
+      <div class="f c9"><label>所在地<span class="r">*</span></label><input type="text" id="lenderAddr" class="req"></div>
+      <div class="f c4 h"><label>電話番号<span class="r">*</span></label><input type="tel" id="staffTel" class="req"></div>
+      <div class="f c4 h"><label>FAX番号</label><input type="tel" id="staffFax"></div>
+      <div class="f c4"><label>担当者名<span class="r">*</span></label><input type="text" id="staff" class="req"></div>
+      <div class="f c12"><label>経由販売店（商社）</label><input type="text" id="dealer" placeholder="例：〇〇株式会社 〇〇支店"></div>
+    </div>
+    <p class="hint note" id="branchNote"></p>
+  </section>
+
+  <!-- 2 貸出先 -->
+  <section class="card">
+    <h2><span class="no">2</span>貸出先（医療機関）<span class="lk">🔗＝様式4と共通</span></h2>
+    <div class="grid">
+      <div class="f c4"><label>医療機関名<span class="r">*</span> <span class="lk">🔗</span></label><input type="text" id="hosp" class="req"></div>
+      <div class="f c5"><label>診療科名<span class="r">*</span> <span class="lk">🔗</span></label><input type="text" id="deptH" class="req" placeholder="直接入力も可"></div>
+      <div class="f c3 h"><label>設置主体</label>
+        <select id="hospType"><option value="">選択</option><option>国立（国・独法・国立大学法人）</option><option>公立（自治体・地方独法）</option><option>公的（日赤・済生会・厚生連 等）</option><option>民間（医療法人 等）</option><option>その他</option></select></div>
+      <div class="f c3 h"><label>郵便番号 <span class="lk">🔗</span></label><input type="text" id="hospZip" inputmode="numeric" placeholder="000-0000"></div>
+      <div class="f c9"><label>所在地<span class="r">*</span> <span class="lk">🔗</span></label><input type="text" id="hospAddr" class="req"></div>
+      <div class="f c4"><label>管理責任者 役職</label><input type="text" id="mgrTitle" placeholder="例：病院長／診療科長"></div>
+      <div class="f c4"><label>管理責任者 氏名<span class="r">*</span> <span class="lk">🔗</span></label><input type="text" id="mgrName" class="req"></div>
+      <div class="f c4"><label>病院側 窓口（部署・氏名）</label><input type="text" id="hospContact" placeholder="例：用度課 〇〇様"></div>
+    </div>
+  </section>
+
+  <!-- 3 機器 -->
+  <section class="card">
+    <h2><span class="no">3</span>貸出機器</h2>
+    <p class="hint note" style="margin-top:-6px">会社 → モダリティ → 世代 → 機種 の順に選択。リストにない場合は直接入力できます（ラインナップは参考情報）。</p>
+    <table class="items rtable" id="itemsTbl">
+      <thead><tr><th style="width:19%">モダリティ<span class="r">*</span></th><th style="width:11%">世代</th><th style="width:22%">機種（選択）</th><th>品名・規格形式<span class="r">*</span></th><th style="width:11%">製造番号</th><th style="width:7%">数量<span class="r">*</span></th><th style="width:40px"></th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="rowbar"><button class="btn sub sm" id="addItem">＋ 機器を追加</button><span class="hint">最大4台（様式3の明細欄）</span></div>
+    <div class="grid" style="margin-top:10px">
+      <div class="f c6"><label>使用者名<span class="r">*</span></label><input type="text" id="user" class="req" placeholder="例：〇〇科 〇〇医師"></div>
+      <div class="f c6"><label>設置場所<span class="r">*</span></label><input type="text" id="place" class="req" placeholder="例：2階 超音波検査室"></div>
+      <div class="f c12"><label>付属品・構成品（プローブ・ケーブル類など）</label><input type="text" id="acc" placeholder="例：コンベックスプローブ×1、リニアプローブ×1、電源コード、取扱説明書"></div>
+      <div class="f c12"><label>構成・接続（該当するものにチェック）</label>
+        <div class="rgroup cols3" id="compGroup">
+          <label><input type="checkbox" id="cEcg">心電図（ECG同期・ケーブル）</label>
+          <label><input type="checkbox" id="cDicom"><b>DICOM接続</b>（PACS・RIS・MWL等）</label>
+          <label><input type="checkbox" id="cPrinter">プリンター類</label>
+          <label><input type="checkbox" id="cMonitor">外部モニター</label>
+          <label><input type="checkbox" id="cMedia">記録媒体（USB・DVD等）</label>
+          <label><input type="checkbox" id="cWifi">無線LAN</label>
+          <label><input type="checkbox" id="cUps">UPS・専用電源</label>
+          <label><input type="checkbox" id="cFoot">フットスイッチ</label>
+          <label><input type="checkbox" id="cCart">カート・スタンド</label>
+        </div></div>
+      <div class="f c6 subpanel" id="ecgPanel" style="display:none"><label>心電図の構成・接続内容<span class="r">*</span></label>
+        <input type="text" id="ecgDetail" class="req" placeholder="例：ECG同期ケーブル（3誘導）×1"></div>
+      <div class="f c6 subpanel" id="prnPanel" style="display:none"><label>プリンター類の機種・台数・用紙等<span class="r">*</span></label>
+        <input type="text" id="prnDetail" class="req" placeholder="例：白黒ビデオプリンター×1（感熱紙は貸出先負担）"></div>
+      <div class="f c12 subpanel dicom" id="dicomPanel" style="display:none">
+        <div class="dhead">🔌 DICOM接続の確認 <span class="hint">（赤欄・確認事項5つがすべて埋まるまで「チェック」に警告が出ます）</span></div>
+        <div class="grid">
+          <div class="f c12"><label>接続先<span class="r">*</span></label>
+            <div class="rgroup req-group cols4" data-name="dcTo" id="dcTo">
+              <label><input type="checkbox" name="dcTo" value="PACS">PACS</label>
+              <label><input type="checkbox" name="dcTo" value="MWL">ワークリスト（MWL）</label>
+              <label><input type="checkbox" name="dcTo" value="RIS">RIS</label>
+              <label><input type="checkbox" name="dcTo" value="HIS/電子カルテ">HIS・電子カルテ</label>
+              <label><input type="checkbox" name="dcTo" value="MPPS">MPPS</label>
+              <label><input type="checkbox" name="dcTo" value="DICOMプリンター">DICOMプリンター</label>
+              <label><input type="checkbox" name="dcTo" value="画像WS">画像WS</label>
+              <label><input type="checkbox" name="dcTo" value="レポートシステム">レポートシステム</label>
+            </div></div>
+          <div class="f c4 h"><label>接続方式<span class="r">*</span></label><select id="dcWay" class="req"><option value="">選択</option><option>有線LAN（院内ネットワーク）</option><option>無線LAN</option><option>直結（装置⇔WS）</option><option>オフライン（媒体で受渡し）</option></select></div>
+          <div class="f c8"><label>病院側ネットワーク担当（部署・氏名・連絡先）<span class="r">*</span></label><input type="text" id="dcHospIT" class="req" placeholder="例：医療情報部 〇〇様 内線1234"></div>
+          <div class="f c4"><label>PACS/RIS ベンダー・機種</label><input type="text" id="dcVendor" placeholder="例：〇〇社 PACS"></div>
+          <div class="f c4"><label>装置側 AE Title／IP／Port</label><input type="text" id="dcLocal" placeholder="例：DEMO_US01／192.168.x.x／104"></div>
+          <div class="f c4"><label>接続先 AE Title／IP／Port</label><input type="text" id="dcRemote" placeholder="例：PACS01／192.168.x.x／104"></div>
+          <div class="f c4 h"><label>情報システム部門の承認日<span class="r">*</span></label><input type="date" id="dcApprDate" class="req"></div>
+          <div class="f c4 h"><label>接続テスト日（予定）<span class="r">*</span></label><input type="date" id="dcTestDate" class="req"></div>
+          <div class="f c4"><label>返却時の接続解除・データ消去<span class="r">*</span></label><select id="dcErase" class="req"><option value="">選択</option><option>病院立会いで設定解除・データ消去し消去記録を交付</option><option>消去証明書を後日発行</option><option>データ保存なし設定（装置内に残らない）</option><option>記録媒体ごと病院へ引渡し</option></select></div>
+          <div class="f c12"><label>確認事項（5つすべて）<span class="r">*</span></label>
+            <div class="rgroup req-group col1" data-name="dcChk" id="dcChk">
+              <label><input type="checkbox" name="dcChk" value="0">病院情報システム部門の書面（メール可）承認を得た</label>
+              <label><input type="checkbox" name="dcChk" value="1">DICOM Conformance Statement（適合性宣言書）を病院・PACSベンダーに提出した</label>
+              <label><input type="checkbox" name="dcChk" value="2">ウイルス対策・OSパッチ・不要ポート閉鎖など装置のセキュリティ状態を確認した（MDS2等）</label>
+              <label><input type="checkbox" name="dcChk" value="3">PACSへ送信した画像の扱い（試用画像の保存可否・削除）を病院と取り決めた</label>
+              <label><input type="checkbox" name="dcChk" value="4">IPアドレス等の設定変更は病院の指示どおりに行い、変更記録を残す</label>
+            </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 目的・期間 -->
+  <section class="card">
+    <h2><span class="no">4</span>貸出目的・期間・費用負担</h2>
+    <div class="grid">
+      <div class="f c12"><label>貸出目的（様式3の区分）<span class="r">*</span></label>
+        <div class="rgroup req-group cols4" data-name="purpose" id="purposeGroup"></div>
+        <div class="hint" id="purposeNote"></div></div>
+      <div class="f c12" id="otherPurposeWrap" style="display:none"><label>「その他」の内容</label><input type="text" id="purposeOther"></div>
+      <div class="f c3 h"><label>作成日<span class="r">*</span></label><input type="date" id="docDate" class="req"></div>
+      <div class="f c3 h"><label>貸出開始日<span class="r">*</span> <span class="lk">🔗</span></label><input type="date" id="dStart" class="req"></div>
+      <div class="f c3 h"><label>返却予定日<span class="r">*</span> <span class="lk">🔗</span></label><input type="date" id="dEnd" class="req"></div>
+      <div class="f c3 h"><label>返却確認日 <span class="hint">返却時</span></label><input type="date" id="dReturn"></div>
+      <div class="f c3 h"><label>症例数（予定）</label><input type="text" id="cases" placeholder="例：20例"></div>
+      <div class="f c3"><label>購入予算の状況<span class="r">*</span></label>
+        <select id="budget" class="req"><option value="">選択</option><option value="planned">当年度予算に計上済（契約前）</option><option value="none">予算未計上</option><option value="na">該当なし（購入検討外の目的）</option><option value="contracted">売買契約済（納品待ち）</option></select></div>
+      <div class="f c3 h"><label>同一機器の既購入・使用</label>
+        <select id="owned"><option value="no">なし</option><option value="yes">あり（同カタログ番号）</option></select></div>
+      <div class="f c3 h"><label>同一診療科への過去貸出</label>
+        <select id="repeat"><option value="no">なし</option><option value="yes">あり（同一機器）</option></select></div>
+      <div class="f c12"><label>貸出期間中の費用負担（様式3）<span class="r">*</span></label>
+        <table class="items" id="costTbl"><thead><tr><th>項目</th><th class="ctr" style="width:26%">貸出元負担</th><th class="ctr" style="width:26%">貸出先負担</th></tr></thead><tbody></tbody></table></div>
+      <div class="f c12"><label>5．その他の費用の内容</label><input type="text" id="costOther" placeholder="例：輸送費、据付工事費 など"></div>
+    </div>
+  </section>
+
+  <!-- 5 立会い -->
+  <section class="card" id="sec5">
+    <h2><span class="no">5</span>立会い実施確認書（様式4）<label class="toggle"><input type="checkbox" id="useF4" checked>作成する</label></h2>
+    <div class="grid" id="f4body">
+      <div class="f c12 linkbar"><label><input type="checkbox" id="f4Link" checked>様式3と共通項目（🔗）を連動する　<span class="hint">貸出先＝立会い先。どちらで入力しても両方に入ります。</span></label></div>
+      <div class="f c4"><label>医療機関名<span class="r">*</span> <span class="lk">🔗</span></label><input type="text" id="f4Hosp" class="req f4req"></div>
+      <div class="f c5"><label>診療科名<span class="r">*</span> <span class="lk">🔗</span></label><input type="text" id="f4DeptH" class="req f4req" placeholder="直接入力も可"></div>
+      <div class="f c3"><label>管理責任者名<span class="r">*</span> <span class="lk">🔗</span></label><input type="text" id="f4Mgr" class="req f4req"></div>
+      <div class="f c3 h"><label>郵便番号 <span class="lk">🔗</span></label><input type="text" id="f4Zip" inputmode="numeric"></div>
+      <div class="f c9"><label>住所<span class="r">*</span> <span class="lk">🔗</span></label><input type="text" id="f4Addr" class="req f4req"></div>
+      <div class="f c6"><label>対象医療機器名<span class="r">*</span> <span class="lk">🔗</span></label><input type="text" id="f4Device" class="req f4req" placeholder="貸出機器から自動入力"></div>
+      <div class="f c6"><label>手技名<span class="r">*</span></label><input type="text" id="f4Proc" class="req f4req" placeholder="例：腹部超音波検査"></div>
+      <div class="f c12"><label>立会い目的<span class="r">*</span></label><div class="rgroup req-group f4grp cols2" data-name="f4p" id="f4Purpose"></div></div>
+      <div class="f c2 h"><label>回数<span class="r">*</span></label><input type="number" min="1" max="99" id="f4Count" class="req f4req" inputmode="numeric"></div>
+      <div class="f c3 h"><label>予定期間 自<span class="r">*</span> <span class="lk">🔗</span></label><input type="date" id="f4From" class="req f4req"></div>
+      <div class="f c3 h"><label>予定期間 至<span class="r">*</span> <span class="lk">🔗</span></label><input type="date" id="f4To" class="req f4req"></div>
+      <div class="f c4"><label>実施事業者名 <span class="lk">🔗</span></label><input type="text" id="f4Biz" placeholder="貸出元から自動入力"></div>
+      <div class="f c12"><div class="rgroup col1 plain">
+        <label><input type="checkbox" id="f4IC">患者へのインフォームドコンセントの実施を確認済</label>
+        <label><input type="checkbox" id="f4Rule" checked>弊社及び弊社担当者は、貴院の院内規則を遵守いたします</label></div></div>
+      <div class="f c12"><label>立会い実施記録 <span class="hint">実施後に記入・最大4回</span></label>
+        <table class="items rtable" id="recTbl"><thead><tr><th style="width:28%">実施日</th><th style="width:18%">開始</th><th style="width:18%">終了</th><th>担当者名</th></tr></thead><tbody></tbody></table>
+        <div class="rowbar"><button class="btn sub sm" id="addRec" type="button">＋ 実施記録を追加</button></div></div>
+    </div>
+  </section>
+
+  <!-- 6 輸送 -->
+  <section class="card" id="sec6">
+    <h2><span class="no">6</span>輸送依頼<label class="toggle"><input type="checkbox" id="useTr" checked>作成する</label></h2>
+    <div class="grid" id="trbody">
+      <div class="f c5"><label>輸送業者名<span class="r">*</span></label><input type="text" id="trCarrier" class="req trreq"></div>
+      <div class="f c4"><label>業者担当者・TEL</label><input type="text" id="trCarrierTel"></div>
+      <div class="f c3"><label>区分<span class="r">*</span></label><select id="trDir" class="req trreq"><option value="">選択</option><option>往路（搬入）</option><option>復路（返却）</option><option>往復</option></select></div>
+      <div class="f c3 h"><label>集荷日<span class="r">*</span></label><input type="date" id="trPickDate" class="req trreq"></div>
+      <div class="f c2 h"><label>時刻</label><input type="time" id="trPickTime"></div>
+      <div class="f c4"><label>集荷場所<span class="r">*</span></label><input type="text" id="trPickPlace" class="req trreq" placeholder="例：〇〇デモセンター"></div>
+      <div class="f c3"><label>集荷 担当者・TEL</label><input type="text" id="trPickTel"></div>
+      <div class="f c3 h"><label>搬入日<span class="r">*</span></label><input type="date" id="trDelDate" class="req trreq"></div>
+      <div class="f c2 h"><label>時刻</label><input type="time" id="trDelTime"></div>
+      <div class="f c4"><label>搬入先（施設・部署・階）<span class="r">*</span></label><input type="text" id="trDelPlace" class="req trreq" placeholder="貸出先・設置場所から自動入力"></div>
+      <div class="f c3"><label>搬入先 立会者・TEL</label><input type="text" id="trDelTel"></div>
+      <div class="f c3 h"><label>返却 集荷予定日</label><input type="date" id="trRetDate"></div>
+      <div class="f c3 h"><label>梱包数</label><input type="text" id="trPkgs" placeholder="例：3個口"></div>
+      <div class="f c3 h"><label>総重量（kg）</label><input type="text" id="trWeight" inputmode="decimal"></div>
+      <div class="f c3 h"><label>最大寸法（W×D×H mm）</label><input type="text" id="trSize"></div>
+      <div class="f c12"><label>取扱い・搬入条件</label><div class="rgroup cols5" id="trCond"></div></div>
+      <div class="f c4"><label>開梱・据付</label><select id="trInstall"><option value="">選択</option><option>不要（玄関渡し）</option><option>開梱のみ</option><option>開梱・設置まで</option><option>メーカー技術員が設置</option></select></div>
+      <div class="f c4"><label>運送保険</label><select id="trIns"><option value="">選択</option><option>付保する</option><option>付保しない（自社動産保険で対応）</option></select></div>
+      <div class="f c4"><label>運賃負担</label><select id="trPay"><option value="">選択</option><option>貸出元</option><option>貸出先</option><option>経由販売店</option></select></div>
+      <div class="f c12"><label>備考（搬入経路・エレベーター寸法・駐車場所など）</label><textarea id="trNote" rows="2"></textarea></div>
+    </div>
+  </section>
+
+  <!-- 7 控え -->
+  <section class="card">
+    <h2><span class="no">7</span>社内控え（コンプライアンス確認）</h2>
+    <div class="grid">
+      <div class="f c4 h"><label>社内管理番号</label><input type="text" id="ctrlNo" placeholder="空欄なら自動採番"></div>
+      <div class="f c4 h"><label>承認者（上長）</label><input type="text" id="approver"></div>
+      <div class="f c4"><label>関連案件・商談番号</label><input type="text" id="deal"></div>
+      <div class="f c12"><label>確認項目（控え書に記録）</label><div class="rgroup cols2" id="chk"></div></div>
+      <div class="f c12"><label>社内メモ</label><textarea id="memo" rows="2"></textarea></div>
+    </div>
+  </section>
+</main>
+
+<aside class="side">
+  <div class="card" id="judgeCard">
+    <h2>✅ 貸出し可否チェック</h2>
+    <ul class="judge" id="judge"></ul>
+    <div class="hint">公取協「貸出しに関する基準」等に基づく簡易チェックです。最終判断は各社コンプライアンス部門・公取協へ。</div>
+  </div>
+  <div class="card outcard" id="outCard">
+    <h2>📤 出力</h2>
+    <div class="outrow"><span>貸出しに関する確認書<br><span class="hint">様式3・A4横</span></span><button class="btn sm" data-pdf="f3">PDF</button><button class="btn sub sm" data-xls="f3">Excel</button></div>
+    <div class="outrow"><span>立会い実施確認書<br><span class="hint">様式4・A4縦</span></span><button class="btn sm" data-pdf="f4">PDF</button><button class="btn sub sm" data-xls="f4">Excel</button></div>
+    <div class="outrow"><span>輸送依頼書<br><span class="hint">A4縦</span></span><button class="btn sm" data-pdf="tr">PDF</button><button class="btn sub sm" data-xls="tr">Excel</button></div>
+    <div class="outrow"><span>控え書（社内ファイル用）<br><span class="hint">A4縦</span></span><button class="btn sm" data-pdf="ct">PDF</button><button class="btn sub sm" data-xls="ct">Excel</button></div>
+    <div class="outall"><button class="btn" data-pdf="all">全書類 PDF</button><button class="btn sub" data-xls="all">全書類 Excel</button></div>
+    <p class="hint" style="margin:8px 0 0">PDF：印刷画面で「PDFに保存」を選択（PCは用紙の向き自動。iPhone・iPadは共有→プリント→プレビューをピンチアウト→共有で保存。向きは書類ごとに個別出力がおすすめ）。Excel：書類ごとのシート、A4・印刷範囲設定済み。</p>
+  </div>
+</aside>
+</div>
+
+<div class="wide">
+  <h3 class="section-title">帳票プレビュー</h3>
+  <div class="tabs" id="pvTabs"></div>
+  <div id="previewBox"></div>
+
+  <h3 class="section-title">注意書き・ルール・関係法規</h3>
+  <div id="rulesBox"></div>
+</div>
+
+<div class="footbox">
+  <div class="author">作成者：高橋勇　<b>＊注意＊</b>この資料は私的に研究用に作成したもので、必ず規定、関連法規、社内規定は確認してください。</div>
+  <a class="ghbtn dark" href="https://sinobu13-bpei.github.io/medical-device-rental-research/" target="_blank" rel="noopener">📘 研究資料サイトを開く ↗</a>
+</div>
+<div class="foot">入力内容はこのブラウザ内だけで処理され、外部に送信されません。本ツールは業界ルールの理解と書類作成を補助するものであり、法的助言ではありません。ルール・ラインナップ・拠点情報の基準日：2026年11月。</div>
+
+<div id="printArea"></div>
+
+<script>
+/* =========================================================
+   マスタ：会社 → モダリティ → 現行 / 一世代前
+   ※各社公開情報（2026年11月時点）を基にした参考値。各社で更新してください。
+   ========================================================= */
+const DB = {
+  cmsc:{name:"キヤノンメディカルシステムズ株式会社",label:"キヤノンメディカルシステムズ",mods:{
+    "CT":{cur:["Aquilion ONE / INSIGHT Edition","Aquilion ONE / NATURE Edition","Aquilion Precision","Aquilion Prime SP / i Edition","Aquilion Serve","Aquilion Lightning / Helios i Edition","Aquilion Lightning / i Edition","Aquilion Start / i Edition","Aquilion Exceed LB"],
+          prev:["Aquilion ONE / PRISM Edition","Aquilion ONE / GENESIS Edition","Aquilion ONE / ViSION Edition","Aquilion Prime SP","Aquilion Prime","Aquilion Lightning","Aquilion Start"]},
+    "MRI":{cur:["Vantage Centurian / Precious Edition","Vantage Galan 3T / Supreme Edition","Vantage Orian","Vantage Fortian","Vantage Gracian","Vantage Elan / Active Edition"],
+           prev:["Vantage Centurian","Vantage Galan 3T","Vantage Titan 3T","Vantage Titan 1.5T","Vantage Elan"]},
+    "超音波診断装置":{cur:["Aplio i-series / Prism Edition（i900 / i800 / i700）","Aplio beyond","Aplio a-series","Aplio me","Aplio flex","Aplio go","Aplio air"],
+           prev:["Aplio i-series（i800 / i700 / i600）","Aplio a（a550 / a450）","Aplio 500 / 400 / 300","Xario 200G / 100G","Viamo c100"]},
+    "X線アンギオグラフィ":{cur:["Alphenix / Evolve Edition","Alphenix（Core+ / Sky+ / Biplane）","Alphenix 4D CT"],
+           prev:["Alphenix","Infinix Celeve-i シリーズ","Infinix-i 4D CT"]},
+    "X線TV（透視撮影）":{cur:["Zexira i9","Astorex i9","Ultimax-i"],prev:["ZEXIRA DREX-ZX80","Raffine-i DREX-RF80","Ultimax-i（I.I.仕様）"]},
+    "一般撮影・回診用X線":{cur:["Radrex i5","Mobirex i9"],prev:["RADREX DRite DRAD-8000A","RADREX MRAD-A50S","R-mini"]},
+    "核医学・PET-CT":{cur:["Cartesion Prime / Luminous Edition","GCA-9300R"],prev:["Cartesion Prime","Celesteion"]},
+    "ヘルスケアIT・ワークステーション":{cur:["Vitrea","CardioAgent Pro","CardioAgent Pro for CIEDs"],prev:["Vitrea（旧バージョン）","Ziostation（旧ライセンス）"]},
+    "検体検査装置":{cur:["生化学自動分析装置（TBAシリーズ）"],prev:["生化学自動分析装置（旧TBAシリーズ）"]}
+  }},
+  kmj:{name:"コニカミノルタジャパン株式会社",label:"コニカミノルタジャパン",mods:{
+    "超音波診断装置":{cur:["SONIMAGE UX1","SONIMAGE UX1 TRiFOR（整形外科モデル）","SONIMAGE MX1","SNiBLE yb"],prev:["SONIMAGE HS2","SONIMAGE HS1","SNiBLE"]},
+    "デジタルX線（DR・カセッテ）":{cur:["AeroDR swift","AeroDR fine motion"],prev:["AeroDR fine","AeroDR SYSTEM 2"]},
+    "回診用X線・X線動態撮影":{cur:["AeroDR TX m01","KINOSIS（X線動態解析ワークステーション）"],prev:["回診用X線装置（旧機種）"]},
+    "画像処理・ワークステーション":{cur:["CS-7","RADInsight","CXR Finding-i"],prev:["CS-7（旧バージョン）","REGIUS Unitea"]},
+    "CR":{cur:["REGIUS Σ II"],prev:["REGIUS MODEL 110 / 210"]}
+  }},
+  nk:{name:"日本光電工業株式会社",label:"日本光電",mods:{
+    "生体情報モニタ（ベッドサイド）":{cur:["ライフスコープ E7（BSM-5700シリーズ）","ライフスコープ G7 / G5（CSM-1000シリーズ）","ライフスコープ G9（CSM-1900シリーズ）"],prev:["ライフスコープ TR（BSM-6000シリーズ）","ライフスコープ PT（BSM-1700シリーズ）","ライフスコープ J（BSM-9100シリーズ）"]},
+    "セントラルモニタ・医用テレメータ":{cur:["セントラルモニタ CNS-9800シリーズ","送信機 ZS-900シリーズ","オンサイトアラーム分析ソフトウェア QP-841N"],prev:["セントラルモニタ CNS-9700シリーズ","送信機 ZS-600シリーズ"]},
+    "心電計":{cur:["心電計 ECG-2500シリーズ（ECG-2550 / 2560）"],prev:["心電計 ECG-1500シリーズ カルジオファックス V"]},
+    "脳波計・筋電図":{cur:["脳波計 EEG-1200シリーズ ニューロファックス","ニューロパック S3"],prev:["脳波計 EEG-1100シリーズ","ニューロパック X1"]},
+    "除細動器・AED":{cur:["除細動器 TEC-8300シリーズ カルジオライフ","AED-3200シリーズ（AED-3250）","AED-3100シリーズ（AED-3150）"],prev:["除細動器 TEC-7700シリーズ","半自動除細動器 TEC-2500シリーズ","AED-2100シリーズ（AED-2150）"]},
+    "人工呼吸器":{cur:["人工呼吸器 NKV-550シリーズ","人工呼吸器 NKV-330"],prev:["人工呼吸器 NKV-440"]}
+  }},
+  omk:{name:"オリンパスマーケティング株式会社",label:"オリンパスマーケティング",mods:{
+    "消化器内視鏡システム":{cur:["EVIS X1 ビデオシステムセンター CV-1500","上部消化管ビデオスコープ GIF-EZ1500 / GIF-1200N","大腸ビデオスコープ CF-EZ1500DL/I"],prev:["EVIS LUCERA ELITE（CV-290 / CLV-290SL）","EVIS EXERA III（CV-190）","GIF-H290Z / GIF-H290","PCF-H290ZI / CF-HQ290ZI"]},
+    "気管支内視鏡":{cur:["EVIS X1 対応 気管支ビデオスコープ BF-H1100 / BF-1TH1100"],prev:["気管支ビデオスコープ BF-H290 / BF-1TQ290"]},
+    "超音波内視鏡・観測装置":{cur:["内視鏡用超音波観測装置 EU-ME3","超音波内視鏡 GF-UCT260 / GF-UE290"],prev:["内視鏡用超音波観測装置 EU-ME2","EU-ME2 PREMIER PLUS"]},
+    "外科手術用内視鏡システム":{cur:["VISERA ELITE III","ENDOEYE FLEX 3D LTF-S700-10-3D"],prev:["VISERA ELITE II","VISERA 4K UHD","ENDOEYE FLEX 3D LTF-S300-10-3D"]},
+    "エネルギーデバイス・電気手術器":{cur:["電気手術器 ESG-410","THUNDERBEAT / POWERSEAL 対応ジェネレータ"],prev:["電気手術器 ESG-400 / ESG-300","USG-400"]},
+    "泌尿器・婦人科内視鏡":{cur:["膀胱腎盂ビデオスコープ CYF-VH / CYF-V2","切除用電極・レゼクトスコープ"],prev:["膀胱腎盂ビデオスコープ（旧機種）"]}
+  }},
+  ge:{name:"GEヘルスケア・ジャパン株式会社",label:"GEヘルスケア・ジャパン",mods:{
+    "CT":{cur:["Photonova Spectra（フォトンカウンティングCT）","Revolution Vibe","Revolution Apex Elite","Revolution Ascend","Revolution Maxima"],prev:["Revolution Apex","Revolution CT","Revolution EVO","Discovery CT750 HD","Optima CT660"]},
+    "MRI":{cur:["SIGNA Premier","SIGNA Hero","SIGNA Architect","SIGNA Artist","SIGNA Voyager","SIGNA Explorer"],prev:["Discovery MR750w","Discovery MR750","Optima MR450w","SIGNA Pioneer"]},
+    "超音波診断装置":{cur:["LOGIQ Fortis","LOGIQ E10s","Vivid Pioneer","Vivid E95","Voluson Signature / Voluson Expert 22","Venue ファミリー","Invenia ABUS Premium"],prev:["LOGIQ E9","LOGIQ E10","Vivid E9","Voluson E10","Invenia ABUS 2.0"]},
+    "X線（一般・回診・外科用Cアーム）":{cur:["Definium 656 HD / Definium Pace Select","AMX Navigate","OEC 3D","OEC Elite CFD"],prev:["Discovery XR656","Optima XR240amx","OEC 9900 Elite"]},
+    "血管撮影装置":{cur:["Allia IGS Pulse","Allia IGS 7"],prev:["Innova IGS 530 / 630"]},
+    "マンモグラフィ":{cur:["Senographe Pristina"],prev:["Senographe Essential"]},
+    "核医学・PET/CT":{cur:["Omni Legend","StarGuide"],prev:["Discovery MI","Discovery NM/CT 670"]}
+  }},
+  other:{name:"",label:"その他（自由入力）",mods:{}}
+};
+/* =========================================================
+   拠点マスタ：[グループ, 拠点名, 郵便番号, 住所, TEL, FAX]
+   出典：各社公式サイトの国内拠点一覧（2026年11月確認）。コニカミノルタは公式「販売拠点一覧」の各拠点ページより。
+   ========================================================= */
+const BRANCHES = {
+ cmsc: [
+  ["本社","本社","212-0015","神奈川県川崎市幸区柳町70-1","044-520-2110","044-920-2175"],
+  ["北海道","北海道支社","065-0042","北海道札幌市東区本町2条2丁目3番6号","011-785-3131","011-785-1104"],
+  ["北海道","札幌支店","065-0042","北海道札幌市東区本町2条2丁目3番6号","011-785-0004","011-785-3505"],
+  ["北海道","旭川支店","070-0031","北海道旭川市1条通9丁目50番3号（日進旭川ビル）","0166-23-3354","0166-25-1433"],
+  ["北海道","函館営業所","040-0001","北海道函館市五稜郭町1番14号（五稜郭114ビル）","0138-55-3831","0138-53-6296"],
+  ["北海道","釧路営業所","085-0015","北海道釧路市北大通6丁目2番1号（北洋日生ビル）","0154-24-0178","0154-24-7593"],
+  ["北海道","帯広営業所","080-0026","北海道帯広市西16条南1丁目18番5号（オフィスフリーダム161）","0155-34-9437","0155-34-9456"],
+  ["東北","東北支社","989-3204","宮城県仙台市青葉区南吉成2丁目17番2号","022-279-3510","022-279-5701"],
+  ["東北","宮城支店","989-3204","宮城県仙台市青葉区南吉成2丁目17番2号","022-279-3511","022-279-0805"],
+  ["東北","青森支店","030-0801","青森県青森市新町2丁目2番4号（青森新町二丁目ビルディング）","017-776-8203","017-776-4334"],
+  ["東北","岩手支店","020-0024","岩手県盛岡市菜園1丁目12番18号（盛岡菜園センタービル）","019-652-1351","019-623-7711"],
+  ["東北","秋田支店","010-0951","秋田県秋田市山王2丁目1番53号（秋田山王21ビル）","018-862-3991","018-862-0342"],
+  ["東北","山形支店","990-0031","山形県山形市十日町1丁目3番29号（山形十日町ビル）","023-622-4564","023-633-1883"],
+  ["東北","福島支店","963-8004","福島県郡山市中町1番22号（大同生命郡山ビル）","024-932-4838","024-933-6201"],
+  ["首都圏","首都圏支社","104-0051","東京都中央区佃2丁目1番6号（リバーシティ M-SQUARE）","03-5144-8425","03-5548-3973"],
+  ["首都圏","東京第一営業部","104-0051","東京都中央区佃2丁目1番6号（リバーシティ M-SQUARE）","03-5144-8420","03-5548-3973"],
+  ["首都圏","東京第二営業部","104-0051","東京都中央区佃2丁目1番6号（リバーシティ M-SQUARE）","03-5144-8420","03-5548-3973"],
+  ["首都圏","西東京支店","190-0022","東京都立川市錦町一丁目6番6号 岩崎錦町ビル6階","042-522-5177","042-524-6998"],
+  ["首都圏","神奈川支店","220-0011","神奈川県横浜市西区高島2丁目6-32（横浜東口ウィスポートビル）","045-444-6230","045-441-5635"],
+  ["首都圏","千葉支店","261-7124","千葉県千葉市美浜区中瀬2丁目6番地1号（WBGマリブイースト）","043-274-3151","043-274-3162"],
+  ["首都圏","山梨支店","400-0031","山梨県甲府市丸の内3丁目20番7号（甲府フロントビル）","055-232-5312","055-233-2491"],
+  ["関東","関東支社","331-8701","埼玉県さいたま市北区土呂町1丁目45番地10","048-651-9211","048-651-8274"],
+  ["関東","埼玉支店","331-8701","埼玉県さいたま市北区土呂町1丁目45番地10","048-651-9290","048-651-0766"],
+  ["関東","茨城支店","305-0045","茨城県つくば市梅園2丁目2番2号","029-849-0808","029-858-6500"],
+  ["関東","栃木支店","320-0811","栃木県宇都宮市大通り1丁目4番24号（MSCビル）","028-622-8591","028-624-3751"],
+  ["関東","群馬支店","371-0024","群馬県前橋市表町2丁目30番8号（アクエル前橋）","027-223-3091","027-223-3991"],
+  ["関東","新潟支店","951-8068","新潟県新潟市中央区上大川前通一番町154番（新潟白山公園ビル）","025-226-7560","025-223-3477"],
+  ["関東","長野支店","390-0815","長野県松本市深志2丁目5番26号（松本第一ビル）","0263-32-3553","0263-33-7541"],
+  ["中部","中部支社","460-0024","愛知県名古屋市中区正木3丁目5番27号（名鉄正木第三ビル）","052-747-0002","052-747-0004"],
+  ["中部","愛知支店","460-0024","愛知県名古屋市中区正木3丁目5番27号（名鉄正木第三ビル）","052-747-0015","052-747-0017"],
+  ["中部","岐阜支店","500-8384","岐阜県岐阜市薮田南1丁目7番地22号（コーワビル）","058-276-6511","058-276-6519"],
+  ["中部","三重支店","514-0028","三重県津市東丸之内33番1号（津フェニックスビル）","059-227-0813","059-225-7202"],
+  ["中部","静岡支店","422-8072","静岡県静岡市駿河区小黒1丁目8-20（小黒桜館ビル）","054-254-4431","054-253-5756"],
+  ["中部","浜松営業所","432-8036","静岡県浜松市中央区東伊場2丁目7番1号（浜松商工会議所会館）","053-452-5134","053-452-8863"],
+  ["中部","北陸支店","920-0024","石川県金沢市西念一丁目1番8号（NCO金沢）","076-263-7201","076-222-3759"],
+  ["関西","関西支社","531-6128","大阪府大阪市北区大淀中1丁目1番30号（梅田スカイビル タワーウエスト）","06-7177-1130","06-7177-1131"],
+  ["関西","大阪第一支店","531-6106","大阪府大阪市北区大淀中1丁目1番30号（梅田スカイビル タワーウエスト）","06-7177-1140","06-7177-1141"],
+  ["関西","大阪第二支店","531-6106","大阪府大阪市北区大淀中1丁目1番30号（梅田スカイビル タワーウエスト）","06-7177-1140","06-7177-1141"],
+  ["関西","京滋支店","600-8023","京都府京都市下京区河原町通松原上ル2丁目富永町338番地（京阪四条河原町ビル）","075-354-9977","075-354-9955"],
+  ["関西","兵庫支店","651-0086","兵庫県神戸市中央区磯上通2丁目2番21号（三宮グランドビルディング）","078-265-2588","078-272-3544"],
+  ["関西","奈良支店","630-8241","奈良県奈良市高天町10番地の1（T.T.ビル）","0742-23-9831","0742-23-3468"],
+  ["関西","和歌山支店","640-8043","和歌山県和歌山市福町37番地（アズビル）","073-433-4671","073-428-1806"],
+  ["中国・四国","中四国支社","730-0017","広島県広島市中区鉄砲町8番18号（広島日生みどりビル）","082-511-8512","082-511-8523"],
+  ["中国・四国","広島支店","731-0135","広島県広島市安佐南区長束1丁目29番19号","082-218-1248","082-218-1249"],
+  ["中国・四国","福山支店","720-0811","広島県福山市紅葉町1番1号（福山ちゅうぎんビル）","084-923-5577","084-924-6232"],
+  ["中国・四国","岡山支店","701-0301","岡山県都窪郡早島町矢尾843（岡山県総合流通センター内）","086-292-6550","086-292-6710"],
+  ["中国・四国","山口支店","754-0013","山口県山口市小郡緑町5番2号","083-973-7611","083-973-7684"],
+  ["中国・四国","山陰支店","690-0003","島根県松江市朝日町484番地16（甲南アセット松江ビル）","0852-21-0530","0852-27-5870"],
+  ["中国・四国","香川支店","760-0065","香川県高松市朝日町2丁目2番22号（高松ビル）","087-851-3786","087-822-5685"],
+  ["中国・四国","愛媛支店","790-0003","愛媛県松山市三番町6丁目8番1号（太陽生命松山ビル）","089-943-4020","089-943-5025"],
+  ["中国・四国","高知支店","780-0870","高知県高知市本町4丁目2番40号（ニッセイ高知ビル）","088-875-9792","088-824-9301"],
+  ["中国・四国","徳島支店","770-0911","徳島県徳島市東船場町2丁目21番地2（阿波銀住友生命ビル）","088-622-7777","088-623-4158"],
+  ["九州・沖縄","九州支社","816-0864","福岡県春日市須玖北2丁目8番地","092-575-2711","092-575-2748"],
+  ["九州・沖縄","福岡支店","816-0864","福岡県春日市須玖北2丁目8番地","092-575-2866","092-575-2774"],
+  ["九州・沖縄","北九州支店","802-0081","福岡県北九州市小倉北区紺屋町12番4号（大樹生命北九州小倉ビル）","093-521-9818","093-511-0279"],
+  ["九州・沖縄","佐賀支店","841-0026","佐賀県鳥栖市本鳥栖町537-1（フレスポ鳥栖）","0942-81-1181","0942-81-1189"],
+  ["九州・沖縄","長崎支店","850-0032","長崎県長崎市興善町2番24号（長崎第一生命ビル）","095-823-3134","095-826-1205"],
+  ["九州・沖縄","熊本支店","860-0803","熊本県熊本市中央区新市街11番18号（熊本第一生命ビルディング）","096-354-2474","096-324-0193"],
+  ["九州・沖縄","大分支店","870-0034","大分県大分市都町1丁目1番23号（TKフロンティアビル）","097-534-1228","097-537-8987"],
+  ["九州・沖縄","宮崎支店","880-0806","宮崎県宮崎市広島1丁目18番13号（日進宮崎ビル）","0985-27-4511","0985-24-9627"],
+  ["九州・沖縄","鹿児島支店","892-0844","鹿児島県鹿児島市山之口町1番10号（鹿児島中央ビルディング）","099-226-7792","099-224-4790"],
+  ["九州・沖縄","沖縄キヤノンメディカルシステムズ（株）","900-0036","沖縄県那覇市西1丁目19番地9号（タイラビル）","098-868-7212","098-868-9684"]
+ ],
+ nk: [
+  ["北海道支店","北海道支店","060-0001","北海道札幌市中央区北1条西7-4 パシフィックマークス札幌北1条","050-3684-4086","011-280-7335"],
+  ["北海道支店","札幌第一営業所","060-0001","北海道札幌市中央区北1条西7-4 パシフィックマークス札幌北1条","050-3684-4098","011-280-7335"],
+  ["北海道支店","札幌第二営業所","060-0001","北海道札幌市中央区北1条西7-4 パシフィックマークス札幌北1条","050-3684-4098","011-280-7335"],
+  ["北海道支店","函館営業所","040-0015","北海道函館市梁川町5-10 プライム函館EAST 5F","050-3684-9172","0138-51-3761"],
+  ["北海道支店","旭川営業所","070-0034","北海道旭川市4条通10-2234-2 アルファ旭川ビル4F","050-3684-9033","0166-23-1001"],
+  ["北海道支店","釧路営業所","085-0054","北海道釧路市暁町1-2 セブンビル1F","050-3684-6824","0154-25-1856"],
+  ["北海道支店","帯広出張所","080-0018","北海道帯広市西8条南16-2 渡辺ビル1F","050-3684-4299","0155-23-5660"],
+  ["東北支店","東北支店","981-3133","宮城県仙台市泉区泉中央4-29-7","050-3819-4782","022-375-7005"],
+  ["東北支店","仙台営業所","981-3133","宮城県仙台市泉区泉中央4-29-7","050-3819-4783","022-375-7005"],
+  ["東北支店","青森営業所（弘前係）","036-8002","青森県弘前市大字駅前2-6-3","050-3819-4876","0172-80-2100"],
+  ["東北支店","青森営業所（八戸係）","039-1164","青森県八戸市下長1-18-18","050-3819-4879","0178-28-3060"],
+  ["東北支店","秋田営業所","010-0041","秋田県秋田市広面字糠塚66-1","050-3819-4875","018-834-0220"],
+  ["東北支店","盛岡営業所","020-0866","岩手県盛岡市本宮3-35-25","050-3819-4826","019-631-1618"],
+  ["東北支店","山形営業所","990-2451","山形県山形市吉原1-13-9","050-3819-4773","023-646-8732"],
+  ["東北支店","郡山営業所","963-8041","福島県郡山市富田町坦ノ腰58-1 第2ヨコヤマビル","050-3819-4817","024-961-3645"],
+  ["東関東支店","東関東支店","260-0843","千葉県千葉市中央区末広4-21-21","050-3822-5495","043-208-2012"],
+  ["東関東支店","千葉営業所","260-0843","千葉県千葉市中央区末広4-21-21","050-3822-5565","043-208-2011"],
+  ["東関東支店","千葉西営業所","270-2225","千葉県松戸市東松戸1-3-14","050-3820-7047","047-394-1233"],
+  ["東関東支店","千葉湾岸営業所","260-0843","千葉県千葉市中央区末広4-21-21","050-3822-2008","043-208-2011"],
+  ["東関東支店","成田営業所","260-0843","千葉県千葉市中央区末広4-21-21","050-3822-5566","043-208-2011"],
+  ["東関東支店","水戸営業所","310-0851","茨城県水戸市千波町1961-1","050-3820-7053","029-243-2720"],
+  ["東関東支店","筑波営業所","305-0045","茨城県つくば市梅園2-6-50","050-3819-4702","029-863-2235"],
+  ["東関東支店","宇都宮営業所","321-0105","栃木県宇都宮市横田新町12-6","050-3822-5577","028-655-4377"],
+  ["北関東支店","北関東支店","338-0001","埼玉県さいたま市中央区上落合6-10-8","050-3822-4644","048-854-3701"],
+  ["北関東支店","埼玉第一営業所","338-0001","埼玉県さいたま市中央区上落合6-10-8","050-3822-4675","048-854-3702"],
+  ["北関東支店","埼玉第二営業所","338-0001","埼玉県さいたま市中央区上落合6-10-8","050-3822-4675","048-854-3702"],
+  ["北関東支店","川越営業所","350-0811","埼玉県川越市大字小堤907-34","050-3819-4745","049-233-7600"],
+  ["北関東支店","前橋営業所","371-0854","群馬県前橋市大渡町1-11-2","050-3822-4704","027-210-7738"],
+  ["北関東支店","新潟営業所（新潟オフィス）","950-0932","新潟県新潟市中央区長潟3-8-11","050-3822-4707","025-287-4747"],
+  ["北関東支店","新潟営業所（長岡オフィス）","940-0833","新潟県長岡市笹崎1-7-15","050-3822-4720","0258-36-8672"],
+  ["北関東支店","長野営業所","380-0905","長野県長野市鶴賀七瀬南部368-1","050-3822-4771","026-227-5092"],
+  ["北関東支店","松本営業所","390-0815","長野県松本市深志2-5-26 松本第一ビル7F","050-3822-4774","0263-33-1862"],
+  ["東京支社","東京支社","112-0002","東京都文京区小石川1-1-1 文京ガーデンゲートタワー6F","050-3822-2071","03-3815-9440"],
+  ["東京支社","本郷営業所","112-0002","東京都文京区小石川1-1-1 文京ガーデンゲートタワー6F","050-3820-8187","03-3815-9433"],
+  ["東京支社","千代田営業所","112-0002","東京都文京区小石川1-1-1 文京ガーデンゲートタワー6F","050-3820-8523","03-3815-9680"],
+  ["東京支社","城北営業所","112-0002","東京都文京区小石川1-1-1 文京ガーデンゲートタワー6F","050-3822-3679","03-3815-9680"],
+  ["東京支社","新宿営業所","112-0002","東京都文京区小石川1-1-1 文京ガーデンゲートタワー6F","050-3822-3675","03-3815-9433"],
+  ["東京支社","城東営業所","112-0002","東京都文京区小石川1-1-1 文京ガーデンゲートタワー6F","050-3822-3664","03-3815-9121"],
+  ["東京支社","世田谷営業所","141-0022","東京都品川区東五反田1-11-15 電波ビル3F","050-3822-3711","03-3280-5665"],
+  ["東京支社","臨海営業所","141-0022","東京都品川区東五反田1-11-15 電波ビル3F","050-3822-3708","03-3280-5665"],
+  ["東京支社","武蔵野営業所","190-0022","東京都立川市錦町2-4-6 立川錦町SSビル","050-3822-3739","042-548-3201"],
+  ["東京支社","立川営業所","190-0022","東京都立川市錦町2-4-6 立川錦町SSビル","050-3822-3754","042-548-3201"],
+  ["東京支社","山梨営業所","400-0046","山梨県甲府市下石田2-6-23","050-3822-3792","055-230-2820"],
+  ["南関東支店","南関東支店","240-0005","神奈川県横浜市保土ケ谷区神戸町134 横浜ビジネスパークノーススクエアI 2階","045-333-9119","045-333-0388"],
+  ["南関東支店","川崎営業所","240-0005","神奈川県横浜市保土ケ谷区神戸町134 横浜ビジネスパークノーススクエアI 2階","045-333-9200","045-333-9328"],
+  ["南関東支店","横浜北営業所","240-0005","神奈川県横浜市保土ケ谷区神戸町134 横浜ビジネスパークノーススクエアI 2階","045-333-9201","045-333-9207"],
+  ["南関東支店","横浜南営業所","240-0005","神奈川県横浜市保土ケ谷区神戸町134 横浜ビジネスパークノーススクエアI 2階","045-333-9203","045-333-9206"],
+  ["南関東支店","平塚営業所","243-0031","神奈川県厚木市戸室1-9-5","050-3819-4722","046-225-9933"],
+  ["南関東支店","相模原営業所","243-0031","神奈川県厚木市戸室1-9-5","050-3819-4726","046-225-9933"],
+  ["南関東支店","三島営業所","411-0942","静岡県駿東郡長泉町中土狩字狭間366-12","050-3816-7065","055-986-1131"],
+  ["南関東支店","静岡営業所","420-0934","静岡県静岡市葵区岳美11-3","054-200-3003","054-200-3010"],
+  ["南関東支店","浜松営業所","435-0017","静岡県浜松市中央区薬師町5","053-421-6720","053-421-6838"],
+  ["中部支店","中部支店","456-0018","愛知県名古屋市熱田区新尾頭1-9-12","052-682-3239","052-682-3423"],
+  ["中部支店","愛知第一営業所","456-0018","愛知県名古屋市熱田区新尾頭1-9-12","052-682-3235","052-682-3395"],
+  ["中部支店","愛知第二営業所","456-0018","愛知県名古屋市熱田区新尾頭1-9-12","052-682-3235","052-682-3395"],
+  ["中部支店","愛知第三営業所","444-0831","愛知県岡崎市羽根北町5-3-4","0564-71-7008","0564-71-7668"],
+  ["中部支店","岐阜営業所","500-8365","岐阜県岐阜市柳森町2-6","058-274-5756","058-274-5764"],
+  ["中部支店","三重営業所","514-0008","三重県津市上浜町1-503","059-226-1760","059-226-1890"],
+  ["中部支店","金沢営業所","920-0057","石川県金沢市桜田町1-100","076-232-7500","076-232-0012"],
+  ["中部支店","富山営業所","930-0083","富山県富山市総曲輪1丁目7番15号 日本生命富山総曲輪ビル9階","050-3822-6005","076-491-3353"],
+  ["中部支店","福井営業所","910-0023","福井県福井市順化1-21-1 ニッセイ福井ビル4階","050-3822-6017","0776-23-4495"],
+  ["関西支社","関西支社","532-0003","大阪府大阪市淀川区宮原3-5-36 新大阪トラストタワー6階","050-3820-7035","06-6399-6525"],
+  ["関西支社","大阪第一営業所","532-0003","大阪府大阪市淀川区宮原3-5-36 新大阪トラストタワー6階","050-3820-3572","06-6399-6526"],
+  ["関西支社","大阪第二営業所","532-0003","大阪府大阪市淀川区宮原3-5-36 新大阪トラストタワー6階","050-3820-6562","06-6399-6526"],
+  ["関西支社","大阪第三営業所","532-0003","大阪府大阪市淀川区宮原3-5-36 新大阪トラストタワー6階","050-3820-6761","06-6399-6526"],
+  ["関西支社","大阪中央営業所","532-0003","大阪府大阪市淀川区宮原3-5-36 新大阪トラストタワー6階","050-3820-7049","06-6399-6526"],
+  ["関西支社","南大阪営業所","591-8022","大阪府堺市北区金岡町3027番地12","050-3820-1624","072-252-2866"],
+  ["関西支社","京都第一営業所","612-8429","京都府京都市伏見区竹田西段川原町139","050-3820-8594","075-642-3550"],
+  ["関西支社","京都第二営業所","612-8429","京都府京都市伏見区竹田西段川原町139","050-3820-8610","075-642-3550"],
+  ["関西支社","滋賀営業所","524-0046","滋賀県守山市今宿4-1-4","050-3820-7270","077-581-0656"],
+  ["関西支社","奈良営業所","639-1134","奈良県大和郡山市柳町79-14","050-3820-7383","0743-55-2930"],
+  ["関西支社","和歌山営業所","640-8125","和歌山県和歌山市島崎町6-6-1","050-3820-7503","073-424-5445"],
+  ["関西支社","神戸第一営業所","652-0801","兵庫県神戸市兵庫区中道通2-2-8","050-3820-8144","078-578-5801"],
+  ["関西支社","神戸第二営業所","652-0801","兵庫県神戸市兵庫区中道通2-2-8","050-3820-8152","078-578-5801"],
+  ["関西支社","姫路営業所","670-0965","兵庫県姫路市東延末266-1","050-3820-7468","079-282-3961"],
+  ["中四国支店","中四国支店","733-0002","広島県広島市西区楠木町3-15-8","050-3819-4755","082-237-9051"],
+  ["中四国支店","広島第一営業所","733-0002","広島県広島市西区楠木町3-15-8","050-3819-4760","082-237-3275"],
+  ["中四国支店","広島第二営業所","733-0002","広島県広島市西区楠木町3-15-8","050-3819-4769","082-237-3275"],
+  ["中四国支店","岡山営業所","700-0972","岡山県岡山市北区上中野1-16-7 キヨミチビル","050-3684-6846","086-241-1571"],
+  ["中四国支店","福山営業所","700-0972","岡山県岡山市北区上中野1-16-7 キヨミチビル","050-3684-6743","086-241-1571"],
+  ["中四国支店","山陰営業所","699-0111","島根県松江市東出雲町意宇南1-5-4","050-3684-3987","0852-52-5211"],
+  ["中四国支店","山口営業所","754-0029","山口県山口市小郡維新町3-7","050-3684-6693","083-972-5127"],
+  ["中四国支店","松山営業所","791-1102","愛媛県松山市来住町1439-6","050-3822-1538","089-958-6010"],
+  ["中四国支店","高松営業所","760-0080","香川県高松市木太町459","050-3822-1545","087-866-4525"],
+  ["中四国支店","徳島営業所","770-0005","徳島県徳島市南矢三町1-279","050-3822-1549","088-633-3873"],
+  ["中四国支店","高知営業所","781-8136","高知県高知市一宮西町3-2-24","050-3819-4699","088-803-1333"],
+  ["九州支店","九州支店（博多イーストテラス）","812-0013","福岡県福岡市博多区博多駅東1-18-33 博多イーストテラス6F","",""],
+  ["九州支店","福岡第一営業所","812-0013","福岡県福岡市博多区博多駅東1-18-33 博多イーストテラス6F","050-3822-1399","092-474-8163"],
+  ["九州支店","福岡第二営業所","812-0013","福岡県福岡市博多区博多駅東1-18-33 博多イーストテラス6F","050-3822-1399","092-474-8163"],
+  ["九州支店","北九州営業所","802-0802","福岡県北九州市小倉南区城野3-10-6","050-3819-4754","093-921-4289"],
+  ["九州支店","佐賀営業所","849-0937","佐賀県佐賀市鍋島6-9-25","050-3822-1476","0952-31-1989"],
+  ["九州支店","長崎営業所","851-1132","長崎県長崎市小江原4-41-2","050-3822-1483","095-844-1584"],
+  ["九州支店","大分営業所","870-0849","大分県大分市賀来南2-1-10","050-3822-4976","097-540-7335"],
+  ["九州支店","熊本営業所","862-0962","熊本県熊本市南区田迎2-10-1","050-3822-5460","096-334-8332"],
+  ["九州支店","宮崎営業所","889-1605","宮崎県宮崎市清武町大字加納甲1862-1","050-3822-5467","0985-89-5994"],
+  ["九州支店","鹿児島営業所","890-0033","鹿児島県鹿児島市西別府町2995-3","050-3822-5477","099-296-7314"],
+  ["九州支店","沖縄営業所","901-2102","沖縄県浦添市前田3-2-13","050-3822-5478","098-873-1820"]
+ ],
+ kmj: [
+  ["本社", "本社", "105-0023", "東京都港区芝浦1-1-1 BLUE FRONT SHIBAURA TOWER S 10階", "", ""],
+  ["北海道", "北海道支社", "060-0063", "北海道札幌市中央区南3条西10-1001-5 福山南3条ビル3F", "0570-000435", "0570-000901"],
+  ["北海道", "札幌営業所", "060-0063", "北海道札幌市中央区南3条西10-1001-5 福山南3条ビル3F", "0570-000435", "0570-000901"],
+  ["北海道", "旭川営業所", "070-8004", "北海道旭川市神楽四条6丁目1-15 太陽の郷2階", "0570-000435", "0570-000901"],
+  ["北海道", "函館営業所", "041-0808", "北海道函館市桔梗4丁目15-3 ナラヤマビル1F", "0570-000435", "0570-000901"],
+  ["北海道", "釧路営業所", "085-0035", "北海道釧路市共栄大通3-1-6 共栄大通りビル1F", "0570-000435", "0570-000901"],
+  ["北海道", "帯広営業所", "080-0026", "北海道帯広市西16条南1-18-5", "0570-000435", "0570-000901"],
+  ["東北", "東北支社", "980-0811", "宮城県仙台市青葉区一番町1-2-25 仙台NSビル", "0570-000437", "0570-000901"],
+  ["東北", "仙台営業所", "980-0811", "宮城県仙台市青葉区一番町1-2-25 仙台NSビル2F", "0570-000437", "0570-000901"],
+  ["東北", "青森営業所", "030-0802", "青森県青森市本町1-4-17 大樹生命青森ビル2F", "0570-000437", "0570-000901"],
+  ["東北", "秋田営業所", "010-0951", "秋田県秋田市山王6-9-21 山王グロウビル2", "0570-000437", "0570-000901"],
+  ["東北", "盛岡営業所", "020-0022", "岩手県盛岡市大通3-3-10 七十七日生盛岡ビル4F", "0570-000437", "0570-000901"],
+  ["東北", "郡山営業所", "963-0205", "福島県郡山市堤1-25", "0570-000437", "0570-000901"],
+  ["東北", "山形営業所", "990-2413", "山形県山形市南原町2-7-49", "0570-000437", "0570-000901"],
+  ["北関東", "北関東支社", "350-1126", "埼玉県川越市旭町1-15-7", "0570-000765", "0570-000901"],
+  ["北関東", "埼玉営業所", "350-1126", "埼玉県川越市旭町1-15-7", "0570-000765", "0570-000901"],
+  ["北関東", "前橋営業所", "371-0837", "群馬県前橋市箱田町541-3", "0570-000765", "0570-000901"],
+  ["北関東", "宇都宮営業所", "320-0811", "栃木県宇都宮市大通り2-3-1 井門宇都宮ビル5F", "0570-000765", "0570-000901"],
+  ["北関東", "新潟営業所", "950-0088", "新潟県新潟市中央区万代1-1-1 朝日生命新潟ビル2F", "0570-000765", "0570-000901"],
+  ["東関東", "東関東支社", "270-0138", "千葉県流山市おおたかの森東1-10-3 ロータススクエアおおたかの森2階", "0570-000769", "0570-000901"],
+  ["東関東", "千葉営業所", "270-0138", "千葉県流山市おおたかの森東1-10-3 ロータススクエアおおたかの森2階", "0570-000769", "0570-000901"],
+  ["東関東", "茨城営業所", "270-0138", "千葉県流山市おおたかの森東1-10-3 ロータススクエアおおたかの森2階", "0570-000769", "0570-000901"],
+  ["首都圏", "首都圏支社", "105-0023", "東京都港区芝浦1-1-1 BLUE FRONT SHIBAURA TOWER S 10階", "0570-000902", "0570-000901"],
+  ["首都圏", "東京中央営業所", "105-0023", "東京都港区芝浦1-1-1 BLUE FRONT SHIBAURA TOWER S 10階", "0570-000902", "0570-000901"],
+  ["首都圏", "東京東営業所", "105-0023", "東京都港区芝浦1-1-1 BLUE FRONT SHIBAURA TOWER S 10階", "0570-000902", "0570-000901"],
+  ["首都圏", "東京西営業所", "105-0023", "東京都港区芝浦1-1-1 BLUE FRONT SHIBAURA TOWER S 10階", "0570-000902", "0570-000901"],
+  ["首都圏", "多摩営業所", "190-0012", "東京都立川市曙町2-34-13 オリンピックビル第3ビル4F", "0570-000902", "0570-000901"],
+  ["首都圏", "横浜営業所", "222-0033", "神奈川県横浜市港北区新横浜2-13-13 TPR新横浜ビル8F", "0570-000763", "0570-000901"],
+  ["首都圏", "厚木営業所", "243-0032", "神奈川県厚木市恩名1-6-27", "0570-000763", "0570-000901"],
+  ["首都圏", "山梨営業所", "400-0064", "山梨県甲府市下飯田2-1-27", "0570-000902", "0570-000901"],
+  ["首都圏", "長野営業所", "381-0031", "長野県長野市西尾張部1114-5", "0570-000902", "0570-000901"],
+  ["東海", "中部支社", "460-0008", "愛知県名古屋市中区栄3丁目1-1 広小路本町ビル8階", "0570-008871", "0570-008873"],
+  ["東海", "名古屋営業所", "460-0008", "愛知県名古屋市中区栄3丁目1-1 広小路本町ビル8階", "0570-008871", "0570-008873"],
+  ["東海", "浜松営業所", "435-0014", "静岡県浜松市中央区大蒲町86-17", "0570-008871", "0570-008873"],
+  ["東海", "静岡営業所", "422-8062", "静岡県静岡市駿河区稲川2-2-1 セキスイハイムビルディング9F", "0570-008871", "0570-008873"],
+  ["東海", "三重営業所", "514-0104", "三重県津市栗真小川町693-1", "0570-008871", "0570-008873"],
+  ["東海", "岐阜営業所", "500-8842", "岐阜県岐阜市金町5-25 G-frontII 7F", "0570-008871", "0570-008873"],
+  ["関西", "関西支社", "550-0005", "大阪府大阪市西区西本町2-3-10 西本町インテス6F", "0570-011201", "0570-011207"],
+  ["関西", "大阪南営業所", "550-0005", "大阪府大阪市西区西本町2-3-10 西本町インテス6F", "0570-011201", "0570-011207"],
+  ["関西", "大阪北営業所", "550-0005", "大阪府大阪市西区西本町2-3-10 西本町インテス6F", "0570-011201", "0570-011207"],
+  ["関西", "和歌山営業所", "640-8341", "和歌山県和歌山市黒田1-2-4 寺本興産ビル4F", "0570-011201", "0570-011207"],
+  ["関西", "奈良営業所", "550-0005", "大阪府大阪市西区西本町2-3-10 西本町インテス6F", "0570-011203", "0570-011207"],
+  ["関西", "神戸営業所", "650-0027", "兵庫県神戸市中央区中町通2-1-18 JR神戸駅NKビル3F", "0570-011201", "0570-011207"],
+  ["関西", "京滋営業所", "604-0835", "京都府京都市中京区御池通高倉西入高宮町200 千代田生命京都御池ビル5F", "0570-011203", "0570-011207"],
+  ["関西", "金沢営業所", "920-0027", "石川県金沢市駅西新町3-8-33", "0570-011203", "0570-011207"],
+  ["中国・四国", "中四国支社", "730-0004", "広島県広島市中区東白島町14-15 NTTクレド白島ビル8F", "0570-011205", "0570-011207"],
+  ["中国・四国", "広島営業所", "730-0004", "広島県広島市中区東白島町14-15 NTTクレド白島ビル8F", "0570-011205", "0570-011207"],
+  ["中国・四国", "山陰営業所", "690-0887", "島根県松江市殿町516 山陰鴻池ビルディング1F", "0570-011205", "0570-011207"],
+  ["中国・四国", "鳥取営業所", "683-0853", "鳥取県米子市両三柳777-1 シャイン三柳B", "0570-011205", "0570-011207"],
+  ["中国・四国", "岡山営業所", "700-0971", "岡山県岡山市北区野田3-1-18 安田ビル1F", "0570-011205", "0570-011207"],
+  ["中国・四国", "山口営業所", "754-0013", "山口県山口市小郡緑町8-32", "0570-011205", "0570-011207"],
+  ["中国・四国", "松山営業所", "791-1114", "愛媛県松山市井門町99-1 The South Village Sinamo 1・2F", "0570-011205", "0570-011207"],
+  ["中国・四国", "高知営業所", "780-0072", "高知県高知市杉井流3-5 グランドゥールヤノ103", "0570-011205", "0570-011207"],
+  ["中国・四国", "香川営業所", "760-0055", "香川県高松市観光通2-2-15 第2ダイヤビル1F", "0570-011205", "0570-011207"],
+  ["中国・四国", "徳島営業所", "770-8053", "徳島県徳島市沖浜東2-32", "0570-011205", "0570-011207"],
+  ["九州・沖縄", "九州支社", "812-0007", "福岡県福岡市博多区東比恵1-2-12 R&Fセンタービル2F", "0570-005252", "0570-015252"],
+  ["九州・沖縄", "福岡営業所", "812-0007", "福岡県福岡市博多区東比恵1-2-12 R&Fセンタービル2F", "0570-005252", "0570-015252"],
+  ["九州・沖縄", "北九州営業所", "802-0062", "福岡県北九州市小倉北区片野新町2丁目11-1", "0570-005252", "0570-015252"],
+  ["九州・沖縄", "鳥栖営業所", "841-0061", "佐賀県鳥栖市轟木町1507-8 オフィスパレア鳥栖V 4号", "0570-005252", "0570-015252"],
+  ["九州・沖縄", "大分営業所", "870-0046", "大分県大分市荷揚町3-1 セラヴィ・みらい信金ビル6階", "0570-005252", "0570-015252"],
+  ["九州・沖縄", "宮崎営業所", "880-0015", "宮崎県宮崎市大工1丁目10番40号 2階", "0570-005252", "0570-015252"],
+  ["九州・沖縄", "熊本営業所", "860-0811", "熊本県熊本市中央区本荘6-4-2", "0570-005252", "0570-015252"],
+  ["九州・沖縄", "鹿児島営業所", "891-0115", "鹿児島県鹿児島市東開町4-7", "0570-005252", "0570-015252"],
+  ["九州・沖縄", "長崎営業所", "852-8118", "長崎県長崎市松山町9-6 パークアベニュービル103号", "0570-005252", "0570-015252"],
+  ["九州・沖縄", "沖縄営業所", "900-0016", "沖縄県那覇市前島3-25-5 とまりんアネックス105", "0570-005252", "0570-015252"]
+ ],
+ omk: [
+  ["本社", "本社", "192-8507", "東京都八王子市石川町2951", "042-642-4002", ""],
+  ["北海道", "札幌支店", "060-0034", "北海道札幌市中央区北4条東1-2-3 札幌フコク生命ビル11階", "011-222-2551", "011-222-2587"],
+  ["東北", "盛岡支店", "020-0045", "岩手県盛岡市盛岡駅西通2-9-1 マリオス7F", "019-634-1330", "019-634-1340"],
+  ["東北", "仙台支店", "981-0933", "宮城県仙台市青葉区柏木1-2-45 フォレスト仙台11階", "022-718-0780", "022-718-0790"],
+  ["関東", "さいたま支店", "330-0843", "埼玉県さいたま市大宮区吉敷町4-262-16 マルキュービル5階", "048-601-2312", "048-601-2318"],
+  ["関東", "川越支店", "350-1123", "埼玉県川越市脇田本町23-1 住友生命川越東館ビル4階", "049-249-8160", "049-249-8161"],
+  ["関東", "千葉支店", "261-7132", "千葉県千葉市美浜区中瀬2-6-1 ワールドビジネスガーデン マリブウエスト32階", "043-299-0181", "043-299-0182"],
+  ["首都圏", "東京支店", "104-6005", "東京都中央区晴海1丁目8-10 晴海アイランドトリトンスクエアオフィスタワーX5F", "03-3340-2200", "03-5859-5212"],
+  ["首都圏", "東京中央支店", "153-0064", "東京都目黒区下目黒1丁目8-1 ARCO TOWER12F", "03-3340-2200", "03-5859-5212"],
+  ["首都圏", "東京支店品川分室", "140-0012", "東京都品川区勝島1-5-21 三井物産グローバルロジスティクス株式会社 勝島20号倉庫6階 鴻池メディカル株式会社東京物流センター内", "", "03-6384-8080"],
+  ["首都圏", "府中支店", "183-0044", "東京都府中市日鋼町1-1 ヒューリック府中タワー高層棟6階", "042-330-7363", "042-330-7364"],
+  ["首都圏", "宇津木事業所", "192-8512", "東京都八王子市久保山町2-3", "", ""],
+  ["首都圏", "横浜支店", "222-0033", "神奈川県横浜市港北区新横浜2-3-12 新横浜スクエアビル12階", "045-474-5011", "045-474-5010"],
+  ["首都圏", "厚木支店", "243-0018", "神奈川県厚木市中町2-7-6 LGビル6階", "046-222-5274", "046-222-5276"],
+  ["北陸甲信越", "新潟支店", "950-0087", "新潟県新潟市中央区東大通2-4-4 日生不動産東大通ビル4階", "025-247-6794", "025-241-6225"],
+  ["北陸甲信越", "金沢支店", "920-0024", "石川県金沢市西念1-1-3 コンフィデンス金沢8階", "076-222-3434", "076-262-2318"],
+  ["北陸甲信越", "松本支店", "390-0815", "長野県松本市深志1-2-11 松本昭和ビル4階", "0263-36-5333", "0263-35-5947"],
+  ["東海", "静岡支店", "420-0851", "静岡県静岡市葵区黒金町11-7 大樹生命静岡駅前ビル7階", "054-255-6270", "054-254-3276"],
+  ["東海", "名古屋支店", "460-0003", "愛知県名古屋市中区錦2-2-2 名古屋丸紅ビル14階", "052-201-9601", "052-201-9588"],
+  ["近畿", "京都支店", "604-8186", "京都府京都市中京区車屋町通御池下ル梅屋町358 アーバネックス御池ビル西館5階", "075-255-2316", "075-256-3307"],
+  ["近畿", "大阪支店", "556-0017", "大阪府大阪市浪速区湊町1-2-3 マルイト難波ビル15階", "06-6649-3001", "06-6649-3006"],
+  ["近畿", "奈良支店", "630-8115", "奈良県奈良市大宮町6-2-19 奈良東京海上日動ビルディング1階", "0742-33-3511", "0742-33-3522"],
+  ["近畿", "神戸支店", "651-0088", "兵庫県神戸市中央区小野柄通4-1-22 アーバンエース三宮ビル4階", "050-3181-1750", "078-242-6020"],
+  ["中四国", "岡山支店", "700-0826", "岡山県岡山市北区磨屋町3-10 岡山ニューシティビル6階", "086-233-0366", "086-223-5433"],
+  ["中四国", "広島支店", "730-0004", "広島県広島市中区東白島町14-15 NTTクレド白島ビル11階", "082-228-1921", "082-222-0184"],
+  ["中四国", "松山支店", "790-0003", "愛媛県松山市三番町7-1-21 ジブラルタ生命松山ビル5階", "089-931-5543", "089-931-1053"],
+  ["九州", "福岡支店", "810-0004", "福岡県福岡市中央区渡辺通3-6-11 福岡フコク生命ビル7階", "092-711-1881", "092-712-1605"],
+  ["九州", "鹿児島支店", "892-0846", "鹿児島県鹿児島市加治屋町12-7 甲南アセット鹿児島加治屋町ビル7階", "099-224-7820", "099-224-7391"]
+ ]
+};
+
+const FREE_MOD = "その他（自由入力）";
+/* 診療科・部署マスタ（プルダウン用。選択後に自由に書き換え可） */
+const DEPTS = {
+ "内科系":["内科","総合内科","消化器内科","循環器内科","呼吸器内科","腎臓内科","糖尿病・内分泌内科","血液内科","脳神経内科","リウマチ・膠原病内科","腫瘍内科","感染症内科","心療内科","小児科","新生児科（NICU）"],
+ "外科系":["外科","消化器外科","心臓血管外科","呼吸器外科","乳腺外科","脳神経外科","整形外科","形成外科","泌尿器科","産婦人科","産科","婦人科","眼科","耳鼻咽喉科","皮膚科","歯科口腔外科","麻酔科"],
+ "画像・検査部門":["放射線科","放射線診断科","放射線治療科","核医学科","検査室（臨床検査科）","生理検査室","超音波検査室","内視鏡センター（内視鏡室）","病理診断科","健診センター"],
+ "手術・集中治療・救急":["手術室（OPE室）","中央材料室","ICU（集中治療室）","HCU","CCU","SCU","救急科（ER）","カテーテル室（アンギオ室）"],
+ "外来・病棟・その他":["外来","病棟","透析室","リハビリテーション科","臨床工学部（ME室）","精神科","在宅医療","薬剤部"]
+};
+function deptOptions(){ return `<option value="">一覧から選択</option>`+Object.entries(DEPTS).map(([g,l])=>`<optgroup label="${esc(g)}">`+l.map(x=>`<option>${esc(x)}</option>`).join("")+`</optgroup>`).join("")+`<option value="__free">（一覧にない：右欄に直接入力）</option>`; }
+function attachDeptPicker(id){
+  const inp=$(id); const sel=document.createElement("select"); sel.id=id+"Sel"; sel.innerHTML=deptOptions(); sel.title="診療科を選択";
+  const wrap=document.createElement("div"); wrap.className="pick"; inp.parentNode.insertBefore(wrap,inp); wrap.appendChild(sel); wrap.appendChild(inp);
+  sel.addEventListener("change",()=>{ if(sel.value==="__free"){ inp.value=""; inp.focus(); } else if(sel.value){ inp.value=sel.value; }
+    inp.dispatchEvent(new Event("input",{bubbles:true})); });
+  inp.addEventListener("input",()=>{ const all=Object.values(DEPTS).flat(); sel.value= all.includes(inp.value.trim())? inp.value.trim() : (inp.value.trim()? "__free":""); });
+}
+
+const PURPOSES = [
+  {k:"demo",  t:"デモ",                         lim:1,  unit:"m", note:"臨床使用せず、外観・基本性能をPR：1か月以内"},
+  {k:"trial", t:"臨床試用（有効性・安全性、操作性等の確認）", short:"臨床試用", lim:6, unit:"m", note:"購入前の評価：6か月以内"},
+  {k:"emer",  t:"緊急時・災害時対応",           lim:null, note:"緊急事態の解消・災害期間の終了まで"},
+  {k:"acc",   t:"事故・故障対応",               lim:3, unit:"m", note:"保証期間内：修理完了まで（目安3か月以内）／法規対応：修理完了まで"},
+  {k:"train", t:"研修",                         lim:1, unit:"m", note:"公益目的団体（学会等）の教育・訓練：1か月以内"},
+  {k:"res",   t:"研究目的・公益的研究活動",     lim:12, unit:"m", note:"治験以外の委託・共同研究：12か月以内"},
+  {k:"delay", t:"納期遅延対応",                 lim:null, note:"契約品の納入まで"},
+  {k:"other", t:"その他",                       lim:null, note:"都度、公取協に相談"}
+];
+const COSTS = ["1．当該医療機器の設置","2．撤去","3．保守・修理費","4．消耗品等","5．その他の費用"];
+const F4P = [
+  "新規納入時の立会い","故障修理後の作動確認等のための立会い",
+  "製品のバージョンアップでの立会い","保守点検後の作動確認等のための立会い",
+  "試用のための貸出製品の立会い","緊急時対応のための立会い",
+  "医療担当者の人事異動に伴う立会い","災害時対応のための立会い",
+  "新規納入時での立会い終了後、合算で最長12か月間以内の保証期間内での立会い"
+];
+const COMPS = [["cEcg","心電図"],["cDicom","DICOM接続"],["cPrinter","プリンター類"],["cMonitor","外部モニター"],["cMedia","記録媒体"],["cWifi","無線LAN"],["cUps","UPS・専用電源"],["cFoot","フットスイッチ"],["cCart","カート・スタンド"]];
+const DCCHK = ["病院情報システム部門の承認","DICOM適合性宣言書の提出","装置セキュリティ状態の確認","PACS送信画像の扱いの取り決め","設定変更の記録"];
+function compText(s){ const a=[]; if(s.acc)a.push(s.acc); if(s.comps.length)a.push("構成："+s.comps.join("・")); if(s.cEcg&&s.ecgDetail)a.push("心電図："+s.ecgDetail); if(s.cPrinter&&s.prnDetail)a.push("プリンター："+s.prnDetail); if(s.cDicom)a.push("DICOM接続："+(s.dcTo.join("・")||"接続先未選択")); return a.join("／"); }
+const TRCOND = ["精密機器","天地無用","防振梱包","水濡れ厳禁","温度管理","エレベーター使用","搬入経路に段差あり","養生要","台車・パワーゲート要","時間指定厳守"];
+const CHECKS = [
+  "様式3 確認書を貸出し前に受領","所有権表示ラベルを貼付","最新の添付文書（注意事項等情報）を添付",
+  "導入時研修を実施・記録（医療機器安全管理責任者へ連絡）","中古品の事前通知（または包括取り決め）を確認",
+  "X線装置の備付届・廃止届を支援（該当時）","院内ネットワーク接続の可否を確認","返却時に患者データを消去・消去記録を取得",
+  "返却時点検・損傷有無を記録","立会い回数・期間が基準内","国公立：機関名義の使用貸借契約を確認","公取協「その他」目的は事前相談済"
+];
+
+/* ========== util ========== */
+const $ = id => document.getElementById(id);
+const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const jdate = (v,blank) => { if(!v) return blank??"　　　年　　月　　日"; const [y,m,d]=v.split("-"); return `${y}年 ${+m}月 ${+d}日`; };
+const sdate = v => { if(!v) return ""; const [y,m,d]=v.split("-"); return `${y}/${+m}/${+d}`; };
+const addMonths=(v,n)=>{const d=new Date(v+"T00:00:00");const day=d.getDate();d.setMonth(d.getMonth()+n);if(d.getDate()<day)d.setDate(0);return d;};
+const today=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
+
+/* ========== 初期化 ========== */
+function init(){
+  const cs=$("company");
+  for(const [k,v] of Object.entries(DB)){ const o=document.createElement("option"); o.value=k; o.textContent=v.label; cs.appendChild(o); }
+  const pg=$("purposeGroup");
+  PURPOSES.forEach(p=>{ pg.insertAdjacentHTML("beforeend",`<label title="${esc(p.note)}"><input type="radio" name="purpose" value="${p.k}">${esc(p.t)}</label>`); });
+  const ct=$("costTbl").querySelector("tbody");
+  COSTS.forEach((c,i)=>{ ct.insertAdjacentHTML("beforeend",`<tr><td>${c}</td><td class="ctr"><label><input type="radio" name="cost${i}" value="lender">貸出元</label></td><td class="ctr"><label><input type="radio" name="cost${i}" value="borrower">貸出先</label></td></tr>`); });
+  // 費用行ごとの必須グループ化
+  ct.querySelectorAll("tr").forEach((tr,i)=>{ tr.classList.add("req-group"); tr.dataset.name="cost"+i; });
+  const f4=$("f4Purpose");
+  F4P.forEach((p,i)=>{ f4.insertAdjacentHTML("beforeend",`<label><input type="checkbox" name="f4p" value="${i}">${esc(p)}</label>`); });
+  const rt=$("recTbl").querySelector("tbody");
+  for(let i=0;i<4;i++) rt.insertAdjacentHTML("beforeend",`<tr><td class="full" data-label="${i+1}回目 実施日"><input type="date" id="rec${i}d"></td><td data-label="開始"><input type="time" id="rec${i}s"></td><td data-label="終了"><input type="time" id="rec${i}e"></td><td class="full" data-label="担当者名"><input type="text" id="rec${i}n"></td></tr>`);
+  $("addRec").addEventListener("click",()=>{ const h=$("recTbl").querySelector("tr.hid"); if(h) h.classList.remove("hid"); updRec(); });
+  const tc=$("trCond"); TRCOND.forEach(c=>tc.insertAdjacentHTML("beforeend",`<label><input type="checkbox" name="trc" value="${esc(c)}">${esc(c)}</label>`));
+  const ck=$("chk"); CHECKS.forEach((c,i)=>ck.insertAdjacentHTML("beforeend",`<label><input type="checkbox" name="chk" value="${i}">${esc(c)}</label>`));
+  $("docDate").value=today(); fillBranches(); attachDeptPicker("deptH"); attachDeptPicker("f4DeptH");
+  addItemRow();
+  renderRules();
+  bind();
+  refresh();
+}
+
+/* ========== 機器行 ========== */
+function modOptions(){
+  const ck=$("company").value; const mods=ck&&DB[ck]?Object.keys(DB[ck].mods):[];
+  return `<option value="">選択</option>`+mods.map(m=>`<option>${esc(m)}</option>`).join("")+`<option>${FREE_MOD}</option>`;
+}
+function addItemRow(){
+  const tb=$("itemsTbl").querySelector("tbody"); if(tb.children.length>=MAX_ITEMS) return;
+  const tr=document.createElement("tr"); tr.className="item";
+  const no=tb.children.length+1;
+  tr.innerHTML=`<td class="full" data-label="機器${no}　モダリティ（選択・直接入力）"><select class="i-mod">${modOptions()}</select><input type="text" class="req i-modfree" placeholder="選択 または 直接入力"></td>
+  <td data-label="世代"><select class="i-gen"><option value="cur">現行</option><option value="prev">一世代前</option></select></td>
+  <td data-label="機種（選択）"><select class="i-model"><option value="">（モダリティを選択）</option></select></td>
+  <td class="full" data-label="品名・規格形式（直接入力可）"><input type="text" class="req i-name" placeholder="例：Aplio i800 / TUS-AI800"></td>
+  <td data-label="製造番号"><input type="text" class="i-sn"></td>
+  <td data-label="数量"><input type="number" min="1" class="req i-qty" value="1" inputmode="numeric"></td>
+  <td class="del"><button class="btn ghost sm i-del" title="この機器を削除" aria-label="削除">×</button></td>`;
+  tb.appendChild(tr);
+  const mod=tr.querySelector(".i-mod"),gen=tr.querySelector(".i-gen"),mdl=tr.querySelector(".i-model"),nm=tr.querySelector(".i-name"),mf=tr.querySelector(".i-modfree");
+  const fill=()=>{
+    const ck=$("company").value; const m=mf.value.trim();
+    let list=[]; if(ck&&DB[ck]&&DB[ck].mods[m]) list=DB[ck].mods[m][gen.value]||[];
+    mdl.innerHTML = list.length? `<option value="">機種を選択</option>`+list.map(x=>`<option>${esc(x)}</option>`).join("")+`<option value="__free">（リストにない機種：品名欄に直接入力）</option>`
+                               : `<option value="">（直接入力してください）</option>`;
+  };
+  mod.addEventListener("change",()=>{ if(mod.value===FREE_MOD){ mf.value=""; mf.focus(); } else if(mod.value){ mf.value=mod.value; } fill(); syncAuto(); refresh();});
+  mf.addEventListener("input",()=>{ const ck=$("company").value; mod.value = (ck&&DB[ck]&&DB[ck].mods[mf.value.trim()])? mf.value.trim() : (mf.value.trim()?FREE_MOD:""); fill(); });
+  gen.addEventListener("change",()=>{fill();refresh();});
+  mdl.addEventListener("change",()=>{ if(mdl.value && mdl.value!=="__free"){ nm.value=mdl.value; } if(mdl.value==="__free"){nm.focus();} syncAuto(); refresh(); });
+  tr.querySelector(".i-del").addEventListener("click",()=>{ if(tb.children.length>1){tr.remove(); renumberItems(); syncAuto(); refresh();} });
+  tr.addEventListener("input",()=>{syncAuto();refresh();});
+  fill();
+  renumberItems();
+}
+const MAX_ITEMS=4;
+function updRec(){ const rows=[...$("recTbl").querySelectorAll("tbody tr")];
+  rows.forEach((tr,i)=>{ const has=[...tr.querySelectorAll("input")].some(x=>x.value); if(i===0||has) tr.classList.remove("hid"); else if(!tr.dataset.shown) tr.classList.add("hid"); if(!tr.classList.contains("hid")) tr.dataset.shown="1"; });
+  $("addRec").style.display = rows.some(r=>r.classList.contains("hid"))? "":"none"; }
+function renumberItems(){
+  const rows=[...document.querySelectorAll("#itemsTbl tr.item")];
+  rows.forEach((tr,i)=>{ tr.querySelector("td").dataset.label=`機器${i+1}　モダリティ（選択・直接入力）`; tr.querySelector(".i-del").disabled = rows.length<=1; });
+  $("addItem").disabled = rows.length>=MAX_ITEMS;
+}
+function refreshModOptions(){
+  document.querySelectorAll("#itemsTbl tr.item").forEach(tr=>{
+    const s=tr.querySelector(".i-mod"); s.innerHTML=modOptions();
+    tr.querySelector(".i-modfree").dispatchEvent(new Event("input"));
+  });
+}
+
+/* ========== 様式3⇔様式4 連動 ========== */
+const LINKS=[["hosp","f4Hosp"],["deptH","f4DeptH"],["hospZip","f4Zip"],["hospAddr","f4Addr"],["mgrName","f4Mgr"],["dStart","f4From"],["dEnd","f4To"],["companyName","f4Biz"]];
+function linkOn(){ return $("f4Link").checked; }
+function syncSel(id){ const sel=$(id+"Sel"); if(!sel)return; const v=$(id).value.trim(); const all=Object.values(DEPTS).flat(); sel.value= all.includes(v)? v : (v?"__free":""); }
+function bindLinks(){
+  LINKS.forEach(([a,b])=>{
+    $(a).addEventListener("input",()=>{ if(linkOn()&&$(b).value!==$(a).value){ $(b).value=$(a).value; syncSel(b);} });
+    $(a).addEventListener("change",()=>{ if(linkOn()) $(b).value=$(a).value; });
+    $(b).addEventListener("input",()=>{ if(linkOn()&&$(a).value!==$(b).value){ $(a).value=$(b).value; syncSel(a);} });
+    $(b).addEventListener("change",()=>{ if(linkOn()) $(a).value=$(b).value; });
+  });
+  $("f4Device").addEventListener("input",()=>{ if(!linkOn())return; const rows=document.querySelectorAll("#itemsTbl tr.item"); if(rows.length===1) rows[0].querySelector(".i-name").value=$("f4Device").value; });
+  $("f4Link").addEventListener("change",()=>{ document.body.classList.toggle("unlinked",!linkOn()); if(linkOn()) syncLinksAll(); syncAuto(); refresh(); });
+}
+function syncLinksAll(){ if(!linkOn())return; LINKS.forEach(([a,b])=>{ if($(a).value) $(b).value=$(a).value; else if($(b).value) $(a).value=$(b).value; }); syncSel("deptH"); syncSel("f4DeptH"); }
+
+/* ========== 拠点（支社・支店） ========== */
+function fillBranches(){
+  const k=$("company").value, sel=$("branch"), list=BRANCHES[k];
+  if(!list){ sel.innerHTML= k? `<option value="">（拠点未登録の会社：右欄に直接入力）</option>` : `<option value="">（先に会社を選択）</option>`; sel.disabled=true;
+    $("branchNote").textContent = k? "この会社は拠点マスタ未登録です（登録済み：キヤノンメディカルシステムズ／日本光電／コニカミノルタジャパン／オリンパスマーケティング）。住所・電話番号は直接入力してください。":""; return; }
+  sel.disabled=false;
+  const groups=[...new Set(list.map(r=>r[0]))];
+  sel.innerHTML=`<option value="">拠点を選択</option>`+groups.map(g=>`<optgroup label="${esc(g)}">`+list.map((r,i)=>r[0]===g?`<option value="${i}">${esc(r[1])}${r[3]?"":"（住所未登録）"}</option>`:"").join("")+`</optgroup>`).join("")+`<option value="free">（一覧にない：直接入力）</option>`;
+  $("branchNote").textContent = k==="kmj" ? "拠点の住所は同社公式「販売拠点一覧」（2026年11月確認）より。電話・FAXは各地域の業務センター総合受付です。選択後も編集できます。" : "拠点の住所・電話番号は各社公式サイト（2026年11月確認）より。選択後も編集できます。";
+}
+function applyBranch(){
+  const k=$("company").value, v=$("branch").value, list=BRANCHES[k];
+  if(!list||v===""||v==="free"){ if(v==="free") $("dept").focus(); refresh(); return; }
+  const [g,name,zip,addr,tel,fax]=list[+v];
+  $("dept").value=name; $("lenderZip").value=zip; $("lenderAddr").value=addr; $("staffTel").value=tel; $("staffFax").value=fax;
+  syncAuto(); refresh();
+}
+
+/* ========== 自動入力 ========== */
+let autoFlags = {};
+function setAuto(id,val){ const el=$(id); if(!el) return; if(!el.value || autoFlags[id]===el.value){ el.value=val; autoFlags[id]=val; } }
+function syncAuto(){
+  const s=collect();
+  if($("f4Link").checked){ const dv=s.items.map(i=>i.name).filter(Boolean).join("、"); if(document.activeElement!==$("f4Device")) $("f4Device").value=dv; }
+  setAuto("trDelPlace", [s.hosp, s.place].filter(Boolean).join(" "));
+  setAuto("trDelDate", s.dStart); setAuto("trRetDate", s.dEnd);
+  if(s.purpose==="trial"){ const c=document.querySelector('#f4Purpose input[value="4"]'); if(c && !c.dataset.touched){ c.checked=true; } }
+}
+
+/* ========== 収集 ========== */
+function val(id){ const e=$(id); return e? (e.type==="checkbox"? e.checked : e.value.trim()) : ""; }
+function collect(){
+  const items=[...document.querySelectorAll("#itemsTbl tr.item")].map(tr=>{
+    const m=tr.querySelector(".i-mod").value;
+    return { mod: tr.querySelector(".i-modfree").value.trim(),
+             gen: tr.querySelector(".i-gen").value,
+             name: tr.querySelector(".i-name").value.trim(),
+             sn: tr.querySelector(".i-sn").value.trim(),
+             qty: tr.querySelector(".i-qty").value.trim() };
+  });
+  const pr=document.querySelector('input[name="purpose"]:checked');
+  const costs=COSTS.map((c,i)=>{const r=document.querySelector(`input[name="cost${i}"]:checked`);return r?r.value:"";});
+  const f4p=[...document.querySelectorAll('input[name="f4p"]:checked')].map(x=>+x.value);
+  const recs=[0,1,2,3].map(i=>({d:val(`rec${i}d`),s:val(`rec${i}s`),e:val(`rec${i}e`),n:val(`rec${i}n`)}));
+  const ids=["company","companyName","branch","lenderZip","staffFax","dept","staff","staffTel","lenderAddr","dealer","hosp","deptH","hospType","hospAddr","hospZip","mgrTitle","mgrName","hospContact","user","place","acc","purposeOther","docDate","dStart","dEnd","cases","dReturn","budget","owned","repeat","costOther",
+    "useF4","f4Link","f4Hosp","f4DeptH","f4Zip","f4Addr","f4Mgr","f4Device","f4Proc","f4Count","f4From","f4To","f4Biz","f4IC","f4Rule","useTr","trCarrier","trCarrierTel","trDir","trPickDate","trPickTime","trPickPlace","trPickTel","trDelDate","trDelTime","trDelPlace","trDelTel","trRetDate","trPkgs","trWeight","trSize","trInstall","trIns","trPay","trNote","ctrlNo","approver","deal","memo","cEcg","cDicom","cPrinter","cMonitor","cMedia","cWifi","cUps","cFoot","cCart","ecgDetail","prnDetail","dcWay","dcHospIT","dcVendor","dcLocal","dcRemote","dcApprDate","dcTestDate","dcErase"];
+  const o={}; ids.forEach(i=>o[i]=val(i));
+  o.items=items; o.purpose=pr?pr.value:""; o.costs=costs; o.f4p=f4p; o.recs=recs;
+  o.trc=[...document.querySelectorAll('input[name="trc"]:checked')].map(x=>x.value);
+  o.chk=[...document.querySelectorAll('input[name="chk"]:checked')].map(x=>+x.value);
+  o.dcTo=[...document.querySelectorAll('input[name="dcTo"]:checked')].map(x=>x.value);
+  o.dcChk=[...document.querySelectorAll('input[name="dcChk"]:checked')].map(x=>+x.value);
+  o.comps=COMPS.filter(c=>o[c[0]]).map(c=>c[1]);
+  if(!o.ctrlNo){ o.ctrlNoAuto = "LN-"+(o.docDate||today()).replace(/-/g,"")+"-"+(o.hosp? hash(o.hosp+o.dStart):"0000"); }
+  return o;
+}
+function hash(s){let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;return String(h%10000).padStart(4,"0");}
+
+/* ========== 必須表示・進捗 ========== */
+function refreshReq(){
+  const f4on=$("useF4").checked, tron=$("useTr").checked;
+  $("f4body").classList.toggle("disabled-sec",!f4on);
+  $("trbody").classList.toggle("disabled-sec",!tron);
+  let total=0,done=0;
+  document.querySelectorAll(".req").forEach(el=>{
+    const off=(el.classList.contains("f4req")&&!f4on)||(el.classList.contains("trreq")&&!tron)||el.offsetParent===null&&!el.closest("tr.item");
+    el.classList.remove("is-empty","is-filled");
+    if(off) return;
+    const filled = el.value.trim()!=="";
+    el.classList.add(filled?"is-filled":"is-empty"); total++; if(filled) done++;
+  });
+  document.querySelectorAll(".req-group").forEach(g=>{
+    g.classList.remove("is-empty","is-filled");
+    if(g.classList.contains("f4grp")&&!f4on) return;
+    if(g.offsetParent===null && g.tagName!=="TR") return;
+    const any=g.querySelector("input:checked");
+    g.classList.add(any?"is-filled":"is-empty"); total++; if(any) done++;
+    if(g.tagName==="TR"){ g.querySelectorAll("td").forEach(td=>td.style.background= any?"var(--ok-bg)":"var(--req-bg)"); }
+  });
+  const pct= total?Math.round(done/total*100):0;
+  $("pbar").style.width=pct+"%"; $("ptext").textContent=`必須 ${done} / ${total} 項目 入力済み（${pct}%）`;
+  return {total,done};
+}
+
+/* ========== 判定 ========== */
+function judge(s){
+  const out=[]; const P=PURPOSES.find(p=>p.k===s.purpose);
+  if(!P){ out.push(["info","貸出目的を選択すると、基準上の上限期間と注意点を表示します。"]); }
+  else{
+    out.push(["info",`目的「${P.short||P.t}」の上限：${P.note}`]);
+    if(s.dStart&&s.dEnd){
+      if(s.dEnd<s.dStart) out.push(["ng","終了日が開始日より前になっています。"]);
+      else if(P.lim){ const lim=addMonths(s.dStart,P.lim); const end=new Date(s.dEnd+"T00:00:00");
+        if(end>lim) out.push(["ng",`貸出期間が上限（${P.lim}か月）を超えています。上限日：${lim.getFullYear()}/${lim.getMonth()+1}/${lim.getDate()}`]);
+        else out.push(["ok","貸出期間は目的別の上限内です。目的を達した時点で期間内でも返却します。"]); }
+    }
+    if(s.purpose==="other") out.push(["warn","「その他」目的は、都度、公取協へ事前相談が必要です。"]);
+    if(s.purpose==="acc") out.push(["warn","無償代替機は「保証事項の故障」または「法規対応（不具合・回収）」に限ります。事業者に責任のない故障や保証期間後は原則有償です。"]);
+    if(s.purpose==="train") out.push(["warn","医療機関や医療担当者個人が自ら企画する研修・勉強会への貸出しは制限されます（公益目的団体の研修に限る）。"]);
+    if(s.purpose==="res") out.push(["warn","研究目的は契約書（委託・共同研究）を締結。治験該当性、臨床研究法・透明性GLの扱いを確認してください。"]);
+  }
+  if(s.budget==="none" && !["demo","trial","emer","acc","delay"].includes(s.purpose) && s.purpose) out.push(["ng","予算未計上段階での貸出しは「費用の肩代わり」として制限されます（デモ・試用の範囲内を除く）。"]);
+  if(s.budget==="contracted" && s.purpose && s.purpose!=="delay") out.push(["warn","売買契約済みの場合、使える目的は原則「納期遅延対応」（契約品の納入まで）です。"]);
+  if(s.owned==="yes" && !["acc","emer"].includes(s.purpose)) out.push(["ng","既に購入・使用している同一機器（同カタログ番号）の貸出しは制限されます（事故・故障、緊急時を除く）。"]);
+  if(s.repeat==="yes") out.push(["ng","同一医療機関の同一診療科へ同一機器を繰り返し貸し出すことは制限されます。"]);
+  const lenderCost=s.costs.filter(c=>c==="lender").length;
+  if(lenderCost>=4) out.push(["warn","費用の大半が貸出元負担です。「費用の肩代わり」と見られないか確認してください。"]);
+  if(/国立|公立/.test(s.hospType)) out.push(["warn","国公立：職員個人への無償貸付は倫理規程上できません。機関名義（病院長決裁・使用貸借契約）で手続きします。"]);
+  if(s.cDicom){
+    const miss=DCCHK.filter((t,i)=>!s.dcChk.includes(i));
+    if(!s.dcApprDate || !s.dcChk.includes(0)) out.push(["ng","DICOM接続：病院情報システム部門の承認（承認日・承認の記録）が確認できていません。承認前に院内ネットワークへ接続しないでください。"]);
+    if(!s.dcTo.length||!s.dcWay||!s.dcHospIT||!s.dcTestDate||!s.dcErase) out.push(["warn","DICOM接続：接続先・方式・病院側担当・テスト日・返却時のデータ消去方法を入力してください。"]);
+    if(miss.length) out.push(["warn","DICOM接続：未確認の項目 → "+miss.join("、")]);
+    else if(s.dcApprDate&&s.dcTo.length) out.push(["ok","DICOM接続：確認項目はすべてチェック済みです（接続先："+s.dcTo.join("・")+"）。"]);
+  }
+  if(s.cEcg) out.push(["info","心電図：ECG同期・生体モニタ連携は、患者装着部の電気的安全（漏れ電流）と併用機器の添付文書を確認してください。"]);
+  if(s.cPrinter) out.push(["info","プリンター類：感熱紙・インク等の消耗品の費用負担を様式3の「4．消耗品等」に反映してください。"]);
+  // モダリティ別
+  const mods=s.items.map(i=>(i.mod||"")+" "+(i.name||"")).join(" ");
+  if(/\bCT\b|CT$|PET-CT|PET\/CT|X線|アンギオ|血管撮影|透視|回診|マンモ|Cアーム|DR|Aero|Radrex|Mobirex|Zexira|Astorex|Ultimax|Alphenix|Aquilion|Revolution|Photonova|OEC|Definium|AMX|Allia|Senographe|Cartesion|Omni Legend|Discovery CT|Optima CT/.test(mods)) out.push(["info","X線装置：臨床使用する場合、病院の管理者が備付後10日以内に保健所へ備付届、撤去後10日以内に廃止届を出します（医療法施行規則24条の2等）。書類準備を支援してください。"]);
+  if(/MRI|Vantage|SIGNA|Discovery MR|Optima MR/.test(mods)) out.push(["info","MRI：電波法100条の高周波利用設備の許可（設置前）・磁場管理が必要です。貸出しデモは現実的でないため、見学・画像評価での代替を検討してください。"]);
+  if(/内視鏡|EVIS|GIF-|CF-|BF-|EU-ME|VISERA|CYF|ENDOEYE/.test(mods)) out.push(["info","内視鏡：貸出前・返却後の洗浄・消毒・滅菌（再生処理）の記録と、誰が再処理するかを確認書に明記してください。"]);
+  if(/テレメータ|送信機|セントラルモニタ|CNS-/.test(mods)) out.push(["info","医用テレメータ：院内の既設チャネルとの干渉を事前に確認してください。"]);
+  if(!s.cDicom && /超音波|\bCT\b|CT$|MRI|内視鏡|モニタ|ワークステーション|Vitrea|CS-7|DR|PET|Aplio|Aquilion|Vantage|SONIMAGE|LOGIQ|Vivid|Voluson|EVIS|ライフスコープ/.test(mods)) out.push(["info","返却時に装置内の患者データ（画像・氏名・ID）を消去し、消去記録を取得してください。院内ネットワークへ接続する場合は「DICOM接続」にチェックして確認してください。"]);
+  if(s.items.some(i=>i.gen==="prev")) out.push(["info","一世代前の機種（中古品扱いになり得る）の貸出しでは、製造販売業者への中古品事前通知（または包括取り決め）を確認してください（薬機法施行規則170条）。"]);
+  if(!out.some(x=>x[0]==="ng") && P) out.push(["ok","基準上の重大な制限事由は検出されていません。様式3の確認書を受領してから貸し出してください。"]);
+  return out;
+}
+
+/* ========== 帳票HTML ========== */
+const ck = b => `<span class="bx">${b?"✓":""}</span>`;
+function itemRows(s,n){ const rows=[]; for(let i=0;i<n;i++){ const it=s.items[i]; rows.push(it&&it.name? it : null);} return rows; }
+function periodStr(s){ return (s.dStart||s.dEnd)? `${sdate(s.dStart)} ～ ${sdate(s.dEnd)}`:""; }
+function renderF3(s){
+  const P=s.purpose; const user=[s.user,s.place].filter(Boolean).join(" ／ ");
+  const ct=compText(s); let used=false;
+  const rows=itemRows(s,5).map((it,i)=>{ if(!it && ct && !used){ used=true; return `<tr><td colspan="5" style="font-size:8.6pt">付属品・構成品：${esc(ct)}</td></tr>`; } return `<tr><td>${it?esc(it.name)+(s.companyName?`<br><span style="font-size:8.5pt">${esc(s.companyName)}${it.sn?"　S/N："+esc(it.sn):""}</span>`:""):""}</td><td style="text-align:center">${it?esc(it.qty):""}</td><td>${it&&i===0?esc(user):""}</td><td style="text-align:center">${it&&i===0?esc(periodStr(s)):""}</td><td style="text-align:center">${it&&i===0?esc(s.cases):""}</td></tr>`; }).join("");
+  const costRows=COSTS.map((c,i)=>`<div style="padding-left:6mm">${c.replace("．","．&nbsp;")}${i===4&&s.costOther?`（${esc(s.costOther)}）`:""}</div><div class="mk">${s.costs[i]==="lender"?"○":""}</div><div class="mk">${s.costs[i]==="borrower"?"○":""}</div>`).join("");
+  const pb=(k,t)=>`<div>${ck(P===k)}${t}</div>`;
+  return `<div class="sheet land f3" data-f="f3">
+  <div style="font-size:10pt">（様式3）</div>
+  <div class="frame">
+    <div class="ttl">医療機器の貸出しに関する確認書</div>
+    <div class="date">${jdate(s.docDate)}</div>
+    <div class="parties">
+      <div><div><span class="k">貸出元</span>${esc(s.companyName)}</div><div style="margin-top:1mm"><span class="k">所在地</span><span style="font-size:9.5pt">${s.lenderZip?"〒"+esc(s.lenderZip)+" ":""}${esc(s.lenderAddr)}</span></div>${s.dept||s.staff?`<div style="font-size:9pt;margin-top:2mm">${esc(s.dept)}　${esc(s.staff)}</div>`:""}</div>
+      <div><div><span class="k">貸出先</span>${esc(s.hosp)}${s.deptH?"　"+esc(s.deptH):""}</div><div style="margin-top:2mm"><span class="k">所在地</span><span style="font-size:9.5pt">${s.hospZip?"〒"+esc(s.hospZip)+" ":""}${esc(s.hospAddr)}</span></div><div style="margin-top:2mm"><span class="k">管理責任者</span>${esc(s.mgrTitle)}</div><div style="margin-top:2mm;display:flex"><span class="k">氏　名</span><span style="flex:1">${esc(s.mgrName)}</span><span style="margin-right:20mm">印</span></div></div>
+      <div><span>返却確認日</span>　${jdate(s.dReturn)}</div>
+    </div>
+    <div class="purp">
+      <div>${ck(P==="demo")}デモ</div><div>${ck(P==="trial")}臨床試用（有効性・安全性、操作性等の確認）</div><div>${ck(P==="emer")}緊急時・災害時対応</div><div>${ck(P==="acc")}事故・故障対応</div>
+      <div>${ck(P==="train")}研修</div><div>${ck(P==="res")}研究目的・公益的研究活動</div><div>${ck(P==="delay")}納期遅延対応</div><div>${ck(P==="other")}その他${P==="other"&&s.purposeOther?`（${esc(s.purposeOther)}）`:""}</div>
+    </div>
+    <table class="items"><thead><tr><th style="width:30%">品名・メーカー名・規格形式</th><th style="width:9%">数　量</th><th style="width:21%">使用者名／設置場所</th><th style="width:22%">期　　間</th><th>症例数</th></tr></thead><tbody>${rows}</tbody></table>
+    <div class="cost"><div>●貸出期間中の費用負担：</div><div class="hd">貸出元負担</div><div class="hd">貸出先負担</div>${costRows}</div>
+    <div class="bottom"><div>●貸出期間が満了した当該医療機器は、速やかに貸出元に返却する。</div><div class="org">医療機器業公正取引協議会</div></div>
+  </div></div>`;
+}
+function renderF4(s){
+  const p=i=>`<div>${ck(s.f4p.includes(i))}${esc(F4P[i])}</div>`;
+  const recs=s.recs.map(r=>`<tr><td>・実施日：<span class="ul" style="min-width:32mm">${r.d?jdate(r.d):"　　年　　月　　日"}</span></td><td>実施時間：<span class="ul" style="min-width:30mm">${esc(r.s)}　～　${esc(r.e)}</span></td><td>担当者名：<span class="ul" style="min-width:34mm">${esc(r.n)}</span></td></tr>`).join("");
+  return `<div class="sheet port f4" data-f="f4">
+  <div style="text-align:right;font-size:10pt">（様式４）</div>
+  <div class="ttl">立会い実施確認書</div>
+  <div class="secl">■ 医療機関等記入欄</div>
+  <div class="box">
+    <div class="row" style="display:grid;grid-template-columns:1fr 1fr;gap:4mm"><div>１．対象医療機器名：${esc(s.f4Device)}</div><div>２．手技名：${esc(s.f4Proc)}</div></div>
+    <div class="row">３．立会い目的<span style="font-size:8.5pt">（下記の該当する立会いについて、□内にチェックをお願いいたします。）</span>
+      <div class="two">${p(0)}${p(1)}${p(2)}${p(3)}${p(4)}${p(5)}${p(6)}${p(7)}</div><div style="margin-top:1mm">${p(8)}</div></div>
+    <div class="row">４．回数及び予定期間：　<span class="ul" style="min-width:12mm;text-align:center">${esc(s.f4Count)}</span> 回　　${jdate(s.f4From)}から　${jdate(s.f4To)}まで</div>
+    <div class="row">５．事業者が立会いを行うことの患者へのインフォームドコンセントの実施：　${ck(s.f4IC)}確認済</div>
+    <div style="padding:3mm 0 1mm 52mm;line-height:2.1">
+      <div>${jdate(s.docDate)}</div>
+      <div>医療機関名：<span class="ul" style="min-width:80mm">${esc(s.f4Hosp)}</span></div>
+      <div>診療科名：<span class="ul" style="min-width:83mm">${esc(s.f4DeptH)}</span></div>
+      <div>住　　所：<span class="ul" style="min-width:84mm;font-size:9pt">${s.f4Zip?"〒"+esc(s.f4Zip)+" ":""}${esc(s.f4Addr)}</span></div>
+      <div>管理責任者名：<span class="ul" style="min-width:58mm">${esc(s.f4Mgr)}</span><span style="font-size:8.5pt">（記名捺印又は署名）</span></div>
+    </div>
+  </div>
+  <div class="secl" style="margin-top:4mm">■ 事業者記入欄</div>
+  <div class="box">
+    <div class="row">１．院内規則の遵守　　${ck(s.f4Rule)}弊社及び弊社担当者は、貴院の院内規則を遵守いたします。</div>
+    <div class="row">２．立会い実施日、実施時間、実施担当者の記録<table class="rec" style="margin-top:1mm">${recs}</table>
+      <div style="text-align:right;margin-top:2mm">実施事業者名：<span class="ul" style="min-width:70mm">${esc(s.f4Biz)}</span></div></div>
+  </div>
+  <div style="margin-top:5mm;text-align:center;font-size:10pt">立会い終了時の担当医師による記名捺印又は署名：<span style="display:inline-block;border:1px solid #000;width:45mm;height:9mm;vertical-align:middle"></span></div>
+  <div style="position:absolute;right:14mm;bottom:12mm;font-family:'Yu Gothic','Meiryo',sans-serif;font-weight:700;font-size:12pt">医療機器業公正取引協議会</div>
+  </div>`;
+}
+function kv(rows){ return `<table class="kv"><colgroup><col style="width:30mm"><col><col style="width:30mm"><col></colgroup>${rows.map(r=>r.length===2?`<tr><th>${r[0]}</th><td colspan="3">${r[1]}</td></tr>`:`<tr><th>${r[0]}</th><td>${r[1]}</td><th>${r[2]}</th><td>${r[3]}</td></tr>`).join("")}</table>`; }
+function itemList(s,withGen){ return s.items.filter(i=>i.name).map((i,n)=>`${n+1}. ${esc(i.name)}${i.mod?`［${esc(i.mod)}${withGen?"・"+(i.gen==="prev"?"一世代前":"現行"):""}］`:""}　数量：${esc(i.qty)}${i.sn?"　S/N："+esc(i.sn):""}`).join("<br>"); }
+function renderTR(s){
+  return `<div class="sheet port gen" data-f="tr">
+  <div class="meta"><span>管理番号：${esc(s.ctrlNo||s.ctrlNoAuto)}</span><span>依頼日：${jdate(s.docDate)}</span></div>
+  <div class="ttl">医療機器 輸送依頼書</div>
+  <div style="display:flex;justify-content:space-between;font-size:10pt;margin-bottom:3mm"><div>${esc(s.trCarrier)}　御中<br><span style="font-size:8.5pt">${esc(s.trCarrierTel)}</span></div>
+   <div style="text-align:right">依頼元：${esc(s.companyName)}<br>${esc(s.dept)}　${esc(s.staff)}<br><span style="font-size:8.5pt">TEL：${esc(s.staffTel)}${s.staffFax?"　FAX："+esc(s.staffFax):""}</span></div></div>
+  <div style="font-size:9.5pt;margin-bottom:2mm">下記のとおり医療機器の輸送をお願いいたします。精密医療機器のため、取扱いには十分ご注意ください。</div>
+  <div class="cap">輸送区分・品目</div>
+  ${kv([["輸送区分",esc(s.trDir),"貸出目的",esc((PURPOSES.find(p=>p.k===s.purpose)||{}).short||(PURPOSES.find(p=>p.k===s.purpose)||{}).t||"")],["品目",itemList(s)||"&nbsp;"],["付属品・構成品",esc(compText(s))||"&nbsp;"],["梱包数",esc(s.trPkgs),"総重量",s.trWeight?esc(s.trWeight)+" kg":""],["最大寸法",esc(s.trSize),"開梱・据付",esc(s.trInstall)]])}
+  <div class="cap">集荷</div>
+  ${kv([["集荷日時",`${jdate(s.trPickDate,"")} ${esc(s.trPickTime)}`,"担当・TEL",esc(s.trPickTel)],["集荷場所",esc(s.trPickPlace)||"&nbsp;"]])}
+  <div class="cap">搬入（お届け先）</div>
+  ${kv([["搬入日時",`${jdate(s.trDelDate,"")} ${esc(s.trDelTime)}`,"立会者・TEL",esc(s.trDelTel)],["搬入先",esc(s.trDelPlace)||"&nbsp;"],["所在地",(s.hospZip?"〒"+esc(s.hospZip)+" ":"")+esc(s.hospAddr)||"&nbsp;"],["病院窓口",esc(s.hospContact)||"&nbsp;"]])}
+  <div class="cap">返却（復路）</div>
+  ${kv([["返却集荷予定日",jdate(s.trRetDate,""),"返却先",esc(s.trPickPlace)]])}
+  <div class="cap">取扱い条件・費用</div>
+  ${kv([["取扱い条件",TRCOND.map(c=>ck(s.trc.includes(c))+esc(c)).join("　")],["運送保険",esc(s.trIns),"運賃負担",esc(s.trPay)],["備考",(esc(s.trNote)||"&nbsp;").replace(/\n/g,"<br>")]])}
+  <div class="small" style="margin-top:3mm">※本機器は貸出元の所有物です（所有権表示あり）。破損・事故時は直ちに依頼元へ連絡してください。附帯作業（開梱・搬入・据付等）は本書に記載した範囲で依頼します。</div>
+  <div class="stamps"><div><span>依頼者</span><i></i></div><div><span>承認</span><i></i></div><div><span>受付（業者）</span><i></i></div></div>
+  </div>`;
+}
+function renderCT(s){
+  const P=PURPOSES.find(p=>p.k===s.purpose)||{};
+  const j=judge(s).filter(x=>x[0]==="ng"||x[0]==="warn");
+  const costs=COSTS.map((c,i)=>`${c.slice(2)}：${s.costs[i]==="lender"?"貸出元":s.costs[i]==="borrower"?"貸出先":"―"}`).join("／");
+  return `<div class="sheet port gen" data-f="ct">
+  <div class="meta"><span>管理番号：${esc(s.ctrlNo||s.ctrlNoAuto)}</span><span>作成日：${jdate(s.docDate)}</span></div>
+  <div class="ttl" style="letter-spacing:.1em">医療機器貸出し 控え書<span style="font-size:10pt;letter-spacing:0">（社内ファイル用）</span></div>
+  <div class="cap">貸出元・貸出先</div>
+  ${kv([["貸出元",esc(s.companyName),"支社・支店・部署／担当",`${esc(s.dept)} ${esc(s.staff)}`],["貸出元所在地",`${s.lenderZip?"〒"+esc(s.lenderZip)+" ":""}${esc(s.lenderAddr)}`,"TEL／FAX",`${esc(s.staffTel)}${s.staffFax?" ／ "+esc(s.staffFax):""}`],["経由販売店",esc(s.dealer)||"―","商談番号",esc(s.deal)||"―"],["貸出先",`${esc(s.hosp)} ${esc(s.deptH)}`,"設置主体",esc(s.hospType)||"―"],["所在地",(s.hospZip?"〒"+esc(s.hospZip)+" ":"")+esc(s.hospAddr)],["管理責任者",`${esc(s.mgrTitle)} ${esc(s.mgrName)}`,"病院窓口",esc(s.hospContact)],["使用者",esc(s.user),"設置場所",esc(s.place)]])}
+  <div class="cap">機器・目的・期間（様式3）</div>
+  ${kv([["機器",itemList(s,true)||"&nbsp;"],["付属品",esc(s.acc)||"―"],["目的",esc(P.t||"")+(s.purpose==="other"&&s.purposeOther?`（${esc(s.purposeOther)}）`:""),"基準上限",esc(P.note||"")],["貸出期間",esc(periodStr(s)),"症例数",esc(s.cases)],["予算状況",esc({planned:"計上済（契約前）",none:"未計上",na:"該当なし",contracted:"契約済"}[s.budget]||""),"返却確認日",jdate(s.dReturn,"未返却")],["既購入/反復",`同一機器既購入：${s.owned==="yes"?"あり":"なし"}／同一科過去貸出：${s.repeat==="yes"?"あり":"なし"}`],["費用負担",esc(costs)+(s.costOther?`<br>その他：${esc(s.costOther)}`:"")]])}
+  <div class="cap">付属品・構成品・接続</div>
+  ${kv([["付属品",esc(s.acc)||"―"],["構成",esc(s.comps.join("・"))||"―"],...(s.cEcg?[["心電図",esc(s.ecgDetail)||"未入力"]]:[]),...(s.cPrinter?[["プリンター類",esc(s.prnDetail)||"未入力"]]:[]),
+     ...(s.cDicom?[["DICOM接続先",esc(s.dcTo.join("・"))||"未選択","接続方式",esc(s.dcWay)||"未選択"],["病院側担当",esc(s.dcHospIT)||"未入力","PACS等",esc(s.dcVendor)||"―"],["装置側設定",esc(s.dcLocal)||"―","接続先設定",esc(s.dcRemote)||"―"],["承認日",sdate(s.dcApprDate)||"<b>未承認</b>","接続テスト",sdate(s.dcTestDate)||"未定"],["返却時消去",esc(s.dcErase)||"未選択"],["DICOM確認",DCCHK.map((t,i)=>ck(s.dcChk.includes(i))+esc(t)).join("　")]]:[])])}
+  <div class="cap">立会い（様式4）・輸送</div>
+  ${kv([["立会い",s.useF4?`${esc(s.f4Proc)}／${s.f4p.map(i=>esc(F4P[i])).join("、")||"目的未選択"}／${esc(s.f4Count)}回／${sdate(s.f4From)}～${sdate(s.f4To)}／IC確認：${s.f4IC?"済":"未"}`:"作成しない"],["実施記録",s.recs.filter(r=>r.d).map(r=>`${sdate(r.d)} ${esc(r.s)}-${esc(r.e)} ${esc(r.n)}`).join("<br>")||"―"],["輸送",s.useTr?`${esc(s.trCarrier)}／${esc(s.trDir)}／集荷 ${sdate(s.trPickDate)}・搬入 ${sdate(s.trDelDate)}・返却集荷 ${sdate(s.trRetDate)}／運賃：${esc(s.trPay)}`:"作成しない"]])}
+  <div class="cap">コンプライアンス確認</div>
+  <table class="kv"><tr><td><div class="chk2">${CHECKS.map((c,i)=>ck(s.chk.includes(i))+esc(c)).join("<br>")}</div></td></tr></table>
+  <div class="cap">自動チェックで検出された注意・制限事項</div>
+  <table class="kv"><tr><td style="font-size:8.6pt">${j.length? j.map(x=>(x[0]==="ng"?"【制限】":"【注意】")+esc(x[1])).join("<br>") : "なし"}</td></tr></table>
+  ${s.memo?`<div class="cap">社内メモ</div><table class="kv"><tr><td style="font-size:9pt">${esc(s.memo).replace(/\n/g,"<br>")}</td></tr></table>`:""}
+  <div class="stamps"><div><span>担当</span><i>${""}</i></div><div><span>上長${s.approver?"<br>"+esc(s.approver):""}</span><i></i></div><div><span>管理部門</span><i></i></div></div>
+  <div class="small" style="margin-top:2mm">保存期間：5年以上（確認書・立会い実施確認書と共に保管）</div>
+  </div>`;
+}
+const RENDER={f3:renderF3,f4:renderF4,tr:renderTR,ct:renderCT};
+const FORMNAME={f3:"確認書（様式3）",f4:"立会い実施確認書（様式4）",tr:"輸送依頼書",ct:"控え書"};
+
+/* ========== プレビュー ========== */
+let pvSel="f3";
+function renderPreview(s){
+  const tabs=$("pvTabs"); tabs.innerHTML="";
+  Object.keys(RENDER).forEach(k=>{ const b=document.createElement("button"); b.textContent=FORMNAME[k]; if(k===pvSel)b.className="on"; b.onclick=()=>{pvSel=k;renderPreview(collect());}; tabs.appendChild(b);});
+  const box=$("previewBox"); box.innerHTML=`<div class="pvwrap">${RENDER[pvSel](s)}</div>`;
+  const wrap=box.querySelector(".pvwrap"), sh=wrap.querySelector(".sheet");
+  const cs=getComputedStyle(box); const avail=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+  const pxw=sh.offsetWidth, pxh=sh.offsetHeight, sc=Math.min(1,avail/pxw);
+  sh.style.transform=`scale(${sc})`; wrap.style.width=(pxw*sc)+"px"; wrap.style.height=(pxh*sc)+"px";
+}
+
+/* ========== 全体更新 ========== */
+function refresh(){
+  const s=collect();
+  $("otherPurposeWrap").style.display = s.purpose==="other"?"flex":"none";
+  $("ecgPanel").style.display=s.cEcg?"flex":"none"; $("prnPanel").style.display=s.cPrinter?"flex":"none"; $("dicomPanel").style.display=s.cDicom?"block":"none";
+  refreshReq();
+  updRec();
+  const J=judge(s);
+  $("judge").innerHTML=J.map(([c,t])=>`<li class="${c}">${esc(t)}</li>`).join("");
+  const ng=J.filter(x=>x[0]==="ng").length, wn=J.filter(x=>x[0]==="warn").length;
+  $("ngCount").textContent = ng? `制限${ng}` : (wn? `注意${wn}`:"");
+  $("ngCount").style.background = ng? "var(--ng)" : "var(--warn)";
+  const P=PURPOSES.find(p=>p.k===s.purpose); $("purposeNote").textContent = P? `上限：${P.note}`:"";
+  if(s.cDicom && s.dcApprDate && s.dcChk.includes(0)){ const c6=document.querySelector('input[name="chk"][value="6"]'); if(c6&&!c6.checked&&!c6.dataset.touched){ c6.checked=true; } }
+  renderPreview(s);
+}
+
+/* ========== PDF（印刷） ========== */
+function doPrint(which){
+  const s=collect();
+  const keys = which==="all"? ["f3"].concat(s.useF4?["f4"]:[],s.useTr?["tr"]:[],["ct"]) : [which];
+  $("printArea").innerHTML = keys.map(k=>RENDER[k](s)).join("");
+  let st=$("dynPage"); if(!st){st=document.createElement("style");st.id="dynPage";document.head.appendChild(st);}
+  st.textContent = which==="all" ? "" : `@page{size:A4 ${which==="f3"?"landscape":"portrait"};margin:0}`;
+  const old=document.title; document.title = `${which==="all"?"貸出書類一式":FORMNAME[which]}_${s.hosp||"未入力"}_${(s.docDate||today()).replace(/-/g,"")}`;
+  setTimeout(()=>{ window.print(); document.title=old; },60);
+}
+
+/* ========== Excel（xlsx：外部ライブラリなしで生成） ========== */
+const CRC_T=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+function crc32(u){let c=0xFFFFFFFF;for(let i=0;i<u.length;i++)c=CRC_T[(c^u[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function zip(files){
+  const enc=new TextEncoder(); const parts=[]; const cen=[]; let off=0;
+  const u16=n=>[n&255,(n>>>8)&255], u32=n=>[n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255];
+  for(const f of files){
+    const name=enc.encode(f.name), data=typeof f.data==="string"?enc.encode(f.data):f.data, crc=crc32(data);
+    const lh=new Uint8Array([...u32(0x04034b50),...u16(20),...u16(0x0800),...u16(0),...u16(0),...u16(0x21),...u32(crc),...u32(data.length),...u32(data.length),...u16(name.length),...u16(0)]);
+    parts.push(lh,name,data);
+    cen.push(new Uint8Array([...u32(0x02014b50),...u16(20),...u16(20),...u16(0x0800),...u16(0),...u16(0),...u16(0x21),...u32(crc),...u32(data.length),...u32(data.length),...u16(name.length),...u16(0),...u16(0),...u16(0),...u16(0),...u32(0),...u32(off)]),name);
+    off+=lh.length+name.length+data.length;
+  }
+  const cenSize=cen.reduce((a,b)=>a+b.length,0);
+  const end=new Uint8Array([...u32(0x06054b50),...u16(0),...u16(0),...u16(files.length),...u16(files.length),...u32(cenSize),...u32(off),...u16(0)]);
+  return new Blob([...parts,...cen,end],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+}
+const XE=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])).replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g,"");
+const colL=c=>{let s="";while(c>0){const m=(c-1)%26;s=String.fromCharCode(65+m)+s;c=Math.floor((c-1)/26);}return s;};
+// スタイル番号：0標準 1表題 2見出し枠(灰) 3値枠 4本文 5小 6中央枠 7太字 8右 9太字右 10表見出し 11中央 12本文(大)
+class XSheet{
+  constructor(name,orient,widths){this.name=name;this.orient=orient;this.widths=widths;this.cells={};this.merges=[];this.h={};}
+  set(r,c,v,s=4){this.cells[r+","+c]={v,s};}
+  box(r1,c1,r2,c2,v,s=3){for(let r=r1;r<=r2;r++)for(let c=c1;c<=c2;c++)this.set(r,c,(r===r1&&c===c1)?v:"",s); if(r1!==r2||c1!==c2)this.merges.push(colL(c1)+r1+":"+colL(c2)+r2);}
+  ht(r,h){this.h[r]=h;}
+  area(){ let maxR=1,maxC=this.widths.length; Object.keys(this.cells).forEach(k=>{const [r,c]=k.split(",").map(Number);maxR=Math.max(maxR,r);maxC=Math.max(maxC,c);}); return `$A$1:$${colL(maxC)}$${maxR}`; }
+  xml(){
+    let maxR=0,maxC=this.widths.length; Object.keys(this.cells).forEach(k=>{const [r,c]=k.split(",").map(Number);maxR=Math.max(maxR,r);maxC=Math.max(maxC,c);});
+    let rows=""; for(let r=1;r<=maxR;r++){ let cs=""; for(let c=1;c<=maxC;c++){ const x=this.cells[r+","+c]; if(!x)continue; const ref=colL(c)+r;
+        cs+= (x.v===""||x.v==null)? `<c r="${ref}" s="${x.s}"/>` : (typeof x.v==="number"? `<c r="${ref}" s="${x.s}"><v>${x.v}</v></c>` : `<c r="${ref}" s="${x.s}" t="inlineStr"><is><t xml:space="preserve">${XE(x.v)}</t></is></c>`); }
+      rows+=`<row r="${r}"${this.h[r]?` ht="${this.h[r]}" customHeight="1"`:""}>${cs}</row>`; }
+    const cols=this.widths.map((w,i)=>`<col min="${i+1}" max="${i+1}" width="${w}" customWidth="1"/>`).join("");
+    return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheetPr><pageSetUpPr fitToPage="1"/></sheetPr><sheetViews><sheetView workbookViewId="0" showGridLines="0" view="pageLayout"/></sheetViews><sheetFormatPr defaultRowHeight="18"/><cols>${cols}</cols><sheetData>${rows}</sheetData>${this.merges.length?`<mergeCells count="${this.merges.length}">${this.merges.map(m=>`<mergeCell ref="${m}"/>`).join("")}</mergeCells>`:""}<printOptions horizontalCentered="1" verticalCentered="0"/><pageMargins left="0.4" right="0.4" top="0.45" bottom="0.45" header="0.2" footer="0.2"/><pageSetup paperSize="9" orientation="${this.orient}" fitToWidth="1" fitToHeight="1"/></worksheet>`;
+  }
+}
+function stylesXml(){
+  const F=`<font><sz val="10"/><name val="Yu Gothic"/><family val="3"/><charset val="128"/></font>`;
+  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+<fonts count="6">${F}<font><b/><sz val="17"/><name val="Yu Mincho"/><family val="1"/><charset val="128"/></font><font><b/><sz val="11"/><name val="Yu Gothic"/><family val="3"/><charset val="128"/></font><font><sz val="8"/><name val="Yu Gothic"/><family val="3"/><charset val="128"/></font><font><b/><sz val="10"/><name val="Yu Gothic"/><family val="3"/><charset val="128"/></font><font><sz val="11"/><name val="Yu Gothic"/><family val="3"/><charset val="128"/></font></fonts>
+<fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FFF0F0F0"/><bgColor indexed="64"/></patternFill></fill></fills>
+<borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left style="thin"><color auto="1"/></left><right style="thin"><color auto="1"/></right><top style="thin"><color auto="1"/></top><bottom style="thin"><color auto="1"/></bottom><diagonal/></border></borders>
+<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>
+<cellXfs count="13">
+<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>
+<xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>
+<xf numFmtId="0" fontId="4" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="3" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="left" vertical="center"/></xf>
+<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyAlignment="1"><alignment horizontal="right" vertical="center"/></xf>
+<xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="right" vertical="center"/></xf>
+<xf numFmtId="0" fontId="4" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf>
+<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>
+<xf numFmtId="0" fontId="5" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf>
+</cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`;
+}
+const B=b=>b?"■":"□";
+const plain=h=>String(h).replace(/<br\s*\/?>/g,"\n").replace(/<[^>]+>/g,"").replace(/&nbsp;/g," ").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&#39;/g,"'");
+function xF3(s){
+  const x=new XSheet("様式3_確認書","landscape",[11,11,11,11,10,11,11,11,11,11,9,9]); const P=s.purpose;
+  x.set(1,1,"（様式3）",4);
+  x.box(2,1,2,12,"医療機器の貸出しに関する確認書",1); x.ht(2,32);
+  x.box(3,9,3,12,jdate(s.docDate),8);
+  x.set(4,1,"貸出元",4); x.box(4,2,4,4,s.companyName,4); x.set(4,5,"貸出先",4); x.box(4,6,4,8,`${s.hosp} ${s.deptH}`.trim(),4); x.set(4,9,"返却確認日",8); x.box(4,10,4,12,jdate(s.dReturn),4); x.ht(4,30);
+  x.set(5,1,"所在地",4); x.box(5,2,6,4,(s.lenderZip?"〒"+s.lenderZip+" ":"")+s.lenderAddr,4); x.set(5,5,"所在地",4); x.box(5,6,5,8,(s.hospZip?"〒"+s.hospZip+" ":"")+s.hospAddr,4); x.ht(5,30);
+  x.set(6,5,"管理責任者",4); x.box(6,6,6,8,s.mgrTitle,4); x.ht(6,22);
+  x.box(7,2,7,4,`${s.dept} ${s.staff}`.trim(),5); x.set(7,5,"氏　名",4); x.box(7,6,7,8,s.mgrName,4); x.set(7,9,"印",11);
+  x.ht(8,8);
+  x.set(9,1,B(P==="demo")+" デモ",4); x.box(9,2,9,5,B(P==="trial")+" 臨床試用（有効性・安全性、操作性等の確認）",4); x.box(9,6,9,8,B(P==="emer")+" 緊急時・災害時対応",4); x.box(9,9,9,10,B(P==="acc")+" 事故・故障対応",4);
+  x.set(10,1,B(P==="train")+" 研修",4); x.box(10,2,10,5,B(P==="res")+" 研究目的・公益的研究活動",4); x.box(10,6,10,8,B(P==="delay")+" 納期遅延対応",4); x.box(10,9,10,12,B(P==="other")+" その他"+(P==="other"&&s.purposeOther?`（${s.purposeOther}）`:""),4);
+  x.ht(11,8);
+  x.box(12,1,12,4,"品名・メーカー名・規格形式",10); x.set(12,5,"数　量",10); x.box(12,6,12,8,"使用者名／設置場所",10); x.box(12,9,12,10,"期　間",10); x.box(12,11,12,12,"症例数",10);
+  const its=itemRows(s,5);
+  const ct=compText(s); let used=false;
+  its.forEach((it,i)=>{ const r=13+i; x.ht(r,it?44:26);
+    if(!it && ct && !used){ used=true; x.box(r,1,r,12,"付属品・構成品："+ct,3); return; }
+    x.box(r,1,r,4,it?`${it.name}\n${s.companyName}${it.sn?"　S/N："+it.sn:""}`:"",3); x.set(r,5,it?it.qty:"",6);
+    x.box(r,6,r,8,it&&i===0?[s.user,s.place].filter(Boolean).join(" ／ "):"",3); x.box(r,9,r,10,it&&i===0?periodStr(s):"",6); x.box(r,11,r,12,it&&i===0?s.cases:"",6); });
+  x.ht(18,8);
+  x.box(19,1,19,3,"●貸出期間中の費用負担：",4); x.box(19,4,19,5,"貸出元負担",10); x.box(19,6,19,7,"貸出先負担",10);
+  COSTS.forEach((c,i)=>{ const r=20+i; x.box(r,1,r,3,"　"+c+(i===4&&s.costOther?`（${s.costOther}）`:""),4); x.box(r,4,r,5,s.costs[i]==="lender"?"○":"",6); x.box(r,6,r,7,s.costs[i]==="borrower"?"○":"",6); });
+  x.ht(25,10);
+  x.box(26,1,26,8,"●貸出期間が満了した当該医療機器は、速やかに貸出元に返却する。",4); x.box(26,9,26,12,"医療機器業公正取引協議会",9);
+  return x;
+}
+function xF4(s){
+  const x=new XSheet("様式4_立会い","portrait",[12,12,12,12,12,12,12,12]); let r=1;
+  x.box(r,7,r,8,"（様式４）",8); r++;
+  x.box(r,1,r,8,"立会い実施確認書",1); x.ht(r,34); r++;
+  x.box(r,1,r,8,"■ 医療機関等記入欄",7); r++;
+  x.box(r,1,r,4,"１．対象医療機器名："+s.f4Device,3); x.box(r,5,r,8,"２．手技名："+s.f4Proc,3); x.ht(r,30); r++;
+  x.box(r,1,r,8,"３．立会い目的（下記の該当する立会いについて、□内にチェックをお願いいたします。）",3); r++;
+  for(let i=0;i<8;i+=2){ x.box(r,1,r,4,"　"+B(s.f4p.includes(i))+" "+F4P[i],3); x.box(r,5,r,8,B(s.f4p.includes(i+1))+" "+F4P[i+1],3); r++; }
+  x.box(r,1,r,8,"　"+B(s.f4p.includes(8))+" "+F4P[8],3); r++;
+  x.box(r,1,r,8,`４．回数及び予定期間：　${s.f4Count||"　"} 回　　${jdate(s.f4From)}から　${jdate(s.f4To)}まで`,3); x.ht(r,24); r++;
+  x.box(r,1,r,8,`５．事業者が立会いを行うことの患者へのインフォームドコンセントの実施：　${B(s.f4IC)}確認済`,3); x.ht(r,24); r++;
+  x.box(r,4,r,8,jdate(s.docDate),4); r++;
+  [["医療機関名：",s.f4Hosp],["診療科名：",s.f4DeptH],["住　　所：",(s.f4Zip?"〒"+s.f4Zip+" ":"")+s.f4Addr],["管理責任者名：",s.f4Mgr+"　　　（記名捺印又は署名）"]].forEach(([k,v])=>{ x.box(r,3,r,4,k,8); x.box(r,5,r,8,v,4); x.ht(r,22); r++; });
+  r++;
+  x.box(r,1,r,8,"■ 事業者記入欄",7); r++;
+  x.box(r,1,r,8,`１．院内規則の遵守　　${B(s.f4Rule)}弊社及び弊社担当者は、貴院の院内規則を遵守いたします。`,3); x.ht(r,24); r++;
+  x.box(r,1,r,8,"２．立会い実施日、実施時間、実施担当者の記録",3); r++;
+  s.recs.forEach(rc=>{ x.box(r,1,r,3,"・実施日："+(rc.d?jdate(rc.d):"　　年　　月　　日"),3); x.box(r,4,r,5,"実施時間："+(rc.s||"")+" ～ "+(rc.e||""),3); x.box(r,6,r,8,"担当者名："+rc.n,3); x.ht(r,22); r++; });
+  x.box(r,4,r,5,"実施事業者名：",8); x.box(r,6,r,8,s.f4Biz,3); x.ht(r,22); r++;
+  r++;
+  x.box(r,1,r,5,"立会い終了時の担当医師による記名捺印又は署名：",8); x.box(r,6,r,8,"",3); x.ht(r,30); r+=2;
+  x.box(r,5,r,8,"医療機器業公正取引協議会",9);
+  return x;
+}
+function xKV(name,title,s,sections,stampLabels){
+  const x=new XSheet(name,"portrait",[16,20,14,20,16,14]); let r=1;
+  x.box(r,1,r,3,"管理番号："+(s.ctrlNo||s.ctrlNoAuto),4); x.box(r,4,r,6,(name.includes("輸送")?"依頼日：":"作成日：")+jdate(s.docDate),8); r++;
+  x.box(r,1,r,6,title,1); x.ht(r,32); r++;
+  sections.forEach(sec=>{
+    if(sec.text){ x.box(r,1,r,6,sec.text,sec.style||4); if(sec.h)x.ht(r,sec.h); r++; return; }
+    x.box(r,1,r,6,"■ "+sec.cap,7); r++;
+    sec.rows.forEach(row=>{
+      if(row.length===2){ x.set(r,1,row[0],2); x.box(r,2,r,6,plain(row[1]),3); }
+      else { x.set(r,1,row[0],2); x.box(r,2,r,3,plain(row[1]),3); x.set(r,4,row[2],2); x.box(r,5,r,6,plain(row[3]),3); }
+      const est=(t,w)=>plain(t).split("\n").reduce((a,l)=>a+Math.max(1,Math.ceil(l.length/w)),0);
+      const lines=row.length===2? est(row[1],40) : Math.max(est(row[1],16),est(row[3],16));
+      x.ht(r,Math.min(260,15*lines+5)); r++;
+    });
+  });
+  r++; const sc=6-stampLabels.length+1; stampLabels.forEach((l,i)=>{ x.set(r,sc+i,l,10); x.set(r+1,sc+i,"",6); }); x.ht(r+1,48);
+  return x;
+}
+function xTR(s){
+  const pur=(PURPOSES.find(p=>p.k===s.purpose)||{}); const tc=TRCOND.map(c=>B(s.trc.includes(c))+c).join("　");
+  return xKV("輸送依頼","医療機器 輸送依頼書",s,[
+    {text:`${s.trCarrier}　御中　${s.trCarrierTel}`,style:7},
+    {text:`依頼元：${s.companyName}　${s.dept} ${s.staff}　TEL：${s.staffTel}${s.staffFax?"　FAX："+s.staffFax:""}`},
+    {text:"下記のとおり医療機器の輸送をお願いいたします。精密医療機器のため、取扱いには十分ご注意ください。",style:5},
+    {cap:"輸送区分・品目",rows:[["輸送区分",s.trDir,"貸出目的",pur.short||pur.t||""],["品目",itemList(s)],["付属品・構成品",compText(s)],["梱包数",s.trPkgs,"総重量",s.trWeight?s.trWeight+" kg":""],["最大寸法",s.trSize,"開梱・据付",s.trInstall]]},
+    {cap:"集荷",rows:[["集荷日時",`${jdate(s.trPickDate,"")} ${s.trPickTime}`,"担当・TEL",s.trPickTel],["集荷場所",s.trPickPlace]]},
+    {cap:"搬入（お届け先）",rows:[["搬入日時",`${jdate(s.trDelDate,"")} ${s.trDelTime}`,"立会者・TEL",s.trDelTel],["搬入先",s.trDelPlace],["所在地",(s.hospZip?"〒"+s.hospZip+" ":"")+s.hospAddr],["病院窓口",s.hospContact]]},
+    {cap:"返却（復路）",rows:[["返却集荷予定日",jdate(s.trRetDate,""),"返却先",s.trPickPlace]]},
+    {cap:"取扱い条件・費用",rows:[["取扱い条件",tc],["運送保険",s.trIns,"運賃負担",s.trPay],["備考",s.trNote]]},
+    {text:"※本機器は貸出元の所有物です（所有権表示あり）。破損・事故時は直ちに依頼元へ連絡してください。",style:5,h:26}
+  ],["依頼者","承認","受付（業者）"]);
+}
+function xCT(s){
+  const html=renderCT(s); const d=document.createElement("div"); d.innerHTML=html;
+  const secs=[]; let cur=null;
+  d.querySelectorAll(".cap, table.kv").forEach(el=>{
+    if(el.classList.contains("cap")){ cur={cap:el.textContent,rows:[]}; secs.push(cur); return; }
+    el.querySelectorAll("tr").forEach(tr=>{ const cells=[...tr.children].map(c=>c.innerHTML.replace(/<span class="bx">✓<\/span>/g,"■").replace(/<span class="bx"><\/span>/g,"□"));
+      if(cells.length===1) cur.rows.push(["内容",cells[0].replace(/<span class="bx">✓<\/span>/g,"■ ").replace(/<span class="bx"><\/span>/g,"□ ")]);
+      else cur.rows.push(cells.length===2?[plain(cells[0]),cells[1]]:[plain(cells[0]),cells[1],plain(cells[2]),cells[3]]); });
+  });
+  secs.push({text:"保存期間：5年以上（確認書・立会い実施確認書と共に保管）",style:5});
+  return xKV("控え書","医療機器貸出し 控え書（社内ファイル用）",s,secs,["担当","上長","管理部門"]);
+}
+const XBUILD={f3:xF3,f4:xF4,tr:xTR,ct:xCT};
+function doExcel(which){
+  const s=collect();
+  const keys = which==="all"? ["f3"].concat(s.useF4?["f4"]:[],s.useTr?["tr"]:[],["ct"]) : [which];
+  const sheets=keys.map(k=>XBUILD[k](s));
+  const files=[
+    {name:"[Content_Types].xml",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>${sheets.map((_,i)=>`<Override PartName="/xl/worksheets/sheet${i+1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join("")}</Types>`},
+    {name:"_rels/.rels",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`},
+    {name:"xl/workbook.xml",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>${sheets.map((sh,i)=>`<sheet name="${XE(sh.name)}" sheetId="${i+1}" r:id="rId${i+1}"/>`).join("")}</sheets><definedNames>${sheets.map((sh,i)=>`<definedName name="_xlnm.Print_Area" localSheetId="${i}">'${XE(sh.name)}'!${sh.area()}</definedName>`).join("")}</definedNames></workbook>`},
+    {name:"xl/_rels/workbook.xml.rels",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${sheets.map((_,i)=>`<Relationship Id="rId${i+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i+1}.xml"/>`).join("")}<Relationship Id="rId${sheets.length+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`},
+    {name:"xl/styles.xml",data:stylesXml()},
+    ...sheets.map((sh,i)=>({name:`xl/worksheets/sheet${i+1}.xml`,data:sh.xml()}))
+  ];
+  const blob=zip(files);
+  const fn=`${which==="all"?"貸出書類一式":FORMNAME[which]}_${s.hosp||"未入力"}_${(s.docDate||today()).replace(/-/g,"")}.xlsx`.replace(/[\\/:*?"<>|]/g,"_");
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=fn; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);
+  return blob;
+}
+
+/* ========== 保存・読込 ========== */
+function snapshot(){
+  const data={v:1,fields:{},radios:{},checks:{},items:[]};
+  document.querySelectorAll("main input[id],main select[id],main textarea[id]").forEach(e=>{ if(e.type==="file")return; data.fields[e.id]= e.type==="checkbox"?e.checked:e.value; });
+  document.querySelectorAll('main input[type=radio]:checked').forEach(e=>data.radios[e.name]=e.value);
+  ["f4p","trc","chk","dcTo","dcChk"].forEach(n=>data.checks[n]=[...document.querySelectorAll(`input[name="${n}"]:checked`)].map(x=>x.value));
+  document.querySelectorAll("#itemsTbl tr.item").forEach(tr=>data.items.push({mod:tr.querySelector(".i-mod").value,modfree:tr.querySelector(".i-modfree").value,gen:tr.querySelector(".i-gen").value,model:tr.querySelector(".i-model").value,name:tr.querySelector(".i-name").value,sn:tr.querySelector(".i-sn").value,qty:tr.querySelector(".i-qty").value}));
+  return data;
+}
+function clearAll(){
+  document.querySelectorAll("main input, main select, main textarea").forEach(e=>{
+    if(e.type==="file") return;
+    if(e.type==="checkbox"||e.type==="radio"){ e.checked=false; delete e.dataset.touched; }
+    else if(e.tagName==="SELECT") e.selectedIndex=0;
+    else e.value="";
+  });
+  $("itemsTbl").querySelector("tbody").innerHTML="";
+  $("recTbl").querySelectorAll("tbody tr").forEach(tr=>{ delete tr.dataset.shown; });
+  ["useF4","useTr","f4Rule","f4Link"].forEach(i=>$(i).checked=true);
+  $("docDate").value=today(); autoFlags={};
+  fillBranches(); refreshModOptions();
+}
+function restore(d){
+  clearAll();
+  if(d.fields&&d.fields.company!==undefined){ $("company").value=d.fields.company; fillBranches(); refreshModOptions(); }
+  Object.entries(d.fields||{}).forEach(([k,v])=>{const e=$(k); if(!e)return; if(e.type==="checkbox")e.checked=v; else e.value=v;});
+  refreshModOptions();
+  document.querySelectorAll('main input[type=radio]').forEach(e=>e.checked = d.radios && d.radios[e.name]===e.value);
+  ["f4p","trc","chk","dcTo","dcChk"].forEach(n=>document.querySelectorAll(`input[name="${n}"]`).forEach(x=>x.checked=(d.checks?.[n]||[]).includes(x.value)));
+  const tb=$("itemsTbl").querySelector("tbody"); tb.innerHTML="";
+  (d.items&&d.items.length?d.items:[{}]).forEach(it=>{ addItemRow(); const tr=tb.lastElementChild;
+    tr.querySelector(".i-gen").value=it.gen||"cur"; tr.querySelector(".i-modfree").value=it.modfree||it.mod||""; tr.querySelector(".i-modfree").dispatchEvent(new Event("input")); tr.querySelector(".i-model").value=it.model||""; tr.querySelector(".i-name").value=it.name||""; tr.querySelector(".i-sn").value=it.sn||""; tr.querySelector(".i-qty").value=it.qty||"1"; });
+  autoFlags={}; document.body.classList.toggle("unlinked",!linkOn()); syncLinksAll(); syncSel("deptH"); syncSel("f4DeptH"); syncAuto(); refresh();
+}
+
+/* ========== イベント ========== */
+function bind(){
+  bindLinks();
+  $("branch").addEventListener("change",()=>applyBranch());
+  $("company").addEventListener("change",()=>{ fillBranches(); const k=$("company").value; const nm=DB[k]?.name||"";
+    const cn=$("companyName"); if(!cn.value || Object.values(DB).some(d=>d.name===cn.value)) cn.value=nm; syncLinksAll(); refreshModOptions(); syncAuto(); refresh(); });
+  $("addItem").addEventListener("click",()=>{addItemRow();refresh();});
+  document.querySelector("main").addEventListener("input",e=>{ if(e.target.closest("#itemsTbl"))return; syncAuto(); refresh(); });
+  document.querySelector("main").addEventListener("change",e=>{ if(e.target.name==="f4p"||e.target.name==="chk") e.target.dataset.touched="1"; syncAuto(); refresh(); });
+  document.querySelectorAll("[data-pdf]").forEach(b=>b.addEventListener("click",()=>doPrint(b.dataset.pdf)));
+  document.querySelectorAll("[data-xls]").forEach(b=>b.addEventListener("click",()=>doExcel(b.dataset.xls)));
+  $("btnSave").addEventListener("click",()=>{ const s=collect(); const blob=new Blob([JSON.stringify(snapshot(),null,1)],{type:"application/json"});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`貸出入力_${s.hosp||"未入力"}_${(s.docDate||today()).replace(/-/g,"")}.json`; a.click(); });
+  $("fileLoad").addEventListener("change",e=>{ const f=e.target.files[0]; if(!f)return; f.text().then(t=>{ try{restore(JSON.parse(t));}catch(err){alert("読込に失敗しました："+err.message);} }); e.target.value=""; });
+  $("btnClear").addEventListener("click",()=>{ if(confirm("入力内容をすべてクリアしますか？（保存していない内容は消えます）")) restore({}); window.scrollTo({top:0,behavior:"smooth"}); });
+  let rt; window.addEventListener("resize",()=>{ clearTimeout(rt); rt=setTimeout(()=>renderPreview(collect()),150); });
+}
+
+/* ========== ルール・法規（画面下部） ========== */
+function renderRules(){
+  const rows=PURPOSES.map(p=>`<tr><td>${esc(p.t)}</td><td>${esc(p.note)}</td></tr>`).join("");
+  $("rulesBox").innerHTML=`
+<details class="rules" open><summary>① 公取協「医療機器の貸出しに関する基準」の要点</summary><div class="body">
+<p>無償貸出しは、医療機器の無償提供と同様に不当な取引誘引の手段になり得るため、原則として制限されています。目的別の期間内に限り認められます（2001年8月実施、在宅医療向けにも適用）。</p>
+<table><tr><th style="width:38%">目的（様式3の区分）</th><th>期間等の上限</th></tr>${rows}</table>
+<p><b>原則として制限される貸出し（4類型）</b></p>
+<ol><li>医療機関等の費用の肩代わりになる貸出し（予算未計上・契約前の段階。ただしデモ・試用の範囲内は除く。医療機関が自ら行うべき研修会・勉強会への貸出し）</li>
+<li>医療材料の販売を目的とした貸出し</li><li>既に購入・使用している同一医療機器（カタログ番号が同一）の貸出し（事故・故障、緊急時を除く）</li><li>自社の取り扱う医療機器と直接関連のない医療機器の貸出し</li></ol>
+<ul><li>期間は上限です。目的を達したら期間内でも速やかに返却します。</li><li>同一医療機関の同一診療科へ同一機器を反復して貸し出すことは制限されます。</li>
+<li>貸出し前に医療機関から <b>様式3「医療機器の貸出しに関する確認書」</b> を受領します。受領できない場合は貸し出せません。</li>
+<li>貸出機器の本体または包装に <b>「所有権が事業者にある」</b> 旨を表示します。</li>
+<li>代替機は原則同一機種。事業者に責任のない故障への無償代替、保証期間経過後の無償代替は原則制限されます。</li>
+<li>相応の対価を伴うレンタル・リース（有償貸出し）は本基準の制限対象外です。</li></ul>
+<p class="hint">※公取協は運用基準15本＋1ルールを全面見直し中です（2026年秋〜冬に消費者庁へ届出予定、その後確認期間・経過措置あり）。改定後は本ツールの期間設定を更新してください。</p>
+<details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://www.jftc-mdi.jp/" target="_blank" rel="noopener">医療機器業公正取引協議会（公式サイト） ↗</a></li><li><a href="https://www.jfftc.org/kiyaku/pdf/l04_K_iryokiki.pdf" target="_blank" rel="noopener">医療機器業公正競争規約・施行規則（全国公正取引協議会連合会） ↗</a></li><li><a href="https://www.wam.go.jp/gyoseiShiryou-files/documents/2009/15090/20090216_6shiryou4_3.pdf" target="_blank" rel="noopener">公取協「医療機器の貸出しについて」（流通改善懇談会 資料4-3, 2009年） ↗</a></li><li><a href="https://www.mhlw.go.jp/shingi/2009/06/dl/s0604-8f_0002.pdf" target="_blank" rel="noopener">公取協「公正競争規約、貸出し・立会い基準の概要」（厚労省資料, 2009年） ↗</a></li><li><a href="https://www.h.u-tokyo.ac.jp/jigyousha/pdf/mousiawase2022.pdf" target="_blank" rel="noopener">東京大学医学部附属病院「物品の借入れの基準及び手続き」（医療機関側の運用例） ↗</a></li><li><a href="https://www.yakuji.co.jp/entry131102.html" target="_blank" rel="noopener">薬事日報「医療機器公取協 運用基準見直しを消費者庁に届出へ」（2026年3月） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/337AC0000000134" target="_blank" rel="noopener">不当景品類及び不当表示防止法（e-Gov） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>② 立会い基準（様式4）</summary><div class="body">
+<ul><li>販売を目的とした立会い、医療機関の費用の肩代わりになる立会いは制限されます。</li>
+<li>適正使用確保の立会い（新規納入・バージョンアップ・試用のための貸出し・医療担当者の交代・緊急/災害時）：1手技につき1診療科に対し4回まで。期間は事由発生から4か月以内（試用は貸出しで取り決めた期間、緊急・災害は事態解消まで）。</li>
+<li>安全使用確保の立会い：新規納入後の保証期間内（最長12か月）は月1回まで／故障修理後1回／保守点検後1回。</li>
+<li>様式4「立会い実施確認書」を医療機関から入手し、<b>5年間保存</b>。院内規則の遵守と、患者へのインフォームドコンセント実施の確認が必要です。</li>
+<li>有資格社員による医療行為の補助は、医師法・保助看法・臨床工学技士法・労働者派遣法に抵触するおそれがあります。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://www.mhlw.go.jp/shingi/2007/11/dl/s1130-9c.pdf" target="_blank" rel="noopener">厚労省 医政経発第1110001号「医療機関等における医療機器の立会いに関する基準」 ↗</a></li><li><a href="https://www.jftc-mdi.jp/" target="_blank" rel="noopener">医療機器業公正取引協議会（様式4・立会い基準） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>③ 薬機法（厚生労働省）</summary><div class="body"><ul>
+<li><b>貸与業</b>：2014年11月施行の改正で無償貸与も「貸与業」の規制対象。特定保守管理医療機器（CT・MRI・超音波・内視鏡・生体情報モニタ等）を扱う営業所は高度管理医療機器等販売業・貸与業の許可と営業所管理者が必要。臨床使用しない研修・展示・デモ専用は貸与業許可不要、将来の販売を前提とした無償貸与は販売業許可で可（厚労省Q&A 2014年11月21日）。</li>
+<li><b>中古品の事前通知</b>（施行規則170条）：返却されたデモ機を別の医療機関に貸す・売る場合は中古品扱い。製造販売業者へ事前通知し、指示に従います。製造販売業者と販売業者で運用を取り決めれば、同一機器の頻回の貸与や非臨床デモは都度通知不要（医薬機審発0328第6号、2024年3月28日）。</li>
+<li>品質の確保（165条）、苦情処理（166条）、回収（167条）、教育訓練（169条）、不具合等の製造販売業者への報告（171条）、設置管理医療機器の設置管理（179条）。</li>
+<li>未承認医療機器の販売・授与・貸与は不可。承認申請のための臨床データ収集は「治験」の手続きが必要。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://laws.e-gov.go.jp/law/335AC0000000145" target="_blank" rel="noopener">医薬品医療機器等法（e-Gov） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/336M50000100001" target="_blank" rel="noopener">医薬品医療機器等法施行規則（e-Gov） ↗</a></li><li><a href="https://www.pmda.go.jp/files/000160361.pdf" target="_blank" rel="noopener">厚労省「医療機器の貸与業の取扱いに関する質疑応答集（Q&amp;A）」2014年11月 ↗</a></li><li><a href="https://www.pref.nara.jp/secure/307355/06032.pdf" target="_blank" rel="noopener">医薬機審発0328第6号「中古医療機器の販売等に関する個別事案の取扱い」2024年3月 ↗</a></li><li><a href="https://www.hokeniryo.metro.tokyo.lg.jp/anzen/iyaku/sonota/sale_leas/sonsyujikou.html" target="_blank" rel="noopener">東京都「販売業者・貸与業者の遵守事項」 ↗</a></li><li><a href="https://www.jira-net.or.jp/event/files/item2025/item2025_1-02_advertising_regulations.pdf" target="_blank" rel="noopener">JIRA「医療機器の広告規制・未承認医療機器の展示」（ITEM2025） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>④ 医療法・医療安全（厚生労働省・保健所）</summary><div class="body"><ul>
+<li><b>X線装置</b>：病院・診療所の管理者が、備付後10日以内に備付届、廃止後10日以内に廃止届を保健所に提出（医療法15条3項、施行規則24条の2等）。添付として平面図・漏えい線量測定結果を求める自治体があります。</li>
+<li><b>医療機器安全管理</b>（施行規則1条の11）：貸し出された医療機器も対象。使用経験のない新しい機器は導入時研修が必要。</li>
+<li>大学病院等では、借用申請（開始の2週間前目安）・病院長決裁・使用貸借契約・研修後に使用開始、といった院内手続きがあります。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://laws.e-gov.go.jp/law/323AC0000000205" target="_blank" rel="noopener">医療法（e-Gov） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/323M40000100050" target="_blank" rel="noopener">医療法施行規則（e-Gov） ↗</a></li><li><a href="https://www.pref.chiba.lg.jp/iryou/tetsuzuki/200/13080-new17.html" target="_blank" rel="noopener">千葉県「診療用エックス線装置備付届」（手続例） ↗</a></li><li><a href="https://www.mhlw.go.jp/topics/bukyoku/isei/i-anzen/hourei/dl/180612-1.pdf" target="_blank" rel="noopener">厚労省「医療機器に係る安全管理のための体制確保に係る運用上の留意点」 ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>⑤ 電波法・地方税（総務省）</summary><div class="body"><ul>
+<li><b>高周波利用設備</b>（電波法100条）：10kHz以上の高周波電流を利用する医療用設備は、一定出力以上で設置前に総務大臣の許可が必要（MRIが典型。無許可運用は罰則）。電気手術器等は型式指定・型式確認の有無を確認。</li>
+<li>医用テレメータ・ワイヤレスFPD・無線プローブは技適と院内チャネル管理を確認。</li>
+<li><b>償却資産</b>（地方税法383条）：所有者は毎年1月1日現在の所在地の市町村へ申告。年をまたいで病院に置くデモ機の扱いは各社経理で確認してください。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://laws.e-gov.go.jp/law/325AC0000000131" target="_blank" rel="noopener">電波法（e-Gov） ↗</a></li><li><a href="https://www.soumu.go.jp/soutsu/kinki/dempa/koushuharyou/index.html" target="_blank" rel="noopener">総務省 近畿総合通信局「高周波利用設備」 ↗</a></li><li><a href="https://www.tele.soumu.go.jp/j/sys/others/highfre/set/index.htm" target="_blank" rel="noopener">総務省 電波利用ポータル「高周波利用設備」 ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/325AC0000000226" target="_blank" rel="noopener">地方税法（e-Gov） ↗</a></li><li><a href="https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000052/52941/R8tebiki2.pdf" target="_blank" rel="noopener">京都市「償却資産申告の手引き」（申告者の考え方の例） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>⑥ 公務員倫理・独占禁止法・景品表示法（人事院・公正取引委員会・消費者庁）</summary><div class="body"><ul>
+<li>国家公務員倫理規程3条：利害関係者から無償で物品の貸付けを受けることは禁止。職員個人ではなく、機関（病院）名義の契約で貸し出します。国立大学法人等の職員にはみなし公務員規定があります。</li>
+<li>独占禁止法（不当な利益による顧客誘引）・景品表示法・公取委告示第54号：公取協の非会員にも適用されます。</li>
+<li>中古デモ機を新品と誤認させる表示は不当表示のおそれ。デモ使用歴を明示します。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://laws.e-gov.go.jp/law/412CO0000000101" target="_blank" rel="noopener">国家公務員倫理規程（e-Gov） ↗</a></li><li><a href="https://www.jinji.go.jp/rinri/qa.html" target="_blank" rel="noopener">人事院 国家公務員倫理審査会「倫理法・倫理規程Q&amp;A」 ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/322AC0000000054" target="_blank" rel="noopener">私的独占の禁止及び公正取引の確保に関する法律（e-Gov） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/337AC0000000134" target="_blank" rel="noopener">不当景品類及び不当表示防止法（e-Gov） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>⑦ 税務・会社法・民法</summary><div class="body"><ul>
+<li>法人税：基準内のデモ・試用は販売促進（見本品に類する費用）として通常は損金。基準を外れた長期・費用肩代わり・特定先優遇は寄附金（法人税法37条）・交際費（措置法61条の4）と認定されるリスクがあります。消費税：無償貸付は不課税。</li>
+<li>会社法：内部統制（362条4項6号）の観点から、デモ機の実在・所在・回収を台帳で管理します。</li>
+<li>民法（無償＝使用貸借 593〜600条）：用法遵守・転貸禁止（594条）、通常の必要費は借主負担（595条）、期間満了で終了（597条）、原状回復（599条）。<b>損害賠償・費用償還の請求は返還から1年以内</b>（600条）のため、返却時の点検記録を残します。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://laws.e-gov.go.jp/law/340AC0000000034" target="_blank" rel="noopener">法人税法（e-Gov） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/332AC0000000026" target="_blank" rel="noopener">租税特別措置法（e-Gov） ↗</a></li><li><a href="https://www.nta.go.jp/law/tsutatsu/kobetsu/hojin/sochiho/750214/08/08_61_4a.htm" target="_blank" rel="noopener">国税庁 措置法通達 第61条の4（交際費等の意義・寄附金との区分） ↗</a></li><li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5260.htm" target="_blank" rel="noopener">国税庁 タックスアンサー No.5260 交際費等の範囲と損金不算入額の計算 ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/417AC0000000086" target="_blank" rel="noopener">会社法（e-Gov） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/129AC0000000089" target="_blank" rel="noopener">民法（e-Gov） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>⑧ 個人情報・サイバーセキュリティ・透明性</summary><div class="body"><ul>
+<li>返却機に患者画像・氏名・IDが残らないよう、病院立会いで消去し消去記録を取得（個人情報保護法、医療情報システムの安全管理に関するガイドライン第6.0版、3省2ガイドライン）。</li>
+<li>院内ネットワーク（PACS・電子カルテ）への接続は病院の情報システム部門の承認が前提。</li>
+<li>研究目的の貸出しは、医機連「透明性ガイドライン」（2025年5月改定）での公開対象・臨床研究法上の扱いを確認。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://laws.e-gov.go.jp/law/415AC0000000057" target="_blank" rel="noopener">個人情報の保護に関する法律（e-Gov） ↗</a></li><li><a href="https://www.mhlw.go.jp/content/10808000/001102570.pdf" target="_blank" rel="noopener">厚労省「医療情報システムの安全管理に関するガイドライン 第6.0版」 ↗</a></li><li><a href="https://www.jfmda.gr.jp/wp/wp-content/uploads/2025/05/%E2%91%A0%E9%80%8F%E6%98%8E%E6%80%A7%E3%82%AC%E3%82%A4%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3-%E3%80%902025.5.31-%E6%94%B9%E5%AE%9A%E3%80%91.pdf" target="_blank" rel="noopener">医機連「医療機器業界における医療機関等との透明性ガイドライン」2025年5月改定 ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>⑨ 物流（取適法）・商社との関係</summary><div class="body"><ul>
+<li>2026年1月施行の取適法で、荷主から運送事業者への運送委託が「特定運送委託」として新たに規制対象。書面での明示、60日以内の支払、附帯作業（開梱・据付・荷待ち）の無償強要禁止に留意（貸出品の運送が対象類型に入るかは要確認）。</li>
+<li>メーカーから販売店へのデモ費用・人員の一方的な押し付けは優越的地位の濫用のおそれ。費用分担は書面で合意します。</li>
+<li>メーカー所有機を販売店経由で貸す場合は、確認書の「貸出元」と所有権表示を一致させます。</li></ul><details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://www.mlit.go.jp/jidosha/content/002027767.pdf" target="_blank" rel="noopener">国土交通省「取適法・物流関連の執行状況」資料 ↗</a></li><li><a href="https://biz.moneyforward.com/contract/basic/23241/" target="_blank" rel="noopener">取適法の特定運送委託の解説（マネーフォワード） ↗</a></li><li><a href="https://laws.e-gov.go.jp/law/322AC0000000054" target="_blank" rel="noopener">私的独占の禁止及び公正取引の確保に関する法律（優越的地位の濫用）（e-Gov） ↗</a></li></ul></details></div></details>
+<details class="rules"><summary>⑩ ラインナップの更新方法・免責</summary><div class="body">
+<p>機種リストは各社の公開情報（2026年11月時点）を基にした参考情報です。正式な販売名・型式は添付文書・各社カタログで確認してください。更新は、このHTMLファイルをテキストエディタで開き、<code>const DB = {</code> 以下の該当会社・モダリティの <code>cur</code>（現行）／<code>prev</code>（一世代前）を書き換えて保存します。</p>
+<p>拠点マスタ（支社・支店・営業所の住所・電話番号）は <code>const BRANCHES = {</code> 以下に「[地域, 拠点名, 郵便番号, 住所, TEL, FAX]」の形で登録しています。移転・新設時はここを書き換えてください。</p>
+<p>本ツールは業界ルールの理解と書類作成を補助するもので、法的助言ではありません。個別の判断は各社コンプライアンス部門、医療機器業公正取引協議会（連絡先は同協議会の公式サイトで最新のものを確認）、所管行政にご確認ください。</p>
+<details class="src" open><summary>📎 出典・関連リンク</summary><ul><li><a href="https://jp.medical.canon/about/japan/" target="_blank" rel="noopener">キヤノンメディカルシステムズ 国内ネットワーク（拠点一覧） ↗</a></li><li><a href="https://www.nihonkohden.co.jp/information/company/office/sales08.html" target="_blank" rel="noopener">日本光電 国内販売拠点（例：関西支社） ↗</a></li><li><a href="https://www.konicaminolta.jp/healthcare/about/facility/sales.html" target="_blank" rel="noopener">コニカミノルタジャパン ヘルスケア 販売拠点一覧 ↗</a></li><li><a href="https://www.olympus-marketing.co.jp/company/location/" target="_blank" rel="noopener">オリンパスマーケティング 拠点一覧 ↗</a></li><li><a href="https://sinobu13-bpei.github.io/medical-device-rental-research/" target="_blank" rel="noopener">研究資料サイト（作成者） ↗</a></li></ul></details></div></details>`;
+}
+
+init();
+</script>
+</body>
+</html>
