@@ -8,7 +8,11 @@ BASE="https://sinobu13-bpei.github.io/"
 FILES=["medical-intelligence/","medical-intelligence/hospitals/",
 "medical-intelligence/hospitals/facility-master/",
 "medical-intelligence/hospitals/facility-master/data/legacy-hospitals-20261122.csv",
-"medical-intelligence/hospitals/facility-master/data/quality-baseline.json"]
+"medical-intelligence/hospitals/facility-master/data/quality-baseline.json",
+"medical-intelligence/hospitals/facility-master/data/identity-summary-20260601.json",
+"medical-intelligence/hospitals/facility-master/data/identity-risk-audit-20260601.json",
+"medical-intelligence/hospitals/facility-master/data/identity-conflict-review-20260601.csv",
+"medical-intelligence/hospitals/facility-master/data/identity-unmatched-triage-20260601.csv"]
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--public",action="store_true")

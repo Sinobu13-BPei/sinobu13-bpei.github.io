@@ -18,6 +18,11 @@ const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 assert.equal(new Set(ids).size,ids.length,"duplicate HTML ids");
 for(const id of ["q","pref","clear","records","previous","next","n","page","k-all","k-prefs"])assert.ok(ids.includes(id),"missing "+id);
 assert.ok(html.includes("legacy-hospitals-20261122.csv"));
+for(const name of ["identity-risk-audit-20260601.json","identity-conflict-review-20260601.csv","identity-unmatched-triage-20260601.csv"]){
+  assert.ok(html.includes("data/"+name),"Missing audit download link "+name);
+  assert.ok(existsSync(join(dir,"data",name)),"Missing audit output file "+name);
+}
+
 assert.ok(html.includes("公式照合前の暫定マスター"));
 for(const id of ["im-confirmed","im-review","im-unmatched","im-rate","im-q","im-status","im-pref","im-rows","im-count","im-clear"])assert.ok(ids.includes(id),"Missing Navi UI "+id);
 console.log("STAGE1 STATIC QA PASS");

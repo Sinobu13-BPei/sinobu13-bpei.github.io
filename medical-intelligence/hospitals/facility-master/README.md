@@ -50,3 +50,12 @@ python medical-intelligence/hospitals/facility-master/build_master.py --check --
 - 品質監査プログラム：audit_identity.py。出力：data/identity-risk-audit-20260601.json、data/identity-review-triage-20260601.csv、data/identity-confirmed-caution-20260601.csv。
 - 毎時のGitHub Actionsに、元台帳・照合表・ID一意性・出典・県別集計等の整合性検査を追加。品質が異常ならワークフローを失敗として記録する。
 - 本工程で一致状態の自動昇格、医療機関コード／法人番号の作成、機器台数・診療実績の結合は実施していない。
+
+## 工程1d｜未一致・候補ID競合の安全な切り出し
+
+2026年11月22日時点の監査を追加。既存マスター8,019件と元の照合ファイルは変更していない。
+- `data/identity-conflict-review-20260601.csv`：候補IDが確定済みIDと衝突する3件、複数の要確認行が同じ候補IDを参照する4件の計7行。いずれも自動確定・施設統合禁止。
+- `data/identity-unmatched-triage-20260601.csv`：未一致1,131件を全行保存。原典の施設数と登録名の差異から、未一致を閉院・不存在と推定することは禁止。
+- `data/identity-risk-audit-20260601.json`：照合計8,019、欠損・重複・出典整合を検証。スナップショットは元ファイルから再現できる。
+- データ加工は「診療所等」から病院原票への昇格でもなければ、病床機能報告やDPCとの結合でもない。工程1の確認補助に限定。
+- 分析上の課題：同一住所に複数施設が存在する場合や、同名施設が移転した場合は名前・住所から同一性を断定できない。保険医療機関コード・開設者等の別原典で再照合する。
