@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "review_date": "2026-11-22",
+  "baseline_legacy_rows": 8019,
+  "baseline_navi_listed_website_links": 3098,
+  "baseline_unlinked_review_queue": 4921,
+  "independently_reviewed_website_rows": 13,
+  "verified_same_name": 12,
+  "verified_renamed": 1,
+  "original_review_buckets": {
+    "ID競合・名称差あり（施設同一性確認）": 8,
+    "URL形式不備（http・https候補の安全確認）": 2,
+    "医療情報ネットにURL未記載": 1,
+    "ホスト形式不備": 2
+  },
+  "browser_direct_website_links_if_verified_layer_loaded": 3111,
+  "pending_website_review_after_this_batch": 4908,
+  "baseline_navi_identity_confirmed": 3453,
+  "baseline_navi_identity_pending": 3435,
+  "baseline_navi_identity_unmatched": 1131,
+  "source_hospital_count_preserved": true,
+  "navi_identity_conflicts_unmodified": true,
+  "legacy_master_not_overwritten": true,
+  "review_criteria": "Hospital or local-government official publication plus matching current facility name/legacy address; rename must have explicit dated original notification. All website links are independently sourced overlays, NOT change of Navi ID status.",
+  "independent_web_source_info": "Evidence URLs are stored on every row; current link availability can change after inspection."
+}
