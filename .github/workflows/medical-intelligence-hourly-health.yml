@@ -40,6 +40,10 @@ jobs:
         run: python medical-intelligence/hospitals/facility-master/audit_identity.py --check-only --out-dir reports
       - name: Validate source-linked hospital website overlay (non-mutating)
         run: python medical-intelligence/hospitals/facility-master/validate_official_websites.py
+      - name: Verify protected original hospital source unchanged except two asset refs
+        run: python medical-intelligence/hospitals/facility-master/inject_legacy_website_overlay.py --check
+      - name: Validate 3,098 legacy links and 4,921 unlinked review entries
+        run: python medical-intelligence/hospitals/facility-master/validate_remaining_website_review.py
       - name: Check local files and counts
         run: python medical-intelligence/hospitals/facility-master/hourly_monitor.py --report reports/hourly-local.json
       - name: Cross-check published baseline on data-preserving PRs
