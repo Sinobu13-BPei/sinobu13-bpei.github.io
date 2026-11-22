@@ -86,3 +86,10 @@ python medical-intelligence/hospitals/facility-master/build_master.py --check --
 - 出典・除外理由・安全監査：`data/official-websites-audit-20260601.json`。URLフィルター・出典ZIP・ID照合は `build_official_websites.py`、ローカル検証は `validate_official_websites.py`。
 - 未確認の要確認3,435件・未一致1,131件には**URLを自動割り当てない**。ID競合7件も自動結合しない。将来の人手確認済みURLは、出典URL・病院名・住所・確認日・確認者等を別レイヤーで管理する。
 - 毎時QAにはリンクCSV/監査JSON/ブラウザースクリプト/CSSの公開バイト数とSHA-256検証を加え、既存施設の照合判定は維持。サイト側はCSV読み込み不能時にリンク生成を行わず、病院名をテキスト表示する。
+
+## Rev.11｜公開反映後の実ファイル照合チェックポイント
+
+公式Webリンク3,098件を本番に統合後、公開GitHub Pagesの施設Web CSV／監査JSON／JavaScript／CSSを、リポジトリ原本のバイト数とSHA-256で比較するためのQA記録。
+- 本変更は文書のみ。8,019病院の原票・既存照合CSV・監査JSON・WebサイトリンクCSV自体は更新しない。
+- `.github/workflows/medical-intelligence-hourly-health.yml` のPR検査は公開データ非変更時のみ `--public` を実行する。実行履歴を公開データの検証証跡とする。
+- 検査結果が成功するまでは、外部公開ファイルの完全性を確認済みとは扱わない。
