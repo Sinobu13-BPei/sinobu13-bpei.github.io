@@ -121,14 +121,14 @@ if(process.argv.includes("--browser")){
   let legacyState;
   for(let i=0;i<140;i++){
     legacyState=await evalJS('(()=>({status:window.__legacyOfficialWebsites||null,rows:document.querySelectorAll("tr[data-text]").length,links:document.querySelectorAll("tr[data-text] td:nth-child(3) a[data-navi-web]").length,legend:!!document.querySelector(".rev12-hospital-site-legend"),width:document.documentElement?.scrollWidth||0,view:innerWidth}))()');
-    if(legacyState.status?.state==="ready"||legacyState.status?.state==="error")break;
+    if(legacyState.status?.state==="error"||(legacyState.status?.state==="ready"&&legacyState.links>0))break;
     await sleep(250);
   }
   assert.equal(legacyState.status?.state,"ready","Legacy website overlay failed: "+JSON.stringify(legacyState));
   assert.ok(legacyState.rows>=1&&legacyState.rows<=100,"Legacy pagination no longer showing up to 100 rows");
   assert.equal(legacyState.status.detail.totalSourceRows,8019,"Legacy source rows no longer preserved in overlay provenance");
   assert.equal(legacyState.status.detail.confirmedSourceLinks,3098,"Published link baseline changed");
-  assert.ok(legacyState.links>0&&legacyState.links<=legacyState.rows,"Displayed first page must link only exact-confirmed hospitals");
+  assert.ok(legacyState.links>0&&legacyState.links<=legacyState.rows,"Displayed first page must link only exact-confirmed hospitals: "+JSON.stringify(legacyState));
   assert.equal(legacyState.status.detail.unlinked,4921,"Other 4,921 hospitals must remain unlinked");
   assert.ok(legacyState.legend,"Source and live-status disclaimer missing");
   const sample=await evalJS('(()=>{const a=document.querySelector("tr[data-text] td:nth-child(3) a[data-navi-web]");return a?{text:a.textContent,url:a.href,target:a.target,rel:a.rel}:null})()');
