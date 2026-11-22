@@ -1,0 +1,40 @@
+name: Audit Navi identity matching risk (non-mutating)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'medical-intelligence/hospitals/facility-master/audit_identity.py'
+      - '.github/workflows/navi-identity-risk-audit.yml'
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pandas
+        run: python -m pip install 'pandas>=2.2,<3'
+      - name: Audit statuses, provenance, collisions and review queue (never promote)
+        run: python medical-intelligence/hospitals/facility-master/audit_identity.py
+      - name: Commit audit reports without modifying verified source
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add medical-intelligence/hospitals/facility-master/data/identity-risk-audit-20260601.json
+          git add medical-intelligence/hospitals/facility-master/data/identity-review-triage-20260601.csv
+          git add medical-intelligence/hospitals/facility-master/data/identity-confirmed-caution-20260601.csv
+          if git diff --cached --quiet; then echo "No changes"; else
+            git commit -m "Rev.10: record non-mutating Navi match risk audit and manual review priority"
+            git push origin HEAD:main
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: navi-identity-risk-audit
+          path: medical-intelligence/hospitals/facility-master/data/identity-risk-audit-20260601.json
+          retention-days: 30

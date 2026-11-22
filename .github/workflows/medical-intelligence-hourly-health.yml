@@ -30,6 +30,8 @@ jobs:
         run: node medical-intelligence/hospitals/qa-hospitals-rev6.mjs
       - name: Check facility identity baseline against source
         run: python medical-intelligence/hospitals/facility-master/build_master.py --check --report reports/master-qa.json
+      - name: Audit Navi crosswalk integrity without modifying matches
+        run: python medical-intelligence/hospitals/facility-master/audit_identity.py --check-only --out-dir reports
       - name: Check local files and counts
         run: python medical-intelligence/hospitals/facility-master/hourly_monitor.py --report reports/hourly-local.json
       - name: Check actual public URLs
