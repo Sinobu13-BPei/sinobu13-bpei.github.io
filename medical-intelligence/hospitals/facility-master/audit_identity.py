@@ -62,13 +62,16 @@ def main():
     nonconforming=confirmed.loc[~confirmed.navi_facility_id_confirmed.str.fullmatch(r"\d{13}"),["legacy_prefecture","legacy_name","navi_facility_id_confirmed"]]
     print("AUDIT_OFFICIAL_ID_LENGTHS",lengths)
     print("AUDIT_NONCONFORMING_IDS",nonconforming.head(12).to_dict("records"))
-    require(nonconforming.empty,"Confirmed Navi IDs must be 13 digits")
+    # The official frozen CSV contains variable-length numeric IDs (5–13 digits).
+    # Never pad, truncate, cast to integer, or assume a uniform 13-digit layout.
+    nonconforming=confirmed.loc[~confirmed.navi_facility_id_confirmed.str.fullmatch(r"\d{5,13}"),["legacy_prefecture","legacy_name","navi_facility_id_confirmed"]]
+    require(nonconforming.empty,"Confirmed Navi IDs must be numeric strings of 5–13 characters matching source")
     require(confirmed.navi_facility_id_confirmed.is_unique,"Confirmed Navi ID reused")
     require(confirmed.navi_facility_id_candidate.eq("").all(),"Confirmed rows must not also have candidate ID")
     require(confirmed.navi_name_candidate.ne("").all() and confirmed.navi_address_candidate.ne("").all(),"Confirmed source evidence missing")
     require(confirmed.match_method.str.contains("完全一致",regex=False).all(),"A non-exact method was confirmed")
     require(matched[matched.match_status!="確定一致"].navi_facility_id_confirmed.eq("").all(),"Unconfirmed official ID was populated")
-    require(matched.navi_facility_id_candidate[matched.navi_facility_id_candidate.ne("")].str.fullmatch(r"\d{13}").all(),"Candidate Navi IDs must be 13 digits")
+    require(matched.navi_facility_id_candidate[matched.navi_facility_id_candidate.ne("")].str.fullmatch(r"\d{5,13}").all(),"Candidate Navi IDs must be numeric strings of 5–13 characters")
     require(len(review)==len(pending),"Review list size differs")
     require(review.facility_uid.tolist()==pending.facility_uid.tolist(),"Review CSV differs from main match table")
     require(len(verified)==len(confirmed),"Confirmed crosswalk size differs")
@@ -129,6 +132,7 @@ def main():
         "source_reference":summary["official_listing_url"],
         "hard_checks_passed":True,
         "confirmed_duplicate_navi_ids":0,
+        "confirmed_id_length_distribution":{str(k):int(v) for k,v in lengths.items()},
         "confirmed_with_no_evidence":0,
         "review_method_breakdown":{str(k):int(v) for k,v in pending.match_method.value_counts().items()},
         "candidate_id_present":len(cand),
