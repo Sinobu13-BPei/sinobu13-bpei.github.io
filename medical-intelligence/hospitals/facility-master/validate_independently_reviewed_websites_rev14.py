@@ -51,7 +51,7 @@ def validate():
         assert queue.website_review_bucket==r.original_review_bucket
         assert queue.review_status=="未検証・自動リンク禁止"
     names=set(batch.facility_name_legacy)
-    assert names=={"川西市立総合医療センター","医療法人社団　弘成会　明海病院","神崎病院","医療法人　松浦会　松浦病院"}
+    assert names=={"医療法人　優仁会　滝川中央病院","医療法人社団　弘成会　明海病院","神崎病院","医療法人　松浦会　松浦病院"}
     assert audit["input_batch_rows"]==4 and audit["total_independent_reviews_after_batch"]==17
     assert audit["direct_website_links_if_verified_layer_loaded"]==3115
     assert audit["remaining_unlinked_review_rows"]==4904

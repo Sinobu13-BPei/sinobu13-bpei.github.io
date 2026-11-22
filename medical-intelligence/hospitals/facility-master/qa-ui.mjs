@@ -135,14 +135,14 @@ if(process.argv.includes("--browser")){
       await sleep(100);
     }
     assert.ok(manualFound.links.length===1&&manualFound.links[0].name.includes("塩田病院")&&manualFound.links[0].href.startsWith("https://www.shioda.or.jp/"),"Source-review link missing for 塩田病院: "+JSON.stringify(manualFound));
-    await evalJS('(()=>{const q=document.querySelector("#q");q.value="川西市立総合医療センター";q.dispatchEvent(new Event("input",{bubbles:true}));})()');
+    await evalJS('(()=>{const q=document.querySelector("#q");q.value="医療法人　優仁会　滝川中央病院";q.dispatchEvent(new Event("input",{bubbles:true}));})()');
     let kawanishi;
     for(let i=0;i<55;i++){
       kawanishi=await evalJS('(()=>({links:[...document.querySelectorAll("#records a[data-independent-reviewed]")].map(a=>({name:a.textContent,href:a.href}))}))()');
       if(kawanishi.links.length===1)break;
       await sleep(100);
     }
-    assert.ok(kawanishi.links.length===1&&kawanishi.links[0].href==="https://www.kawanishi-hospital.jp/","Rev14 official website link missing for Kawanishi City Medical Center: "+JSON.stringify(kawanishi));
+    assert.ok(kawanishi.links.length===1&&kawanishi.links[0].href==="https://cms.yujinkai.org/central/","Rev14 official website link missing for Takikawa Central Hospital: "+JSON.stringify(kawanishi));
     await evalJS('(()=>{const q=document.querySelector("#q");q.value="湘南記念病院";q.dispatchEvent(new Event("input",{bubbles:true}));})()');
     let renameFound;
     for(let i=0;i<55;i++){
