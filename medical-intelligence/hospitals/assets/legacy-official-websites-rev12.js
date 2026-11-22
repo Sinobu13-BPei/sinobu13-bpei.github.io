@@ -88,6 +88,7 @@ function initialize(map){
    tr.dataset.officialSiteLinked="yes";
    linked++;
   }
+  if(!displayed){setStatus("loading","表示用の病院一覧を構築中");return;}
   const table=rows[0]?.closest("table");
   if(table&&!seenTable){
    seenTable=table;
@@ -112,8 +113,25 @@ function initialize(map){
  // Original listing filters/sorts/paginates 100 rows at a time. Observe
  // only child-list changes; editing a link triggers one harmless second pass.
  const observer=new MutationObserver(schedule);
- observer.observe(document.body,{childList:true,subtree:true});
+ observer.observe(document.documentElement,{childList:true,subtree:true});
+ document.addEventListener("DOMContentLoaded",schedule);
+ window.addEventListener("load",schedule);
+ window.addEventListener("pageshow",schedule);
+ // The legacy application also repaginates in response to controls.
+ for(const eventName of ["click","change","input"]){
+  document.addEventListener(eventName,()=>setTimeout(schedule,0),true);
+ }
  render();
+ // An initial pagination pass can be created after page load. Use a bounded
+ // initialization retry, not a perpetual timer that drains mobile battery.
+ let tries=0;
+ const retry=setInterval(()=>{
+   render();
+   tries++;
+   if((window.__legacyOfficialWebsites.state==="ready"&&
+       window.__legacyOfficialWebsites.detail.linkedRenderedRows>0)||tries>=35)
+     clearInterval(retry);
+ },500);
 }
 
 fetch(URL_CSV,{cache:"no-store"}).then(res=>{
