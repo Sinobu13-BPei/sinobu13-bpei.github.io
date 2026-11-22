@@ -107,7 +107,7 @@ function initialize(map){
  function schedule(){
   if(scheduled)return;
   scheduled=true;
-  requestAnimationFrame(()=>{scheduled=false;render()});
+  queueMicrotask(()=>{scheduled=false;render()});
  }
  // Original listing filters/sorts/paginates 100 rows at a time. Observe
  // only child-list changes; editing a link triggers one harmless second pass.
