@@ -85,13 +85,14 @@
     if(path.startsWith('medical-intelligence/')){
       const oldRelated=document.querySelector('.footer-link-zone');
       if(oldRelated){
-        const already=new Set([...links.querySelectorAll('a')].map(a=>new URL(a.href,document.baseURI).pathname));
+        const already=new Set([...links.querySelectorAll('a')].map(a=>{const u=new URL(a.href,document.baseURI);return u.pathname+u.search+u.hash;}));
         const related=el('nav','jm-footer-nav jm-footer-resources');related.setAttribute('aria-label','関連リンク');
         [...oldRelated.querySelectorAll('a[href]')].forEach(a=>{
           const url=new URL(a.href,document.baseURI);
-          if(already.has(url.pathname)||url.protocol==='mailto:')return;
-          /* Reuse the existing link node: no hidden duplicate in the DOM. */
-          related.appendChild(a);already.add(url.pathname);
+          const identity=url.pathname+url.search+url.hash;
+          if(already.has(identity)||url.protocol==='mailto:')return;
+          /* Keep distinct sector and anchor links; deduplicate only identical targets. */
+          related.appendChild(a);already.add(identity);
         });
         /* Remove the old wrapper completely: links have already moved into related. */
         oldRelated.remove();
