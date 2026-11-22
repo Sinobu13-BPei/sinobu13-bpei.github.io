@@ -8,6 +8,9 @@ on:
       - '.github/workflows/navi-identity-risk-audit.yml'
 permissions:
   contents: write
+concurrency:
+  group: navi-risk-audit-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   audit:
     runs-on: ubuntu-latest
@@ -30,9 +33,25 @@ jobs:
           git add medical-intelligence/hospitals/facility-master/data/identity-confirmed-caution-20260601.csv
           git add medical-intelligence/hospitals/facility-master/data/identity-conflict-review-20260601.csv
           git add medical-intelligence/hospitals/facility-master/data/identity-unmatched-triage-20260601.csv
-          if git diff --cached --quiet; then echo "No changes"; else
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
             git commit -m "Rev.10: record non-mutating Navi match risk audit and manual review priority"
-            git push origin HEAD:main
+            for attempt in 1 2 3 4; do
+              git fetch origin main
+              if ! git rebase origin/main; then
+                echo "::error::Rebase conflict: manual reconciliation required; no force push attempted"
+                git rebase --abort || true
+                exit 1
+              fi
+              if git push origin HEAD:main; then
+                echo "Audit reports pushed safely on attempt ${attempt}"
+                exit 0
+              fi
+              sleep "$((attempt*2))"
+            done
+            echo "::error::Could not publish audit reports without overwriting other commits"
+            exit 1
           fi
       - uses: actions/upload-artifact@v4
         if: always()
