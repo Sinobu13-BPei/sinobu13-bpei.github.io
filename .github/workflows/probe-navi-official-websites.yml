@@ -1,0 +1,39 @@
+name: Probe MHLW published hospital website source columns
+on:
+  push:
+    branches: [rev11-official-website-links-20261122]
+    paths:
+      - '.github/workflows/probe-navi-official-websites.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install matching dependencies
+        run: python -m pip install 'pandas>=2.2,<3' 'rapidfuzz>=3.0,<4'
+      - name: Identify homepage column in pinned official snapshot
+        run: |
+          python - <<'PY'
+          import sys
+          sys.path.insert(0,'medical-intelligence/hospitals/facility-master')
+          from match_navi_20260601 import fetch_zip
+          df,sha=fetch_zip()
+          cols=[str(c) for c in df.columns]
+          homepage=[c for c in cols if any(s in c.lower() for s in ('ホームページ','webサイト','website','url','ｕｒｌ'))]
+          print('OFFICIAL_PROBE_SHA',sha)
+          print('OFFICIAL_PROBE_ROWS',len(df))
+          print('OFFICIAL_PROBE_COLUMNS',len(cols))
+          print('OFFICIAL_PROBE_HOMEPAGE_COLUMNS',repr(homepage))
+          print('OFFICIAL_PROBE_ALL_HEADERS',repr(cols))
+          assert len(df)==7715 and len(cols)==65 and homepage, 'Official source has changed or contains no homepage field'
+          for column in homepage:
+            nonempty=df[column].astype(str).str.strip()
+            print('OFFICIAL_PROBE_URL_FIELD',repr(column),'NONBLANK',int(nonempty.ne('').sum()))
+          PY
