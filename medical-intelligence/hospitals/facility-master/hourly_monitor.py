@@ -25,6 +25,8 @@ PAGES = (
 )
 ASSETS = (
     REL + "identity-ui.js",
+    REL + "official-website-links.js",
+    REL + "official-websites.css",
     REL + "data/legacy-hospitals-20261122.csv",
     REL + "data/quality-baseline.json",
     REL + "data/identity-summary-20260601.json",
