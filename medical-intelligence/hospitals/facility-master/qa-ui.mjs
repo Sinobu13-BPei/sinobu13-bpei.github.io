@@ -15,6 +15,14 @@ assert.ok(script,"inline controller is present");
 new vm.Script(script,{filename:"facility-master/index.html"});
 new vm.Script(readFileSync(join(dir,"identity-ui.js"),"utf8"),{filename:"facility-master/identity-ui.js"});
 new vm.Script(readFileSync(join(dir,"official-website-links.js"),"utf8"),{filename:"facility-master/official-website-links.js"});
+new vm.Script(readFileSync(join(root,"medical-intelligence/hospitals/assets/legacy-official-websites-rev12.js"),"utf8"),{filename:"hospitals/assets/legacy-official-websites-rev12.js"});
+const legacyHTML=readFileSync(join(root,"medical-intelligence/hospitals/index.html"),"utf8");
+assert.equal((legacyHTML.match(/<tr data-text=/g)||[]).length,8019,"Legacy hospital original rows changed");
+assert.ok(legacyHTML.includes('legacy-official-websites-rev12.js'),"Legacy official website script not linked");
+assert.ok(legacyHTML.includes('legacy-official-websites-rev12.css'),"Legacy official website CSS not linked");
+for(const file of ["legacy-official-site-links-20260601.csv","remaining-website-review-20260601.csv","remaining-website-review-audit-20260601.json"]){
+ assert.ok(existsSync(join(dir,"data",file)),"Missing official website bridge/review evidence "+file);
+}
 assert.ok(html.includes('src="./official-website-links.js"'),"Missing hospital website link overlay JS");
 assert.ok(html.includes('href="./official-websites.css"'),"Missing website link styles");
 assert.ok(html.includes("data/official-websites-navi-20260601.csv"),"Missing website source CSV download");
@@ -40,7 +48,7 @@ if(process.argv.includes("--browser")){
   let file=resolve(root,"."+decodeURIComponent(new URL(req.url,"http://127.0.0.1").pathname));
   if(!file.startsWith(root+sep))throw Error("forbidden");
   if(existsSync(file)&&spawnSync("test",["-d",file]).status===0)file=join(file,"index.html");
-  const mime={".html":"text/html",".csv":"text/csv",".js":"text/javascript",".json":"application/json"}[extname(file)]||"text/plain";
+  const mime={".html":"text/html",".csv":"text/csv",".js":"text/javascript",".json":"application/json",".css":"text/css"}[extname(file)]||"text/plain";
   const bytes=readFileSync(file);res.writeHead(200,{"Content-Type":mime+"; charset=utf-8"});res.end(bytes);
  }catch{if(!res.headersSent)res.writeHead(404);res.end("Not found")}});
  await new Promise(done=>server.listen(0,"127.0.0.1",done));
@@ -105,5 +113,25 @@ if(process.argv.includes("--browser")){
     await evalJS('document.querySelector("#im-clear").click()');
     console.log("STAGE1 BROWSER QA PASS",width,JSON.stringify(state),JSON.stringify(matchState));
   }
+
+  // Test the actual original legacy 8,019-row page, including navigation links.
+  // Do not mutate source row HTML; this is an isolated browser-only assertion.
+  await send("Emulation.setDeviceMetricsOverride",{width:390,height:850,deviceScaleFactor:1,mobile:true});
+  await send("Page.navigate",{url:"http://127.0.0.1:"+server.address().port+"/medical-intelligence/hospitals/"});
+  let legacyState;
+  for(let i=0;i<140;i++){
+    legacyState=await evalJS('(()=>({status:window.__legacyOfficialWebsites||null,rows:document.querySelectorAll("tr[data-text]").length,links:document.querySelectorAll("tr[data-text] td:nth-child(3) a[data-navi-web]").length,legend:!!document.querySelector(".rev12-hospital-site-legend"),width:document.documentElement.scrollWidth,view:innerWidth}))()');
+    if(legacyState.status?.state==="ready"||legacyState.status?.state==="error")break;
+    await sleep(250);
+  }
+  assert.equal(legacyState.status?.state,"ready","Legacy website overlay failed: "+JSON.stringify(legacyState));
+  assert.equal(legacyState.rows,8019,"Legacy hospital DOM lost source rows");
+  assert.equal(legacyState.links,3098,"Exactly 3,098 original hospital names must have source-pinned links");
+  assert.equal(legacyState.status.detail.unlinked,4921,"Other 4,921 hospitals must remain unlinked");
+  assert.ok(legacyState.legend,"Source and live-status disclaimer missing");
+  const sample=await evalJS('(()=>{const a=document.querySelector("tr[data-text] td:nth-child(3) a[data-navi-web]");return a?{text:a.textContent,url:a.href,target:a.target,rel:a.rel}:null})()');
+  assert.ok(sample?.text&&/^https?:\\/\\//.test(sample.url)&&sample.target==="_blank"&&sample.rel.includes("noopener"),"Unsafe original hospital link");
+  console.log("REV12 LEGACY OFFICIAL WEBSITE BROWSER QA PASS",JSON.stringify(legacyState));
+
  }finally{ws?.close();browser.kill("SIGTERM");await new Promise(done=>{if(browser.exitCode!==null)return done();browser.once("exit",done);setTimeout(done,1500)});server.close();try{rmSync(profile,{recursive:true,force:true,maxRetries:10,retryDelay:200})}catch(e){if(["ENOTEMPTY","EBUSY","EPERM","EACCES"].includes(e?.code)){console.warn("CHROME PROFILE CLEANUP WARN",e.code)}else throw e}}
 }
