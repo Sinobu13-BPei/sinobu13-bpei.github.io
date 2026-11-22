@@ -114,13 +114,13 @@ def main():
     triage=triage.sort_values(["review_priority","legacy_prefecture","legacy_name","facility_uid"],kind="stable")
     raw_name=confirmed.apply(lambda x:simil(x.legacy_name,x.navi_name_candidate),axis=1)
     raw_address=confirmed.apply(lambda x:simil(x.legacy_address,x.navi_address_candidate),axis=1)
-    suspicious=confirmed[(raw_name<70)|(raw_address<65)].copy()
+    suspicious=confirmed[raw_name<70].copy()
     suspicious["raw_name_similarity_pct"]=[simil(x.legacy_name,x.navi_name_candidate) for x in suspicious.itertuples()]
     suspicious["raw_address_similarity_pct"]=[simil(x.legacy_address,x.navi_address_candidate) for x in suspicious.itertuples()]
     flags=suspicious[["facility_uid","legacy_prefecture","legacy_name","legacy_address",
                      "navi_facility_id_confirmed","navi_name_candidate","navi_address_candidate",
                      "raw_name_similarity_pct","raw_address_similarity_pct"]].copy()
-    flags["audit_flag"]="正規化完全一致だが元表記差が大きい。再確認を推奨。既存判定は自動変更しない"
+    flags["audit_flag"]="名称の元表記に大きな差があるため任意の目視確認を推奨。既存判定は自動変更しない"
     report={
         "audit_version":"stage1b-risk-audit-v1",
         "checked_at_utc":datetime.now(timezone.utc).isoformat(),
@@ -141,9 +141,10 @@ def main():
         "candidate_shared_by_multiple_review_rows":candidate_multi_ref,
         "confirmed_raw_name_similarity_below_70pct":int((raw_name<70).sum()),
         "confirmed_raw_address_similarity_below_65pct":int((raw_address<65).sum()),
+        "raw_address_similarity_is_diagnostic_only":True,
         "confirmed_flags_requiring_human_review":len(flags),
         "triage_rows":len(triage),
-        "note":"Candidate conflicts and unstandardized raw-string differences are review indicators, not proof of wrong matching. No status was changed."
+        "note":"Candidate conflicts and low raw-name similarities require manual checks; raw-address similarity is diagnostic only because formatting differs by prefecture. No matching status is auto-changed."
     }
     a.out_dir.mkdir(parents=True,exist_ok=True)
     (a.out_dir/"identity-risk-audit-20260601.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
