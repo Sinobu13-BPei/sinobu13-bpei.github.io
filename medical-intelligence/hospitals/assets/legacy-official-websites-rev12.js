@@ -98,6 +98,12 @@ function initialize(map){
    anchor.title="医療情報ネット2026年6月施設票に掲載の案内用ホームページ。リンク先の現況・帰属は未確認。";
    anchor.dataset.naviWeb="2026-06-01";
    anchor.classList.add("rev12-hospital-official-link");
+   // The Rev6 badge originally describes a Google search. When the link
+   // becomes a Navi-listed homepage, keep the caution but remove the false
+   // "search" action label. Preserve separately verified clinical badges.
+   const badge=tr.cells[2]?.querySelector(".hi-official-badge");
+   if(badge?.textContent.includes("公式サイト検索"))
+     badge.textContent="医療情報ネット掲載URL（現況未確認）";
    linked++;
   }
   if(displayed){

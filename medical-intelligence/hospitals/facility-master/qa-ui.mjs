@@ -141,6 +141,8 @@ if(process.argv.includes("--browser")){
   const expectedFirst=linkedOriginalRows.filter(i=>i>=1&&i<=100).length;
   const expectedSecond=linkedOriginalRows.filter(i=>i>=101&&i<=200).length;
   assert.equal(legacyState.links,expectedFirst,"First page must link exactly the expected source records");
+  const linkedBadge=await evalJS('(()=>{const a=document.querySelector("#detailTable a[data-navi-web]");const badge=a?.closest("td")?.querySelector(".hi-official-badge");return {label:badge?.textContent||"",exists:!!badge,href:a?.href||""}})()');
+  assert.ok(linkedBadge.exists&&!linkedBadge.label.includes("公式サイト検索")&&(linkedBadge.label.includes("医療情報ネット掲載URL")||linkedBadge.label.includes("公式資料確認")),"Navi link badge must not misleadingly claim a Google search: "+JSON.stringify(linkedBadge));
   const searchUnverified=await evalJS('(()=>{const all=[...document.querySelectorAll("#detailTable a.hi-hospital-name")];return {all:all.length,unverified:all.filter(a=>!a.dataset.naviWeb).length,firstMap:!!document.querySelector("#detailTable a.smalllink"),hasSearch:all.some(a=>!a.dataset.naviWeb&&a.href.includes("google.com/search"))}})()');
   assert.ok(searchUnverified.unverified>0&&searchUnverified.firstMap&&searchUnverified.hasSearch,"The unverified hospital search and Map links were changed or lost");
   await evalJS('document.querySelector("#nextPage").click()');

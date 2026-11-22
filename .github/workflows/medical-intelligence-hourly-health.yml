@@ -50,8 +50,19 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           git fetch --no-tags origin main --depth=1
-          if git diff --quiet origin/main HEAD -- medical-intelligence/hospitals/facility-master/data/ medical-intelligence/hospitals/facility-master/identity-ui.js; then
-            echo "Frozen CSV/JSON/JS unaffected by PR; verify current published bytes and SHA-256."
+          # Compare EVERY SHA-pinned public payload path, not only the data CSV.
+          # A PR that modifies HTML, JS or CSS must not compare an undeployed
+          # candidate with the currently deployed previous version.
+          if git diff --quiet origin/main HEAD -- \
+            medical-intelligence/hospitals/index.html \
+            medical-intelligence/hospitals/assets/legacy-official-websites-rev12.js \
+            medical-intelligence/hospitals/assets/legacy-official-websites-rev12.css \
+            medical-intelligence/hospitals/facility-master/index.html \
+            medical-intelligence/hospitals/facility-master/identity-ui.js \
+            medical-intelligence/hospitals/facility-master/official-website-links.js \
+            medical-intelligence/hospitals/facility-master/official-websites.css \
+            medical-intelligence/hospitals/facility-master/data/; then
+            echo "Monitored HTML/JS/CSS/data unaffected by PR; verify published bytes and SHA-256."
             python medical-intelligence/hospitals/facility-master/hourly_monitor.py --public --report reports/hourly-public-pr.json
           else
             echo "PR changes published data; defer live baseline comparison until deployment."
