@@ -58,7 +58,11 @@ def main():
     confirmed=matched[matched.match_status=="確定一致"].copy()
     pending=matched[matched.match_status=="要確認"].copy()
     unmatched=matched[matched.match_status=="未一致"].copy()
-    require(confirmed.navi_facility_id_confirmed.str.fullmatch(r"\d{13}").all(),"Confirmed Navi IDs must be 13 digits")
+    lengths=confirmed.navi_facility_id_confirmed.str.len().value_counts().to_dict()
+    nonconforming=confirmed.loc[~confirmed.navi_facility_id_confirmed.str.fullmatch(r"\d{13}"),["legacy_prefecture","legacy_name","navi_facility_id_confirmed"]]
+    print("AUDIT_OFFICIAL_ID_LENGTHS",lengths)
+    print("AUDIT_NONCONFORMING_IDS",nonconforming.head(12).to_dict("records"))
+    require(nonconforming.empty,"Confirmed Navi IDs must be 13 digits")
     require(confirmed.navi_facility_id_confirmed.is_unique,"Confirmed Navi ID reused")
     require(confirmed.navi_facility_id_candidate.eq("").all(),"Confirmed rows must not also have candidate ID")
     require(confirmed.navi_name_candidate.ne("").all() and confirmed.navi_address_candidate.ne("").all(),"Confirmed source evidence missing")
