@@ -178,7 +178,7 @@ def main():
         }
         for name, expected in generated.items():
             current=read_csv(DATA/name)
-            clean=expected.fillna("").astype(str)
+            clean=expected.fillna("").astype(str).reset_index(drop=True)
             require(list(current.columns)==list(clean.columns),"Saved CSV schema differs: "+name)
             require(len(current)==len(clean),"Saved CSV row count differs: "+name)
             require(current.equals(clean),"Saved CSV content differs from source-derived audit: "+name)
