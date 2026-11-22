@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "records": 8019,
+  "prefectures": 47,
+  "duplicate_pref_name_address": 0,
+  "missing_required": 0,
+  "official_ids_verified": 0,
+  "source_data_as_of": null,
+  "source_retrieved_on": "2026-11-22",
+  "source_url": "https://sinobu13-bpei.github.io/medical-intelligence/hospitals/",
+  "source_blob_sha": "24aa96b01adea8e14b53e8c415fa1eb7e3aaab74",
+  "status": "legacy_unmatched_baseline"
+}
