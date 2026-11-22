@@ -224,7 +224,7 @@ if(process.argv.includes("--browser")){
   let oldVerified;
   for(let i=0;i<65;i++){
     oldVerified=await evalJS('(()=>({links:[...document.querySelectorAll("#detailTable a[data-independent-reviewed]")].map(a=>({name:a.textContent,href:a.href,badge:a.closest("td").querySelector(".hi-official-badge")?.textContent||""})),rows:document.querySelectorAll("#detailTable tbody tr").length,normalMaps:document.querySelectorAll("#detailTable a.smalllink").length}))()');
-    if(oldVerified.links.length===1)break;
+    if(oldVerified.links.length===1&&oldVerified.links[0].name.includes("塩田病院"))break;
     await sleep(120);
   }
   assert.ok(oldVerified.links.length===1&&oldVerified.links[0].href.startsWith("https://www.shioda.or.jp/")&&oldVerified.links[0].badge.includes("公式Web個別確認済")&&oldVerified.normalMaps>=1,"Original hospital verified website must coexist with Google Map: "+JSON.stringify(oldVerified));
