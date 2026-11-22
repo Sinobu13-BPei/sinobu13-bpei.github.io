@@ -44,8 +44,10 @@ jobs:
         run: python medical-intelligence/hospitals/facility-master/inject_legacy_website_overlay.py --check
       - name: Validate 3,098 legacy links and 4,921 unlinked review entries
         run: python medical-intelligence/hospitals/facility-master/validate_remaining_website_review.py
-      - name: Verify separately reviewed hospital websites, 13 links and documented rename
+      - name: Verify separately reviewed hospital websites, 17 links and documented rename
         run: python medical-intelligence/hospitals/facility-master/validate_independently_reviewed_websites.py
+      - name: Validate append-only Rev14 official website batch
+        run: python medical-intelligence/hospitals/facility-master/validate_independently_reviewed_websites_rev14.py
       - name: Check local files and counts
         run: python medical-intelligence/hospitals/facility-master/hourly_monitor.py --report reports/hourly-local.json
       - name: Cross-check published baseline on data-preserving PRs
