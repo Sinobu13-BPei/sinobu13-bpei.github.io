@@ -58,22 +58,20 @@ def main():
     confirmed=matched[matched.match_status=="確定一致"].copy()
     pending=matched[matched.match_status=="要確認"].copy()
     unmatched=matched[matched.match_status=="未一致"].copy()
+    # Navi IDs are opaque source identifiers, including variable-length numeric
+    # strings and alphanumeric strings. Never parse them as integers or pad them.
     lengths=confirmed.navi_facility_id_confirmed.str.len().value_counts().to_dict()
-    nonconforming=confirmed.loc[~confirmed.navi_facility_id_confirmed.str.fullmatch(r"\d{13}"),["legacy_prefecture","legacy_name","navi_facility_id_confirmed"]]
+    mixed=confirmed.navi_facility_id_confirmed.str.contains(r"[A-Za-z]",regex=True)
+    format_ok=confirmed.navi_facility_id_confirmed.str.fullmatch(r"[A-Za-z0-9]{5,13}")
     print("AUDIT_OFFICIAL_ID_LENGTHS",lengths)
-    print("AUDIT_NONCONFORMING_IDS",nonconforming.head(12).to_dict("records"))
-    # The official frozen CSV contains variable-length numeric IDs (5–13 digits).
-    # Never pad, truncate, cast to integer, or assume a uniform 13-digit layout.
-    nonconforming=confirmed.loc[~confirmed.navi_facility_id_confirmed.str.fullmatch(r"\d{5,13}"),["legacy_prefecture","legacy_name","navi_facility_id_confirmed"]]
-    print("AUDIT_UNEXPECTED_FORMAT",nonconforming.head(30).to_dict("records"))
-    print("AUDIT_UNEXPECTED_FORMAT_COUNT",len(nonconforming))
-    require(nonconforming.empty,"Confirmed Navi IDs contain non-digit characters or unexpected lengths")
+    print("AUDIT_ALPHANUMERIC_IDS",int(mixed.sum()))
+    require(format_ok.all(),"Unexpected characters or lengths in frozen official Navi IDs")
     require(confirmed.navi_facility_id_confirmed.is_unique,"Confirmed Navi ID reused")
     require(confirmed.navi_facility_id_candidate.eq("").all(),"Confirmed rows must not also have candidate ID")
     require(confirmed.navi_name_candidate.ne("").all() and confirmed.navi_address_candidate.ne("").all(),"Confirmed source evidence missing")
     require(confirmed.match_method.str.contains("完全一致",regex=False).all(),"A non-exact method was confirmed")
     require(matched[matched.match_status!="確定一致"].navi_facility_id_confirmed.eq("").all(),"Unconfirmed official ID was populated")
-    require(matched.navi_facility_id_candidate[matched.navi_facility_id_candidate.ne("")].str.fullmatch(r"\d{5,13}").all(),"Candidate Navi IDs must be numeric strings of 5–13 characters")
+    require(matched.navi_facility_id_candidate[matched.navi_facility_id_candidate.ne("")].str.fullmatch(r"[A-Za-z0-9]{5,13}").all(),"Candidate Navi IDs must preserve official alphanumeric 5–13 character format")
     require(len(review)==len(pending),"Review list size differs")
     require(review.facility_uid.tolist()==pending.facility_uid.tolist(),"Review CSV differs from main match table")
     require(len(verified)==len(confirmed),"Confirmed crosswalk size differs")
@@ -135,6 +133,7 @@ def main():
         "hard_checks_passed":True,
         "confirmed_duplicate_navi_ids":0,
         "confirmed_id_length_distribution":{str(k):int(v) for k,v in lengths.items()},
+        "confirmed_ids_containing_letters":int(mixed.sum()),
         "confirmed_with_no_evidence":0,
         "review_method_breakdown":{str(k):int(v) for k,v in pending.match_method.value_counts().items()},
         "candidate_id_present":len(cand),
