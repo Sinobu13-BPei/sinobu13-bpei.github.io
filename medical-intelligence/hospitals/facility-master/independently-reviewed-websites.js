@@ -1,15 +1,15 @@
-/* Rev.13: independent, source-evidenced website links only for the 13
-   hospital records manually matched to current official websites.
+/* Rev.14: combine the 13 historical and 4 new source-evidenced website reviews.
    NEVER promote a website confirmation into a Navi ID match-status change. */
 (()=>{"use strict";
 const DATA="/medical-intelligence/hospitals/facility-master/data/independently-reviewed-websites-20261122.csv";
+const DATA14="/medical-intelligence/hospitals/facility-master/data/independently-reviewed-websites-20261123.csv";
 const COLUMNS=["facility_uid","source_row_no","prefecture","facility_name_legacy","address_legacy",
 "verified_website_url","review_outcome","current_hospital_name","reviewed_on",
 "primary_evidence_url","secondary_evidence_url","original_review_bucket",
 "identity_decision","review_notes"];
 const normalize=s=>String(s||"").trim();
 const key=(p,n,a)=>[normalize(p),normalize(n),normalize(a)].join("\u001f");
-function csv(text){
+function csv(text,expectedCount,expectedDate,expectedRenamed){
  text=text.replace(/^\uFEFF/,"");let rows=[],line=[],token="",quoted=false;
  for(let i=0;i<text.length;i++){
   const c=text[i];
@@ -27,7 +27,7 @@ function csv(text){
  const cols=rows.shift();
  if(!cols||cols.length!==COLUMNS.length||COLUMNS.some((c,i)=>cols[i]!==c))
   throw Error("Reviewed hospital website CSV header changed");
- if(rows.length!==13)throw Error("Expected exactly 13 independently verified records");
+ if(rows.length!==expectedCount)throw Error("Unexpected independently verified record count: "+rows.length);
  const found=new Map(),usedIndex=new Set(),usedURLs=new Set(),usedNameAddr=new Set();
  for(const data of rows){
   if(data.length!==COLUMNS.length)throw Error("Reviewed site column count mismatch");
@@ -37,7 +37,7 @@ function csv(text){
   const url=secureUrl(row.verified_website_url);
   if(!/^LEG-[0-9a-f]{16}$/.test(row.facility_uid)||!url||
       !Number.isInteger(i)||i<1||i>8019||
-      row.reviewed_on!=="2026-11-22"||
+      row.reviewed_on!==expectedDate||
       !["verified_same_name","verified_renamed"].includes(row.review_outcome)||
       !secureUrl(row.primary_evidence_url)||!secureUrl(row.secondary_evidence_url)||
       !normalize(row.current_hospital_name)||
@@ -48,8 +48,8 @@ function csv(text){
   usedIndex.add(i);usedNameAddr.add(address);
   found.set(row.facility_uid,{...row,url});
  }
- if([...found.values()].filter(x=>x.review_outcome==="verified_renamed").length!==1)
-   throw Error("Expected exactly one separately evidenced renamed hospital");
+ if([...found.values()].filter(x=>x.review_outcome==="verified_renamed").length!==expectedRenamed)
+   throw Error("Unexpected separately evidenced renamed hospital count");
  return found;
 }
 function secureUrl(input){
@@ -62,10 +62,11 @@ function secureUrl(input){
  }catch{return null}
 }
 const ready=(detail)=>{window.__independentWebsiteReview={ready:true,detail,error:""}};
+function jpDate(value){const [y,m,d]=value.split("-");return y+"年"+Number(m)+"月"+Number(d)+"日"}
 function description(r){
  return r.review_outcome==="verified_renamed"
  ? "公式発表により2026年4月1日に「"+r.current_hospital_name+"」へ改称。旧病院名は原票記載。施設ID判定は変更していません。"
- : "病院公式Webと所在地・施設名を2026年11月22日に個別確認。施設IDの既存照合判定は変更していません。";
+ : "病院公式Webと所在地・施設名を"+jpDate(r.reviewed_on)+"個別確認。施設IDの既存照合判定は変更していません。";
 }
 function applyLegacy(records){
  const data=window.__hospitalResearch;
@@ -152,22 +153,27 @@ function applyMaster(records){
  for(const holder of holders)new MutationObserver(schedule).observe(holder,{childList:true,subtree:true});
  render();
 }
-fetch(DATA,{cache:"no-store"}).then(response=>{
- if(!response.ok)throw Error("Manual-reviewed site HTTP "+response.status);
- return response.text();
-}).then(text=>{
- const rows=csv(text);
- const detail={count:rows.size,sameName:12,renamed:1,linkTotal:3098+rows.size};
+Promise.all([DATA,DATA14].map(url=>fetch(url,{cache:"no-store"}))).then(responses=>{
+ if(responses.some(response=>!response.ok))throw Error("Manual-reviewed site CSV load failed");
+ return Promise.all(responses.map(response=>response.text()));
+}).then(texts=>{
+ const historical=csv(texts[0],13,"2026-11-22",1);
+ const current=csv(texts[1],4,"2026-11-23",0);
+ const rows=new Map([...historical,...current]);
+ if(rows.size!==17)throw Error("Reviewed website batches contain a UID collision");
+ const urls=[...rows.values()].map(row=>row.url);
+ if(new Set(urls).size!==urls.length)throw Error("Reviewed website batches contain duplicate destination URLs");
+ const detail={count:rows.size,sameName:16,renamed:1,linkTotal:3098+rows.size};
  ready(detail);
  if(document.getElementById("detailTable"))applyLegacy(rows);
  else if(document.getElementById("records"))applyMaster(rows);
  else throw Error("Unsupported hospital page");
  const summary=document.getElementById("manual-site-summary");
- if(summary)summary.textContent="公式Web個別確認：13施設（うち改称1件）。既存の医療情報ネット掲載3,098件と合わせて3,111件に直接リンク。施設IDの照合判定は変更しません。";
+ if(summary)summary.textContent="公式Web個別確認：17施設（うち改称1件）。既存の医療情報ネット掲載3,098件と合わせて3,115件に直接リンク。施設IDの照合判定は変更しません。";
 }).catch(err=>{
  window.__independentWebsiteReview={ready:false,error:String(err)};
  const summary=document.getElementById("manual-site-summary");
  if(summary)summary.textContent="個別確認済みWebリンクを読み込めません。既存3,098件の掲載リンクは別処理で維持します。";
- console.error("[Rev13 manually reviewed hospital websites]",err);
+ console.error("[Rev14 manually reviewed hospital websites]",err);
 });
 })();

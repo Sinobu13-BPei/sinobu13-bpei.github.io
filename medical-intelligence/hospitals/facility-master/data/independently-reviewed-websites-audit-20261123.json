@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "batch": "rev14-official-website-review-2026-11-23",
+  "review_date": "2026-11-23",
+  "input_batch_rows": 4,
+  "independently_reviewed_website_rows": 4,
+  "verified_same_name": 4,
+  "verified_renamed": 0,
+  "source_review_bucket": "医療情報ネットにURL未記載",
+  "baseline_legacy_rows": 8019,
+  "baseline_navi_listed_website_links": 3098,
+  "baseline_unlinked_review_queue": 4921,
+  "previous_independent_reviews": 13,
+  "total_independent_reviews_after_batch": 17,
+  "direct_website_links_if_verified_layer_loaded": 3115,
+  "remaining_unlinked_review_rows": 4904,
+  "remaining_of_priority_exact_identity_bucket": 338,
+  "navi_identity_status": {
+    "confirmed": 3453,
+    "pending": 3435,
+    "unmatched": 1131
+  },
+  "original_master_changed": false,
+  "identity_match_status_changed": false,
+  "review_method": "Hospital or facility operator official website explicitly names the facility and matches the legacy address; corroborated against the Ministry of Health Medical Information Net current facility page.",
+  "evidence_urls_stored_per_row": true,
+  "caveat": "The 4 confirmed records are separate official website evidence. They do not alter Navi facility identity or administrative code statuses."
+}

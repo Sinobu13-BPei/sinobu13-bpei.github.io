@@ -28,7 +28,7 @@ for(const file of ["legacy-official-site-links-20260601.csv","remaining-website-
 assert.ok(html.includes('src="./official-website-links.js"'),"Missing hospital website link overlay JS");
 assert.ok(html.includes('src="./independently-reviewed-websites.js"'),"Independently verified hospital site layer absent");
 assert.ok(html.includes('id="manual-site-summary"'),"Independently verified hospital site summary missing");
-for(const file of ["independently-reviewed-websites-20261122.csv","independently-reviewed-websites-audit-20261122.json"]){
+for(const file of ["independently-reviewed-websites-20261122.csv","independently-reviewed-websites-audit-20261122.json","independently-reviewed-websites-20261123.csv","independently-reviewed-websites-audit-20261123.json"]){
  assert.ok(existsSync(join(dir,"data",file)),"Missing independent website review evidence "+file);
 }
 assert.ok(html.includes('href="./official-websites.css"'),"Missing website link styles");
@@ -115,7 +115,7 @@ if(process.argv.includes("--browser")){
     assert.ok(websiteState.linkedRows>0,"No actual hospital name links appeared in first pages");
     const example=await evalJS('(()=>{const a=document.querySelector("#records a[data-official-site],#im-rows a[data-official-site]");return a?{text:a.textContent,href:a.href,target:a.target,rel:a.rel}:null})()');
     assert.ok(example?.text&&/^https?:\/\//i.test(example.href)&&example.target==="_blank"&&example.rel.includes("noopener"),"Safe hospital name hyperlink missing");
-    // Rev13: verify independently checked URLs and the hospital-name-change
+    // Rev14: verify independently checked URLs and the hospital-name-change
     // disclosure without rewriting the original name or any identity status.
     let manualStatus;
     for(let i=0;i<65;i++){
@@ -123,10 +123,10 @@ if(process.argv.includes("--browser")){
       if(manualStatus?.ready||manualStatus?.error)break;
       await sleep(120);
     }
-    assert.equal(manualStatus?.ready,true,"13 individually reviewed official websites failed: "+JSON.stringify(manualStatus));
-    assert.equal(manualStatus.detail.count,13);
+    assert.equal(manualStatus?.ready,true,"17 individually reviewed official websites failed: "+JSON.stringify(manualStatus));
+    assert.equal(manualStatus.detail.count,17);
     assert.equal(manualStatus.detail.renamed,1);
-    assert.equal(manualStatus.detail.linkTotal,3111);
+    assert.equal(manualStatus.detail.linkTotal,3115);
     await evalJS('(()=>{const q=document.querySelector("#q");q.value="塩田病院";q.dispatchEvent(new Event("input",{bubbles:true}));})()');
     let manualFound;
     for(let i=0;i<55;i++){
@@ -135,6 +135,14 @@ if(process.argv.includes("--browser")){
       await sleep(100);
     }
     assert.ok(manualFound.links.length===1&&manualFound.links[0].name.includes("塩田病院")&&manualFound.links[0].href.startsWith("https://www.shioda.or.jp/"),"Source-review link missing for 塩田病院: "+JSON.stringify(manualFound));
+    await evalJS('(()=>{const q=document.querySelector("#q");q.value="医療法人　優仁会　滝川中央病院";q.dispatchEvent(new Event("input",{bubbles:true}));})()');
+    let kawanishi;
+    for(let i=0;i<55;i++){
+      kawanishi=await evalJS('(()=>({links:[...document.querySelectorAll("#records a[data-independent-reviewed]")].map(a=>({name:a.textContent,href:a.href}))}))()');
+      if(kawanishi.links.length===1)break;
+      await sleep(100);
+    }
+    assert.ok(kawanishi.links.length===1&&kawanishi.links[0].href==="https://cms.yujinkai.org/central/","Rev14 official website link missing for Takikawa Central Hospital: "+JSON.stringify(kawanishi));
     await evalJS('(()=>{const q=document.querySelector("#q");q.value="湘南記念病院";q.dispatchEvent(new Event("input",{bubbles:true}));})()');
     let renameFound;
     for(let i=0;i<55;i++){
@@ -207,16 +215,16 @@ if(process.argv.includes("--browser")){
     await sleep(120);
   }
   assert.ok(cleared.count.includes("8,019")&&cleared.rows===100&&cleared.links===expectedFirst,"Reset filters failed to restore legacy links: "+JSON.stringify(cleared));
-  // Legacy page must retain the original search/Map behavior while adding 13
+  // Legacy page must retain the original search/Map behavior while adding 17
   // separately verified websites. One of them has a documented 2026 rename.
   let legacyManual=await evalJS('window.__independentWebsiteReview||null');
-  assert.equal(legacyManual?.ready,true,"Legacy 13-site reviewed overlay missing: "+JSON.stringify(legacyManual));
-  assert.equal(legacyManual.detail.count,13);
+  assert.equal(legacyManual?.ready,true,"Legacy 17-site reviewed overlay missing: "+JSON.stringify(legacyManual));
+  assert.equal(legacyManual.detail.count,17);
   await evalJS('(()=>{const q=document.querySelector("#q");q.value="塩田病院";q.dispatchEvent(new Event("input",{bubbles:true}));})()');
   let oldVerified;
   for(let i=0;i<65;i++){
     oldVerified=await evalJS('(()=>({links:[...document.querySelectorAll("#detailTable a[data-independent-reviewed]")].map(a=>({name:a.textContent,href:a.href,badge:a.closest("td").querySelector(".hi-official-badge")?.textContent||""})),rows:document.querySelectorAll("#detailTable tbody tr").length,normalMaps:document.querySelectorAll("#detailTable a.smalllink").length}))()');
-    if(oldVerified.links.length===1)break;
+    if(oldVerified.links.length===1&&oldVerified.links[0].name.includes("塩田病院"))break;
     await sleep(120);
   }
   assert.ok(oldVerified.links.length===1&&oldVerified.links[0].href.startsWith("https://www.shioda.or.jp/")&&oldVerified.links[0].badge.includes("公式Web個別確認済")&&oldVerified.normalMaps>=1,"Original hospital verified website must coexist with Google Map: "+JSON.stringify(oldVerified));
@@ -229,7 +237,7 @@ if(process.argv.includes("--browser")){
   }
   assert.ok(legacyRenamed.links.length===1&&legacyRenamed.links[0].href.startsWith("https://www.shonan-rh.jp/")&&legacyRenamed.links[0].name.includes("湘南記念病院")&&legacyRenamed.links[0].badge.includes("湘南リハビリテーション病院"),"Renamed original hospital not properly disclosed: "+JSON.stringify(legacyRenamed));
   await evalJS('document.querySelector("#clearFilters").click()');
-  console.log("REV13 INDEPENDENT WEBSITE BROWSER QA PASS",JSON.stringify({first:oldVerified,renamed:legacyRenamed}));
+  console.log("REV14 INDEPENDENT WEBSITE BROWSER QA PASS",JSON.stringify({first:oldVerified,renamed:legacyRenamed}));
   console.log("REV12 LEGACY PAGINATION AND SEARCH QA PASS",JSON.stringify({firstPage:expectedFirst,secondPage:expectedSecond,filteredLegacy,cleared}));
   console.log("REV12 LEGACY OFFICIAL WEBSITE BROWSER QA PASS",JSON.stringify(legacyState));
 
