@@ -1,0 +1,68 @@
+name: Build verified MHLW Navi hospital crosswalk
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'medical-intelligence/hospitals/facility-master/match_navi_20260601.py'
+      - '.github/workflows/navi-identity-match.yml'
+permissions:
+  contents: write
+concurrency:
+  group: navi-identity-matcher
+  cancel-in-progress: false
+jobs:
+  match:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install audit dependencies
+        run: python -m pip install 'pandas>=2.2,<3' 'rapidfuzz>=3.0,<4'
+      - name: Read official MHLW CSV and classify all 8,019 legacy hospitals
+        run: python medical-intelligence/hospitals/facility-master/match_navi_20260601.py
+      - name: Confirm output row count and provenance
+        run: |
+          python - <<'PY'
+          import json,pandas as pd
+          from pathlib import Path
+          p=Path("medical-intelligence/hospitals/facility-master/data")
+          rows=pd.read_csv(p/"identity-navi-20260601.csv",dtype=str,keep_default_na=False)
+          report=json.loads((p/"identity-summary-20260601.json").read_text())
+          counts=rows.match_status.value_counts().to_dict()
+          assert len(rows)==8019
+          assert sum(counts.values())==8019
+          assert rows.facility_uid.is_unique
+          assert rows[rows.match_status=="確定一致"].navi_facility_id_confirmed.is_unique
+          assert len(rows[rows.match_status=="確定一致"])==report["match_counts"]["confirmed"]
+          assert rows[rows.match_status!="確定一致"].navi_facility_id_confirmed.eq("").all()
+          assert len(report["by_prefecture"])==47
+          print("QA PASS",counts)
+          PY
+      - name: Commit data and audit summary
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add medical-intelligence/hospitals/facility-master/data/identity-navi-20260601.csv
+          git add medical-intelligence/hospitals/facility-master/data/identity-review-20260601.csv
+          git add medical-intelligence/hospitals/facility-master/data/identity-crosswalk-verified-navi-20260601.csv
+          git add medical-intelligence/hospitals/facility-master/data/identity-summary-20260601.json
+          if git diff --cached --quiet; then
+            echo "NO_CHANGES"
+          else
+            git commit -m "Stage 1: verified Navi 2026-06-01 hospital identity crosswalk and review list"
+            git push origin HEAD:main
+          fi
+      - name: Upload QA output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: navi-hospital-match-qa
+          path: |
+            medical-intelligence/hospitals/facility-master/data/identity-summary-20260601.json
+          if-no-files-found: warn
