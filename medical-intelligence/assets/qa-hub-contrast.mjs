@@ -97,9 +97,11 @@ function auditPage(){
  const menuClosed=menuButton?.getAttribute('aria-expanded')==='false'&&!menuNav?.classList.contains('is-open');
  const footer=document.querySelector('#site-footer .jm-footer-resources');
  const footerLabels=[...footer?.querySelectorAll('a')||[]].map(a=>a.textContent.replace(/[\s\u3000]+/g,' ').trim());
+ const footerPaths=[...footer?.querySelectorAll('a')||[]].map(a=>{const u=new URL(a.href,document.baseURI);return u.pathname+u.search+u.hash});
+ const footerDuplicates=footerPaths.filter((p,i)=>footerPaths.indexOf(p)!==i);
  const contactCount=document.querySelectorAll('#site-footer a[href^="mailto:"]').length;
  const footerWidth=footer?.clientWidth||0;
- return {width:innerWidth,documentWidth:document.documentElement.scrollWidth,regions:regions.length,buttons,checked:count,repairs:repaired.repaired,bad,footerLabels,footerWidth,contactCount,chapterLabels,tocValid,tocCount,duplicateLabels,filterCount,restoredCount,hospitalFiltered,hospitalRestored,hospitalRowCount:hospitalRows.length,buttonsClipped,duplicateIds,chartCount:canvas.length,chartFailures,chartsUnavailable,menuExpanded,menuClosed};
+ return {width:innerWidth,documentWidth:document.documentElement.scrollWidth,regions:regions.length,buttons,checked:count,repairs:repaired.repaired,bad,footerLabels,footerDuplicates,footerWidth,contactCount,chapterLabels,tocValid,tocCount,duplicateLabels,filterCount,restoredCount,hospitalFiltered,hospitalRestored,hospitalRowCount:hospitalRows.length,buttonsClipped,duplicateIds,chartCount:canvas.length,chartFailures,chartsUnavailable,menuExpanded,menuClosed};
 }
 const widths=[320,375,768,1280],report=[];
 try{
@@ -122,6 +124,17 @@ try{
   await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<700});
   await send('Page.navigate',{url});
   await sleep(2400);
+  /* Delayed remote stylesheets must not race against the deferred shared UI. */
+  let ready=false;
+  for(let attempt=0;attempt<100;attempt++){
+    ready=await evaluate("typeof window.JMContrastAudit==='function'").catch(()=>false);
+    if(ready)break;
+    await sleep(150);
+  }
+  if(!ready){
+    const diagnostic=await evaluate("(()=>({state:document.readyState,scripts:[...document.scripts].map(x=>x.src).filter(Boolean),initErrors:window.__jmInitErrors||[],siteHeader:!!document.querySelector('#site-header')}))()").catch(e=>({diagnosticError:String(e)}));
+    throw Error('Contrast audit did not initialize: '+JSON.stringify(diagnostic));
+  }
   const result=await evaluate('('+auditPage.toString()+')()');
   assert.ok(!result.error,JSON.stringify(result));
   assert.equal(result.regions,47,'47 prefectures');
@@ -139,8 +152,9 @@ try{
   assert.deepEqual(result.chartFailures,[],'Every market graph must render or provide a visible error message');
   assert.ok(result.menuExpanded&&result.menuClosed,'Mobile shared menu open/close behavior');
 
-  const expectedFooter=['診療所MKT分析 ↗','医師会 ↗','商社・HD ↗','JAHID','CT-MKT分析 ↗','MRI-MKT分析 ↗','学会カレンダー（画像系） ↗','論文調査｜JRS・SMI・MSK ↗','戦略策定 基礎 ↗','戦略策定 立案 ↗','会食に関して ↗','お食事処 ↗','散策場所 ↗'];
+  const expectedFooter=["検体検査MKT ↗","医療サイバーセキュリティ白書2026 ↗","放射線管理・営業法務 ↗","医療・調剤・介護IT総合 ↗","医療IT｜PEST～KSF ↗","調剤IT｜PEST～KSF ↗","介護IT｜PEST～KSF ↗","診療所MKT分析 ↗","医師会 ↗","商社・HD ↗","JAHID","CT-MKT分析 ↗","MRI-MKT分析 ↗","救急医療MKT ↗","透析医療MKT ↗","検診MKT ↗","学会カレンダー（画像系） ↗","論文調査｜JRS・SMI・MSK ↗","VeterinaryーMKT ↗","戦略策定ハンドブック ↗","会食に関して ↗","お食事処 ↗","散策場所 ↗","動物医療MKT ↗"];
   assert.deepEqual(result.footerLabels,expectedFooter,'footer navigation order and deduplication');
+  assert.deepEqual(result.footerDuplicates,[],'Identical footer URL destinations must not repeat');
   assert.equal(result.contactCount,1,'one contact link in footer');
   assert.ok(result.footerWidth>250,'footer strip is visible');
 

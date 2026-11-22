@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import {spawn,spawnSync} from 'node:child_process';
 import {createServer} from 'node:http';
-import {readFileSync,statSync,mkdirSync,writeFileSync,mkdtempSync,rmSync} from 'node:fs';
+import {readFileSync,statSync,mkdirSync,writeFileSync,mkdtempSync,rmSync,existsSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join,resolve,dirname,extname,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -15,18 +15,23 @@ const port=server.address().port;
 const cb=['chromium','google-chrome','chromium-browser','google-chrome-stable'].map(s=>{const r=spawnSync('which',[s],{encoding:'utf8'});return r.status===0?r.stdout.trim():null}).find(Boolean);
 assert(cb,'Chrome binary missing');
 const profile=mkdtempSync(join(tmpdir(),'miyazaki-ui-'));
-const debugAllocator=createServer();
-await new Promise(resolve=>debugAllocator.listen(0,'127.0.0.1',resolve));
-const debug=debugAllocator.address().port;
-await new Promise(resolve=>debugAllocator.close(resolve));
-const chrome=spawn(cb,['--headless=new','--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--disable-extensions','--no-first-run','--remote-debugging-port='+debug,'--user-data-dir='+profile,'about:blank'],{stdio:'ignore'});
+const chrome=spawn(cb,['--headless=new','--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--disable-extensions','--no-first-run','--remote-debugging-port=0','--user-data-dir='+profile,'about:blank'],{stdio:['ignore','ignore','pipe']});
+let chromeStderr='';
+chrome.stderr.on('data',part=>{chromeStderr=(chromeStderr+String(part)).slice(-2500)});
 let ws,id=1;const pending=new Map(),results=[];
 const send=(method,params={})=>new Promise((resolve,reject)=>{const n=id++,timer=setTimeout(()=>{pending.delete(n);reject(Error('Timeout '+method))},25000);pending.set(n,{resolve,reject,timer});ws.send(JSON.stringify({id:n,method,params}))});
 const evalCode=async code=>{const r=await send('Runtime.evaluate',{expression:code,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value};
 try{
- let tab;
- for(let n=0;n<100;n++){try{const r=await fetch('http://127.0.0.1:'+debug+'/json');if(r.ok){tab=(await r.json()).find(t=>t.type==='page'&&t.webSocketDebuggerUrl);if(tab)break}}catch(e){}await sleep(160)}
- assert(tab?.webSocketDebuggerUrl,'Missing browser debug target');ws=new WebSocket(tab.webSocketDebuggerUrl);
+ let tab,debug=0;
+ for(let n=0;n<220;n++){
+  try{
+    if(!debug&&existsSync(join(profile,'DevToolsActivePort')))debug=Number(readFileSync(join(profile,'DevToolsActivePort'),'utf8').split('\n')[0]);
+    if(debug){const r=await fetch('http://127.0.0.1:'+debug+'/json');if(r.ok){tab=(await r.json()).find(t=>t.type==='page'&&t.webSocketDebuggerUrl);if(tab)break}}
+  }catch(e){}
+  if(chrome.exitCode!==null)break;
+  await sleep(160);
+ }
+ assert(tab?.webSocketDebuggerUrl,'Missing browser debug target; chrome exit='+chrome.exitCode+' stderr='+chromeStderr.slice(-1000));ws=new WebSocket(tab.webSocketDebuggerUrl);
  await new Promise((resolve,reject)=>{ws.addEventListener('open',resolve,{once:true});ws.addEventListener('error',reject,{once:true})});
  ws.addEventListener('message',event=>{const x=JSON.parse(event.data);if(!x.id)return;const p=pending.get(x.id);if(!p)return;clearTimeout(p.timer);pending.delete(x.id);x.error?p.reject(Error(JSON.stringify(x.error))):p.resolve(x.result||{})});
  await send('Page.enable');await send('Runtime.enable');
