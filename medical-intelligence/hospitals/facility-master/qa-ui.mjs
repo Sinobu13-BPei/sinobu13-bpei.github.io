@@ -14,6 +14,15 @@ const script=html.match(/<script>([\s\S]*?)<\/script>/)?.[1];
 assert.ok(script,"inline controller is present");
 new vm.Script(script,{filename:"facility-master/index.html"});
 new vm.Script(readFileSync(join(dir,"identity-ui.js"),"utf8"),{filename:"facility-master/identity-ui.js"});
+new vm.Script(readFileSync(join(dir,"official-website-links.js"),"utf8"),{filename:"facility-master/official-website-links.js"});
+assert.ok(html.includes('src="./official-website-links.js"'),"Missing hospital website link overlay JS");
+assert.ok(html.includes('href="./official-websites.css"'),"Missing website link styles");
+assert.ok(html.includes("data/official-websites-navi-20260601.csv"),"Missing website source CSV download");
+const websiteAuditFile=join(dir,"data/official-websites-audit-20260601.json");
+const websiteCSVFile=join(dir,"data/official-websites-navi-20260601.csv");
+assert.ok(existsSync(websiteAuditFile)&&existsSync(websiteCSVFile),"Missing source-pinned official website overlay");
+const websiteAudit=JSON.parse(readFileSync(websiteAuditFile,"utf8"));
+assert.ok(websiteAudit.website_rows_published>1000&&websiteAudit.website_rows_published<=3453,"Website counts out of range");
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 assert.equal(new Set(ids).size,ids.length,"duplicate HTML ids");
 for(const id of ["q","pref","clear","records","previous","next","n","page","k-all","k-prefs"])assert.ok(ids.includes(id),"missing "+id);
@@ -80,6 +89,17 @@ if(process.argv.includes("--browser")){
     }
     assert.equal(matchState.confirmed,"3,453","Official match status failed "+JSON.stringify(matchState));
     assert.equal(matchState.review,"3,435");assert.equal(matchState.unmatched,"1,131");
+    let websiteState;
+    for(let i=0;i<45;i++){
+      websiteState=await evalJS('(()=>({status:window.__officialWebsiteOverlay||null,linkedRows:document.querySelectorAll("#records .official-site-name-link,#im-rows .official-site-name-link").length}))()');
+      if(websiteState.status?.ready)break;
+      await sleep(200);
+    }
+    assert.equal(websiteState.status?.ready,true,"Navi website overlay did not initialize "+JSON.stringify(websiteState));
+    assert.equal(websiteState.status.count,websiteAudit.website_rows_published,"Navi website overlay count mismatch");
+    assert.ok(websiteState.linkedRows>0,"No actual hospital name links appeared in first pages");
+    const example=await evalJS('(()=>{const a=document.querySelector("#records a[data-official-site],#im-rows a[data-official-site]");return a?{text:a.textContent,href:a.href,target:a.target,rel:a.rel}:null})()');
+    assert.ok(example?.text&&/^https?:\/\//i.test(example.href)&&example.target==="_blank"&&example.rel.includes("noopener"),"Safe hospital name hyperlink missing");
     const reviewView=await evalJS('(()=>{const f=document.querySelector("#im-status");f.value="要確認";f.dispatchEvent(new Event("change",{bubbles:true}));return {count:document.querySelector("#im-count").textContent,rows:document.querySelectorAll("#im-rows tr").length}})()');
     assert.ok(reviewView.count.includes("3,435")&&reviewView.rows===35,"Review filter failed "+JSON.stringify(reviewView));
     await evalJS('document.querySelector("#im-clear").click()');
