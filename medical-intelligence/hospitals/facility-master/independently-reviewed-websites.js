@@ -9,7 +9,7 @@ const COLUMNS=["facility_uid","source_row_no","prefecture","facility_name_legacy
 "identity_decision","review_notes"];
 const normalize=s=>String(s||"").trim();
 const key=(p,n,a)=>[normalize(p),normalize(n),normalize(a)].join("\u001f");
-function csv(text,expectedCount){
+function csv(text,expectedCount,expectedDate){
  text=text.replace(/^\uFEFF/,"");let rows=[],line=[],token="",quoted=false;
  for(let i=0;i<text.length;i++){
   const c=text[i];
@@ -37,7 +37,7 @@ function csv(text,expectedCount){
   const url=secureUrl(row.verified_website_url);
   if(!/^LEG-[0-9a-f]{16}$/.test(row.facility_uid)||!url||
       !Number.isInteger(i)||i<1||i>8019||
-      row.reviewed_on!=="2026-11-22"||
+      row.reviewed_on!==expectedDate||
       !["verified_same_name","verified_renamed"].includes(row.review_outcome)||
       !secureUrl(row.primary_evidence_url)||!secureUrl(row.secondary_evidence_url)||
       !normalize(row.current_hospital_name)||
@@ -157,8 +157,8 @@ Promise.all([DATA,DATA14].map(url=>fetch(url,{cache:"no-store"}))).then(response
  if(responses.some(response=>!response.ok))throw Error("Manual-reviewed site CSV load failed");
  return Promise.all(responses.map(response=>response.text()));
 }).then(texts=>{
- const historical=csv(texts[0],13);
- const current=csv(texts[1],4);
+ const historical=csv(texts[0],13,"2026-11-22");
+ const current=csv(texts[1],4,"2026-11-23");
  const rows=new Map([...historical,...current]);
  if(rows.size!==17)throw Error("Reviewed website batches contain a UID collision");
  const urls=[...rows.values()].map(row=>row.url);
