@@ -26,6 +26,9 @@ PAGES = (
 ASSETS = (
     REL + "identity-ui.js",
     REL + "official-website-links.js",
+    REL + "independently-reviewed-websites.js",
+    REL + "data/independently-reviewed-websites-20261122.csv",
+    REL + "data/independently-reviewed-websites-audit-20261122.json",
     REL + "official-websites.css",
     "medical-intelligence/hospitals/assets/legacy-official-websites-rev12.js",
     "medical-intelligence/hospitals/assets/legacy-official-websites-rev12.css",
