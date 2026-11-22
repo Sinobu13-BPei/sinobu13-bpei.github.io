@@ -1,0 +1,365 @@
+{
+  "stage": "1-identity-match",
+  "legacy_hospitals": 8019,
+  "official_navi_hospitals": 7715,
+  "match_counts": {
+    "confirmed": 3453,
+    "review": 3435,
+    "unmatched": 1131
+  },
+  "confirmed_rate_pct": 43.06,
+  "official_source_url": "https://www.mhlw.go.jp/content/11121000/01-1_hospital_facility_info_20260601.csv.zip",
+  "official_listing_url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/newpage_43373.html",
+  "official_as_of": "2026-06-01",
+  "official_zip_sha256": "b416472ec52a151455e1c91438e0dec5b471e19eafe70e3e2ee1bb22544efe87",
+  "executed_at_utc": "2026-11-22T02:46:43Z",
+  "matching_rule": "Exact unique normalized prefecture, hospital formal name and full address. No fuzzy match is auto-confirmed.",
+  "identity_caveat": "Navi ID is NOT the official insurance medical institution code or corporate number.",
+  "official_columns_verified": [
+    "ID",
+    "正式名称",
+    "機関区分",
+    "都道府県コード",
+    "市区町村コード",
+    "所在地",
+    "所在地座標（緯度）",
+    "所在地座標（経度）",
+    "合計病床数"
+  ],
+  "unavailable_in_official_facility_csv": [
+    "開設者",
+    "法人番号",
+    "保険医療機関コード"
+  ],
+  "by_prefecture": [
+    {
+      "prefecture": "三重県",
+      "legacy_count": 92,
+      "confirmed": 45,
+      "review": 38,
+      "unmatched": 9
+    },
+    {
+      "prefecture": "京都府",
+      "legacy_count": 160,
+      "confirmed": 85,
+      "review": 37,
+      "unmatched": 38
+    },
+    {
+      "prefecture": "佐賀県",
+      "legacy_count": 95,
+      "confirmed": 30,
+      "review": 43,
+      "unmatched": 22
+    },
+    {
+      "prefecture": "兵庫県",
+      "legacy_count": 340,
+      "confirmed": 173,
+      "review": 142,
+      "unmatched": 25
+    },
+    {
+      "prefecture": "北海道",
+      "legacy_count": 517,
+      "confirmed": 120,
+      "review": 281,
+      "unmatched": 116
+    },
+    {
+      "prefecture": "千葉県",
+      "legacy_count": 288,
+      "confirmed": 186,
+      "review": 77,
+      "unmatched": 25
+    },
+    {
+      "prefecture": "和歌山県",
+      "legacy_count": 81,
+      "confirmed": 17,
+      "review": 48,
+      "unmatched": 16
+    },
+    {
+      "prefecture": "埼玉県",
+      "legacy_count": 339,
+      "confirmed": 125,
+      "review": 163,
+      "unmatched": 51
+    },
+    {
+      "prefecture": "大分県",
+      "legacy_count": 149,
+      "confirmed": 27,
+      "review": 79,
+      "unmatched": 43
+    },
+    {
+      "prefecture": "大阪府",
+      "legacy_count": 499,
+      "confirmed": 345,
+      "review": 122,
+      "unmatched": 32
+    },
+    {
+      "prefecture": "奈良県",
+      "legacy_count": 74,
+      "confirmed": 37,
+      "review": 26,
+      "unmatched": 11
+    },
+    {
+      "prefecture": "宮城県",
+      "legacy_count": 134,
+      "confirmed": 59,
+      "review": 63,
+      "unmatched": 12
+    },
+    {
+      "prefecture": "宮崎県",
+      "legacy_count": 129,
+      "confirmed": 45,
+      "review": 63,
+      "unmatched": 21
+    },
+    {
+      "prefecture": "富山県",
+      "legacy_count": 102,
+      "confirmed": 32,
+      "review": 62,
+      "unmatched": 8
+    },
+    {
+      "prefecture": "山口県",
+      "legacy_count": 138,
+      "confirmed": 76,
+      "review": 52,
+      "unmatched": 10
+    },
+    {
+      "prefecture": "山形県",
+      "legacy_count": 66,
+      "confirmed": 17,
+      "review": 40,
+      "unmatched": 9
+    },
+    {
+      "prefecture": "山梨県",
+      "legacy_count": 60,
+      "confirmed": 40,
+      "review": 17,
+      "unmatched": 3
+    },
+    {
+      "prefecture": "岐阜県",
+      "legacy_count": 94,
+      "confirmed": 40,
+      "review": 42,
+      "unmatched": 12
+    },
+    {
+      "prefecture": "岡山県",
+      "legacy_count": 157,
+      "confirmed": 92,
+      "review": 55,
+      "unmatched": 10
+    },
+    {
+      "prefecture": "岩手県",
+      "legacy_count": 89,
+      "confirmed": 33,
+      "review": 45,
+      "unmatched": 11
+    },
+    {
+      "prefecture": "島根県",
+      "legacy_count": 46,
+      "confirmed": 21,
+      "review": 20,
+      "unmatched": 5
+    },
+    {
+      "prefecture": "広島県",
+      "legacy_count": 228,
+      "confirmed": 105,
+      "review": 86,
+      "unmatched": 37
+    },
+    {
+      "prefecture": "徳島県",
+      "legacy_count": 103,
+      "confirmed": 5,
+      "review": 77,
+      "unmatched": 21
+    },
+    {
+      "prefecture": "愛媛県",
+      "legacy_count": 132,
+      "confirmed": 50,
+      "review": 71,
+      "unmatched": 11
+    },
+    {
+      "prefecture": "愛知県",
+      "legacy_count": 305,
+      "confirmed": 118,
+      "review": 138,
+      "unmatched": 49
+    },
+    {
+      "prefecture": "新潟県",
+      "legacy_count": 116,
+      "confirmed": 36,
+      "review": 65,
+      "unmatched": 15
+    },
+    {
+      "prefecture": "東京都",
+      "legacy_count": 627,
+      "confirmed": 485,
+      "review": 113,
+      "unmatched": 29
+    },
+    {
+      "prefecture": "栃木県",
+      "legacy_count": 106,
+      "confirmed": 17,
+      "review": 41,
+      "unmatched": 48
+    },
+    {
+      "prefecture": "沖縄県",
+      "legacy_count": 90,
+      "confirmed": 19,
+      "review": 33,
+      "unmatched": 38
+    },
+    {
+      "prefecture": "滋賀県",
+      "legacy_count": 57,
+      "confirmed": 37,
+      "review": 20,
+      "unmatched": 0
+    },
+    {
+      "prefecture": "熊本県",
+      "legacy_count": 199,
+      "confirmed": 23,
+      "review": 137,
+      "unmatched": 39
+    },
+    {
+      "prefecture": "石川県",
+      "legacy_count": 89,
+      "confirmed": 50,
+      "review": 22,
+      "unmatched": 17
+    },
+    {
+      "prefecture": "神奈川県",
+      "legacy_count": 330,
+      "confirmed": 135,
+      "review": 156,
+      "unmatched": 39
+    },
+    {
+      "prefecture": "福井県",
+      "legacy_count": 67,
+      "confirmed": 22,
+      "review": 39,
+      "unmatched": 6
+    },
+    {
+      "prefecture": "福岡県",
+      "legacy_count": 446,
+      "confirmed": 170,
+      "review": 205,
+      "unmatched": 71
+    },
+    {
+      "prefecture": "福島県",
+      "legacy_count": 122,
+      "confirmed": 46,
+      "review": 54,
+      "unmatched": 22
+    },
+    {
+      "prefecture": "秋田県",
+      "legacy_count": 64,
+      "confirmed": 24,
+      "review": 31,
+      "unmatched": 9
+    },
+    {
+      "prefecture": "群馬県",
+      "legacy_count": 126,
+      "confirmed": 56,
+      "review": 55,
+      "unmatched": 15
+    },
+    {
+      "prefecture": "茨城県",
+      "legacy_count": 168,
+      "confirmed": 84,
+      "review": 72,
+      "unmatched": 12
+    },
+    {
+      "prefecture": "長崎県",
+      "legacy_count": 143,
+      "confirmed": 60,
+      "review": 72,
+      "unmatched": 11
+    },
+    {
+      "prefecture": "長野県",
+      "legacy_count": 120,
+      "confirmed": 41,
+      "review": 61,
+      "unmatched": 18
+    },
+    {
+      "prefecture": "青森県",
+      "legacy_count": 87,
+      "confirmed": 18,
+      "review": 45,
+      "unmatched": 24
+    },
+    {
+      "prefecture": "静岡県",
+      "legacy_count": 168,
+      "confirmed": 75,
+      "review": 79,
+      "unmatched": 14
+    },
+    {
+      "prefecture": "香川県",
+      "legacy_count": 86,
+      "confirmed": 53,
+      "review": 31,
+      "unmatched": 2
+    },
+    {
+      "prefecture": "高知県",
+      "legacy_count": 118,
+      "confirmed": 15,
+      "review": 81,
+      "unmatched": 22
+    },
+    {
+      "prefecture": "鳥取県",
+      "legacy_count": 43,
+      "confirmed": 20,
+      "review": 18,
+      "unmatched": 5
+    },
+    {
+      "prefecture": "鹿児島県",
+      "legacy_count": 230,
+      "confirmed": 44,
+      "review": 118,
+      "unmatched": 68
+    }
+  ]
+}
