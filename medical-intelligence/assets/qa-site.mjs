@@ -53,6 +53,17 @@ for(const file of files){
   const noHref=links.filter(m=>!/\bhref\s*=/.test(m[1]));
   if(noHref.length)issue(errors,file,'Anchor without href: '+noHref.length);
   const styles=[...head.matchAll(/href="\.\/(jm-legacy-[^"]+\.css)"/g)].map(m=>m[1]);
+  /* Rev.11: required externally migrated CSS files must exist and be linked. */
+  const rev11Css=file==='medical-intelligence/index.html'
+    ? 'medical-intelligence/assets/hub-rev11-extracted.css'
+    : ['clinic-medical-device-market/index.html','ct-market-atlas/index.html',
+       'mri_market_atlas_2025.html','medical-congress-2027/index.html',
+       'meeting-compliance/index.html','research-atlas/index.html'].includes(file)
+       ? 'medical-intelligence/assets/editorial-author-top.css' : null;
+  if(rev11Css){
+    if(!head.includes(rev11Css.split('/').at(-1)))issue(errors,file,'Rev.11 CSS link missing');
+    if(!fs.existsSync(path.join(root,rev11Css)))issue(errors,file,'Rev.11 CSS asset missing: '+rev11Css);
+  }
   for(const asset of styles){
     if(!fs.existsSync(path.resolve(path.dirname(full),asset)))issue(errors,file,'Legacy CSS not found: '+asset);
   }

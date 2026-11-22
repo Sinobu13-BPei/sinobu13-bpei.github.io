@@ -1,0 +1,224 @@
+/* Rev.11: styles moved in original order, preserving their content. */
+/* Original block: unnamed-0 */
+.map-database-links .db-funding-btn{grid-column:1/-1;display:flex;align-items:center;justify-content:center;background:#187451!important;color:#fff!important;border:1px solid #0c6947!important;border-radius:12px;min-height:44px;padding:12px 16px;text-decoration:none;font-weight:800;box-sizing:border-box}.map-database-links .db-funding-btn:hover,.map-database-links .db-funding-btn:focus-visible{background:#0c593d!important;outline-offset:3px}@media(max-width:640px){.map-database-links .db-funding-btn{width:100%;font-size:1rem}}
+/* Original block: unnamed-1 */
+.mkt-main-row .ophthalmology-mkt-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border-radius:12px;background:#7a3fb0;color:#fff!important;font-weight:800;text-decoration:none;border:1px solid #673495;box-sizing:border-box}.mkt-main-row .ophthalmology-mkt-link:hover,.mkt-main-row .ophthalmology-mkt-link:focus-visible{background:#622c96;outline-offset:3px}@media(max-width:640px){.mkt-main-row .ophthalmology-mkt-link{width:100%}}
+/* Original block: rev6-three-column-nav-style */
+
+/* Three columns on desktop, two on phones. Preserve existing link sequence. */
+.hero .hero-cta-layout{display:block!important;min-width:0!important;width:100%!important;max-width:100%!important;overflow:visible!important}
+.hero .mkt-action-links{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px 10px!important;width:100%!important;max-width:100%!important;min-width:0!important;padding:0!important;margin:12px 0 8px!important;overflow:visible!important;align-items:stretch!important}
+.hero .mkt-action-links>a{display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;max-width:100%!important;width:100%!important;height:auto!important;min-height:40px!important;box-sizing:border-box!important;margin:0!important;padding:8px 12px!important;border-radius:9px!important;font-size:14px!important;font-weight:700!important;line-height:1.35!important;letter-spacing:normal!important;white-space:normal!important;overflow-wrap:anywhere!important;word-break:normal!important;text-align:center!important;overflow:visible!important;flex:none!important}
+.hero .mkt-action-links>a.ophthalmology-mkt-link{background:#7a3fb0!important;color:#fff!important;border:1px solid #673495!important}
+@media(max-width:700px){.hero .mkt-action-links{grid-template-columns:repeat(2,minmax(0,1fr))!important}}@media(max-width:600px){.hero .mkt-action-links{gap:7px!important}.hero .mkt-action-links>a{min-height:42px!important;padding:7px 6px!important;font-size:12px!important}}
+@media(max-width:320px){.hero .mkt-action-links{grid-template-columns:1fr!important}}
+
+/* Original block: tender-crosslink-layout */
+.map-database-links .db-funding-btn{grid-column:auto!important}.map-database-links .db-tender-btn{display:flex;align-items:center;justify-content:center;min-width:0;background:#187451!important;color:#fff!important;border:1px solid #0c6947!important;border-radius:12px;min-height:44px;padding:12px 8px;text-decoration:none;font-weight:800;box-sizing:border-box;text-align:center}.map-database-links .db-tender-btn:hover,.map-database-links .db-tender-btn:focus-visible{background:#0c593d!important;outline-offset:3px}@media(max-width:640px){.map-database-links .db-funding-btn,.map-database-links .db-tender-btn{width:100%;font-size:clamp(.76rem,3.3vw,1rem);padding-inline:5px}}
+/* Original block: radiology-hub-styles */
+.map-database-links .db-radiology-btn{display:flex;align-items:center;justify-content:center;min-height:44px;background:#165a7d;color:white;border-radius:12px;padding:12px 8px;text-align:center;font-weight:800;text-decoration:none;box-sizing:border-box}.region-actions .radiology-pref-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:9px;padding:8px 12px;background:#185b7a;color:#fff;font-weight:750;text-decoration:none;border:1px solid #12506b}.region-actions .radiology-pref-link:hover,.region-actions .radiology-pref-link:focus-visible{background:#0b415c}@media(max-width:640px){.map-database-links .db-radiology-btn{font-size:.83rem;padding:9px 4px}}
+/* Original block: healthcare-it-hub-style */
+.mkt-action-links .healthcare-it-link,.footer-link-strip .healthcare-it-link,.footer-link-strip .healthcare-it-sub{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 13px;border:1px solid #4d99ac;border-radius:12px;background:#e4f5f7;color:#135069;text-decoration:none;font-weight:750;box-sizing:border-box}.footer-link-strip .healthcare-it-sub{background:#f0f8fa;color:#254960;border-color:#aacbd2}@media(max-width:640px){.mkt-action-links .healthcare-it-link,.footer-link-strip .healthcare-it-link,.footer-link-strip .healthcare-it-sub{font-size:13px;text-align:center;min-width:0}}
+/* Original block: medical-it-card-link-css */
+.medical-it-card-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;border-radius:11px;background:#087b84;color:#fff!important;border:1px solid #08636d;text-decoration:none;font-weight:800;line-height:1.5;max-width:100%;box-sizing:border-box}.medical-it-card-link:hover,.medical-it-card-link:focus-visible{background:#075f69;outline-offset:3px}@media(max-width:640px){.medical-it-card-link{width:100%;text-align:center}}
+/* Original block: mkt-nav-order-rev20261110 */
+.hero .mkt-utility-links{display:flex;justify-content:flex-end;align-items:center;margin:4px 0 8px}.hero .mkt-utility-links>a{display:inline-flex;min-height:40px;padding:8px 14px;border:1px solid #bed6de;border-radius:9px;text-decoration:none;font-weight:700;color:#fff;align-items:center;justify-content:center}.hero .mkt-action-links>a{min-height:44px!important}@media(max-width:700px){.hero .mkt-utility-links{justify-content:center}.hero .mkt-utility-links>a{width:100%}}
+/* Original block: mkt-final-nav-grid-20261110 */
+body.jm-site .hero .hero-cta-layout nav.mkt-action-links,.hero .hero-cta-layout nav.mkt-action-links{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-auto-flow:row!important;grid-auto-rows:minmax(44px,auto)!important;gap:8px 10px!important;direction:ltr!important}body.jm-site .hero .hero-cta-layout nav.mkt-action-links>a{order:0!important;grid-column:auto!important;grid-row:auto!important}@media(max-width:700px){body.jm-site .hero .hero-cta-layout nav.mkt-action-links,.hero .hero-cta-layout nav.mkt-action-links{grid-template-columns:repeat(2,minmax(0,1fr))!important}}@media(max-width:320px){body.jm-site .hero .hero-cta-layout nav.mkt-action-links,.hero .hero-cta-layout nav.mkt-action-links{grid-template-columns:1fr!important}}
+/* Original block: mkt-strategy-handbook-link */
+.hero .mkt-action-links>a.mkt-strategy-handbook{background:#14667b!important;color:#fff!important;border:1px solid #6bc8d1!important;font-weight:800!important}.hero .mkt-action-links>a.mkt-strategy-handbook:hover,.hero .mkt-action-links>a.mkt-strategy-handbook:focus-visible{background:#0d5365!important;outline-offset:3px}
+/* Original block: mkt-strategy-handbook-footer-link */
+.footer-link-strip>a.mkt-strategy-handbook{display:flex;align-items:center;justify-content:center;min-height:44px;min-width:0;padding:9px 12px;background:#0c7b86!important;color:#fff!important;border:1px solid #0b7180!important;border-radius:9px;text-decoration:none;font-weight:800;text-align:center;box-sizing:border-box}.footer-link-strip>a.mkt-strategy-handbook:hover,.footer-link-strip>a.mkt-strategy-handbook:focus-visible{background:#08606d!important;outline-offset:3px}
+/* Original block: hospital-groups-compact-v1 */
+
+/* Compact but complete, 7-column hospital group directory. All values/links remain intact. */
+#hospital-groups .hg-note{
+  padding:10px 13px!important;margin:9px 0 11px!important;
+  font-size:12.5px!important;line-height:1.55!important;
+}
+#hospital-groups .hg-toolbar{
+  display:flex!important;align-items:center!important;gap:8px 12px!important;
+  margin:9px 0 11px!important;
+}
+#hospital-groups .hg-toolbar label{font-size:13px!important;white-space:nowrap}
+#hospital-groups #hospitalGroupSearch{
+  min-width:min(100%,270px)!important;width:min(100%,360px)!important;
+  height:40px!important;padding:7px 11px!important;font-size:13px!important;
+}
+#hospital-groups .hg-scroll{border-radius:9px!important;max-width:100%!important;overflow-x:auto!important}
+#hospital-groups #hospitalGroupTable{
+  table-layout:fixed!important;min-width:1040px!important;width:100%!important;
+  border-collapse:collapse!important;font-size:12.5px!important;
+}
+body.jm-site #hospital-groups #hospitalGroupTable th,
+body.jm-site #hospital-groups #hospitalGroupTable td,
+#hospital-groups #hospitalGroupTable th,
+#hospital-groups #hospitalGroupTable td{
+  padding:7px 9px!important;font-size:12.5px!important;
+  line-height:1.4!important;vertical-align:middle!important;
+  overflow-wrap:anywhere!important;word-break:normal!important;
+}
+#hospital-groups #hospitalGroupTable th{font-size:12px!important;font-weight:800!important;white-space:nowrap!important}
+#hospital-groups #hospitalGroupTable td.hg-name{min-width:0!important;font-weight:800!important}
+#hospital-groups #hospitalGroupTable th:nth-child(2),
+#hospital-groups #hospitalGroupTable th:nth-child(3),
+#hospital-groups #hospitalGroupTable td:nth-child(2),
+#hospital-groups #hospitalGroupTable td:nth-child(3){
+  font-variant-numeric:tabular-nums;text-align:right!important;
+}
+#hospital-groups #hospitalGroupTable td:nth-child(2),
+#hospital-groups #hospitalGroupTable td:nth-child(3){white-space:normal!important}
+#hospital-groups #hospitalGroupTable td a{
+  display:inline!important;font-size:12px!important;line-height:1.3!important;
+  text-underline-offset:2px;
+}
+body.jm-site #hospital-groups #hospitalGroupTable td small,
+#hospital-groups #hospitalGroupTable td small{
+  display:inline!important;margin:0 0 0 6px!important;padding:0!important;
+  font-size:11px!important;line-height:1.35!important;
+  color:#526577!important;-webkit-text-fill-color:#526577!important;
+}
+#hospital-groups #hospitalGroupTable tbody tr:hover td{background:#eaf4f6!important}
+#hospital-groups #hospitalGroupTable tbody tr:focus-within td{background:#e7f3f6!important}
+#hospital-groups .hg-network{padding:10px 12px!important;line-height:1.55!important;font-size:12.5px!important}
+#hospital-groups .hg-foot{margin:9px 0!important;line-height:1.55!important;font-size:12px!important}
+#hospital-groups h3{margin:14px 0 8px!important}
+#hospital-groups .hg-scroll:focus-visible{
+  outline:3px solid #16869d!important;outline-offset:3px;
+}
+@media(max-width:600px){
+  #hospital-groups .hg-toolbar{align-items:stretch!important;gap:5px!important}
+  #hospital-groups #hospitalGroupSearch{width:100%!important;min-width:0!important;height:44px!important}
+  #hospital-groups .hg-note{font-size:12px!important;padding:9px 11px!important}
+  #hospital-groups #hospitalGroupTable{min-width:1040px!important}
+}
+@media print{
+  #hospital-groups .hg-scroll{overflow:visible!important}
+  #hospital-groups #hospitalGroupTable{min-width:0!important;width:100%!important}
+  #hospital-groups #hospitalGroupTable th,#hospital-groups #hospitalGroupTable td{font-size:9px!important;padding:3px 4px!important}
+}
+
+/* Original block: strategy-dashboard-handbook-cta-20261110 */
+
+#strategy-dashboard .strategy-dashboard-header{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px 22px;margin:0 0 12px}
+#strategy-dashboard .strategy-dashboard-heading{min-width:0}
+#strategy-dashboard .strategy-dashboard-heading .sub{margin-bottom:0}
+#strategy-dashboard a.strategy-dashboard-handbook{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;max-width:100%;padding:11px 18px;border-radius:10px;border:1px solid #087784;background:#0b7985!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font-size:14px;font-weight:800;line-height:1.45;text-align:center;white-space:nowrap;text-decoration:none;box-shadow:0 3px 10px rgba(5,55,69,.12)}
+#strategy-dashboard a.strategy-dashboard-handbook:hover{background:#086472!important;border-color:#085766}
+#strategy-dashboard a.strategy-dashboard-handbook:focus-visible{outline:3px solid #cf9b2d!important;outline-offset:3px}
+@media(max-width:900px){#strategy-dashboard .strategy-dashboard-header{grid-template-columns:1fr;gap:8px}#strategy-dashboard a.strategy-dashboard-handbook{justify-self:start}}
+@media(max-width:520px){#strategy-dashboard a.strategy-dashboard-handbook{width:100%;white-space:normal}}
+@media print{#strategy-dashboard a.strategy-dashboard-handbook{display:none}}
+
+/* Original block: hub-four-tone-compact-20261112 */
+
+/* 4 clearly distinguished, restrained categories; order and destinations untouched. */
+body.jm-site .hero .hero-cta-layout nav.mkt-action-links,
+.hero .hero-cta-layout nav.mkt-action-links{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-auto-flow:row!important;
+  grid-auto-rows:minmax(36px,auto)!important;
+  column-gap:10px!important;
+  row-gap:5px!important;
+  gap:5px 10px!important;
+  margin:8px 0 7px!important;
+  padding:0!important;
+}
+body.jm-site .hero .hero-cta-layout nav.mkt-action-links>a,
+.hero .hero-cta-layout nav.mkt-action-links>a{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  box-sizing:border-box!important;width:100%!important;min-width:0!important;
+  min-height:36px!important;max-height:none!important;height:auto!important;
+  padding:6px 9px!important;border-radius:8px!important;
+  font-size:13px!important;font-weight:750!important;line-height:1.25!important;
+  text-align:center!important;text-decoration:none!important;
+  white-space:normal!important;overflow-wrap:anywhere!important;
+  box-shadow:none!important;transition:background-color .15s ease,border-color .15s ease!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+  background-image:none!important;
+}
+body.jm-site .hero .hero-cta-layout nav.mkt-action-links>a[data-hub-group="policy"],
+.hero .hero-cta-layout nav.mkt-action-links>a[data-hub-group="policy"]{
+  background:#205675!important;background-color:#205675!important;border:1px solid #205675!important;
+}
+body.jm-site .hero .hero-cta-layout nav.mkt-action-links>a[data-hub-group="market"],
+.hero .hero-cta-layout nav.mkt-action-links>a[data-hub-group="market"]{
+  background:#0B7376!important;background-color:#0B7376!important;border:1px solid #0B7376!important;
+}
+body.jm-site .hero .hero-cta-layout nav.mkt-action-links>a[data-hub-group="research"],
+.hero .hero-cta-layout nav.mkt-action-links>a[data-hub-group="research"]{
+  background:#4D5C89!important;background-color:#4D5C89!important;border:1px solid #4D5C89!important;
+}
+body.jm-site .hero .hero-cta-layout nav.mkt-action-links>a[data-hub-group="practice"],
+.hero .hero-cta-layout nav.mkt-action-links>a[data-hub-group="practice"]{
+  background:#78556D!important;background-color:#78556D!important;border:1px solid #78556D!important;
+}
+body.jm-site .hero .hero-cta-layout nav.mkt-action-links>a[data-hub-group]:hover,
+.hero .hero-cta-layout nav.mkt-action-links>a[data-hub-group]:hover{
+  filter:brightness(.91)!important;
+}
+body.jm-site .hero .hero-cta-layout nav.mkt-action-links>a[data-hub-group]:focus-visible,
+.hero .hero-cta-layout nav.mkt-action-links>a[data-hub-group]:focus-visible{
+  outline:3px solid #F0B74E!important;outline-offset:2px!important;filter:brightness(.92)!important;
+}
+@media(max-width:700px){
+  body.jm-site .hero .hero-cta-layout nav.mkt-action-links,
+  .hero .hero-cta-layout nav.mkt-action-links{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important;grid-auto-rows:minmax(42px,auto)!important}
+  body.jm-site .hero .hero-cta-layout nav.mkt-action-links>a,
+  .hero .hero-cta-layout nav.mkt-action-links>a{min-height:42px!important;padding:7px 6px!important;font-size:12px!important}
+}
+@media(max-width:360px){
+  body.jm-site .hero .hero-cta-layout nav.mkt-action-links,
+  .hero .hero-cta-layout nav.mkt-action-links{grid-template-columns:minmax(0,1fr)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  body.jm-site .hero .hero-cta-layout nav.mkt-action-links>a{transition:none!important}
+}
+
+/* Original block: veterinary-mkt-hub-20261112 */
+
+.hero .mkt-action-links>a.veterinary-mkt-link{background:#246d7e!important;color:#fff!important;border:1px solid #246d7e!important;font-weight:800!important}
+.hero .mkt-action-links>a.veterinary-mkt-link:hover{background:#165669!important}
+.footer-link-strip>a.veterinary-mkt-link{display:inline-flex;align-items:center;justify-content:center;min-width:0;min-height:44px;padding:9px 12px;background:#246d7e!important;color:#fff!important;border:1px solid #246d7e!important;border-radius:9px;text-align:center;font-weight:800;text-decoration:none;box-sizing:border-box}
+@media(max-width:700px){.hero .mkt-action-links>a.veterinary-mkt-link{font-size:12px!important;overflow-wrap:anywhere}}
+
+/* Original block: medical-tradein-crosslinks */
+
+.mkt-action-links .medical-tradein-link{background:#5a7186!important;color:#fff!important;border:1px solid #4a647b!important;font-weight:800!important}
+.mkt-action-links .medical-tradein-link:hover,.mkt-action-links .medical-tradein-link:focus-visible{background:#3e596f!important;outline:2px solid #91b6c8;outline-offset:2px}
+#medical-tradein-bottom-link{max-width:1050px;margin:8px auto 26px;padding:0 14px}
+#medical-tradein-bottom-link a{display:flex;min-height:44px;align-items:center;justify-content:center;width:100%;border-radius:10px;border:1px solid #446c83;background:#526e83;color:#fff;text-decoration:none;font-weight:800;font-size:15px}
+#medical-tradein-bottom-link a:hover,#medical-tradein-bottom-link a:focus-visible{background:#365a72;outline-offset:3px}
+@media(min-width:720px){#medical-tradein-bottom-link a{max-width:460px;margin:0 auto}}
+
+/* Original block: hub-tradein-sdgs-style */
+
+#hub-sdgs-tradein{max-width:100%;margin:7px 0 11px;padding:9px 11px;background:#f5f9fb;color:#213d50;border:1px solid #d3e3eb;border-radius:10px;box-sizing:border-box}
+#hub-sdgs-tradein .hub-sdgs-caption{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:7px;margin:0 0 7px}
+#hub-sdgs-tradein .hub-sdgs-caption strong{font-size:13px;font-weight:850;line-height:1.4;color:#173e53}
+#hub-sdgs-tradein .hub-sdgs-caption>a{font-size:12px;color:#1b5d78;text-decoration:underline;font-weight:800}
+#hub-sdgs-tradein .hub-sdgs-tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+#hub-sdgs-tradein .hub-sdg-item{display:flex;align-items:center;gap:8px;min-width:0;min-height:57px;padding:7px 9px;border:1px solid #d8e5e9;background:white;border-radius:8px;text-decoration:none!important;color:#183a4e!important;box-sizing:border-box;transition:background .15s,border-color .15s}
+#hub-sdgs-tradein .hub-sdg-item:hover,#hub-sdgs-tradein .hub-sdg-item:focus-visible{background:#edf6f8;border-color:#8db3c2;outline-offset:2px}
+#hub-sdgs-tradein .hub-sdg-number{display:flex;align-items:center;justify-content:center;flex:none;width:43px;height:43px;background:var(--goal-color);border-radius:8px;color:#fff;font-size:25px;font-weight:900;line-height:1}
+#hub-sdgs-tradein .hub-sdg-copy{display:block;min-width:0}
+#hub-sdgs-tradein .hub-sdg-copy strong{display:block;font-size:11.5px;line-height:1.35;overflow-wrap:anywhere;word-break:normal;font-weight:800}
+#hub-sdgs-tradein .hub-sdg-copy small{display:block;font-size:10px;line-height:1.35;margin-top:2px;color:#557284}
+#hub-sdgs-tradein .hub-sdgs-disclaimer{font-size:10px!important;line-height:1.35!important;color:#5f7887!important;margin:7px 0 0!important}
+@media(max-width:980px){#hub-sdgs-tradein .hub-sdgs-tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){#hub-sdgs-tradein{padding:8px;margin:6px 0 9px}#hub-sdgs-tradein .hub-sdgs-tiles{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}#hub-sdgs-tradein .hub-sdg-item{display:flex;flex-direction:column;justify-content:flex-start;gap:4px;padding:5px 2px;min-height:79px;text-align:center}#hub-sdgs-tradein .hub-sdg-number{width:34px;height:34px;font-size:21px;border-radius:7px}#hub-sdgs-tradein .hub-sdg-copy strong{font-size:9px;line-height:1.25}#hub-sdgs-tradein .hub-sdg-copy small{display:none}#hub-sdgs-tradein .hub-sdgs-caption strong{font-size:12px}#hub-sdgs-tradein .hub-sdgs-caption>a{font-size:11px}}
+@media(max-width:340px){#hub-sdgs-tradein .hub-sdg-copy strong{font-size:8px}#hub-sdgs-tradein .hub-sdg-number{width:30px;height:30px}}
+
+/* Original block: hub-rental-crosslink-style */
+
+.hero .mkt-action-links>a.medical-rental-link{background:#166e90!important;background-color:#166e90!important;color:#fff!important;border:1px solid #126184!important;font-weight:800!important}
+.hero .mkt-action-links>a.medical-rental-link:hover,.hero .mkt-action-links>a.medical-rental-link:focus-visible{background:#105673!important;background-color:#105673!important}
+#medical-tradein-bottom-link{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#medical-tradein-bottom-link>a{max-width:none!important;margin:0!important;min-width:0;text-align:center;padding:9px 12px}
+#medical-tradein-bottom-link>a.medical-rental-bottom-link{background:#166e90!important;border-color:#126184!important}
+#medical-tradein-bottom-link>a.medical-rental-bottom-link:hover,#medical-tradein-bottom-link>a.medical-rental-bottom-link:focus-visible{background:#105673!important}
+@media(max-width:520px){#medical-tradein-bottom-link{gap:7px}#medical-tradein-bottom-link>a{font-size:12px!important;padding:9px 5px!important;line-height:1.4}}
+
+/* Original block: hub-us-economics-actions-style */
+.us-economics-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.us-economics-actions .modality-us{display:inline-flex;align-items:center;justify-content:center;flex:1 1 180px;min-height:43px;padding:9px 12px;background:#126f7c;color:#fff!important;border-radius:9px;font-size:12px;font-weight:800;line-height:1.45;text-decoration:none;text-align:center;white-space:normal;overflow-wrap:anywhere;box-sizing:border-box}.us-economics-actions .modality-us:last-child{background:#235879}.us-economics-actions .modality-us:hover,.us-economics-actions .modality-us:focus-visible{filter:brightness(1.12)}@media(max-width:440px){.us-economics-actions{gap:6px}.us-economics-actions .modality-us{flex-basis:100%}}
