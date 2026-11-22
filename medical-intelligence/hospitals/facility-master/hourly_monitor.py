@@ -37,6 +37,8 @@ ASSETS = (
     REL + "data/identity-confirmed-caution-20260601.csv",
     REL + "data/identity-unmatched-triage-20260601.csv",
     REL + "data/identity-crosswalk.csv",
+    REL + "data/official-websites-navi-20260601.csv",
+    REL + "data/official-websites-audit-20260601.json",
 )
 FILES = PAGES + ASSETS
 
