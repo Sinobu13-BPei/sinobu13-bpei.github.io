@@ -125,8 +125,10 @@ if(process.argv.includes("--browser")){
     await sleep(250);
   }
   assert.equal(legacyState.status?.state,"ready","Legacy website overlay failed: "+JSON.stringify(legacyState));
-  assert.equal(legacyState.rows,8019,"Legacy hospital DOM lost source rows");
-  assert.equal(legacyState.links,3098,"Exactly 3,098 original hospital names must have source-pinned links");
+  assert.ok(legacyState.rows>=1&&legacyState.rows<=100,"Legacy pagination no longer showing up to 100 rows");
+  assert.equal(legacyState.status.detail.totalSourceRows,8019,"Legacy source rows no longer preserved in overlay provenance");
+  assert.equal(legacyState.status.detail.confirmedSourceLinks,3098,"Published link baseline changed");
+  assert.ok(legacyState.links>0&&legacyState.links<=legacyState.rows,"Displayed first page must link only exact-confirmed hospitals");
   assert.equal(legacyState.status.detail.unlinked,4921,"Other 4,921 hospitals must remain unlinked");
   assert.ok(legacyState.legend,"Source and live-status disclaimer missing");
   const sample=await evalJS('(()=>{const a=document.querySelector("tr[data-text] td:nth-child(3) a[data-navi-web]");return a?{text:a.textContent,url:a.href,target:a.target,rel:a.rel}:null})()');
