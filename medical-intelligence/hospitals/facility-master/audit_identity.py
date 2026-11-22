@@ -65,7 +65,9 @@ def main():
     # The official frozen CSV contains variable-length numeric IDs (5–13 digits).
     # Never pad, truncate, cast to integer, or assume a uniform 13-digit layout.
     nonconforming=confirmed.loc[~confirmed.navi_facility_id_confirmed.str.fullmatch(r"\d{5,13}"),["legacy_prefecture","legacy_name","navi_facility_id_confirmed"]]
-    require(nonconforming.empty,"Confirmed Navi IDs must be numeric strings of 5–13 characters matching source")
+    print("AUDIT_UNEXPECTED_FORMAT",nonconforming.head(30).to_dict("records"))
+    print("AUDIT_UNEXPECTED_FORMAT_COUNT",len(nonconforming))
+    require(nonconforming.empty,"Confirmed Navi IDs contain non-digit characters or unexpected lengths")
     require(confirmed.navi_facility_id_confirmed.is_unique,"Confirmed Navi ID reused")
     require(confirmed.navi_facility_id_candidate.eq("").all(),"Confirmed rows must not also have candidate ID")
     require(confirmed.navi_name_candidate.ne("").all() and confirmed.navi_address_candidate.ne("").all(),"Confirmed source evidence missing")
