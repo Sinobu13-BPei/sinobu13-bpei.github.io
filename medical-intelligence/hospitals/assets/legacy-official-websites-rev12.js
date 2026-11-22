@@ -1,12 +1,14 @@
-/* Rev.12 safe overlay: no edits to original 8,019 hospital rows or filters.
-   Pinned identity (prefecture + hospital name + address) is the only link key. */
+/* Rev.12 source-safe overlay: retarget ONLY existing hospital-research name
+   anchors for the 3,098 uniquely matched MHLW Navi-listed homepages.
+   Other 4,921 hospitals keep their original search links and evidence badges.
+   No changes to source rows, hospital names, DPC, filters or page navigation. */
 (()=>{"use strict";
 const URL_CSV="/medical-intelligence/hospitals/facility-master/data/legacy-official-site-links-20260601.csv";
 const HEADER=["facility_uid","source_row_no","prefecture","facility_name","address",
               "website_url","navi_facility_id_confirmed","source_data_as_of"];
-const key=(p,n,a)=>[p.trim(),n.trim(),a.trim()].join("\u001f");
+const key=(p,n,a)=>[String(p).trim(),String(n).trim(),String(a).trim()].join("\u001f");
 const setStatus=(state,detail)=>{window.__legacyOfficialWebsites={state,detail};};
-setStatus("loading","公式Webリンク照合データを取得中");
+setStatus("loading","医療情報ネット掲載Webの照合データを取得中");
 
 function parseCSV(input){
  input=input.replace(/^\uFEFF/,"");
@@ -38,107 +40,98 @@ function safeUrl(value){
 function loadMap(text){
  const table=parseCSV(text),head=table.shift();
  if(!head||head.length!==HEADER.length||HEADER.some((h,i)=>head[i]!==h))
-  throw Error("公式Webの列定義が一致しません");
- if(table.length!==3098)throw Error("確定リンク件数が3,098件と一致しません");
- const map=new Map(),ids=new Set(),seq=new Set();
+  throw Error("医療情報ネット掲載Webの列定義が一致しません");
+ if(table.length!==3098)throw Error("掲載Webの確定対応件数が3,098件と一致しません");
+ const map=new Map(),uids=new Set(),sourceRows=new Set();
  for(const record of table){
-  if(record.length!==HEADER.length)throw Error("CSV列数が不正");
+  if(record.length!==HEADER.length)throw Error("掲載Web CSVの列数が不正");
   const row=Object.fromEntries(HEADER.map((h,i)=>[h,record[i]]));
   const k=key(row.prefecture,row.facility_name,row.address);
   const url=safeUrl(row.website_url);
-  const no=Number(row.source_row_no);
-  if(!url||row.source_data_as_of!=="2026-06-01"||!row.facility_uid.startsWith("LEG-")||
-     !row.navi_facility_id_confirmed||!Number.isInteger(no)||no<1||no>8019)
-   throw Error("公式WebのURL・出典・行番号が不正");
-  if(map.has(k)||ids.has(row.facility_uid)||seq.has(no))throw Error("公式Webに重複レコード");
-  ids.add(row.facility_uid);seq.add(no);
-  map.set(k,{url,row});
+  const index=Number(row.source_row_no);
+  if(!url||row.source_data_as_of!=="2026-06-01"||
+     !row.facility_uid.startsWith("LEG-")||!row.navi_facility_id_confirmed||
+     !Number.isInteger(index)||index<1||index>8019)
+   throw Error("掲載WebのURL・出典・行番号が不正");
+  if(map.has(k)||uids.has(row.facility_uid)||sourceRows.has(index))
+   throw Error("掲載Webに病院・UID・原票行番号の重複があります");
+  map.set(k,{url,row});uids.add(row.facility_uid);sourceRows.add(index);
  }
  return map;
 }
 function initialize(map){
- // The original page owns its 8,019 source rows but renders only 100 at once.
- // Do not assert that all 8,019 exist simultaneously in the live DOM.
- // Match each currently visible/paginated row by three original identifiers.
- let scheduled=false,seenTable=null;
- function render(){
+ const source=window.__hospitalResearch;
+ const table=document.getElementById("detailTable");
+ if(!Array.isArray(source)||source.length!==8019||!table||!table.tBodies[0])
+  throw Error("元の8,019病院データまたは一覧テーブルが読み込めません");
+ // The legacy controller retains all 8,019 original records as {pref, cells, row}.
+ // Its Rev6 research script decorates each paginated row with a.hi-hospital-name.
+ // Use the immutable source record, NEVER the decorated cell's textContent,
+ // which also contains "Map", evidence badges and link labels.
+ const sourceRows=new WeakMap(),seen=new Set();
+ for(const x of source){
+  if(!x||!x.row||!Array.isArray(x.cells)||x.cells.length<7)throw Error("元の病院行データ形式が変更されています");
+  const k=key(x.pref,x.cells[2],x.cells[3]),hit=map.get(k);
+  if(!hit)continue;
+  if(seen.has(k))throw Error("原票に同名・同住所のリンク対応候補が複数あります");
+  seen.add(k);
+  sourceRows.set(x.row,{...hit,originalName:x.cells[2]});
+ }
+ if(seen.size!==3098)throw Error("原票と確定URL3,098件の対応関係が崩れています");
+ const tbody=table.tBodies[0];
+ let pending=false;
+ function apply(){
   let displayed=0,linked=0;
-  const rows=[...document.querySelectorAll("tr[data-text]")];
-  for(const tr of rows){
-   if(tr.cells.length<7)continue;
+  for(const tr of tbody.rows){
    displayed++;
-   const p=tr.cells[0].textContent.trim(),n=tr.cells[2].textContent.trim(),
-         a=tr.cells[3].textContent.trim(),found=map.get(key(p,n,a));
-   if(!found)continue;
-   const cell=tr.cells[2];
-   const previous=cell.querySelector("a");
-   if(previous){
-     // Existing links from original application must never be overwritten.
-     if(previous.dataset.naviWeb==="2026-06-01"&&previous.href===found.url)linked++;
-     continue;
-   }
-   if(!n)continue;
-   const link=document.createElement("a");
-   link.href=found.url;link.textContent=n;
-   link.className="rev12-hospital-official-link";
-   link.dataset.naviWeb="2026-06-01";
-   link.target="_blank";link.rel="noopener noreferrer";
-   link.title="医療情報ネット2026年6月施設票に掲載の案内用ホームページ。現況と施設の帰属は未確認。";
-   cell.replaceChildren(link);
-   tr.dataset.officialSiteLinked="yes";
+   const hit=sourceRows.get(tr);
+   if(!hit)continue;
+   const anchor=tr.cells[2]?.querySelector("a.hi-hospital-name");
+   if(!anchor||anchor.textContent!==hit.originalName)continue;
+   // Do not replace the original node: preserve its functionality, badge,
+   // other controls, the Map link and the existing Rev6 event handlers.
+   anchor.href=hit.url;
+   anchor.target="_blank";
+   anchor.rel="noopener noreferrer";
+   anchor.title="医療情報ネット2026年6月施設票に掲載の案内用ホームページ。リンク先の現況・帰属は未確認。";
+   anchor.dataset.naviWeb="2026-06-01";
+   anchor.classList.add("rev12-hospital-official-link");
    linked++;
   }
-  if(!displayed){setStatus("loading","表示用の病院一覧を構築中");return;}
-  const table=rows[0]?.closest("table");
-  if(table&&!seenTable){
-   seenTable=table;
-   if(!document.querySelector(".rev12-hospital-site-legend")){
-    const note=document.createElement("div");
-    note.className="rev12-hospital-site-legend";
-    note.textContent="下線付きの病院名は医療情報ネット（2026年6月版）掲載の案内用ホームページへ移動します。リンク先の現況・帰属は未確認です。照合未確定の施設にはリンクを付けていません。";
-    note.setAttribute("role","note");
-    table.before(note);
-   }
+  if(displayed){
+   setStatus("ready",{totalSourceRows:8019,confirmedSourceLinks:3098,
+    unlinked:4921,renderedRows:displayed,linkedRenderedRows:linked});
   }
-  window.__legacyOfficialWebsites={state:"ready",detail:{
-    totalSourceRows:8019,confirmedSourceLinks:map.size,unlinked:8019-map.size,
-    renderedRows:displayed,linkedRenderedRows:linked
-  }};
  }
  function schedule(){
-  if(scheduled)return;
-  scheduled=true;
-  queueMicrotask(()=>{scheduled=false;render()});
+  if(pending)return;
+  pending=true;
+  queueMicrotask(()=>{pending=false;apply()});
  }
- // Original listing filters/sorts/paginates 100 rows at a time. Observe
- // only child-list changes; editing a link triggers one harmless second pass.
+ // The Rev6 research script inserts a.hi-hospital-name on each paginated
+ // source row and rebuilds the tbody on search/sort/pagination.
+ // Observe the tbody's children only, avoiding recursive mutations of
+ // all elements and avoiding animation frames throttled in headless Chrome.
  const observer=new MutationObserver(schedule);
- observer.observe(document.documentElement,{childList:true,subtree:true});
+ observer.observe(tbody,{childList:true,subtree:true});
+ const legend=document.createElement("div");
+ legend.className="rev12-hospital-site-legend";
+ legend.textContent="病院名：医療情報ネット（2026年6月版）掲載の案内用ホームページがある施設は直接リンク。その他は従来の「公式サイト検索（未確認）」を維持。掲載URLの現況・施設帰属は全件独立確認していません。";
+ legend.setAttribute("role","note");
+ table.before(legend);
+ apply();
  document.addEventListener("DOMContentLoaded",schedule);
  window.addEventListener("load",schedule);
- window.addEventListener("pageshow",schedule);
- // The legacy application also repaginates in response to controls.
- for(const eventName of ["click","change","input"]){
-  document.addEventListener(eventName,()=>setTimeout(schedule,0),true);
+ const events=["click","change","input"];
+ for(const type of events){
+  document.addEventListener(type,()=>setTimeout(schedule,0),true);
  }
- render();
- // An initial pagination pass can be created after page load. Use a bounded
- // initialization retry, not a perpetual timer that drains mobile battery.
- let tries=0;
- const retry=setInterval(()=>{
-   render();
-   tries++;
-   if((window.__legacyOfficialWebsites.state==="ready"&&
-       window.__legacyOfficialWebsites.detail.linkedRenderedRows>0)||tries>=35)
-     clearInterval(retry);
- },500);
 }
-
-fetch(URL_CSV,{cache:"no-store"}).then(res=>{
- if(!res.ok)throw Error("施設Web CSV HTTP "+res.status);
- return res.text();
+fetch(URL_CSV,{cache:"no-store"}).then(resp=>{
+ if(!resp.ok)throw Error("掲載Web CSV HTTP "+resp.status);
+ return resp.text();
 }).then(text=>initialize(loadMap(text))).catch(err=>{
  setStatus("error",String(err));
- console.error("[Rev12 legacy hospital website overlay]",err);
+ console.error("[Rev12 legacy hospital official website overlay]",err);
 });
 })();
