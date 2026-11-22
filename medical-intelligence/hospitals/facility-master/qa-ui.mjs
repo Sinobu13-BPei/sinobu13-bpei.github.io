@@ -139,7 +139,7 @@ if(process.argv.includes("--browser")){
     let renameFound;
     for(let i=0;i<55;i++){
       renameFound=await evalJS('(()=>({links:[...document.querySelectorAll("#records a[data-independent-reviewed]")].map(a=>({name:a.textContent,href:a.href,note:a.closest("td").querySelector(".site-rename-note")?.textContent||""}))}))()');
-      if(renameFound.links.length===1)break;
+      if(renameFound.links.length===1&&renameFound.links[0].name.includes("湘南記念病院"))break;
       await sleep(100);
     }
     assert.ok(renameFound.links.length===1&&renameFound.links[0].href.startsWith("https://www.shonan-rh.jp/")&&renameFound.links[0].note.includes("湘南リハビリテーション病院"),"Current hospital rename official website missing: "+JSON.stringify(renameFound));
@@ -224,7 +224,7 @@ if(process.argv.includes("--browser")){
   let legacyRenamed;
   for(let i=0;i<65;i++){
     legacyRenamed=await evalJS('(()=>({links:[...document.querySelectorAll("#detailTable a[data-independent-reviewed]")].map(a=>({name:a.textContent,href:a.href,badge:a.closest("td").querySelector(".hi-official-badge")?.textContent||""}))}))()');
-    if(legacyRenamed.links.length===1)break;
+    if(legacyRenamed.links.length===1&&legacyRenamed.links[0].name.includes("湘南記念病院"))break;
     await sleep(120);
   }
   assert.ok(legacyRenamed.links.length===1&&legacyRenamed.links[0].href.startsWith("https://www.shonan-rh.jp/")&&legacyRenamed.links[0].name.includes("湘南記念病院")&&legacyRenamed.links[0].badge.includes("湘南リハビリテーション病院"),"Renamed original hospital not properly disclosed: "+JSON.stringify(legacyRenamed));
