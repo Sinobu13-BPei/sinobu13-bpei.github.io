@@ -127,3 +127,10 @@ python medical-intelligence/hospitals/facility-master/build_master.py --check --
 5. 未一致1,131件は現存・移転・統廃合の調査、自治体の医療機関名簿と病院公式公表、厚労省旧版スナップショットとの比較に進む。
 
 出典：厚生労働省「医療情報ネットのオープンデータ」2026年6月1日病院施設票、PDL1.0。厚生労働省は医療機関からの報告内容が最新でない可能性と外部サイトの非保証を明記。公開用の「出典データに記載の案内用URL」は、独立に到達性・所有者を検証済みの「公式サイト」と同義ではない。
+
+## Rev.12 公開後の完全性検査（実公開GitHub Pages）
+
+- Rev.12 の元・国内病院リスト（8,019病院）への3,098件リンクおよび残4,921件の調査台帳をGitHub Pagesに公開した後、公開データを**HTTP取得して全バイト数とSHA-256で検査**する監査チェックポイント。
+- この確認用変更はREADMEのみ。病院原票、Navi照合データ、3,098件のURL対応表、4,921件のレビューCSV、Web用JavaScript/CSS、元HTMLは一切更新しない。
+- GitHub Actions `Medical Intelligence Hourly Health Check` のPRルートは、監視対象のHTML/JS/CSS/CSV/JSONに差分がない場合にだけ、本番公開URLとの全ファイル比較を実行する。未デプロイのコードを旧公開版と比較して誤検知しない。
+- 実公開チェックのGitHub Actionsログに `public_checked: true`、`failures: 0` があり、施設ブラウザーQAと全サイトQAが成功するまでは、公開データの完全性を確定扱いしない。
