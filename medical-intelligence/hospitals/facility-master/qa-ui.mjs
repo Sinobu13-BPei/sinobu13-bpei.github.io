@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* Rev.10 facility master QA: static JS checks, desktop/mobile browser and functional filters. */
+/* Rev.15 facility master QA: data-safe links, responsive UI and functional filters. */
 import assert from "node:assert/strict";
 import {readFileSync,existsSync,mkdtempSync,rmSync} from "node:fs";
 import {spawn,spawnSync} from "node:child_process";
@@ -10,6 +10,7 @@ import {fileURLToPath} from "node:url";
 import vm from "node:vm";
 const dir=dirname(fileURLToPath(import.meta.url)),root=resolve(dir,"../../..");
 const html=readFileSync(join(dir,"index.html"),"utf8");
+const uiCSS=readFileSync(join(dir,"official-websites.css"),"utf8");
 const script=html.match(/<script>([\s\S]*?)<\/script>/)?.[1];
 assert.ok(script,"inline controller is present");
 new vm.Script(script,{filename:"facility-master/index.html"});
@@ -49,6 +50,11 @@ for(const name of ["identity-risk-audit-20260601.json","identity-conflict-review
 
 assert.ok(html.includes("公式照合前の暫定マスター"));
 for(const id of ["im-confirmed","im-review","im-unmatched","im-rate","im-q","im-status","im-pref","im-rows","im-count","im-clear"])assert.ok(ids.includes(id),"Missing Navi UI "+id);
+assert.ok(html.includes("施設ID照合"));
+assert.ok(html.includes("公式Web確認・レビュー"));
+assert.ok(html.includes("aria-label=\"ページ内移動\""));
+assert.ok(html.includes("<details class=\"resource-group\""),"Evidence links should be grouped to reduce repetition");
+assert.ok(uiCSS.includes("td:nth-child(2)::before"),"Mobile table labels are missing");
 console.log("STAGE1 STATIC QA PASS");
 if(process.argv.includes("--browser")){
  const server=createServer((req,res)=>{try{
@@ -92,6 +98,8 @@ if(process.argv.includes("--browser")){
     assert.equal(state.prefs,48,"47 prefectures + all option");
     assert.ok(state.count.includes("8,019"),"Record count missing");
     assert.ok(state.scroll<=width+3,"Horizontal overflow: "+JSON.stringify(state));
+    const responsive=await evalJS('(()=>{const td=document.querySelector("#records tr td:nth-child(2)");return {cellDisplay:td?getComputedStyle(td).display:"missing",tableMinWidth:getComputedStyle(document.querySelector("#records").closest("table")).minWidth}})()');
+    if(width<600)assert.equal(responsive.cellDisplay,"grid","Mobile hospital rows must use labeled cards");
     const filtered=await evalJS('(()=>{const f=document.querySelector("#q");f.value="北海道大学";f.dispatchEvent(new Event("input",{bubbles:true}));return {count:document.querySelector("#n").textContent,rows:document.querySelectorAll("#records tr").length,text:document.querySelector("#records").textContent.slice(0,150)}})()');
     assert.ok(filtered.rows>=1&&filtered.rows<50&&filtered.text.includes("北海道大学"),"Search did not filter "+JSON.stringify(filtered));
     const restored=await evalJS('(()=>{document.querySelector("#clear").click();return document.querySelector("#n").textContent})()');
