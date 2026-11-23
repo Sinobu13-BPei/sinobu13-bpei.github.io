@@ -143,3 +143,8 @@ h1{font-size:clamp(21px,2.1vw,29px);margin:.1em 0 .25em}.lead{line-height:1.55;m
 
 /* Keep this page at the full available width despite shared-site .wrap defaults. */
 main.wrap{width:100%;max-width:1720px}
+
+
+/* Ensure the conference dashboard can use the viewport width even when the shared site stylesheet loads later. */
+body.jm-site main.wrap{box-sizing:border-box;width:100%;max-width:1720px;margin-inline:auto}
+@media(min-width:1121px){body.jm-site main.wrap{padding-inline:clamp(12px,1.6vw,24px)}}
