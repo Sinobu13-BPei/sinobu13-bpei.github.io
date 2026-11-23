@@ -26,10 +26,11 @@
 <nav class="jump" aria-label="ダッシュボード内メニュー"><a href="#areaAnalysis">開催地マップ</a><a href="#timeAnalysis">月別</a><a href="#schoolAnalysis">大学別</a><a href="#modAnalysis">機器・分野</a><a href="#filterAnchor">条件検索</a><a href="#listAnchor">全件一覧</a></nav>
 <section id="filterAnchor" class="control-panel"><h2>検索・絞り込み</h2>
 <div class="filter-grid">
-<div class="field field-wide field-dept-code"><label for="filterDeptCode">診療科コード（レセプト）</label><select id="filterDeptCode"><option value="">すべて</option><option value="07">07｜胃腸科（消化器関連）</option></select><small>「07」は厚労省レセプト電算処理用コード。学会分類「消化器」に対応する催事を表示。<a href="https://www.mhlw.go.jp/content/12404000/setumei_20250530.pdf" target="_blank" rel="noopener noreferrer">厚労省コード表</a></small></div>
+<div class="field field-wide field-dept-code"><label for="filterDeptCode">診療科コード07（胃腸科）</label><select id="filterDeptCode"><option value="">すべて</option><option value="07">07｜胃腸科</option></select><small>コード07は胃腸科です。消化器系の学会を関連候補として抽出します。学会分野との一対一対応ではありません。<a href="https://www.mhlw.go.jp/content/12400000/000498083.pdf" target="_blank" rel="noopener noreferrer">厚労省コード表</a></small></div>
+<div class="field field-wide field-department"><label for="filterDepartment">診療科・臨床領域（参考）</label><select id="filterDepartment"><option value="">すべて</option></select><small>学会の主なテーマから整理した編集上の参考分類です。複数領域に関連する学会があります。</small></div>
 <div class="field field-wide"><label for="q">全文検索</label><input id="q" type="search" placeholder="学会名・機器・会場・開催地など"></div>
 <div class="field"><label for="filterBU">BU（事業領域）</label><select id="filterBU"><option value="">すべて</option></select><small>関連機器タグに基づく編集上の分類。1学会が複数BUに該当する場合があります。</small></div>
-<div class="field"><label for="filterCategory">専門分野</label><select id="filterCategory"><option value="">すべて</option></select></div>
+<div class="field"><label for="filterCategory">学会分野・テーマ</label><select id="filterCategory"><option value="">すべて</option></select></div>
 <div class="field"><label for="filterModality">関連機器・システム</label><select id="filterModality"><option value="">すべて</option></select></div>
 <div class="field"><label for="filterRegion">地域ブロック</label><select id="filterRegion"><option value="">すべて</option></select></div>
 <div class="field"><label for="filterPrefecture">都道府県</label><select id="filterPrefecture"><option value="">すべて</option></select></div>
@@ -1272,6 +1273,7 @@ var tbody=document.querySelector(".tablewrap tbody"),table=tbody.closest("table"
 function regionOf(pref){var groups={"北海道":["北海道"],"東北":["青森","岩手","宮城","秋田","山形","福島"],"関東":["茨城","栃木","群馬","埼玉","千葉","東京","神奈川"],"甲信越・北陸":["新潟","富山","石川","福井","山梨","長野"],"東海":["岐阜","静岡","愛知","三重"],"近畿":["滋賀","京都","大阪","兵庫","奈良","和歌山"],"中国":["鳥取","島根","岡山","広島","山口"],"四国":["徳島","香川","愛媛","高知"],"九州・沖縄":["福岡","佐賀","長崎","熊本","大分","宮崎","鹿児島","沖縄"]};for(var g in groups){if(groups[g].includes(pref))return g;}return pref?"":"開催地未公表・Web開催";}
 function businessUnits(s){var rules=[["超音波（US）",/超音波|エコー|ATI/i],["CT",/\bCT\b/i],["MRI",/\bMRI\b/i],["X線・画像診断（XR）",/一般X線|骨密度|画像診断|医用画像/i],["血管撮影・IVR",/血管撮影|IVR/i],["眼科",/眼科機器|OCT/i],["医療IT・AI",/医療情報|画像管理|VNA|診療情報統合|読影支援|AI|画像連携/i],["臨床検査（CL）",/臨床検査|血液検査|検査データ|\bCL\b/i],["滅菌・感染管理",/滅菌|感染管理|感染対策|機器管理/i]];return rules.filter(function(x){return x[1].test(s);}).map(function(x){return x[0];});}
 function modalityTokens(s){return s.replace(/超音波診断装置（脂肪肝\s*\/\s*ATI等）/g,"超音波診断装置（脂肪肝・ATI等）").split(/\s*\/\s*/).map(function(x){return x.trim();}).filter(Boolean);}
+function clinicalDepartments(cat){return ({"画像診断・放射線":["放射線科"],"眼科":["眼科"],"救急・麻酔":["救急科","麻酔科"],"産婦人科・周産期":["産婦人科","産科","婦人科"],"循環器":["循環器科"],"消化器":["消化器科","胃腸科"],"整形外科":["整形外科"],"脳・神経":["神経科","神経内科","脳神経外科"],"泌尿器":["泌尿器科"],"予防医療・代謝":["内科（予防・代謝）"],"臨床検査":["臨床検査科"]})[cat]||[];}
 function department07(cat){return cat==="消化器";}
 var keyToIndex={source:0,date:1,name:2,category:3,fit:4,mods:5,reason:6,members:7,attendance:8,venue:9,official:10};
 var rows=Array.from(tbody.rows).map(function(tr,index){
@@ -1279,7 +1281,7 @@ var rows=Array.from(tbody.rows).map(function(tr,index){
  var d=txt(1).match(/^(\d{1,2})\s*[\/月]\s*(\d{1,2})?/),fit=txt(4),mods=txt(5),tokens=modalityTokens(mods),city=c[9].querySelector(".sub"),pref=((city?city.textContent.trim():"").match(/^(北海道|青森|岩手|宮城|秋田|山形|福島|茨城|栃木|群馬|埼玉|千葉|東京|神奈川|新潟|富山|石川|福井|山梨|長野|岐阜|静岡|愛知|三重|滋賀|京都|大阪|兵庫|奈良|和歌山|鳥取|島根|岡山|広島|山口|徳島|香川|愛媛|高知|福岡|佐賀|長崎|熊本|大分|宮崎|鹿児島|沖縄)(?:[・県府都]|$)/)||[])[1]||"",official=Array.from(c[10].querySelectorAll("a")).some(function(a){return a.textContent.trim()==="公式";});
  return {tr:tr,source:index,date:d?Number(d[1])*100+(d[2]?Number(d[2]):1):null,month:d?Number(d[1]):null,
  name:c[2].querySelector("strong")?c[2].querySelector("strong").textContent.trim():txt(2),
- category:txt(3),pref:pref,region:regionOf(pref),bus:businessUnits(mods),modTokens:tokens,dept07:department07(txt(3)),forecast:getCount(c[8].querySelector(".forecast-count")?.textContent||""),fit:({S:3,A:2,B:1})[fit]||null,fitLabel:fit,mods:mods,reason:txt(6),
+ category:txt(3),departments:clinicalDepartments(txt(3)),pref:pref,region:regionOf(pref),bus:businessUnits(mods),modTokens:tokens,dept07:department07(txt(3)),forecast:getCount(c[8].querySelector(".forecast-count")?.textContent||""),fit:({S:3,A:2,B:1})[fit]||null,fitLabel:fit,mods:mods,reason:txt(6),
  members:getCount(c[7].querySelector("b")?c[7].querySelector("b").textContent:""),
  attendance:getCount(c[8].querySelector("b")?c[8].querySelector("b").textContent:""),
  venue:txt(9),city:city?city.textContent.trim():"",official:official?1:0,clinic:tr.dataset.clinic==="yes",full:txt(1)+" "+txt(2)+" "+txt(3)+" "+txt(4)+" "+txt(5)+" "+txt(6)+" "+txt(7)+" "+txt(8)+" "+txt(9)};
@@ -1287,12 +1289,13 @@ var rows=Array.from(tbody.rows).map(function(tr,index){
 var columnLabels=Array.from(table.tHead.rows[0].cells).map(function(th){return th.textContent.replace(/[↕▲▼123]/g,"").trim();});rows.forEach(function(r){Array.from(r.tr.cells).forEach(function(cell,i){cell.setAttribute("data-label",columnLabels[i]||"");});});
 function fill(id,values,label){var el=byId(id);el.replaceChildren(new Option(label,""));Array.from(new Set(values.filter(Boolean))).sort(function(a,b){return a.localeCompare(b,"ja");}).forEach(function(v){el.add(new Option(v,v));});}
 fill("filterCategory",rows.map(function(r){return r.category;}),"すべて");
+fill("filterDepartment",rows.flatMap(function(r){return r.departments;}),"すべて");
 fill("filterBU",rows.flatMap(function(r){return r.bus;}),"すべて");
 fill("filterRegion",rows.map(function(r){return r.region;}),"すべて");
 fill("filterCity",rows.map(function(r){return r.city;}),"すべて");
 fill("filterPrefecture",rows.map(function(r){return r.pref;}),"すべて");
 fill("filterModality",rows.flatMap(function(r){return r.modTokens;}),"すべて");
-var ids=["filterDeptCode","q","filterBU","filterCategory","filterModality","filterFit","filterMonth","filterRegion","filterCity","filterPrefecture","filterClinic","hasMembers","hasAttendance","hasOfficial","hasForecast","minMembers","maxMembers","minAttendance","maxAttendance","minForecast","maxForecast","rankBy","rankDir","secondBy","secondDir"];
+var ids=["filterDeptCode","filterDepartment","q","filterBU","filterCategory","filterModality","filterFit","filterMonth","filterRegion","filterCity","filterPrefecture","filterClinic","hasMembers","hasAttendance","hasOfficial","hasForecast","minMembers","maxMembers","minAttendance","maxAttendance","minForecast","maxForecast","rankBy","rankDir","secondBy","secondDir"];
 var data={};ids.forEach(function(id){data[id]=byId(id);});
 var shown=[];
 function cmp(a,b,key,dir){
@@ -1302,13 +1305,14 @@ function cmp(a,b,key,dir){
  return dir==="desc"?-n:n;
 }
 function draw(){
- var q=data.q.value.trim().toLocaleLowerCase("ja"),cat=data.filterCategory.value,mod=data.filterModality.value,fit=data.filterFit.value,month=data.filterMonth.value,city=data.filterCity.value,bu=data.filterBU.value,region=data.filterRegion.value;
+ var q=data.q.value.trim().toLocaleLowerCase("ja"),cat=data.filterCategory.value,dept=data.filterDepartment.value,mod=data.filterModality.value,fit=data.filterFit.value,month=data.filterMonth.value,city=data.filterCity.value,bu=data.filterBU.value,region=data.filterRegion.value;
  var minM=data.minMembers.value===""?null:Number(data.minMembers.value),maxM=data.maxMembers.value===""?null:Number(data.maxMembers.value);
  var minA=data.minAttendance.value===""?null:Number(data.minAttendance.value),maxA=data.maxAttendance.value===""?null:Number(data.maxAttendance.value);
  var minF=data.minForecast.value===""?null:Number(data.minForecast.value),maxF=data.maxForecast.value===""?null:Number(data.maxForecast.value);
  shown=rows.filter(function(r){
  if(q&&!r.full.toLocaleLowerCase("ja").includes(q))return false;
  if(cat&&r.category!==cat)return false;
+ if(dept&&r.departments.indexOf(dept)<0)return false;
  if(data.filterDeptCode.value==="07"&&!r.dept07)return false;
  if(bu&&r.bus.indexOf(bu)<0)return false;
  if(region&&r.region!==region)return false;
@@ -1335,7 +1339,7 @@ function draw(){
  var fragment=document.createDocumentFragment();
  shown.forEach(function(r,i){r.tr.cells[0].textContent=String(i+1);r.tr.cells[0].className="rank-number";fragment.appendChild(r.tr);});
  tbody.replaceChildren(fragment);byId("matchCount").textContent=shown.length+" / "+rows.length+"件";
- var active=[];if(data.filterDeptCode.value)active.push("診療科コード07 胃腸科");if(data.q.value.trim())active.push("全文検索");if(data.filterBU.value)active.push("BU "+data.filterBU.value);if(data.filterCategory.value)active.push("分野 "+data.filterCategory.value);if(data.filterModality.value)active.push("機器 "+data.filterModality.value);if(data.filterRegion.value)active.push("地域 "+data.filterRegion.value);if(data.filterPrefecture.value)active.push(data.filterPrefecture.value);if(data.filterCity.value)active.push("開催地");if(data.filterMonth.value)active.push(data.filterMonth.options[data.filterMonth.selectedIndex].text);if(data.filterFit.value)active.push("関連度 "+data.filterFit.value);if(data.filterClinic.value)active.push("外来関連");if(data.hasMembers.value)active.push("会員数 "+data.hasMembers.options[data.hasMembers.selectedIndex].text);if(data.hasAttendance.value)active.push("過去参加 "+data.hasAttendance.options[data.hasAttendance.selectedIndex].text);if(data.hasOfficial.value)active.push("公式リンク "+data.hasOfficial.options[data.hasOfficial.selectedIndex].text);if(data.hasForecast.value)active.push("2027見込み "+data.hasForecast.options[data.hasForecast.selectedIndex].text);if(minM!==null||maxM!==null)active.push("会員数範囲");if(minA!==null||maxA!==null)active.push("過去参加範囲");if(minF!==null||maxF!==null)active.push("見込み範囲");byId("filterSummary").textContent=active.length?"条件："+active.join(" / "):"絞り込み条件：なし";
+ var active=[];if(data.filterDeptCode.value)active.push("診療科コード07 胃腸科");if(data.filterDepartment.value)active.push("診療科 "+data.filterDepartment.value);if(data.q.value.trim())active.push("全文検索");if(data.filterBU.value)active.push("BU "+data.filterBU.value);if(data.filterCategory.value)active.push("学会分野 "+data.filterCategory.value);if(data.filterModality.value)active.push("機器 "+data.filterModality.value);if(data.filterRegion.value)active.push("地域 "+data.filterRegion.value);if(data.filterPrefecture.value)active.push(data.filterPrefecture.value);if(data.filterCity.value)active.push("開催地");if(data.filterMonth.value)active.push(data.filterMonth.options[data.filterMonth.selectedIndex].text);if(data.filterFit.value)active.push("関連度 "+data.filterFit.value);if(data.filterClinic.value)active.push("外来関連");if(data.hasMembers.value)active.push("会員数 "+data.hasMembers.options[data.hasMembers.selectedIndex].text);if(data.hasAttendance.value)active.push("過去参加 "+data.hasAttendance.options[data.hasAttendance.selectedIndex].text);if(data.hasOfficial.value)active.push("公式リンク "+data.hasOfficial.options[data.hasOfficial.selectedIndex].text);if(data.hasForecast.value)active.push("2027見込み "+data.hasForecast.options[data.hasForecast.selectedIndex].text);if(minM!==null||maxM!==null)active.push("会員数範囲");if(minA!==null||maxA!==null)active.push("過去参加範囲");if(minF!==null||maxF!==null)active.push("見込み範囲");byId("filterSummary").textContent=active.length?"条件："+active.join(" / "):"絞り込み条件：なし";
  byId("rankingLabel").textContent="表示順位："+data.rankBy.options[data.rankBy.selectedIndex].text+"（"+(data.rankDir.value==="asc"?"昇順":"降順")+"）"+(second&&second!==primary?" → "+data.secondBy.options[data.secondBy.selectedIndex].text+"（"+(data.secondDir.value==="asc"?"昇順":"降順")+"）":"");
  byId("empty").style.display=shown.length?"none":"block";
  if(typeof window.renderDashboard==="function")window.renderDashboard(rows,shown);
