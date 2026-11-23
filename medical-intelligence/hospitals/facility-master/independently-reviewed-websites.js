@@ -90,10 +90,10 @@ function applyLegacy(records){
    if(!row)continue;
    const a=tr.cells?.[2]?.querySelector("a.hi-hospital-name");
    if(!a||a.textContent!==row.facility_name_legacy)continue;
-   if(a.dataset.independentReviewed==="2026-11-22"){count++;continue;}
-   if(a.dataset.naviWeb)throw Error("Manual and Navi website overlays overlap");
+   if(a.dataset.independentReviewed===row.reviewed_on){count++;continue;}
+   if(a.dataset.naviWeb){a.removeAttribute("href");delete a.dataset.naviWeb;}
    a.href=row.url;a.target="_blank";a.rel="noopener noreferrer";
-   a.dataset.independentReviewed="2026-11-22";
+   a.dataset.independentReviewed=row.reviewed_on;
    a.dataset.reviewOutcome=row.review_outcome;
    a.classList.add("rev12-hospital-official-link");
    a.title=description(row);
@@ -129,13 +129,14 @@ function applyMaster(records){
     if(!record)continue;
     const td=tr.cells?.[1];
     if(!td)continue;
-    if(tr.dataset.independentReviewed==="2026-11-22"){linked++;continue;}
-    if(td.querySelector("a"))throw Error("Manual URL overlaps existing hospital site link");
-    const oldName=td.textContent;
+    if(tr.dataset.independentReviewed===record.reviewed_on){linked++;continue;}
+    const existing=td.querySelector("a");
+    if(existing&&existing.dataset.officialSite!=="navi-20260601")throw Error("Manual URL overlaps an unrecognized hospital link");
+    const oldName=existing?existing.textContent:td.textContent;
     if(oldName!==record.facility_name_legacy)throw Error("Hospital name differs from reviewed website identity");
     const a=document.createElement("a");a.href=record.url;
     a.textContent=oldName;a.className="official-site-name-link";
-    a.dataset.independentReviewed="2026-11-22";
+    a.dataset.independentReviewed=record.reviewed_on;
     a.target="_blank";a.rel="noopener noreferrer";a.title=description(record);
     td.replaceChildren(a);
     if(record.review_outcome==="verified_renamed"){
@@ -143,7 +144,7 @@ function applyMaster(records){
      mark.className="site-rename-note";mark.textContent="現："+record.current_hospital_name+"（2026年4月1日改称）";
      td.append(document.createTextNode(" "),mark);
     }
-    tr.dataset.independentReviewed="2026-11-22";linked++;
+    tr.dataset.independentReviewed=record.reviewed_on;linked++;
    }
   }
   if(window.__independentWebsiteReview?.ready)
@@ -169,7 +170,7 @@ Promise.all([DATA,DATA14].map(url=>fetch(url,{cache:"no-store"}))).then(response
  else if(document.getElementById("records"))applyMaster(rows);
  else throw Error("Unsupported hospital page");
  const summary=document.getElementById("manual-site-summary");
- if(summary)summary.textContent="公式Web個別確認：17施設（うち改称1件）。既存の医療情報ネット掲載3,098件と合わせて3,115件に直接リンク。施設IDの照合判定は変更しません。";
+ if(summary)summary.textContent="公式Webを個別確認済み：17施設（改称1施設）。施設IDの照合判定は変更していません。";
 }).catch(err=>{
  window.__independentWebsiteReview={ready:false,error:String(err)};
  const summary=document.getElementById("manual-site-summary");
