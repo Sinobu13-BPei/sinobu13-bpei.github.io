@@ -109,6 +109,11 @@ footer{max-width:1220px;padding:0 20px 28px;margin:auto;color:var(--muted);font-
  table td:nth-child(5)::before{content:"旧DPC"}
  table td:nth-child(6)::before{content:"施設ID"}
  table td:nth-child(7)::before{content:"位置"}
+ #im-prefs td:nth-child(1)::before{content:"県"}
+ #im-prefs td:nth-child(2)::before{content:"既存"}
+ #im-prefs td:nth-child(3)::before{content:"一致"}
+ #im-prefs td:nth-child(4)::before{content:"要確認"}
+ #im-prefs td:nth-child(5)::before{content:"未一致"}
  #identity-navi .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
  #identity-navi .match-controls>*{flex:1 1 100%;min-width:0}
  #identity-navi .match-controls button{width:100%}
