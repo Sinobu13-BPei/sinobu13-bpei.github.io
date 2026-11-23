@@ -170,7 +170,7 @@ Promise.all([DATA,DATA14].map(url=>fetch(url,{cache:"no-store"}))).then(response
  else if(document.getElementById("records"))applyMaster(rows);
  else throw Error("Unsupported hospital page");
  const summary=document.getElementById("manual-site-summary");
- if(summary)summary.textContent="公式Web個別確認：17施設（うち改称1件）。既存の医療情報ネット掲載3,098件と合わせて3,115件に直接リンク。施設IDの照合判定は変更しません。";
+ if(summary)summary.textContent="公式Webを個別確認済み：17施設（改称1施設）。施設IDの照合判定は変更していません。";
 }).catch(err=>{
  window.__independentWebsiteReview={ready:false,error:String(err)};
  const summary=document.getElementById("manual-site-summary");
