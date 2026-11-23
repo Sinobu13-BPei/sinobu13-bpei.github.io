@@ -1,0 +1,400 @@
+{
+  "data_as_of": "2026-11-01",
+  "legacy_rows": 8019,
+  "columns": [
+    "facility_uid",
+    "legacy_prefecture",
+    "legacy_name",
+    "legacy_address",
+    "insurance_code_match_status",
+    "insurance_medical_institution_code_10digit",
+    "candidate_code_10digit",
+    "official_name_candidate",
+    "official_address_candidate",
+    "official_listing_status",
+    "match_method",
+    "review_reason",
+    "candidate_count",
+    "source_as_of",
+    "source_page_url",
+    "source_download_url"
+  ],
+  "files": [
+    {
+      "prefecture": "北海道",
+      "code": "01",
+      "rows": 517,
+      "filename": "insurance-code-crosswalk-pref-01.csv.gz",
+      "sha256": "c46fb74a0ad8cc212865d8a63c7b42fc0d3cb6703ad8976330953238d6d8af52",
+      "bytes": 35224
+    },
+    {
+      "prefecture": "青森県",
+      "code": "02",
+      "rows": 87,
+      "filename": "insurance-code-crosswalk-pref-02.csv.gz",
+      "sha256": "122f439b0f4c24bcb0643ce079a44a0eb9165b750a210316436e59c9e021c792",
+      "bytes": 6432
+    },
+    {
+      "prefecture": "岩手県",
+      "code": "03",
+      "rows": 89,
+      "filename": "insurance-code-crosswalk-pref-03.csv.gz",
+      "sha256": "4fe369b5d30e07007555c39b1ed97adbcbc8f81b8d451943dba7f16ece149863",
+      "bytes": 6561
+    },
+    {
+      "prefecture": "宮城県",
+      "code": "04",
+      "rows": 134,
+      "filename": "insurance-code-crosswalk-pref-04.csv.gz",
+      "sha256": "ca63217da3173319b18630a0cd4bf44a4c934b2b7c9403f88c7b95d6f7aad7ff",
+      "bytes": 9981
+    },
+    {
+      "prefecture": "秋田県",
+      "code": "05",
+      "rows": 64,
+      "filename": "insurance-code-crosswalk-pref-05.csv.gz",
+      "sha256": "58f783c0c1a7db303ce15df968813c6f9e9acf68bfbf65623ff1a612154af6a6",
+      "bytes": 5220
+    },
+    {
+      "prefecture": "山形県",
+      "code": "06",
+      "rows": 66,
+      "filename": "insurance-code-crosswalk-pref-06.csv.gz",
+      "sha256": "99998d37daf279a0e141cae7803e7a9661d02cfa07e8722487129debf24e83e7",
+      "bytes": 5179
+    },
+    {
+      "prefecture": "福島県",
+      "code": "07",
+      "rows": 122,
+      "filename": "insurance-code-crosswalk-pref-07.csv.gz",
+      "sha256": "6b8a7f394bf64d90887dc95990432ea35d04948a2b6ddce93746081772d6d143",
+      "bytes": 8967
+    },
+    {
+      "prefecture": "茨城県",
+      "code": "08",
+      "rows": 168,
+      "filename": "insurance-code-crosswalk-pref-08.csv.gz",
+      "sha256": "0611317d24126c4fe7268a71be8ebd53baa8c0f3a8d0223a802f0c6a06959f5e",
+      "bytes": 11784
+    },
+    {
+      "prefecture": "栃木県",
+      "code": "09",
+      "rows": 106,
+      "filename": "insurance-code-crosswalk-pref-09.csv.gz",
+      "sha256": "961424890239ddb3447c0d7bdc0003f4a7de8403bd74f6886020dc37d1b76639",
+      "bytes": 7428
+    },
+    {
+      "prefecture": "群馬県",
+      "code": "10",
+      "rows": 126,
+      "filename": "insurance-code-crosswalk-pref-10.csv.gz",
+      "sha256": "911d8025e19a4edfcbc47cfc3f751f8c9fd33f130095586a5bfbf79c0f28ed86",
+      "bytes": 8776
+    },
+    {
+      "prefecture": "埼玉県",
+      "code": "11",
+      "rows": 339,
+      "filename": "insurance-code-crosswalk-pref-11.csv.gz",
+      "sha256": "fd756c50396d7dc5effb0dcafc853919fa888ce06763cc71566e2d0a75bd0929",
+      "bytes": 22882
+    },
+    {
+      "prefecture": "千葉県",
+      "code": "12",
+      "rows": 288,
+      "filename": "insurance-code-crosswalk-pref-12.csv.gz",
+      "sha256": "eec89e5e6993f4ed7ce03127f9765cc6e946c23a21a60c60d1295b68ec16b2a6",
+      "bytes": 19773
+    },
+    {
+      "prefecture": "東京都",
+      "code": "13",
+      "rows": 627,
+      "filename": "insurance-code-crosswalk-pref-13.csv.gz",
+      "sha256": "ffdce6ed9f509adf093e3a2fe4b9cb93df40f6b3f3ffb099f0ac8255279765c1",
+      "bytes": 41939
+    },
+    {
+      "prefecture": "神奈川県",
+      "code": "14",
+      "rows": 330,
+      "filename": "insurance-code-crosswalk-pref-14.csv.gz",
+      "sha256": "3d59af06f591361b66a761dd73f9aa4a3d74158c27ea67071c5714a614916a41",
+      "bytes": 21932
+    },
+    {
+      "prefecture": "新潟県",
+      "code": "15",
+      "rows": 116,
+      "filename": "insurance-code-crosswalk-pref-15.csv.gz",
+      "sha256": "401c280796f600fe70bfc7418f25e882c3c4a20a67e55b782dd00cd7bafb10e1",
+      "bytes": 8272
+    },
+    {
+      "prefecture": "富山県",
+      "code": "16",
+      "rows": 102,
+      "filename": "insurance-code-crosswalk-pref-16.csv.gz",
+      "sha256": "75e5eca866d29967b3332d7275e0fd2f9c3fd5fb2509bfc0f55bad46a0b2170f",
+      "bytes": 6941
+    },
+    {
+      "prefecture": "石川県",
+      "code": "17",
+      "rows": 89,
+      "filename": "insurance-code-crosswalk-pref-17.csv.gz",
+      "sha256": "620a38e6ad1b77bed2113a65967c926a2addf2224a415f1b6c0247f5e69b6c1c",
+      "bytes": 6369
+    },
+    {
+      "prefecture": "福井県",
+      "code": "18",
+      "rows": 67,
+      "filename": "insurance-code-crosswalk-pref-18.csv.gz",
+      "sha256": "9d70541b71bc99bb29e91235799f8b749abf809732b31c87aae6d41f6d1a54ed",
+      "bytes": 4894
+    },
+    {
+      "prefecture": "山梨県",
+      "code": "19",
+      "rows": 60,
+      "filename": "insurance-code-crosswalk-pref-19.csv.gz",
+      "sha256": "b1a1ef1a0d59167c5019f32bf30c50d2d662bdc66e9184da142b5ced97021352",
+      "bytes": 4790
+    },
+    {
+      "prefecture": "長野県",
+      "code": "20",
+      "rows": 120,
+      "filename": "insurance-code-crosswalk-pref-20.csv.gz",
+      "sha256": "570dcf11dd29bdff0078a04ad0e6fe4300586514a5807a4fcd3dfb1b94067a73",
+      "bytes": 8305
+    },
+    {
+      "prefecture": "岐阜県",
+      "code": "21",
+      "rows": 94,
+      "filename": "insurance-code-crosswalk-pref-21.csv.gz",
+      "sha256": "9f91c21733b4e5da42425ebe0f64191c72fd5bc4bfb1851f2ff3d2b7f1cab893",
+      "bytes": 6761
+    },
+    {
+      "prefecture": "静岡県",
+      "code": "22",
+      "rows": 168,
+      "filename": "insurance-code-crosswalk-pref-22.csv.gz",
+      "sha256": "fab8ab79a9e0372265a7219ae2dc0f55737e461be948d9abf8f778842405869b",
+      "bytes": 11747
+    },
+    {
+      "prefecture": "愛知県",
+      "code": "23",
+      "rows": 305,
+      "filename": "insurance-code-crosswalk-pref-23.csv.gz",
+      "sha256": "758f72351674bc7a3211d096dc8dfc84c11af55a8a973c80f566e892df831bee",
+      "bytes": 20207
+    },
+    {
+      "prefecture": "三重県",
+      "code": "24",
+      "rows": 92,
+      "filename": "insurance-code-crosswalk-pref-24.csv.gz",
+      "sha256": "6e35e119d3098cf15d06c48a7b42db5f6c60e75ce8e904e7b49249e7c50f4636",
+      "bytes": 6144
+    },
+    {
+      "prefecture": "滋賀県",
+      "code": "25",
+      "rows": 57,
+      "filename": "insurance-code-crosswalk-pref-25.csv.gz",
+      "sha256": "78fbb8f3bce9fad8e776d44074ff67c8a7d46afed15208ab63ccc4377f961ec0",
+      "bytes": 4555
+    },
+    {
+      "prefecture": "京都府",
+      "code": "26",
+      "rows": 160,
+      "filename": "insurance-code-crosswalk-pref-26.csv.gz",
+      "sha256": "7572e23bff37020976cd3c06c59fa2f1002db05c0e07acf9f8b22e515338ec6b",
+      "bytes": 11938
+    },
+    {
+      "prefecture": "大阪府",
+      "code": "27",
+      "rows": 499,
+      "filename": "insurance-code-crosswalk-pref-27.csv.gz",
+      "sha256": "37381a71116490a2ca15a49ea86bf4ee8b1b9ff921f70bac868fa2d66ec319aa",
+      "bytes": 33385
+    },
+    {
+      "prefecture": "兵庫県",
+      "code": "28",
+      "rows": 340,
+      "filename": "insurance-code-crosswalk-pref-28.csv.gz",
+      "sha256": "dcb19931f6403078abc41930e9d2d14508c7b2212f3ef71abc3c241620985d76",
+      "bytes": 23574
+    },
+    {
+      "prefecture": "奈良県",
+      "code": "29",
+      "rows": 74,
+      "filename": "insurance-code-crosswalk-pref-29.csv.gz",
+      "sha256": "886c9ca95a1f854dc1e3b5869e46242697901e84241fe347f8f2f82f61747dd4",
+      "bytes": 5592
+    },
+    {
+      "prefecture": "和歌山県",
+      "code": "30",
+      "rows": 81,
+      "filename": "insurance-code-crosswalk-pref-30.csv.gz",
+      "sha256": "0c833f3268f3dc4087da08e2204756fc6204f118f7614300cf9d8e918bcb6f41",
+      "bytes": 5716
+    },
+    {
+      "prefecture": "鳥取県",
+      "code": "31",
+      "rows": 43,
+      "filename": "insurance-code-crosswalk-pref-31.csv.gz",
+      "sha256": "d62881dfe947930388abcad8df247e401a962ea6ca0525f58b1df36dae7b1845",
+      "bytes": 3618
+    },
+    {
+      "prefecture": "島根県",
+      "code": "32",
+      "rows": 46,
+      "filename": "insurance-code-crosswalk-pref-32.csv.gz",
+      "sha256": "6ff895a7e72f38d915848481e29874b6ca1c5042e568a137f5fd8cb6bc2ec78d",
+      "bytes": 3869
+    },
+    {
+      "prefecture": "岡山県",
+      "code": "33",
+      "rows": 157,
+      "filename": "insurance-code-crosswalk-pref-33.csv.gz",
+      "sha256": "d354fe7ea1cac268d8f4d36e0afb2b380e4ee602b8a4d29440d20d47bffef978",
+      "bytes": 10774
+    },
+    {
+      "prefecture": "広島県",
+      "code": "34",
+      "rows": 228,
+      "filename": "insurance-code-crosswalk-pref-34.csv.gz",
+      "sha256": "3504c2be2016f5a62e0e6cd5a3475f7b776f9407981b44a857a53bb67ce47122",
+      "bytes": 15402
+    },
+    {
+      "prefecture": "山口県",
+      "code": "35",
+      "rows": 138,
+      "filename": "insurance-code-crosswalk-pref-35.csv.gz",
+      "sha256": "82f30239c9254ee967bb4f7dabc23131ddbf51b9a38dd3f5651c9bba5b6fcc50",
+      "bytes": 9352
+    },
+    {
+      "prefecture": "徳島県",
+      "code": "36",
+      "rows": 103,
+      "filename": "insurance-code-crosswalk-pref-36.csv.gz",
+      "sha256": "ee50ad2cab160c9abb0fd19fbb080f6532eac471d7f372d15d43b1a35571dd15",
+      "bytes": 7091
+    },
+    {
+      "prefecture": "香川県",
+      "code": "37",
+      "rows": 86,
+      "filename": "insurance-code-crosswalk-pref-37.csv.gz",
+      "sha256": "b0752475ee79da3e984058d9741ac165465b59a1c848ebae9e5bc73e7a5656e8",
+      "bytes": 6470
+    },
+    {
+      "prefecture": "愛媛県",
+      "code": "38",
+      "rows": 132,
+      "filename": "insurance-code-crosswalk-pref-38.csv.gz",
+      "sha256": "1ee4c4c872d36f7a60a6752e95c9b502a7c67058d5b20ce9a72ab0db56d7004b",
+      "bytes": 9131
+    },
+    {
+      "prefecture": "高知県",
+      "code": "39",
+      "rows": 118,
+      "filename": "insurance-code-crosswalk-pref-39.csv.gz",
+      "sha256": "4704736e86dab30118e6ec8ba2fb44e2525352ceed3111310e1294e941bb8e4f",
+      "bytes": 8023
+    },
+    {
+      "prefecture": "福岡県",
+      "code": "40",
+      "rows": 446,
+      "filename": "insurance-code-crosswalk-pref-40.csv.gz",
+      "sha256": "689ef6d7ce4fc7589fa6c6c94723a589440f495baa4587e53817757ec3f2dff5",
+      "bytes": 29451
+    },
+    {
+      "prefecture": "佐賀県",
+      "code": "41",
+      "rows": 95,
+      "filename": "insurance-code-crosswalk-pref-41.csv.gz",
+      "sha256": "bae1576c345d1680f339327f2f777820a785c9cbb642292bf091053714113020",
+      "bytes": 6746
+    },
+    {
+      "prefecture": "長崎県",
+      "code": "42",
+      "rows": 143,
+      "filename": "insurance-code-crosswalk-pref-42.csv.gz",
+      "sha256": "d3dbe1d4e086e3e6cd23d467d23a011054a6030a71082aa6363d5cf52480f8ec",
+      "bytes": 10043
+    },
+    {
+      "prefecture": "熊本県",
+      "code": "43",
+      "rows": 199,
+      "filename": "insurance-code-crosswalk-pref-43.csv.gz",
+      "sha256": "657090c6c86f50228d64200c9955226d6c38835aa6e79e9389238038892f37b8",
+      "bytes": 12678
+    },
+    {
+      "prefecture": "大分県",
+      "code": "44",
+      "rows": 149,
+      "filename": "insurance-code-crosswalk-pref-44.csv.gz",
+      "sha256": "0af2f5a3ac6d92bc9a21adcacef06eb5b5fd09bf9b4049d262616c228a6eaf13",
+      "bytes": 10001
+    },
+    {
+      "prefecture": "宮崎県",
+      "code": "45",
+      "rows": 129,
+      "filename": "insurance-code-crosswalk-pref-45.csv.gz",
+      "sha256": "a72f4649aabd4a10aa7f30a2411675ddbb7e4dfcbb275a24eee18c3e8d31cb99",
+      "bytes": 8617
+    },
+    {
+      "prefecture": "鹿児島県",
+      "code": "46",
+      "rows": 230,
+      "filename": "insurance-code-crosswalk-pref-46.csv.gz",
+      "sha256": "3a4b525faf3d8560df220d4f0915267d3f689af3b78f79877f85236a4c35882b",
+      "bytes": 15185
+    },
+    {
+      "prefecture": "沖縄県",
+      "code": "47",
+      "rows": 90,
+      "filename": "insurance-code-crosswalk-pref-47.csv.gz",
+      "sha256": "9ec1ee06bdeb42fd29e80f302003a62a43886ef1f7f3d89456c088d96144138c",
+      "bytes": 6238
+    }
+  ]
+}
