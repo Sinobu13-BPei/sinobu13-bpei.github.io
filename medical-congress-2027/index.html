@@ -1291,7 +1291,7 @@ fill("filterBU",rows.flatMap(function(r){return r.bus;}),"すべて");
 fill("filterRegion",rows.map(function(r){return r.region;}),"すべて");
 fill("filterCity",rows.map(function(r){return r.city;}),"すべて");
 fill("filterPrefecture",rows.map(function(r){return r.pref;}),"すべて");
-fill("filterModality",rows.flatMap(function(r){return r.mods.split(/\s*\/\s*/).map(function(s){return s.trim();});}),"すべて");
+fill("filterModality",rows.flatMap(function(r){return r.modTokens;}),"すべて");
 var ids=["filterDeptCode","q","filterBU","filterCategory","filterModality","filterFit","filterMonth","filterRegion","filterCity","filterPrefecture","filterClinic","hasMembers","hasAttendance","hasOfficial","hasForecast","minMembers","maxMembers","minAttendance","maxAttendance","minForecast","maxForecast","rankBy","rankDir","secondBy","secondDir"];
 var data={};ids.forEach(function(id){data[id]=byId(id);});
 var shown=[];
@@ -1312,7 +1312,7 @@ function draw(){
  if(data.filterDeptCode.value==="07"&&!r.dept07)return false;
  if(bu&&r.bus.indexOf(bu)<0)return false;
  if(region&&r.region!==region)return false;
- if(mod&&r.mods.split(/\s*\/\s*/).map(function(x){return x.trim();}).indexOf(mod)<0)return false;
+ if(mod&&r.modTokens.indexOf(mod)<0)return false;
  if(fit&&r.fitLabel!==fit)return false;
  if(month&&r.month!==Number(month))return false;
  if(city&&r.city!==city)return false;
