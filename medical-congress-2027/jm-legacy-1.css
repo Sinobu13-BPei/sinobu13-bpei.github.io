@@ -140,3 +140,6 @@ h1{font-size:clamp(21px,2.1vw,29px);margin:.1em 0 .25em}.lead{line-height:1.55;m
 }
 @media(max-width:390px){.filter-grid{grid-template-columns:1fr}.field-dept-code{grid-column:span 1}#listAnchor tbody tr{grid-template-columns:1fr}#listAnchor tbody td:nth-child(1),#listAnchor tbody td:nth-child(2){grid-column:1}#listAnchor tbody td:nth-child(3),#listAnchor tbody td:nth-child(6),#listAnchor tbody td:nth-child(7),#listAnchor tbody td:nth-child(10),#listAnchor tbody td:nth-child(11){grid-column:1}
 }
+
+/* Keep this page at the full available width despite shared-site .wrap defaults. */
+main.wrap{width:100%;max-width:1720px}
