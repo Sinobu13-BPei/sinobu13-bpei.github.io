@@ -1309,6 +1309,9 @@ function draw(){
  shown=rows.filter(function(r){
  if(q&&!r.full.toLocaleLowerCase("ja").includes(q))return false;
  if(cat&&r.category!==cat)return false;
+ if(data.filterDeptCode.value==="07"&&!r.dept07)return false;
+ if(bu&&r.bus.indexOf(bu)<0)return false;
+ if(region&&r.region!==region)return false;
  if(mod&&r.mods.split(/\s*\/\s*/).map(function(x){return x.trim();}).indexOf(mod)<0)return false;
  if(fit&&r.fitLabel!==fit)return false;
  if(month&&r.month!==Number(month))return false;
@@ -1324,6 +1327,7 @@ function draw(){
  if(data.hasMembers.value==="yes"&&r.members===null||data.hasMembers.value==="no"&&r.members!==null)return false;
  if(data.hasAttendance.value==="yes"&&r.attendance===null||data.hasAttendance.value==="no"&&r.attendance!==null)return false;
  if(data.hasOfficial.value==="yes"&&!r.official||data.hasOfficial.value==="no"&&r.official)return false;
+ if(data.hasForecast.value==="yes"&&r.forecast===null||data.hasForecast.value==="no"&&r.forecast!==null)return false;
  return true;
  });
  var primary=data.rankBy.value,second=data.secondBy.value;
@@ -1337,7 +1341,7 @@ function draw(){
  if(typeof window.renderDashboard==="function")window.renderDashboard(rows,shown);
  table.querySelectorAll("button[data-sort]").forEach(function(b){var k=b.dataset.sort,p=k===primary,s=k===second;b.querySelector(".sortmark")&&(b.querySelector(".sortmark").textContent=p?(data.rankDir.value==="asc"?"▲1":"▼1"):s?(data.secondDir.value==="asc"?"▲2":"▼2"):"↕");});
 }
-ids.forEach(function(id){data[id].addEventListener(["q","minMembers","maxMembers","minAttendance","maxAttendance"].includes(id)?"input":"change",draw);});
+ids.forEach(function(id){data[id].addEventListener(["q","minMembers","maxMembers","minAttendance","maxAttendance","minForecast","maxForecast"].includes(id)?"input":"change",draw);});
 table.querySelectorAll("button[data-sort]").forEach(function(b){b.addEventListener("click",function(e){
  var second=e.shiftKey,key=b.dataset.sort,el=second?data.secondBy:data.rankBy,dir=second?data.secondDir:data.rankDir;
  if(el.value===key)dir.value=dir.value==="asc"?"desc":"asc";
@@ -1350,7 +1354,7 @@ function csv(v){var x=String(v==null?"":v);if(/^[=+@]/.test(x))x="'"+x;return '"
 byId("export").addEventListener("click",function(){
  var head=["表示順位","会期","学会名","専門分野","診療所・外来関連","関連度（参考）","関連機器・システム","適合理由","学会会員数（掲載値）","過去大会参加者数（参考）","2027参加見込み（主催者公表）","会場","公式URL","GoogleマップURL"];
  var body=shown.map(function(r,i){var links=Array.from(r.tr.cells[10].querySelectorAll("a"));function link(name){var x=links.find(function(a){return a.textContent.trim()===name;});return x?x.href:"";}
- return [i+1,r.tr.cells[1].textContent.trim(),r.name,r.category,r.clinic?"関連":"",r.fitLabel,r.mods,r.reason,r.tr.cells[7].querySelector("b")?.textContent||"",r.tr.cells[8].querySelector("b")?.textContent||"",r.venue,link("公式"),link("Google Map")];});
+ return [i+1,r.tr.cells[1].textContent.trim(),r.name,r.category,r.clinic?"関連":"",r.fitLabel,r.mods,r.reason,r.tr.cells[7].querySelector("b")?.textContent||"",r.tr.cells[8].querySelector("b")?.textContent||"",r.forecast===null?"":r.forecast,r.venue,link("公式"),link("Google Map")];});
  var text="\ufeff"+[head].concat(body).map(function(r){return r.map(csv).join(",");}).join("\r\n");
  var url=URL.createObjectURL(new Blob([text],{type:"text/csv;charset=utf-8"})),a=document.createElement("a");
  a.href=url;a.download="2027_国内学会_絞り込み結果.csv";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);
