@@ -1,0 +1,383 @@
+{
+  "updated": "2026-11-27",
+  "basis": "prefectural capitals approximate coordinates for navigation; cartogram is not geographic borders",
+  "warning": "Values are reference only; don't use GSI prefectural capital links as physical company addresses",
+  "points": [
+    {
+      "pref": "北海道",
+      "col": 15,
+      "row": 0,
+      "lat": 43.07,
+      "lng": 141.35,
+      "reference_2023": 49
+    },
+    {
+      "pref": "青森県",
+      "col": 14,
+      "row": 1,
+      "lat": 40.82,
+      "lng": 140.74,
+      "reference_2023": 22
+    },
+    {
+      "pref": "岩手県",
+      "col": 14,
+      "row": 2,
+      "lat": 39.7,
+      "lng": 141.15,
+      "reference_2023": 6
+    },
+    {
+      "pref": "秋田県",
+      "col": 13,
+      "row": 2,
+      "lat": 39.72,
+      "lng": 140.1,
+      "reference_2023": 14
+    },
+    {
+      "pref": "宮城県",
+      "col": 14,
+      "row": 3,
+      "lat": 38.27,
+      "lng": 140.87,
+      "reference_2023": 35
+    },
+    {
+      "pref": "山形県",
+      "col": 13,
+      "row": 3,
+      "lat": 38.24,
+      "lng": 140.36,
+      "reference_2023": 12
+    },
+    {
+      "pref": "福島県",
+      "col": 14,
+      "row": 4,
+      "lat": 37.75,
+      "lng": 140.47,
+      "reference_2023": 23
+    },
+    {
+      "pref": "茨城県",
+      "col": 15,
+      "row": 5,
+      "lat": 36.37,
+      "lng": 140.47,
+      "reference_2023": 16
+    },
+    {
+      "pref": "栃木県",
+      "col": 14,
+      "row": 5,
+      "lat": 36.57,
+      "lng": 139.88,
+      "reference_2023": 15
+    },
+    {
+      "pref": "群馬県",
+      "col": 13,
+      "row": 5,
+      "lat": 36.39,
+      "lng": 139.06,
+      "reference_2023": 22
+    },
+    {
+      "pref": "埼玉県",
+      "col": 14,
+      "row": 6,
+      "lat": 35.86,
+      "lng": 139.65,
+      "reference_2023": 20
+    },
+    {
+      "pref": "千葉県",
+      "col": 15,
+      "row": 6,
+      "lat": 35.6,
+      "lng": 140.12,
+      "reference_2023": 11
+    },
+    {
+      "pref": "東京都",
+      "col": 13,
+      "row": 6,
+      "lat": 35.69,
+      "lng": 139.69,
+      "reference_2023": 85
+    },
+    {
+      "pref": "神奈川県",
+      "col": 13,
+      "row": 7,
+      "lat": 35.45,
+      "lng": 139.64,
+      "reference_2023": 28
+    },
+    {
+      "pref": "新潟県",
+      "col": 12,
+      "row": 4,
+      "lat": 37.9,
+      "lng": 139.02,
+      "reference_2023": 24
+    },
+    {
+      "pref": "富山県",
+      "col": 11,
+      "row": 5,
+      "lat": 36.7,
+      "lng": 137.21,
+      "reference_2023": 16
+    },
+    {
+      "pref": "石川県",
+      "col": 10,
+      "row": 5,
+      "lat": 36.56,
+      "lng": 136.66,
+      "reference_2023": 20
+    },
+    {
+      "pref": "福井県",
+      "col": 9,
+      "row": 6,
+      "lat": 36.07,
+      "lng": 136.22,
+      "reference_2023": 8
+    },
+    {
+      "pref": "山梨県",
+      "col": 12,
+      "row": 7,
+      "lat": 35.66,
+      "lng": 138.57,
+      "reference_2023": 9
+    },
+    {
+      "pref": "長野県",
+      "col": 12,
+      "row": 6,
+      "lat": 36.65,
+      "lng": 138.18,
+      "reference_2023": 23
+    },
+    {
+      "pref": "岐阜県",
+      "col": 11,
+      "row": 6,
+      "lat": 35.42,
+      "lng": 136.76,
+      "reference_2023": 14
+    },
+    {
+      "pref": "静岡県",
+      "col": 12,
+      "row": 8,
+      "lat": 34.98,
+      "lng": 138.38,
+      "reference_2023": 16
+    },
+    {
+      "pref": "愛知県",
+      "col": 11,
+      "row": 7,
+      "lat": 35.18,
+      "lng": 136.91,
+      "reference_2023": 47
+    },
+    {
+      "pref": "三重県",
+      "col": 10,
+      "row": 8,
+      "lat": 34.73,
+      "lng": 136.51,
+      "reference_2023": 9
+    },
+    {
+      "pref": "滋賀県",
+      "col": 10,
+      "row": 7,
+      "lat": 35,
+      "lng": 135.87,
+      "reference_2023": 1
+    },
+    {
+      "pref": "京都府",
+      "col": 9,
+      "row": 7,
+      "lat": 35.02,
+      "lng": 135.76,
+      "reference_2023": 34
+    },
+    {
+      "pref": "大阪府",
+      "col": 9,
+      "row": 8,
+      "lat": 34.69,
+      "lng": 135.52,
+      "reference_2023": 79
+    },
+    {
+      "pref": "兵庫県",
+      "col": 8,
+      "row": 7,
+      "lat": 34.69,
+      "lng": 135.18,
+      "reference_2023": 28
+    },
+    {
+      "pref": "奈良県",
+      "col": 9,
+      "row": 9,
+      "lat": 34.69,
+      "lng": 135.83,
+      "reference_2023": 3
+    },
+    {
+      "pref": "和歌山県",
+      "col": 8,
+      "row": 9,
+      "lat": 34.23,
+      "lng": 135.17,
+      "reference_2023": 5
+    },
+    {
+      "pref": "鳥取県",
+      "col": 7,
+      "row": 6,
+      "lat": 35.5,
+      "lng": 134.24,
+      "reference_2023": 7
+    },
+    {
+      "pref": "島根県",
+      "col": 6,
+      "row": 6,
+      "lat": 35.47,
+      "lng": 133.05,
+      "reference_2023": 3
+    },
+    {
+      "pref": "岡山県",
+      "col": 7,
+      "row": 7,
+      "lat": 34.66,
+      "lng": 133.93,
+      "reference_2023": 30
+    },
+    {
+      "pref": "広島県",
+      "col": 6,
+      "row": 7,
+      "lat": 34.4,
+      "lng": 132.46,
+      "reference_2023": 26
+    },
+    {
+      "pref": "山口県",
+      "col": 5,
+      "row": 7,
+      "lat": 34.18,
+      "lng": 131.47,
+      "reference_2023": 11
+    },
+    {
+      "pref": "徳島県",
+      "col": 8,
+      "row": 10,
+      "lat": 34.07,
+      "lng": 134.56,
+      "reference_2023": 10
+    },
+    {
+      "pref": "香川県",
+      "col": 7,
+      "row": 9,
+      "lat": 34.34,
+      "lng": 134.04,
+      "reference_2023": 15
+    },
+    {
+      "pref": "愛媛県",
+      "col": 6,
+      "row": 9,
+      "lat": 33.84,
+      "lng": 132.77,
+      "reference_2023": 16
+    },
+    {
+      "pref": "高知県",
+      "col": 7,
+      "row": 10,
+      "lat": 33.56,
+      "lng": 133.53,
+      "reference_2023": 11
+    },
+    {
+      "pref": "福岡県",
+      "col": 4,
+      "row": 8,
+      "lat": 33.6,
+      "lng": 130.42,
+      "reference_2023": 47
+    },
+    {
+      "pref": "佐賀県",
+      "col": 3,
+      "row": 9,
+      "lat": 33.25,
+      "lng": 130.3,
+      "reference_2023": 6
+    },
+    {
+      "pref": "長崎県",
+      "col": 2,
+      "row": 9,
+      "lat": 32.74,
+      "lng": 129.87,
+      "reference_2023": 16
+    },
+    {
+      "pref": "大分県",
+      "col": 4,
+      "row": 9,
+      "lat": 33.24,
+      "lng": 131.61,
+      "reference_2023": 10
+    },
+    {
+      "pref": "熊本県",
+      "col": 3,
+      "row": 10,
+      "lat": 32.79,
+      "lng": 130.74,
+      "reference_2023": 19
+    },
+    {
+      "pref": "宮崎県",
+      "col": 4,
+      "row": 10,
+      "lat": 31.91,
+      "lng": 131.42,
+      "reference_2023": 10
+    },
+    {
+      "pref": "鹿児島県",
+      "col": 3,
+      "row": 11,
+      "lat": 31.56,
+      "lng": 130.56,
+      "reference_2023": 18
+    },
+    {
+      "pref": "沖縄県",
+      "col": 0,
+      "row": 11,
+      "lat": 26.21,
+      "lng": 127.68,
+      "reference_2023": 12
+    }
+  ]
+}
