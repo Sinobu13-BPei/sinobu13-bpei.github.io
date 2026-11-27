@@ -1,0 +1,183 @@
+{
+  "updated": "2026-11-27",
+  "basis": "2023 JAHID published member roster; current JAHID 2026-11-17 member counts",
+  "verified_website_count": 29,
+  "matched_2023_roster_rows": 72,
+  "warning": "残りの行は公式サイトが未確認。会社名のWeb検索導線を提供し、非公式サイトと混同しない。",
+  "sites": [
+    {
+      "company": "アルフレッサファーマ",
+      "url": "https://www.alfresa-pharma.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "ティーエスアルフレッサ",
+      "url": "https://www.ts-alfresa.net/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "オリンパスマーケティング",
+      "url": "https://www.olympus-marketing.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "キヤノンメドテックサプライ",
+      "url": "https://mts.medical.canon/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "九州風雲堂販売",
+      "url": "https://fuundo.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "メディアスホールディングス",
+      "url": "https://www.medius.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "イノメディックス",
+      "url": "https://www.innomedics.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "シバタインテック",
+      "url": "https://www.shibataintech.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "栗原医療器械店",
+      "url": "https://www.kuribara.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "協和医科器械",
+      "url": "https://www.kyowaika.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "山下医科器械",
+      "url": "https://www.yamashitaika.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "小西医療器",
+      "url": "https://www.kns-md.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "村中医療器",
+      "url": "https://www.muranaka.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "八神製作所",
+      "url": "https://www.yagami.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "日本光電工業",
+      "url": "https://www.nihonkohden.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "フクダ電子",
+      "url": "https://www.fukuda.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "アルフレッサ",
+      "url": "https://www.alfresa.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "メディセオ",
+      "url": "https://www.mediceo.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "カワニシ",
+      "url": "https://www.kawanishi-md.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "琉球光和",
+      "url": "https://rkowa.com/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "南西医療器",
+      "url": "https://www.swm-i.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "スズケン",
+      "url": "https://www.suzuken.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "アステム",
+      "url": "https://www.astemf.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "東邦薬品",
+      "url": "https://www.tohoyk.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "ニプロ",
+      "url": "https://www.nipro.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "アズワン",
+      "url": "https://www.as-1.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "常光",
+      "url": "https://jokoh.com/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "ムトウ",
+      "url": "https://www.wism-mutoh.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    },
+    {
+      "company": "竹山",
+      "url": "https://www.takeyama.co.jp/",
+      "source_type": "企業公式サイト（2026-11-27調査）",
+      "match_rule": "法人名が一致、または同一法人の支店・営業所表記"
+    }
+  ]
+}
